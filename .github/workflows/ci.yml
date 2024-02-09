@@ -16,7 +16,7 @@ jobs:
       shell: bash
 
     - name: Install dependencies
-      run: poetry install
+      run: poetry install --with test,lint
 
     - name: Lint code
       run: make lint
