@@ -14,9 +14,10 @@ license = "MIT"
 python = ">=3.8.1,<4.0"
 langchain-core = ">=0.0.12"
 langchain-community = "^0.0.19"
-docugami = "^0.1.2"
 dgml-utils = "^0.3.2"
 wordtodigits = "^1.0.2"
+python-dateutil = "^2.8.2"
+pandas = "^1.5.3"
 
 [tool.poetry.group.test]
 optional = true
@@ -63,7 +64,7 @@ disallow_untyped_defs = "True"
 
 [[tool.mypy.overrides]]
 module = [
-    "wordtodigits",
+    "wordtodigits", "pandas",
 ]
 ignore_missing_imports = true
 

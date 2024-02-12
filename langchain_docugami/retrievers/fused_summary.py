@@ -3,12 +3,11 @@ from enum import Enum
 from typing import Dict, List
 
 from langchain_core.callbacks.manager import CallbackManagerForRetrieverRun
+from langchain_core.documents import Document
 from langchain_core.pydantic_v1 import Field
 from langchain_core.retrievers import BaseRetriever
-from langchain_core.documents import Document
 from langchain_core.stores import BaseStore
 from langchain_core.vectorstores import VectorStore
-
 
 PARENT_DOC_ID_KEY = "doc_id"
 FULL_DOC_SUMMARY_ID_KEY = "full_doc_id"
@@ -118,8 +117,8 @@ class FusedSummaryRetriever(BaseRetriever):
                     full_doc_summary: str = full_doc_summary_in_store[0].page_content  # type: ignore
                 else:
                     raise Exception(
-                        f"No parent or full doc summary found for retrieved doc {sub_doc},"
-                        "please pre-load parent and full doc summaries."
+                        "No parent or full doc summary found for retrieved"
+                        f"doc {sub_doc}, please pre-load parent and full doc summaries."
                     )
 
                 source = sub_doc.metadata.get(self.source_key)
