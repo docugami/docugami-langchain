@@ -4,14 +4,13 @@
 all: help
 
 # Define a variable for the test file path.
-TEST_FILE ?= tests/unit_tests/
+TEST_FILE ?= tests/ langchain_docugami/
 
 test:
-	poetry run pytest $(TEST_FILE)
+	poetry run pytest --doctest-modules $(TEST_FILE)
 
 tests:
-	poetry run pytest $(TEST_FILE)
-
+	poetry run pytest --doctest-modules $(TEST_FILE)
 
 ######################
 # LINTING AND FORMATTING
