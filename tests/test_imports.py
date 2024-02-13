@@ -1,5 +1,13 @@
 from langchain_docugami import __all__
 
+EXPECTED_CHAINS = [
+    "TracedChainResponse",
+    "BaseDocugamiChain",
+    "AnswerChain",
+    "ChainSingleParameter",
+    "ChainParameters",
+]
+
 EXPECTED_DOCUMENT_LOADERS = [
     "DocugamiLoader",
 ]
@@ -27,7 +35,8 @@ EXPECTED_PROMPTS = [
 EXPECTED_RETRIEVERS = ["SearchType", "FusedSummaryRetriever"]
 
 EXPECTED_ALL = (
-    EXPECTED_DOCUMENT_LOADERS
+    EXPECTED_CHAINS
+    + EXPECTED_DOCUMENT_LOADERS
     + EXPECTED_OUTPUT_PARSERS
     + EXPECTED_PROMPTS
     + EXPECTED_RETRIEVERS

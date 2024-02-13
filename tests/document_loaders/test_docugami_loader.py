@@ -7,7 +7,7 @@ import pytest
 from langchain_docugami.document_loaders.docugami import DocugamiLoader
 
 DOCUGAMI_XML_PATH = (
-    Path(__file__).parent.parent.parent / "test_data" / "docugami-example.xml"
+    Path(__file__).parent.parent / "test_data" / "docugami-example.xml"
 )
 
 
