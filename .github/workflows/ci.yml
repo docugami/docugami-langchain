@@ -7,26 +7,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out the code
-      uses: actions/checkout@v3
+      - name: Check out the code
+        uses: actions/checkout@v3
 
-    - name: Install Poetry
-      run: |
-        curl -sSL https://install.python-poetry.org | python3 -
-      shell: bash
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+        shell: bash
 
-    - name: Install dependencies
-      run: poetry install --with test,lint
+      - name: Install dependencies
+        run: poetry install --with test,lint
 
-    - name: Lint code
-      run: make lint
+      - name: Lint code
+        run: make lint
 
-    - name: Test code
-      run: make test
+      - name: Test code
+        run: make test
+        env:
+          FIREWORKS_API_KEY: ${{ secrets.FIREWORKS_API_KEY }}
 
-    - name: Check PR status
-      run: |
-        if [ -n "$(git diff --name-only ${{ github.base_ref }}..${{ github.head_ref }})" ]; then
-          echo "Changes detected. Please make sure to push all changes to the branch before merging.";
-          exit 1;
-        fi
+      - name: Check PR status
+        run: |
+          if [ -n "$(git diff --name-only ${{ github.base_ref }}..${{ github.head_ref }})" ]; then
+            echo "Changes detected. Please make sure to push all changes to the branch before merging.";
+            exit 1;
+          fi
