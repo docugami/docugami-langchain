@@ -97,8 +97,6 @@ def get_retrieval_tool_for_docset(
     Gets a retrieval tool for an agent.
     """
 
-    if not chunk_vectorstore:
-        return None
 
     retriever = FusedSummaryRetriever(
         vectorstore=chunk_vectorstore,
