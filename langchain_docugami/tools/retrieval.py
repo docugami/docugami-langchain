@@ -86,11 +86,10 @@ def chunks_to_direct_retriever_tool_description(
 
 
 def get_retrieval_tool_for_docset(
-    docset_id: str,
+    chunk_vectorstore: VectorStore,
     retrieval_tool_function_name: str,
     retrieval_tool_description: str,
     full_doc_summary_store: BaseStore[str, Document],
-    chunk_vectorstore: VectorStore,
     parent_doc_store: BaseStore[str, Document],
     retrieval_k: int = RETRIEVER_K,
 ) -> Optional[BaseTool]:
