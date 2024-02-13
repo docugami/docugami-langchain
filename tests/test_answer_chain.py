@@ -2,7 +2,7 @@ import os
 
 import pytest
 from langchain_core.embeddings import Embeddings
-from langchain_core.language_models.chat_models import BaseChatModel
+from langchain_core.language_models import BaseLanguageModel
 
 from langchain_docugami.chains.answer_chain import AnswerChain
 from langchain_docugami.chains.base import TracedChainResponse
@@ -11,7 +11,7 @@ from tests.conftest import verify_chain_response
 
 @pytest.fixture()
 def fireworksai_mixtral_answer_chain(
-    fireworksai_mixtral: BaseChatModel, huggingface_minilm: Embeddings
+    fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
 ) -> AnswerChain:
     """
     FireworksAI endpoint chain to do generic answers using mixtral.
@@ -21,7 +21,7 @@ def fireworksai_mixtral_answer_chain(
 
 @pytest.fixture()
 def openai_gpt35_answer_chain(
-    openai_gpt35: BaseChatModel, openai_ada: Embeddings
+    openai_gpt35: BaseLanguageModel, openai_ada: Embeddings
 ) -> AnswerChain:
     """
     OpenAI chain to do generic anwers using GPT 3.5.

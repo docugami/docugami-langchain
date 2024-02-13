@@ -103,6 +103,10 @@ def connect_to_db(
     )
 
 
+def connect_to_excel(file_path: Union[Path, str], table_name: str) -> SQLDatabase:
+    return connect_to_db(excel_to_sqlite_connection(file_path, table_name))
+
+
 def get_retrieval_tool_for_report(
     local_xlsx_path: Path,
     report_name: str,
@@ -114,8 +118,7 @@ def get_retrieval_tool_for_report(
     if not local_xlsx_path.exists():
         return None
 
-    conn = excel_to_sqlite_connection(local_xlsx_path, report_name)
-    db = connect_to_db(conn)
+    db = connect_to_excel(local_xlsx_path, report_name)
 
     return CustomReportRetrievalTool(
         db=db,

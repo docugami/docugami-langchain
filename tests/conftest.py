@@ -5,14 +5,19 @@ from typing import Optional
 
 import pytest
 import torch
+from langchain_community.cache import InMemoryCache
 from langchain_community.chat_models import ChatFireworks, ChatOpenAI
 from langchain_community.embeddings import HuggingFaceEmbeddings, OpenAIEmbeddings
 from langchain_core.embeddings import Embeddings
-from langchain_core.language_models.chat_models import BaseChatModel
+from langchain_core.globals import set_llm_cache
+from langchain_core.language_models import BaseLanguageModel
 
 CUDA_DEVICE = "cpu"
 if torch.cuda.is_available():
     CUDA_DEVICE = "cuda"
+
+# Turn on caching
+set_llm_cache(InMemoryCache())
 
 TEST_DATA_DIR = Path(__file__).parent / "testdata"
 
@@ -56,17 +61,19 @@ def verify_chain_response(
 
 
 @pytest.fixture()
-def fireworksai_mixtral() -> BaseChatModel:
+def fireworksai_mixtral() -> BaseLanguageModel:
     """
-    Mixtral8x7b model hosted on fireworksai
+    Mixtral8x7b model hosted on fireworksai.
     """
-    return ChatFireworks(name="accounts/fireworks/models/mixtral-8x7b-instruct")
+    return ChatFireworks(
+        name="accounts/fireworks/models/mixtral-8x7b-instruct", cache=True
+    )
 
 
 @pytest.fixture()
 def huggingface_minilm() -> Embeddings:
     """
-    MiniLM-L6-v2 embeddings running locally using huggingface
+    MiniLM-L6-v2 embeddings running locally using huggingface.
     """
     return HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2",
@@ -75,16 +82,16 @@ def huggingface_minilm() -> Embeddings:
 
 
 @pytest.fixture()
-def openai_gpt35() -> BaseChatModel:
+def openai_gpt35() -> BaseLanguageModel:
     """
-    GPT 3.5 model by OpenAI
+    GPT 3.5 model by OpenAI.
     """
-    return ChatOpenAI(model="gpt-3.5-turbo-16k")
+    return ChatOpenAI(model="gpt-3.5-turbo-16k", cache=True)
 
 
 @pytest.fixture()
 def openai_ada() -> Embeddings:
     """
-    Ada embeddings by OpenAI
+    Ada embeddings by OpenAI.
     """
     return OpenAIEmbeddings(model="text-embedding-ada-002", client=None)
