@@ -1,11 +1,12 @@
 from langchain_docugami import __all__
 
 EXPECTED_CHAINS = [
-    "TracedChainResponse",
-    "BaseDocugamiChain",
     "AnswerChain",
-    "ChainSingleParameter",
+    "BaseDocugamiChain",
+    "TracedChainResponse",
     "ChainParameters",
+    "ChainSingleParameter",
+    "SummarizeDocumentChain",
 ]
 
 EXPECTED_DOCUMENT_LOADERS = [

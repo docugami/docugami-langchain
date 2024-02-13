@@ -23,7 +23,11 @@ class AnswerChain(BaseDocugamiChain[str]):
             key_finding_output_parse=False,  # set to False for streaming
         )
 
-    def run(self, question: str, config: Optional[dict] = None) -> str:  # type: ignore[override]
+    def run(  # type: ignore[override]
+        self,
+        question: str,
+        config: Optional[dict] = None,
+    ) -> str:
         if not question:
             raise Exception("Input required: question")
 
@@ -33,7 +37,9 @@ class AnswerChain(BaseDocugamiChain[str]):
         )
 
     def run_stream(  # type: ignore[override]
-        self, question: str, config: Optional[dict] = None
+        self,
+        question: str,
+        config: Optional[dict] = None,
     ) -> AsyncIterator[TracedChainResponse[str]]:
         if not question:
             raise Exception("Input required: question")
@@ -43,7 +49,11 @@ class AnswerChain(BaseDocugamiChain[str]):
             config=config,
         )
 
-    def run_batch(self, inputs: list[str], config: Optional[dict] = None) -> list[str]:  # type: ignore[override]
+    def run_batch(  # type: ignore[override]
+        self,
+        inputs: list[str],
+        config: Optional[dict] = None,
+    ) -> list[str]:
         return super().run_batch(
             inputs=[{"question": i} for i in inputs],
             config=config,

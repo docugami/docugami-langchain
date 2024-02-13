@@ -14,7 +14,7 @@ def fireworksai_mixtral_answer_chain(
     fireworksai_mixtral: BaseChatModel, huggingface_minilm: Embeddings
 ) -> AnswerChain:
     """
-    FireworksAI endpoint chain to do generic anwers using mixtral, for unit testing.
+    FireworksAI endpoint chain to do generic answers using mixtral.
     """
     return AnswerChain(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
 
@@ -24,7 +24,7 @@ def openai_gpt35_answer_chain(
     openai_gpt35: BaseChatModel, openai_ada: Embeddings
 ) -> AnswerChain:
     """
-    OpenAI chain to do generic anwers for unit testing.
+    OpenAI chain to do generic anwers using GPT 3.5.
     """
     return AnswerChain(llm=openai_gpt35, embeddings=openai_ada)
 

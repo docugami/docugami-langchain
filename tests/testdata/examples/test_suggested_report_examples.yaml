@@ -1,0 +1,63 @@
+- summaries: |
+    ****************
+    The MIT License, copyrighted by Authorize.Net in 2015, allows free use, copying, modifying, merging, publishing, distributing, sublicensing, and selling of the licensed software and its documentation. The software must be used under these conditions:
+
+    Inclusion of the original copyright and permission notice in all copies or substantial portions of the software.
+    The software is provided "as is", with no warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement. The authors or copyright holders are not liable for any claims, damages, or other liabilities, whether in contract, tort or otherwise, arising from or related to the software or its use.
+    ****************
+    The document, copyrighted by rob.levin@example.com in 2013, grants permission, free of charge, to use, copy, modify, merge, publish, distribute, sublicense, and sell the software and its documentation. This permission is subject to the following conditions:
+
+    Inclusion of the original copyright notice and permission notice in all copies or substantial portions of the software.
+    The software is provided "as is", with no warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement. The authors or copyright holders are not liable for any claims, damages, or other liabilities, whether in contract, tort, or otherwise, arising from or in connection with the software or its use.
+    ****************
+    The document, copyrighted by Alejandro Villamarin and Joel Adrian Rivera Moncayo in 2015, sets forth the terms for the redistribution and use, with or without modification, of the software in both source and binary forms. The conditions for use are:
+
+    Redistributions of the source code must include the original copyright notice, this list of conditions, and the disclaimer.
+    Redistributions in binary form must reproduce the copyright notice, list of conditions, and disclaimer in the documentation and/or other materials provided with the distribution.
+    The name 'MagicBiblio' and the names of its contributors may not be used to endorse or promote products derived from this software without specific prior written permission.
+    The software is provided "as is", with no express or implied warranties, including but not limited to warranties of merchantability and fitness for a particular purpose. The copyright holders and contributors are not liable for any direct, indirect, incidental, special, exemplary, or consequential damages arising from the use of the software, under any theory of liability, whether in contract, strict liability, or tort, including negligence or otherwise, even if advised of the possibility of such damage.
+    ****************
+    The GNU General Public License (GPL) Version 2, created by the Free Software Foundation in June 1991, aims to guarantee freedom to share and change free software. Key aspects include:
+
+    Verbatim Copying: Permitted to copy and distribute this license, but altering it is not allowed.
+
+    Freedom to Share and Change: Ensures the freedom to distribute copies of free software (charging if desired), access and modify the source code, and use parts of it in new free programs.
+
+    Conditions for Redistribution and Use:
+
+    Source code distributions must retain the copyright notice, list of conditions, and disclaimer.
+    Binary form distributions must reproduce these notices.
+    Using the name 'MagicBiblio' or its contributors for endorsement of derived products without written permission is prohibited.
+    No Warranty: Provided "as is" without any warranty. Copyright holders and contributors disclaim liability for any damages arising from its use.
+
+    Modification and Redistribution: Modified versions must be marked as changed, and the entire modified work must be licensed under the GPL.
+
+    Distribution of Executable Form: Accompanied by source code or a written offer to provide the source code.
+
+    License Acceptance and Compliance: Modifying or distributing the Program implies acceptance of this License. Redistribution grants the recipient a license from the original licensor under these terms.
+
+    Patent and Copyright Infringement: License remains in effect even if distribution conflicts with patent licenses or other copyright agreements.
+
+    Geographical Distribution Limitation: The original copyright holder may exclude certain countries.
+
+    Versioning and Revisions: The GPL may be updated by the Free Software Foundation, with each version numbered. Users may choose to comply with the specified version or any later version.
+
+    Incorporating GPL Software into Other Programs: Requires permission from the author, especially for software copyrighted by the Free Software Foundation.
+
+    'Gnomovision' Example: Includes a hypothetical example of a program named 'Gnomovision' by James Hacker, illustrating how to apply the GPL terms to a program, emphasizing the absence of warranty and the conditions for redistribution.
+
+    Prohibition on Proprietary Incorporation: This License does not permit incorporating the program into proprietary programs, suggesting the GNU Lesser General Public License for subroutine libraries.
+
+    Applying the License: Guidelines for applying the GPL to new programs, including attaching notices, ensuring no warranty, and providing contact information.
+
+    Employer or School Copyright Disclaimer: Suggests obtaining a disclaimer from employers or schools if necessary, with a sample provided.
+
+    This license fundamentally ensures that free software remains free, detailing how to distribute and modify such software while protecting both the users' freedoms and the authors' rights.
+    ****************
+  suggested_report_columns: |
+    1. Copyright Holder
+    2. Copyright Year
+    3. Permitted Uses
+    4. Warranty Disclaimer
+    5. Limitation of Liability
+    6. Conditions for Distribution

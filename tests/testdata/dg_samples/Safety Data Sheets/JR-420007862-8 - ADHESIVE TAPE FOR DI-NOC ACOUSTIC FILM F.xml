@@ -1,0 +1,783 @@
+﻿<?xml version="1.0" encoding="utf-8"?><dg:chunk cp:version="2.68.68.0.1705580730335-90.0" xmlns:docset="http://www.docugami.com/2021/dgml/docugami/SafetyDataSheets" xmlns:addedChunks="http://www.docugami.com/2021/dgml/docugami/SafetyDataSheets/addedChunks" xmlns:dg="http://www.docugami.com/2021/dgml" xmlns:dgc="http://www.docugami.com/2021/dgml/docugami/contracts" xmlns:dgm="http://www.docugami.com/2021/dgml/docugami/medical" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:cp="http://classifyprocess.com/2018/07/"><dg:chunk><dg:chunk structure="h1">
+
+         Adhesive tape for <docset:FilmType>DI</docset:FilmType>-<docset:AdhesiveTape>NOC </docset:AdhesiveTape>acoustic film F </dg:chunk><dg:chunk structure="h1">
+
+                                                 <dg:chunk xsi:type="date">08/19/14 </dg:chunk></dg:chunk></dg:chunk><docset:SafetyDataSheet-section><dg:chunk structure="h1">
+
+        <dg:chunk>Safety Data Sheet </dg:chunk></dg:chunk><docset:SafetyDataSheet structure="div"><dg:chunk><docset:_3MCompanyCopyrightNotice structure="p">
+
+        <docset:CopyrightNotice><docset:CopyrightInformation>Copyright,2014,3</docset:CopyrightInformation>M Company</docset:CopyrightNotice>. All rights reserved. Copying and/or downloading of this information for the purpose of properly utilizing <docset:CopyrightNotice>3</docset:CopyrightNotice>M products is allowed provided that: (<docset:CopyrightNotice>1</docset:CopyrightNotice>) the information is copied in full with no changes unless prior written agreement is obtained from <dgc:Org>3</dgc:Org>M, and (<docset:CopyrightNotice>2</docset:CopyrightNotice>) neither the copy nor the original is resold or otherwise distributed with the intention of earning a profit thereon. </docset:_3MCompanyCopyrightNotice><dg:chunk><docset:SafetyDataSheet structure="p">
+
+        This <dg:chunk>Safety Data Sheet </dg:chunk>(SDS) is provided as a courtesy in response to a customer request. This product is not regulated under, and a SDS is not required for this product by the <dg:chunk>OSHA Hazard Communication Standard </dg:chunk>(<docset:SafetyDataSheet>29 </docset:SafetyDataSheet>CFR <docset:OSHARegulation>1910.1200</docset:OSHARegulation>) because, when used as recommended or under ordinary conditions, it should not present a health and safety hazard. However, use or processing of the product not in accordance with the product's recommendations or not under ordinary conditions may affect the performance of the product and may present potential health and safety hazards. </docset:SafetyDataSheet><docset:SafetyDataSheet><xhtml:table structure="table" style="boundingBox:{left: 156.6; top: 1349.8; width: 1722.4; height: 91.3; page: 1;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 156.6; top: 1349.8; width: 1722.4; height: 91.3; page: 1;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 156.6; top: 1349.8; width: 1722.4; height: 45.5; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 156.6; top: 1349.8; width: 422.8; height: 45.5; page: 1;}; "><dg:chunk structure="h1">
+
+         <dg:chunk>Document Group</dg:chunk>: </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 579.4; top: 1349.8; width: 453.1; height: 45.5; page: 1;}; "><docset:DocumentGroup>
+
+              <dgc:Phone><dgc:Number>30</dgc:Number>-<dgc:Number>8257</dgc:Number>-<dgc:Number>5 </dgc:Number></dgc:Phone></docset:DocumentGroup></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1032.4; top: 1349.8; width: 591.7; height: 45.5; page: 1;}; ">
+
+                   Version Number: </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1624.1; top: 1349.8; width: 254.8; height: 45.5; page: 1;}; "><docset:VersionNumber>
+
+               <dgc:Number>2.00 </dgc:Number></docset:VersionNumber></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 156.6; top: 1395.3; width: 1722.4; height: 45.8; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 156.6; top: 1395.3; width: 422.8; height: 45.8; page: 1;}; "><docset:DocumentGroupIssueDate>
+
+         <dg:chunk>Issue Date</dg:chunk>: </docset:DocumentGroupIssueDate></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 579.4; top: 1395.3; width: 453.1; height: 45.8; page: 1;}; "><docset:IssueDate>
+
+              <dg:chunk xsi:type="date">08/19/14 </dg:chunk></docset:IssueDate></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1032.4; top: 1395.3; width: 591.7; height: 45.8; page: 1;}; "><docset:IssueDateVersionNumber>
+
+                   <dg:chunk>Supercedes Date</dg:chunk>: </docset:IssueDateVersionNumber></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1624.1; top: 1395.3; width: 254.8; height: 45.8; page: 1;}; "><docset:SupercedesDate>
+
+               <dg:chunk xsi:type="date">05/08/12 </dg:chunk></docset:SupercedesDate></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:SafetyDataSheet></dg:chunk></dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+         SECTION 1: Identification </dg:chunk><docset:_11ProductIdentifier-section structure="div"><dg:chunk structure="h1">
+
+        <docset:ProductIdentifier>1.1</docset:ProductIdentifier>. Product identifier </dg:chunk><docset:_11ProductIdentifier structure="div">
+
+        Adhesive tape for <docset:FilmType>DI</docset:FilmType>-<docset:AdhesiveTape>NOC </docset:AdhesiveTape>acoustic film F </docset:_11ProductIdentifier></docset:_11ProductIdentifier-section></dg:chunk></docset:SafetyDataSheet></docset:SafetyDataSheet-section><docset:ProductIdentificationNumbers-section><dg:chunk structure="h1">
+
+        <dg:chunk>Product Identification Numbers </dg:chunk></dg:chunk><docset:ProductIdentificationNumbers structure="div"><dg:chunk><dg:chunk structure="p">
+
+        <docset:JournalID>JR-4200</docset:JournalID>-<docset:FieldName>7862</docset:FieldName>-<docset:JR-4200-7862-8>8 </docset:JR-4200-7862-8></dg:chunk><docset:SupplierDetails structure="ol" style="list-style-type: decimal; boundingBox:{left: 150.0; top: 1899.8; width: 812.4; height: 616.6; page: 1;}; "><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 1899.8; width: 812.4; height: 183.3; page: 1;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 1899.8; width: 58.3; height: 41.7; page: 1;}; ">
+
+        1.2. </dg:chunk><docset:RecommendedUseAndRestrictionsonUseRecommendedUse-section><dg:chunk structure="h1">Recommended use and restrictions on use         Recommended use </dg:chunk><docset:RecommendedUseAndRestrictionsonUseRecommendedUse structure="div">        Adhesive </docset:RecommendedUseAndRestrictionsonUseRecommendedUse></docset:RecommendedUseAndRestrictionsonUseRecommendedUse-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 2141.5; width: 1365.2; height: 279.1; page: 1;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 2141.5; width: 58.3; height: 37.5; page: 1;}; ">
+
+        1.3. </dg:chunk><docset:SupplierSDetails-section><dg:chunk structure="h1">Supplier’s details </dg:chunk><docset:SupplierSDetails><xhtml:table structure="table" style="boundingBox:{left: 227.3; top: 2190.4; width: 1287.9; height: 230.2; page: 1;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 227.3; top: 2190.4; width: 1287.9; height: 230.2; page: 1;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 227.3; top: 2190.4; width: 1287.9; height: 42.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 227.3; top: 2190.4; width: 456.4; height: 42.0; page: 1;}; "><dg:chunk structure="h1">
+
+             MANUFACTURER: </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 683.8; top: 2190.4; width: 831.4; height: 42.0; page: 1;}; "><docset:Manufacturer>
+
+                 <docset:_3M>3</docset:_3M>M </docset:Manufacturer></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 227.3; top: 2232.4; width: 1287.9; height: 96.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 227.3; top: 2232.4; width: 456.4; height: 96.0; page: 1;}; "><docset:MANUFACTURERDIVISION>
+
+             <docset:Division>DIVISION</docset:Division>: </docset:MANUFACTURERDIVISION></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 683.8; top: 2232.4; width: 831.4; height: 96.0; page: 1;}; "><docset:Division structure="p">
+
+                 <docset:CompanyName><docset:CompanyName>Sumitomo/3</docset:CompanyName>M Ltd. </docset:CompanyName><docset:ArchitecturalMarkets>Architectural </docset:ArchitecturalMarkets><docset:MarketsDepartment>Markets Department </docset:MarketsDepartment></docset:Division></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 227.3; top: 2328.4; width: 1287.9; height: 49.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 227.3; top: 2328.4; width: 456.4; height: 49.0; page: 1;}; "><docset:MANUFACTURERADDRESS>
+
+             ADDRESS: </docset:MANUFACTURERADDRESS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 683.8; top: 2328.4; width: 831.4; height: 49.0; page: 1;}; "><docset:Address structure="h1">
+
+                 <docset:Address>3</docset:Address>M <docset:CenterName>Center</docset:CenterName>, St. Paul, MN <docset:ZipCode><docset:ZipCode>55144</docset:ZipCode>-<docset:Address>1000</docset:Address></docset:ZipCode>, USA </docset:Address></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 227.3; top: 2377.4; width: 1287.9; height: 43.2; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 227.3; top: 2377.4; width: 456.4; height: 43.2; page: 1;}; "><docset:MANUFACTURERTelephone>
+
+             Telephone: </docset:MANUFACTURERTelephone></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 683.8; top: 2377.4; width: 831.4; height: 43.2; page: 1;}; "><docset:Telephone>
+
+                 <docset:HelplineNumber>1</docset:HelplineNumber>-<docset:PhoneNumber>888</docset:PhoneNumber>-<docset:HelplineNumber>3</docset:HelplineNumber>M HELPS <docset:HelplineNumber>(<docset:HelplineNumber><dgc:Number>1</dgc:Number>-<dgc:Number>888</dgc:Number>-<docset:HelplineNumber>364</docset:HelplineNumber>-<docset:PhoneNumber>3577</docset:PhoneNumber></docset:HelplineNumber></docset:HelplineNumber>) </docset:Telephone></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:SupplierSDetails></docset:SupplierSDetails-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 2474.8; width: 766.6; height: 87.5; page: 1;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 2474.8; width: 62.5; height: 41.7; page: 1;}; ">
+
+        1.4. </dg:chunk><docset:EmergencyTelephoneNumber-section><dg:chunk structure="h1">Emergency telephone number </dg:chunk><docset:EmergencyTelephoneNumber structure="div">        <docset:CrisisHotline><docset:PhoneNumber>1</docset:PhoneNumber>-<docset:Toll-FreeNumber>800</docset:Toll-FreeNumber>-<docset:CrisisHotline>364</docset:CrisisHotline>-<docset:PhoneNumber>3577 </docset:PhoneNumber></docset:CrisisHotline>or <docset:CrisisLine>(<docset:PhoneNumber>651</docset:PhoneNumber>) <docset:PhoneNumber>737</docset:PhoneNumber>-<docset:ContactNumber>6501 </docset:ContactNumber></docset:CrisisLine>(<docset:ContactNumber>24 hours</docset:ContactNumber>) </docset:EmergencyTelephoneNumber></docset:EmergencyTelephoneNumber-section></dg:chunk></docset:SupplierDetails></dg:chunk><docset:SECTION2HazardIdentification-section><dg:chunk structure="h1">
+
+         SECTION 2: Hazard identification </dg:chunk><docset:SECTION2HazardIdentification structure="div"><docset:_21HazardClassification-section><dg:chunk structure="h1">
+
+        <docset:HazardClassification>2.1</docset:HazardClassification>. Hazard classification </dg:chunk><docset:_21HazardClassification structure="div">
+
+        This product is exempt from hazard classification according to <dg:chunk>OSHA Hazard Communication Standard</dg:chunk>, <docset:OSHAExemption>29 </docset:OSHAExemption>CFR <docset:OSHAExemption>1910.1200</docset:OSHAExemption>. </docset:_21HazardClassification></docset:_21HazardClassification-section><dg:chunk structure="p">
+
+        <docset:LabelElements>2.2</docset:LabelElements>. Label elements Signal word </dg:chunk></docset:SECTION2HazardIdentification></docset:SECTION2HazardIdentification-section></docset:ProductIdentificationNumbers></docset:ProductIdentificationNumbers-section><dg:chunk structure="h1">
+
+        Not applicable. </dg:chunk><dg:chunk structure="h1">
+
+        Symbols </dg:chunk><dg:chunk structure="h1">
+
+        Not applicable. </dg:chunk><dg:chunk structure="h1">
+
+        Pictograms </dg:chunk><docset:NotApplicable-section><dg:chunk structure="h1">
+
+        Not applicable. </dg:chunk><docset:NotApplicable structure="div"><docset:_23HazardsNotOtherwiseClassified-section><dg:chunk structure="h1">
+
+        <docset:HazardClassification>2.3</docset:HazardClassification>. Hazards not otherwise classified </dg:chunk><docset:_23HazardsNotOtherwiseClassified structure="div"><dg:chunk structure="p">
+
+        None. </dg:chunk><dg:chunk><docset:_3CompositionInformationonIngredients-section><dg:chunk structure="h1">
+
+         SECTION 3: Composition/information on ingredients </dg:chunk><docset:_3CompositionInformationonIngredients structure="div"><docset:CompositionInformationonIngredients><xhtml:table structure="table" style="boundingBox:{left: 151; top: 981.0; width: 1833; height: 197.0; page: 2;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 151; top: 981.0; width: 1833; height: 197.0; page: 2;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 151; top: 981.0; width: 1833; height: 50.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 151; top: 981.0; width: 974; height: 50.0; page: 2;}; "><dg:chunk structure="h1">
+
+         Ingredient </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1125; top: 981.0; width: 384; height: 50.0; page: 2;}; ">
+
+         C.A.S. No. </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1509; top: 981.0; width: 475; height: 50.0; page: 2;}; ">
+
+         % by Wt </xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 151; top: 1032.0; width: 1833; height: 48.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 151; top: 1031.0; width: 974; height: 49.0; page: 2;}; "><docset:IngredientACRYLATEESTERCOPOLYMER>
+
+         <dg:chunk>ACRYLATE ESTER COPOLYMER </dg:chunk></docset:IngredientACRYLATEESTERCOPOLYMER></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1125; top: 1031.0; width: 384; height: 49.0; page: 2;}; "><docset:ACRYLATEESTERCOPOLYMERCASNo>
+
+         <dg:chunk>Trade Secret</dg:chunk>* </docset:ACRYLATEESTERCOPOLYMERCASNo></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1509; top: 1031.0; width: 475; height: 49.0; page: 2;}; "><docset:ACRYLATEESTERCOPOLYMERbyWt>
+
+          <dgc:Number>60 </dgc:Number>- <dgc:Number>70 </dgc:Number></docset:ACRYLATEESTERCOPOLYMERbyWt></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 151; top: 1081.0; width: 1833; height: 48.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 151; top: 1080.0; width: 974; height: 49.0; page: 2;}; "><docset:IngredientORGANICFLAMERETARDANT>
+
+         <dg:chunk>ORGANIC FLAME RETARDANT </dg:chunk></docset:IngredientORGANICFLAMERETARDANT></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1125; top: 1080.0; width: 384; height: 49.0; page: 2;}; "><docset:ORGANICFLAMERETARDANTCASNo>
+
+         <dg:chunk>Trade Secret</dg:chunk>* </docset:ORGANICFLAMERETARDANTCASNo></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1509; top: 1080.0; width: 475; height: 49.0; page: 2;}; "><docset:ORGANICFLAMERETARDANTbyWt>
+
+          <dgc:Number>20 </dgc:Number>- <dgc:Number>30 </dgc:Number></docset:ORGANICFLAMERETARDANTbyWt></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 151; top: 1130.0; width: 1833; height: 48.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 151; top: 1129.0; width: 974; height: 49.0; page: 2;}; "><docset:IngredientINORGANICFLAMERETARDANT>
+
+         <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:IngredientINORGANICFLAMERETARDANT></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1125; top: 1129.0; width: 384; height: 49.0; page: 2;}; "><docset:INORGANICFLAMERETARDANTCASNo>
+
+         <dg:chunk>Trade Secret</dg:chunk>* </docset:INORGANICFLAMERETARDANTCASNo></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1509; top: 1129.0; width: 475; height: 49.0; page: 2;}; "><docset:INORGANICFLAMERETARDANTbyWt>
+
+          <dgc:Number>10 </dgc:Number>- <dgc:Number>20 </dgc:Number></docset:INORGANICFLAMERETARDANTbyWt></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:CompositionInformationonIngredients><docset:TradeSecretComposition structure="p">
+
+        *The specific chemical identity and/or exact percentage (concentration) of this composition has been withheld as a trade secret. </docset:TradeSecretComposition></docset:_3CompositionInformationonIngredients></docset:_3CompositionInformationonIngredients-section><dg:chunk><dg:chunk structure="h1">
+
+         SECTION 4: First aid measures </dg:chunk><docset:FirstAidMeasures structure="ol" style="list-style-type: decimal; boundingBox:{left: 150.0; top: 1496.7; width: 1449.9; height: 853.1; page: 2;}; "><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 1496.7; width: 649.5; height: 611.4; page: 2;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 1495.7; width: 58.3; height: 41.7; page: 2;}; ">
+
+        4.1. </dg:chunk><docset:DescriptionofFirstAidMeasuresInhalationNoNeedforFirstAidisAnticipate><dg:chunk structure="h1">Description of first aid measures         Inhalation:         No need for first aid is anticipated.         <dg:chunk>Skin Contact</dg:chunk>:         No need for first aid is anticipated.         <dg:chunk>Eye Contact</dg:chunk>: </dg:chunk><docset:DescriptionofFirstAidMeasuresInhalationNoNeedforFirstAidisAnticipate structure="div">        No need for first aid is anticipated.         If Swallowed:         No need for first aid is anticipated. </docset:DescriptionofFirstAidMeasuresInhalationNoNeedforFirstAidisAnticipate></docset:DescriptionofFirstAidMeasuresInhalationNoNeedforFirstAidisAnticipate></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 2166.5; width: 1174.9; height: 87.5; page: 2;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 2166.5; width: 62.5; height: 41.7; page: 2;}; ">
+
+        4.2. </dg:chunk><docset:MostImportantSymptomsAndEffectsBothAcuteAnd-section><dg:chunk structure="h1">Most important symptoms and effects, both acute and </dg:chunk><docset:MostImportantSymptomsAndEffectsBothAcuteAnd structure="div">delayed         See Section 11.1. Information on toxicological effects. </docset:MostImportantSymptomsAndEffectsBothAcuteAnd></docset:MostImportantSymptomsAndEffectsBothAcuteAnd-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 2308.1; width: 1449.9; height: 87.5; page: 2;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 2308.1; width: 62.5; height: 41.7; page: 2;}; ">
+
+        4.3. </dg:chunk><docset:IndicationofAnyImmediateMedicalAttentionAndSpecialTreatmentNeeded-secti><dg:chunk structure="h1">Indication of any immediate medical attention and special treatment required </dg:chunk><docset:IndicationofAnyImmediateMedicalAttentionAndSpecialTreatmentNeeded structure="div">        Not applicable </docset:IndicationofAnyImmediateMedicalAttentionAndSpecialTreatmentNeeded></docset:IndicationofAnyImmediateMedicalAttentionAndSpecialTreatmentNeeded-secti></dg:chunk></docset:FirstAidMeasures></dg:chunk><dg:chunk structure="h1">
+
+         SECTION 5: Fire-fighting measures </dg:chunk></dg:chunk></docset:_23HazardsNotOtherwiseClassified></docset:_23HazardsNotOtherwiseClassified-section><dg:chunk><dg:chunk structure="h1">
+
+        <docset:SuitableExtinguishingMedia>5.1</docset:SuitableExtinguishingMedia>. Suitable extinguishing media </dg:chunk><docset:InCaseofFire-section structure="div"><dg:chunk structure="h1">
+
+        In case of fire: </dg:chunk><docset:InCaseofFire structure="div">Use a fire fighting agent suitable for ordinary combustible material such as water or foam to extinguish. </docset:InCaseofFire></docset:InCaseofFire-section></dg:chunk><docset:SpecialHazardsArisingFromtheSubstanceOrMixture-section><dg:chunk structure="h1">
+
+        <docset:SpecialHazards>5.2</docset:SpecialHazards>. Special hazards arising from the substance or mixture </dg:chunk><docset:SpecialHazardsArisingFromtheSubstanceOrMixture structure="div">
+
+        None inherent in this product. </docset:SpecialHazardsArisingFromtheSubstanceOrMixture></docset:SpecialHazardsArisingFromtheSubstanceOrMixture-section><docset:_53SpecialProtectiveActionsforFire-fighters-section><dg:chunk structure="h1">
+
+        <docset:FirefighterProtection>5.3</docset:FirefighterProtection>. Special protective actions for fire-fighters </dg:chunk><docset:_53SpecialProtectiveActionsforFire-fighters structure="div"><dg:chunk structure="p">
+
+        No special protective actions for fire-fighters are anticipated. </dg:chunk><dg:chunk><docset:_6AccidentalReleaseMeasures-section><dg:chunk structure="h1">
+
+         SECTION 6: Accidental release measures </dg:chunk><docset:_6AccidentalReleaseMeasures structure="ol" style="list-style-type: decimal; boundingBox:{left: 150.0; top: 3120.5; width: 1333.2; height: 41.7; page: 2;}; boundingBox:{left: 150.0; top: 620.8; width: 1054.1; height: 187.5; page: 3;}; "><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 3120.5; width: 1333.2; height: 41.7; page: 2;}; boundingBox:{left: 150.0; top: 526.0; width: 254.1; height: 40.6; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 3120.5; width: 62.5; height: 41.7; page: 2;}; ">
+
+        6.1. </dg:chunk><docset:PersonalPrecautionsProtectiveEquipmentAndEmergencyProcedures-section><dg:chunk structure="h1">Personal precautions, protective equipment and emergency procedures </dg:chunk><docset:PersonalPrecautionsProtectiveEquipmentAndEmergencyProcedures structure="div">        Not applicable. </docset:PersonalPrecautionsProtectiveEquipmentAndEmergencyProcedures></docset:PersonalPrecautionsProtectiveEquipmentAndEmergencyProcedures-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 620.8; width: 558.3; height: 91.7; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 620.8; width: 62.5; height: 41.7; page: 3;}; ">
+
+        6.2. </dg:chunk><docset:EnvironmentalPrecautions-section><dg:chunk structure="h1">Environmental precautions </dg:chunk><docset:EnvironmentalPrecautions structure="div">        Not applicable. </docset:EnvironmentalPrecautions></docset:EnvironmentalPrecautions-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 766.6; width: 1054.1; height: 87.5; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 766.6; width: 62.5; height: 41.7; page: 3;}; ">
+
+        6.3. </dg:chunk><docset:MethodsAndMaterialforContainmentAndCleaningUp-section><dg:chunk structure="h1">Methods and material for containment and cleaning up </dg:chunk><docset:MethodsAndMaterialforContainmentAndCleaningUp structure="div">        Not applicable. </docset:MethodsAndMaterialforContainmentAndCleaningUp></docset:MethodsAndMaterialforContainmentAndCleaningUp-section></dg:chunk></docset:_6AccidentalReleaseMeasures></docset:_6AccidentalReleaseMeasures-section><dg:chunk structure="h1">
+
+         SECTION 7: Handling and storage </dg:chunk></dg:chunk></docset:_53SpecialProtectiveActionsforFire-fighters></docset:_53SpecialProtectiveActionsforFire-fighters-section><dg:chunk><dg:chunk structure="h1">
+
+        <docset:Precautions>7.1</docset:Precautions>. Precautions for safe handling </dg:chunk><dg:chunk structure="div">
+
+        This product is considered to be an article which does not release or otherwise result in exposure to a hazardous chemical under normal use conditions. </dg:chunk></dg:chunk><dg:chunk structure="p">
+
+        <docset:ConditionsforSafeStorage>7.2</docset:ConditionsforSafeStorage>. Conditions for safe storage including any incompatibilities </dg:chunk></docset:NotApplicable></docset:NotApplicable-section><docset:NotApplicable-section><dg:chunk structure="h1">
+
+        Not applicable. </dg:chunk><docset:_8ExposureControlsPersonalProtection-section structure="div"><dg:chunk structure="h1">
+
+         SECTION 8: Exposure controls/personal protection </dg:chunk><dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 150.0; top: 1483.2; width: 425.0; height: 41.7; page: 3;}; "><docset:_8ExposureControlsPersonalProtection structure="li" style="boundingBox:{left: 150.0; top: 1483.2; width: 425.0; height: 41.7; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 1483.2; width: 62.5; height: 41.7; page: 3;}; ">
+
+        8.1. </dg:chunk><dg:chunk structure="h1">Control parameters </dg:chunk></docset:_8ExposureControlsPersonalProtection></dg:chunk></docset:_8ExposureControlsPersonalProtection-section></docset:NotApplicable-section><dg:chunk><dg:chunk structure="h1">
+
+        Occupational exposure limits </dg:chunk><docset:ExposureControlsPersonalProtection><xhtml:table structure="table" style="boundingBox:{left: 150.9; top: 1671.1; width: 2093.0; height: 1320.0; page: 3;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 150.9; top: 1671.1; width: 2093.0; height: 1320.0; page: 3;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 150.9; top: 1671.1; width: 2093.0; height: 50.0; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.9; top: 1671.1; width: 590.0; height: 50.0; page: 3;}; ">
+
+         Ingredient </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 740.9; top: 1671.1; width: 228.0; height: 50.0; page: 3;}; ">
+
+         C.A.S. No. </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 968.9; top: 1671.1; width: 291.0; height: 50.0; page: 3;}; ">
+
+         Agency </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1259.9; top: 1671.1; width: 544.0; height: 50.0; page: 3;}; ">
+
+         Limit type </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1803.9; top: 1671.1; width: 440.0; height: 50.0; page: 3;}; "><dg:chunk structure="h1">
+
+         Additional Comments </dg:chunk></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.9; top: 1722.1; width: 2093.0; height: 145.0; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.9; top: 1721.1; width: 590.0; height: 146.0; page: 3;}; "><docset:Ingredient>
+
+         <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Ingredient></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 740.9; top: 1721.1; width: 228.0; height: 146.0; page: 3;}; "><docset:CaSNo>
+
+         <dg:chunk>Trade Secret </dg:chunk></docset:CaSNo></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 968.9; top: 1721.1; width: 291.0; height: 146.0; page: 3;}; "><docset:Agency>
+
+         ACGIH </docset:Agency></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1259.9; top: 1721.1; width: 544.0; height: 146.0; page: 3;}; "><docset:LimitType structure="p">
+
+         TWA(as <docset:ArsenicLimitValue>Sb):0.5 </docset:ArsenicLimitValue>mg/<dg:chunk>m3;Limit </dg:chunk>value not established: </docset:LimitType></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1803.9; top: 1721.1; width: 440.0; height: 146.0; page: 3;}; "><docset:TwaasSb05MgM3LimitValueNotEstablished structure="p">
+
+         Cntrl all exposr-low as possib, A2: Suspected human carcin. </docset:TwaasSb05MgM3LimitValueNotEstablished></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.9; top: 1868.1; width: 2093.0; height: 97.0; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.9; top: 1867.1; width: 590.0; height: 98.0; page: 3;}; "><docset:Ingredient>
+
+         <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Ingredient></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 740.9; top: 1867.1; width: 228.0; height: 98.0; page: 3;}; "><docset:CaSNo>
+
+         <dg:chunk>Trade Secret </dg:chunk></docset:CaSNo></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 968.9; top: 1867.1; width: 291.0; height: 98.0; page: 3;}; "><docset:Agency>
+
+         CMRG </docset:Agency></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1259.9; top: 1867.1; width: 544.0; height: 98.0; page: 3;}; "><docset:LimitType>
+
+         TWA(as <docset:ArsenicConcentration>Sb):0.2 </docset:ArsenicConcentration>mg/m3 </docset:LimitType></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1803.9; top: 1867.1; width: 440.0; height: 98.0; page: 3;}; "><docset:AdditionalComments /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.9; top: 1966.1; width: 2093.0; height: 97.0; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.9; top: 1965.1; width: 590.0; height: 98.0; page: 3;}; "><docset:Ingredient>
+
+         <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Ingredient></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 740.9; top: 1965.1; width: 228.0; height: 98.0; page: 3;}; "><docset:CaSNo>
+
+         <dg:chunk>Trade Secret </dg:chunk></docset:CaSNo></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 968.9; top: 1965.1; width: 291.0; height: 98.0; page: 3;}; "><docset:Agency>
+
+         OSHA </docset:Agency></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1259.9; top: 1965.1; width: 544.0; height: 98.0; page: 3;}; "><docset:LimitType>
+
+         TWA(as <docset:SbConcentration>Sb):0.5 </docset:SbConcentration>mg/m3 </docset:LimitType></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1803.9; top: 1965.1; width: 440.0; height: 98.0; page: 3;}; "><docset:AdditionalComments /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.9; top: 2064.1; width: 2093.0; height: 927.0; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.9; top: 2063.1; width: 2093.0; height: 928.0; page: 3;}; " colspan="5"><docset:IngredientACGIHAmericanConferenceofGovernmentalIndustrialHygienistsAIHA><dg:chunk structure="h1">
+
+        ACGIH : </dg:chunk><dg:chunk structure="div"><docset:ExposureLimits structure="p">American <docset:Conference>Conference of Governmental Industrial </docset:Conference>Hygienists AIHA : <dg:chunk><docset:AIHA>American Industrial Hygiene Association </docset:AIHA>CMRG </dg:chunk>: Chemical Manufacturer's Recommended Guidelines OSHA : <dg:chunk>United States Department </dg:chunk>of Labor - Occupational Safety and Health Administration TWA: <dg:chunk>Time-Weighted-Average STEL</dg:chunk>: <dg:chunk>Short Term Exposure Limit CEIL</dg:chunk>: Ceiling </docset:ExposureLimits><docset:PersonalProtectiveEquipment structure="ol" style="list-style-type: decimal; boundingBox:{left: 150.0; top: 2374.8; width: 762.4; height: 612.4; page: 3;}; "><dg:chunk structure="li" style="boundingBox:{left: 150.9; top: 2374.8; width: 390.7; height: 41.7; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 2374.8; width: 58.3; height: 41.7; page: 3;}; ">
+
+        8.2. </dg:chunk><dg:chunk>Exposure controls </dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 2472.7; width: 475.0; height: 85.4; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 2470.6; width: 91.7; height: 41.7; page: 3;}; ">
+
+        8.2.1. </dg:chunk><docset:EngineeringControls-section><dg:chunk structure="h1">Engineering controls </dg:chunk><docset:EngineeringControls structure="div">        Not applicable. </docset:EngineeringControls></docset:EngineeringControls-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 2612.3; width: 762.4; height: 375.0; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 2612.3; width: 91.7; height: 41.7; page: 3;}; ">
+
+        8.2.2. </dg:chunk><docset:PersonalProtectiveEquipmentPPEEyeFaceProtection-section><dg:chunk structure="h1">Personal protective equipment (PPE) Eye/face protection </dg:chunk><docset:PersonalProtectiveEquipmentPPEEyeFaceProtection structure="div">Eye protection not required. Skin/hand protection No chemical protective gloves are required. </docset:PersonalProtectiveEquipmentPPEEyeFaceProtection></docset:PersonalProtectiveEquipmentPPEEyeFaceProtection-section></dg:chunk></docset:PersonalProtectiveEquipment></dg:chunk></docset:IngredientACGIHAmericanConferenceofGovernmentalIndustrialHygienistsAIHA></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:ExposureControlsPersonalProtection></dg:chunk><dg:chunk><docset:RespiratoryProtection-section><dg:chunk structure="h1">
+
+        Respiratory protection </dg:chunk><docset:RespiratoryProtection structure="div">
+
+        Respiratory protection is not required. </docset:RespiratoryProtection></docset:RespiratoryProtection-section><docset:SECTION9PhysicalAndChemicalProperties-section><dg:chunk structure="h1">
+
+         SECTION 9: Physical and chemical properties </dg:chunk><docset:SECTION9PhysicalAndChemicalProperties structure="ol" style="list-style-type: decimal; boundingBox:{left: 150.0; top: 737.4; width: 1037.4; height: 2070.6; page: 4;}; "><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 737.4; width: 2097.1; height: 1304.0; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 737.4; width: 62.5; height: 41.7; page: 4;}; ">
+
+        9.1. </dg:chunk><docset:InformationonBasicPhysicalAndChemicalProperties-section><dg:chunk structure="h1">Information on basic physical and chemical properties </dg:chunk><docset:InformationonBasicPhysicalAndChemicalProperties><xhtml:table structure="table" style="boundingBox:{left: 164; top: 787.4; width: 2083.0; height: 1191.2; page: 4;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 164; top: 787.4; width: 2083.0; height: 1191.2; page: 4;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 787.4; width: 2083.0; height: 45.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 787.4; width: 850.5; height: 45.0; page: 4;}; ">
+
+             <dg:chunk>General Physical Form</dg:chunk>: </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 787.4; width: 1232.5; height: 45.0; page: 4;}; "><docset:GeneralPhysicalForm>
+
+                Solid </docset:GeneralPhysicalForm></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 832.4; width: 2083.0; height: 49.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 832.4; width: 850.5; height: 49.0; page: 4;}; "><docset:GeneralPhysicalFormSpecificPhysicalForm>
+
+             <dg:chunk>Specific Physical Form</dg:chunk>: </docset:GeneralPhysicalFormSpecificPhysicalForm></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 832.4; width: 1232.5; height: 49.0; page: 4;}; "><docset:SpecificPhysicalForm>
+
+                Roll of Tape </docset:SpecificPhysicalForm></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 881.4; width: 2083.0; height: 47.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 881.4; width: 850.5; height: 47.0; page: 4;}; "><docset:GeneralPhysicalFormOdorColorGrade>
+
+             Odor, Color, Grade: </docset:GeneralPhysicalFormOdorColorGrade></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 881.4; width: 1232.5; height: 47.0; page: 4;}; "><docset:OdorColorGrade>
+
+                Color: White, Odor: None </docset:OdorColorGrade></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 928.4; width: 2083.0; height: 50.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 928.4; width: 850.5; height: 50.0; page: 4;}; "><docset:GeneralPhysicalFormOdorThreshold>
+
+             Odor threshold </docset:GeneralPhysicalFormOdorThreshold></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 928.4; width: 1232.5; height: 50.0; page: 4;}; "><docset:OdorThresholdSolid>
+
+                Not Applicable </docset:OdorThresholdSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 978.4; width: 2083.0; height: 48.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 978.4; width: 850.5; height: 48.0; page: 4;}; "><docset:GeneralPhysicalFormPH>
+
+             pH </docset:GeneralPhysicalFormPH></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 978.4; width: 1232.5; height: 48.0; page: 4;}; "><docset:PHSolid>
+
+                Not Applicable </docset:PHSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1026.4; width: 2083.0; height: 46.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1026.4; width: 850.5; height: 46.0; page: 4;}; "><docset:GeneralPhysicalFormMeltingPoint>
+
+             Melting point </docset:GeneralPhysicalFormMeltingPoint></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1026.4; width: 1232.5; height: 46.0; page: 4;}; "><docset:MeltingPointSolid>
+
+                No Data Available </docset:MeltingPointSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1072.4; width: 2083.0; height: 47.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1072.4; width: 850.5; height: 47.0; page: 4;}; "><docset:GeneralPhysicalFormBoilingPoint>
+
+             <dg:chunk>Boiling Point </dg:chunk></docset:GeneralPhysicalFormBoilingPoint></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1072.4; width: 1232.5; height: 47.0; page: 4;}; "><docset:BoilingPointSolid>
+
+                Not Applicable </docset:BoilingPointSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1119.4; width: 2083.0; height: 49.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1119.4; width: 850.5; height: 49.0; page: 4;}; "><docset:GeneralPhysicalFormFlashPoint>
+
+             <dg:chunk>Flash Point </dg:chunk></docset:GeneralPhysicalFormFlashPoint></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1119.4; width: 1232.5; height: 49.0; page: 4;}; "><docset:FlashPointSolid>
+
+                No Data Available </docset:FlashPointSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1168.4; width: 2083.0; height: 48.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1168.4; width: 850.5; height: 48.0; page: 4;}; "><docset:GeneralPhysicalFormEvaporationRate>
+
+             Evaporation rate </docset:GeneralPhysicalFormEvaporationRate></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1168.4; width: 1232.5; height: 48.0; page: 4;}; "><docset:EvaporationRateSolid>
+
+                Not Applicable </docset:EvaporationRateSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1216.4; width: 2083.0; height: 48.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1216.4; width: 850.5; height: 48.0; page: 4;}; "><docset:GeneralPhysicalFormFlammabilitySolidGas>
+
+             Flammability (solid, gas) </docset:GeneralPhysicalFormFlammabilitySolidGas></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1216.4; width: 1232.5; height: 48.0; page: 4;}; "><docset:FlammabilitySolidGasSolid>
+
+                Not Classified </docset:FlammabilitySolidGasSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1264.4; width: 2083.0; height: 45.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1264.4; width: 850.5; height: 45.0; page: 4;}; "><docset:GeneralPhysicalFormFlammableLimitsLEL>
+
+             Flammable Limits(LEL) </docset:GeneralPhysicalFormFlammableLimitsLEL></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1264.4; width: 1232.5; height: 45.0; page: 4;}; "><docset:FlammableLimitsLELSolid>
+
+                No Data Available </docset:FlammableLimitsLELSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1309.4; width: 2083.0; height: 49.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1309.4; width: 850.5; height: 49.0; page: 4;}; "><docset:GeneralPhysicalFormFlammableLimitsUEL>
+
+             Flammable Limits(UEL) </docset:GeneralPhysicalFormFlammableLimitsUEL></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1309.4; width: 1232.5; height: 49.0; page: 4;}; "><docset:FlammableLimitsUELSolid>
+
+                No Data Available </docset:FlammableLimitsUELSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1358.4; width: 2083.0; height: 47.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1358.4; width: 850.5; height: 47.0; page: 4;}; "><docset:GeneralPhysicalFormVaporPressure>
+
+             <dg:chunk>Vapor Pressure </dg:chunk></docset:GeneralPhysicalFormVaporPressure></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1358.4; width: 1232.5; height: 47.0; page: 4;}; "><docset:VaporPressureSolid>
+
+                <docset:Nil>Nil </docset:Nil></docset:VaporPressureSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1405.4; width: 2083.0; height: 51.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1405.4; width: 850.5; height: 51.0; page: 4;}; "><docset:GeneralPhysicalFormVaporDensity>
+
+             <dg:chunk>Vapor Density </dg:chunk></docset:GeneralPhysicalFormVaporDensity></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1405.4; width: 1232.5; height: 51.0; page: 4;}; "><docset:VaporDensitySolid>
+
+                Not Applicable </docset:VaporDensitySolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1456.4; width: 2083.0; height: 46.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1456.4; width: 850.5; height: 46.0; page: 4;}; "><docset:GeneralPhysicalFormDensity>
+
+             Density </docset:GeneralPhysicalFormDensity></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1456.4; width: 1232.5; height: 46.0; page: 4;}; "><docset:DensitySolid>
+
+                No Data Available </docset:DensitySolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1502.4; width: 2083.0; height: 48.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1502.4; width: 850.5; height: 48.0; page: 4;}; "><docset:GeneralPhysicalFormSpecificGravity>
+
+             <dg:chunk>Specific Gravity </dg:chunk></docset:GeneralPhysicalFormSpecificGravity></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1502.4; width: 1232.5; height: 48.0; page: 4;}; "><docset:SpecificGravitySolid>
+
+                No Data Available </docset:SpecificGravitySolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1550.4; width: 2083.0; height: 48.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1550.4; width: 850.5; height: 48.0; page: 4;}; "><docset:GeneralPhysicalFormSolubilityinWater>
+
+             Solubility in Water </docset:GeneralPhysicalFormSolubilityinWater></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1550.4; width: 1232.5; height: 48.0; page: 4;}; "><docset:SolubilityinWaterSolid>
+
+                <docset:Nil>Nil </docset:Nil></docset:SolubilityinWaterSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1598.4; width: 2083.0; height: 48.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1598.4; width: 850.5; height: 48.0; page: 4;}; "><docset:GeneralPhysicalFormSolubility-Non-water>
+
+             Solubility- non-water </docset:GeneralPhysicalFormSolubility-Non-water></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1598.4; width: 1232.5; height: 48.0; page: 4;}; "><docset:Solubility-Non-waterSolid>
+
+                Not Applicable </docset:Solubility-Non-waterSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1646.4; width: 2083.0; height: 50.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1646.4; width: 850.5; height: 50.0; page: 4;}; "><docset:PartitionCoefficient-cell>
+
+             Partition coefficient: n-octanol/ water </docset:PartitionCoefficient-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1646.4; width: 1232.5; height: 50.0; page: 4;}; "><docset:PartitionCoefficientN-octanolWaterSolid>
+
+                Not Applicable </docset:PartitionCoefficientN-octanolWaterSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1696.4; width: 2083.0; height: 47.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1696.4; width: 850.5; height: 47.0; page: 4;}; "><docset:GeneralPhysicalFormAutoignitionTemperature>
+
+             Autoignition temperature </docset:GeneralPhysicalFormAutoignitionTemperature></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1696.4; width: 1232.5; height: 47.0; page: 4;}; "><docset:AutoignitionTemperatureSolid>
+
+                No Data Available </docset:AutoignitionTemperatureSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1743.4; width: 2083.0; height: 47.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1743.4; width: 850.5; height: 47.0; page: 4;}; "><docset:GeneralPhysicalFormDecompositionTemperature>
+
+             Decomposition temperature </docset:GeneralPhysicalFormDecompositionTemperature></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1743.4; width: 1232.5; height: 47.0; page: 4;}; "><docset:DecompositionTemperatureSolid>
+
+                Not Applicable </docset:DecompositionTemperatureSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1790.4; width: 2083.0; height: 49.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1790.4; width: 850.5; height: 49.0; page: 4;}; "><docset:GeneralPhysicalFormViscosity>
+
+             Viscosity </docset:GeneralPhysicalFormViscosity></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1790.4; width: 1232.5; height: 49.0; page: 4;}; "><docset:ViscositySolid>
+
+                No Data Available </docset:ViscositySolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1839.4; width: 2083.0; height: 46.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1839.4; width: 850.5; height: 46.0; page: 4;}; "><docset:GeneralPhysicalFormAverageParticleSize>
+
+             Average particle size </docset:GeneralPhysicalFormAverageParticleSize></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1839.4; width: 1232.5; height: 46.0; page: 4;}; "><docset:AverageParticleSizeSolid>
+
+                Not Applicable </docset:AverageParticleSizeSolid></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 164; top: 1885.4; width: 2083.0; height: 93.2; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 164; top: 1885.4; width: 850.5; height: 93.2; page: 4;}; "><docset:GeneralPhysicalFormPercentVolatile>
+
+             Percent volatile </docset:GeneralPhysicalFormPercentVolatile></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1014.5; top: 1885.4; width: 1232.5; height: 93.2; page: 4;}; "><docset:PercentVolatileSolid>
+
+                No Data Available </docset:PercentVolatileSolid></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:InformationonBasicPhysicalAndChemicalProperties></docset:InformationonBasicPhysicalAndChemicalProperties-section><dg:chunk structure="h1">         SECTION 10: Stability and reactivity </dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 2099.8; width: 1970.6; height: 87.5; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 2099.8; width: 83.3; height: 41.7; page: 4;}; ">
+
+        10.1. </dg:chunk><dg:chunk><dg:chunk structure="h1">Reactivity </dg:chunk><dg:chunk structure="div">        This material may be reactive with certain agents under certain conditions - see the remaining headings in this section. </dg:chunk></dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 2237.3; width: 412.5; height: 91.7; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 2237.3; width: 79.2; height: 41.7; page: 4;}; ">
+
+        10.2. </dg:chunk><dg:chunk>Chemical stability         Stable. </dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 150.0; top: 2432.0; width: 691.6; height: 88.6; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 2428.9; width: 79.2; height: 41.7; page: 4;}; ">
+
+        10.3. </dg:chunk><docset:PossibilityofHazardousReactions-section><dg:chunk structure="h1">Possibility of hazardous reactions </dg:chunk><docset:PossibilityofHazardousReactions structure="div">        Hazardous polymerization will not occur. </docset:PossibilityofHazardousReactions></docset:PossibilityofHazardousReactions-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 151.8; top: 2577.2; width: 434.9; height: 85.0; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 2574.8; width: 83.3; height: 41.7; page: 4;}; ">
+
+        10.4. </dg:chunk><docset:ConditionstoAvoid-section><dg:chunk structure="h1">Conditions to avoid </dg:chunk><docset:ConditionstoAvoid structure="div">        Sparks and/or flames </docset:ConditionstoAvoid></docset:ConditionstoAvoid-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 151.4; top: 2768.7; width: 502.7; height: 39.4; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 150.0; top: 2766.4; width: 79.2; height: 41.7; page: 4;}; ">
+
+        10.5. </dg:chunk><dg:chunk structure="h1">Incompatible materials </dg:chunk></dg:chunk></docset:SECTION9PhysicalAndChemicalProperties></docset:SECTION9PhysicalAndChemicalProperties-section></dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+        None known. </dg:chunk><dg:chunk structure="div"><dg:chunk><docset:PhysicalAndChemicalProperties><xhtml:table structure="table" style="boundingBox:{left: 150.9; top: 2913.4; width: 1510.4; height: 225.6; page: 4;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 150.9; top: 2913.4; width: 1510.4; height: 225.6; page: 4;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 150.9; top: 2913.4; width: 1510.4; height: 42.8; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.9; top: 2913.4; width: 723.8; height: 42.8; page: 4;}; ">
+
+        <docset:HazardousDecompositionProducts>10.6</docset:HazardousDecompositionProducts>. Hazardous decomposition products </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 874.7; top: 2913.4; width: 786.5; height: 42.8; page: 4;}; "><docset:_106HazardousDecompositionProducts /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.9; top: 2956.3; width: 1510.4; height: 47.7; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.9; top: 2956.3; width: 723.8; height: 47.7; page: 4;}; "><docset:_106HazardousDecompositionProductsSubstance structure="h1">
+
+         Substance </docset:_106HazardousDecompositionProductsSubstance></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 874.7; top: 2956.3; width: 786.5; height: 47.7; page: 4;}; "><docset:Substance structure="h1">
+
+                        Condition </docset:Substance></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.9; top: 3004.0; width: 1510.4; height: 48.9; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.9; top: 3004.0; width: 723.8; height: 48.9; page: 4;}; "><docset:Substance>
+
+          Carbon monoxide </docset:Substance></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 874.7; top: 3004.0; width: 786.5; height: 48.9; page: 4;}; "><docset:Condition>
+
+                         Not Specified </docset:Condition></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.9; top: 3052.9; width: 1510.4; height: 86.1; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.9; top: 3052.9; width: 723.8; height: 86.1; page: 4;}; "><docset:Substance>
+
+          Carbon dioxide </docset:Substance></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 874.7; top: 3052.9; width: 786.5; height: 86.1; page: 4;}; "><docset:Condition>
+
+                         Not Specified </docset:Condition></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:PhysicalAndChemicalProperties><docset:HazardousDecompositionProducts structure="p">
+
+        Under recommended usage conditions, hazardous decomposition products are not expected. Hazardous decomposition products may occur as a result of oxidation, heating, or reaction with another material. </docset:HazardousDecompositionProducts></dg:chunk><dg:chunk><docset:SECTION11ToxicologicalInformation-section><dg:chunk structure="h1">
+
+         SECTION 11: Toxicological information </dg:chunk><docset:SECTION11ToxicologicalInformation structure="div">
+
+        The information below may not be consistent with the material classification in Section 2 if specific ingredient classifications are mandated by a competent authority. In addition, toxicological data on ingredients may not be reflected in the material classification and/or the signs and symptoms of exposure, because an ingredient may be present below the threshold for labeling, an ingredient may not be available for exposure, or the data may not be relevant to the material as a whole. </docset:SECTION11ToxicologicalInformation></docset:SECTION11ToxicologicalInformation-section><docset:_111InformationonToxicologicalEffectsSignsAndSymptomsofExposure-section><dg:chunk structure="h1">
+
+        <docset:SignsandSymptomsofExposure>11.1</docset:SignsandSymptomsofExposure>. Information on Toxicological effects Signs and Symptoms of Exposure </dg:chunk><docset:_111InformationonToxicologicalEffectsSignsAndSymptomsofExposure structure="div">
+
+        Based on <dgm:_testRef>test </dgm:_testRef>data and/or information on the components, this material may produce the following health effects: </docset:_111InformationonToxicologicalEffectsSignsAndSymptomsofExposure></docset:_111InformationonToxicologicalEffectsSignsAndSymptomsofExposure-section></dg:chunk></dg:chunk></dg:chunk><docset:Inhalation-section><dg:chunk structure="h1">
+
+        Inhalation: </dg:chunk><docset:Inhalation structure="div">
+
+        No health effects are expected. </docset:Inhalation></docset:Inhalation-section><docset:SkinContact-section><dg:chunk structure="h1">
+
+        Skin Contact: </dg:chunk><docset:SkinContact structure="div">
+
+        No health effects are expected. </docset:SkinContact></docset:SkinContact-section><docset:EyeContact-section><dg:chunk structure="h1">
+
+        <dg:chunk>Eye Contact</dg:chunk>: </dg:chunk><docset:EyeContact structure="div">
+
+        No health effects are expected. </docset:EyeContact></docset:EyeContact-section><docset:Ingestion-section><dg:chunk structure="h1">
+
+        Ingestion: </dg:chunk><docset:Ingestion structure="div">
+
+        No health effects are expected. </docset:Ingestion></docset:Ingestion-section><docset:AdditionalInformation-section><dg:chunk structure="h1">
+
+        <dg:chunk>Additional Information</dg:chunk>: </dg:chunk><docset:AdditionalInformation structure="div">
+
+        This product, when used under reasonable conditions and in accordance with the 3M directions for use, should not present a health hazard. However, use or processing of the product in a manner not in accordance with the product's directions for use may affect the performance of the product and may present potential health and safety hazards. </docset:AdditionalInformation></docset:AdditionalInformation-section><docset:ToxicologicalData-section><dg:chunk structure="h1">
+
+        <dg:chunk>Toxicological Data </dg:chunk></dg:chunk><docset:ToxicologicalData structure="div">
+
+        If a component is disclosed in section 3 but does not appear in a table below, either no data are available for that endpoint or the data are not sufficient for classification. </docset:ToxicologicalData></docset:ToxicologicalData-section><dg:chunk><docset:AcuteToxicity-section><dg:chunk structure="h1">
+
+        <dg:chunk>Acute Toxicity </dg:chunk></dg:chunk><docset:AcuteToxicity><xhtml:table structure="table" style="boundingBox:{left: 150.7; top: 2388.6; width: 2087.0; height: 278.0; page: 5;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 150.7; top: 2388.6; width: 2087.0; height: 278.0; page: 5;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 150.7; top: 2388.6; width: 2087.0; height: 40.0; page: 5;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.7; top: 2388.6; width: 928.0; height: 40.0; page: 5;}; "><dg:chunk structure="h1">
+
+          Name </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1078.7; top: 2388.6; width: 209.0; height: 40.0; page: 5;}; "><dg:chunk structure="h1">
+
+          Route </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1287.7; top: 2388.6; width: 172.0; height: 40.0; page: 5;}; "><dg:chunk structure="h1">
+
+          Species </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1459.7; top: 2388.6; width: 778.0; height: 40.0; page: 5;}; ">
+
+         Value </xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.7; top: 2429.6; width: 2087.0; height: 39.0; page: 5;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.7; top: 2428.6; width: 928.0; height: 40.0; page: 5;}; "><docset:Name>
+
+          Overall product </docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1078.7; top: 2428.6; width: 209.0; height: 40.0; page: 5;}; "><docset:Route>
+
+          Ingestion </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1287.7; top: 2428.6; width: 172.0; height: 40.0; page: 5;}; "><docset:Species /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1459.7; top: 2428.6; width: 778.0; height: 40.0; page: 5;}; "><docset:Value structure="p">
+
+         No data available; calculated ATE &gt; <docset:MaximumATE>5,000 </docset:MaximumATE>mg/kg </docset:Value></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.7; top: 2469.6; width: 2087.0; height: 40.0; page: 5;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.7; top: 2468.6; width: 928.0; height: 41.0; page: 5;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1078.7; top: 2468.6; width: 209.0; height: 41.0; page: 5;}; "><docset:Route>
+
+          Dermal </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1287.7; top: 2468.6; width: 172.0; height: 41.0; page: 5;}; "><docset:Species>
+
+          Rabbit </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1459.7; top: 2468.6; width: 778.0; height: 41.0; page: 5;}; "><docset:Value>
+
+         LD50 &gt; <docset:LD50Value>6,685 </docset:LD50Value>mg/kg </docset:Value></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.7; top: 2510.6; width: 2087.0; height: 116.0; page: 5;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.7; top: 2509.6; width: 928.0; height: 117.0; page: 5;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1078.7; top: 2509.6; width: 209.0; height: 117.0; page: 5;}; "><docset:Route>
+
+          Inhalation- Dust/Mist (<docset:ExposureTime>4 hours</docset:ExposureTime>) </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1287.7; top: 2509.6; width: 172.0; height: 117.0; page: 5;}; "><docset:Species>
+
+          Rat </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1459.7; top: 2509.6; width: 778.0; height: 117.0; page: 5;}; "><docset:Value>
+
+         <docset:LC50Value>LC50 </docset:LC50Value>&gt; <docset:LC50Value>2.76 </docset:LC50Value>mg/l </docset:Value></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.7; top: 2627.6; width: 2087.0; height: 39.0; page: 5;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.7; top: 2626.6; width: 928.0; height: 40.0; page: 5;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1078.7; top: 2626.6; width: 209.0; height: 40.0; page: 5;}; "><docset:Route>
+
+          Ingestion </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1287.7; top: 2626.6; width: 172.0; height: 40.0; page: 5;}; "><docset:Species>
+
+          Rat </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1459.7; top: 2626.6; width: 778.0; height: 40.0; page: 5;}; "><docset:Value>
+
+         <docset:LD50Value>LD50 </docset:LD50Value>&gt; <docset:LD50>34,600 </docset:LD50>mg/kg </docset:Value></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:AcuteToxicity></docset:AcuteToxicity-section><dg:chunk structure="h1">
+
+        ATE = acute toxicity estimate </dg:chunk></dg:chunk><docset:SkinCorrosionIrritation-section><dg:chunk structure="h1">
+
+        Skin Corrosion/Irritation </dg:chunk><docset:SkinCorrosionIrritation><xhtml:table structure="table" style="boundingBox:{left: 150.7; top: 2812.1; width: 2077.0; height: 158.0; page: 5;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 150.7; top: 2812.1; width: 2077.0; height: 158.0; page: 5;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 150.7; top: 2812.1; width: 2077.0; height: 41.0; page: 5;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.7; top: 2812.1; width: 1137.0; height: 41.0; page: 5;}; ">
+
+          Name </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1287.7; top: 2812.1; width: 175.0; height: 41.0; page: 5;}; "><dg:chunk structure="h1">
+
+          Species </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1462.7; top: 2812.1; width: 765.0; height: 41.0; page: 5;}; ">
+
+          Value </xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.7; top: 2854.1; width: 2077.0; height: 116.0; page: 5;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.7; top: 2853.1; width: 1137.0; height: 117.0; page: 5;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1287.7; top: 2853.1; width: 175.0; height: 117.0; page: 5;}; "><docset:Species>
+
+          Human and animal </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1462.7; top: 2853.1; width: 765.0; height: 117.0; page: 5;}; "><docset:Value>
+
+          Minimal irritation </docset:Value></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:SkinCorrosionIrritation></docset:SkinCorrosionIrritation-section><dg:chunk><dg:chunk structure="h1">
+
+        Serious Eye Damage/Irritation </dg:chunk><docset:AcuteToxicity><xhtml:table structure="table" style="boundingBox:{left: 150.7; top: 3067.9; width: 2081.0; height: 80.0; page: 5;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 150.7; top: 3067.9; width: 2081.0; height: 80.0; page: 5;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 150.7; top: 3067.9; width: 2081.0; height: 40.0; page: 5;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.7; top: 3067.9; width: 1137.0; height: 40.0; page: 5;}; ">
+
+          Name </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1287.7; top: 3067.9; width: 175.0; height: 40.0; page: 5;}; "><dg:chunk structure="h1">
+
+          Species </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1462.7; top: 3067.9; width: 769.0; height: 40.0; page: 5;}; "><dg:chunk structure="h1">
+
+          Value </dg:chunk></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.7; top: 3108.9; width: 2081.0; height: 39.0; page: 5;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.7; top: 3107.9; width: 1137.0; height: 40.0; page: 5;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1287.7; top: 3107.9; width: 175.0; height: 40.0; page: 5;}; "><docset:Species>
+
+          Rabbit </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1462.7; top: 3107.9; width: 769.0; height: 40.0; page: 5;}; "><docset:Value>
+
+          Mild irritant </docset:Value></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:AcuteToxicity></dg:chunk><docset:SkinSensitization-section><dg:chunk structure="h1">
+
+        <dg:chunk>Skin Sensitization </dg:chunk></dg:chunk><docset:SkinSensitization structure="div"><docset:SpecificTargetOrganToxicity-RepeatedExposure><xhtml:table structure="table" style="boundingBox:{left: 150.5; top: 571.7; width: 2075.0; height: 81.0; page: 6;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 150.5; top: 571.7; width: 2075.0; height: 81.0; page: 6;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 571.7; width: 2075.0; height: 41.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 571.7; width: 1137.0; height: 41.0; page: 6;}; ">
+
+          Name </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1287.5; top: 571.7; width: 175.0; height: 41.0; page: 6;}; "><dg:chunk structure="h1">
+
+          Species </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1462.5; top: 571.7; width: 763.0; height: 41.0; page: 6;}; "><dg:chunk structure="h1">
+
+          Value </dg:chunk></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 613.7; width: 2075.0; height: 39.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 612.7; width: 1137.0; height: 40.0; page: 6;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1287.5; top: 612.7; width: 175.0; height: 40.0; page: 6;}; "><docset:Species>
+
+          Human </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1462.5; top: 612.7; width: 763.0; height: 40.0; page: 6;}; "><docset:Value>
+
+          Not sensitizing </docset:Value></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:SpecificTargetOrganToxicity-RepeatedExposure><dg:chunk><docset:SpecificTargetOrganToxicity-RepeatedExposure><xhtml:table structure="table" style="boundingBox:{left: 149.5; top: 709.2; width: 2076.1; height: 300.0; page: 6;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 149.5; top: 709.2; width: 2076.1; height: 300.0; page: 6;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 149.5; top: 709.2; width: 2076.1; height: 109.6; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 149.5; top: 704.1; width: 836.2; height: 114.7; page: 6;}; "><dg:chunk structure="h1">
+
+        Respiratory Sensitization 
+
+          Name </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 985.7; top: 709.2; width: 463.1; height: 109.6; page: 6;}; ">
+
+                          Species </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1448.8; top: 709.2; width: 776.7; height: 109.6; page: 6;}; ">
+
+          Value </xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 149.5; top: 818.8; width: 2076.1; height: 72.5; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 149.5; top: 818.8; width: 836.2; height: 72.5; page: 6;}; "><docset:RespiratorySensitizationName>
+
+        <dg:chunk>Germ Cell Mutagenicity </dg:chunk></docset:RespiratorySensitizationName></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 985.7; top: 818.8; width: 463.1; height: 72.5; page: 6;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1448.8; top: 818.8; width: 776.7; height: 72.5; page: 6;}; "><docset:Value /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 149.5; top: 891.2; width: 2076.1; height: 38.8; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 149.5; top: 891.2; width: 836.2; height: 38.8; page: 6;}; "><docset:RespiratorySensitizationNameName>
+
+          Name </docset:RespiratorySensitizationNameName></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 985.7; top: 891.2; width: 463.1; height: 38.8; page: 6;}; "><docset:NameSpecies structure="h1">
+
+                         Route </docset:NameSpecies></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1448.8; top: 891.2; width: 776.7; height: 38.8; page: 6;}; "><docset:NameValue>
+
+          Value </docset:NameValue></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 149.5; top: 930.0; width: 2076.1; height: 38.7; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 149.5; top: 930.0; width: 836.2; height: 38.7; page: 6;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 985.7; top: 930.0; width: 463.1; height: 38.7; page: 6;}; "><docset:Route>
+
+                         In Vitro </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1448.8; top: 930.0; width: 776.7; height: 38.7; page: 6;}; "><docset:Route structure="p">
+
+          Some positive data exist, but the data are not </docset:Route></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 149.5; top: 968.7; width: 2076.1; height: 40.5; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 149.5; top: 968.7; width: 836.2; height: 40.5; page: 6;}; " /><xhtml:td structure="td" style="boundingBox:{left: 985.7; top: 968.7; width: 463.1; height: 40.5; page: 6;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1448.8; top: 968.7; width: 776.7; height: 40.5; page: 6;}; "><docset:Value>
+
+          sufficient for classification </docset:Value></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:SpecificTargetOrganToxicity-RepeatedExposure><docset:SpecificTargetOrganToxicity-RepeatedExposure><xhtml:table structure="table" style="boundingBox:{left: 150.5; top: 1063.3; width: 2062.0; height: 124.0; page: 6;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 150.5; top: 1063.3; width: 2062.0; height: 124.0; page: 6;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 1063.3; width: 2062.0; height: 43.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 1063.3; width: 2062.0; height: 43.0; page: 6;}; " colspan="4"><dg:chunk structure="h1">
+
+        Carcinogenicity </dg:chunk></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 1107.3; width: 2062.0; height: 39.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 1106.3; width: 956.0; height: 40.0; page: 6;}; "><docset:CarcinogenicityName>
+
+          Name </docset:CarcinogenicityName></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1106.5; top: 1106.3; width: 188.0; height: 40.0; page: 6;}; "><docset:Name>
+
+         Route </docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1294.5; top: 1106.3; width: 168.0; height: 40.0; page: 6;}; "><docset:Name>
+
+         Species </docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1462.5; top: 1106.3; width: 750.0; height: 40.0; page: 6;}; "><docset:Name>
+
+          Value </docset:Name></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 1147.3; width: 2062.0; height: 40.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 1146.3; width: 956.0; height: 41.0; page: 6;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1106.5; top: 1146.3; width: 188.0; height: 41.0; page: 6;}; "><docset:Route>
+
+         Inhalation </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1294.5; top: 1146.3; width: 168.0; height: 41.0; page: 6;}; "><docset:Species>
+
+         Rat </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1462.5; top: 1146.3; width: 750.0; height: 41.0; page: 6;}; "><docset:Value>
+
+          Carcinogenic </docset:Value></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:SpecificTargetOrganToxicity-RepeatedExposure></dg:chunk></docset:SkinSensitization></docset:SkinSensitization-section><dg:chunk structure="h1">
+
+        <dg:chunk>Reproductive Toxicity </dg:chunk></dg:chunk><docset:ReproductiveAndOrDevelopmentalEffects-section><dg:chunk structure="h1">
+
+        Reproductive and/or Developmental Effects </dg:chunk><docset:ReproductiveAndOrDevelopmentalEffects><xhtml:table structure="table" style="boundingBox:{left: 150.5; top: 1380.2; width: 2059.0; height: 196.0; page: 6;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 150.5; top: 1380.2; width: 2059.0; height: 196.0; page: 6;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 1380.2; width: 2059.0; height: 79.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 1380.2; width: 637.0; height: 79.0; page: 6;}; "><dg:chunk structure="h1">
+
+          Name </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 787.5; top: 1380.2; width: 182.0; height: 79.0; page: 6;}; ">
+
+          Route </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 969.5; top: 1380.2; width: 590.0; height: 79.0; page: 6;}; ">
+
+         Value </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1559.5; top: 1380.2; width: 175.0; height: 79.0; page: 6;}; "><dg:chunk structure="h1">
+
+         Species </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1734.5; top: 1380.2; width: 241.0; height: 79.0; page: 6;}; "><dg:chunk structure="h1">
+
+         <dg:chunk><dgm:_testRef>Test </dgm:_testRef>Result </dg:chunk></dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1975.5; top: 1380.2; width: 234.0; height: 79.0; page: 6;}; "><dg:chunk structure="h1">
+
+          Exposure 
+
+          Duration </dg:chunk></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 1460.2; width: 2059.0; height: 116.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 1459.2; width: 637.0; height: 117.0; page: 6;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 787.5; top: 1459.2; width: 182.0; height: 117.0; page: 6;}; "><docset:Route>
+
+          Inhalation </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 969.5; top: 1459.2; width: 590.0; height: 117.0; page: 6;}; "><docset:Value structure="p">
+
+         Some positive female reproductive data exist, but the data are not sufficient for classification </docset:Value></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1559.5; top: 1459.2; width: 175.0; height: 117.0; page: 6;}; "><docset:Species>
+
+         Rat </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1734.5; top: 1459.2; width: 241.0; height: 117.0; page: 6;}; "><docset:TestResult>
+
+         LOAEL <docset:LOAELValue>0.25 </docset:LOAELValue>mg/l </docset:TestResult></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1975.5; top: 1459.2; width: 234.0; height: 117.0; page: 6;}; "><docset:ExposureDuration>
+
+          premating &amp; during gestation </docset:ExposureDuration></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:ReproductiveAndOrDevelopmentalEffects></docset:ReproductiveAndOrDevelopmentalEffects-section><docset:SpecificTargetOrganToxicityRepeatedExposure-section><dg:chunk structure="h1">
+
+        Target Organ(s) Specific Target Organ Toxicity - single exposure </dg:chunk><docset:SpecificTargetOrganToxicityRepeatedExposure><xhtml:table structure="table" style="boundingBox:{left: 150.5; top: 1769.2; width: 2059.0; height: 196.0; page: 6;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 150.5; top: 1769.2; width: 2059.0; height: 196.0; page: 6;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 1769.2; width: 2059.0; height: 79.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 1769.2; width: 415.0; height: 79.0; page: 6;}; "><dg:chunk structure="h1">
+
+          Name </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 565.5; top: 1769.2; width: 185.0; height: 79.0; page: 6;}; "><dg:chunk structure="h1">
+
+          Route </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 750.5; top: 1769.2; width: 315.0; height: 79.0; page: 6;}; ">
+
+          Target Organ(s) </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1065.5; top: 1769.2; width: 497.0; height: 79.0; page: 6;}; "><dg:chunk structure="h1">
+
+          Value </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1562.5; top: 1769.2; width: 175.0; height: 79.0; page: 6;}; "><dg:chunk structure="h1">
+
+          Species </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1737.5; top: 1769.2; width: 235.0; height: 79.0; page: 6;}; "><dg:chunk structure="h1">
+
+          <dg:chunk><dgm:_testRef>Test </dgm:_testRef>Result </dg:chunk></dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1972.5; top: 1769.2; width: 237.0; height: 79.0; page: 6;}; "><dg:chunk structure="h1">
+
+         <dg:chunk>Exposure Duration </dg:chunk></dg:chunk></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 1849.2; width: 2059.0; height: 116.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 1848.2; width: 415.0; height: 117.0; page: 6;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 565.5; top: 1848.2; width: 185.0; height: 117.0; page: 6;}; "><docset:Route>
+
+          Inhalation </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 750.5; top: 1848.2; width: 315.0; height: 117.0; page: 6;}; "><docset:TargetOrganS>
+
+          respiratory irritation </docset:TargetOrganS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1065.5; top: 1848.2; width: 497.0; height: 117.0; page: 6;}; "><docset:Value structure="p">
+
+          Some positive data exist, but the data are not sufficient for classification </docset:Value></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1562.5; top: 1848.2; width: 175.0; height: 117.0; page: 6;}; "><docset:Species /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1737.5; top: 1848.2; width: 235.0; height: 117.0; page: 6;}; "><docset:TestResult>
+
+          NOAEL Not available </docset:TestResult></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1972.5; top: 1848.2; width: 237.0; height: 117.0; page: 6;}; "><docset:ExposureDuration /></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:SpecificTargetOrganToxicityRepeatedExposure></docset:SpecificTargetOrganToxicityRepeatedExposure-section><docset:SpecificTargetOrganToxicityRepeatedExposure-section><dg:chunk structure="h1">
+
+        Specific Target Organ Toxicity - repeated exposure </dg:chunk><docset:SpecificTargetOrganToxicityRepeatedExposure><xhtml:table structure="table" style="boundingBox:{left: 150.5; top: 2072.6; width: 2053.0; height: 938.0; page: 6;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 150.5; top: 2072.6; width: 2053.0; height: 938.0; page: 6;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 2072.6; width: 2053.0; height: 79.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 2072.6; width: 412.0; height: 79.0; page: 6;}; ">
+
+          Name </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 562.5; top: 2072.6; width: 188.0; height: 79.0; page: 6;}; "><dg:chunk structure="h1">
+
+          Route </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 750.5; top: 2072.6; width: 319.0; height: 79.0; page: 6;}; ">
+
+          Target Organ(s) </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1069.5; top: 2072.6; width: 493.0; height: 79.0; page: 6;}; ">
+
+         Value </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1562.5; top: 2072.6; width: 178.0; height: 79.0; page: 6;}; ">
+
+          Species </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1740.5; top: 2072.6; width: 232.0; height: 79.0; page: 6;}; "><dg:chunk structure="h1">
+
+          <dg:chunk><dgm:_testRef>Test </dgm:_testRef>Result </dg:chunk></dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1972.5; top: 2072.6; width: 231.0; height: 79.0; page: 6;}; "><dg:chunk structure="h1">
+
+         <dg:chunk>Exposure Duration </dg:chunk></dg:chunk></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 2152.6; width: 2053.0; height: 116.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 2151.6; width: 412.0; height: 117.0; page: 6;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 562.5; top: 2151.6; width: 188.0; height: 117.0; page: 6;}; "><docset:Route>
+
+          Dermal </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 750.5; top: 2151.6; width: 319.0; height: 117.0; page: 6;}; "><docset:TargetOrganS>
+
+          skin </docset:TargetOrganS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1069.5; top: 2151.6; width: 493.0; height: 117.0; page: 6;}; "><docset:Value structure="p">
+
+         Causes damage to organs through prolonged or repeated exposure </docset:Value></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1562.5; top: 2151.6; width: 178.0; height: 117.0; page: 6;}; "><docset:Species>
+
+          Human </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1740.5; top: 2151.6; width: 232.0; height: 117.0; page: 6;}; "><docset:TestResult>
+
+          NOAEL Not available </docset:TestResult></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1972.5; top: 2151.6; width: 231.0; height: 117.0; page: 6;}; "><docset:ExposureDuration>
+
+         occupational exposure </docset:ExposureDuration></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 2269.6; width: 2053.0; height: 116.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 2268.6; width: 412.0; height: 117.0; page: 6;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 562.5; top: 2268.6; width: 188.0; height: 117.0; page: 6;}; "><docset:Route>
+
+          Inhalation </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 750.5; top: 2268.6; width: 319.0; height: 117.0; page: 6;}; "><docset:TargetOrganS>
+
+          pulmonary <dgm:Condition>fibrosis </dgm:Condition></docset:TargetOrganS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1069.5; top: 2268.6; width: 493.0; height: 117.0; page: 6;}; "><docset:Value structure="p">
+
+         May cause damage to organs though prolonged or repeated exposure </docset:Value></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1562.5; top: 2268.6; width: 178.0; height: 117.0; page: 6;}; "><docset:Species>
+
+          Rat </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1740.5; top: 2268.6; width: 232.0; height: 117.0; page: 6;}; "><docset:TestResult>
+
+          NOAEL <docset:No-Observed-Adverse-Effect-Level>.002 </docset:No-Observed-Adverse-Effect-Level>mg/l </docset:TestResult></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1972.5; top: 2268.6; width: 231.0; height: 117.0; page: 6;}; "><docset:ExposureDuration>
+
+         <docset:YearsofExperience>1 years </docset:YearsofExperience></docset:ExposureDuration></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 2386.6; width: 2053.0; height: 116.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 2385.6; width: 412.0; height: 117.0; page: 6;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 562.5; top: 2385.6; width: 188.0; height: 117.0; page: 6;}; "><docset:Route>
+
+          Inhalation </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 750.5; top: 2385.6; width: 319.0; height: 117.0; page: 6;}; "><docset:TargetOrganS>
+
+          liver </docset:TargetOrganS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1069.5; top: 2385.6; width: 493.0; height: 117.0; page: 6;}; "><docset:Value structure="p">
+
+         Some positive data exist, but the data are not sufficient for classification </docset:Value></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1562.5; top: 2385.6; width: 178.0; height: 117.0; page: 6;}; "><docset:Species>
+
+          Rat </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1740.5; top: 2385.6; width: 232.0; height: 117.0; page: 6;}; "><docset:TestResult>
+
+          NOAEL 
+
+          <docset:NOAELValue>0.043 </docset:NOAELValue>mg/l </docset:TestResult></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1972.5; top: 2385.6; width: 231.0; height: 117.0; page: 6;}; "><docset:ExposureDuration>
+
+         <docset:YearsofExperience>1 years </docset:YearsofExperience></docset:ExposureDuration></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 2503.6; width: 2053.0; height: 116.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 2502.6; width: 412.0; height: 117.0; page: 6;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 562.5; top: 2502.6; width: 188.0; height: 117.0; page: 6;}; "><docset:Route>
+
+          Inhalation </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 750.5; top: 2502.6; width: 319.0; height: 117.0; page: 6;}; "><docset:TargetOrganS>
+
+          blood </docset:TargetOrganS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1069.5; top: 2502.6; width: 493.0; height: 117.0; page: 6;}; "><docset:Value structure="p">
+
+         Some positive data exist, but the data are not sufficient for classification </docset:Value></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1562.5; top: 2502.6; width: 178.0; height: 117.0; page: 6;}; "><docset:Species>
+
+          Rat </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1740.5; top: 2502.6; width: 232.0; height: 117.0; page: 6;}; "><docset:TestResult>
+
+          NOAEL <docset:No-Observed-Adverse-Effect-Level>.004 </docset:No-Observed-Adverse-Effect-Level>mg/l </docset:TestResult></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1972.5; top: 2502.6; width: 231.0; height: 117.0; page: 6;}; "><docset:ExposureDuration>
+
+         not available </docset:ExposureDuration></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 2620.6; width: 2053.0; height: 116.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 2619.6; width: 412.0; height: 117.0; page: 6;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 562.5; top: 2619.6; width: 188.0; height: 117.0; page: 6;}; "><docset:Route>
+
+          Inhalation </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 750.5; top: 2619.6; width: 319.0; height: 117.0; page: 6;}; "><docset:TargetOrganS>
+
+          <dgm:Condition>pneumoconiosis </dgm:Condition></docset:TargetOrganS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1069.5; top: 2619.6; width: 493.0; height: 117.0; page: 6;}; "><docset:Value structure="p">
+
+         Some positive data exist, but the data are not sufficient for classification </docset:Value></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1562.5; top: 2619.6; width: 178.0; height: 117.0; page: 6;}; "><docset:Species>
+
+          Human </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1740.5; top: 2619.6; width: 232.0; height: 117.0; page: 6;}; "><docset:TestResult>
+
+          LOAEL <docset:LOAELValue>0.01 </docset:LOAELValue>mg/l </docset:TestResult></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1972.5; top: 2619.6; width: 231.0; height: 117.0; page: 6;}; "><docset:ExposureDuration>
+
+         occupational exposure </docset:ExposureDuration></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 2737.6; width: 2053.0; height: 77.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 2736.6; width: 412.0; height: 78.0; page: 6;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 562.5; top: 2736.6; width: 188.0; height: 78.0; page: 6;}; "><docset:Route>
+
+          Inhalation </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 750.5; top: 2736.6; width: 319.0; height: 78.0; page: 6;}; "><docset:TargetOrganS>
+
+          heart </docset:TargetOrganS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1069.5; top: 2736.6; width: 493.0; height: 78.0; page: 6;}; "><docset:Value>
+
+         All data are negative </docset:Value></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1562.5; top: 2736.6; width: 178.0; height: 78.0; page: 6;}; "><docset:Species>
+
+          Rat </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1740.5; top: 2736.6; width: 232.0; height: 78.0; page: 6;}; "><docset:TestResult>
+
+          NOAEL <docset:No-Observed-Adverse-Effect-Level>0.02 </docset:No-Observed-Adverse-Effect-Level>mg/l </docset:TestResult></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1972.5; top: 2736.6; width: 231.0; height: 78.0; page: 6;}; "><docset:ExposureDuration>
+
+         <docset:YearsofExperience>1 years </docset:YearsofExperience></docset:ExposureDuration></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 2815.6; width: 2053.0; height: 116.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 2814.6; width: 412.0; height: 117.0; page: 6;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 562.5; top: 2814.6; width: 188.0; height: 117.0; page: 6;}; "><docset:Route>
+
+          Ingestion </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 750.5; top: 2814.6; width: 319.0; height: 117.0; page: 6;}; "><docset:TargetOrganS>
+
+          blood | liver </docset:TargetOrganS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1069.5; top: 2814.6; width: 493.0; height: 117.0; page: 6;}; "><docset:Value structure="p">
+
+         Some positive data exist, but the data are not sufficient for classification </docset:Value></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1562.5; top: 2814.6; width: 178.0; height: 117.0; page: 6;}; "><docset:Species>
+
+          Rat </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1740.5; top: 2814.6; width: 232.0; height: 117.0; page: 6;}; "><docset:TestResult>
+
+          NOAEL <docset:NOAELValue>418 </docset:NOAELValue>mg/kg/day </docset:TestResult></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1972.5; top: 2814.6; width: 231.0; height: 117.0; page: 6;}; "><docset:ExposureDuration>
+
+         not available </docset:ExposureDuration></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 2932.6; width: 2053.0; height: 78.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 2931.6; width: 412.0; height: 79.0; page: 6;}; "><docset:Name>
+
+          <dg:chunk><docset:FlameRetardantType>INORGANIC </docset:FlameRetardantType>FLAME RETARDANT </dg:chunk></docset:Name></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 562.5; top: 2931.6; width: 188.0; height: 79.0; page: 6;}; "><docset:Route>
+
+          Ingestion </docset:Route></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 750.5; top: 2931.6; width: 319.0; height: 79.0; page: 6;}; "><docset:TargetOrganS>
+
+          heart </docset:TargetOrganS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1069.5; top: 2931.6; width: 493.0; height: 79.0; page: 6;}; "><docset:Value>
+
+         All data are negative </docset:Value></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1562.5; top: 2931.6; width: 178.0; height: 79.0; page: 6;}; "><docset:Species>
+
+          Rat </docset:Species></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1740.5; top: 2931.6; width: 232.0; height: 79.0; page: 6;}; "><docset:TestResult>
+
+          NOAEL Not available </docset:TestResult></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1972.5; top: 2931.6; width: 231.0; height: 79.0; page: 6;}; "><docset:ExposureDuration>
+
+         not available </docset:ExposureDuration></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:SpecificTargetOrganToxicityRepeatedExposure></docset:SpecificTargetOrganToxicityRepeatedExposure-section><dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+        <dg:chunk>Aspiration Hazard </dg:chunk></dg:chunk><dg:chunk structure="div"><xhtml:table structure="table" style="boundingBox:{left: 149.5; top: 3118; width: 2053.0; height: 41; page: 6;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 149.5; top: 3118; width: 2053.0; height: 41; page: 6;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 149.5; top: 3118; width: 2053.0; height: 41; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 149.5; top: 3118; width: 1219.0; height: 41; page: 6;}; ">
+
+          Name </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1368.5; top: 3118; width: 834.0; height: 41; page: 6;}; "><docset:Name>
+
+         Value </docset:Name></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table><docset:ToxicologicalInformation structure="p">
+
+        Please contact the address or phone number listed on the first page of the SDS for additional toxicological information on this material and/or its components. </docset:ToxicologicalInformation></dg:chunk></dg:chunk><dg:chunk structure="h1">
+
+         SECTION 12: Ecological information </dg:chunk></dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+        Ecotoxicological information </dg:chunk><dg:chunk structure="div">
+
+        Please contact the address or phone number listed on the first page of the SDS for additional ecotoxicological information on this material and/or its components. </dg:chunk></dg:chunk><docset:ChemicalFateInformation-section><dg:chunk structure="h1">
+
+        Chemical fate information </dg:chunk><docset:ChemicalFateInformation structure="div"><docset:ChemicalFateInformation structure="p">
+
+        Please contact the address or phone number listed on the first page of the SDS for additional chemical fate information on this material and/or its components. </docset:ChemicalFateInformation><dg:chunk><docset:SECTION13DisposalConsiderations-section><dg:chunk structure="h1">
+
+         SECTION 13: Disposal considerations </dg:chunk><docset:_131DisposalMethods-section structure="div"><dg:chunk structure="h1">
+
+        <docset:DisposalMethod>13.1</docset:DisposalMethod>. Disposal methods </dg:chunk><docset:_131DisposalMethods structure="div"><docset:DisposalInstructions structure="p">
+
+        Dispose of contents/ container in accordance with the local/regional/national/international regulations. </docset:DisposalInstructions><docset:DisposalInstructions structure="p">
+
+        Prior to disposal, consult all applicable authorities and regulations to insure proper classification. Incinerate in a permitted waste incineration facility. Proper destruction may require the use of additional fuel during incineration processes. As a disposal alternative, utilize an acceptable permitted waste disposal facility. If no other disposal options are available, waste product may be placed in a landfill properly designed for industrial waste. </docset:DisposalInstructions></docset:_131DisposalMethods></docset:_131DisposalMethods-section></docset:SECTION13DisposalConsiderations-section><docset:EPAHazardousWasteNumberRCRA-section><dg:chunk structure="h1">
+
+        <dg:chunk>EPA Hazardous Waste Number </dg:chunk>(RCRA): </dg:chunk><docset:EPAHazardousWasteNumberRCRA structure="div">Not regulated </docset:EPAHazardousWasteNumberRCRA></docset:EPAHazardousWasteNumberRCRA-section><dg:chunk><docset:Section14TransportInformation-section><dg:chunk structure="h1">
+
+         SECTION 14: <dg:chunk>Transport Information </dg:chunk></dg:chunk><docset:Section14TransportInformation structure="div"><dg:chunk structure="p">
+
+        | </dg:chunk><docset:Ingredient><xhtml:table structure="table" style="boundingBox:{left: 150.5; top: 1959.6; width: 2099.0; height: 173.0; page: 7;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 150.5; top: 1959.6; width: 2099.0; height: 173.0; page: 7;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 1959.6; width: 2099.0; height: 52.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 1959.6; width: 2099.0; height: 52.0; page: 7;}; "><docset:TransportationInformation structure="p">
+
+         For <dg:chunk>Transport Information</dg:chunk>, please visit <docset:TransportationInformation>http://3M.com/Transportinfo </docset:TransportationInformation>or call <docset:TransportationContactNumber>1-<docset:TransportationInformation>800</docset:TransportationInformation>-<docset:TransportationInformation>364</docset:TransportationInformation>-<docset:TransportationInformation>3577 </docset:TransportationInformation></docset:TransportationContactNumber>or <docset:TransportationPhoneNumber><docset:TransportationPhoneNumber>651</docset:TransportationPhoneNumber>-<docset:TransportationInformation>737</docset:TransportationInformation>-<docset:TransportationInformation>6501</docset:TransportationInformation></docset:TransportationPhoneNumber>. </docset:TransportationInformation></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 2012.6; width: 2099.0; height: 51.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 2011.6; width: 2099.0; height: 52.0; page: 7;}; "><docset:ForTransportInformationPleaseVisitHttp3MComTransportinfoOrCall1-800-3 /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 150.5; top: 2064.6; width: 2099.0; height: 68.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 150.5; top: 2063.6; width: 2099.0; height: 69.0; page: 7;}; "><docset:Section15-cell structure="h1">
+
+         SECTION 15: Regulatory information </docset:Section15-cell></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:Ingredient></docset:Section14TransportInformation></docset:Section14TransportInformation-section><dg:chunk structure="p">
+
+        <docset:USFederalRegulations>15.1</docset:USFederalRegulations>. <dg:chunk>US Federal Regulations </dg:chunk></dg:chunk></dg:chunk></dg:chunk></docset:ChemicalFateInformation></docset:ChemicalFateInformation-section><dg:chunk><dg:chunk structure="h1">
+
+        Contact <docset:ContactInformation>3</docset:ContactInformation>M for more information. </dg:chunk><docset:_311312HazardCategories-section structure="div"><dg:chunk structure="h1">
+
+        <docset:HazardCategory>311/312 </docset:HazardCategory>Hazard Categories: </dg:chunk><docset:_311312HazardCategories structure="div"><dg:chunk structure="p">
+
+        <dg:chunk>Fire Hazard </dg:chunk>- <dg:chunk>No Pressure Hazard - No </dg:chunk></dg:chunk><docset:ReactivityHazard-No-section><dg:chunk structure="h1">
+
+                                                 <dg:chunk>Reactivity Hazard - No </dg:chunk></dg:chunk><docset:ReactivityHazard-No structure="div"><dg:chunk><dg:chunk structure="p">
+
+                                                                         <dg:chunk>Immediate Hazard - No </dg:chunk></dg:chunk><dg:chunk><docset:HazardDelay structure="p">
+
+                                                                                                  <dg:chunk>Delayed Hazard - No </dg:chunk></docset:HazardDelay><dg:chunk><docset:ToxicChemicalReportingRequirements structure="p">
+
+        Section <docset:EPCRAReportingRequirements>313 </docset:EPCRAReportingRequirements>Toxic Chemicals subject to the reporting requirements of that section and <docset:EPCRAReportingRequirements>40 </docset:EPCRAReportingRequirements>CFR part <docset:EPCRAReportingRequirements>372 </docset:EPCRAReportingRequirements>(EPCRA): </docset:ToxicChemicalReportingRequirements><docset:Ingredient><xhtml:table structure="table" style="boundingBox:{left: 229.1; top: 2646.2; width: 1950.3; height: 124.3; page: 7;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 229.1; top: 2646.2; width: 1950.3; height: 124.3; page: 7;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 229.1; top: 2646.2; width: 1950.3; height: 44.1; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 229.1; top: 2646.2; width: 683.3; height: 44.1; page: 7;}; ">
+
+             Ingredient </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 912.4; top: 2646.2; width: 337.3; height: 44.1; page: 7;}; "><dg:chunk structure="h1">
+
+                  <docset:CASNumber>C.A.S. </docset:CASNumber>No </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1249.7; top: 2646.2; width: 929.7; height: 44.1; page: 7;}; "><dg:chunk structure="h1">
+
+               % by Wt </dg:chunk></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 229.1; top: 2690.3; width: 1950.3; height: 80.2; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 229.1; top: 2690.3; width: 683.3; height: 80.2; page: 7;}; "><docset:Ingredient structure="h1">
+
+             <dg:chunk><docset:FlameRetardant>INORGANIC </docset:FlameRetardant>FLAME RETARDANT </dg:chunk>(<docset:FlameRetardant>ANTIMONY COMPOUNDS</docset:FlameRetardant>) </docset:Ingredient></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 912.4; top: 2690.3; width: 337.3; height: 80.2; page: 7;}; "><docset:CaSNo>
+
+                  <dg:chunk>Trade Secret </dg:chunk></docset:CaSNo></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1249.7; top: 2690.3; width: 929.7; height: 80.2; page: 7;}; "><docset:ByWt>
+
+                <dgc:Number>10 </dgc:Number>- <dgc:Number>20 </dgc:Number></docset:ByWt></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:Ingredient></dg:chunk></dg:chunk></dg:chunk><dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+        <docset:StateRegulations>15.2</docset:StateRegulations>. <dg:chunk>State Regulations </dg:chunk></dg:chunk><dg:chunk structure="div">
+
+         Contact <docset:ContactInformation>3</docset:ContactInformation>M for more information. </dg:chunk></dg:chunk><docset:_153ChemicalInventories-section><dg:chunk structure="h1">
+
+        <docset:ChemicalInventory>15.3</docset:ChemicalInventory>. <dg:chunk>Chemical Inventories </dg:chunk></dg:chunk><docset:_153ChemicalInventories structure="div"><dg:chunk structure="p">
+
+        The components of this material are in compliance with the provisions of <dg:chunk>Japan Chemical Substance Control Law</dg:chunk>. Certain restrictions may apply. Contact the selling division for additional information. This product is an article as defined by TSCA regulations, and is exempt from TSCA Inventory listing requirements. </dg:chunk><dg:chunk structure="p">
+
+        Contact <docset:ContactInformation>3</docset:ContactInformation>M for more information. </dg:chunk></docset:_153ChemicalInventories></docset:_153ChemicalInventories-section><docset:_154InternationalRegulations-section><dg:chunk structure="h1">
+
+        <docset:InternationalRegulations>15.4</docset:InternationalRegulations>. <dg:chunk>International Regulations </dg:chunk></dg:chunk><docset:_154InternationalRegulations structure="div"><dg:chunk><dg:chunk structure="p">
+
+         Contact <docset:ContactInformation>3</docset:ContactInformation>M for more information. </dg:chunk><docset:SafetyDataSheet structure="p">
+
+             This SDS has been prepared to meet the U.S. OSHA Hazard Communication Standard, <docset:OSHAStandard>29 </docset:OSHAStandard>CFR <docset:OSHAStandard>1910.1200</docset:OSHAStandard>. </docset:SafetyDataSheet></dg:chunk><docset:SECTION16OtherInformation-section><dg:chunk structure="h1">
+
+         SECTION 16: Other information </dg:chunk><docset:SECTION16OtherInformation structure="div"><docset:NFPAHazardClassificationHealth-section><dg:chunk structure="h1">
+
+        <dg:chunk>NFPA Hazard Classification Health</dg:chunk>: </dg:chunk><docset:NFPAHazardClassificationHealth structure="div"><dg:chunk structure="p"><dgc:Number>0 </dgc:Number>Flammability: <docset:HazardRating>1 </docset:HazardRating>Instability: <docset:HazardRating>0 </docset:HazardRating>Special Hazards: None </dg:chunk><dg:chunk><docset:HazardRating structure="p">
+
+        <docset:HazardRating>National Fire Protection Association (NFPA</docset:HazardRating>) hazard ratings are designed for use by emergency response personnel to address the hazards that are presented by short-term, acute exposure to a material under conditions of fire, spill, or similar emergencies. Hazard ratings are primarily based on the inherent physical and toxic properties of the material but also include the toxic properties of combustion or decomposition products that are known to be generated in significant quantities. </docset:HazardRating><docset:OtherInformation><xhtml:table structure="table" style="boundingBox:{left: 155.6; top: 1575.5; width: 1727.6; height: 91.8; page: 8;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 155.6; top: 1575.5; width: 1727.6; height: 91.8; page: 8;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 155.6; top: 1575.5; width: 1727.6; height: 44.8; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 155.6; top: 1575.5; width: 424.6; height: 44.8; page: 8;}; "><dg:chunk structure="h1">
+
+         <dg:chunk>Document Group</dg:chunk>: </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 580.2; top: 1575.5; width: 452.4; height: 44.8; page: 8;}; "><docset:DocumentGroup>
+
+              <dgc:Phone><dgc:Number>30</dgc:Number>-<dgc:Number>8257</dgc:Number>-<dgc:Number>5 </dgc:Number></dgc:Phone></docset:DocumentGroup></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1032.6; top: 1575.5; width: 592.9; height: 44.8; page: 8;}; ">
+
+                   Version Number: </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1625.6; top: 1575.5; width: 257.6; height: 44.8; page: 8;}; "><docset:VersionNumber>
+
+               <dgc:Number>2.00 </dgc:Number></docset:VersionNumber></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 155.6; top: 1620.3; width: 1727.6; height: 47.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 155.6; top: 1620.3; width: 424.6; height: 47.0; page: 8;}; "><docset:DocumentGroupIssueDate>
+
+         <dg:chunk>Issue Date</dg:chunk>: </docset:DocumentGroupIssueDate></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 580.2; top: 1620.3; width: 452.4; height: 47.0; page: 8;}; "><docset:IssueDate>
+
+              <dg:chunk xsi:type="date">08/19/14 </dg:chunk></docset:IssueDate></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1032.6; top: 1620.3; width: 592.9; height: 47.0; page: 8;}; "><docset:IssueDateVersionNumber>
+
+                   <dg:chunk>Supercedes Date</dg:chunk>: </docset:IssueDateVersionNumber></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1625.6; top: 1620.3; width: 257.6; height: 47.0; page: 8;}; "><docset:SupercedesDate>
+
+               <dg:chunk xsi:type="date">05/08/12 </dg:chunk></docset:SupercedesDate></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:OtherInformation></dg:chunk></docset:NFPAHazardClassificationHealth></docset:NFPAHazardClassificationHealth-section><dg:chunk><dg:chunk structure="h1">
+
+        DISCLAIMER: </dg:chunk><dg:chunk structure="div"><docset:SafetyDataSheet structure="p">The information in this <dg:chunk>Safety Data Sheet </dg:chunk>(SDS) is believed to be correct as of the date issued. 3M MAKES NO WARRANTIES, EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, ANY <dg:chunk>IMPLIED WARRANTY </dg:chunk>OF MERCHANTABILITY OR FITNESS FOR A <dg:chunk>PARTICULAR PURPOSE </dg:chunk>OR COURSE OF PERFORMANCE OR USAGE OF TRADE. User is responsible for determining whether the 3M product is fit for a particular purpose and suitable for user's method of use or application. Given the variety of factors that can affect the use and application of a 3M product, some of which are uniquely within the user's knowledge and control, it is essential that the user evaluate the 3M product to determine whether it is fit for a particular purpose and suitable for user's method of use or application. </docset:SafetyDataSheet><docset:ElectronicInformationDisclaimer structure="p">
+
+        <dgc:Org>3M </dgc:Org>provides information in electronic form as a service to its customers. Due to the remote possibility that electronic transfer may have resulted in errors, omissions or alterations in this information, <docset:CompanyName>3M </docset:CompanyName>makes no representations as to its completeness or accuracy. In addition, information obtained from a database may not be as current as the information in the SDS available directly from 3M </docset:ElectronicInformationDisclaimer></dg:chunk></dg:chunk></docset:SECTION16OtherInformation><dg:chunk structure="h1">
+
+        <docset:SDSURL>3</docset:SDSURL>M USA SDSs are available at <docset:SDSWebsite>www.3M.com</docset:SDSWebsite></dg:chunk></docset:SECTION16OtherInformation-section></docset:_154InternationalRegulations></docset:_154InternationalRegulations-section></dg:chunk></docset:ReactivityHazard-No></docset:ReactivityHazard-No-section></docset:_311312HazardCategories></docset:_311312HazardCategories-section></dg:chunk></dg:chunk>

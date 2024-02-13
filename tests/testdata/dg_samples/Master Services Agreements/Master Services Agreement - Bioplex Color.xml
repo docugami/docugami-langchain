@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?><dg:chunk cp:version="2.33.33.0.1705581321421-388.0" xmlns:docset="http://www.docugami.com/2021/dgml/docugami/MasterServicesAgreements" xmlns:addedChunks="http://www.docugami.com/2021/dgml/docugami/MasterServicesAgreements/addedChunks" xmlns:dg="http://www.docugami.com/2021/dgml" xmlns:dgc="http://www.docugami.com/2021/dgml/docugami/contracts" xmlns:dgm="http://www.docugami.com/2021/dgml/docugami/medical" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:cp="http://classifyprocess.com/2018/07/"><docset:MASTER_SERVICESAGREEMENT_-section><dg:chunk structure="h1">
+
+          MASTER _ SERVICES AGREEMENT —_—_ </dg:chunk><docset:MASTER_SERVICESAGREEMENT_ structure="div"><docset:MagicSoftInc-section><dg:chunk structure="h1">
+
+           <docset:CompanyName>MagicSoft, Inc. </docset:CompanyName></dg:chunk><docset:MagicSoftInc structure="div"><dg:chunk structure="p">
+
+           <docset:Address><docset:Address><docset:Address>1648 </docset:Address><docset:Address>NW Market St Suite <docset:SuiteNumber>500 </docset:SuiteNumber>Seattle</docset:Address></docset:Address>, <docset:State>WA </docset:State><docset:ZipCode>98107 </docset:ZipCode></docset:Address></dg:chunk><dg:chunk structure="p">
+
+           <dgc:Number>555.555.0125 </dgc:Number></dg:chunk></docset:MagicSoftInc></docset:MagicSoftInc-section><dg:chunk structure="h1">
+
+                      <dg:chunk>STANDARD SOFTWARE AND SERVICES AGREEMENT </dg:chunk></dg:chunk></docset:MASTER_SERVICESAGREEMENT_></docset:MASTER_SERVICESAGREEMENT_-section><dg:chunk><dg:chunk structure="h1">
+
+          AGREEMENT </dg:chunk><dg:chunk structure="div"><dg:chunk><docset:ServicesProvided structure="p">
+
+          This <dg:chunk>Services Agreement </dg:chunk>(the “Agreement”) sets forth terms under which <docset:CompanyName>Magicsoft, Inc. </docset:CompanyName>a <dgc:Org><dgc:USState>Washington </dgc:USState>Corporation </dgc:Org>(“Company”) located at <docset:CompanyAddress><docset:CompanyAddress><docset:EffectiveDate>600 </docset:EffectiveDate><docset:CompanyAddress>4th Ave</docset:CompanyAddress></docset:CompanyAddress>, <docset:CompanyLocation>Seattle</docset:CompanyLocation>, <docset:State>WA </docset:State><docset:CompanyAddress>98104 </docset:CompanyAddress></docset:CompanyAddress>shall provide services to <docset:ClientName>Bioplex, Inc.</docset:ClientName>, a <docset:ClientName><dgc:USState>Washington </dgc:USState>Corporation </docset:ClientName>(the “Client”) located at <docset:ClientAddress><docset:ClientAddress><docset:ClientAddress>709 </docset:ClientAddress><docset:ClientAddress>N La Brea Ave</docset:ClientAddress></docset:ClientAddress>, <docset:ClientLocation>Los Angeles</docset:ClientLocation>, <docset:AgreementEffectiveDate>CA </docset:AgreementEffectiveDate><docset:ClientAddress>90038</docset:ClientAddress></docset:ClientAddress>. This Agreement is effective as of <docset:EffectiveDate>January 15, 20212 </docset:EffectiveDate>(“<dg:chunk>Effective Date</dg:chunk>”). 
+
+          TERMS </docset:ServicesProvided><dg:chunk><dg:chunk><docset:ServicesDelivery structure="ol" style="list-style-type: decimal; boundingBox:{left: 208.3; top: 1345.8; width: 2129.2; height: 1670.8; page: 2;}; "><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 1345.8; width: 2129.2; height: 441.7; page: 2;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 1345.8; width: 37.5; height: 45.8; page: 2;}; ">
+
+          1. </dg:chunk><docset:Deliverables-section><dg:chunk structure="h1">Deliverables. </dg:chunk><docset:Deliverables structure="div">Company shall provide Client with software, technical support, product management, development, and <dgm:_testRef>testing </dgm:_testRef>services (“Services”) to the Client as described on one or more Statements of Work signed by Company and Client that reference this Agreement (“SOW” or “Statement of Work”). Company shall perform Services in a prompt manner and have the final product or service (“Deliverable”) ready for Client no later than the due date specified in the applicable SOW (“<dg:chunk>Completion Date</dg:chunk>”). This due date is subject to change in accordance with the Change Order process defined in the applicable SOW. Client shall assist Company by promptly providing all information requests known or available and relevant to the Services in a timely manner. </docset:Deliverables></docset:Deliverables-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 1841.7; width: 2104.2; height: 841.7; page: 2;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 1841.7; width: 37.5; height: 45.8; page: 2;}; ">
+
+          2. </dg:chunk><docset:OnsiteServices-section><dg:chunk structure="h1"><dg:chunk>Onsite Services</dg:chunk>. </dg:chunk><docset:OnsiteServices structure="ol" style="list-style-type: decimal; boundingBox:{left: 358.3; top: 1942.6; width: 1954.2; height: 740.7; page: 2;}; "><dg:chunk structure="li" style="boundingBox:{left: 358.3; top: 1942.6; width: 1287.5; height: 44.9; page: 2;}; "><dg:chunk structure="lim" style="boundingBox:{left: 358.3; top: 1941.7; width: 62.5; height: 45.8; page: 2;}; ">
+
+                 2.1 </dg:chunk><dg:chunk structure="p">Onsite visits will be charged on a <dgc:Frequency>daily </dgc:Frequency>basis (minimum <docset:OnsiteVisitCharge>8 hours</docset:OnsiteVisitCharge>). </dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 358.7; top: 2043.0; width: 1928.8; height: 111.2; page: 2;}; "><dg:chunk structure="lim" style="boundingBox:{left: 358.3; top: 2041.7; width: 62.5; height: 45.8; page: 2;}; ">
+
+                 2.2 </dg:chunk><docset:BillingTerms structure="p">Time and expenses will be charged based on actuals unless otherwise described in an Order Form or accompanying SOW. </docset:BillingTerms></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 358.3; top: 2208.3; width: 1954.2; height: 245.8; page: 2;}; "><dg:chunk structure="lim" style="boundingBox:{left: 358.3; top: 2208.3; width: 62.5; height: 45.8; page: 2;}; ">
+
+                 2.3 </dg:chunk><docset:WorkingHours structure="p">All work will be executed during regular working hours <dgc:Weekday>Monday</dgc:Weekday>-<dgc:Weekday>Friday </dgc:Weekday><docset:WorkingHours><docset:WorkHours>0800</docset:WorkHours>-<docset:WorkHours>1900</docset:WorkHours></docset:WorkingHours>. For work outside of these hours on weekdays, Company will charge <dgc:Percent>two hundred percent (200%) </dgc:Percent>of the regular hourly rate and <docset:OvertimeRate>two hundred percent (200%) </docset:OvertimeRate>for Saturdays, Sundays and public holidays applicable to Company. </docset:WorkingHours></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 358.3; top: 2508.3; width: 1929.2; height: 175.0; page: 2;}; "><dg:chunk structure="lim" style="boundingBox:{left: 358.3; top: 2508.3; width: 62.5; height: 45.8; page: 2;}; ">
+
+                 2.4 </dg:chunk><docset:CancellationPolicy structure="p">If scheduled onsite visits are cancelled less than <docset:CancellationNotice>fifteen (15) working days </docset:CancellationNotice>in advance of the scheduled date, Company is entitled to charge <docset:CompensationPercentage>fifty percent (50%) </docset:CompensationPercentage>of the expected revenue associated with this onsite activity as compensation. </docset:CancellationPolicy></dg:chunk></docset:OnsiteServices></docset:OnsiteServices-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 2737.5; width: 2100.0; height: 112.5; page: 2;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 2737.5; width: 37.5; height: 45.8; page: 2;}; ">
+
+          3. </dg:chunk><docset:ContractPrice-section><dg:chunk structure="h1"><dg:chunk>Contract Price</dg:chunk>. </dg:chunk><docset:ContractPrice structure="div">For performance of the Services and rendering the Deliverable, Client shall pay to Company all fees due under the applicable SOW. </docset:ContractPrice></docset:ContractPrice-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 2904.2; width: 2108.3; height: 112.5; page: 2;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 2904.2; width: 37.5; height: 50.0; page: 2;}; ">
+
+          4. </dg:chunk><docset:Deposit-section><dg:chunk structure="h1">Deposit. </dg:chunk><docset:Deposit structure="div">An initial payment (the “Deposit”) of <docset:InitialPaymentAmount>One Hundred Thousand Dollars (<docset:InitialPaymentAmount>$100,000</docset:InitialPaymentAmount>) </docset:InitialPaymentAmount>is due to Company at signing. </docset:Deposit></docset:Deposit-section></dg:chunk></docset:ServicesDelivery><dg:chunk structure="p">
+
+| </dg:chunk></dg:chunk><docset:ServicesandDeliverables structure="ol" style="list-style-type: decimal; boundingBox:{left: 208.3; top: 308.3; width: 2129.2; height: 2762.5; page: 3;}; boundingBox:{left: 208.3; top: 606.2; width: 2104.2; height: 774.1; page: 4;}; "><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 308.3; width: 2100.0; height: 179.2; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 308.3; width: 37.5; height: 45.8; page: 3;}; ">
+
+          5. </dg:chunk><docset:DatesofPerformance-section><dg:chunk structure="h1">Dates of Performance. </dg:chunk><docset:DatesofPerformance structure="div">Company will begin performing services upon receipt of signed Agreement and Deposit. Unless terminated as provided in this <docset:AgreementStartDate>Agreement, Company </docset:AgreementStartDate>will complete Services by the <dg:chunk>Completion Date</dg:chunk>. Deliverable shall be furnished to Client within <docset:DeliverableDeadline>72 hours </docset:DeliverableDeadline>of final payment for the Services. </docset:DatesofPerformance></docset:DatesofPerformance-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 541.7; width: 2129.2; height: 308.3; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 541.7; width: 37.5; height: 45.8; page: 3;}; ">
+
+          6. </dg:chunk><docset:ChangeinServices-section><dg:chunk structure="h1">Change in Services. </dg:chunk><docset:ChangeinServices structure="div">If Client desires changes to the SOW, Client shall submit to Company a written request in accordance with the change order process defined in the applicable SOW. The parties may execute additional Statements of Work describing Services, which will become part of this Agreement upon execution by Company and the Client. If additional SOW are executed, then Client shall pay Company for all services performed prior to the additional SOW before Company begins work on the new SOW. </docset:ChangeinServices></docset:ChangeinServices-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 904.2; width: 2112.5; height: 579.2; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 904.2; width: 37.5; height: 45.8; page: 3;}; ">
+
+          7. </dg:chunk><docset:Termination-section><dg:chunk structure="h1">Termination. </dg:chunk><docset:Termination structure="div">This agreement shall continue in force and effect until <docset:AgreementTerm>December 31, 2025 </docset:AgreementTerm>and shall be automatically renewed for successive <docset:RenewalTerm>one-year </docset:RenewalTerm>terms <dgc:Frequency>annually </dgc:Frequency>thereafter unless notice of non-renewal is given by the Company or the Client before the end of the term. Company shall have the right to modify, reject, or terminate any SOW and any related work in process with <docset:TerminationNoticePeriod>five days </docset:TerminationNoticePeriod>written notice to Client. In the event Company terminates the SOW prior to completion of Services, the Client shall pay Company the fees due under the SOW with respect to Services completed as of the date of termination. Payment for completed work will be deducted from the deposit. Company will retain the non-refundable <dgc:Percent>30% </dgc:Percent>of the Deposit and return any unearned portion exceeding <docset:DepositAmount>30% </docset:DepositAmount>of the Deposit. Any amount due for services performed by Company above the deposit will be billed to Client and Client shall promptly pay. </docset:Termination></docset:Termination-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 1533.3; width: 2070.8; height: 445.8; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 1533.3; width: 37.5; height: 50.0; page: 3;}; ">
+
+          8. </dg:chunk><docset:Payment-section><dg:chunk structure="h1">Payment. </dg:chunk><docset:Payment structure="div">In exchange for Company’s Services under this Agreement, the Client shall pay Company the contract price and deposit set forth above. Company will submit a final invoice to Client for all services rendered by the <dg:chunk>Services Completion Date </dg:chunk>and Client shall promptly pay. Client is restricted from using any form of the Deliverable until final payment is received. Client shall pay travel and other expenses incurred by Company in performing the Services. In the event of a good faith dispute with regard to an item appearing on an invoice, Company shall have the right to withhold the Deliverable while the parties attempt to resolve the disputes. </docset:Payment></docset:Payment-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 2032.2; width: 2104.2; height: 809.0; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 2029.2; width: 37.5; height: 50.0; page: 3;}; ">
+
+          9. </dg:chunk><docset:RepresentationsAndWarranties-section><dg:chunk structure="h1">Representations and Warranties. </dg:chunk><docset:RepresentationsAndWarranties structure="ol" style="list-style-type: decimal; boundingBox:{left: 358.3; top: 2133.3; width: 1954.2; height: 707.9; page: 3;}; "><dg:chunk structure="li" style="boundingBox:{left: 358.3; top: 2133.3; width: 1954.2; height: 175.0; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 358.3; top: 2133.3; width: 62.5; height: 50.0; page: 3;}; ">
+
+                 9.1 </dg:chunk><docset:CompanySRepresentation-section><dg:chunk structure="h1">Company’s Representation. </dg:chunk><docset:CompanySRepresentation structure="div">Company represents that any materials used in the Deliverable will not knowingly (a) infringe on the intellectual property rights of any third party or any rights of publicity or privacy or (b) violate any law, statute, ordinance or regulation. </docset:CompanySRepresentation></docset:CompanySRepresentation-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 358.3; top: 2362.5; width: 1920.8; height: 179.2; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 358.3; top: 2362.5; width: 62.5; height: 50.0; page: 3;}; ">
+
+                 9.2 </dg:chunk><docset:ClientSRepresentation-section><dg:chunk structure="h1">Client’s Representation. </dg:chunk><docset:ClientSRepresentation structure="div">Client represents that any materials provided to Company by Client for incorporation into the Deliverable will not (a) infringe on the intellectual property rights of any third party or any rights of publicity or privacy or (b) violate any law, statute, ordinance or regulation. </docset:ClientSRepresentation></docset:ClientSRepresentation-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 358.3; top: 2595.8; width: 1950.0; height: 245.4; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 358.3; top: 2595.8; width: 62.5; height: 45.8; page: 3;}; ">
+
+                 9.3 </dg:chunk><docset:WarrantyDisclaimer-section><dg:chunk structure="h1"><dg:chunk>Warranty Disclaimer</dg:chunk>. </dg:chunk><docset:WarrantyDisclaimer structure="div">EXCEPT FOR THE <dg:chunk>WARRANTIES SET FORTH </dg:chunk>IN THIS AGREEMENT AND ANY SOW, EACH <dg:chunk>PARTY EXPRESSLY </dg:chunk>DISCLAIMS ANY AND ALL OTHER WARRANTIES OF ANY KIND OR NATURE, WHETHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A <dg:chunk>PARTICULAR PURPOSE</dg:chunk>. </docset:WarrantyDisclaimer></docset:WarrantyDisclaimer-section></dg:chunk></docset:RepresentationsAndWarranties></docset:RepresentationsAndWarranties-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 2895.8; width: 2120.8; height: 175.0; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 2895.8; width: 62.5; height: 45.8; page: 3;}; ">
+
+          10. </dg:chunk><docset:Indemnification-section><dg:chunk structure="h1">Indemnification. </dg:chunk><docset:Indemnification structure="div">Client will defend, indemnify and hold Company harmless from any and all claims, losses, liabilities, damages, expenses and costs (including attorneys’ fees and court costs) arising from or relating to any claims regarding elements or materials provided by Client and incorporated into the Deliverable. Additionally, Client will defend, indemnify and hold Company harmless from any and all claims, losses, liabilities, damages, expenses and costs (including attorneys’ fees and court costs) arising from or relating to any claims regarding Client’s unauthorized use of any music, images, or other materials comprising the Deliverable. </docset:Indemnification></docset:Indemnification-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 606.2; width: 2062.5; height: 443.8; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 604.2; width: 62.5; height: 50.0; page: 4;}; ">
+
+          11. </dg:chunk><docset:LimitationofLiability-section><dg:chunk structure="h1">Limitation of Liability. </dg:chunk><docset:LimitationofLiability structure="ol" style="list-style-type: decimal; boundingBox:{left: 358.3; top: 704.2; width: 1912.5; height: 345.8; page: 4;}; "><dg:chunk structure="li" style="boundingBox:{left: 358.3; top: 704.2; width: 1912.5; height: 179.2; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 358.3; top: 704.2; width: 87.5; height: 50.0; page: 4;}; ">
+
+                 11.1 </dg:chunk><docset:LimitonLiability-section><dg:chunk structure="h1">Limit on Liability. </dg:chunk><docset:LimitonLiability structure="div">Neither party will be liable for breach-of-contract damages suffered by the other party that are remote or speculative, or that could not have reasonably been foreseen on entry into this agreement. </docset:LimitonLiability></docset:LimitonLiability-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 358.3; top: 937.5; width: 1879.2; height: 112.5; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 358.3; top: 937.5; width: 87.5; height: 45.8; page: 4;}; ">
+
+                 11.2 </dg:chunk><docset:LiabilityCap-section><dg:chunk structure="h1"><dg:chunk>Liability Cap</dg:chunk>. </dg:chunk><docset:LiabilityCap structure="div">Company's liability under this agreement will not exceed <docset:LiabilityLimit>$2,500,000 </docset:LiabilityLimit>under this agreement during the <docset:LiabilityLimit>12 months </docset:LiabilityLimit>preceding the date upon which the related claim arose. </docset:LiabilityCap></docset:LiabilityCap-section></dg:chunk></docset:LimitationofLiability></docset:LimitationofLiability-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 1104.2; width: 2104.2; height: 179.2; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 1104.2; width: 62.5; height: 45.8; page: 4;}; ">
+
+          12. </dg:chunk><docset:CompliancewithLaws-section><dg:chunk structure="h1">Compliance with Laws. </dg:chunk><docset:CompliancewithLaws structure="div">Each party shall perform all of its obligations under this Agreement in compliance at all times with all foreign, federal, state and local statutes, orders and regulations, including those relating to privacy and data protection. </docset:CompliancewithLaws></docset:CompliancewithLaws-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 1337.5; width: 2125.0; height: 1737.5; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 1337.5; width: 62.5; height: 45.8; page: 4;}; ">
+
+          13. </dg:chunk><docset:GeneralProvisions131Insurance-section><dg:chunk structure="h1"><dg:chunk>General Provisions</dg:chunk>.                  <docset:Insurance>13.1 </docset:Insurance>Insurance </dg:chunk><docset:GeneralProvisions131Insurance structure="div"><docset:InsuranceCoverage structure="p">Company will maintain during the entire Term of this Agreement, at its own expense, the types of insurance coverage specified below, on standard policy forms and with insurance companies with at least an <docset:InsuranceRating>A.M. </docset:InsuranceRating>Best Rating of <dg:chunk>A-VII </dg:chunk>authorized to do business in the jurisdictions where the Company services are to be performed. </docset:InsuranceCoverage><docset:InsuranceRequirements structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 508.3; top: 1734.0; width: 1825.0; height: 1341.0; page: 4;}; "><dg:chunk structure="li" style="boundingBox:{left: 508.3; top: 1734.0; width: 1779.2; height: 178.5; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 516.7; top: 1733.3; width: 50.0; height: 50.0; page: 4;}; ">
+
+                        (a) </dg:chunk><docset:InsuranceRequirements structure="p">Workers’ Compensation insurance prescribed by applicable local law and Employers Liability insurance with limits not less than <docset:InsuranceLimits>$1,000,000 </docset:InsuranceLimits>per accident/per employee. This policy shall include a waiver of subrogation against Client. </docset:InsuranceRequirements></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 509.0; top: 1967.0; width: 1803.5; height: 178.8; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 508.3; top: 1966.7; width: 54.2; height: 45.8; page: 4;}; ">
+
+                        (b) </dg:chunk><docset:AutomobileLiabilityInsurance structure="p"><dg:chunk>Business Automobile Liability </dg:chunk>covering all vehicles that Company owns, hires or leases with a limit of no less than <docset:AutoLiabilityLimit>$1,000,000 </docset:AutoLiabilityLimit>(combined single limit for bodily injury and property damage) for each accident. </docset:AutomobileLiabilityInsurance></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 508.3; top: 2200.0; width: 1825.0; height: 308.3; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 508.3; top: 2200.0; width: 50.0; height: 45.8; page: 4;}; ">
+
+                        (c) </dg:chunk><docset:InsuranceRequirements structure="p">Commercial General Liability insurance including <dg:chunk>Contractual Liability Coverage</dg:chunk>, with coverage for products liability, completed operations, property damage and bodily injury, including <dgm:Condition>death</dgm:Condition>, with an aggregate limit of no less than <docset:CommercialGeneralLiabilityInsuranceLimit>$2,000,000</docset:CommercialGeneralLiabilityInsuranceLimit>. This policy shall name Client as an additional insured with respect to the provision of services provided under this Agreement. This policy shall include a waiver of subrogation against Client. </docset:InsuranceRequirements></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 508.3; top: 2567.0; width: 1725.0; height: 174.7; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 508.3; top: 2562.5; width: 54.2; height: 45.8; page: 4;}; ">
+
+                        (d) </dg:chunk><docset:InsuranceRequirements structure="p">Technology Professional Liability Errors &amp; Omissions policy (which includes Cyber Risk coverage and Computer Security and Privacy Liability coverage) with a limit of no less than <docset:InsuranceLimit>$2,000,000 </docset:InsuranceLimit>per occurrence and in the aggregate. </docset:InsuranceRequirements></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 510.0; top: 2795.8; width: 1727.5; height: 45.8; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 508.3; top: 2795.8; width: 50.0; height: 45.8; page: 4;}; ">
+
+                        (e) </dg:chunk><dg:chunk structure="p">Crime policy with a limit of no less than <docset:CrimeInsuranceLimit>$5,000,000 </docset:CrimeInsuranceLimit>per occurrence and in the aggregate. </dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 508.3; top: 2896.0; width: 1762.5; height: 179.0; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 508.3; top: 2895.8; width: 41.7; height: 45.8; page: 4;}; ">
+
+                        (f) </dg:chunk><docset:InsuranceRequirements structure="p">Excess Liability/Umbrella coverage with a limit of no less than <docset:ExcessLiabilityLimit>$10,000,000 </docset:ExcessLiabilityLimit>per occurrence and in the aggregate (such limit may be achieved through increase of limits in underlying policies to reach the level of coverage shown here). This policy shall name Client as an </docset:InsuranceRequirements></dg:chunk></docset:InsuranceRequirements></docset:GeneralProvisions131Insurance></docset:GeneralProvisions131Insurance-section></dg:chunk></docset:ServicesandDeliverables></dg:chunk></dg:chunk><docset:O_o-section><dg:chunk structure="h1">
+
+        o_o </dg:chunk><docset:O_o structure="div"><dg:chunk><docset:InsuranceCoverage structure="p">
+
+                        additional insured with respect to the provision of services provided under this Agreement. This policy shall include a waiver of subrogation against Client. </docset:InsuranceCoverage><dg:chunk><docset:InsuranceCoverage structure="p">
+
+                        Upon Client's request, Company agrees to deliver to Client a certificate(s) of insurance evidencing the coverage specified in this Section. Such certificate(s) will contain a <docset:PriorNoticeofCancellation>thirty (30) day </docset:PriorNoticeofCancellation>prior notice of cancellation provision. Company will be solely responsible for any deductible or self-insurance retentions. Such insurance coverage will be primary and any other valid insurance existing will be in excess of such primary insurance policies. The required insurance coverage and limits of liability set forth above shall not be construed as a limitation or waiver of any potential liability of satisfaction of any indemnification/hold harmless obligation of Company. </docset:InsuranceCoverage><docset:IntellectualPropertyRights structure="ol" style="list-style-type: decimal; boundingBox:{left: 358.3; top: 1037.5; width: 1979.2; height: 1704.2; page: 5;}; "><dg:chunk structure="li" style="boundingBox:{left: 358.3; top: 1037.5; width: 1966.7; height: 512.5; page: 5;}; "><dg:chunk structure="lim" style="boundingBox:{left: 358.3; top: 1037.5; width: 87.5; height: 45.8; page: 5;}; ">
+
+                 13.2 </dg:chunk><docset:IntellectualProperty-section><dg:chunk structure="h1"><dg:chunk>Intellectual Property</dg:chunk>. </dg:chunk><docset:IntellectualProperty structure="ol" style="list-style-type: decimal; boundingBox:{left: 508.3; top: 1137.5; width: 1816.7; height: 412.5; page: 5;}; "><dg:chunk structure="li" style="boundingBox:{left: 508.3; top: 1137.5; width: 1816.7; height: 179.2; page: 5;}; "><dg:chunk structure="lim" style="boundingBox:{left: 508.3; top: 1137.5; width: 125.0; height: 45.8; page: 5;}; ">
+
+                        13.2.1 </dg:chunk><docset:PreexistingIntellectualProperty-section><dg:chunk structure="h1">Preexisting <dg:chunk>Intellectual Property</dg:chunk>. </dg:chunk><docset:PreexistingIntellectualProperty structure="div">Except for rights expressly granted under this agreement, each party will retain exclusive interest in and ownership of its Intellectual Property developed before this agreement or developed outside the scope of this agreement. </docset:PreexistingIntellectualProperty></docset:PreexistingIntellectualProperty-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 508.3; top: 1366.7; width: 1795.8; height: 183.3; page: 5;}; "><dg:chunk structure="lim" style="boundingBox:{left: 508.3; top: 1366.7; width: 125.0; height: 50.0; page: 5;}; ">
+
+                        13.2.2 </dg:chunk><docset:IndependentlyDevelopedIntellectualProperty-section><dg:chunk structure="h1"><dg:chunk>Independently Developed Intellectual Property</dg:chunk>. </dg:chunk><docset:IndependentlyDevelopedIntellectualProperty structure="div">Any <dg:chunk>Intellectual Property </dg:chunk>developed solely by a party under this agreement without the participation of the other party is and will remain the sole and exclusive property of the developing party. </docset:IndependentlyDevelopedIntellectualProperty></docset:IndependentlyDevelopedIntellectualProperty-section></dg:chunk></docset:IntellectualProperty></docset:IntellectualProperty-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 358.3; top: 1600.0; width: 1966.7; height: 708.3; page: 5;}; "><dg:chunk structure="lim" style="boundingBox:{left: 358.3; top: 1600.0; width: 87.5; height: 45.8; page: 5;}; ">
+
+                 13.3 </dg:chunk><docset:Assignment-section><dg:chunk structure="h1">Assignment </dg:chunk><docset:Assignment structure="div">Neither party may assign this Agreement without the prior written consent of the other party and any attempt to do so will be void. Any notice or consent under this Agreement will be in writing to the address specified below. If any provision of this Agreement is adjudged by any court of competent jurisdiction to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary so that this Agreement will otherwise remain in full force and effect. Any waivers or amendments shall be effective only if made in writing signed by a representative of the respective parties. Both parties agree that this Agreement is the complete and exclusive statement of the mutual understanding of the parties, and supersedes and cancels all previous written and oral agreements and communications relating to the subject matter of this Agreement. Both parties agree that the Agreement is signed by a duly, authorized company representative authorized to bind the company to its terms and services and no consent from any third party is required. </docset:Assignment></docset:Assignment-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 358.3; top: 2362.5; width: 1979.2; height: 379.2; page: 5;}; "><dg:chunk structure="lim" style="boundingBox:{left: 358.3; top: 2362.5; width: 87.5; height: 45.8; page: 5;}; ">
+
+                 13.4 </dg:chunk><docset:ForceMajeure-section><dg:chunk structure="h1"><dg:chunk>Force Majeure</dg:chunk>. </dg:chunk><docset:ForceMajeure structure="div"><dg:chunk>Force Majeure</dg:chunk>. Neither party shall be liable for any failure or delay in performance under this Agreement for causes beyond that party’s reasonable control and occurring without that party’s fault or negligence, including, but not limited to, acts of God, acts of government, flood, fire, civil unrest, acts of terror, strikes or other labor problems (other than those involving Client or Client employees, respectively). Dates by which performance obligations are scheduled to be met will be extended for a period of time equal to the time lost due to any delay so caused. </docset:ForceMajeure></docset:ForceMajeure-section></dg:chunk></docset:IntellectualPropertyRights></dg:chunk></dg:chunk><dg:chunk><docset:ChoiceofLaw-section><dg:chunk structure="h1">
+
+          <docset:ChoiceofLaw>14</docset:ChoiceofLaw>. Choice of Law. </dg:chunk><docset:ChoiceofLaw structure="div"><docset:GoverningLaw structure="p">This Agreement will be deemed to have been made in, and shall be construed pursuant to the laws of the State of <dgc:USState>Washington </dgc:USState>and the <dg:chunk>United States </dg:chunk>without regard to conflicts of laws provisions thereof. Any suit or proceeding arising out of or relating to this Agreement shall be commenced in a federal or state court in Kirkland, <dgc:USState>Washington</dgc:USState>, and each party irrevocably submits to the jurisdiction and venue of such courts. </docset:GoverningLaw><dg:chunk structure="p">
+
+a </dg:chunk></docset:ChoiceofLaw></docset:ChoiceofLaw-section><dg:chunk><docset:Remedies-section><dg:chunk structure="h1">
+
+          <docset:Remedies>15</docset:Remedies>. Remedies. </dg:chunk><docset:Remedies structure="div">Company reserves all remedies available at law or equity for any disputes that arise under this Agreement. In the event of a suit or proceeding under this Agreement, Client agrees to pay all attorneys’ fees if the federal or state court renders judgment substantially in Company’s favor. </docset:Remedies></docset:Remedies-section><dg:chunk structure="h1">
+
+                                     <dg:chunk>INITIAL STATEMENT </dg:chunk>OF WORK </dg:chunk></dg:chunk></dg:chunk></docset:O_o></docset:O_o-section></dg:chunk></dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+          SCOPE OF WORK </dg:chunk><dg:chunk structure="div"><dg:chunk><docset:ServicesAgreement structure="p">
+
+          The purpose of this SOW is to describe the Software and Services that Company will initially provide to <docset:ClientName>Bioplex, Inc. </docset:ClientName>the “Client”) under the terms and conditions of the <dg:chunk>Services Agreement </dg:chunk>entered into between the parties on <docset:AgreementDate>February 15, 2022 </docset:AgreementDate>(the “Agreement”). Additional terms and conditions may be set forth in this SOW, and additional SOWs that may be subsequently signed. </docset:ServicesAgreement><docset:TermsandConditions structure="p">
+
+          To the extent the terms and conditions of this SOW are inconsistent with those of the Agreement, the terms of this SOW will control with respect to the Services described herein. Capitalized terms used herein shall have the same meaning as those used in the Agreement. </docset:TermsandConditions><dg:chunk><docset:IncorporationofTerms structure="p">
+
+          This SOW is an attachment to, and is incorporated by this reference into the Agreement as if fully set forth therein and made a part thereof. This SOW, together with the Agreement, represents the complete and total understanding of the parties regarding the Services to be provided by Company hereunder. </docset:IncorporationofTerms><dg:chunk><dg:chunk><docset:ServicesPeriodandFees structure="ol" style="list-style-type: decimal; boundingBox:{left: 208.3; top: 1466.7; width: 2125.0; height: 412.5; page: 7;}; boundingBox:{left: 208.3; top: 366.7; width: 375.0; height: 45.8; page: 9;}; "><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 1466.7; width: 2124.7; height: 183.3; page: 7;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 1466.7; width: 33.3; height: 50.0; page: 7;}; ">
+
+          1. </dg:chunk><docset:ServicesPeriod-section><dg:chunk structure="h1"><dg:chunk>Services Period</dg:chunk>. </dg:chunk><docset:ServicesPeriod structure="div">Unless otherwise terminated earlier in accordance with the terms of the Agreement, the Services will end upon the completion of the Services by Company, which in no event shall be later than <docset:EndDate>June 1, 2022</docset:EndDate>, and payment by client. </docset:ServicesPeriod></docset:ServicesPeriod-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 1700.0; width: 2143.2; height: 1158.3; page: 7;}; boundingBox:{left: 208.3; top: 308.3; width: 2051.3; height: 2716.5; page: 8;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 1700.0; width: 33.3; height: 50.0; page: 7;}; ">
+
+          2. </dg:chunk><docset:Fees-section><dg:chunk structure="h1">Fees. </dg:chunk><docset:Fees structure="div"><docset:ServicesProvided structure="p">The Services outlined in this SOW reflect the initial understanding of Client’s desired Deliverable and Company reserves the right to alter the manner in which Services are provided if Company determines different services are necessary to complete the <docset:Deliverable>Deliverable. Company </docset:Deliverable>shall provide the following Services to the Client: </docset:ServicesProvided><docset:ItemizedFees><xhtml:table structure="table" style="boundingBox:{left: 234.5; top: 2027.3; width: 2117.0; height: 831.0; page: 7;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 234.5; top: 2027.3; width: 2117.0; height: 831.0; page: 7;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 234.5; top: 2027.3; width: 2117.0; height: 84.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 234.5; top: 2027.3; width: 2117.0; height: 84.0; page: 7;}; " colspan="3">
+
+                                                      Itemized Fees </xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 234.5; top: 2112.3; width: 2117.0; height: 85.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 234.5; top: 2111.3; width: 544.0; height: 257.0; page: 7;}; " rowspan="3"><docset:ItemizedFeesSoftware>
+
+            Software </docset:ItemizedFeesSoftware></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 778.5; top: 2111.3; width: 1217.0; height: 87.0; page: 7;}; "><docset:Software structure="h1">
+
+            <docset:MagicSoftLicense>MagicSoft </docset:MagicSoftLicense>Mobile x <docset:NumberofSeats>50 </docset:NumberofSeats>seats </docset:Software></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1995.5; top: 2111.3; width: 356.0; height: 87.0; page: 7;}; "><docset:Software>
+
+                <dgc:Money>$55,000 </dgc:Money></docset:Software></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 234.5; top: 2198.3; width: 2117.0; height: 83.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 778.5; top: 2198.3; width: 1217.0; height: 84.0; page: 7;}; "><docset:ItemizedFeesMagicSoftConnectX50Seats structure="h1">
+
+                                      <docset:MagicSoftLicense>MagicSoft </docset:MagicSoftLicense>Connect x <docset:Seats>50 </docset:Seats>seats </docset:ItemizedFeesMagicSoftConnectX50Seats></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1995.5; top: 2198.3; width: 356.0; height: 84.0; page: 7;}; "><docset:MagicSoftConnectX50Seats>
+
+                                         <dgc:Money>$35,000 </dgc:Money></docset:MagicSoftConnectX50Seats></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 234.5; top: 2282.3; width: 2117.0; height: 86.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 778.5; top: 2282.3; width: 1217.0; height: 86.0; page: 7;}; "><docset:ItemizedFeesMagicSoftHubConnector>
+
+                                      <dg:chunk><docset:MagicSoftHub>MagicSoft Hub </docset:MagicSoftHub>Connector </dg:chunk></docset:ItemizedFeesMagicSoftHubConnector></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1995.5; top: 2282.3; width: 356.0; height: 86.0; page: 7;}; "><docset:MagicSoftHubConnector>
+
+                                         <dgc:Money>$20,000 </dgc:Money></docset:MagicSoftHubConnector></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 234.5; top: 2369.3; width: 2117.0; height: 83.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 234.5; top: 2368.3; width: 544.0; height: 255.0; page: 7;}; " rowspan="3"><docset:ItemizedFeesService>
+
+            Service </docset:ItemizedFeesService></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 778.5; top: 2368.3; width: 1217.0; height: 85.0; page: 7;}; "><docset:Service>
+
+            <dg:chunk>Initial Setup </dg:chunk></docset:Service></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1995.5; top: 2368.3; width: 356.0; height: 85.0; page: 7;}; "><docset:Service>
+
+                <dgc:Money>$10,000 </dgc:Money></docset:Service></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 234.5; top: 2453.3; width: 2117.0; height: 83.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 778.5; top: 2453.3; width: 1217.0; height: 84.0; page: 7;}; "><docset:ItemizedFeesProfileCustomizations>
+
+                                      Profile Customizations </docset:ItemizedFeesProfileCustomizations></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1995.5; top: 2453.3; width: 356.0; height: 84.0; page: 7;}; "><docset:ProfileCustomizations>
+
+                                         <dgc:Money>$10,000 </dgc:Money></docset:ProfileCustomizations></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 234.5; top: 2537.3; width: 2117.0; height: 86.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 778.5; top: 2537.3; width: 1217.0; height: 86.0; page: 7;}; "><docset:ItemizedFeesConnectorEnablement>
+
+                                      <dg:chunk>Connector Enablement </dg:chunk></docset:ItemizedFeesConnectorEnablement></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1995.5; top: 2537.3; width: 356.0; height: 86.0; page: 7;}; "><docset:ConnectorEnablement>
+
+                                          <docset:ItemizedFees>$5,000 </docset:ItemizedFees></docset:ConnectorEnablement></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 234.5; top: 2624.3; width: 2117.0; height: 84.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 234.5; top: 2623.3; width: 544.0; height: 85.0; page: 7;}; " /><xhtml:td structure="td" style="boundingBox:{left: 778.5; top: 2623.3; width: 1217.0; height: 85.0; page: 7;}; ">
+
+            TOTAL </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1995.5; top: 2623.3; width: 356.0; height: 85.0; page: 7;}; ">
+
+               <dgc:Money>$135,000 </dgc:Money></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 234.5; top: 2709.3; width: 2117.0; height: 149.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 234.5; top: 2708.3; width: 2117.0; height: 150.0; page: 7;}; " colspan="3"><docset:ItemizedFees structure="p">
+
+            All services provided are subject to additional costs for work performed outside of regular working hours, as specified in section 2.3 of the MSA. All new work will be scoped with Customer before commencing. </docset:ItemizedFees></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:ItemizedFees></docset:Fees></docset:Fees-section><docset:MagicSoftFeatureComparison-section><dg:chunk structure="h1">          <dg:chunk><docset:MagicSoftFeatureComparison>MagicSoft </docset:MagicSoftFeatureComparison>Feature Comparison </dg:chunk></dg:chunk><docset:MagicSoftFeatureComparison><xhtml:table structure="table" style="boundingBox:{left: 212.6; top: 417.8; width: 2047.0; height: 2607.0; page: 8;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 212.6; top: 417.8; width: 2047.0; height: 2607.0; page: 8;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 417.8; width: 2047.0; height: 132.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 417.8; width: 224.0; height: 132.0; page: 8;}; "><dg:chunk structure="h1">
+
+           Word 
+
+           processor </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 417.8; width: 198.0; height: 132.0; page: 8;}; "><dg:chunk structure="h1">
+
+           Grammar 
+
+           checker </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 417.8; width: 228.0; height: 132.0; page: 8;}; "><dg:chunk structure="h1">
+
+           Cross 
+
+           referencing </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 417.8; width: 178.0; height: 132.0; page: 8;}; "><dg:chunk structure="h1">
+
+           Graphic 
+
+           editing </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 417.8; width: 183.0; height: 132.0; page: 8;}; "><dg:chunk structure="h1">
+
+           Mail 
+
+           merging </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 417.8; width: 182.0; height: 132.0; page: 8;}; "><dg:chunk structure="h1">
+
+           Spell 
+
+           checker </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 417.8; width: 262.0; height: 132.0; page: 8;}; "><dg:chunk structure="h1">
+
+           <docset:FontFamily>Smartfont </docset:FontFamily>
+
+           typography </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 417.8; width: 176.0; height: 132.0; page: 8;}; "><dg:chunk structure="h1">
+
+           Math support </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 417.8; width: 229.0; height: 132.0; page: 8;}; "><dg:chunk structure="h1">
+
+           Conditional 
+
+           text </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 417.8; width: 187.0; height: 132.0; page: 8;}; "><dg:chunk structure="h1">
+
+           LTR/RTL </dg:chunk></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 550.8; width: 2047.0; height: 76.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 549.8; width: 224.0; height: 77.0; page: 8;}; "><docset:WordProcessor>
+
+           <docset:MagicSoft>MagicSoft </docset:MagicSoft></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 549.8; width: 198.0; height: 77.0; page: 8;}; "><docset:GrammarChecker>
+
+           Yes </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 549.8; width: 228.0; height: 77.0; page: 8;}; "><docset:CrossReferencing>
+
+           Yes </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 549.8; width: 178.0; height: 77.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 549.8; width: 183.0; height: 77.0; page: 8;}; "><docset:MailMerging>
+
+           Yes </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 549.8; width: 182.0; height: 77.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 549.8; width: 262.0; height: 77.0; page: 8;}; "><docset:SmartfontTypography>
+
+           Yes </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 549.8; width: 176.0; height: 77.0; page: 8;}; "><docset:MathSupport>
+
+           Yes </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 549.8; width: 229.0; height: 77.0; page: 8;}; "><docset:ConditionalText>
+
+           Yes </docset:ConditionalText></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 549.8; width: 187.0; height: 77.0; page: 8;}; "><docset:LtrRtl>
+
+           Yes </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 627.8; width: 2047.0; height: 120.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 626.8; width: 224.0; height: 121.0; page: 8;}; "><docset:WordProcessor>
+
+           <dg:chunk><docset:AtlantisWordProcessor>Atlantis Word </docset:AtlantisWordProcessor>Processor </dg:chunk></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 626.8; width: 198.0; height: 121.0; page: 8;}; "><docset:GrammarChecker>
+
+           No </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 626.8; width: 228.0; height: 121.0; page: 8;}; "><docset:CrossReferencing>
+
+           Yes </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 626.8; width: 178.0; height: 121.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 626.8; width: 183.0; height: 121.0; page: 8;}; "><docset:MailMerging>
+
+           No </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 626.8; width: 182.0; height: 121.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 626.8; width: 262.0; height: 121.0; page: 8;}; "><docset:SmartfontTypography>
+
+           ? </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 626.8; width: 176.0; height: 121.0; page: 8;}; "><docset:MathSupport>
+
+           No </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 626.8; width: 229.0; height: 121.0; page: 8;}; "><docset:ConditionalText>
+
+           ? </docset:ConditionalText></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 626.8; width: 187.0; height: 121.0; page: 8;}; "><docset:LtrRtl>
+
+           No </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 748.8; width: 2047.0; height: 118.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 747.8; width: 224.0; height: 119.0; page: 8;}; "><docset:WordProcessor>
+
+           <dg:chunk><docset:CollaboraOnlineWriter>Collabora </docset:CollaboraOnlineWriter>Online Writer </dg:chunk></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 747.8; width: 198.0; height: 119.0; page: 8;}; "><docset:GrammarChecker>
+
+           Yes </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 747.8; width: 228.0; height: 119.0; page: 8;}; "><docset:CrossReferencing>
+
+           No </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 747.8; width: 178.0; height: 119.0; page: 8;}; "><docset:GraphicEditing>
+
+           No </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 747.8; width: 183.0; height: 119.0; page: 8;}; "><docset:MailMerging>
+
+           No </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 747.8; width: 182.0; height: 119.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 747.8; width: 262.0; height: 119.0; page: 8;}; "><docset:SmartfontTypography>
+
+           No </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 747.8; width: 176.0; height: 119.0; page: 8;}; "><docset:MathSupport>
+
+           No </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 747.8; width: 229.0; height: 119.0; page: 8;}; "><docset:ConditionalText>
+
+           No </docset:ConditionalText></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 747.8; width: 187.0; height: 119.0; page: 8;}; "><docset:LtrRtl>
+
+           Yes </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 867.8; width: 2047.0; height: 77.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 866.8; width: 224.0; height: 78.0; page: 8;}; "><docset:WordProcessor>
+
+           <docset:CopyDesk>CopyDesk </docset:CopyDesk></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 866.8; width: 198.0; height: 78.0; page: 8;}; "><docset:GrammarChecker>
+
+           No </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 866.8; width: 228.0; height: 78.0; page: 8;}; "><docset:CrossReferencing>
+
+           ? </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 866.8; width: 178.0; height: 78.0; page: 8;}; "><docset:GraphicEditing /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 866.8; width: 183.0; height: 78.0; page: 8;}; "><docset:MailMerging>
+
+           No </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 866.8; width: 182.0; height: 78.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 866.8; width: 262.0; height: 78.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 866.8; width: 176.0; height: 78.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 866.8; width: 229.0; height: 78.0; page: 8;}; "><docset:ConditionalText /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 866.8; width: 187.0; height: 78.0; page: 8;}; "><docset:LtrRtl>
+
+           ? </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 945.8; width: 2047.0; height: 75.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 944.8; width: 224.0; height: 76.0; page: 8;}; "><docset:WordProcessor>
+
+           <docset:FrameMaker>FrameMaker </docset:FrameMaker></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 944.8; width: 198.0; height: 76.0; page: 8;}; "><docset:GrammarChecker>
+
+           No </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 944.8; width: 228.0; height: 76.0; page: 8;}; "><docset:CrossReferencing>
+
+           Yes </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 944.8; width: 178.0; height: 76.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 944.8; width: 183.0; height: 76.0; page: 8;}; "><docset:MailMerging>
+
+           No </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 944.8; width: 182.0; height: 76.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 944.8; width: 262.0; height: 76.0; page: 8;}; "><docset:SmartfontTypography>
+
+           No </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 944.8; width: 176.0; height: 76.0; page: 8;}; "><docset:MathSupport>
+
+           Yes </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 944.8; width: 229.0; height: 76.0; page: 8;}; "><docset:ConditionalText>
+
+           Yes </docset:ConditionalText></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 944.8; width: 187.0; height: 76.0; page: 8;}; "><docset:LtrRtl>
+
+           ? </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 1021.8; width: 2047.0; height: 162.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 1020.8; width: 224.0; height: 163.0; page: 8;}; "><docset:WordProcessor>
+
+           <dg:chunk><docset:GNULicense>GNU </docset:GNULicense><docset:TeXmacs>TeXmacs </docset:TeXmacs></dg:chunk></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 1020.8; width: 198.0; height: 163.0; page: 8;}; "><docset:GrammarChecker>
+
+           No </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 1020.8; width: 228.0; height: 163.0; page: 8;}; "><docset:CrossReferencing>
+
+           Yes </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 1020.8; width: 178.0; height: 163.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes (only own graphics) </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 1020.8; width: 183.0; height: 163.0; page: 8;}; "><docset:MailMerging>
+
+           No </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 1020.8; width: 182.0; height: 163.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 1020.8; width: 262.0; height: 163.0; page: 8;}; "><docset:SmartfontTypography>
+
+           Yes </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 1020.8; width: 176.0; height: 163.0; page: 8;}; "><docset:MathSupport>
+
+           Yes </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 1020.8; width: 229.0; height: 163.0; page: 8;}; "><docset:ConditionalText>
+
+           Yes </docset:ConditionalText></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 1020.8; width: 187.0; height: 163.0; page: 8;}; "><docset:LtrRtl>
+
+           ? </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 1184.8; width: 2047.0; height: 118.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 1183.8; width: 224.0; height: 119.0; page: 8;}; "><docset:WordProcessor>
+
+           <docset:IchitaroName>Ichitaro </docset:IchitaroName></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 1183.8; width: 198.0; height: 119.0; page: 8;}; "><docset:GrammarChecker>
+
+           Yes (for 
+
+           Japanese) </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 1183.8; width: 228.0; height: 119.0; page: 8;}; "><docset:CrossReferencing>
+
+           ? </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 1183.8; width: 178.0; height: 119.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 1183.8; width: 183.0; height: 119.0; page: 8;}; "><docset:MailMerging /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 1183.8; width: 182.0; height: 119.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes (for 
+
+           Japanese) </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 1183.8; width: 262.0; height: 119.0; page: 8;}; "><docset:SmartfontTypography>
+
+           No </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 1183.8; width: 176.0; height: 119.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 1183.8; width: 229.0; height: 119.0; page: 8;}; "><docset:ConditionalText /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 1183.8; width: 187.0; height: 119.0; page: 8;}; "><docset:LtrRtl>
+
+           ? </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 1303.8; width: 2047.0; height: 120.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 1302.8; width: 224.0; height: 121.0; page: 8;}; "><docset:WordProcessor>
+
+           <dg:chunk><docset:ProductName>IBM Lotus </docset:ProductName>Symphony </dg:chunk></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 1302.8; width: 198.0; height: 121.0; page: 8;}; "><docset:GrammarChecker>
+
+           No </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 1302.8; width: 228.0; height: 121.0; page: 8;}; "><docset:CrossReferencing>
+
+           ? </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 1302.8; width: 178.0; height: 121.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 1302.8; width: 183.0; height: 121.0; page: 8;}; "><docset:MailMerging>
+
+           Yes </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 1302.8; width: 182.0; height: 121.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 1302.8; width: 262.0; height: 121.0; page: 8;}; "><docset:SmartfontTypography>
+
+           No </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 1302.8; width: 176.0; height: 121.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 1302.8; width: 229.0; height: 121.0; page: 8;}; "><docset:ConditionalText /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 1302.8; width: 187.0; height: 121.0; page: 8;}; "><docset:LtrRtl>
+
+           ? </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 1424.8; width: 2047.0; height: 118.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 1423.8; width: 224.0; height: 119.0; page: 8;}; "><docset:WordProcessor>
+
+           <dg:chunk>Lotus Word Pro </dg:chunk></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 1423.8; width: 198.0; height: 119.0; page: 8;}; "><docset:GrammarChecker>
+
+           Yes </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 1423.8; width: 228.0; height: 119.0; page: 8;}; "><docset:CrossReferencing>
+
+           ? </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 1423.8; width: 178.0; height: 119.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 1423.8; width: 183.0; height: 119.0; page: 8;}; "><docset:MailMerging>
+
+           Yes </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 1423.8; width: 182.0; height: 119.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 1423.8; width: 262.0; height: 119.0; page: 8;}; "><docset:SmartfontTypography>
+
+           No </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 1423.8; width: 176.0; height: 119.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 1423.8; width: 229.0; height: 119.0; page: 8;}; "><docset:ConditionalText /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 1423.8; width: 187.0; height: 119.0; page: 8;}; "><docset:LtrRtl>
+
+           ? </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 1543.8; width: 2047.0; height: 77.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 1542.8; width: 224.0; height: 78.0; page: 8;}; "><docset:WordProcessor>
+
+           LyX </docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 1542.8; width: 198.0; height: 78.0; page: 8;}; "><docset:GrammarChecker>
+
+           Yes </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 1542.8; width: 228.0; height: 78.0; page: 8;}; "><docset:CrossReferencing>
+
+           Yes </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 1542.8; width: 178.0; height: 78.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 1542.8; width: 183.0; height: 78.0; page: 8;}; "><docset:MailMerging /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 1542.8; width: 182.0; height: 78.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 1542.8; width: 262.0; height: 78.0; page: 8;}; "><docset:SmartfontTypography>
+
+           Yes </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 1542.8; width: 176.0; height: 78.0; page: 8;}; "><docset:MathSupport>
+
+           Yes </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 1542.8; width: 229.0; height: 78.0; page: 8;}; "><docset:ConditionalText>
+
+           Yes </docset:ConditionalText></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 1542.8; width: 187.0; height: 78.0; page: 8;}; "><docset:LtrRtl>
+
+           Yes </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 1621.8; width: 2047.0; height: 76.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 1620.8; width: 224.0; height: 77.0; page: 8;}; "><docset:WordProcessor>
+
+           Mathematica </docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 1620.8; width: 198.0; height: 77.0; page: 8;}; "><docset:GrammarChecker>
+
+           No </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 1620.8; width: 228.0; height: 77.0; page: 8;}; "><docset:CrossReferencing>
+
+           ? </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 1620.8; width: 178.0; height: 77.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 1620.8; width: 183.0; height: 77.0; page: 8;}; "><docset:MailMerging>
+
+           Yes </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 1620.8; width: 182.0; height: 77.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 1620.8; width: 262.0; height: 77.0; page: 8;}; "><docset:SmartfontTypography>
+
+           Yes </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 1620.8; width: 176.0; height: 77.0; page: 8;}; "><docset:MathSupport>
+
+           Yes </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 1620.8; width: 229.0; height: 77.0; page: 8;}; "><docset:ConditionalText /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 1620.8; width: 187.0; height: 77.0; page: 8;}; "><docset:LtrRtl>
+
+           ? </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 1698.8; width: 2047.0; height: 77.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 1697.8; width: 224.0; height: 78.0; page: 8;}; "><docset:WordProcessor>
+
+           <docset:Mellel>Mellel </docset:Mellel></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 1697.8; width: 198.0; height: 78.0; page: 8;}; "><docset:GrammarChecker>
+
+           Yes </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 1697.8; width: 228.0; height: 78.0; page: 8;}; "><docset:CrossReferencing>
+
+           Yes </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 1697.8; width: 178.0; height: 78.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 1697.8; width: 183.0; height: 78.0; page: 8;}; "><docset:MailMerging>
+
+           No </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 1697.8; width: 182.0; height: 78.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 1697.8; width: 262.0; height: 78.0; page: 8;}; "><docset:SmartfontTypography>
+
+           Yes </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 1697.8; width: 176.0; height: 78.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 1697.8; width: 229.0; height: 78.0; page: 8;}; "><docset:ConditionalText /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 1697.8; width: 187.0; height: 78.0; page: 8;}; "><docset:LtrRtl>
+
+           Yes </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 1776.8; width: 2047.0; height: 345.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 1775.8; width: 224.0; height: 346.0; page: 8;}; "><docset:WordProcessor>
+
+           <dg:chunk>Microsoft Word </dg:chunk></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 1775.8; width: 198.0; height: 346.0; page: 8;}; "><docset:GrammarChecker structure="p">
+
+           Yes (Support for additional languages available via language packs) </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 1775.8; width: 228.0; height: 346.0; page: 8;}; "><docset:CrossReferencing>
+
+           Yes </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 1775.8; width: 178.0; height: 346.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 1775.8; width: 183.0; height: 346.0; page: 8;}; "><docset:MailMerging>
+
+           Yes </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 1775.8; width: 182.0; height: 346.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 1775.8; width: 262.0; height: 346.0; page: 8;}; "><docset:SmartfontTypography>
+
+           No </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 1775.8; width: 176.0; height: 346.0; page: 8;}; "><docset:MathSupport>
+
+           Yes </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 1775.8; width: 229.0; height: 346.0; page: 8;}; "><docset:ConditionalText>
+
+           No </docset:ConditionalText></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 1775.8; width: 187.0; height: 346.0; page: 8;}; "><docset:LtrRtl>
+
+           Yes </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 2122.8; width: 2047.0; height: 119.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 2121.8; width: 224.0; height: 120.0; page: 8;}; "><docset:WordProcessor>
+
+           <dg:chunk><docset:Software>Microsoft </docset:Software>Works </dg:chunk></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 2121.8; width: 198.0; height: 120.0; page: 8;}; "><docset:GrammarChecker>
+
+           Yes </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 2121.8; width: 228.0; height: 120.0; page: 8;}; "><docset:CrossReferencing>
+
+           No </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 2121.8; width: 178.0; height: 120.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 2121.8; width: 183.0; height: 120.0; page: 8;}; "><docset:MailMerging>
+
+           Yes </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 2121.8; width: 182.0; height: 120.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 2121.8; width: 262.0; height: 120.0; page: 8;}; "><docset:SmartfontTypography>
+
+           No </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 2121.8; width: 176.0; height: 120.0; page: 8;}; "><docset:MathSupport>
+
+           No </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 2121.8; width: 229.0; height: 120.0; page: 8;}; "><docset:ConditionalText>
+
+           ? </docset:ConditionalText></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 2121.8; width: 187.0; height: 120.0; page: 8;}; "><docset:LtrRtl>
+
+           ? </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 2242.8; width: 2047.0; height: 76.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 2241.8; width: 224.0; height: 77.0; page: 8;}; "><docset:WordProcessor>
+
+           <docset:MonsterWriter>MonsterWriter </docset:MonsterWriter></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 2241.8; width: 198.0; height: 77.0; page: 8;}; "><docset:GrammarChecker>
+
+           No </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 2241.8; width: 228.0; height: 77.0; page: 8;}; "><docset:CrossReferencing>
+
+           Yes </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 2241.8; width: 178.0; height: 77.0; page: 8;}; "><docset:GraphicEditing>
+
+           No </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 2241.8; width: 183.0; height: 77.0; page: 8;}; "><docset:MailMerging>
+
+           No </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 2241.8; width: 182.0; height: 77.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 2241.8; width: 262.0; height: 77.0; page: 8;}; "><docset:SmartfontTypography>
+
+           ? </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 2241.8; width: 176.0; height: 77.0; page: 8;}; "><docset:MathSupport>
+
+           Yes </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 2241.8; width: 229.0; height: 77.0; page: 8;}; "><docset:ConditionalText>
+
+           No </docset:ConditionalText></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 2241.8; width: 187.0; height: 77.0; page: 8;}; "><docset:LtrRtl>
+
+           ? </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 2319.8; width: 2047.0; height: 45.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 2318.8; width: 224.0; height: 46.0; page: 8;}; "><docset:WordProcessor>
+
+           NeoOfﬁce </docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 2318.8; width: 198.0; height: 46.0; page: 8;}; "><docset:GrammarChecker>
+
+           Yes </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 2318.8; width: 228.0; height: 46.0; page: 8;}; "><docset:CrossReferencing>
+
+           Yes </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 2318.8; width: 178.0; height: 46.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 2318.8; width: 183.0; height: 46.0; page: 8;}; "><docset:MailMerging>
+
+           Yes </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 2318.8; width: 182.0; height: 46.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 2318.8; width: 262.0; height: 46.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 2318.8; width: 176.0; height: 46.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 2318.8; width: 229.0; height: 46.0; page: 8;}; "><docset:ConditionalText /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 2318.8; width: 187.0; height: 46.0; page: 8;}; "><docset:LtrRtl>
+
+           Yes </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 2365.8; width: 2047.0; height: 74.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 2364.8; width: 224.0; height: 75.0; page: 8;}; "><docset:WordProcessor>
+
+           Writer </docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 2364.8; width: 198.0; height: 75.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 2364.8; width: 228.0; height: 75.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 2364.8; width: 178.0; height: 75.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 2364.8; width: 183.0; height: 75.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 2364.8; width: 182.0; height: 75.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 2364.8; width: 262.0; height: 75.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 2364.8; width: 176.0; height: 75.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 2364.8; width: 229.0; height: 75.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 2364.8; width: 187.0; height: 75.0; page: 8;}; "><docset:LtrRtl /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 2440.8; width: 2047.0; height: 45.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 2439.8; width: 224.0; height: 46.0; page: 8;}; "><docset:WordProcessor>
+
+           OpenOfﬁce </docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 2439.8; width: 198.0; height: 46.0; page: 8;}; "><docset:GrammarChecker>
+
+           <dg:chunk>Yes (Via </dg:chunk></docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 2439.8; width: 228.0; height: 46.0; page: 8;}; "><docset:CrossReferencing>
+
+           Yes </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 2439.8; width: 178.0; height: 46.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 2439.8; width: 183.0; height: 46.0; page: 8;}; "><docset:MailMerging>
+
+           Yes </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 2439.8; width: 182.0; height: 46.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 2439.8; width: 262.0; height: 46.0; page: 8;}; "><docset:SmartfontTypography>
+
+           Yes </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 2439.8; width: 176.0; height: 46.0; page: 8;}; "><docset:MathSupport>
+
+           Yes </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 2439.8; width: 229.0; height: 46.0; page: 8;}; "><docset:ConditionalText>
+
+           Yes </docset:ConditionalText></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 2439.8; width: 187.0; height: 46.0; page: 8;}; "><docset:LtrRtl>
+
+           Yes </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 2486.8; width: 2047.0; height: 72.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 2485.8; width: 224.0; height: 73.0; page: 8;}; "><docset:WordProcessor>
+
+           Writer </docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 2485.8; width: 198.0; height: 73.0; page: 8;}; "><docset:GrammarChecker>
+
+           extensions) </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 2485.8; width: 228.0; height: 73.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 2485.8; width: 178.0; height: 73.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 2485.8; width: 183.0; height: 73.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 2485.8; width: 182.0; height: 73.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 2485.8; width: 262.0; height: 73.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 2485.8; width: 176.0; height: 73.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 2485.8; width: 229.0; height: 73.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 2485.8; width: 187.0; height: 73.0; page: 8;}; "><docset:LtrRtl /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 2559.8; width: 2047.0; height: 77.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 2558.8; width: 224.0; height: 78.0; page: 8;}; "><docset:WordProcessor>
+
+           Pages </docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 2558.8; width: 198.0; height: 78.0; page: 8;}; "><docset:GrammarChecker>
+
+           Yes </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 2558.8; width: 228.0; height: 78.0; page: 8;}; "><docset:CrossReferencing>
+
+           No </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 2558.8; width: 178.0; height: 78.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 2558.8; width: 183.0; height: 78.0; page: 8;}; "><docset:MailMerging>
+
+           No </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 2558.8; width: 182.0; height: 78.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 2558.8; width: 262.0; height: 78.0; page: 8;}; "><docset:SmartfontTypography>
+
+           Yes </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 2558.8; width: 176.0; height: 78.0; page: 8;}; "><docset:MathSupport>
+
+           Yes </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 2558.8; width: 229.0; height: 78.0; page: 8;}; "><docset:ConditionalText /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 2558.8; width: 187.0; height: 78.0; page: 8;}; "><docset:LtrRtl>
+
+           ? </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 2637.8; width: 2047.0; height: 76.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 2636.8; width: 224.0; height: 77.0; page: 8;}; "><docset:WordProcessor>
+
+           TextEdit </docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 2636.8; width: 198.0; height: 77.0; page: 8;}; "><docset:GrammarChecker>
+
+           Yes </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 2636.8; width: 228.0; height: 77.0; page: 8;}; "><docset:CrossReferencing>
+
+           ? </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 2636.8; width: 178.0; height: 77.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 2636.8; width: 183.0; height: 77.0; page: 8;}; "><docset:MailMerging>
+
+           No </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 2636.8; width: 182.0; height: 77.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 2636.8; width: 262.0; height: 77.0; page: 8;}; "><docset:SmartfontTypography>
+
+           Yes </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 2636.8; width: 176.0; height: 77.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 2636.8; width: 229.0; height: 77.0; page: 8;}; "><docset:ConditionalText /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 2636.8; width: 187.0; height: 77.0; page: 8;}; "><docset:LtrRtl>
+
+           ? </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 2714.8; width: 2047.0; height: 77.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 2713.8; width: 224.0; height: 78.0; page: 8;}; "><docset:WordProcessor>
+
+           TextMaker </docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 2713.8; width: 198.0; height: 78.0; page: 8;}; "><docset:GrammarChecker>
+
+           Yes </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 2713.8; width: 228.0; height: 78.0; page: 8;}; "><docset:CrossReferencing>
+
+           Yes </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 2713.8; width: 178.0; height: 78.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 2713.8; width: 183.0; height: 78.0; page: 8;}; "><docset:MailMerging>
+
+           Yes </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 2713.8; width: 182.0; height: 78.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 2713.8; width: 262.0; height: 78.0; page: 8;}; "><docset:SmartfontTypography /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 2713.8; width: 176.0; height: 78.0; page: 8;}; "><docset:MathSupport>
+
+           Yes </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 2713.8; width: 229.0; height: 78.0; page: 8;}; "><docset:ConditionalText /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 2713.8; width: 187.0; height: 78.0; page: 8;}; "><docset:LtrRtl>
+
+           Yes </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 2792.8; width: 2047.0; height: 76.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 2791.8; width: 224.0; height: 77.0; page: 8;}; "><docset:WordProcessor>
+
+           WordPad </docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 2791.8; width: 198.0; height: 77.0; page: 8;}; "><docset:GrammarChecker>
+
+           No </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 2791.8; width: 228.0; height: 77.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 2791.8; width: 178.0; height: 77.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 2791.8; width: 183.0; height: 77.0; page: 8;}; "><docset:MailMerging /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 2791.8; width: 182.0; height: 77.0; page: 8;}; "><docset:SpellChecker>
+
+           No </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 2791.8; width: 262.0; height: 77.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 2791.8; width: 176.0; height: 77.0; page: 8;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 2791.8; width: 229.0; height: 77.0; page: 8;}; "><docset:ConditionalText /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 2791.8; width: 187.0; height: 77.0; page: 8;}; "><docset:LtrRtl>
+
+           Yes </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 2869.8; width: 2047.0; height: 77.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 2868.8; width: 224.0; height: 78.0; page: 8;}; "><docset:WordProcessor>
+
+           <dg:chunk>WPS Ofﬁce </dg:chunk></docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 2868.8; width: 198.0; height: 78.0; page: 8;}; "><docset:GrammarChecker>
+
+           Yes </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 2868.8; width: 228.0; height: 78.0; page: 8;}; "><docset:CrossReferencing>
+
+           Yes </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 2868.8; width: 178.0; height: 78.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 2868.8; width: 183.0; height: 78.0; page: 8;}; "><docset:MailMerging>
+
+           Yes </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 2868.8; width: 182.0; height: 78.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 2868.8; width: 262.0; height: 78.0; page: 8;}; "><docset:SmartfontTypography>
+
+           Yes </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 2868.8; width: 176.0; height: 78.0; page: 8;}; "><docset:MathSupport>
+
+           Yes </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 2868.8; width: 229.0; height: 78.0; page: 8;}; "><docset:ConditionalText>
+
+           Yes </docset:ConditionalText></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 2868.8; width: 187.0; height: 78.0; page: 8;}; "><docset:LtrRtl>
+
+           Yes </docset:LtrRtl></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 212.6; top: 2947.8; width: 2047.0; height: 77.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 212.6; top: 2946.8; width: 224.0; height: 78.0; page: 8;}; "><docset:WordProcessor>
+
+           WordPerfect </docset:WordProcessor></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 436.6; top: 2946.8; width: 198.0; height: 78.0; page: 8;}; "><docset:GrammarChecker>
+
+           Yes </docset:GrammarChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 634.6; top: 2946.8; width: 228.0; height: 78.0; page: 8;}; "><docset:CrossReferencing>
+
+           Yes </docset:CrossReferencing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 862.6; top: 2946.8; width: 178.0; height: 78.0; page: 8;}; "><docset:GraphicEditing>
+
+           Yes </docset:GraphicEditing></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1040.6; top: 2946.8; width: 183.0; height: 78.0; page: 8;}; "><docset:MailMerging>
+
+           Yes </docset:MailMerging></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1223.6; top: 2946.8; width: 182.0; height: 78.0; page: 8;}; "><docset:SpellChecker>
+
+           Yes </docset:SpellChecker></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1405.6; top: 2946.8; width: 262.0; height: 78.0; page: 8;}; "><docset:SmartfontTypography>
+
+           No </docset:SmartfontTypography></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1667.6; top: 2946.8; width: 176.0; height: 78.0; page: 8;}; "><docset:MathSupport>
+
+           Yes </docset:MathSupport></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1843.6; top: 2946.8; width: 229.0; height: 78.0; page: 8;}; "><docset:ConditionalText>
+
+           No </docset:ConditionalText></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2072.6; top: 2946.8; width: 187.0; height: 78.0; page: 8;}; "><docset:LtrRtl>
+
+           ? </docset:LtrRtl></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:MagicSoftFeatureComparison></docset:MagicSoftFeatureComparison-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 208.3; top: 366.7; width: 2095.8; height: 775.0; page: 9;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 366.7; width: 37.5; height: 45.8; page: 9;}; ">
+
+          3. </dg:chunk><docset:Fees-section><dg:chunk structure="h1">Fees and Terms. </dg:chunk><docset:Fees structure="div">          Fixed Price: <docset:FixedPrice>$135,000 </docset:FixedPrice>Start Date: <docset:ChangeOrderDate>02/15/2022 </docset:ChangeOrderDate>End Date: <docset:ChangeOrderDeadline>06/01/2022 </docset:ChangeOrderDeadline>          If the Client desires to initiate changes to the SOW, it shall submit to Company a written request to If the Client desires to initiate changes to the SOW, it shall submit to Company a written request to do so. The request will set forth the nature of the Company’s proposed changes to the SOW. Contractor shall complete and return to the Company a written document (“<dg:chunk>Change Order</dg:chunk>”) setting forth (i) a written description of the changes to the SOW, (ii) any changes to the schedule, (iii) any changes or additions to the Deliverables and (iv) any changes or additions to the fees. </docset:Fees></docset:Fees-section></dg:chunk></docset:ServicesPeriodandFees><docset:ChangeOrderTerms structure="p">
+
+          A <dg:chunk>Change Order </dg:chunk>will be binding only if signed by both parties. Any and all <dg:chunk>Change Orders </dg:chunk>will be governed by the terms and conditions set forth in this Agreement, and are hereby incorporated by this reference. Any additional Deliverables described in the <dg:chunk>Change Order </dg:chunk>will be subject to the Payment provisions as described in Section 7 of the Agreement. </docset:ChangeOrderTerms></dg:chunk><dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 208.3; top: 1491.7; width: 430.6; height: 48.6; page: 9;}; "><docset:ContactInformation structure="li" style="boundingBox:{left: 208.3; top: 1491.7; width: 430.6; height: 408.3; page: 9;}; "><dg:chunk structure="lim" style="boundingBox:{left: 208.3; top: 1491.7; width: 37.5; height: 50.0; page: 9;}; ">
+
+          4. </dg:chunk><docset:HoursofOperation-section><dg:chunk structure="h1">Hours of Operation </dg:chunk><docset:HoursofOperation structure="ul" style="list-style-type: circle; boundingBox:{left: 283.3; top: 1591.7; width: 316.7; height: 308.3; page: 9;}; "><dg:chunk structure="li" style="boundingBox:{left: 283.3; top: 1591.7; width: 879.2; height: 241.7; page: 9;}; "><dg:chunk structure="lim" style="boundingBox:{left: 283.3; top: 1591.7; width: 20.8; height: 50.0; page: 9;}; ">
+
+             • </dg:chunk><docset:Engineering-section><dg:chunk structure="h1">Engineering: </dg:chunk><docset:Engineering structure="ul" style="list-style-type: circle; boundingBox:{left: 433.3; top: 1650.0; width: 729.2; height: 183.3; page: 9;}; "><dg:chunk structure="li" style="boundingBox:{left: 433.3; top: 1650.0; width: 633.3; height: 58.3; page: 9;}; "><dg:chunk structure="lim" style="boundingBox:{left: 433.3; top: 1650.0; width: 29.2; height: 58.3; page: 9;}; ">
+
+                    • </dg:chunk><dg:chunk structure="p"><dgc:Weekday>Monday</dgc:Weekday>-<dgc:Weekday>Friday </dgc:Weekday><docset:BusinessHours><docset:BusinessHours>6AM-6PM </docset:BusinessHours>PST </docset:BusinessHours></dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 433.3; top: 1721.3; width: 729.2; height: 49.5; page: 9;}; "><dg:chunk structure="lim" style="boundingBox:{left: 433.3; top: 1716.7; width: 29.2; height: 54.2; page: 9;}; ">
+
+                    • </dg:chunk><docset:EngineeringContact structure="h1">engineering@digitalmemex.com </docset:EngineeringContact></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 433.3; top: 1784.0; width: 354.2; height: 49.4; page: 9;}; "><dg:chunk structure="lim" style="boundingBox:{left: 433.3; top: 1779.2; width: 29.2; height: 54.2; page: 9;}; ">
+
+                    • </dg:chunk><dgc:Phone structure="p">(<dgc:Number>206</dgc:Number>) <dgc:Number>684</dgc:Number>-<dgc:Number>8889 </dgc:Number></dgc:Phone></dg:chunk></docset:Engineering></docset:Engineering-section></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 283.3; top: 1854.2; width: 795.8; height: 241.7; page: 9;}; "><dg:chunk structure="lim" style="boundingBox:{left: 283.3; top: 1854.2; width: 20.8; height: 45.8; page: 9;}; ">
+
+             • </dg:chunk><dg:chunk><dg:chunk structure="h1">Support: </dg:chunk><docset:SupportInformation structure="ul" style="list-style-type: circle; boundingBox:{left: 433.3; top: 1912.5; width: 645.8; height: 183.3; page: 9;}; "><dg:chunk structure="li" style="boundingBox:{left: 433.3; top: 1912.5; width: 291.7; height: 54.2; page: 9;}; "><dg:chunk structure="lim" style="boundingBox:{left: 433.3; top: 1912.5; width: 29.2; height: 54.2; page: 9;}; ">
+
+                    • </dg:chunk><dg:chunk structure="p"><docset:HoursofOperation>24 </docset:HoursofOperation>x <docset:SupportHours>7 </docset:SupportHours>x <docset:Availability>365 </docset:Availability></dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 433.3; top: 1980.3; width: 645.8; height: 48.9; page: 9;}; "><dg:chunk structure="lim" style="boundingBox:{left: 433.3; top: 1975.0; width: 29.2; height: 54.2; page: 9;}; ">
+
+                    • </dg:chunk><docset:SupportEmail structure="h1">support@digitalmemex.com </docset:SupportEmail></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 433.3; top: 2042.0; width: 354.2; height: 53.8; page: 9;}; "><dg:chunk structure="lim" style="boundingBox:{left: 433.3; top: 2037.5; width: 29.2; height: 54.2; page: 9;}; ">
+
+                    • </dg:chunk><dgc:Phone structure="p">(<dgc:Number>206</dgc:Number>) <dgc:Number>684</dgc:Number>-<dgc:Number>8888 </dgc:Number></dgc:Phone></dg:chunk></docset:SupportInformation></dg:chunk></dg:chunk></docset:HoursofOperation></docset:HoursofOperation-section></docset:ContactInformation></dg:chunk></dg:chunk></dg:chunk></dg:chunk><dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+          <docset:Travel>5</docset:Travel>. Travel. </dg:chunk><dg:chunk structure="div">If the Deliverable will be completed according to a fixed price SOW and travel is required, then Client must sign the Agreement and SOW and pay required Deposit at least <dgc:TimeDuration>30 days </dgc:TimeDuration>prior to proposed travel. If the Agreement and SOW are not signed and Deposit is not received at least <docset:TravelDeadline>30 days </docset:TravelDeadline>prior to proposed travel, Company reserves the right to amend the SOW estimate solely with regard to travel and lodging expenses so that the SOW estimate reflects actual costs incurred by Company. </dg:chunk></dg:chunk><docset:SignaturePageFollows-section><dg:chunk structure="h1">
+
+                                                 [<dg:chunk>Signature Page </dg:chunk>Follows] </dg:chunk><docset:SignaturePageFollows structure="div"><docset:AgreementSignatures structure="p">
+
+          Accepted and agreed to as of the <dg:chunk>SOW Effective Date </dg:chunk>by the authorized representative of each party. </docset:AgreementSignatures><docset:CEO><xhtml:table structure="table" style="boundingBox:{left: 251.7; top: 416.7; width: 1551.3; height: 637.5; page: 10;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 251.7; top: 416.7; width: 1551.3; height: 637.5; page: 10;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 251.7; top: 416.7; width: 1551.3; height: 62.5; page: 10;}; "><xhtml:td structure="td" style="boundingBox:{left: 251.7; top: 416.7; width: 775.4; height: 62.5; page: 10;}; "><dg:chunk structure="h1">
+
+            <docset:CompanyName>Bioplex, Inc. </docset:CompanyName></dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1027.1; top: 416.7; width: 663.4; height: 62.5; page: 10;}; " colspan="2"><dg:chunk structure="h1">
+
+                     <docset:CompanyName>MagicSoft, Inc. </docset:CompanyName></dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1690.5; top: 416.7; width: 112.5; height: 62.5; page: 10;}; " /></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 251.7; top: 479.1; width: 1551.3; height: 263.8; page: 10;}; "><xhtml:td structure="td" style="boundingBox:{left: 251.7; top: 479.1; width: 775.4; height: 263.8; page: 10;}; "><docset:BioplexIncSignature2>
+
+            Signature: 
+
+            <docset:SignatureFee>£2 </docset:SignatureFee>
+
+                                 — </docset:BioplexIncSignature2></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1027.1; top: 479.1; width: 447.2; height: 263.8; page: 10;}; "><docset:Signature2MagicSoftInc structure="h1">
+
+                     Signature: </docset:Signature2MagicSoftInc></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1474.3; top: 479.1; width: 216.2; height: 263.8; page: 10;}; "><docset:Signature>
+
+               TT </docset:Signature></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1690.5; top: 479.1; width: 112.5; height: 263.8; page: 10;}; "><docset:Signature2>
+
+                ~e </docset:Signature2></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 251.7; top: 742.9; width: 1551.3; height: 90.4; page: 10;}; "><xhtml:td structure="td" style="boundingBox:{left: 251.7; top: 742.9; width: 775.4; height: 90.4; page: 10;}; "><docset:PrintName-cell>
+
+            <dg:chunk>Print Name</dg:chunk>: <docset:PrintName>Aziz Khan </docset:PrintName></docset:PrintName-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1027.1; top: 742.9; width: 775.9; height: 90.4; page: 10;}; " colspan="3"><docset:PrintName-cell>
+
+                     <dg:chunk>Print Name</dg:chunk>: <docset:PrintName>Morris Minor </docset:PrintName></docset:PrintName-cell></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 251.7; top: 833.3; width: 1551.3; height: 79.2; page: 10;}; "><xhtml:td structure="td" style="boundingBox:{left: 251.7; top: 833.3; width: 775.4; height: 79.2; page: 10;}; "><docset:PrintTitle-cell>
+
+            <dg:chunk>Print Title</dg:chunk>: <docset:CEOName>CEO </docset:CEOName></docset:PrintTitle-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1027.1; top: 833.3; width: 663.4; height: 79.2; page: 10;}; " colspan="2"><docset:PrintTitle-cell>
+
+                     <dg:chunk>Print Title</dg:chunk>: <docset:CEOName>CEO </docset:CEOName></docset:PrintTitle-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1690.5; top: 833.3; width: 112.5; height: 79.2; page: 10;}; "><docset:PrintTitleCEO /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 251.7; top: 912.5; width: 1551.3; height: 79.2; page: 10;}; "><xhtml:td structure="td" style="boundingBox:{left: 251.7; top: 912.5; width: 775.4; height: 79.2; page: 10;}; "><docset:Date-cell>
+
+            Date: <docset:Date>06/01/2021 </docset:Date></docset:Date-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1027.1; top: 912.5; width: 663.4; height: 79.2; page: 10;}; " colspan="2"><docset:Date-cell>
+
+                     Date: <docset:Date>06/01/2021 </docset:Date></docset:Date-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1690.5; top: 912.5; width: 112.5; height: 79.2; page: 10;}; "><docset:Date06012021 /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 251.7; top: 991.7; width: 1551.3; height: 62.5; page: 10;}; "><xhtml:td structure="td" style="boundingBox:{left: 251.7; top: 991.7; width: 775.4; height: 62.5; page: 10;}; "><docset:Email-cell>
+
+            Email: <docset:EmailAddress>aziz.khan@bioplex.com </docset:EmailAddress></docset:Email-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1027.1; top: 991.7; width: 775.9; height: 62.5; page: 10;}; " colspan="3"><docset:Email-cell>
+
+                     Email: <docset:EmailAddress>morris@magicsoft.com</docset:EmailAddress></docset:Email-cell></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:CEO></docset:SignaturePageFollows></docset:SignaturePageFollows-section></dg:chunk></dg:chunk></dg:chunk></dg:chunk>

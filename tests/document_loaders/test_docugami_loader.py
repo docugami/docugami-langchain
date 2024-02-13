@@ -1,20 +1,15 @@
 """Test DocugamiLoader."""
 
-from pathlib import Path
-
 import pytest
 
 from langchain_docugami.document_loaders.docugami import DocugamiLoader
-
-DOCUGAMI_XML_PATH = (
-    Path(__file__).parent.parent / "test_data" / "docugami-example.xml"
-)
+from tests.conftest import TEST_DATA_DIR
 
 
 @pytest.mark.requires("dgml_utils")
 def test_docugami_loader_local() -> None:
     """Test DocugamiLoader."""
-    loader = DocugamiLoader(file_paths=[DOCUGAMI_XML_PATH])
+    loader = DocugamiLoader(file_paths=[TEST_DATA_DIR / "simple-dgml.xml"])
     docs = loader.load()
 
     assert len(docs) == 25

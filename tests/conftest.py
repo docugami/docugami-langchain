@@ -1,4 +1,6 @@
+import os
 import warnings
+from pathlib import Path
 from typing import Optional
 
 import pytest
@@ -11,6 +13,19 @@ from langchain_core.language_models.chat_models import BaseChatModel
 CUDA_DEVICE = "cpu"
 if torch.cuda.is_available():
     CUDA_DEVICE = "cuda"
+
+TEST_DATA_DIR = Path(__file__).parent / "testdata"
+
+
+def is_core_tests_only_mode() -> bool:
+    core_tests_env_var = os.environ.get("DOCUGAMI_ONLY_CORE_TESTS")
+    if not core_tests_env_var:
+        return False
+    else:
+        if isinstance(core_tests_env_var, bool):
+            return core_tests_env_var
+        else:
+            return str(core_tests_env_var).lower() == "true"
 
 
 def verify_chain_response(

@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?><docset:SoftwareLicenseAgreement-section cp:version="2.25.25.0.1705579492850-169.0" xmlns:docset="http://www.docugami.com/2021/dgml/docugami/SoftwareLicenseAgreements" xmlns:addedChunks="http://www.docugami.com/2021/dgml/docugami/SoftwareLicenseAgreements/addedChunks" xmlns:dg="http://www.docugami.com/2021/dgml" xmlns:dgc="http://www.docugami.com/2021/dgml/docugami/contracts" xmlns:dgm="http://www.docugami.com/2021/dgml/docugami/medical" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:cp="http://classifyprocess.com/2018/07/"><dg:chunk structure="h1">      <dg:chunk>Software License Agreement </dg:chunk></dg:chunk><docset:SoftwareLicenseAgreement structure="div"><docset:AgreementDate structure="p">
+
+
+
+THIS AGREEMENT between <docset:LicensorName>SFG Digital Corp. </docset:LicensorName>("Licensor"), of <docset:LicensorAddress><docset:LicensorAddress><docset:LicenseeAddress>600 </docset:LicenseeAddress><docset:AddressLine1>4th Ave</docset:AddressLine1></docset:LicensorAddress>, <docset:LicensorAddress>Seattle</docset:LicensorAddress>, <docset:State>WA </docset:State><docset:LicensorAddress>98104 </docset:LicensorAddress></docset:LicensorAddress>and <docset:LicenseeName>Applus Technologies, Inc. </docset:LicenseeName>("Licensee"), of <docset:LicenseeAddress><docset:LicenseeAddress><docset:LicenseeAddress>3225 </docset:LicenseeAddress><docset:LicenseeAddress>Gateway Rd</docset:LicenseeAddress>, <docset:LicenseeAddress>Ste <docset:LicenseeAddress>450</docset:LicenseeAddress></docset:LicenseeAddress></docset:LicenseeAddress>, <docset:LicenseeAddress>Brookfield</docset:LicenseeAddress>, <dgc:USState>Wisconsin</dgc:USState>, <docset:LicenseeAddress>53045</docset:LicenseeAddress></docset:LicenseeAddress>. This agreement is effective as of <docset:EffectiveDate>August 8, 2020 </docset:EffectiveDate>(“<dg:chunk>Effective Date</dg:chunk>”). </docset:AgreementDate><docset:WHEREAS-section><dg:chunk structure="h1">
+
+
+
+
+
+WHEREAS: </dg:chunk><docset:WHEREAS structure="div">
+
+
+
+   <docset:LicenseAgreement structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 246.0; top: 921.0; width: 1956.0; height: 327.0; page: 1;}; "><dg:chunk structure="li" style="boundingBox:{left: 246.0; top: 921.0; width: 1947.0; height: 105.0; page: 1;}; "><dg:chunk structure="lim">(A)  </dg:chunk><dg:chunk>This Agreement is a license agreement and not an agreement for the sale of software or services. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+   <dg:chunk structure="li" style="boundingBox:{left: 246.0; top: 1086.0; width: 1956.0; height: 162.0; page: 1;}; "><dg:chunk structure="lim">(B)  </dg:chunk><dg:chunk>This Agreement gives Licensee limited rights to use the Software and Related Materials described below and imposes upon Licensee certain obligations to protect the Software and Related Materials from unauthorized use, reproduction, distribution or publication. </dg:chunk></dg:chunk></docset:LicenseAgreement><dg:chunk><docset:NOWTHEREFORE-section><dg:chunk structure="h1">
+
+
+
+
+
+<dg:chunk>NOW THEREFORE </dg:chunk></dg:chunk><docset:NOWTHEREFORE structure="div"><docset:Consideration structure="p">in consideration of the mutual covenants and agreements hereinafter contained and for other good and valuable consideration, the receipt and sufficiency of which is hereby acknowledged, the parties hereby agree as follows: </docset:Consideration><dg:chunk>
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 1536.0; width: 1971.0; height: 105.0; page: 1;}; "><docset:Definitions structure="li" style="boundingBox:{left: 246.0; top: 1536.0; width: 1971.0; height: 105.0; page: 1;}; "><dg:chunk structure="lim">1.   </dg:chunk><docset:Definitions-section><dg:chunk structure="h1">Definitions. </dg:chunk><docset:Definitions structure="div">In this Agreement the following words and phrases shall have the following respective meanings, unless the context otherwise requires: </docset:Definitions></docset:Definitions-section></docset:Definitions></dg:chunk>
+
+
+
+
+
+       <docset:ConfidentialityObligations structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 396.0; top: 1704.0; width: 1851.0; height: 1221.0; page: 1;}; "><dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 1704.0; width: 1851.0; height: 660.0; page: 1;}; "><dg:chunk structure="lim">(a)  </dg:chunk><docset:ConfidentialInformation-section><dg:chunk structure="h1">"<dg:chunk>Confidential Information</dg:chunk>" </dg:chunk><docset:ConfidentialInformation structure="div">means proprietary material or information belonging to Licensor, or to any third party to which Licensor owes a duty to maintain confidentiality, directly or indirectly placed by Licensor, or by third parties to which Licensor is related, into the possession of Licensee which material or information is not generally available to or used by others (except other persons whom Licensor has granted licenses of the Software and Related Materials or part thereof) or the utility or value of which is not generally known or recognized as standard practice, whether or not the underlying details are in the public domain, and includes, without limitation, all business information, computer software and computer technology, whether patentable or not, which is acquired by or on behalf of Licensee <dgc:Frequency>from time to time </dgc:Frequency>and which, owing to the relationship between Licensor and Licensee, may become known to Licensee. </docset:ConfidentialInformation></docset:ConfidentialInformation-section></dg:chunk>
+
+
+
+
+
+
+
+       <dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 2430.0; width: 1821.0; height: 270.0; page: 1;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:Copyrights-section><dg:chunk structure="h1">"Copyrights" </dg:chunk><docset:Copyrights structure="div">shall refer to those copyrights or copyright registrations for the Software or the Software and Related Materials and shall include future copyrights belonging to Licensor or any third party related to Licensor for improvements and modifications thereof and applications by Licensor for registration of copyrights for improvements and modifications thereof; </docset:Copyrights></docset:Copyrights-section></dg:chunk>
+
+
+
+
+
+
+
+       <dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 2763.0; width: 1824.0; height: 162.0; page: 1;}; "><dg:chunk structure="lim">(c)  </dg:chunk><docset:Enhancements-section><dg:chunk structure="h1">"Enhancements" </dg:chunk><docset:Enhancements structure="div">means changes and/or improvements to the Software, whether arising out of the particular Software configuration for the specific use of Licensee or otherwise; </docset:Enhancements></docset:Enhancements-section></dg:chunk></docset:ConfidentialityObligations>
+
+
+
+
+
+
+
+       <dg:chunk structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 396.0; top: 366.0; width: 1836.0; height: 105.0; page: 2;}; "><docset:SoftwareErrors structure="li" style="boundingBox:{left: 396.0; top: 366.0; width: 1836.0; height: 105.0; page: 2;}; "><dg:chunk structure="lim">(d)  </dg:chunk><docset:Errors-section><dg:chunk structure="h1">"Errors" </dg:chunk><docset:Errors structure="div">means, with regard to the Software, incorrect source code or object code or anything not in agreement with published Specifications or requested modifications; </docset:Errors></docset:Errors-section></docset:SoftwareErrors></dg:chunk>
+
+
+
+
+
+       <dg:chunk structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 396.0; top: 534.0; width: 1824.0; height: 333.0; page: 2;}; "><docset:Know-HowDefinition structure="li" style="boundingBox:{left: 396.0; top: 534.0; width: 1824.0; height: 333.0; page: 2;}; "><dg:chunk structure="lim">(e)  </dg:chunk><docset:Know-How-section><dg:chunk structure="h1">"<dg:chunk>Know-How</dg:chunk>" </dg:chunk><docset:Know-How structure="div">includes all technology, source code, object code, local area network manager code, technical information, procedures, processes, trade secrets, methods, practices, techniques, information, logic/flow charts, sketches, drawings, Specifications, application and modification manuals and data relating to the design, manufacture, production, inspection, and <dgm:_testRef>testing </dgm:_testRef>of the Software, which are <dgc:Frequency>from time to time </dgc:Frequency>in Licensor's possession; </docset:Know-How></docset:Know-How-section></docset:Know-HowDefinition></dg:chunk>
+
+
+
+
+
+       <dg:chunk structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 396.0; top: 927.0; width: 1743.0; height: 105.0; page: 2;}; "><docset:ManualsDefinition structure="li" style="boundingBox:{left: 396.0; top: 927.0; width: 1743.0; height: 105.0; page: 2;}; "><dg:chunk structure="lim">(f)   </dg:chunk><docset:Manuals-section><dg:chunk structure="h1">"Manuals" </dg:chunk><docset:Manuals structure="div">means the programmer's manuals, the technical manuals and the user manuals and other similar documentation; </docset:Manuals></docset:Manuals-section></docset:ManualsDefinition></dg:chunk>
+
+
+
+
+
+       <dg:chunk structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 396.0; top: 1095.0; width: 1785.0; height: 273.0; page: 2;}; "><docset:ModificationsDefinition structure="li" style="boundingBox:{left: 396.0; top: 1095.0; width: 1785.0; height: 273.0; page: 2;}; "><dg:chunk structure="lim">(g)  </dg:chunk><docset:Modifications-section><dg:chunk structure="h1">"Modifications" </dg:chunk><docset:Modifications structure="div">means Enhancements and/or correction of Errors, and Modifications shall be deemed to have been accepted by Licensee upon the lapse of <docset:AcceptancePeriod>sixty (60) days </docset:AcceptancePeriod>following successful installation of any Modifications unless Licensee notifies Licensor in writing prior to the lapse of such period that the Modifications in question do not conform to Specifications; </docset:Modifications></docset:Modifications-section></docset:ModificationsDefinition></dg:chunk>
+
+
+
+
+
+       <dg:chunk structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 396.0; top: 1431.0; width: 1815.0; height: 159.0; page: 2;}; "><docset:RelatedMaterials structure="li" style="boundingBox:{left: 396.0; top: 1431.0; width: 1815.0; height: 159.0; page: 2;}; "><dg:chunk structure="lim">(h)  </dg:chunk><docset:RelatedMaterials-section><dg:chunk structure="h1">"<dg:chunk>Related Materials</dg:chunk>" </dg:chunk><docset:RelatedMaterials structure="div">means all of the printed materials, user documentation, training documentation and confidential activation code for the Software supplied by Licensor to Licensee, and includes the Manuals; </docset:RelatedMaterials></docset:RelatedMaterials-section></docset:RelatedMaterials></dg:chunk>
+
+
+
+
+
+       <dg:chunk structure="ol" style="list-style-type: lower-roman; boundingBox:{left: 396.0; top: 1653.0; width: 1842.0; height: 333.0; page: 2;}; "><docset:SoftwareDescription structure="li" style="boundingBox:{left: 396.0; top: 1653.0; width: 1842.0; height: 333.0; page: 2;}; "><dg:chunk structure="lim">(i)   </dg:chunk><docset:Software-section><dg:chunk structure="h1">"Software", </dg:chunk><docset:Software structure="div">which includes the <dg:chunk>Know-How </dg:chunk>and, unless otherwise hereinafter set out to the contrary, any Modifications, is described on Schedule "A" herein and includes all actual copies of all or any portion of the computer programs delivered by Licensor to Licensee, inclusive of backups, updates and merged copies either permitted by this Agreement or supplied subsequently by Licensor or any party related to Licensor; and </docset:Software></docset:Software-section></docset:SoftwareDescription></dg:chunk>
+
+
+
+
+
+       <dg:chunk structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 396.0; top: 2046.0; width: 1728.0; height: 51.0; page: 2;}; "><dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 2046.0; width: 1728.0; height: 51.0; page: 2;}; "><dg:chunk structure="lim">(j)   </dg:chunk><docset:Specifications-section><dg:chunk structure="h1">"Specifications" </dg:chunk><docset:Specifications structure="div">means the functional performance parameters of the Software. </docset:Specifications></docset:Specifications-section></dg:chunk></dg:chunk>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 2157.0; width: 1986.0; height: 387.0; page: 2;}; "><docset:LicenseGrantandOwnership structure="li" style="boundingBox:{left: 246.0; top: 2157.0; width: 1986.0; height: 387.0; page: 2;}; "><dg:chunk structure="lim">2.   </dg:chunk><docset:GrantofLicenseAndReservationofOwnership-section><dg:chunk structure="h1">Grant of License and Reservation of Ownership. </dg:chunk><docset:GrantofLicenseAndReservationofOwnership structure="div">Licensor hereby grants to Licensee a non-exclusive, non-transferable license to use the Software and Related Materials at the site referred to in Schedule A hereto and otherwise pursuant to the terms of this Agreement. Licensor retains title and exclusive ownership of any and all copies of the Software and Related Materials licensed hereby. Licensee agrees to use its best efforts to protect the Software and Related Materials from unauthorized use, reproduction, distribution or publication. </docset:GrantofLicenseAndReservationofOwnership></docset:GrantofLicenseAndReservationofOwnership-section></docset:LicenseGrantandOwnership></dg:chunk>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 2607.0; width: 1914.0; height: 273.0; page: 2;}; "><docset:LicenseFee structure="li" style="boundingBox:{left: 246.0; top: 2607.0; width: 1914.0; height: 273.0; page: 2;}; "><dg:chunk structure="lim">3.   </dg:chunk><docset:LicenseFee-section><dg:chunk structure="h1"><dg:chunk>License Fee</dg:chunk>. </dg:chunk><docset:LicenseFee structure="div">In consideration for the granting of the license of the Software and Related Materials to Licensee, Licensee hereby agrees to pay to Licensor a license fee in the amount of <docset:InitialLicenseFee>$30,000 </docset:InitialLicenseFee>(the ‘<dg:chunk>Initial License Fee</dg:chunk>’) upon delivery of the Software to Licensee. Licensee shall also pay to Licensor all sales, excise and other taxes thereon and upon any other amounts payable by Licensee to Licensor pursuant to this Agreement. </docset:LicenseFee></docset:LicenseFee-section></docset:LicenseFee></dg:chunk>
+
+
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 330.0; width: 24.0; height: 51.0; page: 3;}; "><dg:chunk structure="li" style="boundingBox:{left: 246.0; top: 330.0; width: 24.0; height: 51.0; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 246.0; top: 330.0; width: 36.0; height: 51.0; page: 3;}; ">4. </dg:chunk><dg:chunk>
+
+
+
+Copyrights. </dg:chunk></dg:chunk></dg:chunk>
+
+
+
+       <docset:CopyrightInfringement structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 396.0; top: 441.0; width: 1863.0; height: 1173.0; page: 3;}; "><dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 441.0; width: 1854.0; height: 501.0; page: 3;}; "><dg:chunk structure="lim">(a)  </dg:chunk><docset:CopyrightProtection structure="p">The Software and Related Materials are owned by Licensor and are protected by 
+
+       U.S. copyright laws and applicable international treaties and/or conventions. Without limiting the prohibition on assignment contained elsewhere in this Agreement, Licensee acknowledges that its rights to use the Software and Related Materials are personal to Licensee. Licensee therefore covenants not to permit the use of the Software and Related Materials by unauthorized persons and to use its best efforts to prevent the exportation of the Software and Related Materials or any portion thereof into any country which does not have copyright laws that will protect Licensor's Copyrights. </docset:CopyrightProtection></dg:chunk>
+
+
+
+
+
+
+
+
+
+       <dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 1008.0; width: 1863.0; height: 606.0; page: 3;}; "><dg:chunk structure="lim">(b)  </dg:chunk><dg:chunk>As to any Software and Related Materials which are or in the opinion of Licensor may become subject to a claim of infringement, Licensor, at its option, will obtain the right for Licensee to continue using the Software and Related Materials or replace or modify the Software and Related Materials so as to make it non- infringing. If none of the aforementioned alternatives are available on commercially reasonable terms, then Licensee agrees to return the Software and Related Materials to Licensor upon Licensor's written request and Licensor shall, upon return, refund to Licensee all license fees paid by Licensee to Licensor, and Licensor shall have no other or further liability to Licensee. Licensee acknowledges that the remedies set out in paragraph 11 hereof constitute the sole and exclusive remedy of Licensee for copyright infringement. </dg:chunk></dg:chunk></docset:CopyrightInfringement><dg:chunk>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 1677.0; width: 1989.0; height: 996.0; page: 3;}; "><docset:IntellectualPropertyIndemnification structure="li" style="boundingBox:{left: 246.0; top: 1677.0; width: 1989.0; height: 996.0; page: 3;}; "><dg:chunk structure="lim">5.   </dg:chunk><docset:IntellectualPropertyIndemnification-section><dg:chunk structure="h1"><dg:chunk>Intellectual Property Indemnification</dg:chunk>. </dg:chunk><docset:IntellectualPropertyIndemnification structure="div">Licensor will defend, at its own expense, any claim, suit or proceeding brought against Licensee to the extent it is based upon a claim that unmodified Licensor-proprietary code licensed to Licensee pursuant to this Agreement infringes upon any United States patent, copyright or trade secret of any third party. Licensee agrees that it shall promptly notify Licensor in writing of any such claim or action and give Licensor full information and assistance in connection therewith. Licensor shall have the sole right to control the defense of any such claim or action and the sole right to settle or compromise any such claim or action. Provided Licensee complies with the provisions hereof and is not otherwise in breach of any provision of this Agreement, Licensor will pay all damages, costs and expenses finally awarded to third parties against Licensee in such action. If such Software is, or in Licensor’s opinion may be, held to infringe, Licensor may, at its option, replace or modify such Software so as to avoid infringement, or procure the right for Licensee to continue the use of such Software. If neither of such alternatives is, in Licensor’s opinion, commercially reasonable, the infringing Software shall be returned to Licensor and Licensor’s sole liability, in addition to its obligation to reimburse finally awarded damages, costs and expenses set forth above, shall be a credit to Licensee of license fees paid to Licensor by Licensee under this Agreement, as depreciated on a straight line <docset:LicenseTerm>three (3) year </docset:LicenseTerm>basis. </docset:IntellectualPropertyIndemnification></docset:IntellectualPropertyIndemnification-section></docset:IntellectualPropertyIndemnification></dg:chunk><dg:chunk><docset:InfringementClaims structure="p">
+
+
+
+
+
+   Licensor will have no liability for any claim of infringement arising as a result of a) Licensee’s use of the licensed Software in combination with any items not supplied by Licensor where such combination is the basis of the infringement claim; b) any modification of the licensed Software by Licensee or third parties; c) use of other than the latest revision of the Software if use of the latest revision would avoid the infringement; or d) use of the Software outside the scope of the license granted hereunder. </docset:InfringementClaims><docset:IntellectualPropertyRights structure="p">
+
+
+
+   THE FOREGOING STATES THE ENTIRE LIABILITY OF LICENSOR TO LICENSEE CONCERNING INFRINGEMENT OF <dg:chunk>INTELLECTUAL PROPERTY RIGHTS</dg:chunk>, INCLUDING, BUT NOT LIMITED TO, PATENT, COPYRIGHT AND TRADE SECRET RIGHTS. </docset:IntellectualPropertyRights></dg:chunk></dg:chunk>
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 756.0; width: 1983.0; height: 327.0; page: 4;}; "><docset:SoftwareConfiguration structure="li" style="boundingBox:{left: 246.0; top: 756.0; width: 1983.0; height: 327.0; page: 4;}; "><dg:chunk structure="lim">6.   </dg:chunk><docset:PermittedUsesoftheSoftwareAndRelatedMaterials-section><dg:chunk structure="h1">Permitted Uses of the Software and Related Materials. </dg:chunk><docset:PermittedUsesoftheSoftwareAndRelatedMaterials structure="div">As each configuration of central processing units and/or networked systems may be unique, Licensee agrees to conform Licensee's use of the Software to the particular Software configuration licensed by Licensor to Licensee. Said configuration is incorporated into this license agreement by reference, inclusive of Modifications created or approved by Licensor. Licensee may make one <docset:SoftwareConfiguration>(1) </docset:SoftwareConfiguration>copy of the Software for archival purposes only, unless Licensor agrees otherwise in writing. </docset:PermittedUsesoftheSoftwareAndRelatedMaterials></docset:PermittedUsesoftheSoftwareAndRelatedMaterials-section></docset:SoftwareConfiguration></dg:chunk>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 1146.0; width: 1497.0; height: 51.0; page: 4;}; "><dg:chunk structure="li" style="boundingBox:{left: 246.0; top: 1146.0; width: 1497.0; height: 51.0; page: 4;}; "><dg:chunk structure="lim">7.   </dg:chunk><docset:UsesNotPermitted-section><dg:chunk structure="h1">Uses Not Permitted. </dg:chunk><docset:UsesNotPermitted structure="div">Licensee covenants and agrees that it will not: </docset:UsesNotPermitted></docset:UsesNotPermitted-section></dg:chunk></dg:chunk>
+
+
+
+
+
+       <docset:LicenseRestrictions structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 396.0; top: 1260.0; width: 1818.0; height: 897.0; page: 4;}; "><dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 1260.0; width: 1776.0; height: 162.0; page: 4;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk>whether in whole or in part, sell, rent, lease, sublease, license, sublicense, lend, time-share, transfer, assign or provide the use of or access to the Software and Related Materials, or any portion thereof, to unlicensed persons and entities. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+       <dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 1491.0; width: 1746.0; height: 105.0; page: 4;}; "><dg:chunk structure="lim">(b)  </dg:chunk><dg:chunk>assign, mortgage, charge or otherwise encumber either the Software and Related Materials or its rights under this Agreement. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+       <dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 1659.0; width: 1281.0; height: 48.0; page: 4;}; "><dg:chunk structure="lim">(c)  </dg:chunk><dg:chunk>reverse engineer, decompile or disassemble the Software. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+       <dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 1770.0; width: 1818.0; height: 105.0; page: 4;}; "><dg:chunk structure="lim">(d)  </dg:chunk><docset:ModificationRestriction structure="p">alter, modify or create any derivative works of the Software and Related Materials or any portion thereof. </docset:ModificationRestriction></dg:chunk>
+
+
+
+
+
+
+
+       <dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 1938.0; width: 1716.0; height: 105.0; page: 4;}; "><dg:chunk structure="lim">(e)  </dg:chunk><dg:chunk>Except as permitted elsewhere in this Agreement, make additional copies of the Software and Related Materials or any portion thereof. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+       <dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 2106.0; width: 1239.0; height: 51.0; page: 4;}; "><dg:chunk structure="lim">(f)   </dg:chunk><dg:chunk>obscure or remove any copyright or trademark notices. </dg:chunk></dg:chunk></docset:LicenseRestrictions>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 2217.0; width: 1896.0; height: 219.0; page: 4;}; "><docset:AssignmentRestriction structure="li" style="boundingBox:{left: 246.0; top: 2217.0; width: 1896.0; height: 219.0; page: 4;}; "><dg:chunk structure="lim">8.   </dg:chunk><docset:Assignment-section><dg:chunk structure="h1">Assignment. </dg:chunk><docset:Assignment structure="div">Without limiting anything contained elsewhere in this Agreement, Licensee shall not assign this Agreement or any rights herein without the prior written consent of Licensor, which consent may be arbitrarily withheld. Any purported assignment without Licensor's consent shall be deemed to be null and void. </docset:Assignment></docset:Assignment-section></docset:AssignmentRestriction></dg:chunk>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 2499.0; width: 279.0; height: 48.0; page: 4;}; "><dg:chunk structure="li" style="boundingBox:{left: 246.0; top: 2499.0; width: 279.0; height: 48.0; page: 4;}; "><dg:chunk structure="lim">9.   </dg:chunk><dg:chunk>Term. </dg:chunk></dg:chunk></dg:chunk>
+
+
+
+
+
+       <docset:LicenseTerm structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 411.0; top: 2610.0; width: 1791.0; height: 384.0; page: 4;}; boundingBox:{left: 411.0; top: 312.0; width: 1779.0; height: 552.0; page: 5;}; "><dg:chunk structure="li" style="boundingBox:{left: 411.0; top: 2610.0; width: 1791.0; height: 384.0; page: 4;}; boundingBox:{left: 543.0; top: 312.0; width: 1647.0; height: 216.0; page: 5;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk>The license granted by this Agreement is <dg:chunk>Non Exclusive</dg:chunk>, and shall be for an initial period of <docset:InitialLicensePeriod>36 months</docset:InitialLicensePeriod>, commencing from the acceptance date, (the “Initial Period”). The Agreement may be renewed for an additional period of <dgc:TimeDuration>36 months </dgc:TimeDuration>at a <docset:RenewalFee>15% </docset:RenewalFee>increase from the <dg:chunk>Initial License Fee </dg:chunk>at the option of the Licensor. Notwithstanding the foregoing, this Agreement will terminate automatically without notice if Licensee fails to comply with any provision of this Agreement. Upon termination of this Agreement, Licensee shall return the Software and Related Materials to Licensor together with any whole or partial copies, codes, Modifications and merged portions in any form. The parties agree that all provisions set out in this Agreement for the protection of Licensor and its Copyrights shall remain in force notwithstanding termination of this Agreement. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+       <dg:chunk structure="li" style="boundingBox:{left: 411.0; top: 588.0; width: 1758.0; height: 108.0; page: 5;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:ExtensionPeriod structure="p">The <dg:chunk>Initial Period </dg:chunk>shall be extended by mutual written of the parties within <docset:ExtensionPeriod>45 days </docset:ExtensionPeriod>of the close of the <dg:chunk>Initial Period</dg:chunk>. </docset:ExtensionPeriod></dg:chunk>
+
+
+
+
+
+
+
+       <dg:chunk structure="li" style="boundingBox:{left: 411.0; top: 759.0; width: 1779.0; height: 105.0; page: 5;}; "><dg:chunk structure="lim">(c)  </dg:chunk><dg:chunk>Any additional extension of this <dg:chunk>License Agreement </dg:chunk>will be by mutual agreement in writing. </dg:chunk></dg:chunk></docset:LicenseTerm>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 927.0; width: 2001.0; height: 276.0; page: 5;}; "><docset:SoftwareUpdates structure="li" style="boundingBox:{left: 246.0; top: 927.0; width: 2001.0; height: 276.0; page: 5;}; "><dg:chunk structure="lim">10.  </dg:chunk><docset:Updates-section><dg:chunk structure="h1">Updates. </dg:chunk><docset:Updates structure="div">Provided that Licensee is in compliance with the terms and conditions of this Agreement, Licensor agrees to make available to Licensee all updates, improvements and enhancements for the Software, if any, at Licensor’s then current update fee of <docset:UpdateFee>$5,000 </docset:UpdateFee>per update. Nothing herein shall be construed or interpreted as requiring Licensor to develop any such updates, improvements or enhancements. </docset:Updates></docset:Updates-section></docset:SoftwareUpdates></dg:chunk>
+
+
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 1263.0; width: 24.0; height: 51.0; page: 5;}; "><dg:chunk structure="li" style="boundingBox:{left: 246.0; top: 1263.0; width: 24.0; height: 51.0; page: 5;}; boundingBox:{left: 396.0; top: 1839.0; width: 27.0; height: 51.0; page: 6;}; "><dg:chunk structure="lim" style="boundingBox:{left: 246.0; top: 1263.0; width: 60.0; height: 51.0; page: 5;}; ">11. </dg:chunk><dg:chunk structure="h1">
+
+
+
+<dg:chunk>Limited Warranty</dg:chunk>. </dg:chunk><dg:chunk structure="h1">
+
+
+
+
+
+   State of <dgc:USState>Washington</dgc:USState>. </dg:chunk></dg:chunk></dg:chunk>
+
+
+
+       <docset:Warranty structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 396.0; top: 1377.0; width: 1896.0; height: 1521.0; page: 5;}; boundingBox:{left: 396.0; top: 312.0; width: 1782.0; height: 159.0; page: 6;}; "><dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 1377.0; width: 1821.0; height: 327.0; page: 5;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk>Licensor warrants that the Software, without Modifications, will substantially conform to the <dg:chunk>Related Materials </dg:chunk>for a period of <docset:WarrantyPeriod>one (1) year </docset:WarrantyPeriod>from the date of receipt by Licensee. Licensor warrants that the media upon which the Software is provided and the <dg:chunk>Related Materials </dg:chunk>will be free from defects in materials and workmanship under normal use and service for a period of <docset:WarrantyPeriod>ninety (90) days </docset:WarrantyPeriod>from the date of receipt by Licensee. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 1788.0; width: 1896.0; height: 495.0; page: 5;}; "><dg:chunk structure="lim">(b)  </dg:chunk><dg:chunk><dg:chunk>LICENSOR DISCLAIMS </dg:chunk>ALL OTHER WARRANTIES, <dg:chunk>EITHER EXPRESS </dg:chunk>OR IMPLIED, INCLUDING BUT NOT LIMITED TO <dg:chunk>IMPLIED WARRANTIES </dg:chunk>OF MERCHANTABILITY AND FITNESS FOR A <dg:chunk>PARTICULAR PURPOSE</dg:chunk>, WITH RESPECT TO THE SOFTWARE AND <dg:chunk>RELATED MATERIALS</dg:chunk>. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF <dg:chunk>IMPLIED WARRANTIES </dg:chunk>OR THE LIMITATION OR EXCLUSION OF <dg:chunk>INCIDENTAL OR CONSEQUENTIAL DAMAGES </dg:chunk>SO THE FOREGOING EXCLUSIONS MAY NOT APPLY TO COMPANY. COMPANY MAY HAVE OTHER RIGHTS WHICH VARY FROM JURISDICTION TO JURISDICTION. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+       <dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 2346.0; width: 1686.0; height: 105.0; page: 5;}; "><dg:chunk structure="lim">(c)  </dg:chunk><dg:chunk>During the warranty period, Licensor's entire liability and Licensee's exclusive remedy shall, at Licensor's option, be one of the following: </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+          <docset:ErrorCorrection structure="ol" style="list-style-type: lower-roman; boundingBox:{left: 546.0; top: 2514.0; width: 1608.0; height: 384.0; page: 5;}; "><dg:chunk structure="li" style="boundingBox:{left: 546.0; top: 2514.0; width: 1263.0; height: 51.0; page: 5;}; "><dg:chunk structure="lim">(i)   </dg:chunk><dg:chunk>Licensor may attempt to correct or work around Errors; </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+          <dg:chunk structure="li" style="boundingBox:{left: 546.0; top: 2625.0; width: 1296.0; height: 51.0; page: 5;}; "><dg:chunk structure="lim">(ii)  </dg:chunk><dg:chunk>Licensor may replace the Software and Related Materials; </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+          <dg:chunk structure="li" style="boundingBox:{left: 546.0; top: 2739.0; width: 1608.0; height: 159.0; page: 5;}; "><dg:chunk structure="lim">(iii)  </dg:chunk><dg:chunk>Licensor may refund to Licensee the license fees paid to Licensor upon return of the Software and Related Materials to Licensor or its authorized distributor. </dg:chunk></dg:chunk></docset:ErrorCorrection>
+
+
+
+
+
+
+
+
+
+       <dg:chunk structure="li" style="boundingBox:{left: 396.0; top: 312.0; width: 1782.0; height: 159.0; page: 6;}; "><dg:chunk structure="lim">(d)  </dg:chunk><dg:chunk>Licensor shall not be liable for damages, direct or indirect, special, incidental, consequential, punitive or exemplary, related to Licensee's use of the Software and Related Materials, even if Licensor is advised of the possibility of such damage. </dg:chunk></dg:chunk></docset:Warranty>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 534.0; width: 1995.0; height: 384.0; page: 6;}; "><docset:Confidentiality structure="li" style="boundingBox:{left: 246.0; top: 534.0; width: 1995.0; height: 384.0; page: 6;}; "><dg:chunk structure="lim">12.  </dg:chunk><docset:Confidentiality-section><dg:chunk structure="h1">Confidentiality. </dg:chunk><docset:Confidentiality structure="div">All <dg:chunk>Confidential Information</dg:chunk>, including the <dg:chunk>Know-How</dg:chunk>, shall be treated as confidential by Licensee and shall be used solely to enable Licensee to use the Software in accordance with this Agreement. Nothing contained herein shall prevent Licensee from making disclosure of any of the <dg:chunk>Confidential Information </dg:chunk>to any employee of Licensee for the sole purpose of utilizing the Software and Related Materials in accordance with this Agreement, provided that Licensee shall obtain from each employee to whom such disclosure is made a covenant of non-disclosure. </docset:Confidentiality></docset:Confidentiality-section></docset:Confidentiality></dg:chunk>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 981.0; width: 1968.0; height: 162.0; page: 6;}; "><docset:NoImpliedWaiver structure="li" style="boundingBox:{left: 246.0; top: 981.0; width: 1968.0; height: 162.0; page: 6;}; "><dg:chunk structure="lim">13.  </dg:chunk><docset:NoImpliedWaiver-section><dg:chunk structure="h1">No <dg:chunk>Implied Waiver</dg:chunk>. </dg:chunk><docset:NoImpliedWaiver structure="div">No failure or delay by Licensor in enforcing any right or remedy in this Agreement shall be construed as a waiver of any future exercise of such right or remedy by Licensor. </docset:NoImpliedWaiver></docset:NoImpliedWaiver-section></docset:NoImpliedWaiver></dg:chunk>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 1206.0; width: 1794.0; height: 159.0; page: 6;}; "><docset:ConflictofDocuments structure="li" style="boundingBox:{left: 246.0; top: 1206.0; width: 1794.0; height: 159.0; page: 6;}; "><dg:chunk structure="lim">14.  </dg:chunk><docset:ConflictofDocuments-section><dg:chunk structure="h1">Conflict of Documents. </dg:chunk><docset:ConflictofDocuments structure="div">Any conflict between the terms of this Agreement and any purchase order or other document in relation to the license granted hereby shall be resolved in favor of the terms of this Agreement. </docset:ConflictofDocuments></docset:ConflictofDocuments-section></docset:ConflictofDocuments></dg:chunk>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 1428.0; width: 1923.0; height: 273.0; page: 6;}; "><docset:EquitableRelief structure="li" style="boundingBox:{left: 246.0; top: 1428.0; width: 1923.0; height: 273.0; page: 6;}; "><dg:chunk structure="lim">15.  </dg:chunk><docset:EquitableRelief-section><dg:chunk structure="h1"><dg:chunk>Equitable Relief</dg:chunk>. </dg:chunk><docset:EquitableRelief structure="div">Licensee acknowledges that any breach by it of any of the terms of this Agreement is likely to result in irreparable harm or damage to Licensor and that, in the event of such breach, in addition to any and all remedies at law, Licensor shall have the right to obtain an injunction, specific performance or other equitable relief to prevent the continuous violation of the terms of this Agreement. </docset:EquitableRelief></docset:EquitableRelief-section></docset:EquitableRelief></dg:chunk>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 1764.0; width: 1875.0; height: 51.0; page: 6;}; "><dg:chunk structure="li" style="boundingBox:{left: 246.0; top: 1764.0; width: 1875.0; height: 51.0; page: 6;}; "><dg:chunk structure="lim">16.  </dg:chunk><docset:GoverningLaw-section><dg:chunk structure="h1">Governing Law. </dg:chunk><docset:GoverningLaw structure="div">This Agreement shall be construed in accordance with the laws of the </docset:GoverningLaw></docset:GoverningLaw-section></dg:chunk></dg:chunk>
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 1953.0; width: 1989.0; height: 219.0; page: 6;}; "><docset:EntireAgreement structure="li" style="boundingBox:{left: 246.0; top: 1953.0; width: 1989.0; height: 219.0; page: 6;}; "><dg:chunk structure="lim">17.  </dg:chunk><docset:EntireAgreement-section><dg:chunk structure="h1"><dg:chunk>Entire Agreement</dg:chunk>. </dg:chunk><docset:EntireAgreement structure="div">This Agreement constitutes the sole and entire agreement between the parties, and supersedes any previous agreements, understandings and arrangements between the parties relating to the Software and Related Materials. Any amendments hereto are enforceable only if in writing and signed by each of the parties. </docset:EntireAgreement></docset:EntireAgreement-section></docset:EntireAgreement></dg:chunk>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 2232.0; width: 1929.0; height: 162.0; page: 6;}; "><docset:SeverabilityClause structure="li" style="boundingBox:{left: 246.0; top: 2232.0; width: 1929.0; height: 162.0; page: 6;}; "><dg:chunk structure="lim">18.  </dg:chunk><docset:Severability-section><dg:chunk structure="h1">Severability. </dg:chunk><docset:Severability structure="div">If any portion of this Agreement is deemed by any court of competent jurisdiction to be illegal or unenforceable, then the remaining provisions of this Agreement shall remain in full force and effect notwithstanding. </docset:Severability></docset:Severability-section></docset:SeverabilityClause></dg:chunk>
+
+
+
+
+
+   <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 246.0; top: 2457.0; width: 1917.0; height: 105.0; page: 6;}; "><docset:Execution structure="li" style="boundingBox:{left: 246.0; top: 2457.0; width: 1917.0; height: 105.0; page: 6;}; "><dg:chunk structure="lim">19.  </dg:chunk><docset:Execution-section><dg:chunk structure="h1">Execution. </dg:chunk><docset:Execution structure="div">This Agreement has been executed by an authorized signatory duly entitled to bind the party on behalf of which he or she has executed this Agreement. </docset:Execution></docset:Execution-section></docset:Execution></dg:chunk></dg:chunk></docset:NOWTHEREFORE></docset:NOWTHEREFORE-section><dg:chunk><docset:INWITNESSWHEREOF-section><dg:chunk structure="h1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+IN <dg:chunk>WITNESS WHEREOF </dg:chunk></dg:chunk><docset:INWITNESSWHEREOF structure="div"><dg:chunk structure="p">the parties hereto have executed this Agreement as of the date first above written. </dg:chunk>
+
+
+
+
+
+
+
+<docset:INWITNESSWHEREOFthePartiesHeretoHaveExecutedThisAgreement><xhtml:table structure="table" style="boundingBox:{left: 231.0; top: 573.0; width: 2031.0; height: 603.0; page: 7;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 231.0; top: 573.0; width: 2031.0; height: 603.0; page: 7;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 231.0; top: 573.0; width: 2031.0; height: 48.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 231.0; top: 573.0; width: 546.0; height: 48.0; page: 7;}; ">NAME OF LICENSEE 
+
+</xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1266.0; top: 573.0; width: 996.0; height: 48.0; page: 7;}; "><docset:NAMEOFLICENSEE>NAME OF LICENSOR 
+
+</docset:NAMEOFLICENSEE></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 231.0; top: 636.0; width: 2031.0; height: 51.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 231.0; top: 636.0; width: 546.0; height: 51.0; page: 7;}; "><docset:NAMEOFLICENSEEApplusTechnologiesInc><docset:CompanyName><dg:chunk>Applus Technologies</dg:chunk>, Inc. </docset:CompanyName>
+
+</docset:NAMEOFLICENSEEApplusTechnologiesInc></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1266.0; top: 636.0; width: 996.0; height: 51.0; page: 7;}; "><docset:ApplusTechnologiesIncNAMEOFLICENSOR><docset:CompanyName>SFG Digital Corp. </docset:CompanyName>
+
+</docset:ApplusTechnologiesIncNAMEOFLICENSOR></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 231.0; top: 699.0; width: 2031.0; height: 51.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 231.0; top: 699.0; width: 546.0; height: 51.0; page: 7;}; "><docset:NAMEOFLICENSEESignature>Signature: 
+
+</docset:NAMEOFLICENSEESignature></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1266.0; top: 699.0; width: 996.0; height: 51.0; page: 7;}; "><docset:SignatureNAMEOFLICENSOR>Signature: </docset:SignatureNAMEOFLICENSOR></xhtml:td></xhtml:tr>
+
+
+
+
+
+
+
+<xhtml:tr structure="tr" style="boundingBox:{left: 231.0; top: 936.0; width: 2031.0; height: 51.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 231.0; top: 936.0; width: 546.0; height: 51.0; page: 7;}; "><docset:NAMEOFLICENSEEPrintNameTerryCarlo><dg:chunk>Print Name</dg:chunk>: <docset:PrintName>Terry Carlo </docset:PrintName></docset:NAMEOFLICENSEEPrintNameTerryCarlo></xhtml:td>
+
+
+
+
+
+
+
+<xhtml:td structure="td" style="boundingBox:{left: 1266.0; top: 936.0; width: 996.0; height: 51.0; page: 7;}; "><docset:PrintNameTerryCarloNAMEOFLICENSOR><dg:chunk>Print Name</dg:chunk>: <docset:PrintName>Morris Johnson </docset:PrintName>
+
+</docset:PrintNameTerryCarloNAMEOFLICENSOR></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 231.0; top: 999.0; width: 2031.0; height: 51.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 231.0; top: 999.0; width: 546.0; height: 51.0; page: 7;}; "><docset:NAMEOFLICENSEEPrintTitleCOO><dg:chunk>Print Title</dg:chunk>: <docset:ChiefOperatingOfficer>COO </docset:ChiefOperatingOfficer>
+
+</docset:NAMEOFLICENSEEPrintTitleCOO></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1266.0; top: 999.0; width: 996.0; height: 51.0; page: 7;}; "><docset:PrintTitleCOONAMEOFLICENSOR><dg:chunk>Print Title</dg:chunk>: <docset:CEOName>CEO </docset:CEOName>
+
+</docset:PrintTitleCOONAMEOFLICENSOR></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 231.0; top: 1062.0; width: 2031.0; height: 51.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 231.0; top: 1062.0; width: 546.0; height: 51.0; page: 7;}; "><docset:NAMEOFLICENSEEDate08082020>Date: <docset:Date>08/08/2020 </docset:Date>
+
+</docset:NAMEOFLICENSEEDate08082020></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1266.0; top: 1062.0; width: 996.0; height: 51.0; page: 7;}; "><docset:Date08082020NAMEOFLICENSOR>Date: <docset:Date>08/08/2020 </docset:Date>
+
+</docset:Date08082020NAMEOFLICENSOR></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 231.0; top: 1128.0; width: 2031.0; height: 48.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 231.0; top: 1128.0; width: 546.0; height: 48.0; page: 7;}; "><docset:NAMEOFLICENSEEEmailTerryApplusCom>Email: <docset:EmailAddress>Terry@Applus.com </docset:EmailAddress>
+
+</docset:NAMEOFLICENSEEEmailTerryApplusCom></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1266.0; top: 1128.0; width: 996.0; height: 48.0; page: 7;}; "><docset:EmailTerryApplusComNAMEOFLICENSOR>Email: <docset:EmailAddress>morris@sfgdigital.com </docset:EmailAddress></docset:EmailTerryApplusComNAMEOFLICENSOR></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:INWITNESSWHEREOFthePartiesHeretoHaveExecutedThisAgreement></docset:INWITNESSWHEREOF></docset:INWITNESSWHEREOF-section><dg:chunk><dg:chunk structure="h1">
+
+
+
+
+
+
+
+        Schedule "A" </dg:chunk>
+
+
+
+<docset:DescriptionofSoftware><xhtml:table structure="table" style="boundingBox:{left: 246.0; top: 459.0; width: 2007.0; height: 1386.0; page: 8;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 246.0; top: 459.0; width: 2007.0; height: 1386.0; page: 8;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 246.0; top: 459.0; width: 2007.0; height: 978.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 246.0; top: 459.0; width: 597.0; height: 978.0; page: 8;}; ">Description of Software: 
+
+</xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 843.0; top: 459.0; width: 1410.0; height: 978.0; page: 8;}; "><docset:DescriptionofSoftware><docset:SoftwareTypes structure="p">The Software may include, without limitation express or implied, some or all of the following types of software: </docset:SoftwareTypes>
+
+
+
+   <docset:SoftwareDefinitions structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 939.0; top: 642.0; width: 1260.0; height: 741.0; page: 8;}; "><dg:chunk structure="li" style="boundingBox:{left: 939.0; top: 642.0; width: 1191.0; height: 108.0; page: 8;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk>"<dg:chunk>Server Software</dg:chunk>" that provides document management services to other programs; </dg:chunk></dg:chunk>
+
+
+
+   <dg:chunk structure="li" style="boundingBox:{left: 939.0; top: 756.0; width: 1251.0; height: 165.0; page: 8;}; "><dg:chunk structure="lim">(b)  </dg:chunk><dg:chunk>"<dg:chunk>Client Software</dg:chunk>" that allows a computer or workstation to access or utilize the services provided by the <dg:chunk>Server Software</dg:chunk>; </dg:chunk></dg:chunk>
+
+
+
+   <dg:chunk structure="li" style="boundingBox:{left: 939.0; top: 930.0; width: 1260.0; height: 48.0; page: 8;}; "><dg:chunk structure="lim">(c)  </dg:chunk><dg:chunk structure="p">"Stand-alone Software" that operates on a single computer; </dg:chunk></dg:chunk>
+
+
+
+   <dg:chunk structure="li" style="boundingBox:{left: 939.0; top: 987.0; width: 1104.0; height: 108.0; page: 8;}; "><dg:chunk structure="lim">(d)  </dg:chunk><dg:chunk>"<dg:chunk>Demonstration Software</dg:chunk>" that is provided only for demonstration, <dgm:_testRef>testing </dgm:_testRef>and feedback purposes; </dg:chunk></dg:chunk>
+
+
+
+   <dg:chunk structure="li" style="boundingBox:{left: 939.0; top: 1101.0; width: 1164.0; height: 165.0; page: 8;}; "><dg:chunk structure="lim">(e)  </dg:chunk><dg:chunk>“Distributed <dg:chunk>Computing Cluster Software</dg:chunk>” that allows distribution of processing work for certain Software application tasks onto other machines; and/or </dg:chunk></dg:chunk>
+
+
+
+   <dg:chunk structure="li" style="boundingBox:{left: 939.0; top: 1275.0; width: 1131.0; height: 108.0; page: 8;}; "><dg:chunk structure="lim">(f)  </dg:chunk><dg:chunk>"Plug-in Software Modules" that can be added to the previously mentioned Software packages. </dg:chunk></dg:chunk></docset:SoftwareDefinitions></docset:DescriptionofSoftware></xhtml:td></xhtml:tr>
+
+
+
+
+
+<xhtml:tr structure="tr" style="boundingBox:{left: 246.0; top: 1437.0; width: 2007.0; height: 291.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 246.0; top: 1437.0; width: 597.0; height: 291.0; page: 8;}; "><docset:DescriptionofSoftwareFees>Fees: 
+
+</docset:DescriptionofSoftwareFees></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 843.0; top: 1437.0; width: 1410.0; height: 291.0; page: 8;}; "><docset:FeesTheSoftwareMayIncludeWithoutLimitationExpressOrImpliedSomeOrAll><dg:chunk><dg:chunk structure="p"><docset:LoanAmount>$30,000 </docset:LoanAmount>for <docset:AgreementTerm>36 months </docset:AgreementTerm>from the <dg:chunk>Agreement Effective Date</dg:chunk>. </dg:chunk><docset:RenewalOption structure="p">
+
+
+
+The Agreement may be renewed for an additional period of <docset:RenewalPeriod>36 months </docset:RenewalPeriod>with a <docset:RenewalFeeIncrease>15% </docset:RenewalFeeIncrease>increase in Fees at <docset:RenewalFee>$34,500</docset:RenewalFee>. </docset:RenewalOption></dg:chunk>
+
+
+
+</docset:FeesTheSoftwareMayIncludeWithoutLimitationExpressOrImpliedSomeOrAll></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 246.0; top: 1728.0; width: 2007.0; height: 117.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 246.0; top: 1728.0; width: 597.0; height: 117.0; page: 8;}; "><docset:DescriptionofSoftwarePayment>Payment: 
+
+</docset:DescriptionofSoftwarePayment></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 843.0; top: 1728.0; width: 1410.0; height: 117.0; page: 8;}; "><docset:PaymentTheSoftwareMayIncludeWithoutLimitationExpressOrImpliedSomeOrA structure="p"><docset:LicenseeName>SFG Digital Corp. </docset:LicenseeName>will invoice, and Licensee will pay, the Fees of <docset:Fees>$30,000 </docset:Fees>within <docset:PaymentDeadline>thirty (30) days </docset:PaymentDeadline>of the <dg:chunk>Agreement Effective Date</dg:chunk>.</docset:PaymentTheSoftwareMayIncludeWithoutLimitationExpressOrImpliedSomeOrA></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:DescriptionofSoftware></dg:chunk></dg:chunk></dg:chunk></docset:WHEREAS></docset:WHEREAS-section></docset:SoftwareLicenseAgreement></docset:SoftwareLicenseAgreement-section>
