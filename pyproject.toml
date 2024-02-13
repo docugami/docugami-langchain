@@ -51,6 +51,7 @@ ruff = "^0.2.1"
 mypy = "^0.991"
 types-lxml = "^2023.10.21"
 types-python-dateutil = "^2.8.19.20240106"
+types-requests = "^2.31.0.20240125"
 
 [tool.ruff]
 lint.select = [
