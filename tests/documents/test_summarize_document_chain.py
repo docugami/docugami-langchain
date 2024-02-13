@@ -21,10 +21,11 @@ def fireworksai_mixtral_summarize_document_chain(
     """
     Fireworks AI chain to do document summarize using mixtral.
     """
-    return SummarizeDocumentChain(
+    chain = SummarizeDocumentChain(
         llm=fireworksai_mixtral, embeddings=huggingface_minilm
     )
-
+    chain.load_examples(TEST_DATA_DIR / "examples/test_summarize_document_examples.yaml")
+    return chain
 
 @pytest.fixture()
 def openai_gpt35_summarize_document_chain(
@@ -33,7 +34,9 @@ def openai_gpt35_summarize_document_chain(
     """
     OpenAI chain to do document summarize using GPT 3.5.
     """
-    return SummarizeDocumentChain(llm=openai_gpt35, embeddings=openai_ada)
+    chain = SummarizeDocumentChain(llm=openai_gpt35, embeddings=openai_ada)
+    chain.load_examples(TEST_DATA_DIR / "examples/test_summarize_document_examples.yaml")
+    return chain
 
 
 def _runtest_serial(
