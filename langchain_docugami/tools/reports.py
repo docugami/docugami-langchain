@@ -108,6 +108,8 @@ def get_retrieval_tool_for_report(
     report_name: str,
     retrieval_tool_function_name: str,
     retrieval_tool_description: str,
+    assistant_llm: BaseChatModel,
+    sql_llm: BaseChatModel,
 ) -> Optional[BaseTool]:
     if not local_xlsx_path.exists():
         return None
@@ -117,6 +119,8 @@ def get_retrieval_tool_for_report(
 
     return CustomReportRetrievalTool(
         db=db,
+        assistant_llm=assistant_llm,
+        sql_llm=sql_llm,
         name=retrieval_tool_function_name,
         description=retrieval_tool_description,
         return_direct=True,
