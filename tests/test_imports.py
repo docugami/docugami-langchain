@@ -7,6 +7,16 @@ EXPECTED_CHAINS = [
     "ChainParameters",
     "ChainSingleParameter",
     "SummarizeDocumentChain",
+    "DocugamiExplainedSQLQueryChain",
+    "SQLFixupChain",
+    "SQLQueryExplainerChain",
+    "SQLResultChain",
+    "SQLResultExplainerChain",
+    "SuggestedQuestionsChain",
+    "SuggestedReportChain",
+    "table_name_from_sql_create",
+    "replace_table_name_in_select",
+    "SimpleRAGChain",
 ]
 
 EXPECTED_DOCUMENT_LOADERS = [

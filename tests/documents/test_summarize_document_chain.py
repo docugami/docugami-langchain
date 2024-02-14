@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from typing import Any
 
 import pytest
 from langchain_core.embeddings import Embeddings
@@ -8,7 +7,7 @@ from langchain_core.language_models import BaseLanguageModel
 
 from langchain_docugami.chains.documents import SummarizeDocumentChain
 from tests.conftest import TEST_DATA_DIR, verify_chain_response
-from tests.testdata.dg_samples.dg_samples_test_data import (
+from tests.testdata.dgml_samples.dgml_samples_test_data import (
     DG_SAMPLE_TEST_DATA,
     DGSamplesTestData,
 )
@@ -24,8 +23,11 @@ def fireworksai_mixtral_summarize_document_chain(
     chain = SummarizeDocumentChain(
         llm=fireworksai_mixtral, embeddings=huggingface_minilm
     )
-    chain.load_examples(TEST_DATA_DIR / "examples/test_summarize_document_examples.yaml")
+    chain.load_examples(
+        TEST_DATA_DIR / "examples/test_summarize_document_examples.yaml"
+    )
     return chain
+
 
 @pytest.fixture()
 def openai_gpt35_summarize_document_chain(
@@ -35,15 +37,17 @@ def openai_gpt35_summarize_document_chain(
     OpenAI chain to do document summarize using GPT 3.5.
     """
     chain = SummarizeDocumentChain(llm=openai_gpt35, embeddings=openai_ada)
-    chain.load_examples(TEST_DATA_DIR / "examples/test_summarize_document_examples.yaml")
+    chain.load_examples(
+        TEST_DATA_DIR / "examples/test_summarize_document_examples.yaml"
+    )
     return chain
 
 
 def _runtest_serial(
     chain: SummarizeDocumentChain,
     test_data: DGSamplesTestData,
-) -> Any:
-    data_dir: Path = TEST_DATA_DIR / "dg_samples" / test_data.test_data_dir
+) -> None:
+    data_dir: Path = TEST_DATA_DIR / "dgml_samples" / test_data.test_data_dir
 
     for md_file in data_dir.rglob("*.md"):
         # Read and process the contents of each file
@@ -58,8 +62,8 @@ def _runtest_serial(
 def _runtest_batched(
     chain: SummarizeDocumentChain,
     test_data: DGSamplesTestData,
-) -> Any:
-    data_dir: Path = TEST_DATA_DIR / "dg_samples" / test_data.test_data_dir
+) -> None:
+    data_dir: Path = TEST_DATA_DIR / "dgml_samples" / test_data.test_data_dir
 
     all_contents = []
     for md_file in data_dir.rglob("*.md"):
@@ -85,7 +89,7 @@ def _runtest_batched(
 def test_fireworksai_summarize_document(
     fireworksai_mixtral_summarize_document_chain: SummarizeDocumentChain,
     test_data: DGSamplesTestData,
-) -> Any:
+) -> None:
     _runtest_batched(fireworksai_mixtral_summarize_document_chain, test_data)
 
 
@@ -96,5 +100,5 @@ def test_fireworksai_summarize_document(
 def test_openai_summarize_document(
     openai_gpt35_summarize_document_chain: SummarizeDocumentChain,
     test_data: DGSamplesTestData,
-) -> Any:
+) -> None:
     _runtest_serial(openai_gpt35_summarize_document_chain, test_data)

@@ -103,8 +103,7 @@ class TimeSpan:
         # check we have the right # of components
         if len(components) != CANONICAL_TIMESPAN_COMPONENT_COUNT:
             raise Exception(
-                "Provided text does not have the expected "
-                + f"{CANONICAL_TIMESPAN_COMPONENT_COUNT} number of components: "
+                f"Provided text does not have the expected {CANONICAL_TIMESPAN_COMPONENT_COUNT} number of components: "
                 + canonical_text
             )
 

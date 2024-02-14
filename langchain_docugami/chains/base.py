@@ -110,10 +110,7 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
                         )
                     )
                 except Exception as exc:
-                    details = (
-                        "Exception while loading samples from YAML"
-                        + f" {examples_yaml}. Details: {exc}"
-                    )
+                    details = f"Exception while loading samples from YAML {examples_yaml}. Details: {exc}"
                     raise Exception(details)
 
     def prompt(

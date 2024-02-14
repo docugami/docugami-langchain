@@ -79,10 +79,7 @@ def chunks_to_direct_retriever_tool_description(
         | StrOutputParser()
     )
     summary = chain.invoke({"docset_name": name, "document": document})
-    return (
-        "Given a single input 'query' parameter, searches for and returns"
-        + f"chunks from {name} documents. {summary}"
-    )
+    return f"Given a single input 'query' parameter, searches for and returns chunks from {name} documents. {summary}"
 
 
 def get_retrieval_tool_for_docset(
@@ -96,7 +93,6 @@ def get_retrieval_tool_for_docset(
     """
     Gets a retrieval tool for an agent.
     """
-
 
     retriever = FusedSummaryRetriever(
         vectorstore=chunk_vectorstore,

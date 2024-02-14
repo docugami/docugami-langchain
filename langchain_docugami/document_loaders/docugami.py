@@ -282,8 +282,7 @@ class DocugamiLoader(BaseLoader, BaseModel):
                     per_file_metadata[doc_id] = metadata
                 else:
                     raise Exception(
-                        f"Failed to download {artifact_url}/content "
-                        + "(status: {response.status_code})"
+                        f"Failed to download {artifact_url}/content (status: {response.status_code})"
                     )
 
         return per_file_metadata
