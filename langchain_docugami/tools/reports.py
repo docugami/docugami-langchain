@@ -119,7 +119,6 @@ def get_retrieval_tool_for_report(
     report_name: str,
     retrieval_tool_function_name: str,
     retrieval_tool_description: str,
-    assistant_llm: BaseChatModel,
     sql_llm: BaseChatModel,
     embeddings: Embeddings,
     sql_fixup_examples_file: Optional[Path] = None,
