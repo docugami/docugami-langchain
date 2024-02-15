@@ -13,12 +13,10 @@ def table_name_from_sql_create(create_sql: str) -> str:
     Returns:
     - str: Extracted table name, else empty string.
 
-    >>> table_name_from_sql_create("CREATE TABLE example_table (id INT,
-    ... name VARCHAR(100))")
+    >>> table_name_from_sql_create("CREATE TABLE example_table (id INT, name VARCHAR(100))")
     'example_table'
 
-    >>> table_name_from_sql_create('CREATE TABLE "Corporate Charters"
-    ... ("File" TEXT, "Link to Document" TEXT, "FILED Date" TEXT)')
+    >>> table_name_from_sql_create('CREATE TABLE "Corporate Charters" ("File" TEXT, "Link to Document" TEXT, "FILED Date" TEXT)')
     'Corporate Charters'
     """
 
@@ -53,15 +51,11 @@ def replace_table_name_in_select(select_sql: str, new_table_name: str) -> str:
     Returns:
     - str: Updated SELECT statement with new table name
 
-    >>> replace_table_name_in_select('SELECT "Client", "Excess Liability Umbrella
-    ... Coverage" FROM "Report_Services_preview.xlsx" ORDER BY "Excess Liability
-    ... Umbrella Coverage" DESC LIMIT 1', "Service Agreements Summary")
-    'SELECT "Client", "Excess Liability Umbrella Coverage" FROM "Service Agreements
-    ... Summary" ORDER BY "Excess Liability Umbrella Coverage" DESC LIMIT 1'
+    >>> replace_table_name_in_select('SELECT "Client" FROM "Report_Services_preview.xlsx" ORDER BY "Excess Liability Umbrella Coverage" DESC LIMIT 1', "Service Agreements Summary")
+    'SELECT "Client" FROM "Service Agreements Summary" ORDER BY "Excess Liability Umbrella Coverage" DESC LIMIT 1'
 
-    >>> replace_table_name_in_select('SELECT "Term Expiry (clean)" FROM "Foo"
-    ... WHERE LOWER("Client") LIKE "%medcore%', "SaaS Contracts")
-    'SELECT "Term Expiry (clean)" FROM "Bar" WHERE LOWER("Client") LIKE "%medcore%'
+    >>> replace_table_name_in_select('SELECT "Term Expiry (clean)" FROM "Foo" WHERE LOWER("Client") LIKE "%medcore%', "SaaS Contracts")
+    'SELECT "Term Expiry (clean)" FROM "SaaS Contracts" WHERE LOWER("Client") LIKE "%medcore%'
     """
 
     # Parse the SQL statement

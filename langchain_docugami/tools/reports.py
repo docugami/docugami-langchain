@@ -8,24 +8,27 @@ import pandas as pd
 from langchain_community.tools.sql_database.tool import BaseSQLDatabaseTool
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.callbacks import CallbackManagerForToolRun
+from langchain_core.embeddings import Embeddings
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.tools import BaseTool
+
+from langchain_docugami.chains.querying.sql_fixup_chain import SQLFixupChain
+from langchain_docugami.chains.querying.sql_result_chain import SQLResultChain
 
 
 class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseTool):
     db: SQLDatabase
-    assistant_llm: BaseChatModel
-    sql_llm: BaseChatModel
+    chain: SQLResultChain
     name: str = "query_report"
     description: str = ""
 
     def _run(
         self,
-        query: str,
+        question: str,
         run_manager: Optional[CallbackManagerForToolRun] = None,
     ) -> str:  # type: ignore
         """Use the tool."""
-        return f"hello world: {query}"  # replace with sql_result_chain
+        return self.chain.run(question=question)
 
 
 def report_name_to_report_query_tool_function_name(name: str) -> str:
@@ -63,8 +66,8 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     """
     table_info = re.sub(r"\s+", " ", table_info)
     description = (
-        f"Given a single input 'query' parameter, runs a SQL query over the {name}"
-        + f" report, represented as the following SQL Table:\n\n{table_info}"
+        f"Given a single input 'question' parameter, generates and runs a SQL query over the {name}"
+        + f" report, represented internally as the following SQL Table:\n\n{table_info}"
     )
 
     return description[:2048]  # cap to avoid failures when the description is too long
@@ -114,16 +117,33 @@ def get_retrieval_tool_for_report(
     retrieval_tool_description: str,
     assistant_llm: BaseChatModel,
     sql_llm: BaseChatModel,
+    embeddings: Embeddings,
+    sql_fixup_examples_file: Optional[Path] = None,
+    sql_examples_file: Optional[Path] = None,
 ) -> Optional[BaseTool]:
     if not local_xlsx_path.exists():
         return None
 
     db = connect_to_excel(local_xlsx_path, report_name)
 
+    fixup_chain = SQLFixupChain(llm=sql_llm, embeddings=embeddings)
+
+    if sql_fixup_examples_file:
+        fixup_chain.load_examples(sql_fixup_examples_file)
+
+    sql_result_chain = SQLResultChain(
+        llm=sql_llm,
+        embeddings=embeddings,
+        db=db,
+        sql_fixup_chain=fixup_chain,
+    )
+
+    if sql_examples_file:
+        sql_result_chain.load_examples(sql_examples_file)
+
     return CustomReportRetrievalTool(
         db=db,
-        assistant_llm=assistant_llm,
-        sql_llm=sql_llm,
+        sql_result_chain=sql_result_chain,
         name=retrieval_tool_function_name,
         description=retrieval_tool_description,
         return_direct=True,
