@@ -1,5 +1,6 @@
 from langchain_docugami.chains.answer_chain import AnswerChain
 from langchain_docugami.chains.base import BaseDocugamiChain, TracedChainResponse
+from langchain_docugami.chains.chunks import ElaborateChunkChain, SummarizeChunkChain
 from langchain_docugami.chains.documents import SummarizeDocumentChain
 from langchain_docugami.chains.params import ChainParameters, ChainSingleParameter
 from langchain_docugami.chains.querying import (
@@ -19,9 +20,11 @@ __all__ = [
     "AnswerChain",
     "BaseDocugamiChain",
     "TracedChainResponse",
+    "ElaborateChunkChain",
+    "SummarizeChunkChain",
+    "SummarizeDocumentChain",
     "ChainParameters",
     "ChainSingleParameter",
-    "SummarizeDocumentChain",
     "DocugamiExplainedSQLQueryChain",
     "SQLFixupChain",
     "SQLQueryExplainerChain",
@@ -29,7 +32,7 @@ __all__ = [
     "SQLResultExplainerChain",
     "SuggestedQuestionsChain",
     "SuggestedReportChain",
-    "table_name_from_sql_create",
     "replace_table_name_in_select",
+    "table_name_from_sql_create",
     "SimpleRAGChain",
 ]

@@ -99,3 +99,47 @@
   exception: |
     (pysqlite3.dbapi2.OperationalError) near "%  John%": syntax error
   fixed_sql_query: SELECT "CustomerID", "Name", "Country" FROM Customers WHERE "Country" = 'USA' AND "Name" LIKE '%John%'
+
+- table_info: |
+    CREATE TABLE Addresses (
+      "AddressID" INTEGER PRIMARY KEY, 
+      "Street" TEXT, 
+      "City" TEXT, 
+      "ZipCode" TEXT
+    )
+  sql_query: SELECT "AddressID", "Street", "City", "ZipCode" FROM Addresses WHERE "ZipCode" = 12345
+  exception: |
+    (pysqlite3.dbapi2.OperationalError) datatype mismatch
+  fixed_sql_query: SELECT "AddressID", "Street", "City", "ZipCode" FROM Addresses WHERE "ZipCode" = '12345'
+
+- table_info: |
+    CREATE TABLE "Service Agreements Summary" (
+      "File" TEXT, 
+      "Link to Document" TEXT, 
+      "Workers Compensation Insurance" TEXT, 
+      "Limit" TEXT, 
+      "Commercial General Liability Insurance" TEXT, 
+      "Technology Professional Liability Errors Omissions Policy" TEXT, 
+      "Excess Liability Umbrella Coverage" TEXT, 
+      "Services Agreement Date" TEXT, 
+      "Completion of the Services by Company Date" TEXT, 
+      "Charge" TEXT, 
+      "Initial Payment" TEXT, 
+      "Continue in Force And Effect Date" TEXT, 
+      "Non-refundable" TEXT, 
+      "Company" TEXT, 
+      "Client" TEXT, 
+      "Client Address" TEXT, 
+      "Magicsoft" TEXT, 
+      "Except" TEXT, 
+      "A Party" TEXT, 
+      "A Daily Basis" TEXT, 
+      "The Initial Understanding" TEXT, 
+      "Signature Page" TEXT
+    )
+  sql_query: SELECT Client, ExcessLiabilityUmbrellaCoverage FROM "Service Agreements Summary" ORDER BY ExcessLiabilityUmbrellaCoverage DESC LIMIT 1
+  exception: |-
+    (pysqlite3.dbapi2.OperationalError) no such column: ExcessLiabilityUmbrellaCoverage
+    [SQL: SELECT Client, ExcessLiabilityUmbrellaCoverage FROM "Service Agreements Summary" ORDER BY ExcessLiabilityUmbrellaCoverage DESC LIMIT 1]
+    (Background on this error at: https://sqlalche.me/e/20/e3q8)
+  fixed_sql_query: SELECT "Client", "Excess Liability Umbrella Coverage" FROM "Service Agreements Summary" ORDER BY "Excess Liability Umbrella Coverage" DESC LIMIT 1

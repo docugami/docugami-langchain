@@ -5,7 +5,7 @@ from typing import Optional
 
 import pytest
 import torch
-from langchain_community.cache import InMemoryCache
+from langchain_community.cache import SQLiteCache
 from langchain_community.chat_models import ChatFireworks, ChatOpenAI
 from langchain_community.embeddings import HuggingFaceEmbeddings, OpenAIEmbeddings
 from langchain_core.embeddings import Embeddings
@@ -17,7 +17,11 @@ if torch.cuda.is_available():
     CUDA_DEVICE = "cuda"
 
 # Turn on caching
-set_llm_cache(InMemoryCache())
+LOCAL_LLM_CACHE_DB_FILE = os.environ.get(
+    "LOCAL_LLM_CACHE", "/tmp/docugami/.langchain.db"
+)
+os.makedirs(Path(LOCAL_LLM_CACHE_DB_FILE).parent, exist_ok=True)
+set_llm_cache(SQLiteCache(database_path=LOCAL_LLM_CACHE_DB_FILE))
 
 TEST_DATA_DIR = Path(__file__).parent / "testdata"
 

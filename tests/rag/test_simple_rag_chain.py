@@ -8,10 +8,16 @@ from langchain_core.vectorstores import VectorStore
 
 from langchain_docugami.chains import SimpleRAGChain
 from langchain_docugami.document_loaders.docugami import DocugamiLoader
-from tests.conftest import TEST_DATA_DIR, verify_chain_response
+from tests.conftest import TEST_DATA_DIR, is_core_tests_only_mode, verify_chain_response
 
 TEST_QUESTION = "What is the accident number for the incident in madill, oklahoma?"
 TEST_ANSWER_OPTIONS = ["DFW08CA044"]
+
+
+RAG_TEST_DGML_DATA_DIR = TEST_DATA_DIR / "dgml_samples"
+if is_core_tests_only_mode():
+    # RAG over fewer files when in core tests mode (to speed things up)
+    RAG_TEST_DGML_DATA_DIR = RAG_TEST_DGML_DATA_DIR / "NTSB Aviation Incident Reports"
 
 
 def build_vectorstore(embeddings: Embeddings) -> VectorStore:
@@ -19,8 +25,7 @@ def build_vectorstore(embeddings: Embeddings) -> VectorStore:
     Builds a vector store pre-populated with chunks from test documents
     using the given embeddings.
     """
-    dgml_samples_path = TEST_DATA_DIR / "dgml_samples"
-    test_dgml_files = list(dgml_samples_path.rglob("*.xml"))
+    test_dgml_files = list(RAG_TEST_DGML_DATA_DIR.rglob("*.xml"))
     loader = DocugamiLoader(file_paths=test_dgml_files)
     chunks = loader.load()
     return FAISS.from_documents(
