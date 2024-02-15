@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?><docset:CONTRACTOFAFFREIGHTMENT-section cp:version="2.27.27.0.1705578903025-181.0" xmlns:docset="http://www.docugami.com/2021/dgml/docugami/TransportAgreements" xmlns:addedChunks="http://www.docugami.com/2021/dgml/docugami/TransportAgreements/addedChunks" xmlns:dg="http://www.docugami.com/2021/dgml" xmlns:dgc="http://www.docugami.com/2021/dgml/docugami/contracts" xmlns:dgm="http://www.docugami.com/2021/dgml/docugami/medical" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:cp="http://classifyprocess.com/2018/07/"><dg:chunk structure="h1">
+
+          CONTRACT OF AFFREIGHTMENT </dg:chunk><docset:CONTRACTOFAFFREIGHTMENT structure="div"><dg:chunk><docset:ContractingParties structure="p">
+
+THIS CONTRACT OF AFFREIGHTMENT (“Contract”) dated as of the <docset:ContractDate>12th day of October, 2007</docset:ContractDate>, by and between: </docset:ContractingParties>
+
+<docset:ShipperandCarrierNames structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 576.0; width: 1917.0; height: 210.0; page: 1;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 576.0; width: 1917.0; height: 90.0; page: 1;}; "><dg:chunk structure="lim">(1)  </dg:chunk><docset:ShipperAddress structure="p"><docset:ShipperName><dg:chunk>MOSAIC FERTILIZER</dg:chunk>, LLC</docset:ShipperName>, a <dgc:USState>Delaware </dgc:USState>limited liability company with offices located at <docset:ShippingAddress><docset:Address><docset:Address>3033 </docset:Address><docset:Address>Campus Drive</docset:Address>, <docset:SuiteNumber>Suite <docset:SuiteNumber>E-490</docset:SuiteNumber></docset:SuiteNumber></docset:Address>, <docset:OfficeLocation>Plymouth</docset:OfficeLocation>, <docset:StateofIncorporation>MN </docset:StateofIncorporation><docset:ZipCode>55441 </docset:ZipCode></docset:ShippingAddress>(hereinafter called “SHIPPER”), and </docset:ShipperAddress></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 696.0; width: 1782.0; height: 90.0; page: 1;}; "><dg:chunk structure="lim">(2)  </dg:chunk><docset:CarrierInformation structure="p"><docset:CarrierName>CLARK FREIGHT LTD COMPANY</docset:CarrierName>, a <dgc:USState>Louisiana </dgc:USState>corporation with offices located at <docset:CarrierAddress><docset:CarrierAddress><docset:CarrierAddress>53 </docset:CarrierAddress><docset:CarrierAddress>W <docset:AddressLine1>112th </docset:AddressLine1>Ave</docset:CarrierAddress>, <docset:OfficeAddress>Suite <docset:CarrierName>101</docset:CarrierName></docset:OfficeAddress></docset:CarrierAddress>, <docset:CarrierAddress>New Orleans </docset:CarrierAddress><docset:ZipCode>40452 </docset:ZipCode></docset:CarrierAddress>(hereinafter called “CARRIER”). </docset:CarrierInformation></dg:chunk></docset:ShipperandCarrierNames></dg:chunk><docset:RECITALS-section><dg:chunk structure="h1">
+
+
+
+
+
+          RECITALS: </dg:chunk><docset:RECITALS structure="div"><docset:WHEREAS-section><dg:chunk structure="h1">
+
+WHEREAS, </dg:chunk><docset:WHEREAS structure="div">Shipper has <dgm:Medication>phosphate </dgm:Medication>rock mining operations in <dgc:USState>Florida </dgc:USState>(hereinafter sometimes “Shipper’s Operations”) and processing plants near Donaldsonville, <dgc:USState>Louisiana </dgc:USState>(“<docset:FaustinaPlantLocation>Faustina </docset:FaustinaPlantLocation><docset:PlantName>Plant</docset:PlantName>”), and near <dgc:Org>Uncle Sam</dgc:Org>, <dgc:USState>Louisiana</dgc:USState>, (“<dg:chunk><docset:PlantLocation>Uncle Sam </docset:PlantLocation>Plant</dg:chunk>”) (collectively “Shipper’s Plants”) which will necessitate transportation of <dgm:Medication>Phosphate </dgm:Medication>(as defined below) from Tampa, <dgc:USState>Florida </dgc:USState>to Shipper’s Plants by suitable marine equipment, and Shipper desires to have the quantities of <dgm:Medication>phosphate </dgm:Medication>rock transported primarily by self-unloading and, to a lesser extent, by non self- unloading vessels between those ports. </docset:WHEREAS></docset:WHEREAS-section><dg:chunk><docset:NOWTHEREFORE-section><dg:chunk structure="h1">
+
+<dg:chunk>NOW, THEREFORE</dg:chunk>, </dg:chunk><docset:NOWTHEREFORE structure="div"><dg:chunk><docset:MutualCovenants structure="p">in consideration of the mutual covenants, provisions, benefits and agreements hereinafter made and contained and other good and valuable consideration the receipt and sufficiency of which are hereby acknowledged, Carrier and Shipper do hereby covenant and agree as follows: </docset:MutualCovenants><dg:chunk><dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 1548.0; width: 18.0; height: 39.0; page: 1;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1548.0; width: 18.0; height: 39.0; page: 1;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 1548.0; width: 30.0; height: 39.0; page: 1;}; ">1. </dg:chunk><dg:chunk structure="h1">Service 
+
+</dg:chunk></dg:chunk></dg:chunk><docset:VesselTransportation structure="p">Carrier during the term of this Contract shall transport or cause to be transported in bulk in suitable marine equipment (herein collectively called the “Vessels” and individually a “Vessel”), from Shipper’s Big Bend Terminal, Tampa, <dgc:USState>Florida </dgc:USState>or other loading terminal nominated by Shipper and agreed by Carrier, not to be unreasonably withheld, (herein called “the <dg:chunk>Loading Port</dg:chunk>”) across the Gulf of Mexico and discharge at one or more of Shipper’s Plants or, when utilizing non-self unloading Vessels, the <dg:chunk>IC Rail Terminal </dg:chunk>located at mile <docset:DischargePort>161 </docset:DischargePort>on the Eastbank of the <dg:chunk><dgc:USState>Mississippi </dgc:USState>River </dg:chunk>(herein called the “<dg:chunk><docset:DischargePort>IC </docset:DischargePort>Rail Terminal</dg:chunk>”) or other mutually agreed upon discharge facility, not to be unreasonably withheld (herein called the “<dg:chunk>Discharging Port</dg:chunk>”) the quantities of wet <dgm:Medication>phosphate </dgm:Medication>rock in bulk (herein called “<dgm:Medication>Phosphate</dgm:Medication>” or the “Cargo”) tendered <dgc:Frequency>from time to time </dgc:Frequency>by Shipper at the <dg:chunk>Loading Port</dg:chunk>. </docset:VesselTransportation></dg:chunk>
+
+
+
+ <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 336.0; top: 2088.0; width: 21.0; height: 42.0; page: 1;}; "><dg:chunk structure="li" style="boundingBox:{left: 336.0; top: 2088.0; width: 21.0; height: 42.0; page: 1;}; "><dg:chunk structure="lim" style="boundingBox:{left: 336.0; top: 2088.0; width: 33.0; height: 42.0; page: 1;}; ">2. </dg:chunk><dg:chunk structure="h1">Cargo and Tonnage to be Carried 
+
+
+
+</dg:chunk></dg:chunk></dg:chunk><docset:AnnualMinimumRequirements structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 2229.0; width: 1935.0; height: 1002.0; page: 1;}; boundingBox:{left: 300.0; top: 321.0; width: 1938.0; height: 858.0; page: 2;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2229.0; width: 1932.0; height: 714.0; page: 1;}; "><dg:chunk structure="lim">(a)  </dg:chunk><docset:AnnualMinimumRequirements structure="p">Shipper agrees to tender to Carrier and Carrier agrees to transport for Shipper between the <dg:chunk>Loading Port </dg:chunk>and the <dg:chunk>Discharging Port </dg:chunk>all of Shipper’s requirements for <dgm:Medication>Phosphate </dgm:Medication>to be processed or consumed at the Shipper’s Plants and shipped from its central <dgc:USState>Florida </dgc:USState>mining production or from a third party’s central <dgc:USState>Florida </dgc:USState>mining production (“Shipper’s Full Requirements”), in full and complete cargoes, which has been determined to be, and shall in no event be less than, a minimum of <docset:GuaranteedAnnualMinimum><docset:GuaranteedAnnualMinimum>1,600,000 </docset:GuaranteedAnnualMinimum>tons </docset:GuaranteedAnnualMinimum><dgc:Frequency>annually </dgc:Frequency>of <dgm:Medication>Phosphate </dgm:Medication>each year of the term of this Contract (the “<dg:chunk>Guaranteed Annual Minimum</dg:chunk>”) and not greater than a maximum of <docset:MaximumAnnualTonnage><docset:MaximumAnnualTonnage>2,200,000 </docset:MaximumAnnualTonnage>tons </docset:MaximumAnnualTonnage><dgc:Frequency>annually </dgc:Frequency>of <dgm:Medication>Phosphate </dgm:Medication>during each year of the term of this Contract (the “<dg:chunk>Maximum Annual Tonnage</dg:chunk>”). It is the intention of the parties that the transportation of the <dg:chunk>Guaranteed Annual Minimum </dg:chunk>shall be by self-unloading Vessels, provided that Shipper provides notice of transportation requirements for the next calendar year as required in Section 12(a). If Shipper requires transportation of greater than the <dg:chunk>Guaranteed Annual Minimum</dg:chunk>, Carrier may use a combination of self-unloading and non self-unloading vessels as per <dg:chunk>Exhibit “B</dg:chunk>”, provided that Shipper provides notice of transportation requirements for the next calendar year as required in Section 12(a). The Shipper’s shipments of <dgm:Medication>Phosphate </dgm:Medication>towards the Guaranteed Annual Minimum and Maximum Annual Tonnage shall be calculated on a calendar year basis and shall be prorated for any partial calendar year of this Contract. The term ton shall mean a short ton of <docset:AnnualMinimumTonnage>2,000 </docset:AnnualMinimumTonnage>lbs. </docset:AnnualMinimumRequirements></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 3045.0; width: 1935.0; height: 186.0; page: 1;}; boundingBox:{left: 300.0; top: 321.0; width: 1938.0; height: 567.0; page: 2;}; "><dg:chunk structure="lim">(b)  </dg:chunk><dg:chunk>All <dgm:Medication>phosphate </dgm:Medication>rock tendered for carriage hereunder shall have a <dgm:_testRef>screen </dgm:_testRef>analysis size from - <docset:ScreenAnalysisSize>3/4 </docset:ScreenAnalysisSize>to <docset:MaximumPhosphateRockSize>+150 </docset:MaximumPhosphateRockSize>mesh, and be free of debris, foreign objects and oversized <dgm:Medication>Phosphate </dgm:Medication>materials incompatible with the safe and proper operation of the self-unloading equipment of the Vessels. Shipper shall indemnify Carrier for any damage to Carrier’s equipment due to debris, foreign objects or oversized <dgm:Medication>Phosphate </dgm:Medication>materials tendered for loading with Shipper’s Cargo. Carrier shall indemnify Shipper for any damage to Shipper’s equipment due to debris or foreign objects resulting from Carrier supplied stevedoring operations at the discharge port. The Cargo shall be tendered at such ratable intervals as to permit the Vessels (both self unloading and non-self unloading) to operate on a fairly even basis over each year, which is anticipated to mean the Shipper’s annual Expected Transportation Requirements as per Section 12 (a), generally evenly transported over <docset:TransportationSchedule>12 months </docset:TransportationSchedule>with a plus or minus <docset:VarianceTolerance>10% </docset:VarianceTolerance>monthly variable. Shipper recognizes that during self-unloading vessel maintenance and shipyard periods, Carrier will provide services with non-self unloading vessels to ensure the ratability of service and therefore Shipper will ensure availability of a suitable discharge facility (including without limitation the <dg:chunk>IC Rail Terminal</dg:chunk>) in order to enable Carrier to provide operations on a fairly even basis. Both parties will use commercially reasonable efforts to build inventory at Shipper’s Discharge Port in advance of Carrier’s maintenance and shipyard periods in order to minimize use of non self-unloading vessels. Carrier shall also transport Cargo between locations other than those referred to in Section 1 at a mutually agreed rate. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 993.0; width: 1938.0; height: 186.0; page: 2;}; "><dg:chunk structure="lim">(c)  </dg:chunk><docset:TonnageDeficiencyPayment structure="p">If for any reason Shipper tenders for transportation in any calendar year during the term hereof less than the <dg:chunk>Guaranteed Annual Minimum</dg:chunk>, Shipper shall pay to Carrier at the end of such year an additional payment equal to the difference between the tonnage of Cargo tendered by Shipper hereunder during such year and the <dg:chunk>Guaranteed Annual Minimum </dg:chunk>(the “<dg:chunk>Tonnage Deficiency</dg:chunk>”) times the applicable dead freight rate as follows: </docset:TonnageDeficiencyPayment></dg:chunk></docset:AnnualMinimumRequirements><dg:chunk>
+
+
+
+<docset:DeadFreightRate structure="ol" style="list-style-type: lower-roman; boundingBox:{left: 300.0; top: 1209.0; width: 1914.0; height: 402.0; page: 2;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1209.0; width: 1857.0; height: 138.0; page: 2;}; "><dg:chunk structure="lim">(i)  </dg:chunk><docset:DeadFreightRate structure="p">If Shipper tenders <docset:DeadFreightRateThreshold>1,100,000 </docset:DeadFreightRateThreshold>or more tons of <dgm:Medication>Phosphate </dgm:Medication>for transportation in such calendar year, the applicable dead freight rate on the <dg:chunk>Tonnage Deficiency </dg:chunk>shall be equal to <docset:DeadFreightRate>71% </docset:DeadFreightRate>of the sum of the then-effective General Component of the <dg:chunk>Freight Rate </dg:chunk>under Section 7 (“<dg:chunk>Reduced Dead Freight Rate</dg:chunk>”) . </docset:DeadFreightRate></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1380.0; width: 1914.0; height: 231.0; page: 2;}; "><dg:chunk structure="lim">(ii)  </dg:chunk><docset:DeadFreightRate structure="p">If Shipper tenders less than <docset:DeadFreightRateThreshold><docset:DeadFreightRateThreshold>1,100,000 </docset:DeadFreightRateThreshold>tons </docset:DeadFreightRateThreshold>of <dgm:Medication>Phosphate </dgm:Medication>in such calendar year, the <dg:chunk>Reduced Dead Freight Rate </dg:chunk>shall apply to the first <docset:DeadFreightRate>500,000 </docset:DeadFreightRate>tons of the <dg:chunk>Tonnage Deficiency</dg:chunk>, and the dead freight rate applicable to the remainder of the <dg:chunk>Tonnage Deficiency </dg:chunk>shall be equal to <docset:DeadFreightRate>100% </docset:DeadFreightRate>of the sum of the then-effective General Component of the <dg:chunk>Freight Rate </dg:chunk>under Section 7 (“<dg:chunk>Standard Dead Freight Rate</dg:chunk>”), subject further to the provisions of Section 28 hereof (<dg:chunk>Temporary Suspension</dg:chunk>). </docset:DeadFreightRate></dg:chunk></docset:DeadFreightRate><docset:TonnageDeficiencySurcharge structure="p">
+
+
+
+In addition, to the extent of any Tonnage Deficiency subject to the <dg:chunk>Reduced Dead Freight Rate </dg:chunk>in such calendar year, a deferred balance account shall be established equal to said Tonnage Deficiency times <docset:DeferredBalanceAccountPercentage>29% </docset:DeferredBalanceAccountPercentage>of the sum of the then-effective General Component of the <dg:chunk>Freight Rate </dg:chunk>under Section 7. A flat-rate surcharge shall be added to the <dg:chunk>Freight Rate</dg:chunk>, applicable to the first <dgc:Number>1,100,000 </dgc:Number>tons tendered for shipment in the following calendar year, sufficient to fully pay off the deferred balance account as such tons are tendered for shipment. Any remaining amount in the deferred balance account not paid off for any reason (because <docset:TonnageLimit>1,100,000 </docset:TonnageLimit>tons were not tendered for </docset:TonnageDeficiencySurcharge></dg:chunk></dg:chunk></dg:chunk><dg:chunk><docset:PaymentTerms structure="p">
+
+shipment in said following calendar year) shall be paid off at the end of said following calendar year, without further deferral. </docset:PaymentTerms><docset:GuaranteedAnnualMinimum structure="p">
+
+The remedy provided in this Section 2(c) constitutes the sole and exclusive remedy available to Carrier in the event Shipper fails to tender the <dg:chunk>Guaranteed Annual Minimum</dg:chunk>, and except for such remedy, Carrier shall have no right to seek any other damages, including without limitation incidental or consequential damages, caused solely by Shipper’s failure to tender the Guaranteed Annual Minimum pursuant to this Contract. Shipper’s requirement to tender the <dg:chunk>Guaranteed Annual Minimum </dg:chunk>shall not be applicable to the extent Shipper’s failure to tender such Cargo results from force majeure circumstances as set forth in Section 18 or as a result of any default of Carrier. In addition, and purposes of clarification, in the event that a force majeure event as set forth in Section 18 precludes Shipper’s ability to produce sufficient quantities of <dgm:Medication>Phosphate </dgm:Medication>to fully supply both (i) the <dgm:Medication>Phosphate </dgm:Medication>requirements of Shipper’s <dg:chunk>New Wales</dg:chunk>, Riverview and <docset:FloridaPlantName>Bartow </docset:FloridaPlantName>fertilizer production facilities (“Shipper’s <dgc:USState>Florida </dgc:USState>Plants”) as determined and existing prior to the force majeure event and (ii) Shipper’s <dg:chunk>Guaranteed Annual Minimum </dg:chunk>for Shipper’s Plants (i.e., Uncle Sam and Faustina), then Shipper may allocate <dgm:Medication>Phosphate </dgm:Medication>in order to supply its <dgc:USState>Florida </dgc:USState>Plants up to the previously existing and determined <dgm:Medication>Phosphate </dgm:Medication>requirements without liability for any resulting failure to tender the <dg:chunk>Guaranteed Annual Minimum </dg:chunk>under this Contract provided that all <dgm:Medication>Phosphate </dgm:Medication>in excess of that allocated to Shipper’s <dgc:USState>Florida </dgc:USState>Plants as provided herein is tendered to Carrier pursuant to this Contract. </docset:GuaranteedAnnualMinimum></dg:chunk></docset:NOWTHEREFORE></docset:NOWTHEREFORE-section><docset:_3TermofContract-section><dg:chunk structure="h1">
+
+
+
+<docset:TermofContract>3</docset:TermofContract>. Term of Contract </dg:chunk><docset:_3TermofContract structure="div"><docset:ContractTerm structure="p">
+
+The term of this contract shall begin on <docset:EffectiveDate>February 6, 2009 </docset:EffectiveDate>(“<dg:chunk>Effective Date</dg:chunk>”) and shall remain in effect for <docset:ContractTerm>six (6) years</docset:ContractTerm>. Term ending on <docset:ContractEndDate>January 10, 2015</docset:ContractEndDate>. </docset:ContractTerm><docset:TonnageElection structure="p">
+
+The Guaranteed Annual Minimum and Maximum Annual Tonnage amounts provided in Section 2(a) shall be effective from the <dg:chunk>Effective Date </dg:chunk>until <docset:ElectionDeadline>Janaury 10, 2015</docset:ElectionDeadline>. For each calendar year thereafter and beginning <docset:ElectionDeadline>January 1, 2016</docset:ElectionDeadline>, with respect to Shipper’s Full Requirements and the corresponding Guaranteed Annual Minimum and Maximum Annual Tonnage, Shipper shall elect tonnage alternative 1, 2, 3 or 4 as set forth in Exhibit B. Such election for the calendar <docset:ElectionYear>year 2016 </docset:ElectionYear>shall be made by written notice from Shipper to Carrier no later than </docset:TonnageElection><dg:chunk><docset:TonnageElection structure="p">
+
+<docset:ElectionDeadline>December 31, 2014</docset:ElectionDeadline>, and for following years’ such elections shall likewise be made by written notice from Shipper to Carrier no less than <docset:ElectionPeriod>two years </docset:ElectionPeriod>prior to the start of the respective calendar year. Should Shipper fail to elect any tonnage alternative for any calendar year as provided herein, then Shipper’s Full Requirements and the corresponding Guaranteed Annual Minimum and Maximum Annual Tonnage for that calendar year shall be the same as the immediately preceding calendar year. Notwithstanding the elections made by Shipper as provided herein, Carrier shall still remain, throughout the entire term of this contract, the sole and exclusive carrier of Shipper’s Full Requirements. </docset:TonnageElection><dg:chunk>
+
+
+
+<docset:FreightTermsandConditions structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 1968.0; width: 18.0; height: 42.0; page: 3;}; boundingBox:{left: 300.0; top: 306.0; width: 18.0; height: 2031.0; page: 4;}; boundingBox:{left: 300.0; top: 645.0; width: 18.0; height: 2262.0; page: 5;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1968.0; width: 18.0; height: 42.0; page: 3;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 1968.0; width: 30.0; height: 42.0; page: 3;}; ">4. </dg:chunk><dg:chunk structure="h1">The Equipment — Vessels </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 306.0; width: 18.0; height: 42.0; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 306.0; width: 30.0; height: 42.0; page: 4;}; ">5. </dg:chunk><dg:chunk>
+
+
+
+<dg:chunk><docset:CarrierName>Carrier </docset:CarrierName>Provision </dg:chunk>of <dg:chunk>Transportation Service </dg:chunk></dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2295.0; width: 18.0; height: 42.0; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 2295.0; width: 30.0; height: 42.0; page: 4;}; ">6. </dg:chunk><dg:chunk structure="h1">
+
+
+
+Payment of Freight </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 645.0; width: 18.0; height: 42.0; page: 5;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 645.0; width: 30.0; height: 42.0; page: 5;}; ">7. </dg:chunk><dg:chunk structure="h1">
+
+
+
+<dg:chunk>Freight Rate </dg:chunk>and Overcharge/Undercharge </dg:chunk></dg:chunk>
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2865.0; width: 18.0; height: 42.0; page: 5;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 2865.0; width: 30.0; height: 42.0; page: 5;}; ">8. </dg:chunk><dg:chunk structure="h1">
+
+
+
+Notice of Readiness 
+
+</dg:chunk></dg:chunk></docset:FreightTermsandConditions><docset:VesselRequirements structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 2088.0; width: 1938.0; height: 1101.0; page: 3;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2088.0; width: 1935.0; height: 234.0; page: 3;}; "><dg:chunk structure="lim">(a)  </dg:chunk><docset:VesselRequirements structure="p">The Carrier agrees to provide and operate (or have operated by its affiliates or subsidiaries) Vessels, which shall be enrolled and licensed under the laws of the <dg:chunk>United States </dg:chunk>of America, and classed A-l by the <docset:ClassificationSociety><dg:chunk>American Bureau </dg:chunk>of Shipping</docset:ClassificationSociety>, or equivalent in another recognized classification society. All Vessels shall be capable of receiving Cargo at an instantaneous rate of <docset:InstantaneousDischargeRate>3,000 </docset:InstantaneousDischargeRate>short tons per hour. <dg:chunk>Self-Unloading Vessels </dg:chunk>shall be capable of discharging at an average rate of <docset:Self-UnloadingRate>2,000 </docset:Self-UnloadingRate>short tons per hour, except in the case of the <dg:chunk>Barge Gayle <docset:BargeName>Eustace</docset:BargeName></dg:chunk>. </docset:VesselRequirements></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2427.0; width: 1938.0; height: 282.0; page: 3;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:VesselSeaworthiness structure="p">The Carrier, or its affiliate or subsidiary, shall, prior to the commencement of each voyage, exercise due diligence to make the Vessels used in the rendering of transportation services hereunder seaworthy, properly equipped and supplied for carriage of <dgm:Medication>Phosphate </dgm:Medication>in bulk. With Shipper’s approval, which will not be unreasonably withheld, Carrier shall be entitled to employ non self-unloading equipment other than as outlined in <dg:chunk>Exhibit B</dg:chunk>, but in said event Carrier shall supply at its own expense all additional equipment, power and labor necessary to discharge the Vessels’ cargo at <docset:RailTerminal>IC Rail Terminal </docset:RailTerminal>or other mutually agreed upon discharge facility. </docset:VesselSeaworthiness></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2811.0; width: 1905.0; height: 378.0; page: 3;}; "><dg:chunk structure="lim">(c)  </dg:chunk><docset:VesselCleanliness structure="p">Prior to loading the Carrier shall cause all cargo compartments to be as clean as necessary for the carriage of <dgm:Medication>Phosphate </dgm:Medication>in bulk. Shipper reserves the right to inspect the Vessels, either directly or by its representatives, and to notify Carrier if Shipper finds, prior to loading, any Vessels not clean as aforesaid. If, after such notice, the parties hereto disagree regarding the cleanliness of a Vessel, they shall request <docset:NCBInspection>National Cargo Bureau </docset:NCBInspection>(“<docset:CleanlinessInspection>NCB</docset:CleanlinessInspection>”) or agreed equivalent to inspect the Vessel and such decision shall be binding. Such inspections shall be for the account of Shipper if the Vessel passes <dgm:_testRef>examination </dgm:_testRef>(and the time used for such inspection shall count for demurrage or delay time calculations) and for the account of Carrier if it does not pass (and the time used for such inspection shall not count for demurrage or delay time calculations). 
+
+</docset:VesselCleanliness></dg:chunk></docset:VesselRequirements><docset:CarrierExclusivity structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 444.0; width: 1932.0; height: 1794.0; page: 4;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 444.0; width: 1926.0; height: 786.0; page: 4;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk><docset:CarrierExclusivity structure="p">Carrier shall transport Shipper’s Full Requirements, and Shipper shall tender Shipper’s Full Requirements on a fairly even basis (that is, in amounts not to exceed the practical capacity of Carrier’s available Vessels <dgc:Frequency>from time to time</dgc:Frequency>) during each calendar year. It is understood and agreed that Carrier is to be the sole and exclusive carrier of Shipper’s Full Requirements for the entire term of this contract. It is further understood and agreed that the only <dgm:Medication>Phosphate </dgm:Medication>not subject to transport by Carrier pursuant to this contract would be that which is neither shipped nor obtained by Shipper from <dgc:USState>Florida</dgc:USState>, meaning that Carrier will be Shipper’s sole and exclusive carrier for the movement of all <dgm:Medication>Phosphate </dgm:Medication>that is obtained or shipped from <dgc:USState>Florida </dgc:USState>to be used, consumed or processed at Shipper’s Plants during the entire term of this Contract. It is understood and agreed, however, that should Shipper obtain and ship any <dgm:Medication>Phosphate </dgm:Medication>from anywhere other than <dgc:USState>Florida </dgc:USState>(“<dg:chunk>Other <dgm:Medication>Phosphate</dgm:Medication></dg:chunk>”) for consumption or use at Shipper’s Plants, then Shipper and Carrier shall attempt to negotiate an agreement, in good faith, for the transportation by Carrier of such Other <dgm:Medication>Phosphate</dgm:Medication>. </docset:CarrierExclusivity><docset:ExcessNoticeRequirement structure="p">
+
+Notwithstanding the foregoing, should Shipper determine that Shipper’s Full Requirements during any <docset:ExcessNoticePeriod>twelve (12) month </docset:ExcessNoticePeriod>period will exceed the <dg:chunk>Maximum Annual Tonnage</dg:chunk>, then Shipper shall give Carrier prompt written notice of this fact (the “<dg:chunk>Excess Notice</dg:chunk>”), and as soon as reasonably practical thereafter, subject to Section 12 hereof and Vessel availability, Carrier shall commence the transportation of this excess <dgm:Medication>Phosphate </dgm:Medication>pursuant to this Agreement. </docset:ExcessNoticeRequirement></dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1335.0; width: 1932.0; height: 903.0; page: 4;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:SubstituteEquipment structure="p">Should Carrier fail to ratably transport Shipper’s Expected Transportation Requirements, as defined in Section 12, in accordance with <dg:chunk>Exhibit B </dg:chunk>and as provided for hereunder, for any reason other than Shipper’s default, Carrier shall arrange to provide substitute equipment for individual shipments of Cargo at the transportation rate specified by this Contract in quantities acceptable to the Shipper, which acceptance shall not be unreasonably withheld, in order to transport Shipper’s Expected Transportation Requirements, and the tonnage so transported shall apply toward Shipper’s Guaranteed Annual Minimum. If Carrier fails to provide the substitute equipment after <docset:NoticePeriod>30 days </docset:NoticePeriod>written notice from Shipper to Carrier, Shipper may, for Carrier’s account and expense, arrange in good faith and at arm’s length terms for a third party to transport such Cargo tonnage (up to the Shipper’s Expected Transportation Requirements) which Carrier is unable to transport. Any increase in cost per ton of Cargo including increased cost of discharging paid by Shipper for such third party transportation shall be reimbursed to Shipper by Carrier, and the tonnage so transported shall apply toward Shipper’s Guaranteed Annual Minimum. Should either the Carrier or Shipper be unable to find substitute equipment, this shall not relieve Carrier of its obligation to transport Shipper’s Full Requirements. Carrier shall not be liable for Shipper’s incidental or consequential damages arising from the failure to transport Shipper’s Full Requirements. The requirement of Carrier to provide substitute equipment or to underwrite the costs of Shipper’s arrangements for substitute equipment shall not be applicable if Carrier’s failure to transport the required tonnage results from force majeure circumstances as set forth in Section 18 or Section <docset:SubstituteEquipment>22 </docset:SubstituteEquipment>which prevents the use of Carrier’s or its affiliates’ or its subsidiaries’ equipment or as a result of any default of Shipper. The foregoing paragraph, together with Section <docset:SubstituteEquipment>25(b</docset:SubstituteEquipment>) states Shipper’s sole and exclusive remedy for any failure of Carrier to transport Shipper’s Full Requirements. 
+
+</docset:SubstituteEquipment></dg:chunk></docset:CarrierExclusivity><docset:PaymentTerms structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 2418.0; width: 1938.0; height: 783.0; page: 4;}; boundingBox:{left: 300.0; top: 306.0; width: 1941.0; height: 282.0; page: 5;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2418.0; width: 1917.0; height: 279.0; page: 4;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk><docset:PaymentTerms structure="p">The freight payable by Shipper shall be deemed earned upon completion of loading of Cargo, shall be invoiced as promptly as practicable thereafter, and all invoices rendered by Carrier under the Contract shall be payable to Carrier within <docset:PaymentTerms>thirty (30) days </docset:PaymentTerms>following the date of invoice. Any invoices that remain unpaid after <docset:PaymentTerms>thirty </docset:PaymentTerms></docset:PaymentTerms>
+
+<dg:chunk structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 2559.0; width: 12.0; height: 42.0; page: 4;}; "><docset:InterestCharge structure="li" style="boundingBox:{left: 300.0; top: 2559.0; width: 12.0; height: 42.0; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 2559.0; width: 69.0; height: 42.0; page: 4;}; ">(30) </dg:chunk><docset:InterestCharge structure="p">days from date of invoice shall earn interest, compounded at <docset:InterestRate>one </docset:InterestRate><docset:InterestRate>and one-half (</docset:InterestRate><docset:InterestRate>1 1/2) percent </docset:InterestRate>per month or portion thereof from the due date. If the aforesaid interest rate is determined to be illegal under <dgc:USState>Florida </dgc:USState>law during the term of this Contract, the interest charge shall be at the maximum legal rate. </docset:InterestCharge></docset:InterestCharge></dg:chunk></dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2778.0; width: 1938.0; height: 423.0; page: 4;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:WeightVerification structure="p">The weight of <docset:CargoWeightDetermination>Cargo </docset:CargoWeightDetermination>shipped shall be determined by the loading facilities’ certified belt scale weight, or at Shipper’s option, a draft survey at Shipper’s expense. Shipper shall maintain (or cause to be maintained) the belt scales in accordance with the manufacturer’s instructions and applicable standards. The scales shall be re-certified at least once every <docset:Re-certificationPeriod>six months</docset:Re-certificationPeriod>, and Shipper shall send to <docset:CertifiedBeltScaleWeight>Carrier </docset:CertifiedBeltScaleWeight>appropriate evidence of said re-certification. Either party may, at its own expense, have the loaded weight verified by a draft survey prepared by an independent marine surveyor such as <docset:Surveyor>National Cargo Bureau </docset:Surveyor>and, in that event, the result of such survey shall be official shipping weight. The expense of the draft survey shall be shifted to Shipper if Shipper has failed to have re-certified the belt scales in accordance with this paragraph and the belt scales weights deviated from the draft survey results by greater than <docset:DraftSurveyDeviation>one-half percent</docset:DraftSurveyDeviation>. </docset:WeightVerification></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 306.0; width: 1941.0; height: 282.0; page: 5;}; "><dg:chunk structure="lim">(c)  </dg:chunk><docset:GuaranteedAnnualMinimumPayment structure="p">If, during any <docset:PaymentPeriod>60-day </docset:PaymentPeriod>period, Shipper shall fail to tender any Cargo for transportation by Carrier under this Contract, then Carrier may commence invoicing the Shipper monthly for pro rata portion of the <dg:chunk>Guaranteed Annual Minimum </dg:chunk>at the <dg:chunk>Freight Rate </dg:chunk>then in effect in accordance with Section 2(c). The amounts paid under this paragraph (c) for any calendar year shall be credited at the end of such calendar year toward the amounts otherwise owed under Section 2(c), and if the amounts paid under this paragraph (c) exceed the amounts otherwise owed under Section 2(c), the excess amounts shall be promptly refunded. 
+
+</docset:GuaranteedAnnualMinimumPayment></dg:chunk></docset:PaymentTerms><docset:FreightRateComponents structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 717.0; width: 1938.0; height: 2091.0; page: 5;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 717.0; width: 1926.0; height: 453.0; page: 5;}; "><dg:chunk structure="lim">(a)  </dg:chunk><docset:FreightRate structure="p">During the term of this Contract, Shipper agrees to pay Carrier for transportation of <dgm:Medication>Phosphate </dgm:Medication>from the <dg:chunk>Loading Port </dg:chunk>to the <dg:chunk>Discharging Port </dg:chunk>a rate (the “<dg:chunk>Freight Rate</dg:chunk>”) as follows: </docset:FreightRate><docset:_842PerTon-section><dg:chunk structure="h1">
+
+  <docset:PriceperTon>$8.42 </docset:PriceperTon>per ton </dg:chunk><docset:_842PerTon structure="div"><docset:FreightRateandDeadFreightPayment structure="p">
+
+
+
+It is understood that the foregoing Freight Rate shall apply only to <docset:CargoTendered>Cargo </docset:CargoTendered>actually tendered for shipment, and the dead freight payment under Section 2(c) shall apply as therein provided to any <dg:chunk>Tonnage Deficiency</dg:chunk>. </docset:FreightRateandDeadFreightPayment><docset:TheFreightRateShallConsistoftheFollowingComponents-section><dg:chunk structure="h1">
+
+
+
+The <dg:chunk>Freight Rate </dg:chunk>shall consist of the following Components: </dg:chunk><docset:TheFreightRateShallConsistoftheFollowingComponents structure="div">Fuel and General. The components of the <dg:chunk>Freight Rate </dg:chunk>are subject to adjustment, computed to the nearest cent as provided below. An example of such an adjustment is attached hereto as <dg:chunk>Exhibit “A</dg:chunk>”. </docset:TheFreightRateShallConsistoftheFollowingComponents></docset:TheFreightRateShallConsistoftheFollowingComponents-section></docset:_842PerTon></docset:_842PerTon-section></dg:chunk>
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1275.0; width: 1923.0; height: 327.0; page: 5;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:FuelCostAdjustment structure="p">Beginning with the first full or partial calendar month hereunder, the <dg:chunk>Fuel Component</dg:chunk>, <docset:FuelComponent>$2.12 </docset:FuelComponent>of the per ton Freight Rate, shall be adjusted monthly (on the first day of each month) in direct proportion to the percentage increase or decrease above or below the <dg:chunk>Base Fuel Cost </dg:chunk>defined below in the simple monthly average of the <docset:FuelComponentAdjustment>U.S. </docset:FuelComponentAdjustment>wholesale posted price per gallon of low <dgm:Medication>sulfur </dgm:Medication>diesels published in <docset:FuelPriceIndex>Platt</docset:FuelPriceIndex>’s Oilgram for delivery at <dg:chunk>New Orleans</dg:chunk>, <dgc:USState>Louisiana </dgc:USState>on each <dgc:Weekday>Friday </dgc:Weekday>of the prior month. A copy of the Platt’s Oilgram or an agreed upon equivalent will be furnished to Shipper each month. The <dg:chunk>Base Fuel Cost </dg:chunk>means the posted price per gallon of low <dgm:Medication>sulfur </dgm:Medication>diesel, stipulated to be <docset:BaseFuelCost>$1.75</docset:BaseFuelCost>. </docset:FuelCostAdjustment></dg:chunk>
+
+
+
+
+
+
+
+      <dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1707.0; width: 1938.0; height: 669.0; page: 5;}; "><dg:chunk structure="lim">(c)  </dg:chunk><dg:chunk><dg:chunk structure="p">The <dg:chunk>General Component </dg:chunk>of the <dg:chunk>Freight Rate </dg:chunk>shall be <docset:FreightRate>$7.74</docset:FreightRate>. </dg:chunk><docset:GeneralComponentAdjustment structure="p">
+
+
+
+
+
+Beginning with the first calendar <docset:AdjustmentQuarter>quarter of 2008</docset:AdjustmentQuarter>, the <dg:chunk>General Component </dg:chunk>shall be adjusted for each calendar quarter in direct proportion to the percentage increase or decrease in the GDP <dg:chunk>Implicit Price Deflator </dg:chunk>for the quarter as published by the United States <docset:AdjustmentFormula>Department of Commerce </docset:AdjustmentFormula>in the Survey of <dg:chunk>Current Business </dg:chunk>available from the <dg:chunk><docset:GovernmentPrintingOffice>Government Printing </docset:GovernmentPrintingOffice><docset:Office>Office </docset:Office></dg:chunk>above or below such deflator for the <docset:BaseDeflatorQuarter>third quarter of 2007</docset:BaseDeflatorQuarter>, which is the base period for this adjustment (“<dg:chunk>Base Deflator</dg:chunk>”). The price deflator for the contract quarter for which the computation is being made will be compared to the <dg:chunk>Base Deflator </dg:chunk>to determine the percentage adjustment in the <dg:chunk>General Component</dg:chunk>, which adjustment shall become effective on the first day of the second month of the next contract quarter following the quarter for which the computation is made. For instance, change in the <dg:chunk>General Component </dg:chunk>of the <dg:chunk>Freight Rate </dg:chunk>computed using the price deflator for the calendar quarter ended <docset:BaseDeflatorDate>December 31, 2007 </docset:BaseDeflatorDate>would become effective on <docset:EffectiveDate>February 1, 2008</docset:EffectiveDate>. In the event the foregoing GNP Implicit Price Deflator shall no longer be published during the term hereof in its present form, a mutually agreed comparable published index shall be used as a replacement. </docset:GeneralComponentAdjustment></dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2478.0; width: 1935.0; height: 330.0; page: 5;}; "><dg:chunk structure="lim">(d)  </dg:chunk><docset:TaxAdjustment structure="p">The freight rates quoted above are based on present Federal, State, municipal or local taxes, charges, fees, tolls or other additional levies imposed by governmental authorities upon Carrier, its equipment, fuel or cargo used in performance of this Agreement. In the event such taxes, charges, fees, tolls or other levies are increased or decreased during the term of this contract, the freight rate for all shipments commenced after the effective date of such increase or decrease shall be adjusted to fully reflect such changes to the extent not reflected in Sections 7(b) or 7(c). In such event, Carrier shall provide documentary evidence of the additional taxes, charges, fees, tolls or other levies. 
+
+</docset:TaxAdjustment></dg:chunk></docset:FreightRateComponents></dg:chunk></dg:chunk><dg:chunk><docset:ETANotification structure="p">The Carrier’s Master or his agent shall give the Shipper or his agent, by email, facsimile, wireless or telephone, a <docset:ETANotification>twenty-four (24) hour </docset:ETANotification>ETA and a <docset:ETANotification>six (6) hour </docset:ETANotification>ETA of the Vessel’s arrival at <dg:chunk><docset:LoadingNotification>Loading </docset:LoadingNotification>Port </dg:chunk>and <dg:chunk>Discharging Port </dg:chunk>on each voyage. Upon arrival at customary anchorage or berth, the Master or his agent shall give the Shipper a Notice of Readiness. </docset:ETANotification>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 306.0; width: 18.0; height: 42.0; page: 6;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 306.0; width: 18.0; height: 42.0; page: 6;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 306.0; width: 30.0; height: 42.0; page: 6;}; ">9. </dg:chunk><dg:chunk structure="h1"><dg:chunk>Loading Port </dg:chunk>
+
+</dg:chunk></dg:chunk></dg:chunk></dg:chunk><dg:chunk><docset:LoadingPort structure="p">Shipper’s Cargo will be loaded at the <dg:chunk>Loading Port</dg:chunk>. Shipper shall provide for voyages with Shipper’s Cargoes, at its expense, safe loading berths where the Vessels can safely proceed to, lie at, and depart from, fully loaded, and remain safely afloat at any stage of the tide. For the purposes intended by this Contract, Shipper shall maintain, or cause to be maintained, adequate water depth to accommodate vessels to a maximum draft of 34 feet at any stage of the tide. In the event Shipper is able to provide adequate water depth to accommodate vessels to a draft greater than 34 feet at any stage of the tide as designated by the <dg:chunk><docset:LoadingPort>Tampa Bay </docset:LoadingPort>Pilots</dg:chunk>, Carrier shall discount the freight rate shown in Section 7(a) by <docset:FreightRateDiscount>$0.25 </docset:FreightRateDiscount>per ton for Vessels loaded by Shipper to greater than 34 feet. In the event Shipper is unable to provide adequate water depth to accommodate vessels to their maximum draft at any stage of the tide, not exceeding a draft of 34 feet, then Shipper shall pay the freight rate shown in Section 7(a) as if the Vessel had loaded to maximum draft, not exceeding 34 feet. Shipper shall have up to <docset:LoadingPortWaterDepth>six months </docset:LoadingPortWaterDepth>to remedy the inadequate water depth situation prior to Carrier assessing freight based upon the maximum draft as stipulated in the preceding sentence. Any payments that are made by Shipper with respect to the failure to remedy the inadequate water depth shall count towards the <dg:chunk>Guaranteed Annual Minimum</dg:chunk>. </docset:LoadingPort>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 1053.0; width: 18.0; height: 42.0; page: 6;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1053.0; width: 18.0; height: 42.0; page: 6;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 1053.0; width: 51.0; height: 42.0; page: 6;}; ">10. </dg:chunk><dg:chunk>Discharging Port 
+
+
+
+</dg:chunk></dg:chunk></dg:chunk></dg:chunk><dg:chunk><docset:DischargePort structure="p">Shipper’s Cargo shall be discharged at the dock facilities of Shipper at the <dg:chunk>Discharging Port</dg:chunk>. Shipper shall provide for voyages with Shipper’s Cargoes, at its expense, safe discharge berths where the Vessels can safely proceed to, lie at, and remain safely afloat at any stage of the tide. </docset:DischargePort><dg:chunk>
+
+
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 1440.0; width: 18.0; height: 42.0; page: 6;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1440.0; width: 18.0; height: 42.0; page: 6;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 1440.0; width: 51.0; height: 42.0; page: 6;}; ">11. </dg:chunk><dg:chunk structure="h1">Loading and Discharging 
+
+
+
+</dg:chunk></dg:chunk></dg:chunk><dg:chunk><docset:LoadingandUnloading structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 1563.0; width: 1926.0; height: 474.0; page: 6;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1563.0; width: 1926.0; height: 135.0; page: 6;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk>The Shipper shall load, stow, and trim Cargo at its sole expense under the supervision of the Master of the Vessel. Upon tender of a Vessel all fast in berth and ready to receive Cargo, Shipper shall load and Carrier shall receive the Cargo at an average rate of <docset:LoadingRate>2,000 </docset:LoadingRate>tons per hour. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1803.0; width: 1920.0; height: 234.0; page: 6;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:Self-UnloadingEquipment structure="p">Carrier shall provide and operate self-unloading equipment on the Vessel except as provided in Sections 4 (a) and 4 (b) . When the Vessel is all fast, Shipper shall receive Cargo into the hoppers provided by Shipper at the Vessel’s side at an average rate of <docset:MaximumUnloadingRate>2,000 </docset:MaximumUnloadingRate>tons per hour and up to a maximum instantaneous rate of <docset:MaximumUnloadingRate><docset:MaximumUnloadingRate>3,000 </docset:MaximumUnloadingRate>tons </docset:MaximumUnloadingRate>per hour. The Shipper shall provide at its expense shoreside power for operating <docset:Self-UnloadingEquipmentProvider>Carrier</docset:Self-UnloadingEquipmentProvider>’s self-unloading equipment and shall bear or hold Carrier harmless from all costs relating to the supply of such shoreside power. </docset:Self-UnloadingEquipment></dg:chunk></docset:LoadingandUnloading><docset:CargoDischarge structure="p">
+
+
+
+
+
+(c ) When Carrier employs non-self unloading Vessels as anticipated by the schedule shown in <dg:chunk>Exhibit B </dg:chunk>and within the parameters of <dg:chunk>Exhibit B</dg:chunk>, Shipper shall provide, at its expense, all additional equipment, power and labor necessary to discharge the Vessels’ cargo on a “free out” basis. </docset:CargoDischarge></dg:chunk>
+
+
+
+
+
+<docset:ArrivalandDeliveryTerms structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 2409.0; width: 18.0; height: 42.0; page: 6;}; boundingBox:{left: 300.0; top: 1176.0; width: 18.0; height: 1707.0; page: 8;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2409.0; width: 18.0; height: 42.0; page: 6;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 2409.0; width: 51.0; height: 42.0; page: 6;}; ">12. </dg:chunk><dg:chunk structure="h1">Scheduling </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1176.0; width: 18.0; height: 42.0; page: 8;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 1176.0; width: 51.0; height: 42.0; page: 8;}; ">13. </dg:chunk><dg:chunk structure="h1">
+
+
+
+
+
+Time for Arrival; Demurrage Rates </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2841.0; width: 18.0; height: 42.0; page: 8;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 2841.0; width: 51.0; height: 42.0; page: 8;}; ">14. </dg:chunk><dg:chunk structure="h1">
+
+
+
+
+
+<dg:chunk>Delay Time </dg:chunk>and Payments 
+
+
+
+</dg:chunk></dg:chunk></docset:ArrivalandDeliveryTerms><docset:ForecastNoticeRequirements structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 2529.0; width: 1929.0; height: 666.0; page: 6;}; boundingBox:{left: 300.0; top: 291.0; width: 1926.0; height: 234.0; page: 7;}; boundingBox:{left: 300.0; top: 306.0; width: 1911.0; height: 741.0; page: 8;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2529.0; width: 1929.0; height: 666.0; page: 6;}; boundingBox:{left: 300.0; top: 291.0; width: 1926.0; height: 234.0; page: 7;}; boundingBox:{left: 300.0; top: 306.0; width: 1911.0; height: 498.0; page: 8;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk><docset:ExpectedTransportationRequirements structure="p">Shipper shall give Carrier advance notice of Shipper’s Full Requirements as expected for each calendar year (“<dg:chunk>Expected Transportation Requirements</dg:chunk>”) as provided herein. Within <docset:AdvanceNoticePeriod>thirty (30) days </docset:AdvanceNoticePeriod>of the Effective Date hereof, Shipper shall give notice of its Expected Transportation Requirements for the remainder of <docset:ExpectedTransportationRequirements>2007 </docset:ExpectedTransportationRequirements>and for the year <docset:ExpectedTransportationRequirements>2008</docset:ExpectedTransportationRequirements>. By <docset:ExpectedTransportationRequirementsDeadline>October 15, 2008 </docset:ExpectedTransportationRequirementsDeadline>and each subsequent calendar year hereunder, Shipper shall give notice of its Expected Transportation Requirements for the next following calendar year. In either case, any changes in <dg:chunk>Expected Transportation Requirements </dg:chunk>shall be made by Shipper only upon <docset:NoticePeriod>forty-five (45) days</docset:NoticePeriod>’ advance written notice. </docset:ExpectedTransportationRequirements><dg:chunk><docset:ForecastNoticeRequirements structure="p">
+
+During the term hereof, Shipper shall give Carrier <dgc:Frequency>weekly </dgc:Frequency>updated forecasts of its proposed liftings on a rolling <docset:ForecastPeriod>45-day </docset:ForecastPeriod>basis (The “<dg:chunk>Forecast Notice</dg:chunk>” or “<dg:chunk>Forecast Notices</dg:chunk>”). Carrier shall schedule its Vessels for loadings in sufficient frequency to meet the proposed liftings provided by the <dg:chunk>Forecast Notices</dg:chunk>. In the event Shipper fails to provide to Carrier any required Forecast Notice, the last issued Forecast Notice shall continue to govern for the duration of the <docset:ForecastNoticePeriod>45 day </docset:ForecastNoticePeriod>period provided therein, and Carrier is entitled to assume that the proposed liftings for the next <dgc:TimeDuration>45 day </dgc:TimeDuration>period shall be the same as provided in the last issued Forecast Notice as if it is to start anew. </docset:ForecastNoticeRequirements><docset:TonnageDeficiencyCharge structure="p">
+
+
+
+No change shall be made to the proposed liftings within any <dg:chunk>Forecast Notice </dg:chunk>without <docset:AdvanceNoticePeriod>45 days </docset:AdvanceNoticePeriod>advance written notice to Carrier. If for any reason, except an unexpected operational failure at Shipper’s Operations or at Shipper’s Plants, Shipper makes a change to the proposed liftings within a <dg:chunk>Forecast Notice </dg:chunk>without <dgc:TimeDuration>45 days </dgc:TimeDuration>advance written notice to Carrier, Shipper shall be liable to Carrier for any resulting tonnage deficiency times the applicable dead freight rate equal to <docset:DeadFreightRate>100% </docset:DeadFreightRate>of the sum of the then-effective General Component of the <dg:chunk>Freight Rate </dg:chunk>under Section 7. The tonnage deficiency for purposes of this provision shall be calculated as the difference between the </docset:TonnageDeficiencyCharge><docset:TonnageCredit structure="p">
+
+
+
+
+
+
+
+Cargo that was tendered during the period in question and that which had been noticed by Shipper in its Forecast Notice during the period in question. Shipper shall not be liable to pay any amounts under this Section 12(a) if Shipper’s failure to tender Cargo in accordance with its Forecast Notices results from force majeure circumstances as set forth in Section 18 or as a result of any default of Carrier. Shipper shall receive full tonnage credit toward the Guaranteed Annual Minimum tonnage for payments made under this Section 12 (a) . </docset:TonnageCredit><docset:RemediesforTonnageDeficiency structure="p">
+
+
+
+The remedy provided in this Section 12 (a) constitutes the sole and exclusive remedy available to Carrier for any tonnage deficiency, as described in this Section 12(a), that results from Shipper’s failure to provide <docset:NoticePeriod>45 days </docset:NoticePeriod>written notice of any change to proposed liftings provided by the <dg:chunk>Forecast Notices</dg:chunk>, and except for such remedy, Carrier shall have no right to seek any other damages, including without limitation incidental or consequential damages, caused solely by Shipper’s failure to provide notice of any change in its proposed liftings. </docset:RemediesforTonnageDeficiency></dg:chunk></dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 909.0; width: 1911.0; height: 138.0; page: 8;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:VesselTracking structure="p">Carrier shall advise Shipper <dgc:Frequency>daily </dgc:Frequency>at the addresses set forth in Section 24(b) via telephone, email or facsimile of the locations and estimated time of arrival of each Vessel then assigned to transport Cargo for Shipper, whether for loading at the <dg:chunk>Loading Port </dg:chunk>or for unloading at the <dg:chunk>Discharging Port</dg:chunk>. 
+
+</docset:VesselTracking></dg:chunk></docset:ForecastNoticeRequirements><docset:Demurrage structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 1296.0; width: 1935.0; height: 1149.0; page: 8;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1296.0; width: 1935.0; height: 618.0; page: 8;}; "><dg:chunk structure="lim">(a)  </dg:chunk><docset:DemurrageCharges structure="p">Upon a Vessel’s arrival at the <dg:chunk>Loading Port </dg:chunk>or <dg:chunk>Discharging Port</dg:chunk>, Vessel will commence immediately loading or unloading. If berth is not available upon arrival of Vessel, after receipt of Notice of Readiness, demurrage will commence and run until notice is given to <docset:VesselName>Vessel </docset:VesselName>that berth is available. Notwithstanding the foregoing, if upon arrival of a Vessel (“<dg:chunk>Arriving Vessel</dg:chunk>”) for loading at Shipper’s Terminal or unloading at Shipper’s Plant, the berth is unavailable due to the current occupancy of another of Carrier’s Vessels (“Prior Vessel”), then demurrage shall not run; provided, however, that to the extent that the Prior Vessel’s occupancy was or is delayed (or extended beyond allowed free time) for reasons beyond the sole control of Carrier (other than extreme weather conditions), then demurrage shall run. Time for Vessel to shift from anchorage to berth shall not count as demurrage. The demurrage rate will be <dgc:Money>$1000.00 </dgc:Money>per hour or fraction thereof, unless the berth is not available upon arrival of Vessel or if preference is given to another vessel and therefore <docset:DemurrageRate>Carrier</docset:DemurrageRate>’s Vessel is delayed, in which case the demurrage rate will be <docset:DemurrageRate>$1500.00 </docset:DemurrageRate>per hour or fraction thereof, except in cases at Shipper<docset:PlantName>’s Plant </docset:PlantName>when the Vessel is delayed as a result of a <dgm:Medication>sulfur </dgm:Medication>or sulfuric acid vessel, in which case the demurrage shall be <docset:DemurrageRate>$1000.00 </docset:DemurrageRate>per hour or fraction thereof. <docset:DemurrageRate>One </docset:DemurrageRate><docset:DemurrageRate>Hundred (100%) percent </docset:DemurrageRate>of this rate shall be escalated per the formula in Section 7(c). </docset:DemurrageCharges></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2019.0; width: 1878.0; height: 138.0; page: 8;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:CancellationCharges structure="p">Shipper may occasionally cancel a designated shipment prior to commencement of loading provided that it pays Carrier the cost of any Vessel cleaning, shifting and any accumulated demurrage which have been already incurred by Carrier at the time the particular shipment is cancelled. </docset:CancellationCharges></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2259.0; width: 1878.0; height: 186.0; page: 8;}; "><dg:chunk structure="lim">(c)  </dg:chunk><docset:ForceMajeure structure="p">The occurrence of any condition of force majeure set out in Section 18 after any Vessel shall be on demurrage shall not affect the continued running of demurrage nor excuse payment for all such demurrage which may accrue during the continuance of such conditions of force majeure until completion of loading or discharge, provided that the Shipper shall have the option to: </docset:ForceMajeure></dg:chunk></docset:Demurrage>
+
+
+
+
+
+<docset:FreightPaymentTerms structure="ol" style="list-style-type: lower-roman; boundingBox:{left: 300.0; top: 2550.0; width: 1821.0; height: 162.0; page: 8;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2550.0; width: 1821.0; height: 90.0; page: 8;}; "><dg:chunk structure="lim">(i)  </dg:chunk><docset:FreightPaymentTerms structure="p">direct that the Vessel sail without a full Cargo and pay freight only on that which has been loaded (minimum <docset:MinimumCargo>25,000 </docset:MinimumCargo>tons); or </docset:FreightPaymentTerms></dg:chunk>
+
+
+
+      <dg:chunk structure="li" style="boundingBox:{left: 456.0; top: 2670.0; width: 1578.0; height: 42.0; page: 8;}; "><dg:chunk structure="lim">(ii)  </dg:chunk><dg:chunk structure="p">direct that the Vessel remain at the berth, in which case demurrage shall continue to accrue. 
+
+</dg:chunk></dg:chunk></docset:FreightPaymentTerms></dg:chunk></dg:chunk><docset:LoadingTime structure="p">Time allowed for loading will be <docset:LoadingTime>one hour </docset:LoadingTime>for each <docset:CargoCapacity>1,750 </docset:CargoCapacity>tons of Cargo carried, commencing when Vessel arrives at berth and is all fast ready to receive Cargo and ending upon notice of completion. </docset:LoadingTime><docset:UnloadingTime structure="p">
+
+Time allowed for unloading at Shipper’s Plant will be <dgc:TimeDuration>one hour </dgc:TimeDuration>for each <docset:UnloadingTime>1,750 </docset:UnloadingTime>tons of Cargo carried except in the case of the barge <dg:chunk>GAYLE EUSTACE </dg:chunk>which shall be allowed <docset:UnloadingTime>one hour </docset:UnloadingTime>for each <docset:UnloadingTime>750 </docset:UnloadingTime>tons of Cargo carried, commencing when Vessel arrives at berth and is all fast ready to discharge and ending upon notice of completion. </docset:UnloadingTime><docset:UnloadingTime structure="p">
+
+Time allowed for unloading non self-unloading vessels at <dg:chunk><docset:RailTerminal>IC Rail </docset:RailTerminal>Terminal </dg:chunk>or other mutually agreed upon discharge facility will be <docset:UnloadingTime>one hour </docset:UnloadingTime>for each <docset:UnloadingTime>750 </docset:UnloadingTime>tons of Cargo carried, commencing when Vessel arrives at berth and is all fast ready to discharge or upon notice of readiness if berth is occupied and ending upon notice of completion. </docset:UnloadingTime><docset:DemurrageCharges structure="p">
+
+If delays occur during loading or unloading which are not the fault of Carrier, any excess time above the time allowed under this Section shall entitle Carrier to demurrage payments from Shipper at the rate set forth in </docset:DemurrageCharges><docset:DemurrageLiability structure="p">
+
+
+
+Section 13(a). Shipper shall be entitled to despatch based upon the demurrage rate of <docset:DemurrageRate>$1000.00 </docset:DemurrageRate>per hour or fraction thereof, plus escalation. Extreme weather conditions shall not be a cause for this liability. Carrier shall reimburse Shipper for any third party carrier’s demurrage charges arising out of Carrier’s failure to receive or discharge Cargo at the rate specified in Section 4(a) or Carrier’s failure to depart from a berth in a reasonable time, except that in either case extreme weather conditions shall not be a cause for this liability. </docset:DemurrageLiability><dg:chunk><docset:DelayTimeReporting structure="p">
+
+All delays will be noted and agreed upon at time of loading or unloading and recorded in appropriate Vessel logs. Carrier will issue a quarterly delay time report stating all delay time occurrences for Shipper and Carrier. </docset:DelayTimeReporting>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 765.0; width: 18.0; height: 42.0; page: 10;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 765.0; width: 18.0; height: 42.0; page: 10;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 765.0; width: 51.0; height: 42.0; page: 10;}; ">15. </dg:chunk><dg:chunk structure="h1">Wharfage and Dockage 
+
+
+
+</dg:chunk></dg:chunk></dg:chunk></dg:chunk><dg:chunk><docset:DockageandLineHandlingCharges structure="p">Carrier’s equipment shall be free of wharfage and dockage charges upon arrival at the Loading and Discharging Ports, and Shipper shall pay all such charges imposed, except Carrier shall be responsible for customary charges (including without limitation dockage and line handling) when employing non-self unloaders discharging at the <docset:DischargeFacility>IC Rail Terminal </docset:DischargeFacility>or other mutually agreed upon discharge facility in all cases including as anticipated by the schedule shown in Exhibit B. </docset:DockageandLineHandlingCharges><dg:chunk>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 1176.0; width: 18.0; height: 645.0; page: 10;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1176.0; width: 18.0; height: 42.0; page: 10;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 1176.0; width: 51.0; height: 42.0; page: 10;}; ">16. </dg:chunk><dg:chunk structure="h1">Liens </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1779.0; width: 18.0; height: 42.0; page: 10;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 1779.0; width: 51.0; height: 42.0; page: 10;}; ">17. </dg:chunk><dg:chunk>
+
+
+
+Assignment 
+
+
+
+</dg:chunk></dg:chunk></dg:chunk><docset:LienWaiver structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 243.0; top: 1296.0; width: 1995.0; height: 429.0; page: 10;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1296.0; width: 1938.0; height: 234.0; page: 10;}; "><dg:chunk structure="lim">(a)  </dg:chunk><docset:LienonVessel structure="p">The Shipper shall have an absolute lien on the Vessels for all claims (including attorneys’ fees, if any, of recovering the same), if any, against Carrier and/or the vessel owner, arising out of shipment of Shipper’s Cargoes under this Contract, which lien shall continue after discharge of any Cargoes connected with such claim. Any such lien shall be subordinate to any mortgage placed on the Vessel in connection with the financing or lease of the Vessel. </docset:LienonVessel></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 243.0; top: 1635.0; width: 1911.0; height: 90.0; page: 10;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:LienWaiver structure="p">Carrier shall have no lien, and hereby expressly waives its right to any lien on any cargo, freight, or property of Shipper or any of its customers, consignors or consignees. 
+
+</docset:LienWaiver></dg:chunk></docset:LienWaiver></dg:chunk></dg:chunk><dg:chunk><docset:AssignmentofRights structure="p"><dg:chunk>Neither Shipper </dg:chunk>nor Carrier will assign, subcontract or delegate the performance of this Contract without the written consent of the other, which consent shall not unreasonably be withheld. However, (a) the consent of the Shipper shall not be necessary for the assignment by the Carrier of this Contract (and all monies due and payable under this Contact) (i) to a subsidiary or affiliate of Carrier or (ii) as security for the obligations of the Carrier or subsidiaries or affiliates of the Carrier under notes, other debt obligations or guarantees of such obligations upon notice of assignment to Shipper, provided that any such assignment shall not relieve Carrier of its obligations under this Contract, and (b) the consent of the Carrier shall not be necessary for the assignment by the Shipper of this Contract (and all monies due and payable under this Contact) (i) to a subsidiary or affiliate of Shipper or (ii) as security for the obligations of the Shipper or subsidiaries or affiliates of the Shipper under notes, other debt obligations or guarantees of such obligations upon notice of assignment to Carrier, provided that any such assignment shall not relieve Shipper of its obligations under this Contract. Subject to the foregoing; this Agreement shall be binding upon the successors and assigns of the parties hereto. </docset:AssignmentofRights><dg:chunk>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 2526.0; width: 18.0; height: 42.0; page: 10;}; "><docset:ForceMajeure structure="li" style="boundingBox:{left: 300.0; top: 2526.0; width: 168.0; height: 162.0; page: 10;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 2526.0; width: 51.0; height: 42.0; page: 10;}; ">18. </dg:chunk><dg:chunk><dg:chunk structure="h1"><docset:ForceMajeure>Force </docset:ForceMajeure>Majeure </dg:chunk>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 456.0; top: 2649.0; width: 12.0; height: 39.0; page: 10;}; "><docset:ForceMajeure structure="li" style="boundingBox:{left: 456.0; top: 2649.0; width: 12.0; height: 39.0; page: 10;}; "><dg:chunk structure="lim" style="boundingBox:{left: 456.0; top: 2649.0; width: 45.0; height: 39.0; page: 10;}; ">(a) </dg:chunk><docset:ForceMajeure structure="p">If because of force majeure, as defined herein, either Carrier or Shipper is unable to carry out any of its obligations under this Contract, and if such party claims force majeure by promptly giving to the other party written notice thereof, then the obligations of Shipper to tender <dgm:Medication>Phosphate </dgm:Medication>for transportation and of Carrier to transport such Cargo hereunder, shall be suspended to the extent the party claiming the force majeure is so unable or hindered except as provided otherwise in Section 13(c) hereof. Such notice of the existence of force majeure shall describe the particulars thereof and shall include a statement of the period during which the force majeure is reasonably expected to continue and the extent of the obligation thereby affected. Thereafter such party shall give notice of any change in such period within a reasonable time after such party learns of such change. The party giving the notice shall make all reasonable efforts to remove the force majeure, and to resume performance hereunder, with all reasonable dispatch, but nothing contained herein shall be construed as requiring such party to settle any labor dispute. As used herein “force majeure” means any cause beyond the reasonable control of the party giving the 
+
+
+
+</docset:ForceMajeure></docset:ForceMajeure></dg:chunk></dg:chunk></docset:ForceMajeure></dg:chunk><docset:ForceMajeure structure="p">notice affecting its ability to perform its obligations hereunder, including, but not limited to, acts of God, fire, storm, breakdown of mining, transportation, terminals or vessel equipment, flood, explosions, strikes, labor disputes, riots, acts of any military or civil or governmental authority, wars, perils of the waters or of navigation, collisions, groundings, pirates, arrest or restraints of princes, rulers, or peoples. </docset:ForceMajeure></dg:chunk></dg:chunk><dg:chunk><docset:ForceMajeure structure="p">
+
+It is understood that a significant consideration for this Contract is Carrier’s flexibility to carry a substantial portion of Shipper’s Cargo with its self unloading Vessels (as set forth in <dg:chunk>Exhibit B</dg:chunk>) and therefore, force majeure shall not excuse Carrier’s guarantee of transportation services on self-unloading Vessels unless such force majeure affects <docset:CarrierName>Carrier</docset:CarrierName>’s self-unloading fleet. </docset:ForceMajeure>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 765.0; width: 18.0; height: 42.0; page: 11;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 765.0; width: 18.0; height: 42.0; page: 11;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 765.0; width: 51.0; height: 42.0; page: 11;}; ">19. </dg:chunk><dg:chunk structure="h1">Arbitration 
+
+
+
+</dg:chunk></dg:chunk></dg:chunk></dg:chunk><dg:chunk><docset:ArbitrationClause structure="p">Should any dispute or controversy arise out of this Contract, such dispute or controversy shall be referred to <docset:ArbitrationPanelSize>three </docset:ArbitrationPanelSize>persons, one to be appointed by each of the parties hereto and the third by the two so chosen; their decision or that of any two of them shall be final and, for the purpose of enforcing any award, this Contract may be made a rule of the court. The arbitrators shall be commercial men and shall follow the Rules and Practices of the <docset:ArbitrationRules>Society of <docset:ArbitrationRules><dg:chunk>Maritime Arbitrators</dg:chunk>, Inc. </docset:ArbitrationRules></docset:ArbitrationRules><docset:ArbitrationClause>Carrier </docset:ArbitrationClause>and Shipper hereby agree that the provisions of 9 United States Code § 1 et seq. (<dg:chunk>Federal Arbitration Act</dg:chunk>) shall be incorporated into this Contract and shall apply in full force and effect as if set forth at length in this Contract. Notwithstanding the foregoing, if either party to this Contract sends to the other a demand to arbitrate by certified mail, such mailing shall be sufficient service of process so as to confer jurisdiction of the parties in the <dg:chunk>United States District Court </dg:chunk>in Tampa, <dgc:USState>Florida</dgc:USState>, for all purposes consistent with this requirement to arbitrate. </docset:ArbitrationClause><dg:chunk>
+
+
+
+<docset:InsuranceandIndemnification structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 1416.0; width: 18.0; height: 42.0; page: 11;}; boundingBox:{left: 300.0; top: 1872.0; width: 18.0; height: 42.0; page: 14;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1416.0; width: 1887.0; height: 1764.0; page: 11;}; boundingBox:{left: 408.0; top: 387.0; width: 1722.0; height: 87.0; page: 12;}; boundingBox:{left: 417.0; top: 390.0; width: 1743.0; height: 486.0; page: 14;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 1416.0; width: 51.0; height: 42.0; page: 11;}; ">20. </dg:chunk><dg:chunk><dg:chunk structure="h1">Insurance and Indemnification </dg:chunk><dg:chunk structure="div">
+
+
+
+
+
+
+
+<docset:InsuranceAndIndemnification><xhtml:table structure="table" style="boundingBox:{left: 429.0; top: 3045.0; width: 1758.0; height: 135.0; page: 11;}; boundingBox:{left: 408.0; top: 387.0; width: 1722.0; height: 87.0; page: 12;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 429.0; top: 3045.0; width: 1758.0; height: 135.0; page: 11;}; boundingBox:{left: 408.0; top: 387.0; width: 1722.0; height: 87.0; page: 12;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 429.0; top: 3045.0; width: 1758.0; height: 135.0; page: 11;}; "><xhtml:td structure="td" style="boundingBox:{left: 429.0; top: 3045.0; width: 39.0; height: 135.0; page: 11;}; "><dgc:Number>1</dgc:Number>. 
+
+</xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 516.0; top: 3045.0; width: 1671.0; height: 135.0; page: 11;}; " colspan="2"><docset:_1><dg:chunk><docset:InsuranceRequirements structure="p">Protection and indemnity (<dg:chunk>SP-23 </dg:chunk>or equivalent) including liability for crew members and removal of wreck; collision liability; tower’s liability. Such liability policies shall be endorsed to cover the </docset:InsuranceRequirements><dg:chunk structure="p">
+
+indemnity contained in clause (d). </dg:chunk></dg:chunk>
+
+</docset:_1></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 408.0; top: 387.0; width: 1722.0; height: 87.0; page: 12;}; "><xhtml:td structure="td" style="boundingBox:{left: 408.0; top: 387.0; width: 30.0; height: 87.0; page: 12;}; "><docset:_12><dgc:Number>2</dgc:Number>. 
+
+</docset:_12></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 486.0; top: 387.0; width: 1644.0; height: 87.0; page: 12;}; "><docset:_2ProtectionAndIndemnitySP-23OrEquivalentIncludingLiabilityforCrewMemb structure="p">Workers’ Compensation and Employers Liability Insurance subject to a limit of <docset:WorkersCompensationLimit>$1,000,000</docset:WorkersCompensationLimit>. Broad 
+
+form all states endorsement, <docset:WorkersCompensationInsurance>U.S.L.&amp;H. </docset:WorkersCompensationInsurance>endorsement. </docset:_2ProtectionAndIndemnitySP-23OrEquivalentIncludingLiabilityforCrewMemb></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:InsuranceAndIndemnification><dg:chunk>
+
+
+
+
+
+
+
+
+
+
+
+ <docset:BillsofLading><xhtml:table structure="table" style="boundingBox:{left: 417.0; top: 390.0; width: 1743.0; height: 357.0; page: 14;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 417.0; top: 390.0; width: 1743.0; height: 357.0; page: 14;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 417.0; top: 390.0; width: 1743.0; height: 42.0; page: 14;}; "><xhtml:td structure="td" style="boundingBox:{left: 417.0; top: 390.0; width: 30.0; height: 42.0; page: 14;}; " /><xhtml:td structure="td" style="boundingBox:{left: 447.0; top: 390.0; width: 1713.0; height: 42.0; page: 14;}; "><dg:chunk structure="h1"><dg:chunk>Employers Liability </dg:chunk>shall contain Jones Act endorsement. </dg:chunk>
+
+</xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 417.0; top: 456.0; width: 1743.0; height: 186.0; page: 14;}; "><xhtml:td structure="td" style="boundingBox:{left: 417.0; top: 456.0; width: 30.0; height: 186.0; page: 14;}; "><dgc:Number>3</dgc:Number>. 
+
+</xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 447.0; top: 456.0; width: 1713.0; height: 186.0; page: 14;}; "><docset:_3EmployersLiabilityShallContainJonesActEndorsement><docset:InsuranceRequirements structure="p">Comprehensive General Liability insurance subject to a single limit of <docset:ComprehensiveGeneralLiabilityLimit>$1,000,000 </docset:ComprehensiveGeneralLiabilityLimit>bodily injury and property damage combined. Such insurance shall include blanket contractual liability and personal injury liability. In lieu thereof, Carrier may self-insure against Comprehensive General Liability risks. </docset:InsuranceRequirements>
+
+</docset:_3EmployersLiabilityShallContainJonesActEndorsement></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 417.0; top: 657.0; width: 1743.0; height: 90.0; page: 14;}; "><xhtml:td structure="td" style="boundingBox:{left: 417.0; top: 657.0; width: 30.0; height: 90.0; page: 14;}; "><dgc:Number>4</dgc:Number>. 
+
+</xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 447.0; top: 657.0; width: 1713.0; height: 90.0; page: 14;}; "><docset:_4EmployersLiabilityShallContainJonesActEndorsement><dg:chunk>Umbrella Liability insurance subject to a limit of <docset:UmbrellaLimit>$10,000,000 </docset:UmbrellaLimit>excess of comprehensive general liability and employers liability. </dg:chunk>
+
+
+
+</docset:_4EmployersLiabilityShallContainJonesActEndorsement></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:BillsofLading><docset:AdditionalInsured structure="p">Carrier agrees to have Shipper and its shareholders and their directors, officers, agents and employees named as additional insured on the above insurance excepting however, the Workers’ Compensation insurance. </docset:AdditionalInsured></dg:chunk></dg:chunk></dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1872.0; width: 18.0; height: 42.0; page: 14;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 1872.0; width: 51.0; height: 42.0; page: 14;}; ">21. </dg:chunk><dg:chunk structure="h1">
+
+
+
+Bills of Lading </dg:chunk></dg:chunk></docset:InsuranceandIndemnification>
+
+       <docset:InsuranceRequirements structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 1536.0; width: 1935.0; height: 1476.0; page: 11;}; "><dg:chunk structure="li" style="boundingBox:{left: 438.0; top: 1536.0; width: 1797.0; height: 300.0; page: 11;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk><docset:InsuranceRequirements structure="p">Carrier, at its sole expense, shall cause all of the Vessels used in the performance of this Contract to be insured as follows during the life of this agreement: </docset:InsuranceRequirements>
+
+
+
+
+
+<docset:InsuranceAndIndemnification><xhtml:table structure="table" style="boundingBox:{left: 438.0; top: 1674.0; width: 1770.0; height: 162.0; page: 11;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 438.0; top: 1674.0; width: 1770.0; height: 162.0; page: 11;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 438.0; top: 1674.0; width: 1770.0; height: 42.0; page: 11;}; "><xhtml:td structure="td" style="boundingBox:{left: 438.0; top: 1674.0; width: 30.0; height: 42.0; page: 11;}; "><dgc:Number>1</dgc:Number>. 
+
+</xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 516.0; top: 1674.0; width: 1692.0; height: 42.0; page: 11;}; "><docset:_1><docset:PollutionLiabilityLimit structure="p">Pollution risks in the amount of <docset:PollutionInsuranceLimit>$10,000,000 </docset:PollutionInsuranceLimit>per occurrence (each Vessel deemed separately insured). </docset:PollutionLiabilityLimit>
+
+</docset:_1></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 438.0; top: 1746.0; width: 1770.0; height: 90.0; page: 11;}; "><xhtml:td structure="td" style="boundingBox:{left: 438.0; top: 1746.0; width: 30.0; height: 90.0; page: 11;}; "><docset:_12><dgc:Number>2</dgc:Number>. 
+
+</docset:_12></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 516.0; top: 1746.0; width: 1692.0; height: 90.0; page: 11;}; "><docset:_2PollutionRisksintheAmountof10000000PerOccurrenceEachVesselDeemed structure="p"><docset:HullandMachineryInsurance>Hull and Machinery </docset:HullandMachineryInsurance>(<docset:InsuranceType>American </docset:InsuranceType>Institute Time Hulls Form <docset:HullandMachineryInsuranceDate>1/18/70 </docset:HullandMachineryInsuranceDate>or equivalent) in such amounts as Carrier may prudently establish. </docset:_2PollutionRisksintheAmountof10000000PerOccurrenceEachVesselDeemed></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:InsuranceAndIndemnification></dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1962.0; width: 1890.0; height: 135.0; page: 11;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:InsurancePolicyCopies structure="p">In the event coverage is denied or reimbursement of a properly presented claim is disputed by the insurance company for insurance provided above, Carrier shall, upon written request, provide Shipper with a certified copy of the involved insurance policy or policies within <docset:InsurancePolicyRequestResponseTime>ten (10) business days </docset:InsurancePolicyRequestResponseTime>of receipt of such request. </docset:InsurancePolicyCopies></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2178.0; width: 1824.0; height: 90.0; page: 11;}; "><dg:chunk structure="lim">(c)  </dg:chunk><docset:InsuranceCoverage structure="p"><dg:chunk>Neither Carrier </dg:chunk>nor Shipper shall be responsible for the premium or deductibles of the other party applicable to said insurance policies. </docset:InsuranceCoverage></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2346.0; width: 1935.0; height: 474.0; page: 11;}; "><dg:chunk structure="lim">(d)  </dg:chunk><dg:chunk>Indemnification: Carrier shall defend, indemnify and hold harmless Shipper and its partners and their respective shareholders, unit holders, partners and their officers, directors, agents and employees for all matters for liability for claims for <dgm:Condition>death </dgm:Condition>or injury to persons, or loss or damage to property of Carrier or third parties, or for violation of any applicable laws or governmental regulations, and for incidental penalties, damages, costs and expenses (including, without limitation, reasonable expenses for investigation and attorney’s fees), in any manner arising out of or resulting from any negligence or misconduct of Carrier or <docset:Indemnification>Carrier</docset:Indemnification>’s officers, agents or employees in the performance of this Contract, except to the extent caused by any negligence or intentional misconduct of Shipper or Shipper’s officers, agents, or employees. Carrier shall promptly advise Shipper of any such claims, and shall pay all costs and expenses incident to defense of such claims, but Shipper shall have the right, at its option and expense, to participate in such defense, without relieving Carrier of any of its obligations hereunder. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2925.0; width: 1932.0; height: 87.0; page: 11;}; "><dg:chunk structure="lim">(e)  </dg:chunk><docset:InsuranceCoverageRequirements structure="p">Carrier shall also procure, pay for and maintain the following insurance coverages during the life of this agreement. 
+
+</docset:InsuranceCoverageRequirements></dg:chunk></docset:InsuranceRequirements><dg:chunk structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 1029.0; width: 1935.0; height: 330.0; page: 14;}; "><docset:CargoInsuranceRequirements structure="li" style="boundingBox:{left: 300.0; top: 1029.0; width: 1935.0; height: 330.0; page: 14;}; "><dg:chunk structure="lim">(f)  </dg:chunk><docset:InsuranceRequirements structure="p">Shipper agrees that it will either insure under an “All Risk” policy, the Cargo laden in <dgc:Org>Carrier</dgc:Org>’s Vessels to the full market value of the Cargo and shall cause the Cargo policy to be endorsed to name <docset:CarrierInsurance>Carrier</docset:CarrierInsurance>, its parent company and all affiliates thereof and the directors, officers, and employees thereof and the Vessels (collectively the “<dg:chunk>Carrier Insured</dg:chunk>”) as additional insured or Shipper may elect to self-insure the Cargo loaded in <dgc:Org>Carrier</dgc:Org>’s Vessels pursuant to this Contract. In such event Shipper shall indemnify and hold the Carrier Insured harmless, such that <dg:chunk>Carrier Insured </dg:chunk>shall be protected in the same manner and to the same extent as if <dg:chunk>Carrier Insured </dg:chunk>were named an additional insured on Cargo insurance procured by Shipper with waiver of subrogation in their favor. </docset:InsuranceRequirements></docset:CargoInsuranceRequirements></dg:chunk>
+
+
+
+
+
+<dg:chunk structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 1437.0; width: 1923.0; height: 138.0; page: 14;}; "><docset:InsuranceCertificates structure="li" style="boundingBox:{left: 300.0; top: 1437.0; width: 1923.0; height: 138.0; page: 14;}; "><dg:chunk structure="lim">(g)  </dg:chunk><docset:InsuranceRequirements structure="p">Certificates of insurance to evidence the captioned coverages shall be furnished by Carrier and Shipper to the other party to this agreement and such certificates shall include a <docset:NoticePeriod>thirty (30) day </docset:NoticePeriod>notice of cancellation, non- renewal or material change. </docset:InsuranceRequirements></docset:InsuranceCertificates></dg:chunk>
+
+
+
+
+
+<dg:chunk structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 1680.0; width: 1929.0; height: 138.0; page: 14;}; "><docset:InsuranceSubrogationWaiver structure="li" style="boundingBox:{left: 300.0; top: 1680.0; width: 1929.0; height: 138.0; page: 14;}; "><dg:chunk structure="lim">(h)  </dg:chunk><docset:InsuranceSubrogationWaiver structure="p">Carrier and Shipper each shall obtain insurance companies permission to waive their rights of subrogation against each other as respects the above insurance coverages and each does hereby so waive its rights of subrogation. 
+
+</docset:InsuranceSubrogationWaiver></docset:InsuranceSubrogationWaiver></dg:chunk></dg:chunk></dg:chunk><dg:chunk><docset:BillsofLading structure="p">The Master shall, upon request, sign non-negotiable Bills of Lading in Carrier’s customary form for all Cargo shipped but without prejudice to the rights of the Carrier and Shipper under the terms of this Contract, such Bills of Lading thereof constituting memoranda of date, place, time, receipt, discharge, and quantity only as between Carrier and Shipper. </docset:BillsofLading>
+
+
+
+ <dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 309.0; top: 306.0; width: 21.0; height: 42.0; page: 15;}; "><dg:chunk structure="li" style="boundingBox:{left: 309.0; top: 306.0; width: 21.0; height: 42.0; page: 15;}; "><dg:chunk structure="lim" style="boundingBox:{left: 309.0; top: 306.0; width: 51.0; height: 42.0; page: 15;}; ">22. </dg:chunk><dg:chunk structure="h1"><dg:chunk>General Exceptions </dg:chunk>
+
+
+
+</dg:chunk></dg:chunk></dg:chunk></dg:chunk><dg:chunk><docset:LimitationofLiability structure="p">The Vessel, her Master, owner or Carrier, shall not, unless the perils or consequences could have been avoided by reasonable care and diligence at commencement of the voyage or otherwise in this Contract expressly provided, be responsible for any loss or damage, or delay or failure in performing hereunder arising or resulting from any act, neglect, default, or barratry of the Master, pilots, mariners or other servants of the owner or Carrier, in the navigation or management of the Vessel; fire, unless caused by the personal design or neglect of the Vessel owner or the Carrier; collision, stranding, or peril, danger or accident of the sea or other navigable waters; saving or attempting to save life, or property; wastage in weight or bulk, or any other loss or damage arising from inherent defect, quality or vice of the cargo; any act or omission of the Carrier, owner or consignee of the <docset:CargoExclusions>Cargo</docset:CargoExclusions>, their agents or representatives; insufficiency of packing; insufficiency or inadequacy of marks; explosion, burst of boilers, breakage of shafts, or any latent defect in hull, equipment, or machinery; unseaworthiness of a Vessel unless caused by lack of due diligence on the part of the Carrier to make the Vessel seaworthy at commencement of the voyage or to have her properly manned, equipped and supplied; or from any other cause of whatsoever kind arising without the actual fault or privity of Carrier. </docset:LimitationofLiability>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 1086.0; width: 18.0; height: 42.0; page: 15;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1086.0; width: 18.0; height: 42.0; page: 15;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 1086.0; width: 51.0; height: 42.0; page: 15;}; ">23. </dg:chunk><dg:chunk structure="h1">Both to Blame 
+
+
+
+</dg:chunk></dg:chunk></dg:chunk></dg:chunk><dg:chunk><docset:CollisionLiability structure="p">If the Vessel comes into collision with another ship as a result of the negligence of the ship and any act, neglect or default of the Master, mariner, pilot or the servants of the Carrier in the navigation or in the management of the Vessel, the Shipper and/or owners of the Cargo carried hereunder shall indemnify the Carrier against all loss or liability to the other or non-carrying ship or her owners insofar as such loss or liability represents loss of, or damage to, or any claim whatsoever of the owners of said Cargo, paid or payable by the other or recovered by the other or non-carrying ship or her owners as part of their claim against the carrying ship or Cargo. The foregoing provisions shall also apply where the owners, operators or those in charge of any ships or objects other than, or in addition to, the colliding. ships or objects are at fault in respect of a collision or contract. </docset:CollisionLiability><dg:chunk>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 1641.0; width: 18.0; height: 42.0; page: 15;}; boundingBox:{left: 300.0; top: 561.0; width: 18.0; height: 1245.0; page: 16;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1641.0; width: 1932.0; height: 1482.0; page: 15;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 1641.0; width: 51.0; height: 42.0; page: 15;}; ">24. </dg:chunk><dg:chunk><dg:chunk structure="h1">Miscellaneous </dg:chunk><dg:chunk structure="p">
+
+
+
+
+
+
+
+<dgc:Number>18 </dgc:Number></dg:chunk></dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 561.0; width: 18.0; height: 39.0; page: 16;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 561.0; width: 51.0; height: 39.0; page: 16;}; ">25. </dg:chunk><dg:chunk structure="h1">
+
+
+
+Default </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1764.0; width: 18.0; height: 42.0; page: 16;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 1764.0; width: 51.0; height: 42.0; page: 16;}; ">26. </dg:chunk><dg:chunk structure="h1">
+
+
+
+
+
+Sale of Assets 
+
+
+
+</dg:chunk></dg:chunk></dg:chunk><docset:NoticesandCommunications structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 1761.0; width: 1935.0; height: 1257.0; page: 15;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1761.0; width: 1923.0; height: 426.0; page: 15;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk>This Contract, together with any attached Exhibit and schedule, embodies all of the promises, agreements and undertaking of the parties. This contract shall not be orally amended or modified or any of its provisions waived, and no amendment or modification shall be effective unless and until the same be embodied in writing signed by both parties. This Contract replaces that certain Contract of Affreightment dated as of <docset:TerminationDate>October 12, 2000 </docset:TerminationDate>between Carrier’s and Shipper’s respective predecessors in interest, <docset:PredecessorName>IMC <dgm:Medication>PHOSPHATE </dgm:Medication>COMPANY </docset:PredecessorName>and <docset:PredecessorinInterest>GULFCOAST TRANSIT COMPANY</docset:PredecessorinInterest>, and said Contract of Affreightment upon the effectiveness of this Contract shall be terminated and of no further force or effect; provided however, that any payment obligations remaining outstanding under said Contract of Affreightment arising out of the performance of either party prior to termination thereof shall remain due and owing. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2292.0; width: 1794.0; height: 99.0; page: 15;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:NoticesandCommunications structure="p">Notices shall be effective only upon receipt. By notice tendered in accordance with the foregoing, either party may change its address for further notices hereunder. </docset:NoticesandCommunications></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2469.0; width: 1926.0; height: 138.0; page: 15;}; "><dg:chunk structure="lim">(c)  </dg:chunk><dg:chunk>The failure of either party to require performance by the other of any obligation under this Contract shall not affect the right of such party to thereafter enforce the same; nor shall the waiver of either party of a ‘breach of any provision, act as a waiver of the provision itself. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2712.0; width: 1935.0; height: 138.0; page: 15;}; "><dg:chunk structure="lim">(d)  </dg:chunk><docset:SectionHeadings structure="p">The captions of Sections of this Contract are inserted for convenience only and are not intended to be fully descriptive of the Sections to which they apply, and shall not be considered in the construction of any provision of this Contract. </docset:SectionHeadings></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2928.0; width: 1893.0; height: 90.0; page: 15;}; "><dg:chunk structure="lim">(e)  </dg:chunk><docset:ExecutioninCounterparts structure="p">This Contract may be executed in one or more original counterparts, and any of the counterparts shall be deemed an original. 
+
+</docset:ExecutioninCounterparts></dg:chunk></docset:NoticesandCommunications><dg:chunk structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 414.0; width: 1842.0; height: 90.0; page: 16;}; "><docset:GoverningLaw structure="li" style="boundingBox:{left: 300.0; top: 414.0; width: 1842.0; height: 90.0; page: 16;}; "><dg:chunk structure="lim">(f)  </dg:chunk><dg:chunk>This Contract shall be governed by the <dg:chunk>Maritime Law </dg:chunk>of the <dg:chunk>United States</dg:chunk>, and to the extent not inconsistent therewith, the laws of the State of <dgc:USState>Florida</dgc:USState>, without regard to the choice-of-laws provisions thereof. 
+
+</dg:chunk></docset:GoverningLaw></dg:chunk><docset:TerminationofContract structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 300.0; top: 681.0; width: 1917.0; height: 954.0; page: 16;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 681.0; width: 1914.0; height: 282.0; page: 16;}; "><dg:chunk structure="lim">(a)  </dg:chunk><docset:TerminationofContract structure="p">Upon a default in payment by Shipper under this Contract and at any time thereafter, subject to paragraph (c) below, the Carrier, (in addition to any other remedies it may have) upon written notice to the Shipper, may terminate this Contract whereupon all of the rights of Shipper hereunder and obligations of Carrier hereunder shall absolutely cease and terminate and the Shipper shall have no further obligations or liabilities under this Contract except for the payment of unpaid freight or other sums then due and owing and except as otherwise expressly set forth in this Section 25. </docset:TerminationofContract></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1041.0; width: 1917.0; height: 330.0; page: 16;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:TerminationRights structure="p">Upon a default in payment by Carrier, the material failure to move product by Carrier under this Contract (not excused under Sections 18 or 22 hereof) or the material non-compliance by Carrier with Section 20 (Insurance) and at any time thereafter, subject to paragraph (c) below, the Shipper (in addition to its remedies under Section 5(b)), upon written notice to the Carrier, may terminate this Contract whereupon all of the rights of Carrier hereunder and obligations of Shipper hereunder shall absolutely cease and terminate and the Carrier shall have no further obligations or liabilities under this Contract except for the payment of sums then due and owing to Shipper and except as otherwise expressly set forth in this Section 25. </docset:TerminationRights></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1449.0; width: 1917.0; height: 186.0; page: 16;}; "><dg:chunk structure="lim">(c)  </dg:chunk><dg:chunk>Neither party may terminate this Agreement under this Section 25 unless it shall have first given the other party written notice specifying the nature of default, and the other party shall thereafter have failed to cure the default within <docset:DefaultCurePeriod>thirty (30) days </docset:DefaultCurePeriod>in the case of a default in the payment of money or within <docset:DefaultCurePeriod>sixty (60) days </docset:DefaultCurePeriod>in the case of any other material default. 
+
+</dg:chunk></dg:chunk></docset:TerminationofContract></dg:chunk></dg:chunk><dg:chunk><docset:AssignmentofObligations structure="p">It is agreed by the parties that in the event that Shipper sells, alienates, transfers or in any fashion divests itself of ownership of either its <dgm:Medication>phosphate </dgm:Medication>rock mining operations or the Shipper’s Plants or if Carrier fails to retain the rights to operate Vessels able to carry out this Contract, then that party, as a condition of said action, or failure, may require the vendee or transferee of such operations or plant or vessels as the case may be to assume that party’s obligations under this Contract. If the Shipper or Carrier approves the assumption of the other’s obligations by a vendee or transferee, which approval shall not be unreasonably withheld, conditioned or delayed, said transferor’s obligations hereunder shall cease. In the alternative in lieu of such assumption Shipper shall have the option to pay Carrier an amount, to be negotiated in good faith by the parties hereto, equivalent to the then present value of this Contract in lieu of said assumption and Carrier shall have the option to continue its obligations hereunder with suitable substitute equipment. </docset:AssignmentofObligations>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 2415.0; width: 756.0; height: 162.0; page: 16;}; "><docset:BuyoutOption structure="li" style="boundingBox:{left: 360.0; top: 2415.0; width: 696.0; height: 162.0; page: 16;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 2415.0; width: 51.0; height: 42.0; page: 16;}; ">27. </dg:chunk><dg:chunk><dg:chunk structure="h1">Buyout in Event of <dg:chunk>Economic Hardship </dg:chunk></dg:chunk><dg:chunk structure="div">Shipper shall have the option to cancel the remaining term of this Contract, if and only if Shipper encounters <dg:chunk>Economic Hardship </dg:chunk>as defined herein, upon giving written notice of its intent to do so (as provided below) and payment of the buyout option payment provided below (“<dg:chunk>Buyout Payment</dg:chunk>”). “<dg:chunk>Economic Hardship</dg:chunk>” shall be defined as permanent closure of all of Shipper’s <dgc:USState>Louisiana </dgc:USState>phosphoric acid production facilities. In the event that an <dg:chunk>Economic Hardship </dg:chunk>occurs and Shipper cancels the remaining term of this Contract, and in the event Shipper continues to produce or acquire <dgm:Medication>Phosphate </dgm:Medication>or products derived therefrom at its <dgc:USState>Florida </dgc:USState>operations, Carrier and Shipper agree to negotiate in good faith, and prior to the effective date of Shipper’s cancellation, an agreement for the transportation by Carrier of all <dgm:Medication>Phosphate </dgm:Medication>or other products derived therefrom acquired or produced at Shipper’s <dgc:USState>Florida </dgc:USState>operations (above and beyond Shipper’s prior tonnage commitments to Carrier pursuant to any other then- existing contract or agreement) to the Port of <dg:chunk>New Orleans</dg:chunk>, or other destinations in the vicinity therewith for transloading into river barges or for storage, which Shipper anticipates would range from approximately <docset:BuyoutPayment>500,000 </docset:BuyoutPayment>to <docset:BuyoutPayment>900,000 </docset:BuyoutPayment>tons per year (“<dg:chunk>Alternate Cargo Agreement</dg:chunk>”). Said <dg:chunk>Alternative Cargo Agreement </dg:chunk>would have a freight rate equal to the freight rate then effective <dgc:Frequency>from time to time </dgc:Frequency>under any then-existing affreightment contract between Carrier and Shipper (other than this Contract) for the transportation of <dgm:Medication>Phosphate </dgm:Medication>or products derived therefrom (“<dg:chunk>Existing DAP Agreement</dg:chunk>”) or if no such agreement then exists, the rate for transport of this alternate cargo will be <docset:BuyoutPayment>8% </docset:BuyoutPayment>higher than the rate specified in this contract for shipments on non-self unloading vessels with load and discharge terms as outlined in Sections <docset:EconomicHardshipCancellationOption>11 </docset:EconomicHardshipCancellationOption>and 14 of this contract. If such an <dg:chunk>Alternate Cargo Agreement </dg:chunk>is entered into prior to or as of the effective date of Shipper’s Cancellation, Shipper shall receive a credit against the freight charges thereunder and to be applied against such freight charges on a dollar for dollar basis, in the aggregate, up to the amount of the <dg:chunk>Buyout Payment </dg:chunk>made by Shipper under this Contract. If an <dg:chunk>Alternate Cargo Agreement </dg:chunk>is entered following the effective date of Shipper’s Cancellation, Shipper shall receive a credit against the freight charges thereunder and to be applied against such freight charges on a dollar for dollar basis, in the aggregate, up to a prorated Buyout Payment, with such pro-ration to account for the difference between the commencement date of the <dg:chunk>Alternate Cargo Agreement </dg:chunk>and the effective date of the Shipper’s Cancellation. 
+
+
+
+</dg:chunk></dg:chunk></docset:BuyoutOption></dg:chunk></dg:chunk><dg:chunk><docset:EconomicHardshipCancellation structure="p">In the event an “Economic Hardship” condition ceases to exist, Carrier shall have the option to reinstate this Contract subject to reimbursement to Shipper of a prorated amount of the <dg:chunk>Buyout Payment </dg:chunk>made by Shipper, with such pro-ration to account for the difference between the effective date of Shipper’s Cancellation and the date of reinstatement. Upon reinstatement, Shipper shall not be entitled to any additional credit against freight charges under any <dg:chunk>Alternate Cargo Agreement</dg:chunk>. </docset:EconomicHardshipCancellation><dg:chunk><dg:chunk structure="p">
+
+   The buyout option payment shall be calculated as the sum of the following two components: </dg:chunk>
+
+
+
+<docset:BuyoutOptionPayment><xhtml:table structure="table" style="boundingBox:{left: 339.0; top: 1053.0; width: 1896.0; height: 813.0; page: 18;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 339.0; top: 1053.0; width: 1896.0; height: 813.0; page: 18;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 339.0; top: 1053.0; width: 1896.0; height: 189.0; page: 18;}; "><xhtml:td structure="td" style="boundingBox:{left: 339.0; top: 1053.0; width: 30.0; height: 189.0; page: 18;}; "><dgc:Number>1</dgc:Number>. 
+
+</xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 417.0; top: 1053.0; width: 1818.0; height: 189.0; page: 18;}; "><docset:_1><docset:FreightRateGuarantee structure="p"><docset:FreightRatePercentage>35% </docset:FreightRatePercentage>of the then effective General Component of the <dg:chunk>Freight Rate </dg:chunk>multiplied by the Guaranteed Annual Minimum tons for the remaining term of the Contract, excluding any calendar years within the term of this Contract for which Shipper has not yet been required to make an election in accordance with Section 3, and shall be prorated for any partial calendar year of this Contract. </docset:FreightRateGuarantee>
+
+</docset:_1></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 339.0; top: 1275.0; width: 1896.0; height: 471.0; page: 18;}; "><xhtml:td structure="td" style="boundingBox:{left: 339.0; top: 1275.0; width: 30.0; height: 471.0; page: 18;}; "><docset:_12><dgc:Number>2</dgc:Number>. 
+
+</docset:_12></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 417.0; top: 1275.0; width: 1818.0; height: 471.0; page: 18;}; "><docset:_235oftheThenEffectiveGeneralComponentoftheFreightRateMultipliedbyT structure="p">If (i) the Carrier provides Shipper with written notification of specific shipyard and/or maintenance services to be performed with respect to the <docset:ShipyardServices>Dana Dunn </docset:ShipyardServices>(the “<dg:chunk><docset:ShipyardServices>Shipyard </docset:ShipyardServices>Services</dg:chunk>”) at least <docset:ShipyardServicesNotificationPeriod>120 days </docset:ShipyardServicesNotificationPeriod>in advance of the date that the <dg:chunk>Shipyard Services </dg:chunk>are to commence, and (ii) the Shipper exercises their option to cancel the remaining term of this Contract but gives Carrier less than <docset:ShipyardServicesCancellationNoticePeriod>90 days </docset:ShipyardServicesCancellationNoticePeriod>notice thereof prior to the date that the <dg:chunk>Shipyard Services </dg:chunk>are to commence, then Shipper shall be responsible for <docset:ShipyardServicesCosts>50% </docset:ShipyardServicesCosts>of the Shipyard Services costs. Shipper shall not, however, be responsible for any portion of the <dg:chunk>Shipyard Services </dg:chunk>costs to the extent that such costs, following receipt of Shipper’s cancellation notice, could have been avoided or mitigated by Carrier using commercially reasonable efforts to do so. In addition, Shipper shall not be responsible for that portion of the Shipyard Services costs which, when amortized under generally accepted accounting principles, would be allocated to a period beyond <docset:_1>two years</docset:_1>. </docset:_235oftheThenEffectiveGeneralComponentoftheFreightRateMultipliedbyT></xhtml:td></xhtml:tr>
+
+
+
+<xhtml:tr structure="tr" style="boundingBox:{left: 339.0; top: 1779.0; width: 1896.0; height: 87.0; page: 18;}; "><xhtml:td structure="td" style="boundingBox:{left: 339.0; top: 1779.0; width: 30.0; height: 87.0; page: 18;}; " /><xhtml:td structure="td" style="boundingBox:{left: 417.0; top: 1779.0; width: 1818.0; height: 87.0; page: 18;}; "><docset:_35oftheThenEffectiveGeneralComponentoftheFreightRateMultipliedbyThe><docset:Buy-OutOptionAmount structure="p">The two components set forth above shall constitute the total buy-out option amount owed Carrier by Shipper to terminate the Contract. </docset:Buy-OutOptionAmount>
+
+</docset:_35oftheThenEffectiveGeneralComponentoftheFreightRateMultipliedbyThe></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:BuyoutOptionPayment></dg:chunk></dg:chunk><dg:chunk><docset:BuyoutOption structure="p">In order to exercise the buyout option, Shipper shall give written notice of its intent to do so at least <docset:BuyoutNoticePeriod>180 days </docset:BuyoutNoticePeriod>prior to the intended Cancellation Date (“Shipper’s Notice”). Payment of the buyout option payment amount will be due in full by wire transfer on the <dg:chunk>Cancellation Date</dg:chunk>, as instructed by Carrier. After this payment is received, all obligations between the parties regarding the Shipper’s requirement to tender Cargo and the Carrier’s requirement to move Cargo shall cease; provided, however, that any payment obligations remaining outstanding under this Contract arising out of the performance of either party prior to termination thereof shall remain due and owing. </docset:BuyoutOption>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 300.0; top: 2241.0; width: 480.0; height: 162.0; page: 18;}; "><docset:TemporarySuspensionOption structure="li" style="boundingBox:{left: 360.0; top: 2241.0; width: 420.0; height: 162.0; page: 18;}; boundingBox:{left: 333.0; top: 324.0; width: 117.0; height: 258.0; page: 19;}; "><dg:chunk structure="lim" style="boundingBox:{left: 300.0; top: 2241.0; width: 51.0; height: 42.0; page: 18;}; ">28. </dg:chunk><docset:TemporarySuspension-section><dg:chunk structure="h1"><dg:chunk>Temporary Suspension</dg:chunk>. </dg:chunk><docset:TemporarySuspension structure="div"><dg:chunk><docset:SuspensionPaymentAmount structure="p">Shipper shall also have the option to temporarily suspend the effect of the Contract <dgc:Frequency>from time to time </dgc:Frequency>if Shipper encounters a “<dg:chunk>Temporary Economic Hardship</dg:chunk>” as defined herein, upon giving written notice of its intent to do so (as provided below) and payment of the monthly suspension payments described below. “<dg:chunk>Temporary Economic Hardship</dg:chunk>” shall be defined as the closure of all of Shipper’s <dgc:USState>Louisiana </dgc:USState>phosphoric acid production facilities on a less than permanent basis. In order to exercise this temporary suspension option, Shipper shall give written notice of its intent to do so at least <dgc:TimeDuration>thirty (30) days </dgc:TimeDuration>prior to the intended suspension date (the “<dg:chunk>Suspension Notice</dg:chunk>”). Payment of the monthly suspension payments shall be due in advance on the first day of each month during the suspension and shall be paid by wire transfer as instructed by <docset:CarrierName>Carrier</docset:CarrierName>. The amount of the monthly suspension payment shall be the product of the <dg:chunk>Reduced Dead Freight Rate </dg:chunk>multiplied by <docset:SuspensionPaymentAmount>one</docset:SuspensionPaymentAmount><docset:SuspensionPaymentAmount>-twelfth (1/12) </docset:SuspensionPaymentAmount>of the <dg:chunk>Guaranteed Annual Minimum</dg:chunk>. Notwithstanding the foregoing, the amount of the monthly suspension payment shall be the product of the <dg:chunk>Standard Dead Freight Rate </dg:chunk>multiplied by <docset:SuspensionPaymentAmount>one-twelfth (1/12) </docset:SuspensionPaymentAmount>of the <dg:chunk>Guaranteed Annual Minimum </dg:chunk>for any temporary suspension period(s) beyond the first <docset:SuspensionPeriod>twelve (12) months </docset:SuspensionPeriod>thereof during the Term of this Contract. Shipper shall thereafter be entitled to terminate the suspension by giving Carrier <docset:SuspensionNoticePeriod>thirty (30) days </docset:SuspensionNoticePeriod>written notice of its intent to do so. If the suspension commences or ends during a month, the monthly suspension </docset:SuspensionPaymentAmount><docset:SuspensionofServices structure="p">
+
+
+
+fee shall be prorated. The term of the Contract shall not be extended as a result of such suspension, but rather, for purposes of calculating whether Shipper has tendered the <dg:chunk>Guaranteed Annual Minimum </dg:chunk>or Carrier has transported the <dg:chunk>Guaranteed Annual Minimum</dg:chunk>, it shall be treated as if <docset:ProratedFee>one-twelfth (1/12) </docset:ProratedFee>of the <dg:chunk>Guaranteed Annual Minimum </dg:chunk>was tendered by Shipper and transported by Carrier during each month of the suspension. </docset:SuspensionofServices></dg:chunk><docset:DeferredBalanceAccount structure="p">
+
+In addition, for each month of temporary suspension in any calendar year for which the <dg:chunk>Reduced Dead Freight Rate </dg:chunk>was applicable, a deferred balance account shall be established equal to <docset:DeferredBalanceAccount>one-twelfth (1/12) </docset:DeferredBalanceAccount>of the Guaranteed Annual Minimum times <docset:DeferredBalanceAccountPercentage>29% </docset:DeferredBalanceAccountPercentage>of the sum of the then-effective General Component of the <dg:chunk>Freight Rate </dg:chunk>under 
+
+</docset:DeferredBalanceAccount></docset:TemporarySuspension></docset:TemporarySuspension-section></docset:TemporarySuspensionOption></dg:chunk></dg:chunk><dg:chunk><docset:DeferredBalanceAccount structure="p">Section 7. A flat-rate surcharge shall be added to the <dg:chunk>Freight Rate</dg:chunk>, applicable to the first <docset:DeferredBalanceAmount>2,400,000 </docset:DeferredBalanceAmount>tons tendered for shipment in the following calendar year, sufficient to fully pay off the deferred balance account as such tons are tendered for shipment. Any remaining amount in the deferred balance account not paid off for any reason (because <dgc:Number>2,400,000 </dgc:Number>tons were not tendered for shipment in said following calendar year) shall be paid off at the end of said following calendar year, without further deferral. Notwithstanding the foregoing, if a temporary suspension period extends beyond <docset:SuspensionPeriodEndDate>December 31 </docset:SuspensionPeriodEndDate>of any calendar year hereunder, or if a new temporary suspension period is declared within <docset:SuspensionPeriod>six (6) months </docset:SuspensionPeriod>after the termination of a prior temporary suspension period, any amount then remaining in the deferred balance account shall become immediately due and payable. </docset:DeferredBalanceAccount>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 333.0; top: 1167.0; width: 21.0; height: 42.0; page: 19;}; "><dg:chunk structure="li" style="boundingBox:{left: 333.0; top: 1167.0; width: 21.0; height: 42.0; page: 19;}; "><dg:chunk structure="lim" style="boundingBox:{left: 333.0; top: 1167.0; width: 51.0; height: 42.0; page: 19;}; ">29. </dg:chunk><dg:chunk structure="h1"><dg:chunk>Substitute Cargo </dg:chunk>
+
+
+
+</dg:chunk></dg:chunk></dg:chunk></dg:chunk><dg:chunk><docset:SubstituteCargoNomination structure="p"><dgc:Frequency>From time to time</dgc:Frequency>, whenever Shipper reasonably believes that it will have a <dg:chunk><dgm:Medication>Phosphate </dgm:Medication>Tonnage Deficiency </dg:chunk>in any calendar year, Shipper may, by notice to Carrier, nominate one or more shipments of substitute cargo (above and beyond Shipper’s prior tonnage commitments to Carrier of such substitute cargo pursuant to any other contract or agreement, and in no case shall shipments under this Section be credited as substitute cargo until at least <docset:SubstituteCargoTonnage>100,000 </docset:SubstituteCargoTonnage>tons of finished dry <dgm:Medication>phosphate </dgm:Medication>products have been shipped in that calendar year) consisting of <dgm:Medication>phosphate </dgm:Medication>products to be transported from the <dg:chunk>Loading Port </dg:chunk>to a mutually agreed upon discharge facility on the <dg:chunk><dgc:USState>Mississippi </dgc:USState>River</dg:chunk>, with the acceptance of such discharge facility not to be unreasonably withheld. Upon Carrier’s receipt of such notice, subject to Section 12 and other applicable provisions hereof, Carrier shall undertake to transport said substitute cargo. The freight rate therefore shall be the rates in effect under any then-existing agreement for like services between Carrier and Shipper, or if no such agreement is then effective, the rate for transport of this substitute cargo shall be a rate <docset:SubstituteCargoFreightRate>8% </docset:SubstituteCargoFreightRate>higher than the rate specified in this contract for shipments on non-self unloading vessels with load and discharge terms as outlined in Sections 11 and 14 of this contract. Thereafter, subject to Section 12 and other applicable provisions hereof, Carrier shall transport the substitute cargo. Any quantities of substitute cargo transported under this Section 29 shall be credited (on an equivalent tonnage basis) to the Guaranteed Annual Minimum requirements required to be carried under Section 2(a). </docset:SubstituteCargoNomination>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 333.0; top: 2103.0; width: 21.0; height: 42.0; page: 19;}; "><dg:chunk structure="li" style="boundingBox:{left: 333.0; top: 2103.0; width: 21.0; height: 42.0; page: 19;}; "><dg:chunk structure="lim" style="boundingBox:{left: 333.0; top: 2103.0; width: 51.0; height: 42.0; page: 19;}; ">30. </dg:chunk><dg:chunk structure="h1"><docset:Layberth>Layberth </docset:Layberth>
+
+
+
+</dg:chunk></dg:chunk></dg:chunk></dg:chunk><docset:UseofBigBendTerminal structure="p">It is understood and agreed that Carrier may require use of <dgc:Org>Shipper</dgc:Org>’s <dgc:Org>Big Bend </dgc:Org>Terminal for berthing of Vessels for purposes other than loading such as layberth, heavy weather or cleaning. Upon request by Carrier, Shipper shall permit <dgc:Org>Carrier</dgc:Org>’s use of <dgc:Org>Shipper</dgc:Org>’s Big <docset:BigBendTerminal>Bend </docset:BigBendTerminal>Terminal for those purposes, and the provisions attached as <dg:chunk>Exhibit “C</dg:chunk>” shall apply to <dgc:Org>Carrier</dgc:Org>’s use of <docset:ShipperName>Shipper</docset:ShipperName>’s <docset:BigBendTerminalUse>Big Bend </docset:BigBendTerminalUse>Terminal for those purposes. It is understood that the primary purpose of the temporary layberth in other than weather related events is for the cleaning of <docset:CarrierName>Carrier</docset:CarrierName>’s Vessels as preparation to transport Shipper’s <dgm:Medication>phosphate </dgm:Medication>rock or finished <dgm:Medication>phosphate </dgm:Medication>products. It is understood and agreed, however, that Carrier shall not have the right to use <dgc:Org>Shipper</dgc:Org>’s Big <dgc:Org>Bend </dgc:Org>Terminal for cleaning services unless it has been denied the use of the Tampa <docset:ElectricBigBendTerminal>Electric Big Bend </docset:ElectricBigBendTerminal>discharge berth or said discharge berth is otherwise unavailable to Carrier for that purpose. It is further agreed that Carrier assumes and bears all costs and expenses attributable to or arising in connection with such cleaning activities, and Carrier agrees to hold harmless, defend and indemnify Shipper, as provided by Section 20(d), for those costs and expenses, as well as all claims and liabilities arising out of such cleaning activities. The freight rate in Section 7(a) is based upon the availability of the Shipper’s Big Bend terminal for the purpose set forth herein.</docset:UseofBigBendTerminal></docset:_3TermofContract></docset:_3TermofContract-section></dg:chunk></docset:RECITALS></docset:RECITALS-section></docset:CONTRACTOFAFFREIGHTMENT></docset:CONTRACTOFAFFREIGHTMENT-section>

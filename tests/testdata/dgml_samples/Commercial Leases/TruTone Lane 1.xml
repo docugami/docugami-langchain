@@ -1,0 +1,1427 @@
+﻿<?xml version="1.0" encoding="utf-8"?><dg:chunk cp:version="2.19.19.0.1705579528794-490.0" xmlns:docset="http://www.docugami.com/2021/dgml/docugami/CommercialLeases" xmlns:addedChunks="http://www.docugami.com/2021/dgml/docugami/CommercialLeases/addedChunks" xmlns:dg="http://www.docugami.com/2021/dgml" xmlns:dgc="http://www.docugami.com/2021/dgml/docugami/contracts" xmlns:dgm="http://www.docugami.com/2021/dgml/docugami/medical" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:cp="http://classifyprocess.com/2018/07/"><docset:RIDERTOLEASE-section><dg:chunk structure="h1">
+
+RIDER TO LEASE </dg:chunk><docset:RIDERTOLEASE structure="div"><dg:chunk><dg:chunk><docset:IncorporationofTerms structure="p">
+
+
+
+ The provisions of this rider are hereby incorporated into and made a part of the Lease dated as of <docset:LeaseDate>October 15, 2021 </docset:LeaseDate>between <docset:LandlordName><dg:chunk>BIRCH STREET</dg:chunk>, LLC</docset:LandlordName>, having an address at c/o Birch Palace, <docset:LandlordAddress><docset:LandlordAddress><docset:LeaseIncorporation>6 </docset:LeaseIncorporation><docset:LandlordAddress>Grace Avenue Suite <docset:LeaseDate>200</docset:LeaseDate></docset:LandlordAddress></docset:LandlordAddress>, <docset:LandlordAddress>Great Neck</docset:LandlordAddress>, <dgc:USState>New York </dgc:USState><docset:LeaseDate>11021 </docset:LeaseDate></docset:LandlordAddress>("Landlord"), and <docset:TenantName>Trutone Lane LLC</docset:TenantName>, having an address at <dgc:Address><docset:LeaseLocation><dgc:Number>4 </dgc:Number><docset:Address>Pearl Street</docset:Address></docset:LeaseLocation>, <dgc:USState>New York</dgc:USState>, <dgc:USState>New York </dgc:USState><docset:Address>10012 </docset:Address></dgc:Address>("Tenant") of Premises known as the ground floor space and lower level space, as per floor plan annexed hereto and made a part hereof as <dg:chunk>Exhibit A </dg:chunk>(“Premises”) at <docset:LeaseLocation><dgc:Street><docset:LeaseIncorporation>4 </docset:LeaseIncorporation><dgc:StreetName>Pearl Street</dgc:StreetName></dgc:Street>, <dgc:USState>New York</dgc:USState>, <dgc:USState>New York </dgc:USState><dgc:Number>10012 </dgc:Number></docset:LeaseLocation>in the City of <dgc:USState>New York</dgc:USState>, Borough of Manhattan, to which this rider is annexed. If there is any conflict between the provisions of this rider and the remainder of this Lease, the provisions of this rider shall govern. </docset:IncorporationofTerms>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 1353.0; top: 942.0; width: 168.0; height: 39.0; page: 1;}; "><dg:chunk structure="lim">40.  </dg:chunk><dg:chunk structure="h1">Rent </dg:chunk></dg:chunk></dg:chunk><docset:FixedRent structure="p">
+
+
+
+
+
+ Tenant covenants to pay to Landlord as a net minimum rent (the "fixed rent") during the term of this Lease for the Premises as follows: </docset:FixedRent></dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+
+
+ <dg:chunk>FIXED RENT</dg:chunk>: </dg:chunk><dg:chunk structure="div"><dg:chunk>
+
+
+
+<docset:FIXEDRENT><xhtml:table structure="table" style="boundingBox:{left: 450.0; top: 1275.0; width: 1434.0; height: 564.0; page: 1;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 450.0; top: 1275.0; width: 1434.0; height: 564.0; page: 1;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 450.0; top: 1275.0; width: 1434.0; height: 87.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1275.0; width: 153.0; height: 87.0; page: 1;}; ">TERM 
+
+YEAR </xhtml:td>
+
+
+
+    <xhtml:td structure="td" style="boundingBox:{left: 753.0; top: 1275.0; width: 390.0; height: 87.0; page: 1;}; ">PERIOD </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 1143.0; top: 1275.0; width: 267.0; height: 87.0; page: 1;}; "><docset:MonthlyRent>MONTHLY </docset:MonthlyRent>
+
+  RENT </xhtml:td>
+
+   <xhtml:td structure="td" style="boundingBox:{left: 1650.0; top: 1275.0; width: 234.0; height: 87.0; page: 1;}; ">ANNUAL 
+
+    RENT 
+
+</xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 450.0; top: 1368.0; width: 1434.0; height: 39.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1368.0; width: 153.0; height: 39.0; page: 1;}; "><docset:TERMYEARFirst>First 
+
+</docset:TERMYEARFirst></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 753.0; top: 1368.0; width: 390.0; height: 39.0; page: 1;}; "><docset:FirstPERIOD><docset:StartDate>3/15/21 </docset:StartDate>To <docset:EndDate>2/28/23 </docset:EndDate></docset:FirstPERIOD></xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 1143.0; top: 1368.0; width: 267.0; height: 39.0; page: 1;}; "><docset:FirstMONTHLYRENT><dgc:Money>$26,000.00 </dgc:Money>
+
+</docset:FirstMONTHLYRENT></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1650.0; top: 1368.0; width: 234.0; height: 39.0; page: 1;}; "><docset:FirstANNUALRENT><dgc:Money>$312,000.00 </dgc:Money>
+
+</docset:FirstANNUALRENT></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 450.0; top: 1416.0; width: 1434.0; height: 39.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1416.0; width: 153.0; height: 39.0; page: 1;}; "><docset:TERMYEARSecond>Second 
+
+</docset:TERMYEARSecond></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 753.0; top: 1416.0; width: 390.0; height: 39.0; page: 1;}; "><docset:SecondPERIOD><docset:StartDate>3/01/23 </docset:StartDate>To <docset:EndDate>2/28/24 </docset:EndDate></docset:SecondPERIOD></xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 1143.0; top: 1416.0; width: 267.0; height: 39.0; page: 1;}; "><docset:SecondMONTHLYRENT><dgc:Money>$26,000.00 </dgc:Money>
+
+</docset:SecondMONTHLYRENT></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1650.0; top: 1416.0; width: 234.0; height: 39.0; page: 1;}; "><docset:SecondANNUALRENT><dgc:Money>$312,000.00 </dgc:Money>
+
+</docset:SecondANNUALRENT></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 450.0; top: 1464.0; width: 1434.0; height: 39.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1464.0; width: 153.0; height: 39.0; page: 1;}; "><docset:TERMYEARThird>Third 
+
+</docset:TERMYEARThird></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 753.0; top: 1464.0; width: 390.0; height: 39.0; page: 1;}; "><docset:ThirdPERIOD><docset:StartDate>3/01/24 </docset:StartDate>To <docset:EndDate>2/28/25 </docset:EndDate></docset:ThirdPERIOD></xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 1143.0; top: 1464.0; width: 267.0; height: 39.0; page: 1;}; "><docset:ThirdMONTHLYRENT><dgc:Money>$26,000.00 </dgc:Money>
+
+</docset:ThirdMONTHLYRENT></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1650.0; top: 1464.0; width: 234.0; height: 39.0; page: 1;}; "><docset:ThirdANNUALRENT><dgc:Money>$312,000.00 </dgc:Money>
+
+</docset:ThirdANNUALRENT></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 450.0; top: 1512.0; width: 1434.0; height: 39.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1512.0; width: 153.0; height: 39.0; page: 1;}; "><docset:TERMYEARFourth>Fourth 
+
+</docset:TERMYEARFourth></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 753.0; top: 1512.0; width: 390.0; height: 39.0; page: 1;}; "><docset:FourthPERIOD><docset:StartDate>3/01/25 </docset:StartDate>To <docset:EndDate>2/28/26 </docset:EndDate></docset:FourthPERIOD></xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 1143.0; top: 1512.0; width: 267.0; height: 39.0; page: 1;}; "><docset:FourthMONTHLYRENT><dgc:Money>$<dg:chunk>26,780.00 </dg:chunk></dgc:Money>
+
+</docset:FourthMONTHLYRENT></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1650.0; top: 1512.0; width: 234.0; height: 39.0; page: 1;}; "><docset:FourthANNUALRENT><dgc:Money>$321,360.00 </dgc:Money>
+
+</docset:FourthANNUALRENT></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 450.0; top: 1560.0; width: 1434.0; height: 39.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1560.0; width: 153.0; height: 39.0; page: 1;}; "><docset:TERMYEARFifth>Fifth 
+
+</docset:TERMYEARFifth></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 753.0; top: 1560.0; width: 390.0; height: 39.0; page: 1;}; "><docset:FifthPERIOD><docset:StartDate>3/01/26 </docset:StartDate>To <docset:EndDate>2/28/27 </docset:EndDate></docset:FifthPERIOD></xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 1143.0; top: 1560.0; width: 267.0; height: 39.0; page: 1;}; "><docset:FifthMONTHLYRENT><dgc:Money>$<dg:chunk>27,583.40 </dg:chunk></dgc:Money>
+
+</docset:FifthMONTHLYRENT></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1650.0; top: 1560.0; width: 234.0; height: 39.0; page: 1;}; "><docset:FifthANNUALRENT><dgc:Money>$331,000.80 </dgc:Money>
+
+</docset:FifthANNUALRENT></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 450.0; top: 1608.0; width: 1434.0; height: 39.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1608.0; width: 153.0; height: 39.0; page: 1;}; "><docset:TERMYEARSixth>Sixth 
+
+</docset:TERMYEARSixth></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 753.0; top: 1608.0; width: 390.0; height: 39.0; page: 1;}; "><docset:SixthPERIOD><docset:StartDate>3/01/27 </docset:StartDate>To <docset:EndDate>2/28/28 </docset:EndDate></docset:SixthPERIOD></xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 1143.0; top: 1608.0; width: 267.0; height: 39.0; page: 1;}; "><docset:SixthMONTHLYRENT><dgc:Money>$<dg:chunk>28,410.90 </dg:chunk></dgc:Money>
+
+</docset:SixthMONTHLYRENT></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1650.0; top: 1608.0; width: 234.0; height: 39.0; page: 1;}; "><docset:SixthANNUALRENT><dgc:Money>$340,930.80 </dgc:Money>
+
+</docset:SixthANNUALRENT></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 450.0; top: 1656.0; width: 1434.0; height: 39.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1656.0; width: 153.0; height: 39.0; page: 1;}; "><docset:TERMYEARSeventh>Seventh 
+
+</docset:TERMYEARSeventh></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 753.0; top: 1656.0; width: 390.0; height: 39.0; page: 1;}; "><docset:SeventhPERIOD><docset:StartDate>3/01/28 </docset:StartDate>To <docset:EndDate>2/28/29 </docset:EndDate></docset:SeventhPERIOD></xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 1143.0; top: 1656.0; width: 267.0; height: 39.0; page: 1;}; "><docset:SeventhMONTHLYRENT><dgc:Money>$<dg:chunk>29,263.23 </dg:chunk></dgc:Money>
+
+</docset:SeventhMONTHLYRENT></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1650.0; top: 1656.0; width: 234.0; height: 39.0; page: 1;}; "><docset:SeventhANNUALRENT><dgc:Money>$351,158.76 </dgc:Money>
+
+</docset:SeventhANNUALRENT></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 450.0; top: 1704.0; width: 1434.0; height: 39.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1704.0; width: 153.0; height: 39.0; page: 1;}; "><docset:TERMYEAREighth>Eighth 
+
+</docset:TERMYEAREighth></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 753.0; top: 1704.0; width: 390.0; height: 39.0; page: 1;}; "><docset:EighthPERIOD><docset:StartDate>3/01/29 </docset:StartDate>To <docset:EndDate>2/28/30 </docset:EndDate></docset:EighthPERIOD></xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 1143.0; top: 1704.0; width: 267.0; height: 39.0; page: 1;}; "><docset:EighthMONTHLYRENT><dgc:Money>$<dgc:Number>30,141.13 </dgc:Number></dgc:Money>
+
+</docset:EighthMONTHLYRENT></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1650.0; top: 1704.0; width: 234.0; height: 39.0; page: 1;}; "><docset:EighthANNUALRENT><dgc:Money>$361,693.56 </dgc:Money>
+
+</docset:EighthANNUALRENT></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 450.0; top: 1752.0; width: 1434.0; height: 39.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1752.0; width: 153.0; height: 39.0; page: 1;}; "><docset:TERMYEARNinth>Ninth 
+
+</docset:TERMYEARNinth></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 753.0; top: 1752.0; width: 390.0; height: 39.0; page: 1;}; "><docset:NinthPERIOD><docset:StartDate>3/01/30 </docset:StartDate>To <docset:EndDate>2/28/31 </docset:EndDate></docset:NinthPERIOD></xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 1143.0; top: 1752.0; width: 267.0; height: 39.0; page: 1;}; "><docset:NinthMONTHLYRENT><dgc:Money>$<dg:chunk>31,045.36 </dg:chunk></dgc:Money>
+
+</docset:NinthMONTHLYRENT></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1650.0; top: 1752.0; width: 234.0; height: 39.0; page: 1;}; "><docset:NinthANNUALRENT><dgc:Money>$<dgc:Number>372,544.32 </dgc:Number></dgc:Money>
+
+</docset:NinthANNUALRENT></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 450.0; top: 1797.0; width: 1434.0; height: 42.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1797.0; width: 153.0; height: 42.0; page: 1;}; "><docset:TERMYEARTenth><docset:TenthPlace>Tenth </docset:TenthPlace>
+
+</docset:TERMYEARTenth></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 753.0; top: 1797.0; width: 390.0; height: 42.0; page: 1;}; "><docset:TenthPERIOD><docset:StartDate>3/01/31 </docset:StartDate>To <docset:EndDate>3/31/32 </docset:EndDate></docset:TenthPERIOD></xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 1143.0; top: 1797.0; width: 267.0; height: 42.0; page: 1;}; "><docset:TenthMONTHLYRENT><dgc:Money>$<dg:chunk>31,976.72 </dg:chunk></dgc:Money>
+
+</docset:TenthMONTHLYRENT></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1650.0; top: 1797.0; width: 234.0; height: 42.0; page: 1;}; "><docset:TenthANNUALRENT>$383,720.64 </docset:TenthANNUALRENT></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:FIXEDRENT><dg:chunk><dg:chunk><docset:RentCredit structure="p">
+
+
+
+ The fixed rent shall be payable in advance on the first day of each calendar month commencing <docset:RentCommencementDate>five months </docset:RentCommencementDate>following the <dg:chunk>Commencement Date </dg:chunk>(the “<dg:chunk>Rent Commencement Date</dg:chunk>’) . Provided Tenant is not in default under any term of this <dg:chunk>Lease Tenant </dg:chunk>shall receive a rent credit for (i)) one-half of the monthly fixed rent due (<dgc:Money>$13,000.00</dgc:Money>) for the sixth month following the <dg:chunk>Commencement Date</dg:chunk>; (ii) one- half of the monthly fixed rent due (<docset:RentCreditAmount>$13,000.00</docset:RentCreditAmount>) for the seventh month following the <dg:chunk>Commencement Date</dg:chunk>; </docset:RentCredit><docset:RentPaymentSchedule structure="p">
+
+ (iii) one-half of the monthly fixed rent due (<docset:RentAmount><dgc:Money>$13,000.00</dgc:Money>) </docset:RentAmount>for the eighteenth month following the <dg:chunk>Commencement Date</dg:chunk>; and (iv) one-half of the monthly fixed rent due (<dgc:Money><docset:RentAmount>$13,000.00</docset:RentAmount>) </dgc:Money>for the nineteenth month following the <dg:chunk>Commencement Date</dg:chunk>. </docset:RentPaymentSchedule></dg:chunk><docset:PaymentTerms structure="p">
+
+
+
+ At execution of this Lease, Tenant shall pay to Landlord by separate bank checks (i) the amount of <docset:FixedRentPayment>$26,000.00 </docset:FixedRentPayment>toward fixed rent for for the seventh month following the <dg:chunk>Commencement Date </dg:chunk>and 
+
+ (ii) the amount of <docset:SecurityDepositAmount>$78,000.00 </docset:SecurityDepositAmount>representing the security deposit. </docset:PaymentTerms><docset:AdditionalRent structure="p">
+
+
+
+ Tenant also covenants to pay, <dgc:Frequency>from time to time </dgc:Frequency>as provided in this Lease, as additional rent: all other amounts and obligations which Tenant assumes or agrees to pay under this Lease; a “<dg:chunk>Late Charge</dg:chunk>” equal to <docset:LateChargeAmount>five percent (5%) </docset:LateChargeAmount>of the overdue payment of any item of fixed or additional rent not paid within <docset:LatePaymentGracePeriod>ten (10) days </docset:LatePaymentGracePeriod>after the date when due (or, if a demand therefor is required by the provisions of this Lease, within <dgc:TimeDuration>ten (10) days </dgc:TimeDuration>after the date of such demand), which <dg:chunk>Late Charge </dg:chunk>shall be payable as additional rent. In the event of any failure on the part of Tenant to pay any additional rent, Landlord shall have all the rights, powers and remedies provided for in this Lease, at law, in equity or otherwise, in the case of nonpayment of fixed rent. Nothing herein shall be construed to extend the due dates of Tenant's payments under this Lease, or to waive any rights or remedies of Landlord in the event of Tenant's late payment. Tenant's obligations to pay fixed rent and additional rent shall survive the expiration of the Lease term or earlier termination of this Lease. </docset:AdditionalRent><docset:LateChargeAgreement structure="p">
+
+
+
+
+
+ The provisions of this Article are in addition to all other rights or remedies available to Landlord for nonpayment of fixed rent or additional rent under this Lease and at law and in equity. Tenant further agrees that the <dg:chunk>Late Charge </dg:chunk>imposed is fair and reasonable, complies with all laws, regulations and statutes, and constitutes an agreement between Landlord and Tenant as to the estimated compensation for costs and administrative expenses incurred by Landlord due to the late payment of rent to Landlord by Tenant. Tenant further agrees that the <dg:chunk>Late Charge </dg:chunk>assessed pursuant to this Lease is not interest and the <dg:chunk>Late Charge </dg:chunk>assessed does not constitute a lender or borrower/creditor relationship between Landlord and Tenant or a penalty of any kind. It is understood that said late charge is directly related to Landlord’s actual costs and expenses incurred as a result of late payment. </docset:LateChargeAgreement><docset:PaymentofRent structure="p">
+
+
+
+ All fixed rent and additional rent (collectively hereinafter referred to as "rent") shall be paid in such coin or currency (or, subject to collection, by good check payable in such coin or currency) of the <dg:chunk>United States </dg:chunk>of America as at the time shall be legal tender for the payment of public and private debts, at the office of Landlord as set forth above, or at such place and to such person as Landlord <dgc:Frequency>from time to time </dgc:Frequency>may designate. </docset:PaymentofRent><docset:RentPaymentTerms structure="p">
+
+
+
+ All rent shall be paid to Landlord without notice, demand, counterclaim, setoff, deduction or defense, and nothing shall suspend, defer, diminish, abate, or reduce any rent, except as otherwise specifically provided in this Lease or by law. </docset:RentPaymentTerms><docset:RentalPaymentTerms structure="p">
+
+
+
+ Tenant shall make all rental payments in full. Payment or receipt of a rental payment of less than the amount stated in this Lease shall be deemed to be nothing more than partial payment on account. Under no circumstances shall Landlord’s acceptance of a partial payment constitute accord and satisfaction. Nor will Landlord’s acceptance of a partial payment forfeit Landlord’s right to collect the balance due on the account, together with applicable late charges and interest despite any endorsement, stipulation, or other statement on any check. </docset:RentalPaymentTerms><docset:PartialPaymentChecks structure="p">
+
+
+
+ Landlord may accept any partial payment check with any conditional endorsement without prejudice to its right to recover the balance remaining due, or to pursue any other remedy available under this Lease, law or equity. </docset:PartialPaymentChecks><docset:PaymentAllocation structure="p">
+
+
+
+ Landlord in its sole discretion may allocate without prejudice any payment in whole or in part to any due item of fixed rent, additional rent and/or any other charges or to any combination thereof. </docset:PaymentAllocation><docset:AttorneysFees structure="p">
+
+
+
+ If Landlord commences any action or proceeding against Tenant, or if Landlord is required to defend any action or proceeding commenced by Tenant, in connection with this lease or the Premises, and Landlord shall be the prevailing party in any such action for proceeding, Landlord shall be entitled to recover from Tenant in such action or proceeding, or a subsequently commenced action or proceeding, Landlord's reasonable attorneys' fees, costs and disbursements and all applicable interest thereon at the statutory rate incurred in connection with such action or proceeding and any appeals, including but not limited to fees on fees incurred to collect said monies. </docset:AttorneysFees><docset:RentCollection structure="p">
+
+
+
+ Landlord’s failure during the Lease term to prepare and deliver any of the statements, notices, or bills for rent and/or additional rent or Landlord’s failure to make a demand, shall not in any way cause Landlord to forfeit or surrender its rights to collect any of the items of rent and/or additional rent that may have become due during the term of this Lease. Tenant’s liability for all such amounts due under this Lease shall survive the expiration of the Term. Nevertheless, any sums due under the Lease must be claimed within <docset:RentCollectionDeadline>two years </docset:RentCollectionDeadline>of when due or within <docset:ClaimDeadline>one year </docset:ClaimDeadline>from expiration of the Lease. </docset:RentCollection></dg:chunk></dg:chunk><dg:chunk><dg:chunk><docset:_40ATermofLease-section><dg:chunk structure="h1">
+
+
+
+<docset:LeaseTerm>40A. </docset:LeaseTerm>Term of Lease </dg:chunk><docset:_40ATermofLease structure="div"><dg:chunk><docset:TermofLease structure="p">
+
+
+
+ The term of this Lease shall commence on <docset:CommencementDate>October 15, 2018 </docset:CommencementDate>( the <dg:chunk>Commencement Date</dg:chunk>”) and shall end, unless sooner terminated as hereinafter provided, on the la s t day of th e ca l e n d a r mo n t h in w h ic h t h e d a y f o llo w in g t h e t e n ( <docset:LeaseTerm>1 </docset:LeaseTerm><docset:LeaseTerm>0 ) </docset:LeaseTerm>year anniversary of the Re n t Commencement Date (as defined in Article 40 of this Lease) occurs (the "<dg:chunk>Expiration Date</dg:chunk>") (from the <dg:chunk>Commencement Date </dg:chunk>to the <dg:chunk>Expiration Date </dg:chunk>being the "<dg:chunk>Initial Term</dg:chunk>", as may be extended pursuant to and in accordance with Section 72 hereof. </docset:TermofLease><dg:chunk structure="p">
+
+
+
+<docset:Escalations>41</docset:Escalations>. Escalations </dg:chunk></dg:chunk><dg:chunk><docset:AdditionalRent structure="p">
+
+
+
+ Tenant shall pay, during the term of this Lease, the additional rent provided for in this Article 41. As used herein, the following terms shall have the meanings set forth below: </docset:AdditionalRent><dg:chunk><docset:TaxesDefined structure="p">
+
+
+
+ “Taxes” shall mean the total of all real estate taxes and assessments and special assessments imposed, payable and paid upon the Premises described as the land and building in which the Premises are located including, without limitation, vault taxes, rents or charges, imposed by any <dg:chunk>Governmental Authority</dg:chunk>, of which the demised Premises forms a part. If at any time during the term of this Lease the methods of taxation prevailing at the commencement of the term hereof shall be altered so that in lieu of or as a substitute for the whole or any part of the taxes, assessments, levies, impositions of charges now levied, assessed or imposed on the real estate and the improvements thereon, there shall be levied, assessed or imposed (i) a tax, assessment, levy imposition or charge wholly or partially as capital levy or otherwise on the rents received therefrom, or (ii) a tax assessment levy upon the Building, <dg:chunk>Land Improvements </dg:chunk>or the Premises and imposed upon Landlord, or (iii) a license fee measured by the rents payable, or the part thereof so measured or based shall be deemed to be included within the term "Taxes" for the purposes hereof. </docset:TaxesDefined><docset:EscalationYearDefinition structure="p">
+
+
+
+ "<dg:chunk>Escalation Year</dg:chunk>" shall mean each <docset:EscalationPeriod>twelve month </docset:EscalationPeriod>period or portion thereof, ending on <docset:EndDate>June 30</docset:EndDate>, occurring within the term of this Lease. </docset:EscalationYearDefinition><dg:chunk structure="p">
+
+
+
+ "<dg:chunk>Base Year</dg:chunk>" shall mean the <docset:BaseYearPeriod>twelve month </docset:BaseYearPeriod>period ending on <docset:BaseYearEndDate>June 30, 2022</docset:BaseYearEndDate>. </dg:chunk><dg:chunk structure="p">
+
+
+
+ "<dg:chunk>Base Year Taxes</dg:chunk>" shall mean the Taxes for the <dg:chunk>Base Year</dg:chunk>. </dg:chunk></dg:chunk></dg:chunk><docset:Definitions structure="p">
+
+
+
+ The "building" shall mean the land and the building of which the demised Premises forms a part. "Tenant's Share" shall mean <docset:TenantsShare>35%</docset:TenantsShare>. </docset:Definitions><docset:TaxIncreaseRent structure="p">
+
+ Tenant shall pay to Landlord, as additional rent, an amount equal to Tenant's Share of the amount by which Taxes for any <dg:chunk>Escalation Year </dg:chunk>during the term of this Lease exceed the <dg:chunk>Base Year Taxes</dg:chunk>. </docset:TaxIncreaseRent><dg:chunk><docset:TaxPaymentTerms structure="p">
+
+
+
+ Landlord shall submit to Tenant a statement setting forth the computation of the amount of such excess Taxes and Tenant's Share of each thereof including copies of applicable tax bills. Tenant shall pay Tenant's Share of such excess amount of Taxes within <docset:PaymentDeadline>ten days </docset:PaymentDeadline>after the rendition of such statement which shall separately calculate Tenant’s Share, however, the payment of Tenant's Share shall not be due earlier than <docset:PaymentDeadline>10 days </docset:PaymentDeadline>before the corresponding Taxes are due to the taxing authority. </docset:TaxPaymentTerms><dg:chunk><docset:AnnualFixedRent structure="p">
+
+
+
+         In no event shall the annual fixed rent under this Lease be reduced by virtue of this Article </docset:AnnualFixedRent>
+
+ <dg:chunk structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 2259.0; width: 1968.0; height: 135.0; page: 3;}; "><docset:RentalEscalationFormula structure="li" style="boundingBox:{left: 300.0; top: 2259.0; width: 1968.0; height: 135.0; page: 3;}; "><dg:chunk structure="lim">41.  </dg:chunk><docset:RentalEscalationFormula structure="p">The computations under this Article 41 are intended to constitute a formula for an agreed rental escalation and do not necessarily constitute an actual reimbursement to Landlord for costs or expenses paid by Landlord with respect to the building. </docset:RentalEscalationFormula></docset:RentalEscalationFormula></dg:chunk></dg:chunk></dg:chunk><dg:chunk><docset:AdditionalRent structure="p">
+
+
+
+
+
+ Upon the date of the expiration of the Lease term or earlier termination of this Lease, a proportionate share of the additional rent payable under this Article 41 for the <dg:chunk>Escalation Year </dg:chunk>during which such expiration or termination occurs shall immediately become due and payable by Tenant to Landlord. Said proportionate share shall be based on the length of time that the term of this Lease shall be within such Escalation Year. Promptly after such expiration or termination, Landlord shall compute the additional rent due from Tenant, as aforesaid, which computation shall be an estimate based upon the most recent annual statements theretofore furnished by Landlord to Tenant. Upon written request by Tenant, Landlord shall cause a final statement showing the computation of the actual additional rent due from Tenant for that <dg:chunk>Escalation Year </dg:chunk>to be prepared and furnished to Tenant, whereupon any appropriate adjustments of </docset:AdditionalRent><docset:AdditionalRent structure="p">
+
+
+
+
+
+ amount owed to Landlord shall be made. The obligations of Tenant to pay additional rent as provided for herein shall survive the expiration of the Lease term or earlier termination of this Lease. If Tenant continues in possession of the Premises after the expiration of the Lease term or earlier termination of this Lease, as a month to month tenant or otherwise, the provisions of this Article 41 shall continue in full force and effect for so long as Tenant remains in possession of the Premises. </docset:AdditionalRent></dg:chunk><docset:AdditionalRentCollection structure="p">
+
+
+
+ The additional rent provided for herein shall be collectible by Landlord in the same manner as the regular installments of fixed rent due under this Lease. Notwithstanding anything set forth elsewhere in this Article or elsewhere in this Lease, no delay or failure by Landlord in preparing or delivering any statement or demand for any additional rent, including but not limited to the statements and/or demands provided for in this Article, shall constitute a waiver of, or impair Landlord's rights to collect, such additional rent. </docset:AdditionalRentCollection><docset:DisputeResolution structure="p">
+
+
+
+ The billing statements provided by Landlord for the charges due pursuant to this Article 41 shall constitute a final determination as between Landlord and Tenant of the additional rent for the periods represented thereby, unless Tenant within <docset:DisputeResolutionPeriod>thirty days </docset:DisputeResolutionPeriod>after they have been furnished shall give a written notice to Landlord that Tenant disputes their accuracy or appropriateness, which written notice shall specify the particular respects in which the statement is inaccurate or inappropriate. Pending the resolution of such dispute, Tenant shall pay the additional rent to Landlord in accordance with the statements furnished by Landlord. </docset:DisputeResolution><docset:BusinessImprovementDistrictCharges structure="p">
+
+
+
+ In addition to Taxes as set forth above, Tenant shall pay within <docset:PaymentDeadline>ten (10) days </docset:PaymentDeadline>after invoice therefor,including copies of applicable bill, an amount equal to Tenant's Share of the amount by which any charges imposed by any <dg:chunk>Business Improvement District </dg:chunk>on the Premises or any <dg:chunk>Escalation Year </dg:chunk>during the term of this Lease exceed <dg:chunk>Business Improvement District Charges </dg:chunk>in the <dg:chunk>Base Year</dg:chunk>. </docset:BusinessImprovementDistrictCharges></docset:_40ATermofLease></docset:_40ATermofLease-section><docset:_42UseofPremises-section><dg:chunk structure="h1">
+
+
+
+<docset:UseofPremises>42</docset:UseofPremises>. Use of Premises </dg:chunk><docset:_42UseofPremises structure="div"><docset:BusinessUse structure="p">
+
+
+
+ Tenant covenants that Tenant shall use and occupy the Premises solely as a first class high quality café, coffee shop, and restaurant with full table service for all day breakfast, lunch and dinner and other uses incidental thereto, including the sale of liquor with the required license, and for no other purpose unless approved in writing by Landlord at all times. Tenant shall not have the right to operate its business in the Premises except between the hours of <docset:BusinessHours>7:00 A.M. </docset:BusinessHours>through <docset:BusinessHours>2:00 A.M. </docset:BusinessHours></docset:BusinessUse><docset:UseRestrictions structure="p">
+
+
+
+ Tenant shall not knowingly use or occupy or permit the Premises to be used or occupied, nor do or permit anything to be done in or on the Premises, in any manner which in any way will violate any rules and regulations of governmental authorities, any certificate of occupancy affecting the Premises, or make void or voidable any insurance then in force with respect to the Premises. In the event that any governmental authority shall contend or declare by notice of violation or order, or otherwise, that the Premises are being used in a manner in violation of any law, rule or regulation or in violation of any certificate of occupancy, Tenant, within <docset:NoticePeriod>ten days </docset:NoticePeriod>after written notice shall discontinue such use of the Premises, and failure to discontinue such use shall constitute a material default by Tenant hereunder. The statement in this Lease of the nature of Tenant's business shall not be deemed or construed to constitute a representation or warranty by Landlord that such business may be conducted in the Premises or is lawful or permissible under any certificate of occupancy issued for the building. </docset:UseRestrictions><docset:CompliancewithLaws structure="p">
+
+
+
+ Tenant shall as its sole responsibility, and at Tenant's sole cost and expense, take all action, including making any required alterations necessary to comply with all Requirements (including, but not limited to, applicable terms of the Americans With Disabilities Act of <docset:ADACompliance>1990 </docset:ADACompliance>(the "ADA"), as modified and supplemented <dgc:Frequency>from time to time</dgc:Frequency>, which shall impose any violation, order or duty upon Landlord or Tenant arising from, or in connection with, the Premises, Tenant's occupancy, use or manner of use of the Premises (including, without limitation, any occupancy, use or manner of use that constitutes a "place of public accommodation" under the ADA), or any installations in the Premises, or required by reason of a breach of any of Tenant's covenants or agreements under this Lease, whether or not such Requirements shall now be in effect or hereafter enacted or issued, and whether or not any work required shall be ordinary or extraordinary or foreseen or unforeseen at the date hereof. </docset:CompliancewithLaws><docset:HazardousMaterialsCompliance structure="p">
+
+
+
+
+
+ Tenant covenants and agrees that Tenant shall, as its sole responsibility, and at Tenant's sole cost and expense, comply at all times with all Requirements governing the use, generation, storage, treatment and/or disposal of any "<dg:chunk>Hazardous Materials</dg:chunk>" (as defined below), the presence of which results from or in connection with the act or omission of Tenant or Persons Within Tenant's Control or the breach of this Lease by Tenant or Persons Within Tenant's Control. The term <dg:chunk>Hazardous Materials </dg:chunk>shall mean any biologically or chemically active or other toxic or hazardous wastes, pollutants or substances, including, without limitation, asbestos, PCBs, petroleum products and by-products, substances defined or listed as "hazardous substances" or "toxic substances" or similarly identified in or pursuant to the <dg:chunk>Comprehensive Environmental Response</dg:chunk>, Compensation and Liability Act, 42 U.S.C. § 9601 et seq., and as hazardous wastes under the Resource Conservation and Recovery Act, 42 U.S.C. 6010 et seq., any chemical substance or mixture regulated under the <dg:chunk>Toxic Substance Control Act </dg:chunk>of <docset:HazardousMaterialsDefinition>1976</docset:HazardousMaterialsDefinition>, as amended, 15 U.S.C. 2601, et seq., any "toxic pollutant" under the <dg:chunk>Clean Water Act</dg:chunk>, 33 U.S.C. §466 et seq., as amended, any hazardous air pollutant under the <dg:chunk>Clean Air Act</dg:chunk>, 42 U.S.C. 7401 et seq., hazardous materials identified in or pursuant to the <dg:chunk>Hazardous Materials Transportation Act</dg:chunk>, 49 U.S.C. §1802, et seq., and any hazardous or toxic substances or pollutant regulated under any other Requirements. Tenant shall agree to execute, <dgc:Frequency>from time to time</dgc:Frequency>, at Landlord's request, affidavits, representations and the like concerning Tenant's best knowledge and belief regarding the presence of <dg:chunk>Hazardous Materials </dg:chunk>in, on, under or about the demised Premises or the Building. Tenant shall indemnify and hold harmless all Indemnitees from and against any loss, cost, damage, liability or expense (including attorneys' fees and disbursements) arising by reason of any clean up, removal, remediation, detoxification action or any other activity required or recommended of any Indemnities by any <dg:chunk>Governmental Authority </dg:chunk>by reason of the presence in or about the Building or the demised Premises of any <dg:chunk>Hazardous Materials</dg:chunk>, as a result of or in connection with the act or omission of Tenant or Persons within Tenant's Control or the breach of this Lease by Tenant or Persons within Tenant's Control. The foregoing covenants and indemnity shall survive the expiration or any termination of this Lease. </docset:HazardousMaterialsCompliance><docset:NoticeofViolations structure="p">
+
+
+
+ If Tenant shall receive notice of any violation of, or defaults under, any Requirements, liens or other encumbrances applicable to the Premises, Tenant shall give prompt notice thereof to Landlord. </docset:NoticeofViolations><dg:chunk><docset:LicenseandPermitCompliance structure="p">
+
+
+
+ Tenant shall, as its sole responsibility, and at Tenant's sole cost and expense, make application for, diligently seek the issuance of, and promptly procure and thereafter maintain, any necessary licenses and permits required in respect of the operation and use of the Premises and Tenant's use thereof and Tenant shall cause all such licenses and permits to remain in full force and effect throughout the term of this Lease or until no longer required and submit same for inspection by Landlord, and at all times comply with the terms and conditions of each such license or permit. Landlord shall cooperate with Tenant’s applications for such licenses or permits. </docset:LicenseandPermitCompliance><dg:chunk><docset:TenantContestofRequirements structure="p">
+
+
+
+ Tenant, at Tenant's sole cost and expense and after notice to Landlord, may contest, by appropriate proceedings prosecuted diligently and in good faith, the legality or applicability of any Requirement affecting the Premises provided that: (a) neither Landlord nor any Indemnities shall be subject to criminal penalties, nor shall the Building or any part thereof be subject to being condemned or vacated, nor shall the certificate of occupancy for the Premises or the Building be suspended or threatened to be suspended, by reason of non-compliance or by reason of such contest; (b) before the commencement of such contest, if Landlord or any Indemnities may be subject to any civil fines or penalties or if Landlord may be liable to any third party as a result of such non-compliance, then Tenant, shall furnish to Landlord either (i) a bond of a surety company satisfactory to Landlord, in form and substance reasonably satisfactory to Landlord, and in an amount at least equal to Landlord's estimate of the sum of (A) the cost of such compliance, (B) the penalties or fines that may accrue by reason of such non-compliance (as reasonably estimated by Landlord) and (C) the amount of such liability to independent third parties, and shall indemnify Landlord (and any Indemnities) against the cost of such compliance and liability resulting from or incurred in connection with such contest or non-compliance; or (ii) other security satisfactory in all respects to Landlord; (c) such non-compliance or contest shall not constitute or result in a violation (either with the giving of notice or the passage of time or both) of the terms of any mortgage or superior Lease affecting the Building, or if such superior Lease or mortgage conditions such non- compliance or contest upon the taking of action or furnishing of security by Landlord, such action shall be </docset:TenantContestofRequirements><docset:SecurityDeposit structure="p">
+
+
+
+
+
+ taken or such security shall be furnished at the expense of Tenant; and (d) Tenant shall keep Landlord regularly advised as to the status at such proceedings. </docset:SecurityDeposit></dg:chunk></dg:chunk><docset:Indemnification structure="p">
+
+
+
+ For the purposes of this Article, and elsewhere in this Lease, (i) the term "Persons Within Tenant's Control" shall mean and include Tenant, all of Tenant's respective principals, officers, agents, contractors, servants, employees, licensees and invitees; (ii) the term "Requirements" shall mean all present and future laws, ordinances, requirements, orders, directives, rules and regulations of federal, state, county and city governments and of all other governmental authorities having or claiming jurisdiction over the <dg:chunk>Real Property </dg:chunk>relating solely to the Premises; (iii) the term "Indemnitees" shall mean Landlord, its trustees, partners, shareholders, officers, directors, employees, agents and contractors and the managing agent, if any (and the partners, shareholders, officers, directors and employees and contractors of such managing agent), of Landlord; and (v) the term "<dg:chunk>Governmental Authority</dg:chunk>" shall mean The <dg:chunk>United States </dg:chunk>of America, the City and State of <dgc:USState>New York</dgc:USState>, the County of <dgc:USState>New York</dgc:USState>, any political subdivision thereof and any agency, department, commission, board, bureau or instrumentality of any of the foregoing, now existing or hereafter created, having jurisdiction over the Building, the <dg:chunk>Real Property</dg:chunk>, or any portion thereof. </docset:Indemnification><docset:RecyclingRequirements structure="p">
+
+
+
+ Tenant covenants and agrees, at its sole cost and expense, to comply with all present and future Requirements regarding the collection, sorting, separation, and recycling of waste products, garbage, refuse and trash. Tenant shall sort and separate such waste products, garbage, refuse and trash into such categories as provided by law. Each separately sorted category of waste products, garbage, refuse and trash shall be placed in separate receptacles reasonably approved by Landlord and/or the Controlling Governmental agency(ies). Such separate receptacles may, at Landlord's option, be removed from the demised Premises in accordance with a collection schedule prescribed by law. </docset:RecyclingRequirements><docset:IndemnificationClause structure="p">
+
+
+
+ Tenant shall pay all costs, expenses, fines, penalties, or damages that may be imposed on Landlord or Tenant by reason of Tenant's failure to comply with the provisions of this Article and, at Tenant's sole cost and expense, shall indemnify, defend, and hold Landlord harmless of and from any claim, damages, judgment, cost and/or expense (including, without limitation, reasonable attorneys' fees and disbursements) incurred by Landlord by reason of such noncompliance. </docset:IndemnificationClause><docset:EquipmentInstallation structure="p">
+
+
+
+ All machines and equipment installed in the Premises shall be properly shielded and placed, equipped, installed and maintained by Tenant so as to eliminate the transmission of noise, vibration or electricity or other interference with other occupants of the building and/or neighboring buildings. Tenant shall not move any equipment or bulky matter in or out of the building without Landlord's prior written consent, which consent shall not be unreasonably withheld, delayed or conditioned and Tenant shall repair any damage caused by such movement at Tenant's expense. </docset:EquipmentInstallation><docset:EquipmentandMaintenance structure="p">
+
+
+
+ Except to the extent otherwise permitted or required in this lease, Tenant shall not place any equipment of any kind on the roof of the Building and shall maintain at Tenant’s sole cost and expense the ventilation system and all its components servicing the Premises </docset:EquipmentandMaintenance><dg:chunk><docset:BusinessConduct structure="p">
+
+
+
+ Tenant agrees that the conduct of its business and its use of the Premises and any equipment therein shall be in such a manner as: </docset:BusinessConduct><dg:chunk><dg:chunk>
+
+
+
+ <docset:EnvironmentalCompliance structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 2526.0; width: 1968.0; height: 183.0; page: 6;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2526.0; width: 1968.0; height: 90.0; page: 6;}; "><dg:chunk structure="lim">(a)   </dg:chunk><docset:AirQualityRequirements structure="p">Not to cause, create or permit any fumes, vapors, or odors or permit the same to escape from the demised Premises into any other portion of the Building or the outside of the Building; and </docset:AirQualityRequirements></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 2670.0; width: 975.0; height: 39.0; page: 6;}; "><dg:chunk structure="lim">(b)   </dg:chunk><dg:chunk structure="p">Not to constitute a public or private nuisance. </dg:chunk></dg:chunk></docset:EnvironmentalCompliance><dg:chunk structure="p">
+
+
+
+
+
+     If Tenant installs and/or utilizes cooking equipment on the Premises: </dg:chunk></dg:chunk><dg:chunk>
+
+
+
+ <dg:chunk structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 2862.0; width: 1968.0; height: 279.0; page: 6;}; "><docset:FiltrationSystemRequirements structure="li" style="boundingBox:{left: 300.0; top: 2862.0; width: 1968.0; height: 279.0; page: 6;}; "><dg:chunk structure="lim">(a)   </dg:chunk><docset:FiltrationSystemRequirements structure="p">Tenant shall install, if not already in existence, a filtration and air purifying system as Landlord shall deem reasonably necessary or advisable to cause its operations to comply with the terms and conditions of this Lease and all provisions of law. If at any time after Tenant opens for business in the reasonable judgment of Landlord or any municipal authorities, it becomes necessary (notwithstanding the installation of a filtration (or air purifying system) to eliminate any fumes, vapors or odors from the Premises, as aforesaid, Tenant agrees, at its sole cost and expense, promptly to install </docset:FiltrationSystemRequirements></docset:FiltrationSystemRequirements></dg:chunk><docset:AirPurifyingEquipment structure="p">
+
+
+
+
+
+
+
+ such additional air purifying equipment as may be necessary to accomplish the purposes and intent of this Article. </docset:AirPurifyingEquipment></dg:chunk>
+
+
+
+ <dg:chunk structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 552.0; width: 1968.0; height: 663.0; page: 7;}; "><docset:MaintenanceofDrainpipes structure="li" style="boundingBox:{left: 300.0; top: 552.0; width: 1968.0; height: 663.0; page: 7;}; "><dg:chunk structure="lim">(b)   </dg:chunk><docset:MaintenanceofDrainpipes structure="p">Tenant, at its sole cost and expense, shall maintain and keep the flues, ducts, drains, wastepipes, sewers and connections with the Building's main sewers, in or appurtenant to the Premises, and/or leading from the Premises to the exterior of the Building, and/or located in the Basement of the Building (for the purposes of this subparagraph “b” referred to collectively as the "drainpipes") in good repair and free from all dirt, dust, grease and other obstructions pursuant to a maintenance contract which shall remain in full force and effect throughout the term hereof, and copies of all such maintenance contracts shall be furnished to Landlord; and Tenant, at its sole cost and expense, shall make any necessary replacements of said drainpipes defined above. Further, Tenant, at its sole cost and expense, shall install grease traps where necessary to keep the other elements of the drainpipes free from grease. Tenant, at its sole cost and expense, promptly shall repair any leaks in the drainpipes. Tenant, at its sole cost and expense, shall also repair, maintain and make any necessary replacements of the flues, ducts, drains, wastepipes, grease traps, sewers and connections with the Building's main sewers, no matter where located in or appurtenant to the Building, if any such repairs are made necessary due to the negligence of the Tenant or its agents or employees or Tenant's use of the Premises. </docset:MaintenanceofDrainpipes></docset:MaintenanceofDrainpipes></dg:chunk><dg:chunk>
+
+
+
+
+
+ <dg:chunk structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 1281.0; width: 1968.0; height: 183.0; page: 7;}; "><docset:FireProtectionSystem structure="li" style="boundingBox:{left: 300.0; top: 1281.0; width: 1968.0; height: 183.0; page: 7;}; "><dg:chunk structure="lim">(c)   </dg:chunk><docset:FireProtectionSystem structure="p">Tenant agrees promptly to cause the installation, if not already in existence, of an <docset:FireControlSystem>Ansul Restaurant Hood </docset:FireControlSystem>and Duct Fire Control System, or equal, at Tenant's sole cost, all as approved by the Board of <dg:chunk>Fire Underwriters </dg:chunk>and municipal authorities having jurisdiction thereover, and to maintain the same throughout the term of this Lease. </docset:FireProtectionSystem></docset:FireProtectionSystem></dg:chunk><dg:chunk><docset:GreaseTrapMaintenance structure="p">
+
+
+
+
+
+ Tenant, at its sole cost and expense, shall maintain and make all necessary repairs to, and any necessary replacement of, any grease trap and drain in the Premises; and Tenant, at its sole cost and expense, shall at all times keep any grease trap and drain in the Premises clean and free from blockages and backups. </docset:GreaseTrapMaintenance><docset:FireProtection structure="p">
+
+
+
+ Tenant, at its sole cost and expense, shall install and maintain fire extinguishers and other fire protection devices as may be required <dgc:Frequency>from time to time</dgc:Frequency>, by any Requirements. </docset:FireProtection></dg:chunk></dg:chunk></dg:chunk></dg:chunk><docset:InsurancePremiumIncrease structure="p">
+
+
+
+ No abatement, diminution or reduction of Rent shall be claimed by or allowed to Tenant for any inconvenience, interruption, cessation, or loss of business caused directly or indirectly by a Requirement. Tenant shall reimburse Landlord on demand as Additional Rent hereunder for the increase in all insurance premiums hereafter payable and which shall be charged because of the violation by Tenant of any Requirement. </docset:InsurancePremiumIncrease></docset:_42UseofPremises></docset:_42UseofPremises-section></dg:chunk><docset:_42ADeliveriesWasteRemovalAndPestExtermination-section><dg:chunk structure="h1">
+
+
+
+<docset:DeliveriesWasteRemovalandPestExtermination>42A. </docset:DeliveriesWasteRemovalandPestExtermination>Deliveries, <dg:chunk>Waste Removal</dg:chunk>, and <dg:chunk>Pest Extermination </dg:chunk></dg:chunk><docset:_42ADeliveriesWasteRemovalAndPestExtermination structure="div"><docset:DeliveriesandRemovalofGarbage structure="p">
+
+
+
+ All deliveries to the Premises, and the removal of garbage, waste and refuse shall be subject to Rules and Regulations to be reasonably established by the Landlord, in its reasonable judgment and discretion, with due regard to the character and operation of the Building. All deliveries to the Premises, and the removal of garbage, waste and refuse shall be through the front door of the Premises and/or the side door; no such deliveries or removal shall be made through the entrance to the residential portion of the Building, if any. </docset:DeliveriesandRemovalofGarbage><dg:chunk><docset:GarbageRemoval structure="p">
+
+
+
+ Tenant, at Tenant's sole cost and expense, shall be responsible for the removal and disposal of all of garbage, waste, and refuse from the Premises on a <dgc:Frequency>daily </dgc:Frequency>basis. Tenant shall cause all garbage, waste and refuse to be stored within the Premises until <docset:GarbageRemovalTime>thirty (30) minutes </docset:GarbageRemovalTime>before closing, except that Tenant shall be permitted, to the extent permitted by law, to place garbage outside the Premises after the time specified in the immediately preceding sentence for pick up prior to <docset:GarbagePickupTime>6:00 A.M. </docset:GarbagePickupTime>next following. Garbage shall be placed at the edge of the sidewalk in front of the Premises at the location furthest from the main entrance to the Building or such other location in front of the Building as may be specified by Landlord. </docset:GarbageRemoval><docset:PestControl structure="p">
+
+
+
+ Tenant, at its sole cost and expense, agrees to use all reasonable diligence in accordance with the best prevailing methods for the prevention and extermination of vermin, rats, and mice, mold, 
+
+
+
+
+
+ fungus, allergens, <dgm:Bacterium>bacteria </dgm:Bacterium>and all other similar conditions in the Premises. Tenant, at Tenant's expense, shall cause the Premises to be exterminated <dgc:Frequency>from time to time </dgc:Frequency>to the reasonable satisfaction of Landlord and shall employ licensed exterminating companies. Landlord shall not be responsible for any cleaning, waste removal, janitorial, or similar services for the Premises, and Tenant shall not be entitled to seek any abatement, setoff or credit from the Landlord in the event any conditions described in this Article are found to exist in the Premises. </docset:PestControl></dg:chunk></docset:_42ADeliveriesWasteRemovalAndPestExtermination></docset:_42ADeliveriesWasteRemovalAndPestExtermination-section><docset:_42BSidewalkUseAndMaintenance-section><dg:chunk structure="h1">
+
+
+
+42B. <dg:chunk>Sidewalk Use </dg:chunk>and Maintenance </dg:chunk><docset:_42BSidewalkUseAndMaintenance structure="div"><docset:SidewalkMaintenance structure="p">
+
+
+
+ Tenant shall, at its sole cost and expense, keep the sidewalk in front of the Premises 18 inches into the street from the curb clean free of garbage, waste, refuse, excess water, snow, and ice and Tenant shall pay, as additional rent, any fine, cost, or expense caused by Tenant's failure to do so. In the event Tenant operates a sidewalk café, Tenant shall, at its sole cost and expense, maintain, repair, and replace as necessary, the sidewalk in front of the Premises and the metal trapdoor leading to the basement of the Premises, if any. Tenant shall post warning signs and cones on all sides of any side door when in use and attach a safety bar across any such door at all times when open. </docset:SidewalkMaintenance><docset:AdvertisingandSignage structure="p">
+
+
+
+ In no event shall Tenant use, or permit to be used, the space adjacent to or any other space outside of the Premises, for display, sale or any other similar undertaking; except [1] in the event of a legal and licensed “street fair” type program or [<docset:NoOutsideUse>2</docset:NoOutsideUse>] if the local zoning, <dg:chunk>Community Board </dg:chunk>[if applicable] and other municipal laws, rules and regulations, allow for sidewalk café use and, if such I s the case, said operation shall be in strict accordance with all of the aforesaid requirements and conditions. . In no event shall Tenant use, or permit to be used, any advertising medium and/or loud speaker and/or sound amplifier and/or radio or television broadcast which may be heard outside of the Premises or which does not comply with the reasonable rules and regulations of Landlord which then will be in effect. </docset:AdvertisingandSignage></docset:_42BSidewalkUseAndMaintenance></docset:_42BSidewalkUseAndMaintenance-section><docset:_42CStoreFrontMaintenance-section><dg:chunk structure="h1">
+
+
+
+
+
+42C. Store Front Maintenance </dg:chunk><docset:_42CStoreFrontMaintenance structure="div">
+
+
+
+ Tenant agrees to wash the storefront, including the bulkhead and security gate, from the top to the ground, monthly or more often as Landlord reasonably requests and make all repairs and replacements as and when deemed necessary by Landlord, to all windows and plate and other glass in or about the Premises and the security gate, if any. In case of any default by Tenant in maintaining the storefront as herein provided, Landlord may do so at its own expense and bill the cost thereof to Tenant as additional rent. </docset:_42CStoreFrontMaintenance></docset:_42CStoreFrontMaintenance-section><docset:_42DMusicNoiseAndVibration-section><dg:chunk structure="h1">
+
+
+
+42D. Music, Noise, and Vibration </dg:chunk><docset:_42DMusicNoiseAndVibration structure="div"><docset:NoiseRestriction structure="p">
+
+
+
+ Tenant shall not use or permit the use of the Premises or any part thereof as a discotheque, or for dancing of any kind or nature nor allow any sounds to be heard, recorded or measured in any portion of the Building outside of the Premises above <docset:MaximumDecibelLevel>45 </docset:MaximumDecibelLevel>decibels or in violation of any law, rule or ordinance including the <dg:chunk><dgc:USState>New York </dgc:USState>Administrative Code </dg:chunk>or in any way which would violate any of the other covenants, agreements, terms, provisions and conditions of this Lease or for any unlawful purposes or in any unlawful manner, which is a substantial obligation of this Lease, a breach of which shall constitute a ground for termination of the Lease. Tenant shall be allowed to play only recorded music in the Premises. Tenant shall not permit live music to be played in the Premises. Landlord makes no representation that the playing of recorded music is permitted under applicable laws and/or government regulations. The decibel level of any music played by Tenant or vibrations emanating therefrom shall not unreasonably disturb any tenants of the Building. Tenant, at its sole cost and expense, shall install sound proofing and take such other steps, including installation of vibration eliminators, false ceilings and noise barriers, as are required in the reasonable determination of Landlord to prevent noise and vibrations from disturbing any tenants of the Building. If reasonably requested by Landlord, Tenant shall submit to Landlord a plan of the steps taken to prevent noise and vibration for Landlord’s approval, which plan shall address the issues of vibrations and noise emanating from any source within the Premises, including any kitchen, cleaning, ventilation or other equipment therein, and shall complete all work in accordance with such plan, or if approved, prior to commencement of business. If the steps taken to eliminate noise or vibration, whether or not Landlord previously approved such steps, shall reasonably be deemed unsatisfactory to Landlord, </docset:NoiseRestriction><docset:NoiseandVibration structure="p">
+
+
+
+
+
+ Landlord shall give notice specifying the changes, alterations or repairs to be made at Tenant’s sole expense. If such changes, alterations or repairs are not completed or repairs are not being diligently made within <docset:NoticePeriod>thirty days </docset:NoticePeriod>of such notice as specified by Landlord, Landlord may, at its sole discretion, either (i) cure such condition and thereafter add the cost and expenses incurred by Landlord therefor as <dg:chunk>Additional Rent </dg:chunk>to the next monthly installment of <dg:chunk>Fixed Rent </dg:chunk>to become due; or (ii) treat such failure to eliminate noise and vibration as a material default hereunder. </docset:NoiseandVibration><docset:NoiseandVibrationRestrictions structure="p">
+
+
+
+ Tenant shall not suffer, allow or permit any vibration, noise, or other undesirable effects to emanate from the Premises, or any equipment or other installation, including but not limited to any ventilation fan, motor and related equipment located on the roof of the Building or elsewhere, that services the Premises, if any, or otherwise suffer, allow, or permit the same to constitute a nuisance or otherwise interfere with the safety, comfort or convenience of the Landlord or any other occupant of the Building. All installations which Tenant may make at or in respect of the Premises shall be placed and maintained by Tenant in settings and in such other manner as shall be reasonably sufficient to prevent vibration and to minimize noise, odors or annoyance of any kind. Tenant shall submit to Landlord for Landlord's prior written approval complete mechanical plans showing the location and installation details of all mechanical equipment, provided that any approval by Landlord shall not be construed to mean that Landlord agrees that such mechanical or other equipment complies with or will function in a manner which will cause Tenant to be in compliance with any of the terms and conditions of this Lease. </docset:NoiseandVibrationRestrictions><docset:SmokingandCongregationRestrictions structure="p">
+
+
+
+ Tenant shall at all times make its best efforts to disperse its customers and limit the number of its customers smoking in front of the Premises to no more than <docset:MaximumNumberofSmokers>three </docset:MaximumNumberofSmokers>persons at any one time, including but not limited to directing its customers to leave the area in front of the Premises when the Premises is at its full legal capacity. Tenant shall also take appropriate measures concerning its customers who congregate outside the Premises to encourage such customers to remain reasonably quiet and respectful. </docset:SmokingandCongregationRestrictions></docset:_42DMusicNoiseAndVibration></docset:_42DMusicNoiseAndVibration-section><docset:_42EContinuousOperation-section><dg:chunk structure="h1">
+
+
+
+<docset:ContinuousOperation>42E. </docset:ContinuousOperation>Continuous Operation </dg:chunk><docset:_42EContinuousOperation structure="div"><docset:BusinessHours structure="p">
+
+
+
+ Throughout the term of this Lease (except for holidays), Tenant shall conduct its business in the entire Premises with due diligence and without interruption during normal business, a failure of which shall constitute a material default under this Lease. </docset:BusinessHours><docset:BusinessClosureLimit structure="p">
+
+
+
+ Except as provided in the first paragraph of this Article, Tenant shall conduct and operate Tenant's business in the Premises without closing for more than <docset:BusinessClosureLimit>30 consecutive days </docset:BusinessClosureLimit>during the term of this Lease, and the failure to do so shall constitute a material default by Tenant hereunder. </docset:BusinessClosureLimit></docset:_42EContinuousOperation></docset:_42EContinuousOperation-section><docset:_42FLandlordSAccess-section><dg:chunk structure="h1">
+
+
+
+<docset:LandlordAccess>42F. </docset:LandlordAccess>Landlord’s Access </dg:chunk><docset:_42FLandlordSAccess structure="div"><docset:AccessRights structure="p">
+
+
+
+ Tenant covenants and agrees that it will permit Landlord, its agents, servants, employees, licensees, invitees, and contractors, at any and all times during regular business hours, to pass and repass on and through the Premises and basement of the Building, or such portion thereof as may be necessary, in order that they or any of them may gain access to any facilities of the Building for inspection, repairs and alterations as provided herein. Landlord shall provide Tenant , 24 <docset:AdvanceNotice>hour </docset:AdvanceNotice>advance notice of such entry, and coordinate such entry to avoid disruption of Tenant's business activities. Tenant agrees further that it will, during the entire term of this Lease, keep the Landlord informed of the telephone numbers of at least <docset:EmergencyContactNumbers>three </docset:EmergencyContactNumbers>persons or parties having keys to the Premises in order that, in the event of an emergency which requires Landlord to have access to the Premises during other than regular business hours, Landlord may arrange with such persons or parties to be admitted to the Premises, provided, however, that if Landlord is unable to arrange for admittance to the Premises during such emergency, or if time does not permit the making of such arrangements, Landlord shall have the right to gain admittance to the demised Premises forcibly or by otherwise breaking into the Premises, and the sole liability of Landlord to Tenant in such event shall be that Landlord shall be obligated to repair all damage caused by such breaking in within a reasonable time after the occurrence thereof and secure the Premises as soon as possible thereafter. </docset:AccessRights><dg:chunk><docset:RenewalOption structure="p">
+
+
+
+ Without limiting Landlord's rights under the foregoing paragraph of this Article, Tenant covenants and agrees that, provided notice of renewal has not been given under Article 72, it will permit </docset:RenewalOption><docset:AccessRights structure="p">
+
+
+
+
+
+ Landlord, its agents, servants, employees, licensees, invitees, and contractors during the last year of the term of this Lease at any and all times during regular business hours, after <docset:NoticePeriod>24 hour </docset:NoticePeriod>notice to tenant, to pass and repass on and through the Premises, or such portion thereof as may be necessary, in order that they or any of them may gain access to the Premises for the purpose of showing the Premises to potential new tenants or real estate brokers. In addition, Landlord shall be entitled to place a "<dg:chunk>FOR RENT</dg:chunk>" or "FOR LEASE" sign (not exceeding <docset:SignSize>8.5</docset:SignSize>” x <docset:AccessforShowings>11</docset:AccessforShowings>”) in the front window of the Premises during the last <docset:SignageNoticePeriod>six months </docset:SignageNoticePeriod>of the term of this Lease. </docset:AccessRights></dg:chunk></docset:_42FLandlordSAccess></docset:_42FLandlordSAccess-section><docset:_42GUseRestrictions-section><dg:chunk structure="h1">
+
+
+
+<docset:UseRestrictions>42G. </docset:UseRestrictions>Use Restrictions </dg:chunk><docset:_42GUseRestrictions structure="div"><dg:chunk><docset:ProhibitedUses structure="p">
+
+
+
+ Notwithstanding any other provision hereof to the contrary notwithstanding, in no event may the Premises be used for any of the following purposes: </docset:ProhibitedUses>
+
+
+
+              <docset:BusinessRestrictions structure="ol" style="list-style-type: none; boundingBox:{left: 600.0; top: 1032.0; width: 1368.0; height: 2004.0; page: 10;}; "><dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 1032.0; width: 1368.0; height: 183.0; page: 10;}; "><dg:chunk structure="lim">(a)   </dg:chunk><dg:chunk>the sale, rental or use of amusement devices, pinball machines, electronic computer, card games, games of chance of any kind, or video type amusement machines, games or devices (such as Pacman); </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 1272.0; width: 1140.0; height: 39.0; page: 10;}; "><dg:chunk structure="lim">(b)   </dg:chunk><dg:chunk structure="p">pornographic movie theater or live "sex show" theater; </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 1368.0; width: 399.0; height: 39.0; page: 10;}; "><dg:chunk structure="lim">(c)   </dg:chunk><dg:chunk structure="h1">bowling alley; </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 1464.0; width: 624.0; height: 39.0; page: 10;}; "><dg:chunk structure="lim">(d)   </dg:chunk><dg:chunk structure="h1">billiard parlor or pool hall,; </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 1560.0; width: 405.0; height: 39.0; page: 10;}; "><dg:chunk structure="lim">(e)   </dg:chunk><dg:chunk>funeral parlor; </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 1656.0; width: 447.0; height: 39.0; page: 10;}; "><dg:chunk structure="lim">(f)   </dg:chunk><dg:chunk structure="h1">massage parlor; </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 1752.0; width: 447.0; height: 39.0; page: 10;}; "><dg:chunk structure="lim">(g)   </dg:chunk><dg:chunk structure="h1">gasoline station; </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 1845.0; width: 1368.0; height: 90.0; page: 10;}; "><dg:chunk structure="lim">(h)   </dg:chunk><dg:chunk>sale or rental of pornographic literature (such as an "<dg:chunk>Adult Book Store</dg:chunk>"); </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 1989.0; width: 1368.0; height: 90.0; page: 10;}; "><dg:chunk structure="lim">(i)    </dg:chunk><docset:MovieSalesandRentals structure="p">the sale or rental of video tapes of X-Rated, R-Rated, PG-Rated, Not-rated or any kind of movies or "pornographic" movies; </docset:MovieSalesandRentals></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 2133.0; width: 1149.0; height: 42.0; page: 10;}; "><dg:chunk structure="lim">(j)    </dg:chunk><dg:chunk structure="p">flea market, bingo or other game hall or meeting room; </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 2229.0; width: 681.0; height: 42.0; page: 10;}; "><dg:chunk structure="lim">(k)   </dg:chunk><dg:chunk structure="h1">drug abuse treatment center; </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 2325.0; width: 894.0; height: 42.0; page: 10;}; "><dg:chunk structure="lim">(l)    </dg:chunk><dg:chunk structure="p"><dgm:Medication>methadone </dgm:Medication>maintenance clinic or center; </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 2421.0; width: 1263.0; height: 39.0; page: 10;}; "><dg:chunk structure="lim">(m)   </dg:chunk><dg:chunk structure="p">the sale of paraphernalia used in connection with illicit drugs; </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 2517.0; width: 1368.0; height: 183.0; page: 10;}; "><dg:chunk structure="lim">(n)   </dg:chunk><docset:GamblingProhibition structure="p">any games of chance or gambling, in any form (including, but not limited to horse racing, such as an OTB parlor, but excluding the sale of lottery tickets that are sponsored by federal, state, county or local authorities); </docset:GamblingProhibition></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 2757.0; width: 1368.0; height: 87.0; page: 10;}; "><dg:chunk structure="lim">(o)   </dg:chunk><docset:ProductCategories structure="p">the sale of prescription drugs, cosmetics, health and beauty aid products and pharmaceutical products; </docset:ProductCategories></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 2901.0; width: 528.0; height: 39.0; page: 10;}; "><dg:chunk structure="lim">(p)   </dg:chunk><dg:chunk structure="h1">intentionally omitted; </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+              <dg:chunk structure="li" style="boundingBox:{left: 600.0; top: 2997.0; width: 825.0; height: 39.0; page: 10;}; "><dg:chunk structure="lim">(q)   </dg:chunk><dg:chunk structure="p">discotheque, ballroom, or dance hall. </dg:chunk></dg:chunk></docset:BusinessRestrictions></dg:chunk><docset:UseRestrictions structure="p">
+
+
+
+
+
+
+
+ The foregoing provisions of this Article shall not be construed or interpreted to enhance or enlarge the uses for which the Premises may be used, which uses are strictly limited to those specifically set forth in this Lease. </docset:UseRestrictions></docset:_42GUseRestrictions></docset:_42GUseRestrictions-section><docset:_42HSmokingProhibited-section><dg:chunk structure="h1">
+
+
+
+<docset:SmokingProhibited>42H. </docset:SmokingProhibited>Smoking Prohibited </dg:chunk><docset:_42HSmokingProhibited structure="div"><docset:SmokingPolicy structure="p">
+
+
+
+ Tenant, and/or Tenant's employees may not smoke in any part of the Building, including but not limited to the Premises, bathrooms, fire escapes and hallways of the Building. Furthermore, Tenant and/or its employees may not smoke in front of the entrance of the Building. Landlord has the right to involve the <docset:NYCFireDepartment>NYC Fire Department </docset:NYCFireDepartment>and/or any other agencies of the <docset:NoSmokingPolicy>City of <dgc:USState>New York </dgc:USState></docset:NoSmokingPolicy>if Tenant and/or its employees, and/or invitees are found to have been smoking in or around the Premises. A violation of this Article shall be material default under this Lease. </docset:SmokingPolicy><dg:chunk><docset:_43BasementSpace-section><dg:chunk structure="h1">
+
+
+
+<docset:BasementSpace>43</docset:BasementSpace>. <dg:chunk>Basement Space </dg:chunk></dg:chunk><docset:_43BasementSpace structure="div"><docset:BasementUse structure="p">
+
+
+
+ Subject to the terms and conditions contained elsewhere in this Lease, Tenant may use the area of the basement of the building, shown in Exhibit A annexed hereto, solely for purposes of allowed under the existing Temporary Certificate of Occupancy annexed as <dg:chunk>Exhibit Band </dg:chunk>for no other purpose.Landlord represents that basement area shown on <dg:chunk>Exhibit A </dg:chunk>is “eating and drinking establishment.” </docset:BasementUse><docset:BasementUse structure="p">
+
+
+
+ Subject to the terms and conditions contained elsewhere in this Lease, Tenant’s use of the basement shall not, in any way, block Landlord's use of same, or interfere with any machinery or equipment in the basement. Tenant agrees that its use of the basement shall be in accordance with reasonable rules and regulations to be established by Landlord. </docset:BasementUse><docset:UtilityAccess structure="p">
+
+
+
+ Tenant shall permit access through the Premises to the basement space for the Landlord and representatives of <docset:UtilityAccess>Con Edison </docset:UtilityAccess>and other utility or service providers as reasonably required during business hours and with <docset:AccessNotice>24 </docset:AccessNotice>hour notice, where reasonably possible, to Tenant for any access other than meter reading. </docset:UtilityAccess><docset:ElectricPanelAccess structure="p">
+
+
+
+ Tenant shall not block or place any obstructions in front of and/or within <docset:ObstructionDistance>three feet </docset:ObstructionDistance>of the building’s electric panel, meters, and shut-off switches. </docset:ElectricPanelAccess></docset:_43BasementSpace></docset:_43BasementSpace-section><docset:_44SignsAndExteriorAppearance-section><dg:chunk structure="h1">
+
+
+
+
+
+<docset:SignsandExteriorAppearance>44</docset:SignsandExteriorAppearance>. Signs And <dg:chunk>Exterior Appearance </dg:chunk></dg:chunk><docset:_44SignsAndExteriorAppearance structure="div"><dg:chunk><docset:SignageandInstallations structure="p">
+
+
+
+ Tenant agrees that all signs, awnings, protective gates, security devices and other installations visible from the exterior of the Premises shall be subject to Landlord's prior written approval, shall be subject to the prior approval of the <dg:chunk><docset:LandmarksApproval>Landmarks </docset:LandmarksApproval><docset:PreservationCommissionApproval>Preservation Commission </docset:PreservationCommissionApproval></dg:chunk>of the City of <dgc:USState>New <docset:SignageApproval>York</docset:SignageApproval></dgc:USState>, if required, and shall not interfere with or block either of the adjacent stores, provided, however, that Landlord shall not unreasonably withhold consent for signs that Tenant desires to install. Tenant agrees that any permitted signs, awnings, protective gates, security devices, and other installations shall be installed at Tenant’s sole cost and expense professionally prepared and dignified and subject to Landlord's prior written approval, which shall not be unreasonably withheld, delayed or conditioned, and subject to such reasonable rules and restrictions as Landlord <dgc:Frequency>from time to time </dgc:Frequency>may impose. Tenant shall submit to Landlord drawings of the proposed signs and other installations, showing the size, color, illumination and general appearance thereof, together with a statement of the manner in which the same are to be affixed to the Premises. Tenant shall not commence the installation of the proposed signs and other installations unless and until Landlord shall have approved the same in writing. . Tenant shall not install any neon sign. The aforesaid signs shall be used solely for the purpose of identifying Tenant's business. No changes shall be made in the signs and other installations without first obtaining Landlord's prior written consent thereto, which consent shall not be unreasonably withheld, delayed or conditioned. Tenant shall, at its own cost and expense, obtain and exhibit to Landlord such permits or certificates of approval as Tenant may be required to obtain from any and all City, State and other authorities having jurisdiction covering the erection, installation, maintenance or use of said signs or other installations, and Tenant shall maintain the said signs and other installations together with any appurtenances thereto in good order and </docset:SignageandInstallations><docset:SignageConsent structure="p">
+
+
+
+
+
+ condition and to the satisfaction of the Landlord and in accordance with any and all orders, regulations, requirements and rules of any public authorities having jurisdiction thereover. Landlord consents to Tenant’s Initial Signage described in annexed Exhibit D. </docset:SignageConsent></dg:chunk><docset:SignRemoval structure="p">
+
+
+
+ Upon the expiration or termination of the term of this Lease, the Tenant shall remove all signs and other installations installed by Tenant, if any, at its sole cost and expense and shall, at its sole cost and expense, repair any damage to the Building caused by the installation or removal of any such signs or other installations and restore the Building to a satisfactory condition to make it as if no sign or other installations had been placed thereon. In the event that the Tenant violates any of the provisions of this Article, the Landlord may remove the subject items without any liability to the Tenant and may charge the Tenant all of the Landlord’s costs and expenses incurred in connection with the removal and disposal of such items, and the repair of the part of the Building to which such items were attached. </docset:SignRemoval><docset:SignageRestrictions structure="p">
+
+
+
+ In order to maintain the highest standards of appearance, character and dignity for the Building, no paper or other signs shall be placed on the windows or exterior of the Premises or shall be placed in the Premises so that they can be seen from the outside of the Premises unless the same are tastefully and professionally prepared and approved by Landlord. </docset:SignageRestrictions></docset:_44SignsAndExteriorAppearance></docset:_44SignsAndExteriorAppearance-section><docset:_45ConditionOfPremisesLandlordSWork-section><dg:chunk structure="h1">
+
+
+
+<docset:ConditionofPremises>45</docset:ConditionofPremises>. Condition Of Premises/Landlord’s Work </dg:chunk><docset:_45ConditionOfPremisesLandlordSWork structure="div">
+
+
+
+ Landlord shall at all times and at Landlord’s expense, maintain a certificate of occupancy (permanent or temporary), permitting Tenant’s Use of the Premises. Subject to the foregoing, Landlord represents the existing Temporary Certificate of Occupancy covering the premises is annexed as Exhibit 
+
+ C. Tenant has examined and inspected the Premises. Tenant agrees to accept possession of the Premises "AS IS", except as expressly provided herein, Landlord shall not be responsible for making any improvements, alterations, or repairs therein or for spending any other money to prepare the Premises for Tenant's occupancy, except as expressly provided herein. <dg:chunk>Neither Landlord </dg:chunk>nor any employee or agent of Landlord have made any representation or promise with respect to the Premises except as expressly set forth herein. Landlord shall deliver the Premises on the <dg:chunk>Commencement Date </dg:chunk>free and clear of any <dg:chunk>Hazardous Materials </dg:chunk>(defined in paragraph 42 of the Lease) and without any construction liens that would materially interfere with, delay or prevent Tenant’s Initial Alterations. On or before the <dg:chunk>Commencement Date</dg:chunk>, Landlord shall deliver the ACP-5 Certificate. </docset:_45ConditionOfPremisesLandlordSWork></docset:_45ConditionOfPremisesLandlordSWork-section><docset:_46WorkToBePerformedAndWaterCharges-section><dg:chunk structure="h1">
+
+
+
+<docset:WorktobePerformed>46</docset:WorktobePerformed>. Work To Be Performed and Water Charges </dg:chunk><docset:_46WorkToBePerformedAndWaterCharges structure="div"><docset:PreparationofPremises structure="p">
+
+
+
+ Landlord shall perform no work to prepare the Premises for the Tenant’s occupancy, except that Landlord shall deliver the Premises free of any hazardous materials and with no outstanding construction liens or violations. </docset:PreparationofPremises><docset:WaterandSewerCharges structure="p">
+
+
+
+ Tenant shall maintain the submeter to register Tenant’s water consumption at Tenant’s sole cost and expense in good working order and repair, and Tenant shall pay for water consumed as shown on said water meter (“<dg:chunk>Base Water Charge</dg:chunk>”), plus Tenant’s Share of the cost of having the water meter read by a water meter reading company, within <docset:PaymentDeadline>five (5) days </docset:PaymentDeadline>of delivery by Landlord of a bill therefor. Tenant shall pay Tenant’s Share of sewer rent charges and assessments, if any, for the premises within <dgc:TimeDuration>five (5) days </dgc:TimeDuration>of delivery by Landlord of a bill therefor, which shall be additional rent. </docset:WaterandSewerCharges><docset:BackflowPreventionDevice structure="p">
+
+
+
+ If not already existing, Tenant shall install a backflow prevention device that is approved by the <docset:BackflowPreventionDevice>City Department </docset:BackflowPreventionDevice>of <dg:chunk>Environmental Protection </dg:chunk>(<docset:BackflowPreventionDevice>DEP</docset:BackflowPreventionDevice>) to prevent contaminated water or chemicals from flowing back into the public drinking supply, and in connection with such installation, Tenant shall comply with all provisions set forth elsewhere in this Lease. Tenant shall pay to Landlord as additional rent <dgc:Frequency>annually </dgc:Frequency>during the term of this Lease Tenant’s Share of Landlord’s costs and expenses for maintenance, inspection, certifications, <dgm:_testRef>testing </dgm:_testRef>and to comply with all other requirements of <dgc:Org>DEP </dgc:Org>with regard the backflow prevention device servicing its Premises. Such additional rent shall be paid within <docset:PaymentDeadline>twenty (20) days </docset:PaymentDeadline>after demand thereof by the Landlord and shall be collectible as additional rent. Bills for same submitted by Landlord shall be conclusive evidence of the amount of such costs and expenses and shall be used for the calculation of the amounts to be paid by the Tenant. </docset:BackflowPreventionDevice></docset:_46WorkToBePerformedAndWaterCharges></docset:_46WorkToBePerformedAndWaterCharges-section><docset:_47AlterationsAndAdditions-section><dg:chunk structure="h1">
+
+
+
+
+
+<docset:AlterationsandAdditions>47</docset:AlterationsandAdditions>. Alterations and Additions </dg:chunk><docset:_47AlterationsAndAdditions structure="div"><docset:AlterationstoPremises structure="p">
+
+
+
+ Except as provided herein, Tenant shall not be entitled to make any structural alterations of or additions to the Premises or any alterations, additions or changes whatsoever to the exterior of the Premises without the prior written consent of Landlord in each instance, which consent Landlord may withhold or condition unreasonably or for any reason or for no reason; and, except as provided herein , and excepting purely cosmetic changes or additions up to an amount of <docset:MaximumAlterationAmount>$20,000</docset:MaximumAlterationAmount>, Tenant shall not be entitled to make any non-structural alterations of or additions to the Premises without the prior written consent of Landlord in each instance, which consent shall not be unreasonably withheld, delayed or conditioned. (Any alterations to the Premises made by Tenant shall hereinafter be referred to as "Tenant's Alterations"). </docset:AlterationstoPremises><dg:chunk><docset:TenantsAlterations structure="p">
+
+
+
+ In granting its consent to any Tenant's Alterations as defined in this Article, Landlord may impose such reasonable conditions (including completion, payment, restoration and if Tenant's Alterations are reasonably expected to cost in excess of <docset:AlterationBondAmount>$25,000</docset:AlterationBondAmount>, a requirement that Tenant either post a bond to insure the completion of and payment for Tenant's Alterations or furnish Landlord with other financial security reasonably satisfactory to Landlord to assure Landlord that Tenant’s Alterations will be completed lien free) as Landlord may reasonably require. In no event shall Landlord be required to consent to any Tenant's Alterations which would physically affect any part of the Building outside of the Premises or would adversely affect the proper functioning of the mechanical, electrical, sanitary or other service systems of the Building. At the time Tenant requests Landlord's written consent to Tenant’s Alterations, Tenant shall deliver to Landlord detailed plans and specifications therefor. Tenant shall pay to Landlord any reasonable fees or expenses in connection with Tenant's Alterations incurred by Landlord in connection with Landlord's submitting such plans and specifications, if it so chooses, to an architect or engineer selected by Landlord for review or <dgm:_testRef>examination</dgm:_testRef>. Tenant shall pay to Landlord the minimum sum of <dgc:Money>$750.00 </dgc:Money>to reimburse Landlord for the administrative costs of initial review and processing of proposed Tenant’s Alterations plans and specifications, in each instance; and if, in connection therewith, Landlord incurs expenses in excess of said <docset:AlterationBondAmount>$750.00 </docset:AlterationBondAmount>amount, then Tenant shall pay Landlord the amount of such excess fees as additional rent within <docset:TenantAlterationsConsentPeriod>ten (10) days </docset:TenantAlterationsConsentPeriod>of Landlord’s submission to Tenant of bills for same. Landlord's approval of any plans or specifications does not relieve Tenant from the responsibility for the legal sufficiency and technical competency thereof. Before commencement of any <docset:TenantName>Tenant</docset:TenantName>’s Alterations, (a) Tenant shall obtain the necessary consents, authorizations and licenses from all federal, state and/or municipal authorities having jurisdiction over such work, and (b) Tenant shall provide Landlord with a bond insuring Landlord against non-payment for any work to be performed by Tenant or furnish Landlord with other financial security reasonably satisfactory to Landlord to assure Landlord that Tenant’s Alterations will be completed lien free. Notwithstanding the foregoing, solely in connection with Tenant’s Initial Alterations (defined below), Tenant shall not be required to pay Landlord or its designee for Landlord’s review of Tenant’s Initial Alterations plans or Landlord’s supervision, if any, or any other Landlord out-of-pocket cost of Tenant’s Initial Alterations or post a bond to insure the completion of and payment for Tenant's Alterations. “<dg:chunk>Initial Alterations</dg:chunk>” shall refer to the alterations made to the Premises by Tenant as part of, and as approved by Landlord as, Tenant’s initial build-out of the Premises prior to commencement of operations by Tenant. Landlord consents to Tenant’s Initial Alterations described on annexed Exhibit D. Tenant agrees to indemnify and save Landlord harmless from and against any and all bills for labor performed and equipment, fixtures and materials furnished to Tenant and applicable sales taxes thereon as required by <dgc:USState>New York </dgc:USState>law and from and against any and all liens, bills or claims therefor or against the Premises or the Building and from and against all losses, damages, costs, expenses, suits, and claims whatsoever in connection with Tenant’s Alterations. </docset:TenantsAlterations><docset:InsuranceCompliance structure="p">
+
+
+
+ Tenant, at its expense, shall cause any Tenant’s Alterations consented to by Landlord to be performed in compliance with all applicable requirements of insurance bodies having jurisdiction and in such manner as not to interfere with, delay or impose any additional expense upon the Landlord in the maintenance or operation of the Building. </docset:InsuranceCompliance></dg:chunk><dg:chunk><docset:TenantAlterations structure="p">
+
+
+
+ If the performance of Tenant’s Alterations shall interfere with the comfort and/or convenience of other tenants in the Building or shall cause damage to or otherwise interfere with the </docset:TenantAlterations><docset:IndemnificationClause structure="p">
+
+
+
+
+
+ occupancy of adjacent Buildings, Tenant shall upon Landlord's demand remedy or remove the condition or conditions complained of. Tenant further covenants and agrees to save Landlord harmless from and against any and all claims, losses, damages, costs, expenses including attorneys’ fees and disbursements, suits and demands whatsoever made or asserted against Landlord by reason of the foregoing. </docset:IndemnificationClause></dg:chunk><docset:AlterationsHours structure="p">
+
+
+
+ Tenant’s Alterations may be performed only from <dgc:Weekday>Monday </dgc:Weekday>through <dgc:Weekday>Friday </dgc:Weekday>and only during the hours from <docset:AlterationsHours>9:00 A.M. </docset:AlterationsHours>to <docset:AlterationsHours>5:00 P.M. </docset:AlterationsHours>and at no other times. </docset:AlterationsHours><docset:As-BuiltPlansandSpecifications structure="p">
+
+
+
+ Promptly after the completion of any Tenant’s Alterations, Tenant shall furnish to Landlord a complete set of "as-built" plans and specifications. </docset:As-BuiltPlansandSpecifications><docset:ExerciseofRights structure="p">
+
+
+
+ Tenant agrees that any exercise of its rights pursuant to this Lease shall not be done in a manner that would: (a) create any work stoppage, picketing, labor disruption, or dispute; (b) materially interfere with the business of Landlord or any tenant or occupant of the Building. In the event of the occurrence of any condition described above arising from Tenant's exercise of any of its rights pursuant to this Lease, Tenant shall, immediately upon notice from Landlord, cease the manner of exercise of such right giving rise to such condition. In the event that Tenant fails to cease the manner of exercise of its rights as aforesaid, Landlord, in addition to any rights available to it under this lease and pursuant to law, shall have the right to injunction without further notice. </docset:ExerciseofRights><docset:AlterationsCompletion structure="p">
+
+
+
+ Promptly following the completion of all of Tenant’s Alterations, and as soon as reasonably feasible, Tenant shall obtain and furnish to Landlord all appropriate certifications, including but not limited to a <dg:chunk><dgc:USState>New York </dgc:USState>City Department </dg:chunk>of <dg:chunk>Buildings Letter </dg:chunk>of Completion, from all authorities having jurisdiction to the effect that all Tenant’s Alterations have been performed and completed in accordance with Tenant's Plans and with all Requirements, and Tenant shall close out all permits and obtain all final sign-offs. In the event that Tenant fails to comply with the terms of this paragraph within <docset:AlterationCompletionDeadline>90 days </docset:AlterationCompletionDeadline>after the completion of Tenant’s Alterations, then in that event, Landlord may, but is not required to, take such steps as are commercially reasonable to close out all permits, obtain final sign-offs and a Letter of Completion and otherwise act to cause Tenant’s obligations under this paragraph to be satisfied and thereupon Tenant shall reimburse Landlord for all costs and fees incurred by Landlord in connection therewith as additional rent within <docset:AlterationCompletionDeadline>15 days </docset:AlterationCompletionDeadline>of demand by Landlord for payment. </docset:AlterationsCompletion><docset:AlterationsRequirements structure="p">
+
+
+
+ Subject to all of the foregoing provisions hereof, including without limitation, the compliance with Requirements, Tenant shall only be permitted to commence and carry on Tenant’s Alterations provided: (i) Tenant delivers to Landlord not less than <docset:AlterationsEndorsementDeadline>three (3) days </docset:AlterationsEndorsementDeadline>prior to the commencement of Tenant's Alterations, an endorsement of its liability insurance policy referred to herein, covering and holding Landlord harmless against any and all claims or liability arising out of Tenant’s Alterations; (ii) Tenant delivers to Landlord, not less than <docset:AlterationNoticePeriod>five days </docset:AlterationNoticePeriod>prior to the commencement of Tenant's Alterations, sufficient proof that Tenant's contractors maintain workers compensation insurance to cover all persons engaged in Tenant's Alterations; and (iii) Landlord is reasonably satisfied that Tenant's contractors will perform Tenant's Alterations in a first-class workman-like manner, using all first-class materials. </docset:AlterationsRequirements><docset:PermitDelay structure="p">
+
+
+
+ If Tenant is unable to obtain a permit for its Initial Alterations and/or a required permit or license to operate Tenant’s business due to any act or omission of Landlord's or due to a condition or violation arising prior to delivery of possession of the <dg:chunk>Demised Premises </dg:chunk>to Tenant (hereinafter collectively called "Pre-existing Conditions"), Landlord shall use best efforts to promptly correct such condition, and the time which expires until such condition is corrected and Tenant is notified of same shall be added on so that the <dg:chunk>Rent Commencement Date </dg:chunk>shall be deferred because of such Pre-existing Conditions. </docset:PermitDelay></docset:_47AlterationsAndAdditions></docset:_47AlterationsAndAdditions-section><docset:_48Liens-section><dg:chunk structure="h1">
+
+
+
+
+
+<docset:Liens>48</docset:Liens>. Liens </dg:chunk><docset:_48Liens structure="div"><docset:IndemnificationClause structure="p">
+
+
+
+ Tenant shall indemnify and hold Landlord harmless from and against any and all bills for labor performed or equipment, fixtures and materials furnished to or for Tenant, and from and against any and all liens or claims therefor or against the Premises or the Building of which it forms a part, and from and against any and all liability, claim, loss, damage or expense, including reasonable attorneys' fees, in 
+
+
+
+
+
+ connection with any work performed by or for Tenant. The Premises and the Building shall at all times be free of liens for labor and materials supplied or claimed to have been supplied to or on behalf of Tenant, and no financing statements or other security instruments shall be filed against the Premises or the Building or the contents thereof. This shall not preclude the filing on Tenant’s equipment. </docset:IndemnificationClause><dg:chunk><docset:EncumbranceRestriction structure="p">
+
+
+
+ Tenant shall not directly or indirectly create or permit to be created any mortgage, lien, security interest, pledge, conditional sale, or other encumbrance on the Premises or any part thereof, Tenant's interest under this Lease, or any rent hereunder. The foregoing shall not apply to liens for impositions not yet due, or liens of mechanics, materialmen, suppliers or vendors, incurred in the ordinary course of business for sums which are not yet due, provided that adequate provision for the payment thereof shall have been made and the following paragraph is complied with. </docset:EncumbranceRestriction><docset:LienWaiver structure="p">
+
+
+
+ If, in connection with any work being performed by or for Tenant or any subtenant, or in connection with any materials being furnished to Tenant or any subtenant, any mechanic's lien or other lien or charge shall be filed or made against the Premises or any part thereof, or if any such lien or charge shall be filed or made against Landlord, then Tenant, at Tenant's expense, within <docset:LienDischargeDeadline>30 days </docset:LienDischargeDeadline>after such lien or charge shall have been filed or made, shall cause the same to be canceled and discharged of record by payment thereof or filing a bond or moving to file a bond or otherwise. Tenant promptly and diligently shall defend any suit, action or proceeding which may be brought for the enforcement of such lien or charge; shall satisfy and discharge any judgment entered therein within <docset:LienDischargeDeadline>ten days </docset:LienDischargeDeadline>after the entry of such judgment by payment thereof or filing a bond or otherwise; and on demand shall pay any and all liability, claim, loss, damage or expense, including reasonable attorneys' fees, suffered or incurred by Landlord in connection therewith. </docset:LienWaiver></dg:chunk><docset:LiensandClaims structure="p">
+
+
+
+ Nothing in this Lease shall constitute any consent or request by Landlord, express or implied, for the performance of any labor or services or the furnishing of any materials or other property in respect of the Premises or any part thereof, nor as giving Tenant any right, power or authority to contract for or permit the performance of any labor or services or the furnishing of any materials or other property in any fashion that would permit the filing or making of any lien or claim against Landlord, the Premises or the Building. Landlord shall have the right, <dgc:Frequency>from time to time</dgc:Frequency>, to place upon the Premises in a conspicuous place such sign or other notice as Landlord may deem necessary or appropriate so as to give notice to others of the provisions of the preceding sentence. </docset:LiensandClaims></docset:_48Liens></docset:_48Liens-section><docset:_49IntentionallyOmitted-section><dg:chunk structure="h1">
+
+
+
+<docset:IntentionallyOmitted>49</docset:IntentionallyOmitted>. Intentionally Omitted </dg:chunk><docset:_49IntentionallyOmitted structure="div">
+
+
+
+ <dg:chunk structure="ol" style="list-style-type: none; boundingBox:{left: 984.0; top: 2085.0; width: 525.0; height: 42.0; page: 15;}; "><dg:chunk structure="li" style="boundingBox:{left: 984.0; top: 2085.0; width: 525.0; height: 42.0; page: 15;}; "><dg:chunk structure="lim">50.  </dg:chunk><dg:chunk structure="h1">Licenses and Permits </dg:chunk></dg:chunk></dg:chunk><docset:LicensesandPermits structure="p">
+
+
+
+
+
+ Tenant agrees to secure and maintain as its sole responsibility and, at its own expense, all licenses and permits from Federal, State, and local authorities as may be necessary for the conduct of Tenant's business, and shall comply with all applicable laws, rules and regulations. Landlord does not represent that any license or permit, which may be required will be granted or, if granted, will continue in effect or be renewed. Tenant's obligations under this Lease shall in no way be affected by Tenant's inability to secure or maintain any license or permit. Landlord will cooperate with Tenant in obtaining any such licenses or permits. </docset:LicensesandPermits></docset:_49IntentionallyOmitted></docset:_49IntentionallyOmitted-section><dg:chunk><dg:chunk structure="h1">
+
+
+
+<docset:UtilityServices>51</docset:UtilityServices>. <dg:chunk>Utility Services </dg:chunk></dg:chunk><dg:chunk structure="div"><dg:chunk><docset:UtilityServices structure="p">
+
+
+
+ Tenant shall pay all charges for all public or private utility services provided to the Premises, shall comply with all contracts relating to such services, and shall do all other things required for the maintenance and continuance of all such services. </docset:UtilityServices><dg:chunk><docset:ElectricityCharges structure="p">
+
+
+
+ Tenant, at its sole cost and expense, shall make all arrangements with the public utility company serving the Premises for obtaining and paying for heat and electricity at the Premises, including without limitation arrangements pertaining to the installation and use of meters, pans, risers, wiring, panel boards, feeders and other conductors and equipment. Landlord shall not be liable or responsible for charges for electricity at the Premises, or any loss, damage or expense which Tenant may sustain or incur if either the quantity or character of electric service is changed or is no longer available or suitable for </docset:ElectricityCharges><docset:CompliancewithRegulations structure="p">
+
+
+
+
+
+ Tenant's requirements. At all times during the term of this Lease, Tenant shall comply with all rules and regulations of governmental authorities and the public utility applicable to service, equipment, wiring and changes in requirements. </docset:CompliancewithRegulations></dg:chunk></dg:chunk><docset:ElectricalUse structure="p">
+
+
+
+ Tenant covenants and agrees that its use of electric current shall never exceed the capacity of the existing conductors, feeders, risers, wiring installations or other equipment servicing the Building. Tenant shall not alter or make any addition to the electrical equipment without the prior written consent of Landlord. Landlord shall not unreasonably withhold its consent to the installation of new risers and equipment if, in Landlord's opinion, they are reasonably necessary and do not cause permanent damage or injury to the demised Premises or Building or create a dangerous or hazardous condition or entail excessive or unreasonable alterations. If Landlord grants such consent, all additional risers and other equipment shall be provided by Tenant by licensed and insured electricians. </docset:ElectricalUse><docset:ServiceInterruptions structure="p">
+
+
+
+ Landlord reserves the right to interrupt, suspend, or cease any of the services referred to herein when necessary by reason of accident, or repairs, alteration, or improvements which in Landlord's option are necessary or desirable, or difficulty or inability in securing supplies or labor, or strikes, or any other cause beyond the reasonable control of Landlord whether similar or dissimilar to those herein above mentioned. Tenant shall not be entitled to any diminution or abatement of rent or other compensation, and Tenant's obligations under this Lease shall not be affected or reduced, by reason of any interruption, suspension or cessation of services except as otherwise provided herein. No interruption, suspension or cessation of services shall constitute a constructive or partial eviction. Landlord shall use its best efforts to perform repairs at reasonable times and upon notice. Where possible, Landlord shall provide Tenant with reasonable notice of such interruption of service. </docset:ServiceInterruptions><docset:ElectricityDisclaimer structure="p">
+
+
+
+ Landlord does not represent that the electricity at the Premises is adequate or appropriate for Tenant's intended use. </docset:ElectricityDisclaimer></dg:chunk></dg:chunk><docset:_52LimitedLiability-section><dg:chunk structure="h1">
+
+
+
+<docset:LimitedLiability><docset:LimitedLiability>52</docset:LimitedLiability>. Limited </docset:LimitedLiability>Liability </dg:chunk><docset:_52LimitedLiability structure="div"><docset:PersonalLiabilityofLandlord structure="p">
+
+
+
+ Tenant agrees that, notwithstanding any other provision of this Lease, Landlord shall not be under any personal liability under this Lease and, if Landlord defaults hereunder, Tenant shall look solely to the interest of Landlord or its successor in the Premises for the satisfaction of any judgment or other judicial process requiring the payment of money by Landlord based upon any default hereunder, and no other assets of Landlord or any such successor shall be subject to levy, execution, or other enforcement procedure for the satisfaction of any such judgment or process. Upon any conveyance or transfer of the Building, the transferor shall be relieved from all liability hereunder. </docset:PersonalLiabilityofLandlord><docset:LandlordLiabilityLimitations structure="p">
+
+
+
+ Landlord shall not be held liable for any injury to or <dgm:Condition>death </dgm:Condition>of any person or persons, or injury or damage to merchandise, goods, furniture, fixtures or other property, from theft or accident, or from steam, gas, electricity, water, rain which may seep into, issue or flow from the Building, unless same shall be due to Landlord's gross negligence or willful misconduct. </docset:LandlordLiabilityLimitations></docset:_52LimitedLiability></docset:_52LimitedLiability-section><docset:_53IndemnificationbyTenant-section><dg:chunk structure="h1">
+
+
+
+<docset:IndemnificationbyTenant>53</docset:IndemnificationbyTenant>. Indemnification by Tenant </dg:chunk><docset:_53IndemnificationbyTenant structure="div"><docset:IndemnificationClause structure="p">
+
+
+
+ To the extent not otherwise provided herein, and excluding statutory and/or common law negligence of or willful action by Landlord, its agents, servants and/or employees, Tenant shall defend, indemnify and save harmless Landlord and its agents and employees against and from all liabilities, obligations damages, penalties, claims, costs, charges and expenses, including reasonable attorney’s fees, which may be imposed upon or incurred by or asserted against Landlord and/or its agents by reason of any of the following occurring during the term: (a) anything done in, on or about the Premises or any part thereof by or at the instance of Tenant, its agents, contractors, subcontractors, servants, employees, licensees, or invitees; (b) any negligence or otherwise wrongful act or omission on the part of Tenant or any of its agents, contractors, subcontractors, servants, employees, licensees, or invitees; (c) any accident, injury, or damage to any person or property occurring in, on or about the Premises or any part thereof; (d) any failure on the part of Tenant or any Licensee to perform or comply with any of the covenants, agreements, terms, provisions, conditions or limitations contained in this Agreement on its part to be performed or complied with. In case any action or proceeding is brought against Landlord by reason </docset:IndemnificationClause><docset:LegalDefense structure="p">
+
+
+
+
+
+ of any such claim, Tenant upon written notice from Landlord shall, at Tenant’s sole cost and expense, oppose or defend such action or proceeding by counsel approved by Landlord in writing, which approval Landlord shall not unreasonably withhold. </docset:LegalDefense></docset:_53IndemnificationbyTenant></docset:_53IndemnificationbyTenant-section><docset:_54Insurance-section><dg:chunk structure="h1">
+
+
+
+<docset:Insurance>54</docset:Insurance>. Insurance </dg:chunk><docset:_54Insurance structure="div"><docset:LiabilityInsuranceRequirements structure="p">
+
+
+
+ Tenant, at all times during the term of this Lease and at Tenant's expense, shall provide and keep in force with insurers reasonably approved by Landlord Commercial General Liability insurance against all claims for personal injury, bodily injury, <dgm:Condition>death </dgm:Condition>or property damage occurring upon, in or about the Premises, such insurance (a) to be on an occurrence basis with a general aggregate of not less than </docset:LiabilityInsuranceRequirements><dg:chunk><docset:InsuranceRequirements structure="p">
+
+ <docset:InsuranceCoverageLimit>$3,000,000</docset:InsuranceCoverageLimit>, including umbrella coverage, (b) to cover at least the following hazards (<docset:InsuranceCoverage>1</docset:InsuranceCoverage>) Premises and operations, including but not limited to flooding, backup of sewers and drains, burglary, theft, and plate glass (<docset:InsuranceCoverage>2</docset:InsuranceCoverage>) Tenant's independent contractors; (<docset:InsuranceCoverage>3</docset:InsuranceCoverage>) contractual liability for all written and oral contracts; and (<docset:InsuranceCoverage>4</docset:InsuranceCoverage>) contractual liability covering the indemnitees contained elsewhere in this Lease, and Liquor Law legal liability insurance. </docset:InsuranceRequirements><dg:chunk><docset:InsuranceRequirements structure="p">
+
+
+
+ All insurance maintained by Tenant pursuant to this Article shall name Landlord and Landlord’s managing agent as additional insureds and shall name Tenant as the insured, shall provide that any loss shall be payable notwithstanding any act or failure to act or negligence of Landlord, Tenant or any other person, shall provide that no cancellation, reduction in amount, or material change in coverage thereof will be effective until at least <docset:InsuranceCancellationNotice>thirty days </docset:InsuranceCancellationNotice>after mailing by the insurer to Landlord of written notice thereof, and shall be satisfactory to Landlord, acting reasonably, in all other respects. All insurance provided for herein shall be obtained under valid and enforceable policies, issued by financially sound and responsible insurance companies authorized, licensed and admitted to do business in the state in which the Premises and building are located and reasonably approved by Landlord. The insurance companies must have a general policy rating of A or better and a financial class of IX or better by <docset:InsuranceCompanyRating>AM Best Co., Inc. </docset:InsuranceCompanyRating></docset:InsuranceRequirements><docset:WaiverofSubrogation structure="p">
+
+
+
+ Tenant hereby waives any and all rights of recovery against Landlord, its officers, members, agents, and employees, occurring on or arising out of the use and occupation of the Premises or the building to the extent such loss or damage is covered by proceeds received from insurance required under this Lease to be carried. This waiver of subrogation provision shall be limited to loss or damage to the property of Landlord and Tenant and bodily injury to employees, officers, agents of each party and any other injured member of the public. Tenant shall indemnify Landlord against any loss or expense, including reasonable attorneys’ fees, resulting from the failure to obtain such waiver. This waiver shall be in addition to, and not in limitation or derogation of, any other waiver or release contained in this Lease with respect to any loss of, or damage to, property of the parties hereto or bodily injury to either party or to members of the public. Inasmuch as the above waiver will preclude the assignment of any aforesaid claim by way of subrogation to an insurance company, Tenant agrees immediately to give to each insurance company providing a policy described in this Article, written notice of the terms of said waiver, and to have said insurance policies properly endorsed, if necessary, to prevent the invalidation of said insurance coverages by reason of said waiver. </docset:WaiverofSubrogation><docset:InsuranceRequirements structure="p">
+
+
+
+ Upon the execution of this Lease and thereafter not less than <docset:InsurancePolicyDeliveryDeadline>fifteen days </docset:InsurancePolicyDeliveryDeadline>prior to the expiration date of any policy delivered pursuant to this Article, Tenant shall deliver to Landlord the originals of all policies or renewal policies, as the case may be, required by this Lease, bearing notations evidencing the payment of the premiums therefor, which premiums may be paid by Tenant in installments if such payment of premiums by installments is provided for and permitted by such original or renewal policies . In lieu of any such policies, Tenant may deliver certificates of the insurer, in form and substance satisfactory to Landlord, as to the issuance and effectiveness of such policies and the amounts of coverage afforded thereby, accompanied by copies of such policies. Such insurance may be provided through a blanket policy or policies in form and substance satisfactory to Landlord. Such blanket policies shall provide specific allocation to the demised premises of the coverage afforded thereby, and shall give to Landlord no less protection than that which would be afforded by separate policies. </docset:InsuranceRequirements><dg:chunk><docset:InsuranceRequirements structure="p">
+
+
+
+ If at any time Tenant shall neglect or fail to provide or maintain insurance or to deliver insurance policies in accordance with this Article, Landlord may effect such insurance as agent for Tenant, by taking out policies in a company satisfactory to Landlord, and the amount of the premiums paid for such </docset:InsuranceRequirements><docset:InsuranceRequirements structure="p">
+
+
+
+
+
+ insurance shall be paid by Tenant to Landlord on demand. Landlord, in addition to Landlord's other rights, powers and remedies, shall be entitled to recover as damages for any breach of this Article the uninsured amount of any liability, claim, loss, damage or expense, including reasonable attorneys' fees, suffered or incurred by Landlord, and shall not be limited in the proof of damages which Landlord may claim against Tenant to the amount of the insurance premiums not paid or incurred by Tenant which would have been payable for such insurance. </docset:InsuranceRequirements></dg:chunk></dg:chunk></dg:chunk></docset:_54Insurance></docset:_54Insurance-section><docset:ESTOPPELCERTIFICATES-section><dg:chunk structure="h1">
+
+
+
+<docset:EstoppelCertificate>55</docset:EstoppelCertificate>. <dg:chunk>Estoppel Certificates </dg:chunk></dg:chunk><docset:ESTOPPELCERTIFICATES structure="div">
+
+
+
+ Tenant shall execute, acknowledge and deliver to Landlord, promptly upon request, but not more often than <dgc:Frequency>annually</dgc:Frequency>, a certificate provided by Landlord stating: (a) that this Lease is unmodified and in full force and effect (or, if there have been modifications, that this Lease is in full force and effect, as modified, and identifying the modifications); (b) the commencement and expiration dates of the term of this Lease; (c) the dates through which fixed rent and additional rent have been paid; (d) whether or not there is any existing default by Landlord or Tenant with respect to which a notice of default has been delivered, and if there is any such default, specifying the nature and extent thereof; (e) that this Lease is subordinate to any existing or future mortgage placed by Landlord on the Building; and (f) whether or not there are any setoffs, defenses or counterclaims against the enforcement of any of the agreements, terms, covenants or conditions of this Lease to be paid, complied with or performed by Tenant. Any such certificate may be relied upon by Landlord and any mortgagee, purchaser or other person with whom Landlord may deal. </docset:ESTOPPELCERTIFICATES></docset:ESTOPPELCERTIFICATES-section><docset:_56SecurityDeposit-section><dg:chunk structure="h1">
+
+
+
+<docset:SecurityDeposit>56</docset:SecurityDeposit>. <dg:chunk>Security Deposit </dg:chunk></dg:chunk><docset:_56SecurityDeposit structure="div"><docset:SecurityDeposit structure="p">
+
+
+
+ Upon execution of this Lease, Tenant has deposited with Landlord the sum of <docset:SecurityDepositAmount>$78,000.00 </docset:SecurityDepositAmount>in good funds as security for the full and faithful performance and observance by Tenant of the terms, covenants and conditions of this Lease (the “Security”). If Tenant defaults in the performance or observance of any term, covenant or condition of this Lease, including without limitation the obligation of Tenant to pay any rent or other sum required hereunder, Landlord may use, after <docset:DefaultNoticePeriod>10 days </docset:DefaultNoticePeriod>written notice to Tenant ,apply, or retain, without any application to any court or tribunal, the whole or any part of the Security so deposited to the extent required for the payment of any rent or any other sum as to which Tenant is in default or for any sum which Landlord may expend or may be required to expend by reason of Tenant's default, including without limitation any damages or deficiency accrued before or after summary proceedings or other re-entry by Landlord. Such use, application, or retention by the Landlord shall be without prejudice to Landlord’s rights to seek any and all additional rent and/or damages that may have accrued. If Tenant shall fully and faithfully observe and perform all of the terms, covenants, and conditions of this Lease, the Security, shall be returned to Tenant after the end of the term of this Lease or at permissible early termination as provided herein and the delivery of possession of the demised Premises to Landlord. </docset:SecurityDeposit><dg:chunk><docset:SecurityInterest structure="p">
+
+
+
+ Landlord shall not be obligated to place the Security in an interest bearing account. The annual interest or amounts earned and received on such Security shall be retained by the Landlord and shall be deemed as additional rent. If the entire Security, or any portion thereof, be applied by Landlord, then Tenant will on Landlord's written demand remit to Landlord as Additional Rent hereunder within <docset:SecurityInterest>ten </docset:SecurityInterest></docset:SecurityInterest>
+
+ <dg:chunk structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 2421.0; width: 1968.0; height: 87.0; page: 18;}; "><docset:DemandforPayment structure="li" style="boundingBox:{left: 300.0; top: 2421.0; width: 1968.0; height: 87.0; page: 18;}; "><dg:chunk structure="lim">(10)  </dg:chunk><docset:SecurityRestoration structure="p">days of such demand a sufficient sum in cash to restore said Security to the amount required as set forth in this Article. </docset:SecurityRestoration></docset:DemandforPayment></dg:chunk></dg:chunk><dg:chunk><docset:SecurityAssignment structure="p">
+
+
+
+
+
+ In the event of a sale, transfer or leasing of the Premises by Landlord, Landlord shall have the right to transfer the Security to the vendee, transferee or lessee, whereupon Landlord shall be deemed released by Tenant from all liability for the return of said Security, except that Landlord shall remain responsible for the <dg:chunk>Security Deposit </dg:chunk>paid hereunder, until such time as [a] a successor landlord or party in interest assumes in writing the obligations therefore and [<docset:SecurityDepositTransfer>2</docset:SecurityDepositTransfer>] Landlord provides notice of assignment to Tenant. In such event, Tenant agrees to look solely to such new Landlord for the return of said Security. This Article shall apply to every transfer or assignment of the Security to a new Landlord. Tenant shall not assign or encumber the Security, and Landlord shall not be bound by any such assignment and encumbrance. </docset:SecurityAssignment><docset:SecurityAmount structure="p">
+
+
+
+         The Security being held pursuant to this Article shall at all times be an amount equal to 
+
+
+
+
+
+ <docset:SecurityAmount>three </docset:SecurityAmount><docset:SecurityAmount>(3) </docset:SecurityAmount>times the monthly fixed rent then reserved under Article 40 of this Lease. On the first day of the month following each anniversary of the <dg:chunk>Rent Commencement Date </dg:chunk>of this Lease, Tenant shall pay to Landlord funds sufficient so that the un-applied Security held by Landlord shall at all times equal three times the monthly fixed rent then reserved under Article 40 of this Lease. </docset:SecurityAmount></dg:chunk><docset:SecurityDeposit structure="p">
+
+
+
+ If Landlord applies or retains all or any portion of the Security, Tenant shall pay to Landlord, within <docset:PaymentDeadline>five (5) days </docset:PaymentDeadline>of Landlord’s demand, as additional rent the amount so applied or retained, so that the un-applied Security shall be at all times no less than an amount equal to <docset:SecurityDepositAmount>three </docset:SecurityDepositAmount>times the monthly fixed rent then reserved under Article 40 of this Lease. </docset:SecurityDeposit><dg:chunk><docset:SecurityDepositReturn structure="p">
+
+
+
+ Notwithstanding the foregoing, provided Tenant is not then in default of this Lease, on <docset:SecurityReductionDate>March 15, 2022</docset:SecurityReductionDate>, Landlord shall return <docset:SecurityReductionAmount>$26,000 </docset:SecurityReductionAmount>of the Security to the Tenant and the Security obligation shall be <docset:SecurityAmount>$52,000</docset:SecurityAmount>. In the event Tenant continues to comply with all of the terms and conditions of this Lease, and provided Tenant is not then in default of this Lease, on <dg:chunk xsi:type="date">March 15, 2022</dg:chunk>, Landlord shall return </docset:SecurityDepositReturn><docset:SecurityAmount structure="p">
+
+ <docset:SecurityAmount>$<dg:chunk>20,023.78 </dg:chunk></docset:SecurityAmount>of the Security to the Tenant and the Security obligation shall be <docset:SecurityObligation>$<dg:chunk>31,976.72 </dg:chunk></docset:SecurityObligation>and remain until the expiration or earlier termination of this Lease. </docset:SecurityAmount></dg:chunk></docset:_56SecurityDeposit></docset:_56SecurityDeposit-section><docset:_57AssignmentAndSubletting-section><dg:chunk structure="h1">
+
+
+
+<docset:AssignmentandSubletting>57</docset:AssignmentandSubletting>. Assignment and Subletting </dg:chunk><docset:_57AssignmentAndSubletting structure="div"><docset:AssignmentandSublettingRestriction structure="p">
+
+
+
+ Tenant expressly covenants that Tenant shall not voluntarily or involuntarily assign, encumber, mortgage or otherwise transfer this Lease, or sublet the Premises or any part thereof, or suffer or permit the Premises or any part thereof to be used or occupied by others, by operation of law or otherwise, without the prior written consent of Landlord in each instance, which consent shall not be unreasonably withheld or delayed. or conditioned. Absent such consent, any act or instrument purporting to do any of the foregoing shall be null and void. </docset:AssignmentandSublettingRestriction><docset:AssignmentofLease structure="p">
+
+
+
+The transfer of a majority of the capital stock of any corporate tenant, or of a majority of the total interests in any partnership tenant or limited liability company tenant, however accomplished and whether in a single transaction or a series of transactions, shall be deemed an assignment of this Lease, except that a transfer of stock for purposes hereof shall not include sales of stock by persons through the "over-the-counter market" or a recognized stock exchange other than sales by "insiders" within the meaning of the <dg:chunk>Securities Exchange Act </dg:chunk>of <docset:AssignmentRestrictions>1934 </docset:AssignmentRestrictions>as amended. Notwithstanding the foregoing, Tenant may assign this Lease or sublet all or any portion of the Premises without Landlord’s consent being required (a “<dg:chunk>Permitted Assignment</dg:chunk>”) to a corporation or other entity into which or with which Tenant is merged or consolidated or to an entity to which substantially all of the assets of Tenant are transferred, or, if Tenant is a partnership or limited liability company, to a successor, entity, and Tenant may sublet the Premises or assign the Lease to subsidiaries or affiliates of Tenant for so long as any such subsidiary or affiliate shall retain the status of a subsidiary or affiliate of Tenant. For purposes hereof, a "subsidiary" or "affiliate" shall mean a corporation or other entity of which at least <dgc:Percent>fifty-one percent </dgc:Percent>of the common stock is owned by Tenant or a partnership of which at least <docset:TransferofCapitalStock>fifty-one percent </docset:TransferofCapitalStock>of the equity or other ownership interest in your is owned by Tenant or is controlled by or is under common control with Tenant. </docset:AssignmentofLease><docset:AssignmentandSubletting structure="p">
+
+ Except in connection with an Assignment to an affiliate, successor or to a coporation intio which Tenant is merged or consolidated, or to an entity to which substantially all of the assets of Tenant are transferred, if Tenant desires to assign this Lease or sublet all or any portion of the Premises, Tenant shall submit to Landlord in writing: the name and address of the proposed assignee or subtenant and of its principals; a counterpart of the proposed agreement of assignment or sublease and all other instruments or agreements pertaining thereto; such information as to the nature and character of the business of the proposed assignee or subtenant and of its principals, and the proposed use of the space, as Landlord reasonably may request; banking, financial or other credit information relating to the proposed assignee or subtenant and of its principals, sufficient to enable Landlord to determine the financial responsibility and character of the proposed assignee or subtenant or its principals; and a statement of all sums or other consideration paid or to be paid to or by Tenant by or for the account of the assignee or subtenant and its principals, in connection with such assignment or sublease, including without limitation sums paid or to be paid for the sale or rental of Tenant's fixtures, Leasehold improvements, equipment, furniture, furnishings or other personal property. Tenant shall pay all of Landlord's costs and expenses, including reasonable attorneys' fees, incurred in connection with the review of any proposed assignment or 
+
+
+
+
+
+ sublease, and the review, preparation and/or execution of any documents pertaining to any proposed assignment or sublease. </docset:AssignmentandSubletting><docset:AssignmentandSubleaseRestrictions structure="p">
+
+
+
+ No such assignment or transfer, irrespective of any consent by Landlord, shall be effective unless the assignee shall execute, acknowledge and deliver to Landlord a recordable agreement, in form and substance satisfactory to Landlord, whereby the assignee shall assume the obligations and performance of this Lease and shall agree to be bound by all of the terms, covenants and conditions of this Lease, including restrictions on use, to be observed, performed or complied with by Tenant, and whereby the assignee shall agree that the provisions of this Article shall continue to be binding upon it in the future notwithstanding such assignment or transfer. No sublease shall be effective, irrespective of any consent of Landlord, unless the subtenant shall execute and deliver to Landlord a recordable agreement, in form and substance satisfactory to Landlord, whereby the subtenant agrees to comply with all applicable terms, covenants and conditions of this Lease, including restrictions on use, to be complied with by Tenant hereunder. </docset:AssignmentandSubleaseRestrictions><docset:AssignmentandSublettingRestrictions structure="p">
+
+
+
+
+
+ In no event shall Tenant be entitled to assign this Lease or to sublet all or any portion of the Premises to: any tenant or occupant of any other space in the Building, or to any affiliate (within the meaning of Rule 144 adopted pursuant to the <dg:chunk>Securities Act </dg:chunk>of <docset:AssignmentRestrictions>1933</docset:AssignmentRestrictions>) of any tenant or occupant of other space in the Building; any person or entity who has dealt with Landlord or Landlord's agents, directly or through a broker, with respect to space in the Building during the <docset:AssignmentRestrictions>twelve months </docset:AssignmentRestrictions>preceding the assignment or subletting; or any person or entity whose business or activities or intended use of the Premises is not in keeping with the standards of the Building. In no event shall Tenant be entitled to assign this Lease or sublet the Premises or any part thereof if there shall be any default by Tenant, beyond any applicable grace period, under any term, covenant or condition of this Lease. </docset:AssignmentandSublettingRestrictions><docset:AssignmentRestrictions structure="p">
+
+
+
+ The Landlord's consent to an assignment, encumbering, transfer or subletting shall not be deemed or construed as a consent to any further assignment, encumbering, transfer or subletting, or a waiver of this provision of this Article. A modification, amendment or extension or a sublease shall be deemed a new subletting for purposes of the prohibitions contained in this Article. Any person or representative of Tenant to whom Tenant's interest under this Lease passes by operation of law, or otherwise, shall be bound by the provisions of this Article. </docset:AssignmentRestrictions><dg:chunk><docset:AssignmentofLease structure="p">
+
+
+
+ No assignment of this Lease or acceptance of rent by Landlord from any assignee or other party shall discharge or release Tenant or any person, firm, or corporation which previously assumed Tenant's obligations hereunder, and Tenant and such persons, firms and corporations shall remain liable for the payment of rent due and to become due under this Lease and for the performance and observance of all of the terms, covenants and conditions of this Lease on the part of Tenant to be observed or performed for the balance of the term of this Lease as if no assignment has been effected. If this Lease is assigned, whether or not in violation of this Article, Landlord may collect rent from the assignee. If the demised Premises or any part thereof are sublet or occupied by anybody other than Tenant, Landlord, after any default by Tenant, may collect rent from the subtenant or occupant, and apply the net amount collected to the rent due hereunder. Such collection of rent by Landlord shall not be deemed or construed as a waiver of the provisions hereof, the acceptance of the assignee, subtenant or occupant as a tenant, or a release of Tenant from the further performance and observance by Tenant of the terms, covenants and conditions of this Lease. </docset:AssignmentofLease>
+
+
+
+ <docset:AssignmentandSubleaseCosts structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 2613.0; width: 1968.0; height: 471.0; page: 20;}; boundingBox:{left: 300.0; top: 408.0; width: 1968.0; height: 519.0; page: 21;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2613.0; width: 1968.0; height: 471.0; page: 20;}; boundingBox:{left: 300.0; top: 408.0; width: 1968.0; height: 135.0; page: 21;}; "><dg:chunk structure="lim">(a)   </dg:chunk><docset:AssignmentandSubleaseCosts structure="p">Whether or not the proposed assignment or sublease is finalized, Tenant shall pay Landlord the minimum sum of <docset:AdministrativeCosts>$750.00 </docset:AdministrativeCosts>to reimburse Landlord for the administrative costs of review and processing of Tenant’s proposed assignment or sublease, in each instance; and if, in connection therewith, Landlord incurs expenses in excess of said <dgc:Money>$750.00 </dgc:Money>amount, including but not limited to reasonable expenses for attorneys’ fees and disbursements, architectural fees, engineering or other professional fees, then Tenant shall pay Landlord the amount of such excess fees as additional rent within <docset:ApplicationCostsPaymentDeadline>ten (10) days </docset:ApplicationCostsPaymentDeadline>of Landlord’s submission to Tenant of bills for same. Upon submission to Landlord of Tenant’s request for consent to an assignment or sublease, Tenant shall deliver to Landlord a bank check payable to Landlord in the sum of <docset:ApplicationCostsPrepayment>$3,500.00 </docset:ApplicationCostsPrepayment>(“Application Costs Prepayment”) which shall be applied to Landlord’s legal fees and other costs incurred in connection with Landlord’s review and processing of Tenant’s request for 
+
+
+
+
+
+
+
+
+
+ consent to such assignment or sublease. In the event that Landlord’s costs in this regard are less than such Application Costs Prepayment, Landlord will refund to Tenant the difference between Landlord’s costs incurred and the amount of the <dg:chunk>Application Costs Prepayment</dg:chunk>. </docset:AssignmentandSubleaseCosts></dg:chunk>
+
+
+
+
+
+ <dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 552.0; width: 1953.0; height: 375.0; page: 21;}; "><dg:chunk structure="lim">(b)   </dg:chunk><docset:AssignmentandSubletting structure="p">In the event that this Lease is assigned or the Premises are sublet (except for any assignment or subletting which does not result in a change of beneficial ownership of this Lease, of in connection with an Assignment to an affiliate, successor or to a coporation intio which Tenant is merged or consolidated, or to an entity to which substantially all of the assets of Tenant are transferred), it shall be a condition of such assignment or subletting that Tenant shall deposit or arrange for the deposit with Landlord as security hereunder an additional amount equal to <docset:SecurityDepositAmount>two (2) months </docset:SecurityDepositAmount>fixed rent at the rate then in effect for the first assignment or subletting and an additional (<docset:SecurityDepositAmount>2) months </docset:SecurityDepositAmount>fixed rent at the rate then in effect for each and every subsequent assignment or subletting. </docset:AssignmentandSubletting></dg:chunk></docset:AssignmentandSubleaseCosts></dg:chunk><docset:StockholderInformation structure="p">
+
+
+
+
+
+ Upon the execution of this Lease, Tenant shall provide Landlord with the name and stock interest of each Shareholder of the Tenant, if it be a corporation, or, name and percentage interest of each Member of the Tenant if it be a <docset:TenantType>Limited Liability Company</docset:TenantType>. Any such corporate tenant, within <docset:ComplianceDeadline>ten (10) days </docset:ComplianceDeadline>following Landlord’s written request therefor, shall furnish to Landlord a statement verified by a principal officer of said corporation, setting forth such information regarding the stockholders thereof which Landlord may designate in its said request; it being distinctly understood and agreed that any such Tenant’s failure to comply with Landlord’s said request shall be deemed a major default under the within Lease. </docset:StockholderInformation></docset:_57AssignmentAndSubletting></docset:_57AssignmentAndSubletting-section><docset:_58Brokerage-section><dg:chunk structure="h1">
+
+
+
+<docset:Brokerage>58</docset:Brokerage>. Brokerage </dg:chunk><docset:_58Brokerage structure="div">
+
+
+
+ Tenant represent and warrant that haves not dealt with any broker in connection with this Lease or the negotiation or execution thereof, except for <docset:BrokerageCommission>JRL-NYC, LLC </docset:BrokerageCommission>("Brokers"). Landlord will pay the brokerage commission to the Brokers in connection with this Lease pursuant to separate agreement. Tenant shall indemnify and hold Landlord harmless from and against any claims, damage, liability, or expense, including attorneys' fees, pertaining to any other broker with whom Tenant has dealt, including any payment due to <dg:chunk>Retail Worx Brokerage</dg:chunk>. </docset:_58Brokerage></docset:_58Brokerage-section><docset:_59ModificationsRequestedByLender-section><dg:chunk structure="h1">
+
+
+
+<docset:ModificationsRequestedByLender>59</docset:ModificationsRequestedByLender>. Modifications Requested By Lender </dg:chunk><docset:_59ModificationsRequestedByLender structure="div">
+
+
+
+ If, in connection with obtaining financing or refinancing for the Building of which the Premises form a part, a banking, insurance or other institutional lender shall request reasonable modifications to this Lease as a condition to such financing or refinancing, Tenant shall not unreasonably withhold or delay its consent thereto, provided such modifications do not materially adversely affect the Leasehold interest hereunder or increase Tenant's obligations hereunder, except to the extent that Tenant may be required to give notices of any defaults by Landlord to such lender or permit the curing of such defaults by such lender together with the granting of such additional time for such curing as may be required for such lender to get possession of the Building. In no event shall a requirement that the consent of any such lender be given for any modification of this Lease or for any assignment or sublease be deemed to materially adversely affect the Leasehold interest hereby created. </docset:_59ModificationsRequestedByLender></docset:_59ModificationsRequestedByLender-section><docset:_60Notices-section><dg:chunk structure="h1">
+
+
+
+<docset:Notices>60</docset:Notices>. Notices </dg:chunk><docset:_60Notices structure="div">
+
+
+
+ All notices, bills, statements, demands, requests or other communication given, required or permitted to be given hereunder shall be sent by registered or certified mail, return receipt requested, or by nationally recognized overnight courier) addressed as follows or to such other address as either Landlord or Tenant may designate as its new address for such purpose by notice given to the others in accordance with the provisions of this Article 60. Such notice shall be deemed given when received. </docset:_60Notices></docset:_60Notices-section><docset:_61Miscellaneous-section><dg:chunk structure="h1">
+
+
+
+<docset:Miscellaneous>61</docset:Miscellaneous>. Miscellaneous </dg:chunk><docset:_61Miscellaneous structure="div"><docset:WaiverofRights structure="p">
+
+
+
+ The failure of Landlord to insist upon a strict performance of any term, covenant or condition herein shall not be deemed a waiver of any rights or remedies that Landlord may have or a waiver of any subsequent breach or default. </docset:WaiverofRights><docset:EnforceabilityofTerms structure="p">
+
+
+
+ If any provision of this Lease shall be unenforceable or invalid, such unenforceability or invalidity shall not affect any other provision of this Lease. </docset:EnforceabilityofTerms><dg:chunk><docset:LeaseExecution structure="p">
+
+
+
+ The submission of this Lease to Tenant shall not be construed to impose any right or obligations on either party or as an offer or option, and Tenant shall not have any rights hereunder unless and until Landlord shall execute the Lease and deliver a signed original to the Tenant. </docset:LeaseExecution><dg:chunk structure="p">
+
+
+
+         The terms “Landlord” and “Owner” shall have the same meaning when used in this Lease. </dg:chunk></dg:chunk><docset:LandlordObligations structure="p">
+
+
+
+ Notwithstanding anything to the contrary contained in any portion of this Lease, Landlord shall have no obligation to Tenant to supply any service or perform any act. Landlord shall not supply heat and shall not supply air conditioning to the Premises. </docset:LandlordObligations><docset:RecordingRestriction structure="p">
+
+
+
+ Tenant shall not record this Lease or any Memorandum thereof. A breach of this provision shall be a breach of a substantial obligation of this Lease which, at Landlord’s option, shall be a default of this Lease. </docset:RecordingRestriction><dg:chunk><docset:TenantsRiskofLoss structure="p">
+
+
+
+ All of the furnishings, fixtures, equipment, effects and property of every kind, nature and description of Tenant in the Premises and all persons claiming by, through or under Tenant which, during the continuance of this Agreement or any occupancy of the Premises by Tenant shall be at the sole risk and hazard of Tenant, and if the whole or any part thereof shall be injured, destroyed, or damaged by fire, water or otherwise, or by the leakage or bursting of water pipes, steam pipes, or other pipes, or by theft or from any other cause, no part of said loss or damage is to be charged to or borne by Landlord, except for intentional acts or negligence of Landlord. </docset:TenantsRiskofLoss><dg:chunk><dg:chunk structure="p">
+
+
+
+         All, HVAC, and lighting fixtures installed by Tenant in the Premises shall be deemed </dg:chunk><dg:chunk structure="p">
+
+ fixtures. </dg:chunk></dg:chunk></dg:chunk><docset:MaintenanceandRepairs structure="p">
+
+
+
+ Tenant shall, at its sole cost and expense, maintain and promptly make all repairs and replacements, structural or otherwise, ordinary and extraordinary, to all of the furnishings, fixtures, kitchen equipment, all other equipment, effects and property of every kind, nature and description located in the premises. </docset:MaintenanceandRepairs><dg:chunk><docset:SecurityServices structure="p">
+
+
+
+ Tenant acknowledges that Landlord shall have no obligation to provide any security services for the Premises or the Building. Tenant acknowledges that it has been advised that the Building is designated a Landmark and is subject to review of the <dg:chunk>Landmarks Preservation <docset:LandmarksPreservationCommission>Commission</docset:LandmarksPreservationCommission></dg:chunk>. </docset:SecurityServices><dg:chunk structure="p">
+
+
+
+         Tenant shall not use any elevator of the building for any purpose whatsoever. </dg:chunk></dg:chunk><docset:BridgeScaffolding structure="p">
+
+
+
+ Landlord shall be entitled, without any reduction in Tenant's rent, to erect any bridge scaffolding in front of the Premises in connection with alterations or repairs to the building of which the Premises forms a part, or the sidewalk serving the Premises; provided, however, that Landlord shall give Tenant <docset:NoticePeriod>thirty (30) days </docset:NoticePeriod>notice before Landlord erects any such bridge scaffolding and proceed with reasonable diligence to prosecute to completion of the alteration or repairs necessitating such bridge scaffolding. Landlord represents that as of the effective date there is (a) no intention to erect bridge scaffolding and (b) is without actual knowledge of any condition or circumstance which may require the erection of bridge scaffolding </docset:BridgeScaffolding><docset:RecordingRestriction structure="p">
+
+
+
+ This lease shall not be recorded. No memorandum of this lease shall be recorded without the express written consent of Landlord. </docset:RecordingRestriction><docset:EnforceabilityofTerms structure="p">
+
+
+
+ The invalidity or unenforceability of any provision of this lease shall in no way affect the validity or enforceability of any of the other provisions contained in this lease. Landlord and Tenant understand, agree and acknowledge that this lease has been freely negotiated by both parties and that, in the event of any controversy, dispute, or contest over the meaning, interpretation, validity or enforceability of this lease or any of its terms and conditions, there shall be no inference, presumption or conclusion drawn whatsoever against either party by virtue of that party having drafted this lease or any portion hereof. </docset:EnforceabilityofTerms><docset:NoOralAgreements structure="p">
+
+
+
+ There are no oral agreements between the parties hereto affecting this lease and this lease supersedes and cancels any and all previous representations, negotiations, arrangements and understandings, if any, between the parties hereto with respect to the subject matter hereof, and shall not be used to interpret or construe this lease. </docset:NoOralAgreements><docset:RiderProvisions structure="p">
+
+
+
+ Wherever in this lease there is any conflict between the provisions of this lease other than the Rider and the Rider provisions of this lease (i.e. beginning at Article 40), the Rider provisions shall be deemed to supersede and be controlling. </docset:RiderProvisions><docset:ModificationofTerms structure="p">
+
+
+
+ This lease may not be changed, modified or discharged, in whole or in part, orally, and no executory agreement shall be effective to change, modify or discharge, in whole or in part, this lease or any obligations under this lease, unless such agreement is set forth in a written instrument executed by the party against whom enforcement of the change, modification or discharge is sought. In addition, Tenant shall reimburse Landlord on demand for any and all reasonable attorney’s fees incurred by Landlord in connection with the preparation, review, negotiation and/or consummation of any amendment, modification, instrument, agreement or other understanding made at the request of, or as an accommodation to, Tenant with respect to this lease. In addition, Landlord shall reimburse Tenant on demand for any and all reasonable attorney’s fees incurred by Tenant in connection with the preparation, review, negotiation and/or consummation of any amendment, modification, instrument, agreement or other understanding made at the request of, or as an accommodation to, Landlord with respect to this lease. </docset:ModificationofTerms><docset:OfferandAcceptance structure="p">
+
+
+
+ The mailing or delivery of a lease by the Landlord to a possible Tenant, its agent or attorney, shall not be deemed an offer nor shall any obligation or liability be created on the part of Landlord until such time as a lease, duly executed by the Landlord, is delivered to such possible Tenant, its agent or attorney. </docset:OfferandAcceptance><docset:NoticeofDamage structure="p">
+
+
+
+Tenant shall give notice to Landlord, promptly after Tenant learns thereof, of (i) any accident in or about the <dg:chunk>Demised Premises </dg:chunk>resulting in material injury to person or property, (ii) all fires and other casualties within the <dg:chunk>Demised Premises</dg:chunk>, (iii) all material damages to or defects in the <dg:chunk>Demised Premises</dg:chunk>, including the fixtures, equipment and appurtenances thereof for the repair of which Landlord might be responsible, and (iv) all damage to or defects in any parts or appurtenances of the Building’s sanitary, electrical, heating, ventilating, air conditioning, elevator and other systems located in or passing through the <dg:chunk>Demised Premises </dg:chunk>or any part thereof. </docset:NoticeofDamage><docset:AuthoritytoExecute structure="p">
+
+
+
+ In the event that Tenant is not an individual, Tenant represents that the officer or officers, partner or partners, member or members or manager or managers executing this lease have the requisite authority to do so. </docset:AuthoritytoExecute><docset:CompatibilityAcknowledgement structure="p">
+
+
+
+ Tenant hereby acknowledges that Landlord makes no representations as to the compatibility of the Building systems with Tenant’s equipment. </docset:CompatibilityAcknowledgement><docset:IndemnificationClause structure="p">
+
+
+
+ Tenant shall indemnify, hold harmless and defend Landlord, its affiliates, managing agents, subsidiaries, directors, officers, employees and agents from and against any and all liabilities, claims, demands, damages, costs, expenses (including reasonable attorneys’ fees), suits, judgments whether actual or alleged, including such for bodily injury or wrongful <dgm:Condition>death </dgm:Condition>to any person (including tenant employees and invitees) and property damage to any property (subject to the waiver of subrogation provisions of this lease), (i) occurring in the <dg:chunk>Demised Premises</dg:chunk>; (ii) arising from the acts or omissions of the Tenant, its subtenants, its employees, invitees, contractors or agents to the extent constituting negligence; (iii) arising from any breach of this lease or misconduct by any of the foregoing. Upon notification by the Landlord of an indemnifiable event, Tenant at its own expense shall arrange for Landlord’s defense (at Landlord’s option) and confirm indemnification; or (iv) arising from any failure of Tenant to comply in all respects with any Requirements or the ADA. These indemnification provisions are to continue after lease expiration and are not limited by the amount of available insurance in place. </docset:IndemnificationClause><docset:GoverningLaw structure="p">
+
+
+
+ This lease shall be construed in accordance with and governed by the internal laws (without reference to choice or conflict of laws) of the State of <dgc:USState>New York</dgc:USState>. In respect of any dispute between the parties regarding the subject matter hereof, the parties hereby irrevocably consent and submit to in personam jurisdiction in the courts of <dgc:USState>New York</dgc:USState>, located in the county in which the Building is located, including the United States courts located in said county, and to all proceedings in such courts. The parties hereby agree that such courts shall be the venue and exclusive and proper forum in which to adjudicate any case or controversy arising either, directly or indirectly, under or in connection with this lease and that they will not contest or challenge the jurisdiction or venue of these courts. </docset:GoverningLaw><docset:DamagesWaiver structure="p">
+
+
+
+ Notwithstanding anything contained to the contrary in this lease, (i) Tenant hereby waives any right to recover against Landlord any indirect, consequential, special, punitive or incidental damages against Landlord in any cause of action, proceeding or claim arising out of, or in connection with, this lease; and (ii) Landlord hereby waives any right to recover against Tenant any indirect, consequential, special, punitive or incidental damages against Tenant in any cause of action, proceeding or claim arising out of, or in connection with, this lease. </docset:DamagesWaiver><docset:CompliancewithLandlordRules structure="p">
+
+
+
+ Tenant shall obey and observe (and compel its officers, employees, contractors, licensees, invitees, subtenants, concessionaires and all others doing business with it, to obey and observe) all rules and regulations, whether currently in existence or hereafter reasonably established (provided such future rules and regulations are not inconsistent with the terms of this lease) by Landlord <dgc:Frequency>from time to time </dgc:Frequency>for the conduct of tenants of and visitors to the Building and/or for the welfare of the Building. Landlord agrees not to enforce rules and regulations in a manner which discriminates against Tenant. </docset:CompliancewithLandlordRules><docset:EquipmentandTradeFixtures structure="p">
+
+
+
+ Tenant shall operate its business in the <dg:chunk>Demised Premises </dg:chunk>with adequate equipment and trade fixtures for the conduct of Tenant’s business at the <dg:chunk>Demised Premises</dg:chunk>. Such equipment and trade fixtures, when initially installed, must be functional. </docset:EquipmentandTradeFixtures><docset:GreaseTrapsandExhaustDucts structure="p">
+
+
+
+ If applicable for the then-current use of the <dg:chunk>Demised Premises</dg:chunk>, Tenant shall install and maintain grease traps and/or grease interceptors, if and as required by all governmental and quasi- governmental authorities and all insurance regulations and insurance carrier requirements, to handle waste, including grease, oil or any material whatsoever which could damage, obstruct or overload any drainage, sewer or other system. Tenant shall maintain exhaust ducts to ensure proper ventilation of the <dg:chunk>Demised Premises </dg:chunk>as required by all governmental and quasi-governmental authorities and all insurance regulations and insurance carrier requirements. </docset:GreaseTrapsandExhaustDucts><docset:SNDAAgreement structure="p">
+
+
+
+ Supplementing Article 7 of this lease, Landlord shall provide Tenant with a Subordination, Non-Disturbance and Attornment Agreement (“SNDA”) from all institutional mortgagees and ground lessors on such institutional mortgagee’s or ground lessor’s standard form. With respect to non- institutional mortgagees or ground lessors, Landlord shall provide Tenant with an SNDA in a form reasonably acceptable to Tenant, provided that Tenant shall accept an SNDA from a non-institutional mortgagee or ground lessor in substantially the same form as provided to Tenant from any prior institutional mortgagee or ground lessor. </docset:SNDAAgreement><docset:SecurityDepositApplication structure="p">
+
+
+
+ Supplementing Article <docset:SecurityDepositApplication>31 </docset:SecurityDepositApplication>of this lease, no application of the security deposit shall be made by Landlord until after Tenant has received any notice of default required hereunder, and any applicable cure period has expired. Tenant acknowledges that Landlord is not required to hold the security deposit in an interest-bearing account. </docset:SecurityDepositApplication><dg:chunk><docset:RestrictionsonTenantsActivities structure="p">
+
+
+
+ Tenant agrees that it shall not at any time, without first obtaining Landlord’s prior written consent, do any of the following: </docset:RestrictionsonTenantsActivities>
+
+
+
+ <docset:BusinessUseRestrictions structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 2187.0; width: 1968.0; height: 999.0; page: 24;}; boundingBox:{left: 300.0; top: 321.0; width: 459.0; height: 39.0; page: 25;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2187.0; width: 1968.0; height: 135.0; page: 24;}; "><dg:chunk structure="lim">(i)    </dg:chunk><docset:BusinessConduct structure="p">Conduct or permit any fire, bankruptcy, auction or “going out of business” sale (whether real or fictitious) in the <dg:chunk>Demised Premises</dg:chunk>, or utilize any unethical method of business operation; </docset:BusinessConduct></dg:chunk>
+
+
+
+
+
+
+
+ <dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2379.0; width: 1968.0; height: 183.0; page: 24;}; "><dg:chunk structure="lim">(ii)   </dg:chunk><docset:AdvertisingandSoundAmplification structure="p">Use, or permit to be used, any advertising medium and/or loudspeaker, and/or sound amplifier, and/or radio or television broadcast which may be heard outside the <dg:chunk>Demised Premises </dg:chunk>or which does not comply with the general policies or rules and regulations then in effect for the Building; </docset:AdvertisingandSoundAmplification></dg:chunk>
+
+
+
+
+
+
+
+ <dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2619.0; width: 1968.0; height: 135.0; page: 24;}; "><dg:chunk structure="lim">(iii)   </dg:chunk><docset:ImproperUseofPlumbingFacilities structure="p">Use the plumbing facilities for any purpose other than that for which they were constructed, or dispose of any garbage or other foreign substance therein, whether through the utilization of so-called “disposal” or similar units, or otherwise; </docset:ImproperUseofPlumbingFacilities></dg:chunk>
+
+
+
+
+
+
+
+ <dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2811.0; width: 1968.0; height: 135.0; page: 24;}; "><dg:chunk structure="lim">(iv)   </dg:chunk><docset:LoadRestrictions structure="p">Place a load on any floor in the <dg:chunk>Demised Premises</dg:chunk>, exceeding the floor load per square foot which such floor was designed to carry, or install, operate or maintain therein any heavy item of equipment except in such manner as to achieve a proper distribution of the weight; or </docset:LoadRestrictions></dg:chunk>
+
+
+
+
+
+
+
+ <dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 3003.0; width: 1968.0; height: 183.0; page: 24;}; boundingBox:{left: 300.0; top: 321.0; width: 459.0; height: 39.0; page: 25;}; "><dg:chunk structure="lim">(v)   </dg:chunk><docset:NuisanceProhibition structure="p">Suffer, allow or permit any offensive or obnoxious vibration, noise, odor or other undesirable effect to emanate from the <dg:chunk>Demised Premises</dg:chunk>, or any machine or other installation therein, or otherwise suffer, allow or permit the same to constitute a nuisance (it shall be the Tenant's obligation to install insulation and/or sound deadening devices as necessary to prevent any such vibration, noise, odor or other undesirable effect). </docset:NuisanceProhibition></dg:chunk></docset:BusinessUseRestrictions></dg:chunk><docset:PaymentTerms structure="p">
+
+
+
+
+
+ If not otherwise specified in this lease, and except in the case of (i) monthly installments of Rent or additional rent (which are due on the first of each calendar month without notice), and (ii) payments due from Tenant following a default which remains uncured beyond the expiration of the applicable notice and cure period (which shall be due and payable on demand), Tenant shall have a period of <docset:PaymentRequestPeriod>ten (10) business days </docset:PaymentRequestPeriod>after delivery of written request in which to make payments. </docset:PaymentTerms><docset:LimitationofLiability structure="p">
+
+
+
+ No party hereunder and no party referred to herein shall be exculpated from its own negligence or the negligence of its own employees or from any breach of its obligations under this lease (except, in either case, to the extent damages and injuries therefrom are covered by insurance actually maintained by any party, or, with respect to Landlord, that Tenant shall then be required to maintain hereunder), and no provision in this lease shall be so construed). </docset:LimitationofLiability><docset:ExecutioninCounterparts structure="p">
+
+
+
+ This lease may be executed in counterparts, each of which shall be deemed an original and all of which shall constitute one and the same instrument. This lease may be executed by the exchange of electronically-transmitted signatures which shall be binding on the parties hereto with the same force and effect as original signatures. </docset:ExecutioninCounterparts><docset:GuarantyAgreement structure="p">
+
+
+
+In order to induce Landlord to enter into this Lease with Tenant, Tenant hereby agrees to cause <docset:GuarantorName>Bluestone Lane Holdings </docset:GuarantorName>to guarantee the prompt and full performance of all of the obligations of Tenant under this Lease, to the extent of and in accordance with the terms and conditions of the Guaranty annexed hereto as Exhibit B. </docset:GuarantyAgreement></docset:_61Miscellaneous></docset:_61Miscellaneous-section><docset:_62RentControl-section><dg:chunk structure="h1">
+
+
+
+<docset:RentControl>62</docset:RentControl>. <dg:chunk>Rent Control </dg:chunk></dg:chunk><docset:_62RentControl structure="div"><docset:TerminationofLease structure="p">
+
+
+
+ In the event the fixed annual rent or additional rent or any part thereof provided to be paid by Tenant under the provisions of this Lease during the demised term shall become uncollectible or shall be reduced or required to be reduced or refunded by virtue of any Federal, State, County or City law, order or regulation, or by any direction of a public officer or body pursuant to law, or the orders, rules, code or regulations of any organization or entity formed pursuant to law, whether such organization or entity be public or private, then Landlord, at its option, may at any time thereafter terminate this Lease, by not less than <dgc:TimeDuration>thirty (30) days </dgc:TimeDuration>written notice to Tenant, on a date set forth in said notice, in which event this Lease and the term hereof shall terminate and come to an end on the date fixed in said notice as if the said date were the date originally fixed herein for the termination of the demised term. Landlord shall not have the right so to terminate this Lease if Tenant within such period of <docset:TerminationNoticePeriod>thirty (30) days </docset:TerminationNoticePeriod>shall in writing lawfully agree that the rentals herein reserved are a reasonable rental and agree to continue to pay said rental, and if such agreement by Tenant shall then be legally enforceable by Landlord. </docset:TerminationofLease><docset:EnforceabilityofTerms structure="p">
+
+
+
+ If any term, covenant or condition of this Lease or the application thereof to any person or circumstance shall, to any extent, be invalid or unenforceable, the remainder of this Lease, or the application of such term, covenant or condition to persons or circumstances other than those as to which it is held invalid or unenforceable, shall not be affected thereby and each term, covenant or condition of this Lease shall be valid and be enforced to the fullest extent permitted by law. </docset:EnforceabilityofTerms></docset:_62RentControl></docset:_62RentControl-section><docset:_63EndofTerm-section><dg:chunk structure="h1">
+
+
+
+<docset:EndofTerm>63</docset:EndofTerm>. End of Term </dg:chunk><docset:_63EndofTerm structure="div"><dg:chunk><docset:IndemnificationforDelayedSurrender structure="p">
+
+
+
+ In the event that the Premises are not surrendered at the end of the Lease term, Tenant shall indemnify and save Landlord harmless against all costs, claims, loss, or liability resulting from delay by Tenant in so surrendering the Premises, including, without limitation, any claims made by any succeeding tenant founded on such delay. </docset:IndemnificationforDelayedSurrender><docset:LiquidatedDamages structure="p">
+
+
+
+ Additionally, the parties recognize and agree that other damage to Landlord resulting from any failure by Tenant to timely surrender the Premises will be substantial, will exceed the amount of monthly rent theretofore payable hereunder, and will be impossible of accurate measurement. Tenant therefore agrees that if possession of the Premises is not surrendered to Landlord within <docset:HoldoverDamages>one (1) day </docset:HoldoverDamages>after the date of the expiration or sooner termination of the term of this Lease, then Tenant will pay Landlord as liquidated damages for each month and for each portion of any month during which Lessee holds over in the Premises after the expiration of the term of this Lease, a sum equal to <docset:LiquidatedDamages>one </docset:LiquidatedDamages><docset:LiquidatedDamages>and one-half (1.5) </docset:LiquidatedDamages>times the average rent and additional rent which was payable per month under this Lease during the last <docset:LiquidatedDamages>six months </docset:LiquidatedDamages>of the term thereof, which sum Tenant agrees to pay to Landlord upon demand, in full, without set-off or deduction, and which sum Tenant agrees is fair and reasonable and does not constitute a penalty. (“<dg:chunk>Holdover Use </dg:chunk>and Occupancy”). </docset:LiquidatedDamages></dg:chunk><docset:HoldoverTenant structure="p">
+
+
+
+Nothing contained in this clause shall be construed to mean that the Landlord has given permission for Tenant or anyone else who occupies the Premises to remain on the Premises as a monthly Tenant, or as a Tenant from month to month and the Landlord may proceed to evict the Tenant as a "Holdover." Neither the billing nor the collection of use and occupancy in the above amount shall be deemed a waiver of any right of the Landlord to collect damages for Tenant's failure to vacate the Premises after the expiration or sooner termination of this Lease. If Tenant holds over in possession after the expiration or sooner termination of the term of this Lease, such holding over shall not be deemed to extend the term or renew the Lease, but such holding over thereafter shall continue upon the covenants and conditions herein set forth in the Lease. The aforesaid obligations shall survive the expiration or sooner termination of the term of this Lease. </docset:HoldoverTenant><docset:AbandonedProperty structure="p">
+
+
+
+ In the event that on the date the Landlord repossesses the Premises under any provision of this Lease or upon the termination of this Lease or upon the expiration of the demised term, whichever is earlier, there remains within the Premises any property belonging to the Tenant said property shall be deemed to have been abandoned by the Tenant, at which time the Landlord may remove said property and dispose of said property in any manner as it deems fit, without any liability whatsoever. </docset:AbandonedProperty><docset:IndemnificationforDelayedSurrender structure="p">
+
+
+
+ In the event that the Premises are not surrendered at the end of the Lease term, Tenant shall indemnify Landlord against loss or liability resulting from Tenant's delay in surrendering the Premises thereafter until said Premises are surrendered. </docset:IndemnificationforDelayedSurrender></docset:_63EndofTerm></docset:_63EndofTerm-section><docset:_64LandlordSConsent-section><dg:chunk structure="h1">
+
+
+
+
+
+<docset:LandlordConsent>64</docset:LandlordConsent>. Landlord’s Consent </dg:chunk><docset:_64LandlordSConsent structure="div">
+
+
+
+ In no event shall Tenant be entitled to make, nor shall Tenant make, any claim, and Tenant hereby waives any claim, for money damages (nor shall Tenant claim any money damages by way of set-off, counterclaim or defense) based upon any claim or assertion by Tenant that Landlord has unreasonably withheld or delayed its consent or approval to any request of Tenant in such instances, if any, where Landlord is expressly required hereunder, or under law, not to unreasonably withhold or delay such consent. Tenant's sole remedy shall be an action or proceeding to enforce any such provision, or for specific performance, injunction or declaratory judgment. </docset:_64LandlordSConsent></docset:_64LandlordSConsent-section><docset:_65TenantWaivers-section><dg:chunk structure="h1">
+
+
+
+<docset:TenantWaivers>65</docset:TenantWaivers>. Tenant Waivers </dg:chunk><docset:_65TenantWaivers structure="div"><docset:WaiverofJuryTrial structure="p">
+
+
+
+ Tenant waives trial by jury in any action, proceeding, or counterclaim whatsoever brought by Landlord or Tenant arising out of or in any way connected with this Lease, the relationship of Landlord and Tenant, Tenant’s use of or occupancy of the Premises, and/or any emergency statutory or any other statutory remedy. It is further mutually agreed that in the event Landlord commences any summary proceeding for possession of the Premises, or any other action or proceeding against the Tenant or the Premises, Tenant will not interpose any unrelated counterclaim of whatever nature or description in any such proceeding. </docset:WaiverofJuryTrial><dg:chunk structure="p">
+
+
+
+     . </dg:chunk></docset:_65TenantWaivers></docset:_65TenantWaivers-section><docset:_66TenantSPunctualPaymentObligation-section><dg:chunk structure="h1">
+
+
+
+<docset:TenantsPunctualPaymentObligation>66</docset:TenantsPunctualPaymentObligation>. Tenant’s Punctual Payment Obligation </dg:chunk><docset:_66TenantSPunctualPaymentObligation structure="div"><docset:DefaultRemedies structure="p">
+
+
+
+ Tenant expressly recognizes that Tenant’s due and punctual performance of all of its obligations under this Lease throughout the term thereof is of paramount importance to Landlord and, without limiting the provisions of Article 17, Tenant agrees that, if Tenant shall default (a) in the timely payment of fixed rent or additional rent and such default shall continue beyond the <docset:GracePeriod>10 day </docset:GracePeriod>grace period and repeated in <docset:RentPaymentGracePeriod>two consecutive months </docset:RentPaymentGracePeriod>or for a total of <docset:RentPaymentGracePeriod>four months </docset:RentPaymentGracePeriod>in any period of <docset:DefaultGracePeriod>twelve consecutive months</docset:DefaultGracePeriod>, or (b) in the timely performance, beyond any applicable cure period, of any other obligations of Tenant under this Lease and such default shall occur more than <docset:DefaultLimit>two (2) times </docset:DefaultLimit>in any period of <docset:DefaultPeriod>twelve months</docset:DefaultPeriod>, then s, any further similar default shall be deemed to be deliberate and Landlord thereafter may either (i) serve a <docset:CancellationNoticePeriod>three (3) day </docset:CancellationNoticePeriod>notice of cancellation of this Lease as and with the </docset:DefaultRemedies><docset:SecurityDepositIncrease structure="p">
+
+ effects provided in subparagraph (1) of Article 17 or (ii) by notice to Tenant, increase the amount of security deposit required under the Lease so that Tenant shall provide <docset:SecurityDepositIncrease>three (3) additional month’s </docset:SecurityDepositIncrease>rent at the then current rate. </docset:SecurityDepositIncrease></docset:_66TenantSPunctualPaymentObligation></docset:_66TenantSPunctualPaymentObligation-section><docset:_67TenantSCheckstoLandlord-section><dg:chunk structure="h1">
+
+
+
+<docset:TenantCheckstoLandlord>67</docset:TenantCheckstoLandlord>. Tenant’s Checks to Landlord </dg:chunk><docset:_67TenantSCheckstoLandlord structure="div">
+
+
+
+If and so long as Tenant shall not have ever been in default in the timely payment of fixed rent or additional rent or the timely performance of any of Tenant’s other obligations under this Lease beyond the time provided in this Lease to cure such default, and so long as Tenant's payments of rent and additional rent are not rejected or returned by a financial institution for insufficient funds more than <docset:PaymentMethods>two </docset:PaymentMethods>times in any <docset:PaymentPeriod>12 month </docset:PaymentPeriod>period, Landlord will accept payments due by Tenant hereunder by unendorsed check payable to Landlord or its designated agent, subject to collection and drawn on a bank or trust company that is a member of the <dgc:Org><dgc:USState>New York </dgc:USState>Clearing House Association</dgc:Org>. From and after any default by Tenant, and whether or not the same shall be cured, Landlord may at any time thereafter require Tenant to pay the fixed rent and additional rent by unendorsed certified or official bank check payable to Landlord drawn on a bank or trust company that is a member of the <docset:PaymentMethod><dgc:USState>New York </dgc:USState>Clearing House Association</docset:PaymentMethod>. </docset:_67TenantSCheckstoLandlord></docset:_67TenantSCheckstoLandlord-section><docset:_68AirConditioningMaintenanceAndRepair-section><dg:chunk structure="h1">
+
+
+
+<docset:AirConditioningMaintenanceandRepair>68</docset:AirConditioningMaintenanceandRepair>. <dg:chunk>Air Conditioning Maintenance </dg:chunk>and Repair </dg:chunk><docset:_68AirConditioningMaintenanceAndRepair structure="div"><dg:chunk><docset:AirConditioningSystem structure="p">
+
+
+
+ Landlord shall have no obligation to furnish to Tenant or the Premises air conditioning. Any air conditioning unit and equipment located in or servicing the Premises (the "<dg:chunk>Air Conditioning System</dg:chunk>") on the date the term of this Lease shall commence may be utilized by Tenant provided that Landlord shall have no obligation with respect thereto and that Tenant shall accept the same in its "AS IS" condition. Tenant shall, at its sole cost and expense (a) maintain and promptly make all repairs and replacements, structural or otherwise, ordinary and extraordinary, to all components of the <dg:chunk>Air Conditioning System</dg:chunk>, (b) maintain throughout the term of the lease a full service contract covering the <dg:chunk>Air Conditioning System </dg:chunk>with <docset:AirConditioningServiceContract>Henick-Lane Service Corp. </docset:AirConditioningServiceContract>or any other company of reasonably equivalent quality and reputation, (c) pay all permit fees and other costs associated with any <dg:chunk>Air Conditioning System</dg:chunk>, and (d) deliver to Landlord a copy of said full service contract within <docset:AirConditioningServiceContractDelivery>five business days </docset:AirConditioningServiceContractDelivery>of demand by Landlord. Tenant shall not be released or excused from the performance of any of its obligations under this Lease for any failure or for interruption or curtailment of any <dg:chunk>Air Conditioning System</dg:chunk>, for any reason whatsoever, and no such failure, interruption, or curtailment shall constitute a constructive or partial eviction. </docset:AirConditioningSystem><dg:chunk structure="p">
+
+
+
+<docset:CompliancewithAnti-TerrorismLaws>69</docset:CompliancewithAnti-TerrorismLaws>. Compliance with Anti-Terrorism, Embargo, Sanctions and Anti-Money Laundering Laws. </dg:chunk></dg:chunk><docset:OFACCompliance structure="p">
+
+
+
+ Tenant represents that neither Tenant, nor the principals, officers, partners, and/or members of Tenant: (i) is currently identified on the list maintained by the <docset:OFACList>U.S. Department of the Treasury</docset:OFACList>, Office of <dg:chunk><docset:ForeignAssetsCompliance>Foreign Assets </docset:ForeignAssetsCompliance>Control </dg:chunk>("OFAC"), generally known as the <dg:chunk>OFAC List</dg:chunk>" (formerly known as the <dg:chunk>Specially Designated Nationals </dg:chunk>and <dg:chunk>Blocked Persons List</dg:chunk>); (ii) is currently identified on the lists maintained by the <docset:OFACList>U.S. Department of Commerce </docset:OFACList>(the "<dg:chunk>DOC List</dg:chunk>") and/or the <docset:USBureauofIndustryandSecurity>U.S. Bureau of Industry and Security </docset:USBureauofIndustryandSecurity>(the "<dg:chunk>BIS List</dg:chunk>"); (iii) acts for or on behalf of any person or persons listed on the <dg:chunk>OFAC List</dg:chunk>, the <dg:chunk>DOC List</dg:chunk>, the <dg:chunk>BIS List</dg:chunk>, and/or any other known list of denied persons, excluded persons, and excluded entities maintained by the federal agencies of the <dg:chunk>United States</dg:chunk>; and (iv) is a person or persons, or acts for or on behalf of any person or persons, with whom a citizen or business of the <dg:chunk>United States </dg:chunk>is prohibited to engage in transactions by any trade embargo, economic sanction, or other prohibition of United States law, regulation, or <dg:chunk>Executive Order </dg:chunk>of the President of the <dg:chunk>United States </dg:chunk>of America. </docset:OFACCompliance></docset:_68AirConditioningMaintenanceAndRepair></docset:_68AirConditioningMaintenanceAndRepair-section><docset:_70AdditionalRentBuildingMaintenance-section><dg:chunk structure="h1">
+
+
+
+<docset:BuildingMaintenance>70</docset:BuildingMaintenance>. <dg:chunk>Additional Rent – Building Maintenance </dg:chunk></dg:chunk><docset:_70AdditionalRentBuildingMaintenance structure="div">
+
+
+
+ If, at any time during the term of this lease, Landlord expends any sum for alterations or improvements to the Building which directly and materially affect the Premsies and are required to be made pursuant to any law, ordinance, or governmental regulation, or any portion of such law, ordinance or governmental regulation, Tenant shall pay to Landlord, as additional rent, the “Tenant’s Share” (as defined in Article 41 of this Lease) of such sum so expended by Landlord, within <docset:PaymentDeadline>ten (10) days </docset:PaymentDeadline>after demand therefore. If, however, the cost of such alterations or improvements is one which is required to be amortized over a period of time pursuant to applicable governmental regulations, Tenant shall pay to Landlord, as additional rent, during each year in which occurs any part of this Lease term, Tenant’s Share of the reasonable annual amortization of the cost of the alterations or improvements made. For the purposes of this Article, the cost of any alterations or improvements made shall be deemed to include but not be limited to the cost of preparing any necessary plans, permit applications, architects and/or engineer’s fees and expenses, and the fees for filing such plans. (b) The terms and conditions set forth above in this Article shall be in addition to, and not in limitation of, Tenant’s obligations set forth elsewhere in this Lease; and notwithstanding the terms and conditions set forth above in this Article, Tenant shall be obligated to comply with all of the terms and conditions set forth set forth elsewhere in this Lease. </docset:_70AdditionalRentBuildingMaintenance></docset:_70AdditionalRentBuildingMaintenance-section><docset:_71AdditionalRent-Sprinkler-section><dg:chunk structure="h1">
+
+<docset:AdditionalRent-Sprinkler>71</docset:AdditionalRent-Sprinkler>. <dg:chunk>Additional Rent - Sprinkler </dg:chunk></dg:chunk><docset:_71AdditionalRent-Sprinkler structure="div">
+
+
+
+ Tenant shall pay to Landlord, as additional rent, <docset:SprinklerServiceFee>$75.00 </docset:SprinklerServiceFee>per month on the first day of each and every month commencing with the <dg:chunk>Commencement Date</dg:chunk>, for the term of this Lease, for sprinkler service. </docset:_71AdditionalRent-Sprinkler></docset:_71AdditionalRent-Sprinkler-section><docset:_72RenewalOption-section><dg:chunk structure="h1">
+
+
+
+<docset:RenewalOption>72</docset:RenewalOption>. <dg:chunk>Renewal Option </dg:chunk></dg:chunk><docset:_72RenewalOption structure="div"><dg:chunk><docset:RenewalOption structure="p">
+
+
+
+ Tenant shall have the right, to be exercised as hereinafter provided, to extend the term of this lease for <docset:RenewalTerm>one (1) period </docset:RenewalTerm>of <docset:RenewalTerm>five (5) years </docset:RenewalTerm>( “<dg:chunk>Renewal Term</dg:chunk>”) upon the following terms and conditions: </docset:RenewalOption>
+
+
+
+ <docset:RenewalOption structure="ol" style="list-style-type: none; boundingBox:{left: 279.0; top: 1155.0; width: 1989.0; height: 948.0; page: 28;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1155.0; width: 1968.0; height: 135.0; page: 28;}; "><dg:chunk structure="lim">(a)   </dg:chunk><docset:RenewalRights structure="p">that at the time of the exercise of each such right and at the commencement of the <dg:chunk>Renewal Term</dg:chunk>, Tenant shall not be in default beyond the applicable notice and cure period provided in this lease; </docset:RenewalRights></dg:chunk>
+
+
+
+
+
+
+
+ <dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1347.0; width: 1968.0; height: 87.0; page: 28;}; "><dg:chunk structure="lim">(b)   </dg:chunk><dg:chunk>that Tenant shall notify Landlord in writing that Tenant intends to exercise such option no later than the date that is <docset:OptionNotificationDeadline>twelve (12) months </docset:OptionNotificationDeadline>prior to the <dg:chunk>Expiration Date</dg:chunk>; and </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 279.0; top: 1488.0; width: 1989.0; height: 615.0; page: 28;}; "><dg:chunk structure="lim">(c)   </dg:chunk><docset:RenewalTerm structure="p">that the <dg:chunk>Renewal Term </dg:chunk>shall be upon the same terms, covenants and conditions as in this lease provided, except that (i) there shall be no further option to extend this lease beyond the <dg:chunk>Renewal Term </dg:chunk>referred to above; (ii) the <dg:chunk>Demised Premises </dg:chunk>shall be delivered in its then “as is” condition; and (iii) the Rent to be paid by Tenant during the <dg:chunk>Renewal Term </dg:chunk>shall be as follows: The Rent for the first year of the subject Renewal Term shall be equal to the greater of (A) <docset:RenewalTermRent>ninety-five (95%) percent </docset:RenewalTermRent>of the <dg:chunk>Fair Market Minimum Annual Rent </dg:chunk>(as hereinafter defined), but in no event higher than <docset:RenewalTermRent>one hundred ten (110%) percent </docset:RenewalTermRent>of the Rent payable during the <dg:chunk>Lease Year </dg:chunk>immediately preceding the first day of the <dg:chunk>Renewal Term</dg:chunk>, and (B) <docset:RenewalTermRentIncrease>one hundred three (103%) percent </docset:RenewalTermRentIncrease>of the Rent payable during the <dg:chunk>Lease Year </dg:chunk>immediately preceding the first day of the <dg:chunk>Renewal Term</dg:chunk>. Thereafter, the Rent for each year of the <dg:chunk>Renewal Term </dg:chunk>shall be increased by <docset:RenewalTermRentIncrease>three (3%) percent </docset:RenewalTermRentIncrease>of the Rent payable for the prior year of the <dg:chunk>Renewal Term</dg:chunk>. As used herein, the term “<dg:chunk>Fair Market Minimum Annual Rent</dg:chunk>” shall mean the rate then being received by landlords when entering into new leases for comparable size space in comparable buildings for a comparable term in the vicinity of the Building. </docset:RenewalTerm></dg:chunk></docset:RenewalOption></dg:chunk><docset:RenewalOption structure="p">
+
+
+
+
+
+ If Tenant timely exercises this <dg:chunk>Renewal Option</dg:chunk>, Landlord shall notify Tenant (the “<dg:chunk>Rent Notice</dg:chunk>”) at least <docset:RenewalOptionNoticePeriod>one hundred twenty (120) days </docset:RenewalOptionNoticePeriod>before the <dg:chunk>Expiration Date </dg:chunk>of Landlord’s determination of the Fair Market Minimum Annual Rent and Landlord’s calculation of the Rent payable during the first year of the <dg:chunk>Renewal Term </dg:chunk>and during each successive year of the <dg:chunk>Renewal Term </dg:chunk>in accordance with the formula set forth above (“Landlord’s Determination”). Tenant shall notify Landlord (“Tenant’s Notice”), within <docset:TenantNoticePeriod>thirty (30) days </docset:TenantNoticePeriod>after Tenant’s receipt of the <dg:chunk>Rent Notice</dg:chunk>, whether Tenant accepts or disputes Landlord’s Determination, and if Tenant disputes Landlord’s Determination, Tenant’s Notice shall set forth Tenant’s determination of the Fair Market <dg:chunk>Minimum Annual Rent </dg:chunk>and Tenant’s calculation of the Rent payable during the first year of the <dg:chunk>Renewal Term </dg:chunk>and during each successive year of the <dg:chunk>Renewal Term </dg:chunk>in accordance with the formula set forth above (“Tenant’s Determination”). If Tenant fails to give Tenant’s Notice within such <docset:TenantNoticePeriod>thirty (30) day </docset:TenantNoticePeriod>period, Tenant shall be deemed to have accepted Landlord’s Determination. </docset:RenewalOption><dg:chunk><docset:FairMarketMinimumAnnualRentDetermination structure="p">
+
+
+
+ If Tenant timely disputes Landlord’s Determination and Landlord and Tenant fail to agree as to the <dg:chunk>Fair Market Minimum Annual Rent </dg:chunk>(and, accordingly, the Rent payable by Tenant during the subject Renewal Term) within <docset:DisputeResolutionDeadline>thirty (30) days </docset:DisputeResolutionDeadline>after the giving of Tenant’s Notice, then the <dg:chunk>Fair Market Minimum Annual Rent </dg:chunk>shall be determined as follows: A licensed real estate appraiser (the “Appraiser”) shall be selected and paid for jointly by Landlord and Tenant. If Landlord and Tenant are unable to agree upon the Appraiser, then the same shall be designated by the <docset:AppraiserDesignation>American Arbitration Association </docset:AppraiserDesignation>(“<docset:AppraiserDesignation>AAA”)</docset:AppraiserDesignation>. The Appraiser selected by the parties or designated by the <docset:AppraiserDesignation>AAA </docset:AppraiserDesignation>shall have at least <docset:AppraiserExperience>ten (10) years</docset:AppraiserExperience>’ experience in the appraisal of retail space in Manhattan, NY. Landlord and Tenant shall each submit to the Appraiser and to the other its determination of the <dg:chunk>Fair Market Minimum Annual Rent</dg:chunk>. The parties shall instruct the Appraiser to (A) conduct the hearings and investigations that he or she deems appropriate, and </docset:FairMarketMinimumAnnualRentDetermination><dg:chunk><dg:chunk>
+
+ <dg:chunk structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 387.0; width: 1968.0; height: 615.0; page: 29;}; "><docset:AppraisalProcedure structure="li" style="boundingBox:{left: 300.0; top: 387.0; width: 1968.0; height: 615.0; page: 29;}; "><dg:chunk structure="lim">(B)  </dg:chunk><docset:AppraisalProcedure structure="p">choose either Landlord's determination or Tenant's determination submitted to the Appraiser as the better estimate of <dg:chunk>Fair Market Minimum Annual Rent</dg:chunk>, being the determination which is closer to the <dg:chunk>Fair Market Minimum Annual Rent </dg:chunk>determined by the Appraiser using the definition set forth in this Article <docset:FairMarketRentDetermination>72</docset:FairMarketRentDetermination>, within <docset:DeadlineforDetermination>thirty (30) days </docset:DeadlineforDetermination>after the date that the Appraiser is designated. The Appraiser's aforesaid choice shall be conclusive and binding upon Landlord and Tenant. Each party shall pay its own counsel fees and expenses, if any, in connection with the procedure described herein, and <docset:AppraiserFees>fifty (50%) percent </docset:AppraiserFees>of any AAA fees and fees of the Appraiser. <dg:chunk>Either Landlord </dg:chunk>or Tenant shall have the right to submit to the Appraiser any material in support of its determination of <dg:chunk>Fair Market Minimum Annual Rent </dg:chunk>within <docset:DeadlineforSubmittingMaterials>ten (10) business days </docset:DeadlineforSubmittingMaterials>of the date of the selection of the Appraiser. After a determination has been made of the <dg:chunk>Fair Market Minimum Annual Rent</dg:chunk>, the parties shall execute and deliver a lease amendment memorializing the extension of the Term as described in this Article 72 and setting forth the Rent payable by Tenant during the <dg:chunk>Renewal Term</dg:chunk>, but the failure to so execute and deliver any such instrument shall not affect the determination of <dg:chunk>Fair Market Minimum Annual Rent </dg:chunk>(and, accordingly, the Rent payable during the <dg:chunk>Renewal Term</dg:chunk>). </docset:AppraisalProcedure></docset:AppraisalProcedure></dg:chunk><dg:chunk><docset:RentDetermination structure="p">
+
+
+
+
+
+ (iii) If Tenant timely disputes Landlord’s Determination and if the final determination of the <dg:chunk>Fair Market Minimum Annual Rent </dg:chunk>shall not be made on or before the first day of the subject Renewal Term then, pending such final determination, Tenant shall pay, as Rent for the subject Renewal Term, an amount equal to Landlord’s Determination. If, based upon the final determination of the <dg:chunk>Fair Market Minimum Annual Rent</dg:chunk>, the Rent payments made by Tenant for such portion of the subject Renewal Term were (i) less than they should have been, then Tenant shall pay to Landlord the amount of such deficiency within <docset:PaymentDeadline>ten (10) business days </docset:PaymentDeadline>after demand therefor, or (ii) greater than they should have been, then Landlord shall credit the amount of such excess against installments of Rent next coming due. </docset:RentDetermination><dg:chunk structure="p">
+
+
+
+         Time shall be of the essence with respect to all obligations under this Article 72. </dg:chunk></dg:chunk></dg:chunk>
+
+
+
+                          <dg:chunk structure="ol" style="list-style-type: none; boundingBox:{left: 1083.0; top: 1587.0; width: 399.0; height: 39.0; page: 29;}; "><dg:chunk structure="li" style="boundingBox:{left: 1083.0; top: 1587.0; width: 399.0; height: 39.0; page: 29;}; "><dg:chunk structure="lim">73.  </dg:chunk><dg:chunk structure="h1">Quiet Enjoyment </dg:chunk></dg:chunk></dg:chunk></dg:chunk></dg:chunk><docset:QuietEnjoyment structure="p">
+
+
+
+
+
+ Provided this Lease is in full force and effect, Tenant may peaceably and quietly enjoy the Premises without hindrance by Landlord or any Person lawfully claiming through or under Landlord. </docset:QuietEnjoyment></docset:_72RenewalOption></docset:_72RenewalOption-section></dg:chunk></docset:_42HSmokingProhibited></docset:_42HSmokingProhibited-section></dg:chunk></dg:chunk></dg:chunk></docset:RIDERTOLEASE></docset:RIDERTOLEASE-section><dg:chunk><dg:chunk structure="h1">
+
+
+
+
+
+ EXHIBIT A – Floor EXHIBIT B –Guaranty </dg:chunk><dg:chunk structure="div">
+
+ EXHIBIT C –<dg:chunk>Temporary Certificate </dg:chunk>of Occupancy EXHIBIT D – Tenant’s Signage </dg:chunk></dg:chunk><docset:EXHIBITETenantSWork-section><dg:chunk structure="h1">
+
+ EXHIBIT E – Tenant’s Work </dg:chunk><docset:EXHIBITETenantSWork structure="div"><dg:chunk structure="p">
+
+
+
+
+
+        (<dg:chunk>Signature Page </dg:chunk>to Follow) </dg:chunk><docset:BIRCHSTREETLLC-section><dg:chunk structure="h1">
+
+
+
+
+
+
+
+
+
+
+
+                           <docset:CompanyName><dg:chunk>BIRCH STREET</dg:chunk>, LLC </docset:CompanyName></dg:chunk><docset:BIRCHSTREETLLC structure="div"><dg:chunk><dg:chunk structure="h1">
+
+                           Landlord </dg:chunk><dg:chunk structure="h1">
+
+
+
+
+
+                       By: </dg:chunk></dg:chunk><dg:chunk structure="h1">
+
+
+
+
+
+                           <docset:CompanyName>Trutone Lane LLC </docset:CompanyName></dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+                           Tenant </dg:chunk><dg:chunk structure="div"><dg:chunk structure="h1">
+
+
+
+
+
+                       By: </dg:chunk><dg:chunk structure="h1">
+
+
+
+
+
+        ACKNOWLEDGMENTS </dg:chunk></dg:chunk></dg:chunk></docset:BIRCHSTREETLLC></docset:BIRCHSTREETLLC-section></docset:EXHIBITETenantSWork></docset:EXHIBITETenantSWork-section><docset:STATEOFNEWYORK-section><dg:chunk structure="h1">
+
+
+
+ STATE OF <dgc:USState>NEW YORK </dgc:USState>) </dg:chunk><docset:STATEOFNEWYORK structure="div"><docset:SsCOUNTYOFNEWYORK-section><dg:chunk structure="h1">
+
+ ) ss.: <docset:County>COUNTY OF <dgc:USState>NEW YORK </dgc:USState>) </docset:County></dg:chunk><docset:SsCOUNTYOFNEWYORK structure="div">
+
+ On the day of , October in the year <docset:ExecutionDate>2021</docset:ExecutionDate>, before me, the undersigned, a <dg:chunk>Notary Public </dg:chunk>in and for said State, personally appeared , personally known to me or proved to me, on the basis of satisfactory evidence, to be the individual whose name is subscribed to the within instrument and acknowledged to me that he executed the same in his capacity, and that by his signature on the instrument, the individual or the person upon behalf of which the individual acted, executed the instrument. </docset:SsCOUNTYOFNEWYORK></docset:SsCOUNTYOFNEWYORK-section><dg:chunk structure="h1">
+
+
+
+
+
+                               <dg:chunk>Notary Public </dg:chunk></dg:chunk></docset:STATEOFNEWYORK></docset:STATEOFNEWYORK-section><dg:chunk><dg:chunk structure="h1">
+
+ STATE OF <dgc:USState>NEW YORK </dgc:USState>) </dg:chunk><dg:chunk structure="div"><docset:SsCOUNTYOFNEWYORK-section><dg:chunk structure="h1">
+
+ ) ss.: <docset:County>COUNTY OF <dgc:USState>NEW YORK </dgc:USState>) </docset:County></dg:chunk><docset:SsCOUNTYOFNEWYORK structure="div">
+
+
+
+ On the day of , October in the year <docset:ExecutionDate>2021</docset:ExecutionDate>, before me, the undersigned, a <dg:chunk>Notary Public </dg:chunk>in and for said State, personally appeared , personally known to me or proved to me, on the basis of satisfactory evidence, to be the individual whose name is subscribed to the within instrument and acknowledged to me that he executed the same in his capacity, and that by his signature on the instrument, the individual or the person upon behalf of which the individual acted, executed the instrument. </docset:SsCOUNTYOFNEWYORK></docset:SsCOUNTYOFNEWYORK-section><dg:chunk structure="h1">
+
+
+
+                               <dg:chunk>Notary Public</dg:chunk></dg:chunk></dg:chunk></dg:chunk></dg:chunk>

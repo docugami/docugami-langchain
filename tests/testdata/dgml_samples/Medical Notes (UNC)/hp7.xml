@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?><docset:HistoryAndPhysicalNotes-FinalReport-section cp:version="2.16.16.0.1705579614469-319.0" xmlns:docset="http://www.docugami.com/2021/dgml/docugami/MedicalNotes(UNC)" xmlns:addedChunks="http://www.docugami.com/2021/dgml/docugami/MedicalNotes(UNC)/addedChunks" xmlns:dg="http://www.docugami.com/2021/dgml" xmlns:dgc="http://www.docugami.com/2021/dgml/docugami/contracts" xmlns:dgm="http://www.docugami.com/2021/dgml/docugami/medical" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:cp="http://classifyprocess.com/2018/07/"><dg:chunk structure="h1">
+
+                                    History and Physical Notes - Final Report </dg:chunk><docset:Service-section structure="div"><dg:chunk structure="h1">
+
+             Service </dg:chunk><docset:ServiceDate10072007-section structure="div"><dg:chunk structure="h1">
+
+             <dg:chunk>Service Date </dg:chunk>:<docset:ServiceDate>10/07/2007 </docset:ServiceDate></dg:chunk><docset:ServiceDate10072007 structure="div">
+
+             <dg:chunk>Admit Date </dg:chunk>:<docset:AdmitDate>10/07/2007 </docset:AdmitDate></docset:ServiceDate10072007></docset:ServiceDate10072007-section><dg:chunk structure="h1">
+
+             <dg:chunk>Performing Service</dg:chunk>:<docset:HematologyOncology>MEDICINE::HEMATOLOGY</docset:HematologyOncology>/<docset:Oncology>ONCOLOGY </docset:Oncology></dg:chunk><dg:chunk structure="h1">
+
+             Patient </dg:chunk><dg:chunk structure="h1">
+
+             Name : - </dg:chunk><dg:chunk structure="h1">
+
+             <dg:chunk>Present Illness </dg:chunk></dg:chunk><dg:chunk structure="h1">
+
+             <docset:ChiefComplaint>Chief Complaint</docset:ChiefComplaint>: </dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+             Dyspnea on Exertion </dg:chunk><dg:chunk structure="div">
+
+             The history was obtained from the patient who seems to be a reliable informant. </dg:chunk></dg:chunk><docset:HistoryofPresentIllness-section><dg:chunk structure="h1">
+
+             History of <dg:chunk>Present Illness</dg:chunk>: </dg:chunk><docset:HistoryofPresentIllness structure="div"><dg:chunk><dg:chunk><docset:PatientHistory structure="p">
+
+             This is a <docset:Age>51 </docset:Age><docset:SymptomOnsetDate>year </docset:SymptomOnsetDate>old gentleman with no significant past medical history presenting with <dgc:TimeDuration>3 weeks </dgc:TimeDuration>of worsening dyspnea on light exertion, <dgm:Condition>chest pain</dgm:Condition>, <dgm:Condition>cough</dgm:Condition>, and a <dgc:Number>10 </dgc:Number><docset:WeightLoss>lb </docset:WeightLoss>weight loss in <docset:WeightLossDuration>8 days</docset:WeightLossDuration>. Just over <docset:SymptomDuration>6 months </docset:SymptomDuration>ago the patient was at his normal baseline state of health. Now he has had progressive worsening of his dyspnea on exertion (DOE) to where he cannot walk across a room or talk while sitting up without becoming short of breath; he has never had anything like this before. He rates his breathing troubles as a <docset:SymptomDescription>7 </docset:SymptomDescription>of <dgc:Number>10</dgc:Number>, with <docset:SymptomSeverity>10 </docset:SymptomSeverity>being can’t breathe at all and <docset:SymptomDescription>1 </docset:SymptomDescription>being normal. He says the breathing troubles are from his lungs/chest and not his nose/congestion. He has had the DOE for <docset:DurationofSymptoms><docset:DurationofSymptoms>~6 </docset:DurationofSymptoms>month </docset:DurationofSymptoms>but progressive worsening in the last <docset:DurationofSymptoms>3 weeks</docset:DurationofSymptoms>. He says the quality of his breathing is just “like suffocating” but he denies burning in his lungs or other feelings. He says that hot temperatures bring on his breathing troubles and coughing while cold temperatures will help relieve those symptoms. </docset:PatientHistory><docset:SymptomDescription structure="p">
+
+             Additionally, he has a productive <dgm:Condition>cough </dgm:Condition>with whitish mucus that is not bloody or bilious, and often coughs so hard that he ends up <dgm:Condition>vomiting</dgm:Condition>; he has averaged <dgm:Condition>vomiting </dgm:Condition><dgc:Frequency>once a day </dgc:Frequency>over the past <docset:SymptomDuration>few weeks</docset:SymptomDuration>. He has tried <dgm:Medication>Mucinex </dgm:Medication>which made his <dgm:Condition>cough </dgm:Condition>worse and Nyquil to help him get to sleep w/o coughing. He often experiences an aching/burning pain across his whole anterior chest, and sometimes he has more of a tightness in his chest. The <dgm:Condition>chest pain </dgm:Condition>is like bad <dgm:Condition>heartburn</dgm:Condition>. All of his symptoms have always occurred after eating and sometimes without a noticeable trigger. </docset:SymptomDescription></dg:chunk><dg:chunk><docset:MedicalHistory structure="p">
+
+             He has had no fevers, <dgm:Condition>chills</dgm:Condition>, or night sweats. He has no allergies, seasonal or otherwise, and no hx of breathing troubles/<dgm:Condition>asthma</dgm:Condition>. He reports feeling like he is <dgm:Condition>wheezing</dgm:Condition>, but no dyspnea at rest (as long as he is lying down), no <dgm:Condition>orthopnea</dgm:Condition>, and no paroxysmal nocturnal dyspnea. No hx of recurrent <dgm:Condition>pneumonia</dgm:Condition>. He has no sick contact, TB exposure (that he knows of – ie incarcerated, homeless). He also has no pets, has not been around any farm animals, and has not traveled recently or been around those who have. He has about a <docset:TobaccoUse>20 pack year </docset:TobaccoUse>history with tobacco and has still smoked during the past <docset:SmokingHistory>three weeks </docset:SmokingHistory>despite the fact it will often bring about coughing symptoms. He does not have the CAD risks factors of <dgm:Condition>Diabetes</dgm:Condition>, HTN, or <dgm:Condition>Hypercholesterolemia</dgm:Condition>. There is no hx of cancers in his family, but while he’s never been diagnosed with <dgm:Condition>asthma</dgm:Condition>, his son does have this condition. He has worked as a car mechanic but does not seem to have any significant occupational risk factors (coal mining/worked around asbestos). </docset:MedicalHistory><dg:chunk structure="p">
+
+             --- </dg:chunk></dg:chunk><docset:PatientHistory structure="p">
+
+             The patient presented <docset:SymptomDuration><docset:SymptomDuration><dgc:TimeDuration><docset:Symptoms>9 </docset:Symptoms>days </dgc:TimeDuration>ago to the UNC </docset:SymptomDuration><docset:EDVisitDate>ED </docset:EDVisitDate></docset:SymptomDuration>with the same set of symptoms and had a <dg:chunk><dgm:MedicalTest>CT </dgm:MedicalTest>Chest </dg:chunk>that showed a large right-sided mediastinal mass with "mass effect on the trachea and endobronchial extension as well as perihilar soft tissue <dgm:Condition>lesion </dgm:Condition>that was most concerning for a primary bronchogenic <dgm:Condition>carcinoma</dgm:Condition>." The patient said that at that time he wasn't prepared to be an inpatient and stay overnight, so he signed out <docset:AMASignOut>AMA</docset:AMASignOut>. He had little to no change in his symptoms over the next <docset:SymptomDuration>9 days </docset:SymptomDuration>and came to the ED again today. </docset:PatientHistory></dg:chunk><dg:chunk><docset:MedicalSurgicalHistory-section><dg:chunk structure="h1">
+
+             Medical/<docset:SurgicalHistory>Surgical </docset:SurgicalHistory>History </dg:chunk><docset:MedicalSurgicalHistory structure="div">
+
+             No primary care provider, No past diagnoses, no hospitalizations, no surgeries. In particular: no known DMII, HTN, or <dgm:Condition>hypercholesterolemia </dgm:Condition></docset:MedicalSurgicalHistory></docset:MedicalSurgicalHistory-section><dg:chunk structure="h1">
+
+             Social/Family History </dg:chunk></dg:chunk></docset:HistoryofPresentIllness></docset:HistoryofPresentIllness-section><dg:chunk><dg:chunk structure="h1">
+
+             <dg:chunk>Social History</dg:chunk>: </dg:chunk><dg:chunk structure="div">
+
+             The patient lives in - , NC in a trailer by himself. He is divorced and works as a - . His smoking hx per HPI and his EtOH intake is about <docset:LivingArrangements>6</docset:LivingArrangements><docset:LivingArrangements>-7 </docset:LivingArrangements>beers on weekends. He has no hx of about of illicit drugs. The patient is functionally independent and able to provide for cheaper medications (<docset:CheaperMedications>Walmart </docset:CheaperMedications><docset:MedicationCosts><docset:MedicationCosts>$4</docset:MedicationCosts>’s</docset:MedicationCosts>). </dg:chunk></dg:chunk><docset:FamilyHistory-section><dg:chunk structure="h1">
+
+             Family History: </dg:chunk><docset:FamilyHistory structure="div"><docset:Allergies structure="p">
+
+             Pt’s Mother was diagnosed with <docset:DiabetesMellitusType2>DM2 </docset:DiabetesMellitusType2><docset:AllergyHistory>8 years </docset:AllergyHistory>ago at age <docset:Allergies>65</docset:Allergies>, and she is in good health otherwise. Pt’s father is in good health, as well as his siblings. His children are all healthy with the exception of his <docset:Allergies>18 </docset:Allergies><docset:AllergyHistory>year </docset:AllergyHistory>old year son who was diagnosed with <dgm:Condition>asthma </dgm:Condition>in his early teens. His mother side of the family has many family members with <docset:Hypertension>HTN </docset:Hypertension>and <docset:DiabetesMellitus>DM</docset:DiabetesMellitus>. Nothing of note for his father’s side. No hx of cancers on either side. 
+
+             Allergies </docset:Allergies><docset:SocialFamilyHistory><xhtml:table structure="table" style="boundingBox:{left: 278.5; top: 1056.5; width: 1412.2; height: 226.9; page: 2;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 278.5; top: 1056.5; width: 1412.2; height: 226.9; page: 2;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 278.5; top: 1056.5; width: 1412.2; height: 60.9; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 278.5; top: 1056.5; width: 271.5; height: 60.9; page: 2;}; ">
+
+              Description </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 550.0; top: 1056.5; width: 243.8; height: 60.9; page: 2;}; " colspan="2"><dg:chunk structure="h1">
+
+                Type </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 793.8; top: 1056.5; width: 279.2; height: 60.9; page: 2;}; "><dg:chunk structure="h1">
+
+                   Reaction </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1073.0; top: 1056.5; width: 310.4; height: 60.9; page: 2;}; ">
+
+                     Date </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1383.4; top: 1056.5; width: 307.3; height: 60.9; page: 2;}; " /></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 278.5; top: 1117.3; width: 1412.2; height: 67.1; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 278.5; top: 1117.3; width: 371.5; height: 67.1; page: 2;}; " colspan="2"><docset:DescriptionNKDA-VERIFIED>
+
+              <dg:chunk>NKDA - VERIFIED </dg:chunk></docset:DescriptionNKDA-VERIFIED></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 650.0; top: 1117.3; width: 423.0; height: 67.1; page: 2;}; " colspan="2"><docset:NKDA-VERIFIEDType>
+
+               Drug Allergies </docset:NKDA-VERIFIEDType></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1073.0; top: 1117.3; width: 310.4; height: 67.1; page: 2;}; "><docset:NKDA-VERIFIEDReaction>
+
+              UNCODED </docset:NKDA-VERIFIEDReaction></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1383.4; top: 1117.3; width: 307.3; height: 67.1; page: 2;}; "><docset:NKDA-VERIFIEDDate>
+
+                   <dg:chunk xsi:type="date"><dg:chunk xsi:type="date">2007</dg:chunk>-<dgc:Number>10</dgc:Number>-<dgc:Number>07 </dgc:Number></dg:chunk></docset:NKDA-VERIFIEDDate></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 278.5; top: 1184.4; width: 1412.2; height: 53.1; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 278.5; top: 1184.4; width: 271.5; height: 53.1; page: 2;}; "><docset:DescriptionNOOTHER>
+
+              NO OTHER </docset:DescriptionNOOTHER></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 550.0; top: 1184.4; width: 100.0; height: 53.1; page: 2;}; "><docset:NOOTHERType /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 650.0; top: 1184.4; width: 423.0; height: 53.1; page: 2;}; " colspan="2"><docset:NOOTHERReaction>
+
+               NO SEASONAL, </docset:NOOTHERReaction></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1073.0; top: 1184.4; width: 310.4; height: 53.1; page: 2;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1383.4; top: 1184.4; width: 307.3; height: 53.1; page: 2;}; "><docset:NOOTHERDate /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 278.5; top: 1237.5; width: 1412.2; height: 45.8; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 278.5; top: 1237.5; width: 271.5; height: 45.8; page: 2;}; "><docset:DescriptionALLERGIES>
+
+              ALLERGIES </docset:DescriptionALLERGIES></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 550.0; top: 1237.5; width: 100.0; height: 45.8; page: 2;}; "><docset:ALLERGIESType /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 650.0; top: 1237.5; width: 143.8; height: 45.8; page: 2;}; "><docset:ALLERGIESReaction>
+
+               ETC. </docset:ALLERGIESReaction></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 793.8; top: 1237.5; width: 279.2; height: 45.8; page: 2;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1073.0; top: 1237.5; width: 310.4; height: 45.8; page: 2;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1383.4; top: 1237.5; width: 307.3; height: 45.8; page: 2;}; "><docset:ALLERGIESDate /></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:SocialFamilyHistory></docset:FamilyHistory></docset:FamilyHistory-section><docset:MedicationReconciliation-section><dg:chunk structure="h1">
+
+             <dg:chunk>Medication Reconciliation </dg:chunk></dg:chunk><docset:MedicationReconciliation structure="div">
+
+             I reviewed the medication history. Source of the medication history: </docset:MedicationReconciliation></docset:MedicationReconciliation-section><dg:chunk structure="h1">
+
+             Verbal history per patient </dg:chunk><dg:chunk structure="h1">
+
+             <dg:chunk>Pertinent Medications </dg:chunk></dg:chunk><docset:MedicationsNotes-section><dg:chunk structure="h1">
+
+             Medications Notes: </dg:chunk><docset:MedicationsNotes structure="div">
+
+             <dgm:Medication>Mucinex</dgm:Medication>, <docset:NyquilUse>Nyquil</docset:NyquilUse>, <dg:chunk><dgm:Medication>Ibuprofen </dgm:Medication>PRN </dg:chunk>in past <docset:MedicationUse>2-3 weeks </docset:MedicationUse>(doses unknown) No other OTC drugs. No prescription medications. No herbal remedies. No <dgm:Medication>vitamins</dgm:Medication>/supplements. </docset:MedicationsNotes></docset:MedicationsNotes-section><dg:chunk structure="h1">
+
+             Review of Systems </dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+             Constitutional </dg:chunk><dg:chunk structure="div">
+
+             See HPI, no weakness, no fatigure </dg:chunk></dg:chunk><dg:chunk><docset:Eyes-section><dg:chunk structure="h1">
+
+             Eyes </dg:chunk><docset:Eyes structure="div">
+
+             No changes in vision. No pain, redness, <dgm:Condition>diplopia</dgm:Condition>. </docset:Eyes></docset:Eyes-section><dg:chunk structure="h1">
+
+             ENT </dg:chunk></dg:chunk><dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+             Ear: </dg:chunk><dg:chunk structure="div">no recent <dgm:Condition>hearing loss</dgm:Condition>, no <dgm:Condition>tinnitus</dgm:Condition>, no discharge, no ear pressure or pain Nose: no sinus congestion, no <dgm:Condition>epistaxis </dgm:Condition>Throat: Neck sore from coughing/<dgm:Condition>vomiting</dgm:Condition>, no hoarseness, no bleeding gums, no dry mouth, no <dgm:Condition>sore throat</dgm:Condition>. </dg:chunk></dg:chunk><docset:SkinBreast-section><dg:chunk structure="h1">
+
+             Skin/Breast </dg:chunk><docset:SkinBreast structure="div">
+
+             No rashes, bruising, sores, lumps, dryness, or color changes, </docset:SkinBreast></docset:SkinBreast-section></dg:chunk><dg:chunk structure="h1">
+
+             Cardiovascular </dg:chunk><dg:chunk structure="h1">
+
+             See HPI. Racing heart race beat felt at times. No <dgm:Condition>palpitations</dgm:Condition>. </dg:chunk><dg:chunk structure="h1">
+
+             Pulmonary </dg:chunk><dg:chunk structure="h1">
+
+             See HPI, no <dgm:Condition>pleurisy</dgm:Condition>, no <dgm:Condition>emphysema </dgm:Condition></dg:chunk><docset:GastroIntestinal-section><dg:chunk structure="h1">
+
+             <dg:chunk>Gastro Intestinal </dg:chunk></dg:chunk><docset:GastroIntestinal structure="div">
+
+             See HPI, no change in appetite, no trouble swallowing, no excess belching, no <dgm:Condition>nausea</dgm:Condition>; bowel movements fine (last one yesterday morning), and stools are negative for change or blood. +flatus. No bloating. </docset:GastroIntestinal></docset:GastroIntestinal-section><docset:GenitoUrinary-section><dg:chunk structure="h1">
+
+             <dg:chunk><docset:GenitoUrinary>Genito </docset:GenitoUrinary><docset:UrinarySystem>Urinary </docset:UrinarySystem></dg:chunk></dg:chunk><docset:GenitoUrinary structure="div">
+
+             No <dgm:Condition>dysuria</dgm:Condition>, no <dgm:Condition>incontinence</dgm:Condition>, no <dgm:Condition>polyuria</dgm:Condition>, no <dgm:Condition>nocturia</dgm:Condition>, no urgency, no <dgm:Condition>hematuria</dgm:Condition>, no UTI’s, no stones, no reduced flow, dribbling. </docset:GenitoUrinary></docset:GenitoUrinary-section><docset:MusculoSkeletal-section><dg:chunk structure="h1">
+
+             <dg:chunk>Musculo Skeletal </dg:chunk></dg:chunk><docset:MusculoSkeletal structure="div">
+
+             sore chest from coughing/<dgm:Condition>vomiting</dgm:Condition>, no other aches, pains, stiffness, or <dgm:Condition>gout</dgm:Condition>. </docset:MusculoSkeletal></docset:MusculoSkeletal-section><docset:Neurologic-section><dg:chunk structure="h1">
+
+             Neurologic </dg:chunk><docset:Neurologic structure="div">
+
+             no headaches, no numbness, no tingling, no <dgm:Condition>dizziness</dgm:Condition>, no fainting, no blackouts, no <dgm:Condition>seizures</dgm:Condition>, no tremors </docset:Neurologic></docset:Neurologic-section><docset:Psychology-section><dg:chunk structure="h1">
+
+             Psychology </dg:chunk><docset:Psychology structure="div">
+
+             no <dgm:Condition>anxiety</dgm:Condition>, tension. </docset:Psychology></docset:Psychology-section><dg:chunk structure="h1">
+
+             <dg:chunk>Physical <dgm:_testRef>Examination </dgm:_testRef></dg:chunk></dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+             Vitals </dg:chunk><dg:chunk structure="div">
+
+             <docset:DiagnosisCode>T36.9 </docset:DiagnosisCode><docset:P104>P104 </docset:P104><docset:OxygenSaturation>R24 </docset:OxygenSaturation><docset:BloodPressure>BP139/91 </docset:BloodPressure><docset:OxygenSaturation>O2 </docset:OxygenSaturation>sats : <docset:OxygenSaturation>95%RA </docset:OxygenSaturation></dg:chunk></dg:chunk><docset:General-section><dg:chunk structure="h1">
+
+             <docset:General>General </docset:General></dg:chunk><docset:General structure="div">
+
+             NAD, resting on stretcher and very alert during interview </docset:General></docset:General-section><dg:chunk><docset:Eyes-section><dg:chunk structure="h1">
+
+             Eyes </dg:chunk><docset:Eyes structure="div">
+
+             sclera and conjunctiva clear, EOMI, PERRLA, no <dgm:Condition>ptosis</dgm:Condition>. </docset:Eyes></docset:Eyes-section><docset:ENT-section><dg:chunk structure="h1">
+
+             ENT </dg:chunk><docset:ENT structure="div">
+
+             oropharynx, nares clear </docset:ENT></docset:ENT-section></dg:chunk><docset:Lymphadenopathy-section><dg:chunk structure="h1">
+
+             Lymphadenopathy: </dg:chunk><docset:Lymphadenopathy structure="div">
+
+             No cervical, supraclavicular, axillary, or inguinal nodes </docset:Lymphadenopathy></docset:Lymphadenopathy-section><docset:Neck-section><dg:chunk structure="h1">
+
+             Neck </dg:chunk><docset:Neck structure="div">
+
+             Supple, no thyromegaly or <dgm:Medication>thyroid </dgm:Medication>nodules, no bruits </docset:Neck></docset:Neck-section><docset:Cardiovascular-section><dg:chunk structure="h1">
+
+             Cardiovascular </dg:chunk><docset:Cardiovascular structure="div">
+
+             RRR with a soft S1 and normal <dg:chunk>S2</dg:chunk>. no mrg. No <dgm:Condition>edema</dgm:Condition>, pulses <docset:PhysicalExamFindings>2</docset:PhysicalExamFindings>+ bilaterally (radial, posterior tibialis, dorsalis pedis), no JVD. </docset:Cardiovascular></docset:Cardiovascular-section><docset:Lungs-section><dg:chunk structure="h1">
+
+             Lungs </dg:chunk><docset:Lungs structure="div">
+
+             Normal to <dgm:MedicalTest>percussion</dgm:MedicalTest>. On <dgm:MedicalTest>auscultation</dgm:MedicalTest>, decreased to no breath sounds in lower right lung field. Lower left lung field sounds overly bronchial (no vesicular sounds). No wheezes, rales, or rhonchi and no stidor. No tactile fremitus or egophany. </docset:Lungs></docset:Lungs-section><docset:Skin-section><dg:chunk structure="h1">
+
+             Skin </dg:chunk><docset:Skin structure="div">
+
+             Poor turgor, no rashes, bruising, petechiae; no signs of gynecomastia </docset:Skin></docset:Skin-section><docset:Psychiatry-section><dg:chunk structure="h1">
+
+             Psychiatry </dg:chunk><docset:Psychiatry structure="div">
+
+             mood stable </docset:Psychiatry></docset:Psychiatry-section><docset:Abdomen-section><dg:chunk structure="h1">
+
+             <docset:Abdomen>Abdomen </docset:Abdomen></dg:chunk><docset:Abdomen structure="div">
+
+             Normal bowel sounds, soft, NT, ND, no masses, no <dgm:Condition>hepatomegaly </dgm:Condition>(liver comes being <docset:BowelSounds>0</docset:BowelSounds>-<docset:BowelSounds>1 </docset:BowelSounds>cm below costal margin), no <dgm:Condition>splenomegaly</dgm:Condition>. </docset:Abdomen></docset:Abdomen-section><dg:chunk structure="h1">
+
+             Rectal </dg:chunk><dg:chunk structure="h1">
+
+             Negative for occult blood, and no prostate <dgm:Condition>hypertrophy </dgm:Condition>or nodules. </dg:chunk><docset:Extremities-section><dg:chunk structure="h1">
+
+             Extremities </dg:chunk><docset:Extremities structure="div">
+
+             no clubbing, <dgm:Condition>cyanosis</dgm:Condition>, <dgm:Condition>edema </dgm:Condition></docset:Extremities></docset:Extremities-section><docset:MusculoSkeletal-section><dg:chunk structure="h1">
+
+             MusculoSkeletal </dg:chunk><docset:MusculoSkeletal structure="div">
+
+             Normal bulk, and power was <docset:BulkandPowerTest>5</docset:BulkandPowerTest>+ grip and elbow, knee, and ankle flexion and extension bilaterally. </docset:MusculoSkeletal></docset:MusculoSkeletal-section><docset:Neurological-section><dg:chunk structure="h1">
+
+             Neurological </dg:chunk><docset:Neurological structure="div">
+
+             Alert and oriented x <docset:NeurologicalExam>3</docset:NeurologicalExam>. CN <docset:NeurologicalExam>2</docset:NeurologicalExam>-<docset:NeurologicalExam>12 </docset:NeurologicalExam>intact. Sensation to light touch and cold stimuli intact bilaterally. Finger to nose nl. <docset:BabinskiReflex>Babinski </docset:BabinskiReflex>is downgoing. DTR's (biceps, patellar, and achilles) nl. </docset:Neurological></docset:Neurological-section><dg:chunk structure="h1">
+
+             <dg:chunk>Pertinent Diagnostic Tests </dg:chunk></dg:chunk><dg:chunk structure="h1">
+
+             Notes: </dg:chunk><docset:MetabolicPanelWnlCBCWnlExceptWBC151-section><dg:chunk structure="h1">
+
+             Metabolic panel wnl <dgm:MedicalTest>CBC </dgm:MedicalTest>wnl except <docset:WhiteBloodCellCount><docset:WhiteBloodCellCount>WBC </docset:WhiteBloodCellCount><docset:WhiteBloodCellCount>15.1 </docset:WhiteBloodCellCount></docset:WhiteBloodCellCount></dg:chunk><docset:MetabolicPanelWnlCBCWnlExceptWBC151 structure="div"><docset:CardiacEnzymeLevels structure="p">
+
+             CREATINE KINASE <docset:CreatineKinase>63 (</docset:CreatineKinase><docset:CreatineKinase>70-</docset:CreatineKinase><docset:LabResults>185) </docset:LabResults><dgm:MedicalTest>CK</dgm:MedicalTest>-MB <docset:CardiacEnzymes><docset:CardiacEnzymes>1.5 </docset:CardiacEnzymes>(0.0-</docset:CardiacEnzymes><docset:CardiacEnzymes>6.0</docset:CardiacEnzymes>) TROPONIN T &lt;<docset:TroponinT>0.029 </docset:TroponinT>(<dg:chunk>2nd </dg:chunk>and 3rd set pending) <dgm:MedicalTest>EKG </dgm:MedicalTest>– Normal sinus rhythm, PR is &lt;<docset:EKGFindings>0.20</docset:EKGFindings>, QRS is &lt;<docset:EKGResults>0.12</docset:EKGResults>. No PVC’s or signs or <dgm:Condition>hypertrophy</dgm:Condition>. </docset:CardiacEnzymeLevels><dg:chunk><docset:_10072007CHEST2VPALATFINDINGSCardiacSilhouetteAndMediastinalContours-><dg:chunk structure="h1">
+
+             <docset:ChestX-RayFindings>10/07/2007 </docset:ChestX-RayFindings><docset:ChestX-RayFindings>CHEST 2V </docset:ChestX-RayFindings><docset:ChestX-Ray>PA </docset:ChestX-Ray>+ LAT FINDINGS: Cardiac silhouette and mediastinal contours are in appearance with large right paratracheal mediastinal mass again identified. The lungs are clear bilaterally without evidence for focal airspace consolidation, <dgm:Condition>pleural effusion</dgm:Condition>, <dgm:Condition>pneumothorax</dgm:Condition>, or <dgm:Condition>edema</dgm:Condition>. The visualized osseous structures and soft tissues are grossly unchanged. IMPRESSION: </dg:chunk><docset:_10072007CHEST2VPALATFINDINGSCardiacSilhouetteAndMediastinalContours structure="div">Stable appearance of the chest as compared to <dgm:_testRef>study </dgm:_testRef>dated <docset:StudyDate>09/28/07 </docset:StudyDate>with stable right paratracheal mediastinal mass again identified. </docset:_10072007CHEST2VPALATFINDINGSCardiacSilhouetteAndMediastinalContours></docset:_10072007CHEST2VPALATFINDINGSCardiacSilhouetteAndMediastinalContours-><docset:_09282007CTACHESTWContrastIMPRESSION-section><dg:chunk structure="h1">
+
+             <docset:DateofExam>09/28/2007 </docset:DateofExam><docset:CTScanType>CTA CHEST </docset:CTScanType>w/<docset:Contrast>contrast </docset:Contrast>IMPRESSION: </dg:chunk><docset:_09282007CTACHESTWContrastIMPRESSION structure="div"><docset:Diagnosis>1</docset:Diagnosis>. No <dgm:MedicalTest>CT </dgm:MedicalTest>evidence of acute pulmonary emboli. <docset:Diagnosis>2</docset:Diagnosis>. Large mediastinal mass with mass effect on the trachea and endobronchial extension as well as perihilar soft tissue <dgm:Condition>lesion </dgm:Condition>is most concerning for a primary bronchogenic <dgm:Condition>carcinoma</dgm:Condition>. Tiny nodules in the right upper and lower lobes may represent <dgm:Condition>tumor </dgm:Condition>spread vs bronchial obstruction and mucus impaction. </docset:_09282007CTACHESTWContrastIMPRESSION></docset:_09282007CTACHESTWContrastIMPRESSION-section></dg:chunk></docset:MetabolicPanelWnlCBCWnlExceptWBC151></docset:MetabolicPanelWnlCBCWnlExceptWBC151-section><docset:ProblemList-section><dg:chunk structure="h1">
+
+             <dg:chunk>Problem List </dg:chunk></dg:chunk><docset:ProblemList structure="div"><dg:chunk structure="p">
+
+             <docset:LungMass>1</docset:LungMass>) LUNG MASS </dg:chunk><dg:chunk structure="ol" style="list-style-type: lower-alpha; boundingBox:{left: 266.7; top: 1204.2; width: 1208.3; height: 425.0; page: 4;}; "><dg:chunk structure="li" style="boundingBox:{left: 266.7; top: 1204.2; width: 545.8; height: 41.7; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 266.7; top: 1204.2; width: 37.5; height: 41.7; page: 4;}; ">
+
+             2) </dg:chunk><dg:chunk structure="h1">DYSPNEA ON EXERTION </dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 266.7; top: 1250.0; width: 841.7; height: 41.7; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 266.7; top: 1250.0; width: 37.5; height: 41.7; page: 4;}; ">
+
+             3) </dg:chunk><dg:chunk structure="h1">CHEST PAIN/ HEARTBURN/ TIGHTNESS </dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 266.7; top: 1300.0; width: 495.8; height: 41.7; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 266.7; top: 1300.0; width: 37.5; height: 41.7; page: 4;}; ">
+
+             4) </dg:chunk><dg:chunk structure="h1">COUGHING/<dgm:Condition>VOMITING </dgm:Condition></dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 266.7; top: 1345.8; width: 845.8; height: 41.7; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 266.7; top: 1345.8; width: 37.5; height: 41.7; page: 4;}; ">
+
+             5) </dg:chunk><dg:chunk structure="h1">DECREASED PO INTAKE/WEIGHT LOSS </dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 266.7; top: 1395.8; width: 758.3; height: 41.7; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 266.7; top: 1395.8; width: 37.5; height: 41.7; page: 4;}; ">
+
+             6) </dg:chunk><dg:chunk structure="h1">SMOKING Hx/<dgm:Medication>NICOTINE </dgm:Medication><dgm:Condition>ADDICTION </dgm:Condition></dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 266.7; top: 1438.0; width: 312.5; height: 48.8; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 266.7; top: 1437.5; width: 37.5; height: 50.0; page: 4;}; ">
+
+             7) </dg:chunk><dg:chunk structure="h1">EtOH INTAKE </dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 266.7; top: 1491.7; width: 375.0; height: 41.7; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 266.7; top: 1491.7; width: 37.5; height: 41.7; page: 4;}; ">
+
+             8) </dg:chunk><dgm:Condition structure="h1">LEUKOCYTOSIS </dgm:Condition></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 266.7; top: 1537.5; width: 433.3; height: 41.7; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 266.7; top: 1537.5; width: 37.5; height: 41.7; page: 4;}; ">
+
+             9) </dg:chunk><dg:chunk structure="p"><dg:chunk>FAMILY Hx </dg:chunk>+ for DM </dg:chunk></dg:chunk><dg:chunk structure="li" style="boundingBox:{left: 266.7; top: 1587.5; width: 1208.3; height: 41.7; page: 4;}; "><dg:chunk structure="lim" style="boundingBox:{left: 266.7; top: 1587.5; width: 62.5; height: 41.7; page: 4;}; ">
+
+             10) </dg:chunk><dg:chunk>NO PRIMARY CARE PROVIDER/REGULAR HEALTH CARE </dg:chunk></dg:chunk></dg:chunk></docset:ProblemList></docset:ProblemList-section><dg:chunk><dg:chunk structure="h1">
+
+             Assessment and Recommendation </dg:chunk><dg:chunk structure="div"><docset:PatientHistory structure="p">
+
+             Patient is a <docset:Age>51 </docset:Age><docset:YearofSymptomOnset>year </docset:YearofSymptomOnset>old gentleman with no significant past medical history presenting with <docset:SymptomDuration>3 weeks </docset:SymptomDuration>of dyspnea on light exertion and a <docset:Symptoms>10 </docset:Symptoms><docset:WeightLoss>lb </docset:WeightLoss>weight loss in <docset:WeightLossDuration>8 days</docset:WeightLossDuration>. He presented <docset:SymptomOnsetDate><docset:SymptomOnsetDate><docset:Symptoms>9 </docset:Symptoms><docset:SymptomOnset>days ago to the UNC </docset:SymptomOnset></docset:SymptomOnsetDate><docset:EDVisit>ED </docset:EDVisit></docset:SymptomOnsetDate>with the same set of symptoms and had a <dg:chunk><dgm:MedicalTest>CT </dgm:MedicalTest>Chest </dg:chunk>that shows a large right-sided mediastinal mass. </docset:PatientHistory><dg:chunk><docset:LUNGMASS-section><dg:chunk structure="h1">
+
+             <docset:LungMass>LUNG </docset:LungMass>MASS – </dg:chunk><docset:LUNGMASS structure="div"><docset:LungCancerSymptoms structure="p">
+
+             While the diagnosis is unconfirmed at the moment, it seems likely that this patient has lung <dgm:Condition>cancer</dgm:Condition>. Smoking status is the primary risk factor leading to lung <dgm:Condition>cancer </dgm:Condition>(bronchogenic <dgm:Condition>carcinoma </dgm:Condition>or squamous cell) with a lifetime smoker’s risk being <docset:SmokingRisk>10- to 30- time </docset:SmokingRisk>that of a non-smoker. Persons with lung <dgm:Condition>cancer </dgm:Condition>are most often (<docset:LungCancerSymptoms><dg:chunk>~95</dg:chunk>%</docset:LungCancerSymptoms>) diagnosed because of some symptom or symptoms. Symptoms may be related to the primary lung <dgm:Condition>lesion </dgm:Condition>or to intrathoracic spread, distant metastasis, or paraneoplastic syndromes. The symptoms most commonly presented include <dgm:Condition>cough</dgm:Condition>, SOB, <dgm:Condition>wheezing</dgm:Condition>, <dgm:Condition>chest pain</dgm:Condition>, <dgm:Condition>hemoptysis</dgm:Condition>, loss of appetite, weight loss, or <dgm:Condition>pneumonia</dgm:Condition>. This patient has a significant smoking hx while exhibiting at least <docset:Symptoms>4 </docset:Symptoms>of these symptoms in addition to also having a mass found on imaging studies. Other conditions on the differential for this pt’s lung mass include TB vs aspergillous (fungus ball) vs <dgm:Condition>sarcoidosis </dgm:Condition>vs uncomplicated <dgm:Condition>pneumonia</dgm:Condition>, though the hx has pertinent negatives for much of this differential. </docset:LungCancerSymptoms><docset:DiagnosticWorkup structure="p">
+
+                 The Xrays and <dg:chunk><dgm:MedicalTest>CT </dgm:MedicalTest>Chest </dg:chunk>from last weekend and an additional Xray today show a similar mass. Additionally, a new <dgm:MedicalTest>CT </dgm:MedicalTest>Chest is pending to further evaluate if mass has changed at all. We have scheduled a <dgm:MedicalTest>Bronchoscopy</dgm:MedicalTest>/<dgm:MedicalTest>Biopsy </dgm:MedicalTest>to further workup the tissue/mass. Also ordered is an Induced <dgm:MedicalTest>sputum culture </dgm:MedicalTest>to assess for fungal or bacterial <dgm:Condition>infection</dgm:Condition>. Blood cultures will assess for systemic <dgm:Condition>infection </dgm:Condition>due to <dgm:Condition>pneumonia </dgm:Condition>or some other cause, but this is unlikely due to lack of fevers or other constitutional symptoms. A PPD was placed to be read in <docset:PendingTests>2 days</docset:PendingTests>. Despite the lack of TB exposure the pt should be assessed for current TB status. And we will have regular Chem10 and <dgm:MedicalTest>CBC </dgm:MedicalTest>draws to assess for paraneoplastic syndromes including <dgm:Condition>hypercalcemia </dgm:Condition>or resultant <dgm:Condition>hyponatremia </dgm:Condition>(1st set is not suggestive of such); will consider PTH, CEA, and CYFRA 21-1 <dgm:_testRef>testing</dgm:_testRef>. Also an ACE blood level will be pulled with the <docset:BloodTests>AM </docset:BloodTests>draw to assess for possible <dgm:Condition>Sarcoidosis</dgm:Condition>, since epidemiologically speaking, the patient is the right age and race for this diagnosis, though 
+
+             it is rare. </docset:DiagnosticWorkup></docset:LUNGMASS></docset:LUNGMASS-section><docset:DYSPNEAONEXERTION-section><dg:chunk structure="h1">
+
+             <dg:chunk>DYSPNEA ON EXERTION </dg:chunk></dg:chunk><docset:DYSPNEAONEXERTION structure="div">- Likely due to the effect of mass on Right lung, but should consider other concomitant causes such as <dgm:Condition>asthma </dgm:Condition>or CHF. We will watch O2 sats and obtain "O2 sats on exertion" for comparison before discharge. Supportive therapy as needed with <dgm:Medication>Albuterol </dgm:Medication>2.5mg neb <dg:chunk>q4hr </dg:chunk>PRN <dgc:Frequency>daily </dgc:Frequency>and Ipratropium nebs <docset:TreatmentPlan>0.5</docset:TreatmentPlan>mg <dg:chunk>q4hr </dg:chunk>PRN <dgc:Frequency>daily</dgc:Frequency>. IF Sat levels go below <docset:OxygenSaturation>92%</docset:OxygenSaturation>, apply <docset:OxygenTherapy>O2 </docset:OxygenTherapy><docset:TreatmentPlan>2 </docset:TreatmentPlan>liters nasal cannula. Further workup will be dictated by symptomology. </docset:DYSPNEAONEXERTION></docset:DYSPNEAONEXERTION-section><docset:CHESTPAINHEARTBURNTIGHTNESS-section><dg:chunk structure="h1">
+
+             CHEST PAIN/ HEARTBURN/ TIGHTNESS </dg:chunk><docset:CHESTPAINHEARTBURNTIGHTNESS structure="div">– Quite possible cause by the right sided mass, but these symptoms also required a cardiac workup and GI prophylaxis. <dgm:MedicalTest>EKG </dgm:MedicalTest>and first set of cardiac enzymes were not alarming and the hx does not really fit this kind of pain with such a prolonged course. Telemetry was initiated but has now been pulled. We will draw for two other sets of cardiac enzymes. For now, will give <dgm:Medication>acetaminophen </dgm:Medication><docset:PainMedication><docset:AcetaminophenDose><docset:PainMedication>650 </docset:PainMedication><docset:Dosage>mg </docset:Dosage></docset:AcetaminophenDose><docset:TreatmentPlan>PO </docset:TreatmentPlan></docset:PainMedication>q6hr pain, with consideration for narcotics if pain persists or worsens. <dgm:Condition>Heartburn </dgm:Condition>prophylaxis with <dgm:Medication>Nexium </dgm:Medication>40mg PO qhs and <dgm:Medication>sucralfate </dgm:Medication>1g PO q6hrs PRN qd. </docset:CHESTPAINHEARTBURNTIGHTNESS></docset:CHESTPAINHEARTBURNTIGHTNESS-section></dg:chunk></dg:chunk></dg:chunk><docset:COUGHINGVOMITING-section><dg:chunk structure="h1">
+
+             COUGHING/<dgm:Condition>VOMITING</dgm:Condition>: </dg:chunk><docset:COUGHINGVOMITING structure="div"><docset:TreatmentPlan structure="p">Since this patient’s coughing often leads to <dgm:Condition>vomiting </dgm:Condition>(but this is without <dgm:Condition>nausea</dgm:Condition>) it would be helpful to try and prevent the <dgm:Condition>cough</dgm:Condition>. No antiemetic regimen needed. Any foods but soups seem to trigger coughing, so diet with soups and liquids only as tolerated. Also will try Guaifensin <docset:TreatmentPlan>200</docset:TreatmentPlan>mg PO q6hr PRN <dgm:Condition>cough</dgm:Condition>. </docset:TreatmentPlan><dg:chunk><docset:DECREASEDPOINTAKEWEIGHTLOSS-section><dg:chunk structure="h1">
+
+             DECREASED PO INTAKE/WEIGHT LOSS: </dg:chunk><docset:DECREASEDPOINTAKEWEIGHTLOSS structure="div">Pt has experienced a <docset:TreatmentPlan>10 </docset:TreatmentPlan>lb weight loss and has poor skin turgor. Possible effects of neoplastic disease but also of decreased PO intake and <dgm:Condition>dehydration</dgm:Condition>. Chem10 currently does not show signs of <dgm:Condition>dehydration</dgm:Condition>. Pull again in AM to reassess. Start pt on Mechanical soft diet, which will hopefully be tolerated w/o triggering <dgm:Condition>cough </dgm:Condition>and subsequent <dgm:Condition>vomiting</dgm:Condition>. Start <dgm:Medication>normal saline </dgm:Medication>IV @ <docset:TreatmentPlan>100 </docset:TreatmentPlan>ml/hr x <docset:HydrationPlan>10 hours</docset:HydrationPlan>. Hydrate tonight and reassess volume status. Nutrition c/s for recommendations on patient situation. Thank you for your recommendations. </docset:DECREASEDPOINTAKEWEIGHTLOSS></docset:DECREASEDPOINTAKEWEIGHTLOSS-section><docset:SMOKINGHxNICOTINEADDICTION-section><dg:chunk structure="h1">
+
+             SMOKING Hx/<dgm:Medication>NICOTINE </dgm:Medication><dgm:Condition>ADDICTION</dgm:Condition>: </dg:chunk><docset:SMOKINGHxNICOTINEADDICTION structure="div"><docset:SmokingHistory>20 pack </docset:SmokingHistory>year history. <docset:UniversityofNorthCarolina>UNC </docset:UniversityofNorthCarolina>is a non-smoking campus and pt likely to have cravings. <dgm:Medication>Nicotine </dgm:Medication>patch 7mg transdermal qd. </docset:SMOKINGHxNICOTINEADDICTION></docset:SMOKINGHxNICOTINEADDICTION-section></dg:chunk></docset:COUGHINGVOMITING></docset:COUGHINGVOMITING-section><docset:EtOHINTAKE-section><dg:chunk structure="h1">
+
+             <dg:chunk>EtOH INTAKE</dg:chunk>: </dg:chunk><docset:EtOHINTAKE structure="div"><docset:AlcoholConsumption structure="p">Patient has a consistent intake of about <docset:AlcoholConsumption>6</docset:AlcoholConsumption><docset:AlcoholConsumption>-7 beers </docset:AlcoholConsumption>on weekends, which indicate he may be using the drug in a binge fashion which has been shown to have many negative effects on health. Patient should be educated on how these choices can affect his health. </docset:AlcoholConsumption><dg:chunk><dg:chunk><docset:LEUKOCYTOSIS-section><dg:chunk structure="h1">
+
+             <dgm:Condition>LEUKOCYTOSIS</dgm:Condition>: </dg:chunk><docset:LEUKOCYTOSIS structure="div"><docset:WhiteBloodCellCount><docset:WhiteBloodCellCount>WBC </docset:WhiteBloodCellCount>of <docset:WhiteBloodCellCount>15.1</docset:WhiteBloodCellCount></docset:WhiteBloodCellCount>. Despite constitutional signs, <dgm:Condition>infection </dgm:Condition>workup is indicated as already mentioned above. This includes blood cultures, <dgm:MedicalTest>sputum culture</dgm:MedicalTest>, U/A, and <dgm:MedicalTest>urine culture</dgm:MedicalTest>. </docset:LEUKOCYTOSIS></docset:LEUKOCYTOSIS-section><docset:NOPRIMARYCAREPROVIDER-section><dg:chunk structure="h1">
+
+             NO <dg:chunk>PRIMARY CARE PROVIDER</dg:chunk>: </dg:chunk><docset:NOPRIMARYCAREPROVIDER structure="div">This patient could benefit greatly from having a primary care provider and getting regular physicals and <dgm:_testRef>screening </dgm:_testRef>for common cancers. Unfortunately there is not a reliable way to <dgm:_testRef>screen </dgm:_testRef>for lung <dgm:Condition>cancer</dgm:Condition>, but having a PCP still promotes healthier life choices and <dgm:_testRef>screening </dgm:_testRef>for other conditions. This could include a fasting <dgm:Medication>lipid </dgm:Medication>panel, a check of blood sugars and an <dg:chunk>A1c</dg:chunk>, and perhaps a <dgm:MedicalTest>colonoscopy </dgm:MedicalTest>to assess for colonic polyps and <dgm:Condition>cancer</dgm:Condition>. </docset:NOPRIMARYCAREPROVIDER></docset:NOPRIMARYCAREPROVIDER-section></dg:chunk><docset:PROPHYLAXIS-section><dg:chunk structure="h1">
+
+             PROPHYLAXIS: </dg:chunk><docset:PROPHYLAXIS structure="div"><dgm:Medication>Heparin </dgm:Medication>(rectal occult <docset:BloodTestResults><docset:BloodThinner>blood </docset:BloodThinner>was <docset:RectalOccultBloodTestResult>negative </docset:RectalOccultBloodTestResult></docset:BloodTestResults>and this is for DVT prophylaxis) and <dgm:Medication>Nexium</dgm:Medication>/Sucrulfate (see above) </docset:PROPHYLAXIS></docset:PROPHYLAXIS-section><docset:DISPO-section><dg:chunk structure="h1">
+
+             DISPO: </dg:chunk><docset:DISPO structure="div"><dg:chunk structure="p">Full Code </dg:chunk><docset:TreatmentPlan structure="p">
+
+             --- Discharge and outpatient followup pending workup of mass and stabilization of dyspnea.</docset:TreatmentPlan></docset:DISPO></docset:DISPO-section></dg:chunk></docset:EtOHINTAKE></docset:EtOHINTAKE-section></docset:Service-section></docset:HistoryAndPhysicalNotes-FinalReport-section>

@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?><docset:NationalTransportationSafetyBoardAviationAccidentFinalReport-section cp:version="2.121.121.0.1705579803777-203.0" xmlns:docset="http://www.docugami.com/2021/dgml/docugami/NTSBAviationIncidentReports" xmlns:addedChunks="http://www.docugami.com/2021/dgml/docugami/NTSBAviationIncidentReports/addedChunks" xmlns:dg="http://www.docugami.com/2021/dgml" xmlns:dgc="http://www.docugami.com/2021/dgml/docugami/contracts" xmlns:dgm="http://www.docugami.com/2021/dgml/docugami/medical" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:cp="http://classifyprocess.com/2018/07/"><dg:chunk structure="h1">
+
+                                      <dg:chunk><docset:NTSBReport>National Transportation Safety Board </docset:NTSBReport>Aviation Accident Final Report </dg:chunk></dg:chunk><docset:NationalTransportationSafetyBoardAviationAccidentFinalReport structure="div"><docset:AviationAccidentFinalReport><xhtml:table structure="table" style="boundingBox:{left: 201.0; top: 592.6; width: 2146.5; height: 415.8; page: 1;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 201.0; top: 592.6; width: 2146.5; height: 415.8; page: 1;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 201.0; top: 592.6; width: 2146.5; height: 109.5; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 201.0; top: 592.6; width: 526.0; height: 109.5; page: 1;}; "><dg:chunk structure="h1">
+
+            Location: </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 727.1; top: 592.6; width: 588.6; height: 109.5; page: 1;}; "><docset:Location>
+
+            <docset:City>Madill</docset:City>, <docset:State>OK </docset:State></docset:Location></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1315.7; top: 592.6; width: 551.0; height: 109.5; page: 1;}; "><dg:chunk structure="h1">
+
+                  Accident Number: </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1866.7; top: 592.6; width: 480.8; height: 109.5; page: 1;}; "><docset:AccidentNumber>
+
+             <docset:DFW08CA044>DFW08CA044 </docset:DFW08CA044></docset:AccidentNumber></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 201.0; top: 702.1; width: 2146.5; height: 84.1; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 201.0; top: 702.1; width: 526.0; height: 84.1; page: 1;}; "><docset:LocationDateTime structure="h1">
+
+            Date &amp; Time: </docset:LocationDateTime></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 727.1; top: 702.1; width: 588.6; height: 84.1; page: 1;}; "><docset:DateTime>
+
+            <docset:Date>11/30/2007</docset:Date>, <docset:Time>1200 </docset:Time><dgm:MedicalTest>CST </dgm:MedicalTest></docset:DateTime></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1315.7; top: 702.1; width: 551.0; height: 84.1; page: 1;}; "><docset:DateTimeAccidentNumber>
+
+                  Registration: </docset:DateTimeAccidentNumber></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1866.7; top: 702.1; width: 480.8; height: 84.1; page: 1;}; "><docset:Registration>
+
+             <docset:N6135>N6135</docset:N6135>M </docset:Registration></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 201.0; top: 786.2; width: 2146.5; height: 79.3; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 201.0; top: 786.2; width: 526.0; height: 79.3; page: 1;}; "><docset:LocationAircraft>
+
+            Aircraft: </docset:LocationAircraft></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 727.1; top: 786.2; width: 588.6; height: 79.3; page: 1;}; "><docset:Aircraft>
+
+            <docset:AircraftType>Cessna </docset:AircraftType><docset:AircraftType>152 </docset:AircraftType></docset:Aircraft></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1315.7; top: 786.2; width: 551.0; height: 79.3; page: 1;}; "><docset:AircraftAccidentNumber>
+
+                  <dg:chunk>Aircraft Damage</dg:chunk>: </docset:AircraftAccidentNumber></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1866.7; top: 786.2; width: 480.8; height: 79.3; page: 1;}; "><docset:AircraftDamage>
+
+             Substantial </docset:AircraftDamage></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 201.0; top: 865.6; width: 2146.5; height: 82.4; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 201.0; top: 865.6; width: 526.0; height: 82.4; page: 1;}; "><docset:DefiningEvent-cell>
+
+            Defining Event: </docset:DefiningEvent-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 727.1; top: 865.6; width: 588.6; height: 82.4; page: 1;}; "><docset:DefiningEventMadillOK /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1315.7; top: 865.6; width: 551.0; height: 82.4; page: 1;}; "><docset:DefiningEventAccidentNumber>
+
+                  Injuries: </docset:DefiningEventAccidentNumber></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1866.7; top: 865.6; width: 480.8; height: 82.4; page: 1;}; "><docset:Injuries>
+
+             <docset:None>1 </docset:None>None </docset:Injuries></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 201.0; top: 947.9; width: 2146.5; height: 60.4; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 201.0; top: 947.9; width: 526.0; height: 60.4; page: 1;}; "><docset:LocationFlightConductedUnder>
+
+            Flight Conducted Under: </docset:LocationFlightConductedUnder></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 727.1; top: 947.9; width: 1139.6; height: 60.4; page: 1;}; " colspan="2"><docset:Part91-cell structure="h1">
+
+            Part <docset:PartNumber>91</docset:PartNumber>: <dg:chunk><docset:GeneralAviation>General Aviation </docset:GeneralAviation>- Instructional </dg:chunk></docset:Part91-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1866.7; top: 947.9; width: 480.8; height: 60.4; page: 1;}; "><docset:FlightConductedUnderAccidentNumber /></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:AviationAccidentFinalReport><dg:chunk><docset:Analysis-section><dg:chunk structure="h1">
+
+            Analysis </dg:chunk><docset:Analysis structure="div">
+
+            The <docset:SoloLandings>28</docset:SoloLandings>-hour solo student pilot landed with a crosswind condition and lost control of the airplane during the landing roll. The mishap occurred during the student’s seventh solo landing of the day. The pilot stated that after the airplane landed "the wind switched from a crosswind to a tail wind and back" to crosswind. The airplane departed the runway, the nose gear collapsed in the soft terrain, and the propeller contacted the ground. <dgm:_testRef>Examination </dgm:_testRef>of the airplane by an inspector from the <docset:FAAReport>Federal Aviation Administration </docset:FAAReport>revealed structural damage to the engine firewall. The winds at the time of the accident were reported as a 90 degree crosswind to the active runway at <docset:WindConditions>8 </docset:WindConditions>knots. </docset:Analysis></docset:Analysis-section><docset:ProbableCauseAndFindings-section><dg:chunk structure="h1">
+
+            <dg:chunk>Probable Cause </dg:chunk>and Findings </dg:chunk><docset:ProbableCauseAndFindings structure="div">
+
+            The <docset:ProbableCause>National Transportation Safety Board </docset:ProbableCause>determines the probable cause(s) of this accident to be: The pilot failed to maintain directional control during landing roll. A contributing factor was the crosswind. </docset:ProbableCauseAndFindings></docset:ProbableCauseAndFindings-section><dg:chunk structure="h1">
+
+            Findings </dg:chunk><dg:chunk structure="h1">
+
+            Occurrence #<docset:Occurrence1>1</docset:Occurrence1>: LOSS OF <dg:chunk>CONTROL - ON GROUND</dg:chunk>/WATER </dg:chunk><dg:chunk structure="h1">
+
+            Phase of Operation: <dg:chunk><docset:LandingPhase>LANDING </docset:LandingPhase>- ROLL </dg:chunk></dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+            Findings </dg:chunk><dg:chunk structure="div"><dg:chunk structure="p">
+
+            <docset:WeatherCondition>1</docset:WeatherCondition>. (F) WEATHER <dg:chunk>CONDITION - CROSSWIND </dg:chunk></dg:chunk><dg:chunk structure="ol" style="list-style-type: decimal; boundingBox:{left: 225.0; top: 2554.2; width: 1308.3; height: 41.7; page: 1;}; "><dg:chunk structure="li" style="boundingBox:{left: 225.0; top: 2554.2; width: 1308.3; height: 41.7; page: 1;}; "><dg:chunk structure="lim" style="boundingBox:{left: 225.0; top: 2554.2; width: 33.3; height: 41.7; page: 1;}; ">
+
+            2. </dg:chunk><dg:chunk>(C) DIRECTIONAL CONTROL - NOT MAINTAINED - <docset:PilotinCommand>PILOT IN COMMAND </docset:PilotinCommand></dg:chunk></dg:chunk></dg:chunk></dg:chunk></dg:chunk><dg:chunk structure="h1">
+
+            Page 1 of <docset:PageNumber>4 </docset:PageNumber></dg:chunk><dg:chunk structure="h1">
+
+            Factual Information </dg:chunk><docset:PilotInformation-section><dg:chunk structure="h1">
+
+            <dg:chunk>Student Pilot Information </dg:chunk></dg:chunk><docset:PilotInformation><xhtml:table structure="table" style="boundingBox:{left: 202.5; top: 531.8; width: 2144.0; height: 722.0; page: 2;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 202.5; top: 531.8; width: 2144.0; height: 722.0; page: 2;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 531.8; width: 2144.0; height: 83.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 531.8; width: 470.4; height: 83.0; page: 2;}; "><dg:chunk structure="h1">
+
+            Certificate: </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 672.9; top: 531.8; width: 470.8; height: 83.0; page: 2;}; "><docset:Certificate>
+
+            Student </docset:Certificate></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1143.8; top: 531.8; width: 716.7; height: 83.0; page: 2;}; ">
+
+                    Age: </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1860.4; top: 531.8; width: 486.1; height: 83.0; page: 2;}; "><docset:Age>
+
+                <docset:Gender>32</docset:Gender>, Male </docset:Age></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 615.8; width: 2144.0; height: 72.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 614.8; width: 470.4; height: 73.0; page: 2;}; "><docset:CertificateAirplaneRatingS>
+
+            Airplane Rating(s): </docset:CertificateAirplaneRatingS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 672.9; top: 614.8; width: 470.8; height: 73.0; page: 2;}; "><docset:AirplaneRatingS>
+
+            None </docset:AirplaneRatingS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1143.8; top: 614.8; width: 716.7; height: 73.0; page: 2;}; "><docset:AirplaneRatingSAge>
+
+                    Seat Occupied: </docset:AirplaneRatingSAge></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1860.4; top: 614.8; width: 486.1; height: 73.0; page: 2;}; "><docset:SeatOccupied>
+
+                Left </docset:SeatOccupied></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 688.8; width: 2144.0; height: 115.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 687.8; width: 470.4; height: 116.0; page: 2;}; "><docset:CertificateOtherAircraftRatingS>
+
+            Other Aircraft Rating(s): </docset:CertificateOtherAircraftRatingS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 672.9; top: 687.8; width: 470.8; height: 116.0; page: 2;}; "><docset:OtherAircraftRatingS>
+
+            None </docset:OtherAircraftRatingS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1143.8; top: 687.8; width: 716.7; height: 116.0; page: 2;}; "><docset:OtherAircraftRatingSAge>
+
+                    Restraint Used: </docset:OtherAircraftRatingSAge></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1860.4; top: 687.8; width: 486.1; height: 116.0; page: 2;}; "><docset:RestraintUsed>
+
+                Seatbelt, Shoulder harness </docset:RestraintUsed></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 804.8; width: 2144.0; height: 72.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 803.8; width: 470.4; height: 73.0; page: 2;}; "><docset:CertificateInstrumentRatingS>
+
+            Instrument Rating(s): </docset:CertificateInstrumentRatingS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 672.9; top: 803.8; width: 470.8; height: 73.0; page: 2;}; "><docset:InstrumentRatingS>
+
+            None </docset:InstrumentRatingS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1143.8; top: 803.8; width: 716.7; height: 73.0; page: 2;}; "><docset:InstrumentRatingSAge>
+
+                    <dg:chunk>Second Pilot Present</dg:chunk>: </docset:InstrumentRatingSAge></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1860.4; top: 803.8; width: 486.1; height: 73.0; page: 2;}; "><docset:SecondPilotPresent>
+
+                No </docset:SecondPilotPresent></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 877.8; width: 2144.0; height: 72.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 876.8; width: 470.4; height: 73.0; page: 2;}; "><docset:CertificateInstructorRatingS>
+
+            Instructor Rating(s): </docset:CertificateInstructorRatingS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 672.9; top: 876.8; width: 470.8; height: 73.0; page: 2;}; "><docset:InstructorRatingS>
+
+            None </docset:InstructorRatingS></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1143.8; top: 876.8; width: 716.7; height: 73.0; page: 2;}; "><docset:InstructorRatingSAge>
+
+                    Toxicology Performed: </docset:InstructorRatingSAge></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1860.4; top: 876.8; width: 486.1; height: 73.0; page: 2;}; "><docset:ToxicologyPerformed>
+
+                No </docset:ToxicologyPerformed></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 950.8; width: 2144.0; height: 115.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 949.8; width: 470.4; height: 116.0; page: 2;}; "><docset:CertificateMedicalCertification>
+
+            <dg:chunk>Medical Certification</dg:chunk>: </docset:CertificateMedicalCertification></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 672.9; top: 949.8; width: 470.8; height: 116.0; page: 2;}; "><docset:MedicalCertification>
+
+            Class 3 Without Waivers/Limitations </docset:MedicalCertification></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1143.8; top: 949.8; width: 716.7; height: 116.0; page: 2;}; "><docset:MedicalCertificationAge>
+
+                    <dg:chunk>Last FAA Medical <dgm:_testRef>Exam</dgm:_testRef></dg:chunk>: </docset:MedicalCertificationAge></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1860.4; top: 949.8; width: 486.1; height: 116.0; page: 2;}; "><docset:LastFaaMedicalExam>
+
+                <dg:chunk xsi:type="date">09/01/2007 </dg:chunk></docset:LastFaaMedicalExam></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1066.8; width: 2144.0; height: 71.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1065.8; width: 470.4; height: 72.0; page: 2;}; "><docset:OccupationalPilot-cell>
+
+            <dg:chunk><docset:OccupationalPilot>Occupational </docset:OccupationalPilot>Pilot</dg:chunk>: </docset:OccupationalPilot-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 672.9; top: 1065.8; width: 470.8; height: 72.0; page: 2;}; "><docset:OccupationalPilotStudent /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1143.8; top: 1065.8; width: 1202.7; height: 72.0; page: 2;}; " colspan="2"><docset:LastFlightReviewOrEquivalent-cell structure="h1">
+
+                    <dg:chunk>Last Flight Review </dg:chunk>or Equivalent: </docset:LastFlightReviewOrEquivalent-cell></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1138.8; width: 2144.0; height: 115.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1137.8; width: 470.4; height: 116.0; page: 2;}; "><docset:CertificateFlightTime>
+
+            Flight Time: </docset:CertificateFlightTime></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 672.9; top: 1137.8; width: 1673.6; height: 116.0; page: 2;}; " colspan="3"><docset:FlightTime structure="p">
+
+            <docset:TotalFlightHours>28 </docset:TotalFlightHours>hours (Total, all aircraft), <dgc:Number>24 </dgc:Number><docset:FlightHours>hours </docset:FlightHours>(Total, this make and model), <docset:TotalFlightHours>1 </docset:TotalFlightHours>hours (Last <docset:TotalFlightHours>24 </docset:TotalFlightHours>hours, all aircraft) </docset:FlightTime></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:PilotInformation></docset:PilotInformation-section><docset:AircraftAndOwnerOperatorInformation-section><dg:chunk structure="h1">
+
+            Aircraft and Owner/Operator Information </dg:chunk><docset:AircraftAndOwnerOperatorInformation><xhtml:table structure="table" style="boundingBox:{left: 202.5; top: 1363.5; width: 2144.0; height: 876.0; page: 2;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 202.5; top: 1363.5; width: 2144.0; height: 876.0; page: 2;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1363.5; width: 2144.0; height: 79.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1363.5; width: 560.0; height: 79.0; page: 2;}; ">
+
+            <dg:chunk>Aircraft Make</dg:chunk>: </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 762.5; top: 1363.5; width: 495.8; height: 79.0; page: 2;}; "><docset:AircraftMake>
+
+            <docset:AircraftType>Cessna </docset:AircraftType></docset:AircraftMake></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1258.3; top: 1363.5; width: 543.8; height: 79.0; page: 2;}; ">
+
+              Registration: </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1802.1; top: 1363.5; width: 544.4; height: 79.0; page: 2;}; "><docset:Registration>
+
+             <docset:N6135>N6135</docset:N6135>M </docset:Registration></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1443.5; width: 2144.0; height: 68.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1442.5; width: 560.0; height: 69.0; page: 2;}; "><docset:AircraftMakeModelSeries>
+
+            Model/Series: </docset:AircraftMakeModelSeries></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 762.5; top: 1442.5; width: 495.8; height: 69.0; page: 2;}; "><docset:ModelSeries>
+
+            <dgc:Number>152 </dgc:Number></docset:ModelSeries></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1258.3; top: 1442.5; width: 543.8; height: 69.0; page: 2;}; "><docset:ModelSeriesRegistration>
+
+              <dg:chunk>Aircraft Category</dg:chunk>: </docset:ModelSeriesRegistration></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1802.1; top: 1442.5; width: 544.4; height: 69.0; page: 2;}; "><docset:AircraftCategory>
+
+             Airplane </docset:AircraftCategory></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1512.5; width: 2144.0; height: 67.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1511.5; width: 560.0; height: 68.0; page: 2;}; "><docset:YearofManufacture-cell>
+
+            Year of Manufacture: </docset:YearofManufacture-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 762.5; top: 1511.5; width: 495.8; height: 68.0; page: 2;}; "><docset:YearofManufactureCessna /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1258.3; top: 1511.5; width: 543.8; height: 68.0; page: 2;}; "><docset:YearofManufactureRegistration>
+
+              Amateur Built: </docset:YearofManufactureRegistration></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1802.1; top: 1511.5; width: 544.4; height: 68.0; page: 2;}; "><docset:AmateurBuilt>
+
+             No </docset:AmateurBuilt></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1580.5; width: 2144.0; height: 68.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1579.5; width: 560.0; height: 69.0; page: 2;}; "><docset:AircraftMakeAirworthinessCertificate>
+
+            <dg:chunk>Airworthiness Certificate</dg:chunk>: </docset:AircraftMakeAirworthinessCertificate></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 762.5; top: 1579.5; width: 495.8; height: 69.0; page: 2;}; "><docset:AirworthinessCertificate>
+
+            Normal </docset:AirworthinessCertificate></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1258.3; top: 1579.5; width: 543.8; height: 69.0; page: 2;}; "><docset:AirworthinessCertificateRegistration>
+
+              Serial Number: </docset:AirworthinessCertificateRegistration></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1802.1; top: 1579.5; width: 544.4; height: 69.0; page: 2;}; "><docset:SerialNumber>
+
+             <dgc:Number>15284628 </dgc:Number></docset:SerialNumber></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1649.5; width: 2144.0; height: 67.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1648.5; width: 560.0; height: 68.0; page: 2;}; "><docset:AircraftMakeLandingGearType>
+
+            Landing <dg:chunk>Gear Type</dg:chunk>: </docset:AircraftMakeLandingGearType></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 762.5; top: 1648.5; width: 495.8; height: 68.0; page: 2;}; "><docset:LandingGearType>
+
+            Tricycle </docset:LandingGearType></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1258.3; top: 1648.5; width: 543.8; height: 68.0; page: 2;}; "><docset:Seats-cell>
+
+              Seats: </docset:Seats-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1802.1; top: 1648.5; width: 544.4; height: 68.0; page: 2;}; "><docset:LandingGearTypeN6135M /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1717.5; width: 2144.0; height: 68.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1716.5; width: 560.0; height: 69.0; page: 2;}; "><docset:AircraftMakeDateTypeofLastInspection>
+
+            Date/Type of Last Inspection: </docset:AircraftMakeDateTypeofLastInspection></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 762.5; top: 1716.5; width: 495.8; height: 69.0; page: 2;}; "><docset:DateTypeofLastInspectionCessna /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1258.3; top: 1716.5; width: 543.8; height: 69.0; page: 2;}; "><docset:DateTypeofLastInspectionRegistration>
+
+              <dg:chunk>Certified Max Gross Wt</dg:chunk>.: </docset:DateTypeofLastInspectionRegistration></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1802.1; top: 1716.5; width: 544.4; height: 69.0; page: 2;}; "><docset:DateTypeofLastInspectionN6135M /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1786.5; width: 2144.0; height: 67.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1785.5; width: 560.0; height: 68.0; page: 2;}; "><docset:AircraftMakeTimeSinceLastInspection>
+
+            Time Since Last Inspection: </docset:AircraftMakeTimeSinceLastInspection></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 762.5; top: 1785.5; width: 495.8; height: 68.0; page: 2;}; "><docset:TimeSinceLastInspectionCessna /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1258.3; top: 1785.5; width: 543.8; height: 68.0; page: 2;}; "><docset:TimeSinceLastInspectionRegistration>
+
+              Engines: </docset:TimeSinceLastInspectionRegistration></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1802.1; top: 1785.5; width: 544.4; height: 68.0; page: 2;}; "><docset:Engines>
+
+             <docset:Reciprocating>1 </docset:Reciprocating>Reciprocating </docset:Engines></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1854.5; width: 2144.0; height: 68.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1853.5; width: 560.0; height: 69.0; page: 2;}; "><docset:AirframeTotalTime-cell>
+
+            <dg:chunk>Airframe Total Time</dg:chunk>: </docset:AirframeTotalTime-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 762.5; top: 1853.5; width: 495.8; height: 69.0; page: 2;}; "><docset:AirframeTotalTimeCessna /></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1258.3; top: 1853.5; width: 543.8; height: 69.0; page: 2;}; "><docset:AirframeTotalTimeRegistration>
+
+              <dg:chunk>Engine Manufacturer</dg:chunk>: </docset:AirframeTotalTimeRegistration></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1802.1; top: 1853.5; width: 544.4; height: 69.0; page: 2;}; "><docset:EngineManufacturer>
+
+             Lycoming </docset:EngineManufacturer></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1923.5; width: 2144.0; height: 67.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1922.5; width: 560.0; height: 68.0; page: 2;}; "><docset:AircraftMakeELT>
+
+            ELT: </docset:AircraftMakeELT></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 762.5; top: 1922.5; width: 495.8; height: 68.0; page: 2;}; "><docset:Elt>
+
+            Installed, not activated </docset:Elt></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1258.3; top: 1922.5; width: 543.8; height: 68.0; page: 2;}; "><docset:ELTRegistration>
+
+              Engine Model/Series: </docset:ELTRegistration></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1802.1; top: 1922.5; width: 544.4; height: 68.0; page: 2;}; "><docset:EngineModelSeries>
+
+             <docset:O-235>O-235 </docset:O-235></docset:EngineModelSeries></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1991.5; width: 2144.0; height: 68.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1990.5; width: 560.0; height: 69.0; page: 2;}; "><docset:AircraftMakeRegisteredOwner>
+
+            <dg:chunk>Registered Owner</dg:chunk>: </docset:AircraftMakeRegisteredOwner></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 762.5; top: 1990.5; width: 495.8; height: 69.0; page: 2;}; "><docset:RegisteredOwner>
+
+            <docset:CompanyName>Versatile Aviation Inc </docset:CompanyName></docset:RegisteredOwner></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1258.3; top: 1990.5; width: 543.8; height: 69.0; page: 2;}; "><docset:RegisteredOwnerRegistration>
+
+              <dg:chunk>Rated Power</dg:chunk>: </docset:RegisteredOwnerRegistration></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1802.1; top: 1990.5; width: 544.4; height: 69.0; page: 2;}; "><docset:RatedPower>
+
+             <docset:Horsepower>115 </docset:Horsepower>hp </docset:RatedPower></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 2060.5; width: 2144.0; height: 111.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 2059.5; width: 560.0; height: 112.0; page: 2;}; "><docset:AircraftMakeOperator>
+
+            Operator: </docset:AircraftMakeOperator></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 762.5; top: 2059.5; width: 495.8; height: 112.0; page: 2;}; "><docset:Operator>
+
+            <docset:CompanyName>Versatile Aviation Inc </docset:CompanyName></docset:Operator></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1258.3; top: 2059.5; width: 543.8; height: 112.0; page: 2;}; "><docset:OperatorRegistration>
+
+              Operating Certificate(s) Held: </docset:OperatorRegistration></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1802.1; top: 2059.5; width: 544.4; height: 112.0; page: 2;}; "><docset:OperatingCertificateSHeld>
+
+             None </docset:OperatingCertificateSHeld></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 2172.5; width: 2144.0; height: 67.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 2171.5; width: 560.0; height: 68.0; page: 2;}; "><docset:AircraftMakeOperatorDoesBusinessAs>
+
+            Operator Does Business As: </docset:AircraftMakeOperatorDoesBusinessAs></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 762.5; top: 2171.5; width: 495.8; height: 68.0; page: 2;}; "><docset:OperatorDoesBusinessAs>
+
+            <docset:CompanyName>Versatile Aviation Inc </docset:CompanyName></docset:OperatorDoesBusinessAs></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1258.3; top: 2171.5; width: 543.8; height: 68.0; page: 2;}; "><docset:OperatorDoesBusinessAsRegistration>
+
+              <dg:chunk>Operator Designator Code</dg:chunk>: </docset:OperatorDoesBusinessAsRegistration></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1802.1; top: 2171.5; width: 544.4; height: 68.0; page: 2;}; "><docset:OperatorDoesBusinessAsN6135M /></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:AircraftAndOwnerOperatorInformation></docset:AircraftAndOwnerOperatorInformation-section><docset:MeteorologicalInformationAndFlightPlan-section><dg:chunk structure="h1">
+
+            Meteorological Information and Flight Plan </dg:chunk><docset:MeteorologicalInformationAndFlightPlan><xhtml:table structure="table" style="boundingBox:{left: 202.5; top: 367; width: 2144.0; height: 919; page: 3;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 202.5; top: 367; width: 2144.0; height: 919; page: 3;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 367; width: 2144.0; height: 79; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 367; width: 597.5; height: 79; page: 3;}; ">
+
+            Conditions at <dg:chunk>Accident Site</dg:chunk>: </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 800.0; top: 367; width: 481.2; height: 79; page: 3;}; "><docset:ConditionsatAccidentSite>
+
+            <dg:chunk>Visual Conditions </dg:chunk></docset:ConditionsatAccidentSite></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1281.2; top: 367; width: 543.8; height: 79; page: 3;}; ">
+
+             Condition of Light: </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1825.0; top: 367; width: 521.5; height: 79; page: 3;}; "><docset:ConditionofLight>
+
+              Day </docset:ConditionofLight></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 447; width: 2144.0; height: 67; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 446; width: 597.5; height: 68; page: 3;}; "><docset:ConditionsatAccidentSiteObservationFacilityElevation>
+
+            <dg:chunk>Observation Facility</dg:chunk>, Elevation: </docset:ConditionsatAccidentSiteObservationFacilityElevation></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 800.0; top: 446; width: 481.2; height: 68; page: 3;}; "><docset:ObservationFacilityElevation>
+
+            <docset:KADM>KADM </docset:KADM></docset:ObservationFacilityElevation></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1281.2; top: 446; width: 1065.2; height: 68; page: 3;}; " colspan="2"><docset:DistanceFromAccidentSite-cell>
+
+             Distance from <dg:chunk>Accident Site</dg:chunk>: </docset:DistanceFromAccidentSite-cell></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 515; width: 2144.0; height: 68; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 514; width: 597.5; height: 69; page: 3;}; "><docset:ConditionsatAccidentSiteObservationTime>
+
+            <dg:chunk>Observation Time</dg:chunk>: </docset:ConditionsatAccidentSiteObservationTime></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 800.0; top: 514; width: 481.2; height: 69; page: 3;}; "><docset:ObservationTime>
+
+            <dgc:Number>1355 </dgc:Number></docset:ObservationTime></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1281.2; top: 514; width: 1065.2; height: 69; page: 3;}; " colspan="2"><docset:DirectionFromAccidentSite-cell>
+
+             Direction from <dg:chunk>Accident Site</dg:chunk>: </docset:DirectionFromAccidentSite-cell></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 584; width: 2144.0; height: 67; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 583; width: 597.5; height: 68; page: 3;}; "><docset:ConditionsatAccidentSiteLowestCloudCondition>
+
+            <dg:chunk>Lowest Cloud Condition</dg:chunk>: </docset:ConditionsatAccidentSiteLowestCloudCondition></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 800.0; top: 583; width: 481.2; height: 68; page: 3;}; "><docset:LowestCloudCondition structure="h1">
+
+            Scattered / <docset:AgL>12000 </docset:AgL>ft agl </docset:LowestCloudCondition></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1281.2; top: 583; width: 543.8; height: 68; page: 3;}; "><docset:LowestCloudConditionConditionofLight>
+
+             Visibility </docset:LowestCloudConditionConditionofLight></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1825.0; top: 583; width: 521.5; height: 68; page: 3;}; "><docset:LowestCloudConditionDay>
+
+              <docset:Distance>10 </docset:Distance>Miles </docset:LowestCloudConditionDay></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 652; width: 2144.0; height: 68; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 651; width: 597.5; height: 69; page: 3;}; "><docset:ConditionsatAccidentSiteLowestCeiling>
+
+            Lowest Ceiling: </docset:ConditionsatAccidentSiteLowestCeiling></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 800.0; top: 651; width: 481.2; height: 69; page: 3;}; "><docset:LowestCeiling>
+
+            None </docset:LowestCeiling></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1281.2; top: 651; width: 543.8; height: 69; page: 3;}; "><docset:VisibilityRvr-cell>
+
+             Visibility (RVR): </docset:VisibilityRvr-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1825.0; top: 651; width: 521.5; height: 69; page: 3;}; "><docset:LowestCeilingDay /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 721; width: 2144.0; height: 111; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 720; width: 597.5; height: 112; page: 3;}; "><docset:ConditionsatAccidentSiteWindSpeedGusts>
+
+            Wind Speed/Gusts: </docset:ConditionsatAccidentSiteWindSpeedGusts></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 800.0; top: 720; width: 481.2; height: 112; page: 3;}; "><docset:WindSpeedGusts>
+
+            <docset:Speed>8 </docset:Speed>knots / </docset:WindSpeedGusts></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1281.2; top: 720; width: 543.8; height: 112; page: 3;}; "><docset:WindSpeedGustsConditionofLight>
+
+             Turbulence Type Forecast/Actual: </docset:WindSpeedGustsConditionofLight></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1825.0; top: 720; width: 521.5; height: 112; page: 3;}; "><docset:TurbulenceTypeForecastActual>
+
+               / </docset:TurbulenceTypeForecastActual></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 833; width: 2144.0; height: 111; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 832; width: 597.5; height: 112; page: 3;}; "><docset:ConditionsatAccidentSiteWindDirection>
+
+            <dg:chunk>Wind Direction</dg:chunk>: </docset:ConditionsatAccidentSiteWindDirection></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 800.0; top: 832; width: 481.2; height: 112; page: 3;}; "><docset:WindDirection>
+
+            <dgc:Number>90</dgc:Number>° </docset:WindDirection></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1281.2; top: 832; width: 543.8; height: 112; page: 3;}; "><docset:WindDirectionConditionofLight>
+
+             Turbulence Severity Forecast/Actual: </docset:WindDirectionConditionofLight></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1825.0; top: 832; width: 521.5; height: 112; page: 3;}; "><docset:TurbulenceSeverityForecastActual>
+
+               / </docset:TurbulenceSeverityForecastActual></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 945; width: 2144.0; height: 67; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 944; width: 597.5; height: 68; page: 3;}; "><docset:ConditionsatAccidentSiteAltimeterSetting>
+
+            Altimeter Setting: </docset:ConditionsatAccidentSiteAltimeterSetting></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 800.0; top: 944; width: 481.2; height: 68; page: 3;}; "><docset:AltimeterSetting>
+
+            <docset:Pressure>30.19 </docset:Pressure>inches Hg </docset:AltimeterSetting></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1281.2; top: 944; width: 543.8; height: 68; page: 3;}; "><docset:AltimeterSettingConditionofLight>
+
+             Temperature/Dew Point: </docset:AltimeterSettingConditionofLight></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1825.0; top: 944; width: 521.5; height: 68; page: 3;}; "><docset:TemperatureDewPoint>
+
+              <docset:Temperature>13</docset:Temperature>°C / 7°C </docset:TemperatureDewPoint></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1013; width: 2144.0; height: 68; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1012; width: 2144.0; height: 69; page: 3;}; " colspan="4"><docset:PrecipitationAndObscuration-cell>
+
+            Precipitation and Obscuration: </docset:PrecipitationAndObscuration-cell></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1082; width: 2144.0; height: 68; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1081; width: 597.5; height: 69; page: 3;}; "><docset:ConditionsatAccidentSiteDeparturePoint>
+
+            <dg:chunk>Departure Point</dg:chunk>: </docset:ConditionsatAccidentSiteDeparturePoint></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 800.0; top: 1081; width: 481.2; height: 69; page: 3;}; "><docset:DeparturePoint>
+
+            Ardmore, OK (<docset:AirportCode>1F0</docset:AirportCode>) </docset:DeparturePoint></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1281.2; top: 1081; width: 543.8; height: 69; page: 3;}; "><docset:DeparturePointConditionofLight structure="h1">
+
+             Type of <dg:chunk>Flight Plan </dg:chunk>Filed: </docset:DeparturePointConditionofLight></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1825.0; top: 1081; width: 521.5; height: 69; page: 3;}; "><docset:TypeofFlightPlanFiled>
+
+             None </docset:TypeofFlightPlanFiled></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1151; width: 2144.0; height: 67; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1150; width: 597.5; height: 68; page: 3;}; "><docset:ConditionsatAccidentSiteDestination>
+
+            Destination: </docset:ConditionsatAccidentSiteDestination></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 800.0; top: 1150; width: 481.2; height: 68; page: 3;}; "><docset:Destination>
+
+            <docset:AirportName>Madill</docset:AirportName>, OK (<docset:AirportCode>1F4</docset:AirportCode>) </docset:Destination></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1281.2; top: 1150; width: 543.8; height: 68; page: 3;}; "><docset:DestinationConditionofLight>
+
+             Type of Clearance: </docset:DestinationConditionofLight></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1825.0; top: 1150; width: 521.5; height: 68; page: 3;}; "><docset:TypeofClearance>
+
+             None </docset:TypeofClearance></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1219; width: 2144.0; height: 67; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1218; width: 597.5; height: 68; page: 3;}; "><docset:ConditionsatAccidentSiteDepartureTime>
+
+            <dg:chunk>Departure Time</dg:chunk>: </docset:ConditionsatAccidentSiteDepartureTime></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 800.0; top: 1218; width: 481.2; height: 68; page: 3;}; "><docset:DepartureTime>
+
+            <docset:TimeZone>1100 </docset:TimeZone><dgm:MedicalTest>CST </dgm:MedicalTest></docset:DepartureTime></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1281.2; top: 1218; width: 543.8; height: 68; page: 3;}; "><docset:TypeofAirspace-cell>
+
+             Type of Airspace: </docset:TypeofAirspace-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1825.0; top: 1218; width: 521.5; height: 68; page: 3;}; "><docset:DepartureTimeDay /></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:MeteorologicalInformationAndFlightPlan></docset:MeteorologicalInformationAndFlightPlan-section><docset:AirportInformation-section><dg:chunk structure="h1">
+
+            <dg:chunk>Airport Information </dg:chunk></dg:chunk><docset:AirportInformation><xhtml:table structure="table" style="boundingBox:{left: 202.5; top: 1391; width: 2144.0; height: 284; page: 3;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 202.5; top: 1391; width: 2144.0; height: 284; page: 3;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1391; width: 2144.0; height: 79; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1391; width: 774.6; height: 79; page: 3;}; ">
+
+            Airport: </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 977.1; top: 1391; width: 1369.4; height: 79; page: 3;}; "><docset:RunwaySurfaceType-cell>
+
+                             <dg:chunk>Runway Surface Type</dg:chunk>: </docset:RunwaySurfaceType-cell></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1471; width: 2144.0; height: 68; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1470; width: 774.6; height: 69; page: 3;}; "><docset:AirportAirportElevation>
+
+            <dg:chunk>Airport Elevation</dg:chunk>: </docset:AirportAirportElevation></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 977.1; top: 1470; width: 1369.4; height: 69; page: 3;}; "><docset:RunwaySurfaceCondition-cell>
+
+                             <dg:chunk>Runway Surface Condition</dg:chunk>: </docset:RunwaySurfaceCondition-cell></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1540; width: 2144.0; height: 67; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1539; width: 774.6; height: 68; page: 3;}; "><docset:AirportRunwayUsed>
+
+            Runway Used: </docset:AirportRunwayUsed></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 977.1; top: 1539; width: 1369.4; height: 68; page: 3;}; "><docset:RunwayUsed>
+
+                             <dg:chunk>IFR Approach</dg:chunk>: </docset:RunwayUsed></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1608; width: 2144.0; height: 67; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1607; width: 774.6; height: 68; page: 3;}; "><docset:AirportRunwayLengthWidth>
+
+            Runway Length/Width: </docset:AirportRunwayLengthWidth></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 977.1; top: 1607; width: 1369.4; height: 68; page: 3;}; "><docset:VfrApproachLanding-cell>
+
+                             VFR Approach/Landing: </docset:VfrApproachLanding-cell></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:AirportInformation></docset:AirportInformation-section><docset:WreckageAndImpactInformation-section><dg:chunk structure="h1">
+
+            Wreckage and <dg:chunk>Impact Information </dg:chunk></dg:chunk><docset:WreckageAndImpactInformation><xhtml:table structure="table" style="boundingBox:{left: 202.5; top: 1780; width: 2144.0; height: 284; page: 3;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 202.5; top: 1780; width: 2144.0; height: 284; page: 3;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1780; width: 2144.0; height: 79; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1780; width: 412.1; height: 79; page: 3;}; ">
+
+            <dg:chunk>Crew Injuries</dg:chunk>: </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 614.6; top: 1780; width: 447.9; height: 79; page: 3;}; "><docset:CrewInjuries>
+
+             <docset:None>1 </docset:None>None </docset:CrewInjuries></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1062.5; top: 1780; width: 656.2; height: 79; page: 3;}; ">
+
+                        <dg:chunk>Aircraft Damage</dg:chunk>: </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1718.8; top: 1780; width: 627.8; height: 79; page: 3;}; "><docset:AircraftDamage>
+
+            Substantial </docset:AircraftDamage></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1860; width: 2144.0; height: 67; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1859; width: 412.1; height: 68; page: 3;}; "><docset:CrewInjuriesPassengerInjuries>
+
+            <dg:chunk>Passenger Injuries</dg:chunk>: </docset:CrewInjuriesPassengerInjuries></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 614.6; top: 1859; width: 447.9; height: 68; page: 3;}; "><docset:PassengerInjuries>
+
+             N/A </docset:PassengerInjuries></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1062.5; top: 1859; width: 656.2; height: 68; page: 3;}; "><docset:PassengerInjuriesAircraftDamage>
+
+                        <dg:chunk>Aircraft Fire</dg:chunk>: </docset:PassengerInjuriesAircraftDamage></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1718.8; top: 1859; width: 627.8; height: 68; page: 3;}; "><docset:AircraftFire>
+
+            None </docset:AircraftFire></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1928; width: 2144.0; height: 68; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1927; width: 412.1; height: 69; page: 3;}; "><docset:CrewInjuriesGroundInjuries>
+
+            <dg:chunk>Ground Injuries</dg:chunk>: </docset:CrewInjuriesGroundInjuries></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 614.6; top: 1927; width: 447.9; height: 69; page: 3;}; "><docset:GroundInjuries>
+
+             N/A </docset:GroundInjuries></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1062.5; top: 1927; width: 656.2; height: 69; page: 3;}; "><docset:GroundInjuriesAircraftDamage>
+
+                        <dg:chunk>Aircraft Explosion</dg:chunk>: </docset:GroundInjuriesAircraftDamage></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1718.8; top: 1927; width: 627.8; height: 69; page: 3;}; "><docset:AircraftExplosion>
+
+            None </docset:AircraftExplosion></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 1997; width: 2144.0; height: 67; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 1996; width: 412.1; height: 68; page: 3;}; "><docset:CrewInjuriesTotalInjuries>
+
+            <dg:chunk>Total Injuries</dg:chunk>: </docset:CrewInjuriesTotalInjuries></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 614.6; top: 1996; width: 447.9; height: 68; page: 3;}; "><docset:TotalInjuries>
+
+             <docset:None>1 </docset:None>None </docset:TotalInjuries></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1062.5; top: 1996; width: 656.2; height: 68; page: 3;}; "><docset:TotalInjuriesAircraftDamage>
+
+                        Latitude, Longitude: </docset:TotalInjuriesAircraftDamage></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1718.8; top: 1996; width: 627.8; height: 68; page: 3;}; "><docset:LatitudeLongitude>
+
+            <dgc:Number>34.144444</dgc:Number>, <dgc:Number>-96.811389 </dgc:Number></docset:LatitudeLongitude></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:WreckageAndImpactInformation></docset:WreckageAndImpactInformation-section><docset:AdministrativeInformation-section><dg:chunk structure="h1">
+
+            <dg:chunk>Administrative Information </dg:chunk></dg:chunk><docset:AdministrativeInformation structure="div"><docset:MeteorologicalInformationAndFlightPlan><xhtml:table structure="table" style="boundingBox:{left: 202.5; top: 2203.3; width: 2144.0; height: 531.0; page: 3;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 202.5; top: 2203.3; width: 2144.0; height: 531.0; page: 3;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 2203.3; width: 2144.0; height: 79.0; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 2203.3; width: 595.4; height: 79.0; page: 3;}; ">
+
+            Investigator In Charge (IIC): </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 797.9; top: 2203.3; width: 558.3; height: 79.0; page: 3;}; "><docset:InvestigatorinChargeIic>
+
+            <docset:Author>William H Gamble </docset:Author></docset:InvestigatorinChargeIic></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1356.2; top: 2203.3; width: 495.8; height: 79.0; page: 3;}; "><dg:chunk structure="h1">
+
+                       <dg:chunk>Report Date</dg:chunk>: </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1852.1; top: 2203.3; width: 494.4; height: 79.0; page: 3;}; "><docset:ReportDate>
+
+             <dg:chunk xsi:type="date">01/31/2008 </dg:chunk></docset:ReportDate></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 2283.3; width: 2144.0; height: 67.0; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 2282.3; width: 595.4; height: 68.0; page: 3;}; "><docset:InvestigatorInChargeIICAdditionalParticipatingPersons>
+
+            <dg:chunk>Additional Participating Persons</dg:chunk>: </docset:InvestigatorInChargeIICAdditionalParticipatingPersons></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 797.9; top: 2282.3; width: 558.3; height: 68.0; page: 3;}; "><docset:AdditionalParticipatingPersons structure="h1">
+
+            <docset:Author>Robert L Newell</docset:Author>; <dg:chunk><dgc:USState>Oklahoma </dgc:USState>City </dg:chunk></docset:AdditionalParticipatingPersons></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1356.2; top: 2282.3; width: 495.8; height: 68.0; page: 3;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1852.1; top: 2282.3; width: 494.4; height: 68.0; page: 3;}; "><docset:AdditionalParticipatingPersons01312008 /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 2351.3; width: 2144.0; height: 68.0; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 2350.3; width: 2144.0; height: 69.0; page: 3;}; " colspan="4"><docset:PublishDate-cell>
+
+            <dg:chunk>Publish Date</dg:chunk>: </docset:PublishDate-cell></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 202.5; top: 2420.3; width: 2144.0; height: 314.0; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 202.5; top: 2419.3; width: 595.4; height: 315.0; page: 3;}; "><docset:InvestigatorInChargeIICNoteInvestigationDocket>
+
+            Note: <dg:chunk>Investigation Docket</dg:chunk>: </docset:InvestigatorInChargeIICNoteInvestigationDocket></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 797.9; top: 2419.3; width: 1548.6; height: 315.0; page: 3;}; " colspan="3"><docset:NoteInvestigationDocket structure="p">
+
+            This accident report documents the factual circumstances of this accident as described to the <docset:NTSBAccidentDocket>NTSB</docset:NTSBAccidentDocket>. 
+
+            <dgc:Org>NTSB </dgc:Org>accident and incident dockets serve as permanent archival information for the <dgc:Org>NTSB</dgc:Org>’s investigations. Dockets released prior to <docset:AccidentDocketReleaseDate>June 1, 2009 </docset:AccidentDocketReleaseDate>are publicly available from the <docset:NTSBDocketAccess>NTSB’s </docset:NTSBDocketAccess>Record Management Division at <docset:ContactInformation>pubinq@ntsb.gov</docset:ContactInformation>, or at <docset:ContactInformation><docset:NTSBContactInformation>800</docset:NTSBContactInformation>-<docset:NTSBContactInformation>877</docset:NTSBContactInformation>-<docset:AccidentReport>6799</docset:AccidentReport></docset:ContactInformation>. Dockets released after this date are available at <docset:AccidentReportDocket>http://dms.ntsb.gov/pubdms/. </docset:AccidentReportDocket></docset:NoteInvestigationDocket></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:MeteorologicalInformationAndFlightPlan><dg:chunk><docset:NTSBMission structure="p">
+
+                The <docset:AgencyName><dg:chunk>National Transportation Safety Board </dg:chunk>(NTSB</docset:AgencyName>), established in <docset:EstablishedYear>1967</docset:EstablishedYear>, is an independent federal agency mandated by Congress through the <dg:chunk>Independent Safety Board Act </dg:chunk>of <docset:EstablishmentDate>1974 </docset:EstablishmentDate>to investigate transportation accidents, determine the probable causes of the accidents, issue safety recommendations, <dgm:_testRef>study </dgm:_testRef>transportation safety issues, and evaluate the safety effectiveness of government agencies involved in transportation. The NTSB makes public its actions and decisions through accident reports, safety studies, special investigation reports, safety recommendations, and statistical reviews. </docset:NTSBMission><docset:NTSBReportAdmissibility structure="p">
+
+                The <dg:chunk>Independent Safety Board Act</dg:chunk>, as codified at 49 U.S.C. Section 1154(b), precludes the admission into evidence or use of any part of an NTSB report related to an incident or accident in a civil action for damages resulting from a matter mentioned in the report. A factual report that may be admissible under 49 U.S.C. § 1154(b) is available here.</docset:NTSBReportAdmissibility></dg:chunk></docset:AdministrativeInformation></docset:AdministrativeInformation-section></dg:chunk></docset:NationalTransportationSafetyBoardAviationAccidentFinalReport></docset:NationalTransportationSafetyBoardAviationAccidentFinalReport-section>

@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?><dg:chunk cp:version="2.26.26.0.1705578903088-61.0" xmlns:docset="http://www.docugami.com/2021/dgml/docugami/TransportAgreements" xmlns:addedChunks="http://www.docugami.com/2021/dgml/docugami/TransportAgreements/addedChunks" xmlns:dg="http://www.docugami.com/2021/dgml" xmlns:dgc="http://www.docugami.com/2021/dgml/docugami/contracts" xmlns:dgm="http://www.docugami.com/2021/dgml/docugami/medical" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:cp="http://classifyprocess.com/2018/07/"><docset:TEXTILETRUCKINGTRANSPORTATIONAGREEMENT-section><dg:chunk structure="h1">      <dg:chunk>TEXTILE TRUCKING TRANSPORTATION AGREEMENT </dg:chunk></dg:chunk><docset:TEXTILETRUCKINGTRANSPORTATIONAGREEMENT structure="div">
+
+
+
+This <dg:chunk>Textile Trucking Transportation Services Agreement </dg:chunk>(this “Agreement”) is dated effective as of <docset:EffectiveDate>March 17, 2012 </docset:EffectiveDate>(the “<dg:chunk>Effective Date</dg:chunk>”), by and among <docset:CarrierName><dg:chunk>ThreadFit Wholesale</dg:chunk>, LLC</docset:CarrierName>, a <dgc:USState>Delaware </dgc:USState>limited liability company (“Carrier<docset:AgreementDate>”</docset:AgreementDate>), <docset:ShipperName><dgc:Org>LoomScience, LLC</dgc:Org>.</docset:ShipperName>, a <dgc:USState>Delaware </dgc:USState>limited partnership (“Shipper”), and, solely for purposes of acknowledging Section 2(c) hereof, <docset:ShipperName>LoomScience, LLC</docset:ShipperName>., an <dgc:USState>Arizona </dgc:USState>corporation (“LSL”). Carrier and Shipper are individually referred to as a “Party”, collectively to as “Parties”. Capitalized terms used throughout this Agreement shall have the meanings set forth in <dg:chunk>Exhibit A</dg:chunk>, unless otherwise specifically defined herein. </docset:TEXTILETRUCKINGTRANSPORTATIONAGREEMENT></docset:TEXTILETRUCKINGTRANSPORTATIONAGREEMENT-section><docset:RECITALS-section><dg:chunk structure="h1">
+
+
+
+      RECITALS </dg:chunk><docset:RECITALS structure="div">
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 1200.0; width: 1926.0; height: 117.0; page: 1;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 1200.0; width: 1926.0; height: 117.0; page: 1;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 1200.0; width: 1926.0; height: 117.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 1200.0; width: 45.0; height: 117.0; page: 1;}; ">A. </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1200.0; width: 1776.0; height: 117.0; page: 1;}; "><docset:A structure="p">Shipper produces performance grade textile binders and various other textile 
+
+ products at its Factory located in <dg:chunk>El Paso</dg:chunk>, <dgc:USState>Texas </dgc:USState>(the “<dg:chunk>El Paso Factory</dg:chunk>”). </docset:A></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table>
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 1440.0; width: 1956.0; height: 258.0; page: 1;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 1440.0; width: 1956.0; height: 258.0; page: 1;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 1440.0; width: 1956.0; height: 258.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 1440.0; width: 42.0; height: 258.0; page: 1;}; ">C. </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1440.0; width: 1806.0; height: 258.0; page: 1;}; "><docset:C structure="p">Shipper markets performance grade textile binders and other textile products out of certain non-owned textile terminals located in <dg:chunk>El Paso</dg:chunk>, <dgc:USState>Texas</dgc:USState>, Albuquerque, <dgc:USState>New Mexico</dgc:USState>, and Phoenix, Tucson and <docset:TextileTerminalLocation>Coolidge</docset:TextileTerminalLocation>, <dgc:USState>Arizona </dgc:USState>(collectively, the “Textile 
+
+ Terminals”). </docset:C></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table>
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 1821.0; width: 1944.0; height: 189.0; page: 1;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 1821.0; width: 1944.0; height: 189.0; page: 1;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 1821.0; width: 1944.0; height: 189.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 1821.0; width: 48.0; height: 189.0; page: 1;}; ">D. </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1821.0; width: 1794.0; height: 189.0; page: 1;}; "><docset:D structure="p">Carrier owns and operates a truck-based textile transportation operation that can provide service to Shipper, using a combination of self-owned and Third Party trucks 
+
+ dispatched and scheduled by Carrier. </docset:D></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table>
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 2133.0; width: 1956.0; height: 468.0; page: 1;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 2133.0; width: 1956.0; height: 468.0; page: 1;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 2133.0; width: 1956.0; height: 468.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 2133.0; width: 42.0; height: 468.0; page: 1;}; ">E. </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 2133.0; width: 1806.0; height: 468.0; page: 1;}; "><docset:E structure="p">Shipper desires that Carrier (i) transport or cause to be transported textile from the <dg:chunk>El Paso Factory </dg:chunk>and/or other receipt points (“<dg:chunk>Receipt Points</dg:chunk>”) to the <dg:chunk>Textile Terminals </dg:chunk>and/or directly to customers located in <dgc:USState>Texas</dgc:USState>, <dgc:USState>New Mexico</dgc:USState>, and <dgc:USState>Arizona </dgc:USState>(collectively, the “<dg:chunk>Delivery Points</dg:chunk>”), (ii) coordinate the pickup and delivery of such textile from the <dg:chunk>Receipt Points </dg:chunk>to the <dg:chunk>Delivery Points</dg:chunk>, and (iii) provide Shipper with certain ancillary services with respect to such transportation services, subject to and 
+
+ upon the terms and conditions of this Agreement. </docset:E></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table><dg:chunk>
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 2727.0; width: 1941.0; height: 186.0; page: 1;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 2727.0; width: 1941.0; height: 186.0; page: 1;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 2727.0; width: 1941.0; height: 186.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 2727.0; width: 39.0; height: 186.0; page: 1;}; ">F. </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 2727.0; width: 1791.0; height: 186.0; page: 1;}; "><docset:F structure="p">Carrier will transport, coordinate the pickup of and deliver such textile, as well as 
+
+ provide the aforementioned ancillary services, subject to the terms and conditions of this Agreement. </docset:F></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table><dg:chunk><dg:chunk><docset:AgreementTerms structure="p">
+
+
+
+NOW, THEREFORE, in consideration of the covenants and obligations contained herein, the Parties to this Agreement hereby agree as follows: </docset:AgreementTerms><dg:chunk><dg:chunk>
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 567.0; width: 825.0; height: 51.0; page: 2;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 567.0; width: 825.0; height: 51.0; page: 2;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 567.0; width: 825.0; height: 51.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 567.0; width: 39.0; height: 51.0; page: 2;}; "><dgc:Number>1</dgc:Number>. </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 567.0; width: 675.0; height: 51.0; page: 2;}; "><docset:_1><docset:TransportationServices>TRANSPORTATION </docset:TransportationServices><docset:TransportationServices>SERVICES </docset:TransportationServices></docset:_1></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table><docset:TextileTransportation structure="p">
+
+      (a) From the <dg:chunk>Effective Date </dg:chunk>through the end of the Term (as defined below), (i) Shipper may request <dgc:Frequency>from time to time </dgc:Frequency>that Carrier transport textile from the <dg:chunk>Receipt Points </dg:chunk>to the <dg:chunk>Delivery Points </dg:chunk>and (ii) Carrier shall use commercially reasonable efforts to receive or cause to be received from the <dg:chunk>Receipt Points </dg:chunk>and to transport or cause to be transported to the <dg:chunk>Delivery Points </dg:chunk>such textile as requested by Shipper, subject to available capacity. </docset:TextileTransportation></dg:chunk><dg:chunk>
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 1239.0; width: 1302.0; height: 48.0; page: 2;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 1239.0; width: 1302.0; height: 48.0; page: 2;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 1239.0; width: 1302.0; height: 48.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 1239.0; width: 39.0; height: 48.0; page: 2;}; "><dgc:Number>2</dgc:Number>. </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1239.0; width: 1152.0; height: 48.0; page: 2;}; "><docset:_2 structure="h1"><dg:chunk>VOLUME COMMITMENT</dg:chunk>; RIGHT OF FIRST REFUSAL </docset:_2></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table>
+
+
+
+<docset:TransportationCommitment structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 1350.0; width: 1950.0; height: 966.0; page: 2;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1350.0; width: 1950.0; height: 123.0; page: 2;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk>There is no minimum volume of Product that Shipper is required to request be transported by Carrier hereunder. </dg:chunk></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1500.0; width: 1950.0; height: 510.0; page: 2;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:TransportationRights structure="p">During the Term and subject to the terms and conditions of this Section 2(b), Shipper shall provide, and shall cause its Affiliates to provide, Carrier with a first right to transport or cause to be transported all volumes of textile that Shipper or any of its Affiliates desire to transport in the States of <dgc:USState>Texas</dgc:USState>, <dgc:USState>New Mexico </dgc:USState>and <dgc:USState>Arizona</dgc:USState>, in each case, that is to be transported by truck. Only in the event that Carrier affirmatively declines in writing to provide truck transportation for Shipper’s textile may Shipper engage another carrier to transport such textile. </docset:TransportationRights></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2034.0; width: 1950.0; height: 282.0; page: 2;}; "><dg:chunk structure="lim">(c)  </dg:chunk><dg:chunk>Effective as of <docset:EffectiveDate>March 17, 2012</docset:EffectiveDate>, all volumes of textile transported and caused to be transported by Carrier for Shipper pursuant to this Agreement shall count, on a Pallet per Pallet basis, towards the <dg:chunk>Minimum Volume Commitment </dg:chunk>of the Shipper and its Affiliate, LSL, in the <dg:chunk>Trucking Agreement</dg:chunk>. </dg:chunk></dg:chunk></docset:TransportationCommitment></dg:chunk><dg:chunk>
+
+
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 2442.0; width: 669.0; height: 48.0; page: 2;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 2442.0; width: 669.0; height: 48.0; page: 2;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 2442.0; width: 669.0; height: 48.0; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 2442.0; width: 39.0; height: 48.0; page: 2;}; "><dgc:Number>3</dgc:Number>. </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 2442.0; width: 519.0; height: 48.0; page: 2;}; "><docset:_3>TERM OF AGREEMENT </docset:_3></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table><dg:chunk>
+
+
+
+<docset:TermofAgreement structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 2553.0; width: 1953.0; height: 276.0; page: 2;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2553.0; width: 1953.0; height: 201.0; page: 2;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk>Unless otherwise terminated as provided herein, this Agreement shall be effective as of the <dg:chunk>Effective Date </dg:chunk>and will remain in effect until <docset:AgreementTerm>October 14, 2025 </docset:AgreementTerm>(<docset:AgreementTerm>13 years) </docset:AgreementTerm>- (the “Initial Term”). </dg:chunk></dg:chunk>
+
+
+
+      <dg:chunk structure="li" style="boundingBox:{left: 450.0; top: 2781.0; width: 1785.0; height: 48.0; page: 2;}; "><dg:chunk structure="lim">(b)  </dg:chunk><dg:chunk>The <dg:chunk>Initial Term </dg:chunk>and any mutually agreed upon extensions thereof shall be </dg:chunk></dg:chunk></docset:TermofAgreement><dg:chunk structure="p">
+
+
+
+referred to herein as the “Term”. </dg:chunk></dg:chunk></dg:chunk><dg:chunk>
+
+
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 414.0; width: 1857.0; height: 48.0; page: 3;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 414.0; width: 1857.0; height: 48.0; page: 3;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 414.0; width: 1857.0; height: 48.0; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 414.0; width: 39.0; height: 48.0; page: 3;}; "><dgc:Number>4</dgc:Number>. </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 414.0; width: 1707.0; height: 48.0; page: 3;}; "><docset:_4 structure="h1">FEES; ADJUSTMENTS; AND REIMBURSEMENT FOR <dg:chunk>CAPITAL EXPENDITURES </dg:chunk></docset:_4></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table><dg:chunk>
+
+
+
+<docset:FuelAdjustmentsandSurcharges structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 525.0; width: 1950.0; height: 450.0; page: 3;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 525.0; width: 1950.0; height: 201.0; page: 3;}; "><dg:chunk structure="lim">(a)  </dg:chunk><docset:BaseRate-section><dg:chunk structure="h1"><dg:chunk>Base Rate</dg:chunk>: </dg:chunk><docset:BaseRate structure="div">Shipper shall pay Carrier in accordance with the rates per Ton for delivery to each <dg:chunk>Delivery Point </dg:chunk>as set forth on Schedule 4 (the “<dg:chunk>Base Rates</dg:chunk>”) for providing trucking, dispatch, delivery and accounting/data services under this Agreement. </docset:BaseRate></docset:BaseRate-section></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 849.0; width: 1950.0; height: 126.0; page: 3;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:FuelAdjustmentsAndSurcharges-section><dg:chunk structure="h1"><dg:chunk>Fuel Adjustments </dg:chunk>and Surcharges: </dg:chunk><docset:FuelAdjustmentsAndSurcharges structure="div">In addition to the <dg:chunk>Base Rates</dg:chunk>, Carrier shall charge, and Shipper shall pay the following additional amounts: </docset:FuelAdjustmentsAndSurcharges></docset:FuelAdjustmentsAndSurcharges-section></dg:chunk></docset:FuelAdjustmentsandSurcharges>
+
+
+
+<docset:FuelSurcharge structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 1002.0; width: 1950.0; height: 1242.0; page: 3;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1002.0; width: 1950.0; height: 429.0; page: 3;}; "><dg:chunk structure="lim">(i)  </dg:chunk><dg:chunk>a Monthly per Pallet adjustment calculated in the manner described in Schedule 4(b)(i) to cover any increase (or decrease) in fuel prices (as determined by reference to the <docset:FuelPriceAdjustment>U.S. Energy Information Administration</docset:FuelPriceAdjustment>’s On-Highway Diesel Prices for the <dg:chunk>PAD III Region</dg:chunk>) incurred or experienced by Carrier during such Month in connection with providing truck services under this Agreement; provided, however, that such adjustment shall never be of an amount less than <docset:MinimumAdjustmentAmount>zero</docset:MinimumAdjustmentAmount>; </dg:chunk></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1506.0; width: 1950.0; height: 738.0; page: 3;}; "><dg:chunk structure="lim">(ii)  </dg:chunk><dg:chunk>a Monthly surcharge on the services provided hereunder to cover Shipper’s proportionate share of the costs of complying with any new laws or regulations or material changes to any existing laws or regulations, in each case occurring after the <dg:chunk>Effective Date</dg:chunk>, that affect the services provided to Shipper, if, after Carrier has made commercially reasonable efforts to mitigate the effect of such laws or regulations (or such changes to existing laws or regulations), such new laws or regulations (or such changes to existing laws or regulations) require Carrier to make unanticipated capital expenditures. Carrier will reasonably determine the amount of any such Monthly surcharge and shall provide Shipper with written notice of the amount of such Monthly surcharge along with supporting calculations and documentation. </dg:chunk></dg:chunk></docset:FuelSurcharge>
+
+
+
+
+
+      <docset:PaymentTerms structure="ol" style="list-style-type: none; boundingBox:{left: 450.0; top: 2343.0; width: 1800.0; height: 657.0; page: 3;}; boundingBox:{left: 450.0; top: 384.0; width: 1800.0; height: 663.0; page: 4;}; "><dg:chunk structure="li" style="boundingBox:{left: 450.0; top: 2343.0; width: 1800.0; height: 201.0; page: 3;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:Reimbursements-section><dg:chunk structure="h1">Reimbursements: </dg:chunk><docset:Reimbursements structure="div">Shipper shall reimburse Carrier for the actual costs of any capital expenditures Carrier agrees to make at Shipper’s request to provide services hereunder. </docset:Reimbursements></docset:Reimbursements-section></dg:chunk>
+
+
+
+
+
+
+
+      <dg:chunk structure="li" style="boundingBox:{left: 450.0; top: 2646.0; width: 1800.0; height: 354.0; page: 3;}; "><dg:chunk structure="lim">(c)  </dg:chunk><docset:FeesforOtherServices-section><dg:chunk structure="h1">Fees for Other Services: </dg:chunk><docset:FeesforOtherServices structure="div">In addition to the transportation services contemplated by this Agreement, Carrier may, <dgc:Frequency>from time to time</dgc:Frequency>, upon request from Shipper, provide the additional services described on Schedule 4(d) to Shipper, and Shipper shall pay Carrier for such services in accordance with the rates set forth on Schedule 4(d). </docset:FeesforOtherServices></docset:FeesforOtherServices-section></dg:chunk>
+
+
+
+
+
+
+
+
+
+
+
+      <dg:chunk structure="li" style="boundingBox:{left: 450.0; top: 384.0; width: 1800.0; height: 663.0; page: 4;}; "><dg:chunk structure="lim">(d)  </dg:chunk><docset:Taxes-section><dg:chunk structure="h1">Taxes. </dg:chunk><docset:Taxes structure="div">Shipper agrees to be liable for and to pay directly or reimburse Carrier for, promptly when due, all sales, use, excise and other taxes or charges (including any interest and penalties), now or hereafter imposed by any governmental body or agency upon Carrier or with respect to the services or payments hereunder (excluding (a) taxes on or measured by the net income of Carrier, (b) taxes related to Carrier’s employees or property and (c) ad valorem or any other tax based on the value of Carrier’s transport vehicles or other equipment used to provide the services, each of which Carrier shall be liable for and pay). </docset:Taxes></docset:Taxes-section></dg:chunk></docset:PaymentTerms></dg:chunk></dg:chunk><dg:chunk>
+
+
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 1173.0; width: 402.0; height: 51.0; page: 4;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 1173.0; width: 402.0; height: 51.0; page: 4;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 1173.0; width: 402.0; height: 51.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 1173.0; width: 39.0; height: 51.0; page: 4;}; "><dgc:Number>5</dgc:Number>. </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1173.0; width: 252.0; height: 51.0; page: 4;}; "><docset:_5>PAYMENT </docset:_5></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table>
+
+
+
+<docset:PaymentTerms structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 1284.0; width: 1950.0; height: 429.0; page: 4;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1284.0; width: 1950.0; height: 126.0; page: 4;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk>Carrier shall invoice Shipper on a per load basis, and Shipper shall pay all amounts due no later than <docset:PaymentTerms>Thirty (30) calendar days </docset:PaymentTerms>after Shipper’s receipt of Carrier’s invoices. </dg:chunk></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1437.0; width: 1950.0; height: 276.0; page: 4;}; "><dg:chunk structure="lim">(b)  </dg:chunk><dg:chunk>Any past due amounts owed by Shipper to Carrier shall accrue interest, payable on demand, at a rate equal to the lesser of: (i) the Wall Street Journal prime rate plus <docset:InterestRate>two </docset:InterestRate>hundred basis points or (ii) the maximum rate permitted by applicable law, from the due date of the payment through the actual date of payment. </dg:chunk></dg:chunk></docset:PaymentTerms></dg:chunk><dg:chunk>
+
+
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 1845.0; width: 1317.0; height: 51.0; page: 4;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 1845.0; width: 1317.0; height: 51.0; page: 4;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 1845.0; width: 1317.0; height: 51.0; page: 4;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 1845.0; width: 39.0; height: 51.0; page: 4;}; "><dgc:Number>6</dgc:Number>. </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1845.0; width: 1167.0; height: 51.0; page: 4;}; "><docset:_6><dg:chunk structure="h1">SERVICES PROVIDED BY CARRIER; VOLUME LOSSES </dg:chunk>
+
+</docset:_6></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table><dg:chunk><dg:chunk><docset:TextileTransportation structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 1956.0; width: 1950.0; height: 966.0; page: 4;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1956.0; width: 1950.0; height: 279.0; page: 4;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk>Requests for the transportation of textile under this Agreement and/or the provision of the other services described on Schedule 4(d) shall be made by Shipper on a “call and demand” basis. Carrier shall use commercially reasonable efforts to schedule and dispatch all pick-ups of textile requested by Shipper on such “call and demand” basis. </dg:chunk></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2262.0; width: 1947.0; height: 432.0; page: 4;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:TextileQualityControl structure="p">Carrier shall load only that textile which it is authorized to load pursuant to directions received from Shipper. The quantity of the textile received by Carrier shall be determined by scales. Shipper, as part of its quality control, may <dgm:_testRef>test </dgm:_testRef>the quality of textile delivered by Carrier. Carrier agrees to abide by the quality control procedures mutually agreed by the Parties <dgc:Frequency>from time to time</dgc:Frequency>. Shipper shall at all times retain title to the textile, transported and delivered by Carrier hereunder. </docset:TextileQualityControl></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2721.0; width: 1947.0; height: 201.0; page: 4;}; "><dg:chunk structure="lim">(c)  </dg:chunk><dg:chunk>Except in the case of normal course physical losses which are contemplated under Section 6(f) below, Shipper shall remain responsible for all risk of loss, damage, deterioration, or contamination as to such textile, except for that caused by the negligence, </dg:chunk></dg:chunk></docset:TextileTransportation><docset:LimitationofLiability structure="p">
+
+
+
+
+
+gross negligence, willful misconduct or breach of this Agreement by Carrier, its agents, employees or contractors. </docset:LimitationofLiability></dg:chunk>
+
+<dg:chunk structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 462.0; width: 1950.0; height: 279.0; page: 5;}; "><docset:TextileTransportation structure="li" style="boundingBox:{left: 300.0; top: 462.0; width: 1950.0; height: 279.0; page: 5;}; "><dg:chunk structure="lim">(d)  </dg:chunk><dg:chunk>Promptly following receipt of textile from any designated Receipt Point, Carrier shall expeditiously transport the textile to the <dg:chunk>Delivery Points</dg:chunk>. Upon arrival at the <dg:chunk>Delivery Points</dg:chunk>, Carrier shall unload the textile in compliance with this Agreement unless otherwise specified in writing. </dg:chunk></docset:TextileTransportation></dg:chunk>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 768.0; width: 1950.0; height: 966.0; page: 5;}; "><docset:RecordsandAudit structure="li" style="boundingBox:{left: 300.0; top: 768.0; width: 1950.0; height: 966.0; page: 5;}; "><dg:chunk structure="lim">(e)  </dg:chunk><dg:chunk>Carrier shall maintain a true and correct set of records related to the services hereunder, including invoices, bills of lading, receipt tickets, transportation records, and delivery tickets, showing the date, volumes, receipt location and delivery location for all textile transported by Carrier in detail sufficient to provide reasonable verification of any charges to Shipper hereunder. Carrier will provide Shipper with a secure electronic data feed, or other communication method, which shall accurately report all the above information and other information mutually agreed upon by the Parties on a current, <dgc:Frequency>daily </dgc:Frequency>basis. Carrier shall maintain such records for a period not less than <docset:RecordRetentionPeriod>two (2) years</docset:RecordRetentionPeriod>. Shipper, or its representatives, may <dgc:Frequency>from time to time</dgc:Frequency>, at Shipper’s expense, audit any such records and Carrier agrees to permit Shipper, or its representative, access to examine and audit such records at all reasonable times and upon receipt of reasonable advance notice. Carrier shall promptly refund to Shipper any amounts paid by Shipper in excess of amounts properly payable under the terms of the Agreement. </dg:chunk></docset:RecordsandAudit></dg:chunk></dg:chunk></dg:chunk><dg:chunk>
+
+
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 1863.0; width: 663.0; height: 51.0; page: 5;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 1863.0; width: 663.0; height: 51.0; page: 5;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 1863.0; width: 663.0; height: 51.0; page: 5;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 1863.0; width: 39.0; height: 51.0; page: 5;}; "><dgc:Number>7</dgc:Number>. </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1863.0; width: 513.0; height: 51.0; page: 5;}; "><docset:_7>SAFETY/PREVENTION 
+
+</docset:_7></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table><dg:chunk><docset:EmployeeTrainingandCertification structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 1974.0; width: 1950.0; height: 507.0; page: 5;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1974.0; width: 1950.0; height: 126.0; page: 5;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk>Carrier agrees that transportation services provided hereunder shall be conducted in accordance with all <dg:chunk>Applicable Laws </dg:chunk>and <dg:chunk>Prudent Industry Practices</dg:chunk>. </dg:chunk></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2127.0; width: 1947.0; height: 354.0; page: 5;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:EmployeeTraining structure="p">Carrier shall only employ for the provision of services contemplated under this Agreement such employees that have been properly instructed, trained and certified as to the characteristics and safe loading, handling, hauling, delivery, and unloading methods associated with textile in accordance with Applicable Law and Prudent Industry Practices. Carrier shall ensure, in accordance with <dg:chunk>Prudent Industry Practices</dg:chunk>, that its employees </docset:EmployeeTraining></dg:chunk></docset:EmployeeTrainingandCertification><docset:SafetyRules structure="p">
+
+
+
+
+
+comply with all safety rules to avoid, injury to workers and others, and damage to equipment and property. </docset:SafetyRules></dg:chunk></dg:chunk><dg:chunk>
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 519.0; width: 420.0; height: 51.0; page: 6;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 519.0; width: 420.0; height: 51.0; page: 6;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 519.0; width: 420.0; height: 51.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 519.0; width: 39.0; height: 51.0; page: 6;}; "><dgc:Number>8</dgc:Number>. </xhtml:td>
+
+ <xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 519.0; width: 270.0; height: 51.0; page: 6;}; "><docset:_8>INSURANCE </docset:_8></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table><docset:InsuranceRequirements structure="p">
+
+  To, at all times during the term of this Contract and all extensions thereof, carry and keep in full force and effect, public liability and property damage insurance policies. Insurance will be no less than the <docset:InsuranceRequirements>USDOT</docset:InsuranceRequirements>'s minimum standards, combined single limit and Workmen's Compensation Insurance policies with reliable insurance companies. Such policies to be endorsed so as to protect the interest of the Shipper, as they appear, and such as will meet the requirements of federal, state, and other regulatory bodies having jurisdiction over the operations of Carrier and to provide <dg:chunk>Shipper Certificates </dg:chunk>of Insurance or other evidence of said insurance coverage as requested by Shipper. </docset:InsuranceRequirements></dg:chunk>
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 1131.0; width: 429.0; height: 51.0; page: 6;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 1131.0; width: 429.0; height: 51.0; page: 6;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 1131.0; width: 429.0; height: 51.0; page: 6;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 1131.0; width: 42.0; height: 51.0; page: 6;}; "><dgc:Number>9</dgc:Number>. 
+
+</xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1131.0; width: 279.0; height: 51.0; page: 6;}; "><docset:_9>INDEMNITY </docset:_9></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></dg:chunk></dg:chunk><docset:IndemnificationClause structure="p">
+
+ <dg:chunk>NEITHER PARTY </dg:chunk>SHALL BE LIABLE FOR ANY ACTIONS OR OMISSIONS TO ACT OF THE OTHER PARTY, OR OF ANY OF <dg:chunk>ITS EMPLOYEES</dg:chunk>, AGENTS OR REPRESENTATIVES. SUBJECT TO THE LIMITATIONS SET FORTH IN THIS AGREEMENT, EACH PARTY (THE “INDEMNIFYING PARTY”) AGREES THAT (EXCEPT AS PROVIDED FOR IN SECTION 6) IT SHALL, TO THE EXTENT PERMITTED BY LAW, DEFEND, INDEMNIFY, AND HOLD HARMLESS THE OTHER PARTY, ITS MEMBERS, DIRECTORS, OFFICERS, MANAGERS, AGENTS AND EMPLOYEES, FROM AND AGAINST ANY AND ALL CLAIMS, DEMANDS, DAMAGES, LOSSES, LIABILITIES, CAUSES OF ACTION, JUDGMENTS, ASSESSMENTS, PENALTIES, COSTS, AND EXPENSES OF ANY KIND OR <docset:Indemnification>NATURE</docset:Indemnification>, INCLUDING <dg:chunk>REASONABLE ATTORNEYS FEES</dg:chunk>, EXPENSES OF LITIGATION AND COURT COSTS, WITHOUT REGARD TO THE AMOUNT (COLLECTIVELY “LOSSES”) TO THE EXTENT <docset:IndemnificationLimitation>SUCH </docset:IndemnificationLimitation><docset:Indemnification>LOSSES </docset:Indemnification>ARE, <docset:DirectlyCausedBy>DIRECTLY </docset:DirectlyCausedBy>OR INDIRECTLY CAUSED BY, <docset:Indemnification>CONNECTED </docset:Indemnification><docset:IndemnificationLimitation>WITH</docset:IndemnificationLimitation>, OR ARISE <docset:Indemnification>OUT </docset:Indemnification>OF THE <docset:IndemnifyingParty>INDEMNIFYING </docset:IndemnifyingParty>PARTY’S <docset:LegalCompliance>FAILURE </docset:LegalCompliance>TO <docset:CompliancewithLaws>COMPLY</docset:CompliancewithLaws>, OR ANY <dg:chunk>PRODUCTS SHIPPED </dg:chunk>BY THE <dgc:Org>INDEMNIFYING </dgc:Org>PARTY’S FAILURE TO COMPLY <dgc:Org>WITH </dgc:Org>ALL <dg:chunk>APPLICABLE FEDERAL</dg:chunk>, STATE AND LOCAL LAWS, ORDINANCES, ORDERS, RULES AND REGULATIONS OR FROM ANY <dg:chunk>INTENTIONAL OR UNINTENTIONAL ACTION </dg:chunk>OR OMISSION TO ACT OF THE <dg:chunk>INDEMNIFYING PARTY</dg:chunk>, OR ITS MEMBERS, DIRECTORS, OFFICERS, MANGERS, AGENTS AND EMPLOYEES. IN THE EVENT </docset:IndemnificationClause><dg:chunk><docset:IndemnificationClause structure="p">
+
+
+
+ THAT ANY <dg:chunk>SUCH INCIDENT </dg:chunk>THAT LEADS TO ANY CLAIM FOR INDEMNIFICATION IS THE RESULT OF INTENTIONAL OR UNINTENTIONAL CONDUCT OF BOTH PARTIES, EACH PARTY AGREES THAT IT SHALL BE LIABLE TO REIMBURSE AND INDEMNIFY THE OTHER PARTY TO THE EXTENT THAT LIABILITY AND RESPONSIBILITY WOULD BE APPORTIONED TO <dg:chunk>SUCH PARTY </dg:chunk>IN ACCORDANCE WITH THE LAWS OF COMPARATIVE NEGLIGENCE. TO RECEIVE THE FOREGOING INDEMNITY, THE PARTY SEEKING INDEMNIFICATION MUST NOTIFY THE <dg:chunk>INDEMNIFYING PARTY </dg:chunk>IN WRITING OF A <dg:chunk>CLAIM PROMPTLY </dg:chunk>AND PROVIDE ALL COOPERATION REASONABLY REQUESTED BY THE <dg:chunk>INDEMNIFYING PARTY </dg:chunk>(AT THE EXPENSE OF THE <dg:chunk><docset:IndemnifyingParty>INDEMNIFYING </docset:IndemnifyingParty><docset:IndemnifyingParty>PARTY</docset:IndemnifyingParty></dg:chunk>). </docset:IndemnificationClause>
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 1107.0; width: 1062.0; height: 48.0; page: 7;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 1107.0; width: 1062.0; height: 48.0; page: 7;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 1107.0; width: 1062.0; height: 48.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 1107.0; width: 69.0; height: 48.0; page: 7;}; "><dgc:Number>10</dgc:Number>. 
+
+</xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1107.0; width: 912.0; height: 48.0; page: 7;}; "><docset:_10>WAIVER OF <dg:chunk>CONSEQUENTIAL DAMAGES </dg:chunk></docset:_10></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></dg:chunk><docset:LimitationofLiability structure="p">
+
+
+
+NOTWITHSTANDING ANYTHING TO THE CONTRARY CONTAINED IN THE AGREEMENT, AND NOTWITHSTANDING KNOWLEDGE, IF ANY, OF A PARTY OF THE POSSIBILITY OF <dg:chunk>SUCH DAMAGES</dg:chunk>, IN NO EVENT SHALL EITHER PARTY BE LIABLE TO THE OTHER PARTY, FOR ANY LOST PROFITS, OR SPECIAL, CONSEQUENTIAL, PUNITIVE, EXEMPLARY, INCIDENTAL OR INDIRECT DAMAGES OR LOSSES, INCLUDING BUT NOT LIMITED TO LOST PROFITS, FROM SALE OF PRODUCT UNDER THE AGREEMENT OR FROM THE USE OR <dg:chunk>RESALE THEREOF</dg:chunk>, <dg:chunk>HOWEVER SAME </dg:chunk>MAY BE CAUSED AND REGARDLESS OF THE <dg:chunk>SOLE OR CONCURRENT NEGLIGENCE </dg:chunk>OF THE OTHER PARTY, EVEN IF SUCH PARTY HAS BEEN ADVISED OF, OR OTHERWISE COULD HAVE ANTICIPATED THE POSSIBILITY OF, SUCH DAMAGES OR LIABILITIES IN ADVANCE. THE PARTIES AGREE THAT THE RESTRICTIONS AND LIMITATIONS ON DAMAGES CONTAINED IN THIS AGREEMENT DO NOT DEPRIVE THE PARTIES OF <dg:chunk>MINIMUM ADEQUATE REMEDIES </dg:chunk>AS CONTEMPLATED IN </docset:LimitationofLiability><dg:chunk><docset:ThirdPartyDamages structure="p">
+
+<dg:chunk><dgc:USState>TEXAS </dgc:USState>UCC SECTION </dg:chunk>2-<docset:ThirdPartyDamages>719</docset:ThirdPartyDamages>. The foregoing limitation is not intended and shall not limit any damages incurred by any <dg:chunk>Third Party </dg:chunk>and covered under any indemnity hereunder. </docset:ThirdPartyDamages><dg:chunk><dg:chunk>
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 2229.0; width: 480.0; height: 48.0; page: 7;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 2229.0; width: 480.0; height: 48.0; page: 7;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 2229.0; width: 480.0; height: 48.0; page: 7;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 2229.0; width: 69.0; height: 48.0; page: 7;}; "><dgc:Number>11</dgc:Number>. 
+
+</xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 2229.0; width: 330.0; height: 48.0; page: 7;}; "><docset:_11>TERMINATON </docset:_11></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table><dg:chunk>
+
+      <docset:DefaultandTermination structure="ol" style="list-style-type: none; boundingBox:{left: 297.0; top: 2340.0; width: 1953.0; height: 657.0; page: 7;}; boundingBox:{left: 300.0; top: 309.0; width: 1950.0; height: 432.0; page: 8;}; "><dg:chunk structure="li" style="boundingBox:{left: 450.0; top: 2340.0; width: 1692.0; height: 48.0; page: 7;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk><dg:chunk structure="h1">Termination for Default. </dg:chunk><dg:chunk structure="div">A Party shall be in default under this Agreement if: </dg:chunk></dg:chunk></dg:chunk>
+
+
+
+<docset:BreachofAgreement structure="ol" style="list-style-type: none; boundingBox:{left: 297.0; top: 2415.0; width: 1953.0; height: 582.0; page: 7;}; boundingBox:{left: 300.0; top: 309.0; width: 1950.0; height: 357.0; page: 8;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2415.0; width: 1950.0; height: 276.0; page: 7;}; "><dg:chunk structure="lim">(i)  </dg:chunk><dg:chunk>such Party materially breaches any provision of this Agreement and such breach is not cured within <docset:BreachCurePeriod>thirty (30) days </docset:BreachCurePeriod>after notice thereof (which notice shall describe such breach in reasonable detail) is received by such Party from any other non-breaching Party; or </dg:chunk></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 297.0; top: 2718.0; width: 1953.0; height: 279.0; page: 7;}; boundingBox:{left: 300.0; top: 309.0; width: 1950.0; height: 357.0; page: 8;}; "><dg:chunk structure="lim">(ii)  </dg:chunk><dg:chunk>such Party (<docset:BankruptcyPetition>A)(1</docset:BankruptcyPetition>) files a petition or otherwise commences, authorizes or acquiesces in the commencement of a proceeding or cause of action under any bankruptcy, insolvency, reorganization or similar Applicable Law, or has any such petition filed or commenced against it, (<docset:BankruptcyPetition>2</docset:BankruptcyPetition>) makes an assignment or any general arrangement for the benefit 
+
+
+
+
+
+of creditors, (<docset:BankruptcyPetition>3</docset:BankruptcyPetition>) otherwise becomes bankrupt or insolvent (however evidenced) or (<docset:BankruptcyPetition>4</docset:BankruptcyPetition>) has a liquidator, administrator, receiver, trustee, conservator or similar official appointed with respect to it or any substantial portion of its property or assets, and, with respect to any involuntary filings, and (B) such Party fails to remedy the same within <docset:RemedyPeriod>sixty (60) days </docset:RemedyPeriod>of the date of such filing. </dg:chunk></dg:chunk></docset:BreachofAgreement>
+
+
+
+
+
+
+
+      <dg:chunk structure="li" style="boundingBox:{left: 450.0; top: 690.0; width: 1785.0; height: 51.0; page: 8;}; "><dg:chunk structure="lim">(b)  </dg:chunk><dg:chunk>If any of the Parties is in default as described above, then any other Party may </dg:chunk></dg:chunk></docset:DefaultandTermination>
+
+
+
+<dg:chunk structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 768.0; width: 1950.0; height: 201.0; page: 8;}; "><docset:DefaultRemedies structure="li" style="boundingBox:{left: 300.0; top: 768.0; width: 1950.0; height: 201.0; page: 8;}; "><dg:chunk structure="lim">(1)  </dg:chunk><dg:chunk>notwithstanding the terms of Section 3, terminate this Agreement upon notice to the defaulting Party; (<docset:DefaultRemedies>2</docset:DefaultRemedies>) withhold any payments due to the defaulting Party under this Agreement; and/or (<docset:DefaultRemedies>3</docset:DefaultRemedies>) pursue any other remedy at law or in equity. </dg:chunk></docset:DefaultRemedies></dg:chunk></dg:chunk></dg:chunk><dg:chunk>
+
+
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 1098.0; width: 537.0; height: 48.0; page: 8;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 1098.0; width: 537.0; height: 48.0; page: 8;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 1098.0; width: 537.0; height: 48.0; page: 8;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 1098.0; width: 69.0; height: 48.0; page: 8;}; "><dgc:Number>12</dgc:Number>. 
+
+</xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1098.0; width: 387.0; height: 48.0; page: 8;}; "><docset:_12>FORCE MAJEURE </docset:_12></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table>
+
+
+
+<docset:ForceMajeure structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 1209.0; width: 1950.0; height: 2019.0; page: 8;}; boundingBox:{left: 300.0; top: 291.0; width: 1950.0; height: 129.0; page: 9;}; boundingBox:{left: 264.0; top: 309.0; width: 1986.0; height: 1122.0; page: 10;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1209.0; width: 1950.0; height: 432.0; page: 8;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk>As soon as possible upon the occurrence of a <dg:chunk>Force Majeure </dg:chunk>(as defined below), the Party affected by such Force Majeure shall provide the other Party with written notice of the occurrence of such Force Majeure (a “<dg:chunk>Force Majeure Occurrence Notice</dg:chunk>”). The Party affected by such Force Majeure shall identify in such Force Majeure Occurrence Notice the approximate length of time that such Party reasonably believes in good faith such Force Majeure shall continue. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1764.0; width: 1947.0; height: 357.0; page: 8;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:ForceMajeure structure="p">The obligations under this Agreement of the Party affected by such Force Majeure shall be temporarily suspended during the occurrence of, and for the entire duration of, a <dg:chunk>Force Majeure</dg:chunk>. The Party affected by such Force Majeure shall use commercially reasonable efforts to overcome such Force Majeure but shall not be obligated under this Agreement to settle a strike or labor dispute. </docset:ForceMajeure></dg:chunk>
+
+
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2280.0; width: 1950.0; height: 357.0; page: 8;}; "><dg:chunk structure="lim">(c)  </dg:chunk><dg:chunk>As soon as possible upon the cessation of a <dg:chunk>Force Majeure</dg:chunk>, the Party affected by such Force Majeure shall provide the other Party with written notice of the cessation of such Force Majeure (a “<dg:chunk>Force Majeure Cessation Notice</dg:chunk>”). The Party affected by such Force Majeure shall identify in such Force Majeure Cessation Notice the date on which such Force Majeure ceased to exist. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2739.0; width: 1947.0; height: 201.0; page: 8;}; "><dg:chunk structure="lim">(d)  </dg:chunk><dg:chunk>Nothing in this Section 13 shall excuse any Party from complying with its obligations under this Agreement arising prior to the occurrence of such Force Majeure, including any obligation to make payments when due under this Agreement. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 3099.0; width: 1950.0; height: 129.0; page: 8;}; boundingBox:{left: 300.0; top: 291.0; width: 1950.0; height: 129.0; page: 9;}; boundingBox:{left: 264.0; top: 309.0; width: 1986.0; height: 510.0; page: 10;}; "><dg:chunk structure="lim">(e)  </dg:chunk><dg:chunk>Notwithstanding anything contained herein to the contrary, if (i) the Party affected by an event of <dg:chunk>Force Majeure </dg:chunk>(the “<dg:chunk>Affected Party</dg:chunk>”) is unable to resume the performance of its obligations under this Agreement within <docset:ForceMajeureTerminationPeriod>two (2) years </docset:ForceMajeureTerminationPeriod>after the event of <dg:chunk>Force Majeure </dg:chunk>despite using its commercially reasonable efforts to overcome such even 
+
+accordance with this Section 13, then the <dg:chunk>Affected Party </dg:chunk>may, upon written notice to the other Party, terminate this Agreement or (ii) the <dg:chunk>Affected Party </dg:chunk>is unable to resume performance of its obligations under this Agreement within <docset:ForceMajeureTerminationPeriod>six (6) Months </docset:ForceMajeureTerminationPeriod>after the event of <dg:chunk>Force Majeure</dg:chunk>, then the other Party may, upon written notice to the <dg:chunk>Affected Party</dg:chunk>, terminate this Agreement; provided that, in either case any payment obligations accruing up to and through the date of such termination shall remain outstanding and shall continue to be due and payable following the termination of this Agreement. </dg:chunk></dg:chunk>
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 846.0; width: 1950.0; height: 507.0; page: 10;}; "><dg:chunk structure="lim">(f)  </dg:chunk><docset:ForceMajeure-section><dg:chunk structure="h1">“<dg:chunk>Force Majeure</dg:chunk>” </dg:chunk><docset:ForceMajeure structure="div">means circumstances not reasonably within the control of a Party and which, by the exercise of reasonable efforts, such Party is unable to prevent or overcome that prevent performance of such Party’s obligations under this Agreement, including: acts of God, strikes, lockouts or other industrial disturbances, wars, riots, fires, floods, storms, orders of courts or <dg:chunk>Governmental Authorities</dg:chunk>, governmental request or requisition for national defense, explosions, terrorist acts, breakage, accident to machinery, storage tanks or lines of pipe and inability to obtain </docset:ForceMajeure></docset:ForceMajeure-section></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1380.0; width: 60.0; height: 51.0; page: 10;}; "><dg:chunk structure="lim">(g) </dg:chunk></dg:chunk></docset:ForceMajeure></dg:chunk><dg:chunk> 
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 1479.0; width: 747.0; height: 51.0; page: 10;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 1479.0; width: 747.0; height: 51.0; page: 10;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 1479.0; width: 747.0; height: 51.0; page: 10;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 1479.0; width: 69.0; height: 51.0; page: 10;}; "><dgc:Number>13</dgc:Number>. 
+
+</xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1479.0; width: 597.0; height: 51.0; page: 10;}; "><docset:_13><docset:CompliancewithLaws>COMPLIANCE </docset:CompliancewithLaws>WITH LAWS 
+
+</docset:_13></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table><docset:TextileTransportationCertifications structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 1590.0; width: 1950.0; height: 1608.0; page: 10;}; boundingBox:{left: 300.0; top: 291.0; width: 1950.0; height: 129.0; page: 11;}; boundingBox:{left: 300.0; top: 309.0; width: 1950.0; height: 1290.0; page: 12;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1590.0; width: 1950.0; height: 498.0; page: 10;}; "><dg:chunk structure="lim">(a)  </dg:chunk><dg:chunk><docset:CertificationofCompliance structure="p">Prior to transporting any textile covered hereunder, Carrier shall make or cause to be made, the following certifications on the delivery receipt or bill of lading covering the textile received if required by <docset:Certification>49 </docset:Certification>CFR <docset:Certification>172.204</docset:Certification>, or such other certification(s) as may be required by applicable law: </docset:CertificationofCompliance><docset:CertificateofCompliance structure="p">
+
+“This is to certify that the above-named materials are properly classified, described, packaged, marked and labeled, and are in proper condition for transportation according to the applicable regulations of the Department <docset:DOTCertification>of Transportation</docset:DOTCertification>.” </docset:CertificateofCompliance></dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2178.0; width: 1950.0; height: 276.0; page: 10;}; "><dg:chunk structure="lim">(b)  </dg:chunk><dg:chunk>Carrier hereby certifies that all transport vehicles to be used by Carrier in provided the services hereunder shall be (i) clean and free of contaminants, (ii) in material compliance with all <dg:chunk>Applicable Laws </dg:chunk>and (iii) proper and appropriate in accordance with <dg:chunk>Prudent Industry Practices </dg:chunk>for the transport of textile. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2556.0; width: 1947.0; height: 126.0; page: 10;}; "><dg:chunk structure="lim">(c)  </dg:chunk><dg:chunk>Shipper certifies that none of the textile covered by this Agreement will be produced or withdrawn from storage in violation of any <dg:chunk>Applicable Law</dg:chunk>. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2844.0; width: 1950.0; height: 354.0; page: 10;}; boundingBox:{left: 300.0; top: 291.0; width: 1950.0; height: 129.0; page: 11;}; boundingBox:{left: 300.0; top: 309.0; width: 1950.0; height: 357.0; page: 12;}; "><dg:chunk structure="lim">(d)  </dg:chunk><dg:chunk>The Parties are entering into this Agreement in reliance upon and shall fully comply with all <dg:chunk>Applicable Law </dg:chunk>which directly or indirectly affect the textile transported hereunder, or any receipt, throughput, delivery, transportation, handling or storage of textile hereunder or the ownership, operation or condition of the transportation operation, trucks and truck unloading facilities. Each Party shall be responsible for compliance with all <dg:chunk>Applicable Laws </dg:chunk>associated with such Party’s respective performance hereunder and the operation of such Party’s facilities, and, including without limitation any and all certifications 
+
+
+
+
+
+required by the <docset:ApplicableLaw>Department </docset:ApplicableLaw><docset:ApplicableLaws>of Transportation</docset:ApplicableLaws>. In the event any action or obligation imposed upon a Party under this Agreement shall at any time be in conflict with any requirement of <dg:chunk>Applicable Law</dg:chunk>, then this Agreement shall immediately be modified to conform the action or obligation so adversely affected to the requirements <dg:chunk>Applicable Law</dg:chunk>, and all other provisions of the Agreement shall remain effective. </dg:chunk></dg:chunk>
+
+
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 786.0; width: 1950.0; height: 663.0; page: 12;}; "><dg:chunk structure="lim">(e)  </dg:chunk><docset:NewOrChangedApplicableLaw-section><dg:chunk structure="h1">New or Changed Applicable Law. </dg:chunk><docset:NewOrChangedApplicableLaw structure="div">If during the Term, any new Applicable Law becomes effective or any existing Applicable Law is materially changed, which change is not addressed by another provision of this Agreement and has an adverse economic impact upon a Party, then either Party, acting in good faith, shall have the option to request renegotiation of the relevant provisions of this Agreement with respect to future performance. The Parties shall then meet and negotiate in good faith amendments to this Agreement that will conform this Agreement to the new Applicable Law (or material change to an existing Applicable Law) while preserving the Parties’ economic, operational, commercial and competitive arrangements in accordance with the understandings set forth herein. </docset:NewOrChangedApplicableLaw></docset:NewOrChangedApplicableLaw-section></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1473.0; width: 1947.0; height: 126.0; page: 12;}; "><dg:chunk structure="lim">(f)  </dg:chunk><dg:chunk>Carrier shall secure and maintain current all required permits, licenses, certificates, and approvals for the services. </dg:chunk></dg:chunk></docset:TextileTransportationCertifications></dg:chunk><dg:chunk>
+
+
+
+
+
+
+
+<xhtml:table structure="table" style="boundingBox:{left: 300.0; top: 1725.0; width: 618.0; height: 51.0; page: 12;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 300.0; top: 1725.0; width: 618.0; height: 51.0; page: 12;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 300.0; top: 1725.0; width: 618.0; height: 51.0; page: 12;}; "><xhtml:td structure="td" style="boundingBox:{left: 300.0; top: 1725.0; width: 69.0; height: 51.0; page: 12;}; "><dgc:Number>14</dgc:Number>. 
+
+</xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 450.0; top: 1725.0; width: 468.0; height: 51.0; page: 12;}; "><docset:_14>OTHER PROVISIONS </docset:_14></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table><dg:chunk>
+
+
+
+<docset:AssignmentofRights structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 1836.0; width: 1950.0; height: 1122.0; page: 12;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1836.0; width: 1950.0; height: 510.0; page: 12;}; "><dg:chunk structure="lim">(a)  </dg:chunk><docset:IndependentContractor-section><dg:chunk structure="h1"><dg:chunk>Independent Contractor</dg:chunk>. </dg:chunk><docset:IndependentContractor structure="div">It is expressly agreed that Carrier is acting hereunder solely as an independent contractor and that all Persons performing services hereunder for Carrier shall be deemed agents, servants or employees of Carrier and that none of such Persons shall be deemed agents, servants or employees of Shipper. As between the Parties, Carrier shall have the sole and exclusive responsibility for the costs and over the manner in which its employees and/or independent contractors perform the services provided hereunder, including the equipment provided. </docset:IndependentContractor></docset:IndependentContractor-section></dg:chunk>
+
+
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2469.0; width: 1950.0; height: 279.0; page: 12;}; "><dg:chunk structure="lim">(b)  </dg:chunk><docset:Subcontractors-section><dg:chunk structure="h1">Subcontractors. </dg:chunk><docset:Subcontractors structure="div">Other than those subcontractors set forth in Schedule 15(b), Carrier agrees not to subcontract, broker, interline, or to use “substituted services” by rail or motor carrier without the approval of Shipper, which shall not be unreasonably withheld, conditioned or delayed. </docset:Subcontractors></docset:Subcontractors-section></dg:chunk>
+
+
+
+
+
+
+
+
+
+
+
+      <dg:chunk structure="li" style="boundingBox:{left: 450.0; top: 2907.0; width: 354.0; height: 51.0; page: 12;}; "><dg:chunk structure="lim">(c)  </dg:chunk><dg:chunk structure="h1">Assignment. </dg:chunk></dg:chunk></docset:AssignmentofRights>
+
+
+
+<docset:Assignment structure="ol" style="list-style-type: none; boundingBox:{left: 300.0; top: 2982.0; width: 1950.0; height: 204.0; page: 12;}; boundingBox:{left: 300.0; top: 291.0; width: 1920.0; height: 51.0; page: 13;}; boundingBox:{left: 300.0; top: 309.0; width: 1950.0; height: 1347.0; page: 14;}; "><dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 2982.0; width: 1950.0; height: 204.0; page: 12;}; boundingBox:{left: 300.0; top: 291.0; width: 1920.0; height: 51.0; page: 13;}; boundingBox:{left: 300.0; top: 309.0; width: 1950.0; height: 279.0; page: 14;}; "><dg:chunk structure="lim">(i)  </dg:chunk><dg:chunk>Shipper shall not assign any of its rights or obligations under this Agreement without the prior written consent of Carrier, which consent shall not be unreasonably withheld, conditioned or delayed; provided, however; that Shipper may assign this Agreement without such consent to an Affiliate or in connection with a sale by Shipper 
+
+
+
+
+
+of the <docset:AssignmentRestriction>El Paso Factory </docset:AssignmentRestriction>so long as the transferee: (A) agrees to assume all of Shipper’s obligations under this Agreement and (B) is financially and operationally capable of fulfilling the terms of this Agreement, which determination shall be made by Carrier in its reasonable judgment. </dg:chunk></dg:chunk>
+
+
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 615.0; width: 1950.0; height: 660.0; page: 14;}; "><dg:chunk structure="lim">(ii)  </dg:chunk><dg:chunk>Carrier shall not assign any of its rights or obligations under this Agreement without Shipper’s prior written consent, which consent shall not be unreasonably withheld, conditioned or delayed; provided, however; that (<dg:chunk>A) Carrier </dg:chunk>may assign this Agreement without Shipper’s consent to an Affiliate or in connection with a sale by <docset:AssignmentRights>Carrier </docset:AssignmentRights>of <dgc:Org>Carrier</dgc:Org>’s textile transportation operation so long as the transferee: (x) agrees to assume all of Carrier’s obligations under this Agreement and (y) is financially and operationally capable of fulfilling the terms of this Agreement, which determination shall be made by Shipper’s in its reasonable judgment; and (<dg:chunk>B) Carrier </dg:chunk>shall be permitted to make a collateral assignment of this Agreement to obtain financing. </dg:chunk></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1302.0; width: 1950.0; height: 201.0; page: 14;}; "><dg:chunk structure="lim">(iii)  </dg:chunk><dg:chunk>Any assignment that is not undertaken in accordance with the provisions set forth above shall be null and void ab initio. A Party making any assignment shall promptly notify the other Party of such assignment, regardless of whether consent is required. </dg:chunk></dg:chunk>
+
+
+
+<dg:chunk structure="li" style="boundingBox:{left: 300.0; top: 1530.0; width: 1947.0; height: 126.0; page: 14;}; "><dg:chunk structure="lim">(iv)  </dg:chunk><docset:SuccessorandAssignment structure="p">This Agreement shall be binding upon and inure to the benefit of the Parties hereto and their respective successors and permitted assigns.</docset:SuccessorandAssignment></dg:chunk></docset:Assignment></dg:chunk></dg:chunk></dg:chunk></dg:chunk></dg:chunk></dg:chunk></docset:RECITALS></docset:RECITALS-section></dg:chunk>

@@ -14,8 +14,15 @@ license = "MIT"
 python = ">=3.8.1,<4.0"
 langchain-core = ">=0.0.12"
 langchain-community = "^0.0.19"
-docugami = "^0.1.2"
 dgml-utils = "^0.3.2"
+wordtodigits = "^1.0.2"
+python-dateutil = "^2.8.2"
+pandas = "^1.5.3"
+pyyaml = "^6.0.1"
+openpyxl = "^3.1.2"
+torch = "<=1.13.1" 
+faiss-cpu = "^1.7.4"
+sqlparse = "^0.4.4"
 
 [tool.poetry.group.test]
 optional = true
@@ -27,6 +34,9 @@ pytest-mock  = "^3.10.0"
 syrupy = "^4.0.2"
 pytest-watcher = "^0.3.4"
 pytest-asyncio = "^0.21.1"
+fireworks-ai = "^0.11.2"
+sentence-transformers = "^2.3.1"
+langchain-openai = "^0.0.5"
 
 [tool.poetry.group.codespell]
 optional = true
@@ -46,8 +56,11 @@ optional = true
 ruff = "^0.2.1"
 
 [tool.poetry.group.typing.dependencies]
-mypy = "^0.991"
+mypy = "^1.8.0"
 types-lxml = "^2023.10.21"
+types-python-dateutil = "^2.8.19.20240106"
+types-pyyaml = "^6.0.12.12"
+types-requests = "^2.31.0.20240125"
 
 [tool.ruff]
 lint.select = [
@@ -55,9 +68,16 @@ lint.select = [
   "F",  # pyflakes
   "I",  # isort
 ]
+line-length = 200
 
 [tool.mypy]
 disallow_untyped_defs = "True"
+
+[[tool.mypy.overrides]]
+module = [
+    "wordtodigits", "pandas", "sqlparse"
+]
+ignore_missing_imports = true
 
 [tool.coverage.run]
 omit = [

@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?><dg:chunk cp:version="2.62.62.0.1705579850447-196.0" xmlns:docset="http://www.docugami.com/2021/dgml/docugami/EmployeeBenefitInsuranceProposals" xmlns:addedChunks="http://www.docugami.com/2021/dgml/docugami/EmployeeBenefitInsuranceProposals/addedChunks" xmlns:dg="http://www.docugami.com/2021/dgml" xmlns:dgc="http://www.docugami.com/2021/dgml/docugami/contracts" xmlns:dgm="http://www.docugami.com/2021/dgml/docugami/medical" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:cp="http://classifyprocess.com/2018/07/"><docset:RateExhibit-section><dg:chunk structure="h1">
+
+    <dg:chunk>Rate Exhibit </dg:chunk></dg:chunk><docset:RateExhibit><xhtml:table structure="table" style="boundingBox:{left: 75.0; top: 490.5; width: 2406.0; height: 233.7; page: 1;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 75.0; top: 490.5; width: 2406.0; height: 233.7; page: 1;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 490.5; width: 2406.0; height: 161.8; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 490.5; width: 2074.3; height: 161.8; page: 1;}; " colspan="3"><docset:MonthlyRatesEffective-section><dg:chunk structure="h1">
+
+                                              <dg:chunk>Monthly Rates </dg:chunk>Effective </dg:chunk><docset:MonthlyRatesEffective structure="div">August 1, 2021 </docset:MonthlyRatesEffective></docset:MonthlyRatesEffective-section><dg:chunk structure="h1">
+
+                                                                   Adult 
+
+                                                                                 Child (<docset:AgeRange>0</docset:AgeRange>-<docset:AgeRange>20</docset:AgeRange>) </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2149.3; top: 490.5; width: 331.7; height: 161.8; page: 1;}; "><docset:MonthlyRatesEffectiveAugust12021AdultChild0-20 structure="h1">
+
+          Monthly Charges </docset:MonthlyRatesEffectiveAugust12021AdultChild0-20></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 652.3; width: 2406.0; height: 71.9; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 652.3; width: 986.6; height: 71.9; page: 1;}; "><docset:MedicalCensus-cell>
+
+    <dg:chunk>Medical Census</dg:chunk>: (<docset:MedicalCensusCount>29 </docset:MedicalCensusCount>total) </docset:MedicalCensus-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1061.6; top: 652.3; width: 706.7; height: 71.9; page: 1;}; "><docset:MedicalCensus29TotalMonthlyCharges>
+
+                        <dgc:Number>32 </dgc:Number></docset:MedicalCensus29TotalMonthlyCharges></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1768.2; top: 652.3; width: 381.1; height: 71.9; page: 1;}; "><docset:MedicalCensus29Total>
+
+            <dgc:Number>11 </dgc:Number></docset:MedicalCensus29Total></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2149.3; top: 652.3; width: 331.7; height: 71.9; page: 1;}; "><docset:MedicalCensus29Total /></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:RateExhibit></docset:RateExhibit-section><dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+    <dg:chunk>Rated Medical Census</dg:chunk>: </dg:chunk><dg:chunk structure="p">
+
+                                                                     <dgc:Number>32 </dgc:Number></dg:chunk></dg:chunk><dg:chunk structure="p">
+
+                                                                                         <dgc:Number>11 </dgc:Number></dg:chunk></dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+    Example Plans - Sample and Dental Choice </dg:chunk><docset:RateExhibit><xhtml:table structure="table" style="boundingBox:{left: 83.3; top: 950.0; width: 2377.5; height: 766.7; page: 1;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 83.3; top: 950.0; width: 2377.5; height: 766.7; page: 1;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 950.0; width: 2377.5; height: 46.7; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 950.0; width: 999.0; height: 46.7; page: 1;}; ">
+
+    Example <docset:Platinum>2 </docset:Platinum>Platinum </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 950.0; width: 631.7; height: 46.7; page: 1;}; ">
+
+                   <dgc:Money>$809.49 </dgc:Money></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 950.0; width: 412.7; height: 46.7; page: 1;}; ">
+
+          <dgc:Money>$346.88 </dgc:Money></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 950.0; width: 334.1; height: 46.7; page: 1;}; ">
+
+         <dgc:Money>$<dg:chunk>52,311.72 </dg:chunk></dgc:Money></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 996.7; width: 2377.5; height: 57.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 996.7; width: 999.0; height: 57.0; page: 1;}; "><docset:Example2PlatinumExample5Platinum>
+
+    Example <docset:Platinum>5 </docset:Platinum>Platinum </docset:Example2PlatinumExample5Platinum></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 996.7; width: 631.7; height: 57.0; page: 1;}; "><docset:Example5Platinum80949>
+
+                   <dgc:Money>$771.66 </dgc:Money></docset:Example5Platinum80949></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 996.7; width: 412.7; height: 57.0; page: 1;}; "><docset:Example5Platinum34688>
+
+          <dgc:Money>$330.67 </dgc:Money></docset:Example5Platinum34688></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 996.7; width: 334.1; height: 57.0; page: 1;}; "><docset:Example5Platinum5231172>
+
+         <dgc:Money>$<dg:chunk>18,409.23 </dg:chunk></dgc:Money></docset:Example5Platinum5231172></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 1053.7; width: 2377.5; height: 57.9; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 1053.7; width: 999.0; height: 57.9; page: 1;}; "><docset:Example2PlatinumExample5Gold>
+
+    Example <docset:Gold>5 </docset:Gold>Gold </docset:Example2PlatinumExample5Gold></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 1053.7; width: 631.7; height: 57.9; page: 1;}; "><docset:Example5Gold80949>
+
+                   <dgc:Money>$667.29 </dgc:Money></docset:Example5Gold80949></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 1053.7; width: 412.7; height: 57.9; page: 1;}; "><docset:Example5Gold34688>
+
+          <dgc:Money>$285.95 </dgc:Money></docset:Example5Gold34688></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 1053.7; width: 334.1; height: 57.9; page: 1;}; "><docset:Example5Gold5231172>
+
+         <dgc:Money>$<dg:chunk>20,919.35 </dg:chunk></dgc:Money></docset:Example5Gold5231172></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 1111.6; width: 2377.5; height: 53.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 1111.6; width: 999.0; height: 53.0; page: 1;}; "><docset:Example2PlatinumExample10Gold>
+
+    Example <docset:Gold>10 </docset:Gold>Gold </docset:Example2PlatinumExample10Gold></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 1111.6; width: 631.7; height: 53.0; page: 1;}; "><docset:Example10Gold80949>
+
+                   <dgc:Money>$656.70 </dgc:Money></docset:Example10Gold80949></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 1111.6; width: 412.7; height: 53.0; page: 1;}; "><docset:Example10Gold34688>
+
+          <dgc:Money>$281.41 </dgc:Money></docset:Example10Gold34688></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 1111.6; width: 334.1; height: 53.0; page: 1;}; "><docset:Example10Gold5231172>
+
+         <dgc:Money>$15,666.69 </dgc:Money></docset:Example10Gold5231172></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 1164.6; width: 2377.5; height: 56.9; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 1164.6; width: 999.0; height: 56.9; page: 1;}; "><docset:Example2PlatinumExample15Gold>
+
+    Example <docset:Gold>15 </docset:Gold>Gold </docset:Example2PlatinumExample15Gold></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 1164.6; width: 631.7; height: 56.9; page: 1;}; "><docset:Example15Gold80949>
+
+                   <dgc:Money>$647.56 </dgc:Money></docset:Example15Gold80949></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 1164.6; width: 412.7; height: 56.9; page: 1;}; "><docset:Example15Gold34688>
+
+          <dgc:Money>$277.50 </dgc:Money></docset:Example15Gold34688></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 1164.6; width: 334.1; height: 56.9; page: 1;}; "><docset:Example15Gold5231172>
+
+         <dgc:Money>$<dg:chunk>15,448.70 </dg:chunk></dgc:Money></docset:Example15Gold5231172></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 1221.5; width: 2377.5; height: 57.7; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 1221.5; width: 999.0; height: 57.7; page: 1;}; "><docset:Example2PlatinumExample20Gold>
+
+    Example <docset:GoldAmount>20 </docset:GoldAmount>Gold </docset:Example2PlatinumExample20Gold></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 1221.5; width: 631.7; height: 57.7; page: 1;}; "><docset:Example20Gold80949>
+
+                   <dgc:Money>$632.74 </dgc:Money></docset:Example20Gold80949></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 1221.5; width: 412.7; height: 57.7; page: 1;}; "><docset:Example20Gold34688>
+
+          <dgc:Money>$271.14 </dgc:Money></docset:Example20Gold34688></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 1221.5; width: 334.1; height: 57.7; page: 1;}; "><docset:Example20Gold5231172>
+
+         <dgc:Money>$<dg:chunk>15,095.06 </dg:chunk></dgc:Money></docset:Example20Gold5231172></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 1279.2; width: 2377.5; height: 56.9; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 1279.2; width: 999.0; height: 56.9; page: 1;}; "><docset:Example2PlatinumExample25Gold>
+
+    Example <docset:Gold>25 </docset:Gold>Gold </docset:Example2PlatinumExample25Gold></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 1279.2; width: 631.7; height: 56.9; page: 1;}; "><docset:Example25Gold80949>
+
+                   <dgc:Money>$613.67 </dgc:Money></docset:Example25Gold80949></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 1279.2; width: 412.7; height: 56.9; page: 1;}; "><docset:Example25Gold34688>
+
+          <dgc:Money>$262.97 </dgc:Money></docset:Example25Gold34688></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 1279.2; width: 334.1; height: 56.9; page: 1;}; "><docset:Example25Gold5231172>
+
+         <dgc:Money>$<dg:chunk>14,640.13 </dg:chunk></dgc:Money></docset:Example25Gold5231172></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 1336.1; width: 2377.5; height: 53.5; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 1336.1; width: 999.0; height: 53.5; page: 1;}; "><docset:Example2PlatinumExample20Silver>
+
+    Example <docset:Silver>20 </docset:Silver>Silver </docset:Example2PlatinumExample20Silver></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 1336.1; width: 631.7; height: 53.5; page: 1;}; "><docset:Example20Silver80949>
+
+                   <dgc:Money>$571.26 </dgc:Money></docset:Example20Silver80949></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 1336.1; width: 412.7; height: 53.5; page: 1;}; "><docset:Example20Silver34688>
+
+          <dgc:Money>$244.80 </dgc:Money></docset:Example20Silver34688></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 1336.1; width: 334.1; height: 53.5; page: 1;}; "><docset:Example20Silver5231172>
+
+         <dgc:Money>$13,628.40 </dgc:Money></docset:Example20Silver5231172></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 1389.6; width: 2377.5; height: 58.5; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 1389.6; width: 999.0; height: 58.5; page: 1;}; "><docset:Example2PlatinumExample30Silver>
+
+    Example <docset:Silver>30 </docset:Silver>Silver </docset:Example2PlatinumExample30Silver></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 1389.6; width: 631.7; height: 58.5; page: 1;}; "><docset:Example30Silver80949>
+
+                   <dgc:Money>$557.79 </dgc:Money></docset:Example30Silver80949></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 1389.6; width: 412.7; height: 58.5; page: 1;}; "><docset:Example30Silver34688>
+
+          <dgc:Money>$239.03 </dgc:Money></docset:Example30Silver34688></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 1389.6; width: 334.1; height: 58.5; page: 1;}; "><docset:Example30Silver5231172>
+
+         <dgc:Money>$13,307.07 </dgc:Money></docset:Example30Silver5231172></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 1448.0; width: 2377.5; height: 55.7; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 1448.0; width: 999.0; height: 55.7; page: 1;}; "><docset:Example2PlatinumExample65Bronze>
+
+    Example <docset:Bronze>65 </docset:Bronze>Bronze </docset:Example2PlatinumExample65Bronze></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 1448.0; width: 631.7; height: 55.7; page: 1;}; "><docset:Example65Bronze80949>
+
+                   <dgc:Money>$473.04 </dgc:Money></docset:Example65Bronze80949></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 1448.0; width: 412.7; height: 55.7; page: 1;}; "><docset:Example65Bronze34688>
+
+          <dgc:Money>$202.71 </dgc:Money></docset:Example65Bronze34688></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 1448.0; width: 334.1; height: 55.7; page: 1;}; "><docset:Example65Bronze5231172>
+
+         <dgc:Money>$<dgc:Number>11,285.19 </dgc:Number></dgc:Money></docset:Example65Bronze5231172></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 1503.8; width: 2377.5; height: 57.1; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 1503.8; width: 999.0; height: 57.1; page: 1;}; "><docset:Example2PlatinumExamplePPO85Bronze>
+
+    Example PPO <docset:PPOBronzePlan>85 </docset:PPOBronzePlan>Bronze </docset:Example2PlatinumExamplePPO85Bronze></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 1503.8; width: 631.7; height: 57.1; page: 1;}; "><docset:ExamplePPO85Bronze80949>
+
+                   <dgc:Money>$446.26 </dgc:Money></docset:ExamplePPO85Bronze80949></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 1503.8; width: 412.7; height: 57.1; page: 1;}; "><docset:ExamplePPO85Bronze34688>
+
+          <dgc:Money>$191.23 </dgc:Money></docset:ExamplePPO85Bronze34688></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 1503.8; width: 334.1; height: 57.1; page: 1;}; "><docset:ExamplePPO85Bronze5231172>
+
+         <dgc:Money>$<dg:chunk>11,646.27 </dg:chunk></dgc:Money></docset:ExamplePPO85Bronze5231172></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 1560.8; width: 2377.5; height: 53.8; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 1560.8; width: 999.0; height: 53.8; page: 1;}; "><docset:Example2PlatinumExampleHSAQualified15Gold structure="h1">
+
+    Example HSA Qualified <docset:PlanType>15 </docset:PlanType>Gold </docset:Example2PlatinumExampleHSAQualified15Gold></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 1560.8; width: 631.7; height: 53.8; page: 1;}; "><docset:ExampleHSAQualified15Gold80949>
+
+                   <dgc:Money>$611.82 </dgc:Money></docset:ExampleHSAQualified15Gold80949></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 1560.8; width: 412.7; height: 53.8; page: 1;}; "><docset:ExampleHSAQualified15Gold34688>
+
+          <dgc:Money>$262.18 </dgc:Money></docset:ExampleHSAQualified15Gold34688></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 1560.8; width: 334.1; height: 53.8; page: 1;}; "><docset:ExampleHSAQualified15Gold5231172>
+
+         <dgc:Money>$14,596.02 </dgc:Money></docset:ExampleHSAQualified15Gold5231172></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 1614.6; width: 2377.5; height: 54.2; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 1614.6; width: 999.0; height: 54.2; page: 1;}; "><docset:Example2PlatinumExampleHSAQualified30Silver structure="h1">
+
+    Example HSA Qualified <docset:PlanLevel>30 </docset:PlanLevel>Silver </docset:Example2PlatinumExampleHSAQualified30Silver></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 1614.6; width: 631.7; height: 54.2; page: 1;}; "><docset:ExampleHSAQualified30Silver80949>
+
+                   <dgc:Money>$578.16 </dgc:Money></docset:ExampleHSAQualified30Silver80949></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 1614.6; width: 412.7; height: 54.2; page: 1;}; "><docset:ExampleHSAQualified30Silver34688>
+
+          <dgc:Money>$247.76 </dgc:Money></docset:ExampleHSAQualified30Silver34688></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 1614.6; width: 334.1; height: 54.2; page: 1;}; "><docset:ExampleHSAQualified30Silver5231172>
+
+         <dgc:Money>$<dg:chunk>17,793.04 </dg:chunk></dgc:Money></docset:ExampleHSAQualified30Silver5231172></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 1668.8; width: 2377.5; height: 47.9; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 1668.8; width: 999.0; height: 47.9; page: 1;}; "><docset:Example2PlatinumExampleHSAQualified62Bronze structure="h1">
+
+    <dg:chunk>Example HSA </dg:chunk>Qualified <docset:Age>62 </docset:Age>Bronze </docset:Example2PlatinumExampleHSAQualified62Bronze></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1082.3; top: 1668.8; width: 631.7; height: 47.9; page: 1;}; "><docset:ExampleHSAQualified62Bronze80949>
+
+                   <dgc:Money>$473.87 </dgc:Money></docset:ExampleHSAQualified62Bronze80949></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1714.0; top: 1668.8; width: 412.7; height: 47.9; page: 1;}; "><docset:ExampleHSAQualified62Bronze34688>
+
+          <dgc:Money>$203.07 </dgc:Money></docset:ExampleHSAQualified62Bronze34688></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2126.8; top: 1668.8; width: 334.1; height: 47.9; page: 1;}; "><docset:ExampleHSAQualified62Bronze5231172>
+
+         <dgc:Money>$<dg:chunk>11,305.03 </dg:chunk></dgc:Money></docset:ExampleHSAQualified62Bronze5231172></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:RateExhibit></dg:chunk><dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+    Example + Family Dental Plans - Sample and Dental Choice </dg:chunk><docset:RateExhibit><xhtml:table structure="table" style="boundingBox:{left: 81.6; top: 1893.8; width: 2375.8; height: 206.2; page: 1;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 81.6; top: 1893.8; width: 2375.8; height: 206.2; page: 1;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 81.6; top: 1893.8; width: 2375.8; height: 50.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 81.6; top: 1893.8; width: 1144.5; height: 50.0; page: 1;}; "><dg:chunk structure="h1">
+
+    Example <docset:GoldFamilyDental>5 </docset:GoldFamilyDental>Gold + Family Dental </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1226.1; top: 1893.8; width: 484.3; height: 50.0; page: 1;}; ">
+
+            <dgc:Money>$690.88 </dgc:Money></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1710.5; top: 1893.8; width: 412.7; height: 50.0; page: 1;}; ">
+
+          <dgc:Money>$296.06 </dgc:Money></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2123.2; top: 1893.8; width: 334.1; height: 50.0; page: 1;}; ">
+
+         <dgc:Money>$22,482.14 </dgc:Money></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 81.6; top: 1943.8; width: 2375.8; height: 52.0; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 81.6; top: 1943.8; width: 1144.5; height: 52.0; page: 1;}; "><docset:Example5GoldFamilyDentalExample10GoldFamilyDental structure="h1">
+
+    Example <docset:GoldFamilyDental>10 </docset:GoldFamilyDental>Gold+ Family Dental </docset:Example5GoldFamilyDentalExample10GoldFamilyDental></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1226.1; top: 1943.8; width: 484.3; height: 52.0; page: 1;}; "><docset:Example10GoldFamilyDental69088>
+
+            <dgc:Money>$680.28 </dgc:Money></docset:Example10GoldFamilyDental69088></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1710.5; top: 1943.8; width: 412.7; height: 52.0; page: 1;}; "><docset:Example10GoldFamilyDental29606>
+
+          <dgc:Money>$291.52 </dgc:Money></docset:Example10GoldFamilyDental29606></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2123.2; top: 1943.8; width: 334.1; height: 52.0; page: 1;}; "><docset:Example10GoldFamilyDental2248214>
+
+         <dgc:Money>$<dgc:Number>16,229.28 </dgc:Number></dgc:Money></docset:Example10GoldFamilyDental2248214></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 81.6; top: 1995.8; width: 2375.8; height: 58.2; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 81.6; top: 1995.8; width: 1144.5; height: 58.2; page: 1;}; "><docset:Example5GoldFamilyDentalExample20SilverFamilyDental structure="h1">
+
+    Example <docset:FamilyDentalCoverage>20 </docset:FamilyDentalCoverage>Silver+ Family Dental </docset:Example5GoldFamilyDentalExample20SilverFamilyDental></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1226.1; top: 1995.8; width: 484.3; height: 58.2; page: 1;}; "><docset:Example20SilverFamilyDental69088>
+
+            <dgc:Money>$594.86 </dgc:Money></docset:Example20SilverFamilyDental69088></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1710.5; top: 1995.8; width: 412.7; height: 58.2; page: 1;}; "><docset:Example20SilverFamilyDental29606>
+
+          <dgc:Money>$254.91 </dgc:Money></docset:Example20SilverFamilyDental29606></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2123.2; top: 1995.8; width: 334.1; height: 58.2; page: 1;}; "><docset:Example20SilverFamilyDental2248214>
+
+         <dgc:Money>$<dg:chunk>15,191.39 </dg:chunk></dgc:Money></docset:Example20SilverFamilyDental2248214></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 81.6; top: 2054.1; width: 2375.8; height: 45.9; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 81.6; top: 2054.1; width: 1144.5; height: 45.9; page: 1;}; "><docset:Example5GoldFamilyDentalExampleHSAQualified30SilverFamilyDental structure="h1">
+
+    <dg:chunk>Example HSA Qualified </dg:chunk><docset:DentalPlan>30 </docset:DentalPlan>Silver+ Family Dental </docset:Example5GoldFamilyDentalExampleHSAQualified30SilverFamilyDental></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1226.1; top: 2054.1; width: 484.3; height: 45.9; page: 1;}; "><docset:ExampleHSAQualified30SilverFamilyDental69088>
+
+            <dgc:Money>$601.86 </dgc:Money></docset:ExampleHSAQualified30SilverFamilyDental69088></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1710.5; top: 2054.1; width: 412.7; height: 45.9; page: 1;}; "><docset:ExampleHSAQualified30SilverFamilyDental29606>
+
+          <dgc:Money>$257.91 </dgc:Money></docset:ExampleHSAQualified30SilverFamilyDental29606></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2123.2; top: 2054.1; width: 334.1; height: 45.9; page: 1;}; "><docset:ExampleHSAQualified30SilverFamilyDental2248214>
+
+         <dgc:Money>$<dg:chunk>15,358.39 </dg:chunk></dgc:Money></docset:ExampleHSAQualified30SilverFamilyDental2248214></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:RateExhibit></dg:chunk><docset:Example1Plans-SampleAndDentalChoice-section><dg:chunk structure="h1">
+
+    <docset:Example1Plans>Example1 </docset:Example1Plans>Plans - Sample and Dental Choice </dg:chunk><docset:Example1Plans-SampleAndDentalChoice structure="div"><docset:RateExhibit><xhtml:table structure="table" style="boundingBox:{left: 83.3; top: 2275.0; width: 2370.8; height: 370.8; page: 1;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 83.3; top: 2275.0; width: 2370.8; height: 370.8; page: 1;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 2275.0; width: 2370.8; height: 45.8; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 2275.0; width: 1009.5; height: 45.8; page: 1;}; ">
+
+    Example1 <docset:Gold>7 </docset:Gold>Gold </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1092.8; top: 2275.0; width: 617.6; height: 45.8; page: 1;}; ">
+
+                  <dgc:Money>$711.91 </dgc:Money></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1710.4; top: 2275.0; width: 410.4; height: 45.8; page: 1;}; ">
+
+          <dgc:Money>$305.07 </dgc:Money></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2120.8; top: 2275.0; width: 333.3; height: 45.8; page: 1;}; ">
+
+         <dgc:Money>$20,983.83 </dgc:Money></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 2320.8; width: 2370.8; height: 58.3; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 2320.8; width: 1009.5; height: 58.3; page: 1;}; "><docset:Example17GoldExample110Gold>
+
+    Example1 <docset:GoldAmount>10 </docset:GoldAmount>Gold </docset:Example17GoldExample110Gold></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1092.8; top: 2320.8; width: 617.6; height: 58.3; page: 1;}; "><docset:Example110Gold71191>
+
+                  <dgc:Money>$707.40 </dgc:Money></docset:Example110Gold71191></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1710.4; top: 2320.8; width: 410.4; height: 58.3; page: 1;}; "><docset:Example110Gold30507>
+
+          <dgc:Money>$303.14 </dgc:Money></docset:Example110Gold30507></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2120.8; top: 2320.8; width: 333.3; height: 58.3; page: 1;}; "><docset:Example110Gold2098383>
+
+         <dgc:Money>$<dg:chunk>16,876.26 </dg:chunk></dgc:Money></docset:Example110Gold2098383></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 2379.2; width: 2370.8; height: 55.3; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 2379.2; width: 1009.5; height: 55.3; page: 1;}; "><docset:Example17GoldExample115Gold>
+
+    Example1 <docset:GoldAmount>15 </docset:GoldAmount>Gold </docset:Example17GoldExample115Gold></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1092.8; top: 2379.2; width: 617.6; height: 55.3; page: 1;}; "><docset:Example115Gold71191>
+
+                  <dgc:Money>$697.54 </dgc:Money></docset:Example115Gold71191></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1710.4; top: 2379.2; width: 410.4; height: 55.3; page: 1;}; "><docset:Example115Gold30507>
+
+          <dgc:Money>$298.91 </dgc:Money></docset:Example115Gold30507></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2120.8; top: 2379.2; width: 333.3; height: 55.3; page: 1;}; "><docset:Example115Gold2098383>
+
+         <dgc:Money>$<dg:chunk>16,640.99 </dg:chunk></dgc:Money></docset:Example115Gold2098383></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 2434.4; width: 2370.8; height: 57.2; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 2434.4; width: 1009.5; height: 57.2; page: 1;}; "><docset:Example17GoldExample125Silver>
+
+    <docset:Example1>Example1 </docset:Example1><docset:SilverAmount>25 </docset:SilverAmount>Silver </docset:Example17GoldExample125Silver></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1092.8; top: 2434.4; width: 617.6; height: 57.2; page: 1;}; "><docset:Example125Silver71191>
+
+                  <dgc:Money>$607.01 </dgc:Money></docset:Example125Silver71191></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1710.4; top: 2434.4; width: 410.4; height: 57.2; page: 1;}; "><docset:Example125Silver30507>
+
+          <dgc:Money>$260.12 </dgc:Money></docset:Example125Silver30507></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2120.8; top: 2434.4; width: 333.3; height: 57.2; page: 1;}; "><docset:Example125Silver2098383>
+
+         <dgc:Money>$<dg:chunk>14,481.28 </dg:chunk></dgc:Money></docset:Example125Silver2098383></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 2491.7; width: 2370.8; height: 54.2; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 2491.7; width: 1009.5; height: 54.2; page: 1;}; "><docset:Example17GoldExample1HSAQualified15Gold structure="h1">
+
+    Example1 HSA Qualified <docset:HSAQualifiedGoldPlan>15 </docset:HSAQualifiedGoldPlan>Gold </docset:Example17GoldExample1HSAQualified15Gold></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1092.8; top: 2491.7; width: 617.6; height: 54.2; page: 1;}; "><docset:Example1HSAQualified15Gold71191>
+
+                  <dgc:Money>$658.60 </dgc:Money></docset:Example1HSAQualified15Gold71191></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1710.4; top: 2491.7; width: 410.4; height: 54.2; page: 1;}; "><docset:Example1HSAQualified15Gold30507>
+
+          <dgc:Money>$282.23 </dgc:Money></docset:Example1HSAQualified15Gold30507></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2120.8; top: 2491.7; width: 333.3; height: 54.2; page: 1;}; "><docset:Example1HSAQualified15Gold2098383>
+
+         <dgc:Money>$<dg:chunk>15,712.07 </dg:chunk></dgc:Money></docset:Example1HSAQualified15Gold2098383></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 2545.8; width: 2370.8; height: 56.2; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 2545.8; width: 1009.5; height: 56.2; page: 1;}; "><docset:Example17GoldExample1HSAQualified30Silver structure="h1">
+
+    <docset:Example1>Example1 </docset:Example1>HSA Qualified <docset:PlanLevel>30 </docset:PlanLevel>Silver </docset:Example17GoldExample1HSAQualified30Silver></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1092.8; top: 2545.8; width: 617.6; height: 56.2; page: 1;}; "><docset:Example1HSAQualified30Silver71191>
+
+                  <dgc:Money>$622.11 </dgc:Money></docset:Example1HSAQualified30Silver71191></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1710.4; top: 2545.8; width: 410.4; height: 56.2; page: 1;}; "><docset:Example1HSAQualified30Silver30507>
+
+          <dgc:Money>$266.59 </dgc:Money></docset:Example1HSAQualified30Silver30507></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2120.8; top: 2545.8; width: 333.3; height: 56.2; page: 1;}; "><docset:Example1HSAQualified30Silver2098383>
+
+          <dgc:Money>$<dg:chunk>14,841.51 </dg:chunk></dgc:Money></docset:Example1HSAQualified30Silver2098383></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 83.3; top: 2602.1; width: 2370.8; height: 43.8; page: 1;}; "><xhtml:td structure="td" style="boundingBox:{left: 83.3; top: 2602.1; width: 1009.5; height: 43.8; page: 1;}; "><docset:Example17GoldExample1HSAQualified62Bronze structure="h1">
+
+    <docset:Example1HSAQualified62Bronze>Example1 </docset:Example1HSAQualified62Bronze>HSA Qualified <docset:Age>62 </docset:Age>Bronze </docset:Example17GoldExample1HSAQualified62Bronze></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1092.8; top: 2602.1; width: 617.6; height: 43.8; page: 1;}; "><docset:Example1HSAQualified62Bronze71191>
+
+                  <dgc:Money>$508.84 </dgc:Money></docset:Example1HSAQualified62Bronze71191></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1710.4; top: 2602.1; width: 410.4; height: 43.8; page: 1;}; "><docset:Example1HSAQualified62Bronze30507>
+
+          <dgc:Money>$218.05 </dgc:Money></docset:Example1HSAQualified62Bronze30507></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2120.8; top: 2602.1; width: 333.3; height: 43.8; page: 1;}; "><docset:Example1HSAQualified62Bronze2098383>
+
+         <dgc:Money>$<dg:chunk>15,139.25 </dg:chunk></dgc:Money></docset:Example1HSAQualified62Bronze2098383></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:RateExhibit><dg:chunk><docset:MonthlyRates><xhtml:table structure="table" style="boundingBox:{left: 75.0; top: 490.5; width: 2405.0; height: 878.1; page: 2;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 75.0; top: 490.5; width: 2405.0; height: 878.1; page: 2;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 490.5; width: 2405.0; height: 159.5; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 490.5; width: 1679.3; height: 159.5; page: 2;}; " colspan="2"><dg:chunk structure="h1">
+
+                                              <dg:chunk>Monthly Rates </dg:chunk>Effective <docset:MonthlyRatesEffectiveDate>July 1, 2021 </docset:MonthlyRatesEffectiveDate>
+
+                                                                   Adult </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1754.3; top: 490.5; width: 374.7; height: 159.5; page: 2;}; "><dg:chunk structure="h1">
+
+     Child (<docset:ChildAge>0</docset:ChildAge>-<docset:ChildAge>20</docset:ChildAge>) </dg:chunk></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2129.0; top: 490.5; width: 351.0; height: 159.5; page: 2;}; "><dg:chunk structure="h1">
+
+           Monthly Charges </dg:chunk></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 650.0; width: 2405.0; height: 78.4; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 650.0; width: 1254.2; height: 78.4; page: 2;}; "><docset:MedicalCensus-cell>
+
+    <dg:chunk>Medical Census</dg:chunk>: (<docset:MedicalCensusCount>29 </docset:MedicalCensusCount>total) </docset:MedicalCensus-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1329.2; top: 650.0; width: 425.2; height: 78.4; page: 2;}; "><docset:MonthlyRatesEffectiveJuly12021Adult-medicalCensus29Total>
+
+            <dgc:Number>32 </dgc:Number></docset:MonthlyRatesEffectiveJuly12021Adult-medicalCensus29Total></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1754.3; top: 650.0; width: 374.7; height: 78.4; page: 2;}; "><docset:Child0-20>
+
+             <dgc:Number>11 </dgc:Number></docset:Child0-20></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2129.0; top: 650.0; width: 351.0; height: 78.4; page: 2;}; "><docset:MonthlyCharges /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 728.4; width: 2405.0; height: 75.6; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 728.4; width: 1254.2; height: 75.6; page: 2;}; "><docset:MonthlyRatesEffectiveJuly12021AdultRatedMedicalCensus>
+
+    <dg:chunk>Rated Medical Census</dg:chunk>: </docset:MonthlyRatesEffectiveJuly12021AdultRatedMedicalCensus></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1329.2; top: 728.4; width: 425.2; height: 75.6; page: 2;}; "><docset:RatedMedicalCensus>
+
+            <dgc:Number>32 </dgc:Number></docset:RatedMedicalCensus></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1754.3; top: 728.4; width: 374.7; height: 75.6; page: 2;}; "><docset:Child0-20>
+
+             <dgc:Number>11 </dgc:Number></docset:Child0-20></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2129.0; top: 728.4; width: 351.0; height: 75.6; page: 2;}; "><docset:MonthlyCharges /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 804.0; width: 2405.0; height: 110.3; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 804.0; width: 1254.2; height: 110.3; page: 2;}; "><docset:MonthlyRatesEffectiveJuly12021AdultExample1FamilyDentalPlans-Sample structure="h1">
+
+    Example1 + Family Dental Plans - Sample and Dental Example1 </docset:MonthlyRatesEffectiveJuly12021AdultExample1FamilyDentalPlans-Sample></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1329.2; top: 804.0; width: 425.2; height: 110.3; page: 2;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1754.3; top: 804.0; width: 374.7; height: 110.3; page: 2;}; " /><xhtml:td structure="td" style="boundingBox:{left: 2129.0; top: 804.0; width: 351.0; height: 110.3; page: 2;}; "><docset:MonthlyCharges /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 914.3; width: 2405.0; height: 84.4; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 914.3; width: 1254.2; height: 84.4; page: 2;}; "><docset:MonthlyRatesEffectiveJuly12021AdultExample17GoldFamilyDental structure="h1">
+
+    Example1 <docset:GoldAmount>7 </docset:GoldAmount>Gold + Family Dental </docset:MonthlyRatesEffectiveJuly12021AdultExample17GoldFamilyDental></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1329.2; top: 914.3; width: 425.2; height: 84.4; page: 2;}; "><docset:MonthlyRatesEffectiveJuly12021Adult-example17GoldFamilyDental>
+
+       <dgc:Money>$735.56 </dgc:Money></docset:MonthlyRatesEffectiveJuly12021Adult-example17GoldFamilyDental></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1754.3; top: 914.3; width: 374.7; height: 84.4; page: 2;}; "><docset:Child0-20>
+
+        <dgc:Money>$315.21 </dgc:Money></docset:Child0-20></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2129.0; top: 914.3; width: 351.0; height: 84.4; page: 2;}; "><docset:MonthlyCharges>
+
+         <dgc:Money>$11,548.09 </dgc:Money></docset:MonthlyCharges></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 998.7; width: 2405.0; height: 55.3; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 998.7; width: 1254.2; height: 55.3; page: 2;}; "><docset:MonthlyRatesEffectiveJuly12021AdultExample110GoldFamilyDental structure="h1">
+
+    <docset:Example1>Example1 </docset:Example1><docset:GoldFamilyDental>10 </docset:GoldFamilyDental>Gold+ <dg:chunk>Family Dental </dg:chunk></docset:MonthlyRatesEffectiveJuly12021AdultExample110GoldFamilyDental></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1329.2; top: 998.7; width: 425.2; height: 55.3; page: 2;}; "><docset:MonthlyRatesEffectiveJuly12021Adult-example110GoldFamilyDental>
+
+       <dgc:Money>$731.08 </dgc:Money></docset:MonthlyRatesEffectiveJuly12021Adult-example110GoldFamilyDental></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1754.3; top: 998.7; width: 374.7; height: 55.3; page: 2;}; "><docset:Child0-20>
+
+        <dgc:Money>$313.28 </dgc:Money></docset:Child0-20></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2129.0; top: 998.7; width: 351.0; height: 55.3; page: 2;}; "><docset:MonthlyCharges>
+
+         <dgc:Money>$11,441.12 </dgc:Money></docset:MonthlyCharges></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 1054.0; width: 2405.0; height: 55.2; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 1054.0; width: 1254.2; height: 55.2; page: 2;}; "><docset:MonthlyRatesEffectiveJuly12021AdultExample125SilverFamilyDental structure="h1">
+
+    <docset:Example1>Example1 </docset:Example1><docset:FamilyDental>25 </docset:FamilyDental>Silver+ Family Dental </docset:MonthlyRatesEffectiveJuly12021AdultExample125SilverFamilyDental></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1329.2; top: 1054.0; width: 425.2; height: 55.2; page: 2;}; "><docset:MonthlyRatesEffectiveJuly12021Adult-example125SilverFamilyDental>
+
+       <dgc:Money>$630.66 </dgc:Money></docset:MonthlyRatesEffectiveJuly12021Adult-example125SilverFamilyDental></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1754.3; top: 1054.0; width: 374.7; height: 55.2; page: 2;}; "><docset:Child0-20>
+
+        <dgc:Money>$270.25 </dgc:Money></docset:Child0-20></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2129.0; top: 1054.0; width: 351.0; height: 55.2; page: 2;}; "><docset:MonthlyCharges>
+
+         <dgc:Money>$<dg:chunk>11,045.45 </dg:chunk></dgc:Money></docset:MonthlyCharges></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 1109.2; width: 2405.0; height: 83.1; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 1109.2; width: 1254.2; height: 83.1; page: 2;}; "><docset:MonthlyRatesEffectiveJuly12021AdultExample1HSAQualifiedSilver30Famil structure="h1">
+
+    <docset:Example1HSAQualifiedSilver30FamilyDental>Example1 </docset:Example1HSAQualifiedSilver30FamilyDental>HSA Qualified Silver <docset:DentalCoverage>30 </docset:DentalCoverage>+ Family Dental </docset:MonthlyRatesEffectiveJuly12021AdultExample1HSAQualifiedSilver30Famil></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1329.2; top: 1109.2; width: 425.2; height: 83.1; page: 2;}; "><docset:MonthlyRatesEffectiveJuly12021Adult-example1HsaQualifiedSilver30Famil>
+
+       <dgc:Money>$645.75 </dgc:Money></docset:MonthlyRatesEffectiveJuly12021Adult-example1HsaQualifiedSilver30Famil></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1754.3; top: 1109.2; width: 374.7; height: 83.1; page: 2;}; "><docset:Child0-20>
+
+        <dgc:Money>$276.72 </dgc:Money></docset:Child0-20></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2129.0; top: 1109.2; width: 351.0; height: 83.1; page: 2;}; "><docset:MonthlyCharges>
+
+         <dgc:Money>$<dg:chunk>11,405.48 </dg:chunk></dgc:Money></docset:MonthlyCharges></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 1192.3; width: 2405.0; height: 99.4; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 1192.3; width: 1254.2; height: 99.4; page: 2;}; "><docset:MonthlyRatesEffectiveJuly12021AdultVision structure="h1">
+
+    Vision </docset:MonthlyRatesEffectiveJuly12021AdultVision></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1329.2; top: 1192.3; width: 425.2; height: 99.4; page: 2;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1754.3; top: 1192.3; width: 374.7; height: 99.4; page: 2;}; " /><xhtml:td structure="td" style="boundingBox:{left: 2129.0; top: 1192.3; width: 351.0; height: 99.4; page: 2;}; "><docset:MonthlyCharges /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 1291.7; width: 2405.0; height: 76.9; page: 2;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 1291.7; width: 1254.2; height: 76.9; page: 2;}; "><docset:MonthlyRatesEffectiveJuly12021AdultAdultVision>
+
+    Adult Vision </docset:MonthlyRatesEffectiveJuly12021AdultAdultVision></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1329.2; top: 1291.7; width: 425.2; height: 76.9; page: 2;}; "><docset:AdultVisionChild0-20>
+
+         <dgc:Money>$11.46 </dgc:Money></docset:AdultVisionChild0-20></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1754.3; top: 1291.7; width: 374.7; height: 76.9; page: 2;}; "><docset:Child0-20>
+
+          <dgc:Money>$6.08 </dgc:Money></docset:Child0-20></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2129.0; top: 1291.7; width: 351.0; height: 76.9; page: 2;}; "><docset:MonthlyCharges>
+
+            <dgc:Money>$209.20 </dgc:Money></docset:MonthlyCharges></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:MonthlyRates><docset:MonthYRatesEffectiveJuly12021><xhtml:table structure="table" style="boundingBox:{left: 75.0; top: 490.9; width: 2406.5; height: 230.5; page: 3;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 75.0; top: 490.9; width: 2406.5; height: 230.5; page: 3;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 490.9; width: 2406.5; height: 161.9; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 490.9; width: 950.0; height: 161.9; page: 3;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1025.0; top: 490.9; width: 723.4; height: 161.9; page: 3;}; "><docset:MonthYRatesEffective-section><dg:chunk structure="h1">
+
+   Month y Rates Effective </dg:chunk><docset:MonthYRatesEffective structure="div"><docset:AdultDate>July 1, 2021 </docset:AdultDate>
+
+                        Adult </docset:MonthYRatesEffective></docset:MonthYRatesEffective-section></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1748.4; top: 490.9; width: 399.5; height: 161.9; page: 3;}; ">
+
+    Child (<docset:ChildAge>19</docset:ChildAge>-<docset:ChildAge>20</docset:ChildAge>) </xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2147.9; top: 490.9; width: 333.6; height: 161.9; page: 3;}; ">
+
+          Monthly Charges </xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 75.0; top: 652.7; width: 2406.5; height: 68.6; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 75.0; top: 652.7; width: 950.0; height: 68.6; page: 3;}; "><docset:DentalCensus-cell>
+
+    <dg:chunk>Dental Census</dg:chunk>: (<docset:TotalDentalCensus>20 </docset:TotalDentalCensus>total) </docset:DentalCensus-cell></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1025.0; top: 652.7; width: 723.4; height: 68.6; page: 3;}; "><docset:DentalCensus20TotalMonthYRatesEffectiveJuly12021Adult>
+
+                          <dgc:Number>30 </dgc:Number></docset:DentalCensus20TotalMonthYRatesEffectiveJuly12021Adult></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1748.4; top: 652.7; width: 399.5; height: 68.6; page: 3;}; "><docset:DentalCensus20TotalChild19-20>
+
+              <dgc:Number>0 </dgc:Number></docset:DentalCensus20TotalChild19-20></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2147.9; top: 652.7; width: 333.6; height: 68.6; page: 3;}; "><docset:DentalCensus20TotalMonthlyCharges /></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:MonthYRatesEffectiveJuly12021></dg:chunk></docset:Example1Plans-SampleAndDentalChoice></docset:Example1Plans-SampleAndDentalChoice-section></dg:chunk><dg:chunk structure="h1">
+
+    Dental </dg:chunk><dg:chunk><dg:chunk structure="h1">
+
+    <dg:chunk>Adult Dental Plans </dg:chunk></dg:chunk><docset:MonthYRatesEffectiveJuly12021><xhtml:table structure="table" style="boundingBox:{left: 66.4; top: 1033.3; width: 2467.3; height: 882.7; page: 3;}; "><xhtml:tbody structure="tbody" style="boundingBox:{left: 66.4; top: 1033.3; width: 2467.3; height: 882.7; page: 3;}; "><xhtml:tr structure="tr" style="boundingBox:{left: 66.4; top: 1033.3; width: 2467.3; height: 70.3; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 66.4; top: 1033.3; width: 1066.7; height: 70.3; page: 3;}; ">
+
+    <dg:chunk>Adult Dental Example </dg:chunk><docset:AdultDentalExample>1000 </docset:AdultDentalExample></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1133.1; top: 1033.3; width: 593.4; height: 70.3; page: 3;}; ">
+
+                 <dgc:Money>$33.48 </dgc:Money></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1726.5; top: 1033.3; width: 426.8; height: 70.3; page: 3;}; ">
+
+          <dgc:Money>$33.48 </dgc:Money></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2153.3; top: 1033.3; width: 380.5; height: 70.3; page: 3;}; ">
+
+          <dgc:Money>$609.60 </dgc:Money></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 66.4; top: 1103.7; width: 2467.3; height: 58.3; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 66.4; top: 1103.7; width: 1066.7; height: 58.3; page: 3;}; "><docset:AdultDentalExample1000AdultDentalExample1500>
+
+    <dg:chunk>Adult Dental Example </dg:chunk><docset:AdultDentalExample>1500 </docset:AdultDentalExample></docset:AdultDentalExample1000AdultDentalExample1500></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1133.1; top: 1103.7; width: 593.4; height: 58.3; page: 3;}; "><docset:AdultDentalExample15003348>
+
+                 <dgc:Money>$37.74 </dgc:Money></docset:AdultDentalExample15003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1726.5; top: 1103.7; width: 426.8; height: 58.3; page: 3;}; "><docset:AdultDentalExample15003348>
+
+          <dgc:Money>$37.74 </dgc:Money></docset:AdultDentalExample15003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2153.3; top: 1103.7; width: 380.5; height: 58.3; page: 3;}; "><docset:AdultDentalExample150060960>
+
+          <dgc:Money>$554.80 </dgc:Money></docset:AdultDentalExample150060960></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 66.4; top: 1162.0; width: 2467.3; height: 54.7; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 66.4; top: 1162.0; width: 1066.7; height: 54.7; page: 3;}; "><docset:AdultDentalExample1000AdultDentalExample2000>
+
+    <dg:chunk>Adult Dental Example </dg:chunk><docset:AdultDentalExample>2000 </docset:AdultDentalExample></docset:AdultDentalExample1000AdultDentalExample2000></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1133.1; top: 1162.0; width: 593.4; height: 54.7; page: 3;}; "><docset:AdultDentalExample20003348>
+
+                 <dgc:Money>$40.21 </dgc:Money></docset:AdultDentalExample20003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1726.5; top: 1162.0; width: 426.8; height: 54.7; page: 3;}; "><docset:AdultDentalExample20003348>
+
+          <dgc:Money>$40.21 </dgc:Money></docset:AdultDentalExample20003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2153.3; top: 1162.0; width: 380.5; height: 54.7; page: 3;}; "><docset:AdultDentalExample200060960>
+
+          <dgc:Money>$804.20 </dgc:Money></docset:AdultDentalExample200060960></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 66.4; top: 1216.6; width: 2467.3; height: 56.4; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 66.4; top: 1216.6; width: 1066.7; height: 56.4; page: 3;}; "><docset:AdultDentalExample1000AdultDentalExample1000 structure="h1">
+
+    <dg:chunk>Adult Dental Example </dg:chunk><docset:AdultDentalExample>1000 </docset:AdultDentalExample>+ </docset:AdultDentalExample1000AdultDentalExample1000></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1133.1; top: 1216.6; width: 593.4; height: 56.4; page: 3;}; "><docset:AdultDentalExample10003348>
+
+                 <dgc:Money>$35.36 </dgc:Money></docset:AdultDentalExample10003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1726.5; top: 1216.6; width: 426.8; height: 56.4; page: 3;}; "><docset:AdultDentalExample10003348>
+
+          <dgc:Money>$35.36 </dgc:Money></docset:AdultDentalExample10003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2153.3; top: 1216.6; width: 380.5; height: 56.4; page: 3;}; "><docset:AdultDentalExample100060960>
+
+          <dgc:Money>$707.20 </dgc:Money></docset:AdultDentalExample100060960></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 66.4; top: 1273.0; width: 2467.3; height: 54.0; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 66.4; top: 1273.0; width: 1066.7; height: 54.0; page: 3;}; "><docset:AdultDentalExample1000AdultDentalExample1500 structure="h1">
+
+    <dg:chunk>Adult Dental Example </dg:chunk><docset:AdultDentalExample>1500 </docset:AdultDentalExample>+ </docset:AdultDentalExample1000AdultDentalExample1500></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1133.1; top: 1273.0; width: 593.4; height: 54.0; page: 3;}; "><docset:AdultDentalExample15003348>
+
+                 <dgc:Money>$39.86 </dgc:Money></docset:AdultDentalExample15003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1726.5; top: 1273.0; width: 426.8; height: 54.0; page: 3;}; "><docset:AdultDentalExample15003348>
+
+          <dgc:Money>$39.86 </dgc:Money></docset:AdultDentalExample15003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2153.3; top: 1273.0; width: 380.5; height: 54.0; page: 3;}; "><docset:AdultDentalExample150060960>
+
+          <dgc:Money>$797.20 </dgc:Money></docset:AdultDentalExample150060960></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 66.4; top: 1327.1; width: 2467.3; height: 59.5; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 66.4; top: 1327.1; width: 1066.7; height: 59.5; page: 3;}; "><docset:AdultDentalExample1000AdultDentalExample2000 structure="h1">
+
+    <dg:chunk>Adult Dental Example </dg:chunk><docset:AdultDentalExample>2000 </docset:AdultDentalExample>+ </docset:AdultDentalExample1000AdultDentalExample2000></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1133.1; top: 1327.1; width: 593.4; height: 59.5; page: 3;}; "><docset:AdultDentalExample20003348>
+
+                 <dgc:Money>$42.48 </dgc:Money></docset:AdultDentalExample20003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1726.5; top: 1327.1; width: 426.8; height: 59.5; page: 3;}; "><docset:AdultDentalExample20003348>
+
+          <dgc:Money>$42.48 </dgc:Money></docset:AdultDentalExample20003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2153.3; top: 1327.1; width: 380.5; height: 59.5; page: 3;}; "><docset:AdultDentalExample200060960>
+
+          <dgc:Money>$849.60 </dgc:Money></docset:AdultDentalExample200060960></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 66.4; top: 1386.6; width: 2467.3; height: 81.1; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 66.4; top: 1386.6; width: 1066.7; height: 81.1; page: 3;}; "><docset:AdultDentalExample1000AdultDentalExample1500 structure="h1">
+
+    <dg:chunk>Adult Dental Example </dg:chunk><docset:AdultDentalExample>1500 </docset:AdultDentalExample>++ </docset:AdultDentalExample1000AdultDentalExample1500></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1133.1; top: 1386.6; width: 593.4; height: 81.1; page: 3;}; "><docset:AdultDentalExample15003348>
+
+                 <dgc:Money>$44.37 </dgc:Money></docset:AdultDentalExample15003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1726.5; top: 1386.6; width: 426.8; height: 81.1; page: 3;}; "><docset:AdultDentalExample15003348>
+
+          <dgc:Money>$44.37 </dgc:Money></docset:AdultDentalExample15003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2153.3; top: 1386.6; width: 380.5; height: 81.1; page: 3;}; "><docset:AdultDentalExample150060960>
+
+          <dgc:Money>$887.40 </dgc:Money></docset:AdultDentalExample150060960></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 66.4; top: 1467.7; width: 2467.3; height: 104.3; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 66.4; top: 1467.7; width: 1066.7; height: 104.3; page: 3;}; "><docset:AdultDentalExample1000Voluntary structure="h1">
+
+    Voluntary </docset:AdultDentalExample1000Voluntary></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1133.1; top: 1467.7; width: 593.4; height: 104.3; page: 3;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1726.5; top: 1467.7; width: 426.8; height: 104.3; page: 3;}; " /><xhtml:td structure="td" style="boundingBox:{left: 2153.3; top: 1467.7; width: 380.5; height: 104.3; page: 3;}; "><docset:Voluntary60960 /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 66.4; top: 1572.0; width: 2467.3; height: 108.3; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 66.4; top: 1572.0; width: 1066.7; height: 108.3; page: 3;}; "><docset:AdultDentalExample1000AdultDentalExampleVoluntary1000 structure="h1">
+
+    <dg:chunk>Adult Dental Example </dg:chunk>Voluntary <docset:AdultDentalExampleVoluntary>1000 </docset:AdultDentalExampleVoluntary></docset:AdultDentalExample1000AdultDentalExampleVoluntary1000></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1133.1; top: 1572.0; width: 593.4; height: 108.3; page: 3;}; "><docset:AdultDentalExampleVoluntary10003348>
+
+                 <dgc:Money>$38.47 </dgc:Money></docset:AdultDentalExampleVoluntary10003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1726.5; top: 1572.0; width: 426.8; height: 108.3; page: 3;}; "><docset:AdultDentalExampleVoluntary10003348>
+
+          <dgc:Money>$38.47 </dgc:Money></docset:AdultDentalExampleVoluntary10003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2153.3; top: 1572.0; width: 380.5; height: 108.3; page: 3;}; "><docset:AdultDentalExampleVoluntary100060960>
+
+          <dgc:Money>$569.40 </dgc:Money></docset:AdultDentalExampleVoluntary100060960></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 66.4; top: 1680.3; width: 2467.3; height: 102.1; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 66.4; top: 1680.3; width: 1066.7; height: 102.1; page: 3;}; "><docset:AdultDentalExample1000SampleDental structure="h1">
+
+    Sample (Dental) </docset:AdultDentalExample1000SampleDental></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1133.1; top: 1680.3; width: 593.4; height: 102.1; page: 3;}; " /><xhtml:td structure="td" style="boundingBox:{left: 1726.5; top: 1680.3; width: 426.8; height: 102.1; page: 3;}; " /><xhtml:td structure="td" style="boundingBox:{left: 2153.3; top: 1680.3; width: 380.5; height: 102.1; page: 3;}; "><docset:SampleDental60960 /></xhtml:td></xhtml:tr><xhtml:tr structure="tr" style="boundingBox:{left: 66.4; top: 1782.5; width: 2467.3; height: 133.5; page: 3;}; "><xhtml:td structure="td" style="boundingBox:{left: 66.4; top: 1782.5; width: 1066.7; height: 133.5; page: 3;}; "><docset:AdultDentalExample1000SampleDental10005000>
+
+    <docset:SampleAmount>Sample </docset:SampleAmount>(Dental) <docset:DentalInsuranceLimit>$<docset:DentalInsuranceLimit>1000/$5000 </docset:DentalInsuranceLimit></docset:DentalInsuranceLimit></docset:AdultDentalExample1000SampleDental10005000></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1133.1; top: 1782.5; width: 593.4; height: 133.5; page: 3;}; "><docset:SampleDental100050003348>
+
+                  <dgc:Money>$4.53 </dgc:Money></docset:SampleDental100050003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 1726.5; top: 1782.5; width: 426.8; height: 133.5; page: 3;}; "><docset:SampleDental100050003348>
+
+           <dgc:Money>$4.53 </dgc:Money></docset:SampleDental100050003348></xhtml:td><xhtml:td structure="td" style="boundingBox:{left: 2153.3; top: 1782.5; width: 380.5; height: 133.5; page: 3;}; "><docset:SampleDental1000500060960>
+
+           <dgc:Money>$73.60</dgc:Money></docset:SampleDental1000500060960></xhtml:td></xhtml:tr></xhtml:tbody></xhtml:table></docset:MonthYRatesEffectiveJuly12021></dg:chunk></dg:chunk>
