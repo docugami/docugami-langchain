@@ -28,7 +28,11 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseTool):
         run_manager: Optional[CallbackManagerForToolRun] = None,
     ) -> str:  # type: ignore
         """Use the tool."""
-        return self.chain.run(question=question)
+        result = self.chain.run(question=question).get("sql_result")
+        if result:
+            return str(result)
+        else:
+            return ""
 
 
 def report_name_to_report_query_tool_function_name(name: str) -> str:
@@ -143,7 +147,7 @@ def get_retrieval_tool_for_report(
 
     return CustomReportRetrievalTool(
         db=db,
-        sql_result_chain=sql_result_chain,
+        chain=sql_result_chain,
         name=retrieval_tool_function_name,
         description=retrieval_tool_description,
         return_direct=True,
