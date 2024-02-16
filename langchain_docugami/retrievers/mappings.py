@@ -1,5 +1,6 @@
 import hashlib
-from typing import Dict, Union
+from pathlib import Path
+from typing import Dict, Optional, Union
 
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
@@ -56,6 +57,7 @@ def build_full_doc_summary_mappings(
     embeddings: Embeddings,
     min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE,
     max_length_cutoff: int = MAX_FULL_DOCUMENT_TEXT_LENGTH,
+    summarize_document_examples_file: Optional[Path] = None,
 ) -> Dict[str, Document]:
     """
     Build summary mappings for all the given full documents.
@@ -64,6 +66,8 @@ def build_full_doc_summary_mappings(
     chain = SummarizeDocumentChain(llm=llm, embeddings=embeddings)
     chain.min_length_to_summarize = min_length_to_summarize
     chain.input_params_max_length_cutoff = max_length_cutoff
+    if summarize_document_examples_file:
+        chain.load_examples(summarize_document_examples_file)
 
     return _build_summary_mappings(docs_by_id=docs_by_id, chain=chain)
 
@@ -74,12 +78,16 @@ def build_chunk_summary_mappings(
     embeddings: Embeddings,
     min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE,
     max_length_cutoff: int = MAX_CHUNK_TEXT_LENGTH,
+    summarize_chunks_examples_file: Optional[Path] = None,
 ) -> Dict[str, Document]:
     """
     Build summary mappings for all the given chunks.
     """
+
     chain = SummarizeChunkChain(llm=llm, embeddings=embeddings)
     chain.min_length_to_summarize = min_length_to_summarize
     chain.input_params_max_length_cutoff = max_length_cutoff
+    if summarize_chunks_examples_file:
+        chain.load_examples(summarize_chunks_examples_file)
 
     return _build_summary_mappings(docs_by_id=docs_by_id, chain=chain)

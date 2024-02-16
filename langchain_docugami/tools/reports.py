@@ -130,7 +130,6 @@ def get_retrieval_tool_for_report(
     db = connect_to_excel(local_xlsx_path, report_name)
 
     fixup_chain = SQLFixupChain(llm=sql_llm, embeddings=embeddings)
-
     if sql_fixup_examples_file:
         fixup_chain.load_examples(sql_fixup_examples_file)
 

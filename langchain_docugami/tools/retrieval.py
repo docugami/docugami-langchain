@@ -1,4 +1,5 @@
 import re
+from pathlib import Path
 from typing import Any, List, Optional
 
 from langchain_core.documents import Document
@@ -60,14 +61,17 @@ def summaries_to_direct_retriever_tool_description(
     llm: BaseChatModel,
     embeddings: Embeddings,
     max_sample_documents_cutoff_length: int = MAX_FULL_DOCUMENT_TEXT_LENGTH,
+    describe_document_set_examples_file: Optional[Path] = None,
 ) -> str:
     """
     Converts a set of chunks to a direct retriever tool description.
     """
     chain = DescribeDocumentSetChain(llm=llm, embeddings=embeddings)
     chain.input_params_max_length_cutoff = max_sample_documents_cutoff_length
-    description = chain.run(summaries=summaries, docset_name=name)
+    if describe_document_set_examples_file:
+        chain.load_examples(describe_document_set_examples_file)
 
+    description = chain.run(summaries=summaries, docset_name=name)
     return f"Given a single input 'query' parameter, searches for and returns chunks from {name} documents. {description}"
 
 
