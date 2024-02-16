@@ -11,6 +11,7 @@ from langchain_docugami.chains import (
     SummarizeDocumentChain,
 )
 from langchain_docugami.config import (
+    INCLUDE_XML_TAGS,
     MAX_CHUNK_TEXT_LENGTH,
     MAX_FULL_DOCUMENT_TEXT_LENGTH,
     MIN_LENGTH_TO_SUMMARIZE,
@@ -21,7 +22,7 @@ from langchain_docugami.retrievers.fused_summary import PARENT_DOC_ID_KEY
 def _build_summary_mappings(
     docs_by_id: Dict[str, Document],
     chain: Union[SummarizeChunkChain, SummarizeDocumentChain],
-    include_xml_tags: bool = False,
+    include_xml_tags: bool,
 ) -> Dict[str, Document]:
     """
     Build summaries for all the given documents.
@@ -55,6 +56,7 @@ def build_full_doc_summary_mappings(
     docs_by_id: Dict[str, Document],
     llm: BaseLanguageModel,
     embeddings: Embeddings,
+    include_xml_tags: bool = INCLUDE_XML_TAGS,
     min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE,
     max_length_cutoff: int = MAX_FULL_DOCUMENT_TEXT_LENGTH,
     summarize_document_examples_file: Optional[Path] = None,
@@ -69,13 +71,18 @@ def build_full_doc_summary_mappings(
     if summarize_document_examples_file:
         chain.load_examples(summarize_document_examples_file)
 
-    return _build_summary_mappings(docs_by_id=docs_by_id, chain=chain)
+    return _build_summary_mappings(
+        docs_by_id=docs_by_id,
+        chain=chain,
+        include_xml_tags=include_xml_tags,
+    )
 
 
 def build_chunk_summary_mappings(
     docs_by_id: Dict[str, Document],
     llm: BaseLanguageModel,
     embeddings: Embeddings,
+    include_xml_tags: bool = INCLUDE_XML_TAGS,
     min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE,
     max_length_cutoff: int = MAX_CHUNK_TEXT_LENGTH,
     summarize_chunks_examples_file: Optional[Path] = None,
@@ -90,4 +97,8 @@ def build_chunk_summary_mappings(
     if summarize_chunks_examples_file:
         chain.load_examples(summarize_chunks_examples_file)
 
-    return _build_summary_mappings(docs_by_id=docs_by_id, chain=chain)
+    return _build_summary_mappings(
+        docs_by_id=docs_by_id,
+        chain=chain,
+        include_xml_tags=include_xml_tags,
+    )

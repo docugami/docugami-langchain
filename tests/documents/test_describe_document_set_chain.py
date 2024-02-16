@@ -11,6 +11,7 @@ from langchain_docugami.chains.documents import (
     DescribeDocumentSetChain,
     SummarizeDocumentChain,
 )
+from langchain_docugami.config import DEFAULT_EXAMPLES_PER_PROMPT
 from tests.conftest import TEST_DATA_DIR, verify_chain_response
 from tests.testdata.dgml_samples.dgml_samples_test_data import (
     DG_SAMPLE_TEST_DATA,
@@ -93,7 +94,9 @@ def _runtest(
             all_contents.append(contents)
 
     all_summaries = summarize_chain.run_batch([(c, "text") for c in all_contents])
-    selected_summaries = random.sample(all_summaries, min(len(all_summaries), 3))
+    selected_summaries = random.sample(
+        all_summaries, min(len(all_summaries), DEFAULT_EXAMPLES_PER_PROMPT)
+    )
     selected_summary_docs = [Document(s) for s in selected_summaries]
     description = describe_document_sets_chain.run(
         summaries=selected_summary_docs,
