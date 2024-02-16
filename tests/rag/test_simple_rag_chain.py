@@ -4,7 +4,7 @@ import pytest
 from langchain_community.vectorstores.faiss import FAISS
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
-from langchain_core.vectorstores import VectorStore
+from langchain_core.retrievers import BaseRetriever
 
 from langchain_docugami.chains import SimpleRAGChain
 from langchain_docugami.document_loaders.docugami import DocugamiLoader
@@ -20,35 +20,36 @@ if is_core_tests_only_mode():
     RAG_TEST_DGML_DATA_DIR = RAG_TEST_DGML_DATA_DIR / "NTSB Aviation Incident Reports"
 
 
-def build_vectorstore(embeddings: Embeddings) -> VectorStore:
+def build_retriever(embeddings: Embeddings) -> BaseRetriever:
     """
     Builds a vector store pre-populated with chunks from test documents
-    using the given embeddings.
+    using the given embeddings, and returns a retriever off it.
     """
     test_dgml_files = list(RAG_TEST_DGML_DATA_DIR.rglob("*.xml"))
     loader = DocugamiLoader(file_paths=test_dgml_files)
     chunks = loader.load()
-    return FAISS.from_documents(
+    vector_store = FAISS.from_documents(
         documents=chunks,
         embedding=embeddings,
     )
+    return vector_store.as_retriever()
 
 
 @pytest.fixture()
-def huggingface_minilm_vectorstore(huggingface_minilm: Embeddings) -> VectorStore:
-    return build_vectorstore(huggingface_minilm)
+def huggingface_minilm_retriever(huggingface_minilm: Embeddings) -> BaseRetriever:
+    return build_retriever(huggingface_minilm)
 
 
 @pytest.fixture()
-def openai_ada_vectorstore(openai_ada: Embeddings) -> VectorStore:
-    return build_vectorstore(openai_ada)
+def openai_ada_retriever(openai_ada: Embeddings) -> BaseRetriever:
+    return build_retriever(openai_ada)
 
 
 @pytest.fixture()
 def fireworksai_mixtral_simple_rag_chain(
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
-    huggingface_minilm_vectorstore: VectorStore,
+    huggingface_minilm_retriever: BaseRetriever,
 ) -> SimpleRAGChain:
     """
     Fireworks AI chain to do simple RAG queries using mixtral.
@@ -56,7 +57,7 @@ def fireworksai_mixtral_simple_rag_chain(
     chain = SimpleRAGChain(
         llm=fireworksai_mixtral,
         embeddings=huggingface_minilm,
-        chunk_vectorstore=huggingface_minilm_vectorstore,
+        retriever=huggingface_minilm_retriever,
     )
     return chain
 
@@ -65,7 +66,7 @@ def fireworksai_mixtral_simple_rag_chain(
 def openai_gpt35_simple_rag_chain(
     openai_gpt35: BaseLanguageModel,
     openai_ada: Embeddings,
-    openai_ada_vectorstore: VectorStore,
+    openai_ada_retriever: BaseRetriever,
 ) -> SimpleRAGChain:
     """
     OpenAI chain to do simple RAG queries using GPT 3.5.
@@ -73,7 +74,7 @@ def openai_gpt35_simple_rag_chain(
     chain = SimpleRAGChain(
         llm=openai_gpt35,
         embeddings=openai_ada,
-        chunk_vectorstore=openai_ada_vectorstore,
+        retriever=openai_ada_retriever,
     )
     return chain
 

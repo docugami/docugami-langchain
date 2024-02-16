@@ -2,8 +2,8 @@ from operator import itemgetter
 from typing import AsyncIterator, List, Optional
 
 from langchain_core.documents import Document
+from langchain_core.retrievers import BaseRetriever
 from langchain_core.runnables import Runnable, RunnablePassthrough
-from langchain_core.vectorstores import VectorStore
 
 from langchain_docugami.chains.base import BaseDocugamiChain, TracedChainResponse
 from langchain_docugami.chains.params import ChainParameters, ChainSingleParameter
@@ -11,7 +11,7 @@ from langchain_docugami.chains.params import ChainParameters, ChainSingleParamet
 
 class SimpleRAGChain(BaseDocugamiChain[str]):
 
-    chunk_vectorstore: VectorStore
+    retriever: BaseRetriever
 
     def chain_params(self) -> ChainParameters:
         return ChainParameters(
@@ -51,9 +51,7 @@ class SimpleRAGChain(BaseDocugamiChain[str]):
 
         return {
             "question": RunnablePassthrough(),
-            "context": itemgetter("question")
-            | self.chunk_vectorstore.as_retriever()
-            | format_retrieved_docs,
+            "context": itemgetter("question") | self.retriever | format_retrieved_docs,
         } | super().runnable()
 
     def run(  # type: ignore[override]
