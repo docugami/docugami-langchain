@@ -33,7 +33,7 @@ def _build_summary_mappings(
         else "semantic XML without any namespaces or attributes"
     )
 
-    batch_input = [(format, doc.page_content) for _, doc in docs_by_id.items()]
+    batch_input = [(doc.page_content, format) for _, doc in docs_by_id.items()]
     batch_summaries = chain.run_batch(batch_input)  # type: ignore
 
     # Assigning summaries to the respective document IDs
