@@ -16,8 +16,6 @@ EXPECTED_CHAINS = [
     "SQLResultExplainerChain",
     "SuggestedQuestionsChain",
     "SuggestedReportChain",
-    "replace_table_name_in_select",
-    "table_name_from_sql_create",
     "SimpleRAGChain",
 ]
 

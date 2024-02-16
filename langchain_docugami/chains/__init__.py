@@ -11,8 +11,6 @@ from langchain_docugami.chains.querying import (
     SQLResultExplainerChain,
     SuggestedQuestionsChain,
     SuggestedReportChain,
-    replace_table_name_in_select,
-    table_name_from_sql_create,
 )
 from langchain_docugami.chains.rag import SimpleRAGChain
 
@@ -32,7 +30,5 @@ __all__ = [
     "SQLResultExplainerChain",
     "SuggestedQuestionsChain",
     "SuggestedReportChain",
-    "replace_table_name_in_select",
-    "table_name_from_sql_create",
     "SimpleRAGChain",
 ]
