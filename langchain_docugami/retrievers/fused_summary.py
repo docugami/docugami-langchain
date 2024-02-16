@@ -1,17 +1,18 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import Dict, List
+from typing import Callable, Dict, List, Optional
 
 from langchain_core.callbacks.manager import CallbackManagerForRetrieverRun
 from langchain_core.documents import Document
 from langchain_core.pydantic_v1 import Field
 from langchain_core.retrievers import BaseRetriever
-from langchain_core.stores import BaseStore
 from langchain_core.vectorstores import VectorStore
 
 PARENT_DOC_ID_KEY = "doc_id"
 FULL_DOC_SUMMARY_ID_KEY = "full_doc_id"
 SOURCE_KEY = "source"
+
+FusedRetrieverKeyValueFetchCallback = Callable[[str], Optional[str]]
 
 
 class SearchType(str, Enum):
@@ -61,20 +62,19 @@ class FusedSummaryRetriever(BaseRetriever):
     """The underlying vectorstore to use to store small chunks
     and their embedding vectors."""
 
-    full_doc_summary_store: BaseStore[str, Document]
-    """The storage layer for the parent document summaries."""
-
-    parent_doc_store: BaseStore[str, Document]
-    """The storage layer for the parent (original) docs for summaries in
-    the vector store."""
-
     parent_id_key: str = PARENT_DOC_ID_KEY
-    """Metadata key for parent doc ID (maps chunk summaries in the vector 
-    store to parent docs)."""
+    """Metadata key for parent doc ID (maps chunk summaries in the vector store to parent / unsummarized chunks)."""
+
+    fetch_parent_doc_callback: Optional[FusedRetrieverKeyValueFetchCallback] = None
+    """Callback to fetch parent docs by ID key."""
 
     full_doc_summary_id_key: str = FULL_DOC_SUMMARY_ID_KEY
-    """Metadata key for full doc summary ID (maps chunk summaries in the
-    vector store to full doc summaries)."""
+    """Metadata key for full doc summary ID (maps chunk summaries in the vector store to full doc summaries)."""
+
+    fetch_full_doc_summary_callback: Optional[FusedRetrieverKeyValueFetchCallback] = (
+        None
+    )
+    """Callback to fetch full doc summaries by ID key."""
 
     source_key: str = SOURCE_KEY
     """Metadata key for source document of chunks."""
@@ -95,6 +95,7 @@ class FusedSummaryRetriever(BaseRetriever):
         Returns:
             List of relevant documents
         """
+
         if self.search_type == SearchType.mmr:
             sub_docs = self.vectorstore.max_marginal_relevance_search(
                 query, **self.search_kwargs
@@ -103,42 +104,38 @@ class FusedSummaryRetriever(BaseRetriever):
             sub_docs = self.vectorstore.similarity_search(query, **self.search_kwargs)
 
         fused_doc_elements: Dict[str, FusedDocumentElements] = {}
-        for i in range(len(sub_docs)):
-            sub_doc = sub_docs[i]
+        for i, sub_doc in enumerate(sub_docs):
             parent_id = sub_doc.metadata.get(self.parent_id_key)
             full_doc_summary_id = sub_doc.metadata.get(self.full_doc_summary_id_key)
-            if parent_id and full_doc_summary_id:
-                parent_in_store = self.parent_doc_store.mget([parent_id])
-                full_doc_summary_in_store = self.full_doc_summary_store.mget(
-                    [full_doc_summary_id]
+
+            parent: Optional[str] = None
+            full_doc_summary: Optional[str] = ""
+
+            if parent_id and self.fetch_parent_doc_callback:
+                parent = self.fetch_parent_doc_callback(parent_id)
+
+            if full_doc_summary_id and self.fetch_full_doc_summary_callback:
+                full_doc_summary = self.fetch_full_doc_summary_callback(
+                    full_doc_summary_id
                 )
-                if parent_in_store and full_doc_summary_in_store:
-                    parent: Document = parent_in_store[0]  # type: ignore
-                    full_doc_summary: str = full_doc_summary_in_store[0].page_content  # type: ignore
-                else:
-                    raise Exception(
-                        "No parent or full doc summary found for retrieved"
-                        f"doc {sub_doc}, please pre-load parent and full doc summaries."
-                    )
 
-                source = sub_doc.metadata.get(self.source_key)
-                if not source:
-                    raise Exception(
-                        f"No source doc name found in metadata for: {sub_doc}."
-                    )
+            source = sub_doc.metadata.get(self.source_key, "")
 
-                if full_doc_summary_id not in fused_doc_elements:
-                    # Init fused parent with information from most relevant sub-doc
-                    fused_doc_elements[full_doc_summary_id] = FusedDocumentElements(
-                        rank=i,
-                        summary=full_doc_summary,
-                        fragments=[parent.page_content],
-                        source=source,
-                    )
-                else:
-                    fused_doc_elements[full_doc_summary_id].fragments.append(
-                        parent.page_content
-                    )
+            # sentinel key if no full doc summary id
+            key = full_doc_summary_id if full_doc_summary_id else "-1"
+
+            if key not in fused_doc_elements:
+                # Init fused parent with information from most relevant sub-doc
+                fused_doc_elements[key] = FusedDocumentElements(
+                    rank=i,
+                    summary=full_doc_summary if full_doc_summary else "",
+                    fragments=[parent if parent else sub_doc.page_content],
+                    source=source,
+                )
+            else:
+                fused_doc_elements[key].fragments.append(
+                    parent if parent else sub_doc.page_content
+                )
 
         fused_docs: List[Document] = []
         for element in sorted(fused_doc_elements.values(), key=lambda x: x.rank):

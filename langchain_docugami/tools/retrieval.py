@@ -6,7 +6,6 @@ from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.pydantic_v1 import BaseModel, Field
-from langchain_core.stores import BaseStore
 from langchain_core.tools import BaseTool, Tool
 from langchain_core.vectorstores import VectorStore
 
@@ -15,6 +14,7 @@ from langchain_docugami.chains.documents.describe_document_set_chain import (
 )
 from langchain_docugami.config import MAX_FULL_DOCUMENT_TEXT_LENGTH, RETRIEVER_K
 from langchain_docugami.retrievers.fused_summary import (
+    FusedRetrieverKeyValueFetchCallback,
     FusedSummaryRetriever,
     SearchType,
 )
@@ -79,18 +79,19 @@ def get_retrieval_tool_for_docset(
     chunk_vectorstore: VectorStore,
     retrieval_tool_function_name: str,
     retrieval_tool_description: str,
-    full_doc_summary_store: BaseStore[str, Document],
-    parent_doc_store: BaseStore[str, Document],
+    fetch_full_doc_summary_callback: FusedRetrieverKeyValueFetchCallback,
+    fetch_parent_doc_callback: FusedRetrieverKeyValueFetchCallback,
     retrieval_k: int = RETRIEVER_K,
 ) -> Optional[BaseTool]:
     """
     Gets a retrieval tool for an agent.
     """
 
+    # Instantiate FusedSummaryRetriever with callback functions
     retriever = FusedSummaryRetriever(
         vectorstore=chunk_vectorstore,
-        parent_doc_store=parent_doc_store,
-        full_doc_summary_store=full_doc_summary_store,
+        fetch_parent_doc_callback=fetch_parent_doc_callback,
+        fetch_full_doc_summary_callback=fetch_full_doc_summary_callback,
         search_kwargs={"k": retrieval_k},
         search_type=SearchType.mmr,
     )
