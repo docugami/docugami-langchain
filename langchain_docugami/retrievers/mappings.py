@@ -85,7 +85,7 @@ def build_chunk_summary_mappings(
     include_xml_tags: bool = INCLUDE_XML_TAGS,
     min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE,
     max_length_cutoff: int = MAX_CHUNK_TEXT_LENGTH,
-    summarize_chunks_examples_file: Optional[Path] = None,
+    summarize_chunk_examples_file: Optional[Path] = None,
 ) -> Dict[str, Document]:
     """
     Build summary mappings for all the given chunks.
@@ -94,8 +94,8 @@ def build_chunk_summary_mappings(
     chain = SummarizeChunkChain(llm=llm, embeddings=embeddings)
     chain.min_length_to_summarize = min_length_to_summarize
     chain.input_params_max_length_cutoff = max_length_cutoff
-    if summarize_chunks_examples_file:
-        chain.load_examples(summarize_chunks_examples_file)
+    if summarize_chunk_examples_file:
+        chain.load_examples(summarize_chunk_examples_file)
 
     return _build_summary_mappings(
         docs_by_id=docs_by_id,
