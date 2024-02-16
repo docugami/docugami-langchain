@@ -1,7 +1,7 @@
 from langchain_docugami.chains.answer_chain import AnswerChain
 from langchain_docugami.chains.base import BaseDocugamiChain, TracedChainResponse
 from langchain_docugami.chains.chunks import ElaborateChunkChain, SummarizeChunkChain
-from langchain_docugami.chains.documents import SummarizeDocumentChain
+from langchain_docugami.chains.documents import DescribeDocumentSetChain, SummarizeDocumentChain
 from langchain_docugami.chains.params import ChainParameters, ChainSingleParameter
 from langchain_docugami.chains.querying import (
     DocugamiExplainedSQLQueryChain,
@@ -21,6 +21,7 @@ __all__ = [
     "ElaborateChunkChain",
     "SummarizeChunkChain",
     "SummarizeDocumentChain",
+    "DescribeDocumentSetChain",
     "ChainParameters",
     "ChainSingleParameter",
     "DocugamiExplainedSQLQueryChain",

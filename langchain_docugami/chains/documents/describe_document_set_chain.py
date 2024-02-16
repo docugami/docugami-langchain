@@ -17,6 +17,7 @@ class DescribeDocumentSetChain(BaseDocugamiChain[str]):
 
         return {
             "summaries": itemgetter("summaries") | RunnableLambda(formatted_summaries),
+            "docset_name": itemgetter("docset_name"),
         } | super().runnable()
 
     def chain_params(self) -> ChainParameters:

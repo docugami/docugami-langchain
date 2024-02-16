@@ -7,6 +7,7 @@ EXPECTED_CHAINS = [
     "ElaborateChunkChain",
     "SummarizeChunkChain",
     "SummarizeDocumentChain",
+    "DescribeDocumentSetChain",
     "ChainParameters",
     "ChainSingleParameter",
     "DocugamiExplainedSQLQueryChain",
