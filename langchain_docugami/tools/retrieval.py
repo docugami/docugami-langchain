@@ -2,19 +2,17 @@ import re
 from typing import Any, List, Optional
 
 from langchain_core.documents import Document
+from langchain_core.embeddings import Embeddings
 from langchain_core.language_models.chat_models import BaseChatModel
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_core.stores import BaseStore
 from langchain_core.tools import BaseTool, Tool
 from langchain_core.vectorstores import VectorStore
 
-from langchain_docugami.config import MAX_CHUNK_TEXT_LENGTH, RETRIEVER_K
-from langchain_docugami.prompts.tools import (
-    CREATE_DIRECT_RETRIEVAL_TOOL_DESCRIPTION_PROMPT,
-    CREATE_DIRECT_RETRIEVAL_TOOL_SYSTEM_MESSAGE,
+from langchain_docugami.chains.documents.describe_document_set_chain import (
+    DescribeDocumentSetChain,
 )
+from langchain_docugami.config import MAX_CHUNK_TEXT_LENGTH, RETRIEVER_K
 from langchain_docugami.retrievers.fused_summary import (
     FusedSummaryRetriever,
     SearchType,
@@ -60,26 +58,19 @@ def chunks_to_direct_retriever_tool_description(
     name: str,
     chunks: List[Document],
     llm: BaseChatModel,
+    embeddings: Embeddings,
     max_chunk_text_length: int = MAX_CHUNK_TEXT_LENGTH,
 ) -> str:
     """
     Converts a set of chunks to a direct retriever tool description.
     """
     texts = [c.page_content for c in chunks[:100]]
-    document = "\n".join(texts)[:max_chunk_text_length]
+    sample = "\n".join(texts)[:max_chunk_text_length]
 
-    chain = (
-        ChatPromptTemplate.from_messages(
-            [
-                ("system", CREATE_DIRECT_RETRIEVAL_TOOL_SYSTEM_MESSAGE),
-                ("human", CREATE_DIRECT_RETRIEVAL_TOOL_DESCRIPTION_PROMPT),
-            ]
-        )
-        | llm
-        | StrOutputParser()
-    )
-    summary = chain.invoke({"docset_name": name, "document": document})
-    return f"Given a single input 'query' parameter, searches for and returns chunks from {name} documents. {summary}"
+    chain = DescribeDocumentSetChain(llm=llm, embeddings=embeddings)
+    description = chain.run(sample=sample, docset_name=name)
+
+    return f"Given a single input 'query' parameter, searches for and returns chunks from {name} documents. {description}"
 
 
 def get_retrieval_tool_for_docset(

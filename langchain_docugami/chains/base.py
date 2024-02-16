@@ -22,7 +22,7 @@ from langchain_docugami.config import (
     MAX_PARAM_LENGTH_CHARS,
 )
 from langchain_docugami.output_parsers import KeyfindingOutputParser
-from langchain_docugami.prompts.core import (
+from langchain_docugami.prompts import (
     chat_prompt_template,
     generic_string_prompt_template,
 )
