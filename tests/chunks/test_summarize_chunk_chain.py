@@ -24,6 +24,8 @@ def fireworksai_mixtral_summarize_chunk_chain(
     """
     chain = SummarizeChunkChain(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
     chain.load_examples(TEST_DATA_DIR / "examples/test_summarize_chunk_examples.yaml")
+    # avoid short circuiting since the test clause is smaller than default threshold
+    chain.min_length_to_summarize = len(TEST_FORCE_MAJEURE_CLAUSE) - 1
     return chain
 
 
@@ -37,6 +39,8 @@ def openai_gpt35_summarize_chunk_chain(
     """
     chain = SummarizeChunkChain(llm=openai_gpt35, embeddings=openai_ada)
     chain.load_examples(TEST_DATA_DIR / "examples/test_summarize_chunk_examples.yaml")
+    # avoid short circuiting since the test clause is smaller than default threshold
+    chain.min_length_to_summarize = len(TEST_FORCE_MAJEURE_CLAUSE) - 1
     return chain
 
 

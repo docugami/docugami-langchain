@@ -1,10 +1,30 @@
 from typing import AsyncIterator, Literal, Optional, Tuple
 
+from langchain_core.runnables import Runnable, RunnableBranch, RunnableLambda
+
 from langchain_docugami.chains.base import BaseDocugamiChain, TracedChainResponse
 from langchain_docugami.chains.params import ChainParameters, ChainSingleParameter
+from langchain_docugami.config import MIN_LENGTH_TO_SUMMARIZE
 
 
 class SummarizeDocumentChain(BaseDocugamiChain[str]):
+    min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE
+
+    def runnable(self) -> Runnable:
+        """
+        Custom runnable for this chain.
+        """
+        noop = RunnableLambda(lambda x: x["contents"])
+
+        # Summarize only if content length greater than min
+        return RunnableBranch(
+            (
+                lambda x: len(x["contents"]) > self.min_length_to_summarize,
+                super().runnable(),
+            ),
+            noop,
+        )
+
     def chain_params(self) -> ChainParameters:
         return ChainParameters(
             inputs=[

@@ -32,7 +32,7 @@ class SQLFixupChain(BaseDocugamiChain[str]):
             ),
             task_description="acts as a SQLite expert and given an input SQL query, fixes common SQL mistakes",
             additional_instructions=[
-                "- Fix Data type mismatch in predicates",
+                "- Fix data type mismatch in predicates",
                 "- Make sure the correct number of arguments are used for functions",
                 "- Make sure you casting to the correct data type",
                 "- Quote all column names and strings appropriately per SQLite syntax",
