@@ -5,6 +5,7 @@ from langchain_core.documents import Document
 from langchain_core.runnables import Runnable, RunnableLambda
 
 from langchain_docugami.chains.base import BaseDocugamiChain, TracedChainResponse
+from langchain_docugami.chains.helpers import formatted_summaries
 from langchain_docugami.chains.params import ChainParameters, ChainSingleParameter
 from langchain_docugami.output_parsers.line_separated_list import (
     LineSeparatedListOutputParser,
@@ -16,22 +17,6 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
         """
         Custom runnable for this chain.
         """
-
-        def formatted_summaries(summaries: List[Document]) -> str:
-            if not summaries:
-                raise Exception("No doc summaries provided")
-
-            formatted_output = ""
-            for doc in summaries:
-                source = None
-                if doc.metadata:
-                    source = doc.metadata.get("source")
-                formatted_output += "\n\n****************"
-                if source:
-                    formatted_output += f"\nDOCUMENT NAME: {source}"
-                formatted_output += f"\nDOCUMENT SUMMARY: \n\n{doc.page_content}"
-
-            return formatted_output
 
         return {
             "summaries": itemgetter("summaries") | RunnableLambda(formatted_summaries),

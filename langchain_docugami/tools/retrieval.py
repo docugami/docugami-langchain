@@ -12,7 +12,7 @@ from langchain_core.vectorstores import VectorStore
 from langchain_docugami.chains.documents.describe_document_set_chain import (
     DescribeDocumentSetChain,
 )
-from langchain_docugami.config import MAX_CHUNK_TEXT_LENGTH, RETRIEVER_K
+from langchain_docugami.config import MAX_FULL_DOCUMENT_TEXT_LENGTH, RETRIEVER_K
 from langchain_docugami.retrievers.fused_summary import (
     FusedSummaryRetriever,
     SearchType,
@@ -54,21 +54,19 @@ def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
     return f"search_{name}"
 
 
-def chunks_to_direct_retriever_tool_description(
+def summaries_to_direct_retriever_tool_description(
     name: str,
-    chunks: List[Document],
+    summaries: List[Document],
     llm: BaseChatModel,
     embeddings: Embeddings,
-    max_chunk_text_length: int = MAX_CHUNK_TEXT_LENGTH,
+    max_sample_documents_cutoff_length: int = MAX_FULL_DOCUMENT_TEXT_LENGTH,
 ) -> str:
     """
     Converts a set of chunks to a direct retriever tool description.
     """
-    texts = [c.page_content for c in chunks[:100]]
-    sample = "\n".join(texts)[:max_chunk_text_length]
-
     chain = DescribeDocumentSetChain(llm=llm, embeddings=embeddings)
-    description = chain.run(sample=sample, docset_name=name)
+    chain.input_params_max_length_cutoff = max_sample_documents_cutoff_length
+    description = chain.run(summaries=summaries, docset_name=name)
 
     return f"Given a single input 'query' parameter, searches for and returns chunks from {name} documents. {description}"
 
