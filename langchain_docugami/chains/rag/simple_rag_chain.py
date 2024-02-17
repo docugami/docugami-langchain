@@ -17,14 +17,14 @@ class SimpleRAGChain(BaseDocugamiChain[str]):
         return ChainParameters(
             inputs=[
                 ChainSingleParameter(
-                    "question",
-                    "QUESTION",
-                    "Question asked by the user.",
-                ),
-                ChainSingleParameter(
                     "context",
                     "CONTEXT",
                     "Retrieved context, which should be used to answer the question.",
+                ),
+                ChainSingleParameter(
+                    "question",
+                    "QUESTION",
+                    "Question asked by the user.",
                 ),
             ],
             output=ChainSingleParameter(
@@ -32,7 +32,7 @@ class SimpleRAGChain(BaseDocugamiChain[str]):
                 "ANSWER",
                 "Human readable answer to the question.",
             ),
-            task_description="acts as an assistant for question-answering tasks.",
+            task_description="acts as an assistant for question-answering tasks",
             additional_instructions=[
                 "- Use only the given pieces of retrieved context to answer the question, don't make up answers.",
                 "- If you don't know the answer, just say that you don't know.",
@@ -50,8 +50,8 @@ class SimpleRAGChain(BaseDocugamiChain[str]):
             return "\n\n".join(doc.page_content for doc in docs)
 
         return {
-            "question": RunnablePassthrough(),
             "context": itemgetter("question") | self.retriever | format_retrieved_docs,
+            "question": RunnablePassthrough(),
         } | super().runnable()
 
     def run(  # type: ignore[override]

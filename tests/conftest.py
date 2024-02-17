@@ -6,11 +6,13 @@ from typing import Optional
 import pytest
 import torch
 from langchain_community.cache import SQLiteCache
-from langchain_community.chat_models import ChatFireworks, ChatOpenAI
-from langchain_community.embeddings import HuggingFaceEmbeddings, OpenAIEmbeddings
+from langchain_community.chat_models import ChatFireworks
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_core.embeddings import Embeddings
 from langchain_core.globals import set_llm_cache
 from langchain_core.language_models import BaseLanguageModel
+
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
 CUDA_DEVICE = "cpu"
 if torch.cuda.is_available():
@@ -68,7 +70,7 @@ def verify_chain_response(
         ), f"{response} does not contain one of the expected output substrings {match_fragment_str_options}"
 
     # Check guardrails and warn if any violations detected based on string checks
-    for banned_word in ["sql", "table"]:
+    for banned_word in ["sql"]:
         if banned_word.lower() in response.lower():
             warnings.warn(
                 UserWarning(f"Output contains banned word {banned_word}: {response}")

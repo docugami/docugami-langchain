@@ -12,7 +12,7 @@ PARENT_DOC_ID_KEY = "doc_id"
 FULL_DOC_SUMMARY_ID_KEY = "full_doc_id"
 SOURCE_KEY = "source"
 
-FusedRetrieverKeyValueFetchCallback = Callable[[str], Optional[str]]
+FusedRetrieverKeyValueFetchCallback = Callable[[str], Optional[Document]]
 
 
 class SearchType(str, Enum):
@@ -107,9 +107,8 @@ class FusedSummaryRetriever(BaseRetriever):
         for i, sub_doc in enumerate(sub_docs):
             parent_id = sub_doc.metadata.get(self.parent_id_key)
             full_doc_summary_id = sub_doc.metadata.get(self.full_doc_summary_id_key)
-
-            parent: Optional[str] = None
-            full_doc_summary: Optional[str] = ""
+            parent: Optional[Document] = None
+            full_doc_summary: Optional[Document] = None
 
             if parent_id and self.fetch_parent_doc_callback:
                 parent = self.fetch_parent_doc_callback(parent_id)
@@ -119,27 +118,24 @@ class FusedSummaryRetriever(BaseRetriever):
                     full_doc_summary_id
                 )
 
-            source = sub_doc.metadata.get(self.source_key, "")
-
-            # sentinel key if no full doc summary id
+            source: str = sub_doc.metadata.get(self.source_key, "")
             key = full_doc_summary_id if full_doc_summary_id else "-1"
 
             if key not in fused_doc_elements:
-                # Init fused parent with information from most relevant sub-doc
                 fused_doc_elements[key] = FusedDocumentElements(
                     rank=i,
-                    summary=full_doc_summary if full_doc_summary else "",
-                    fragments=[parent if parent else sub_doc.page_content],
+                    summary=(full_doc_summary.page_content if full_doc_summary else ""),
+                    fragments=[parent.page_content if parent else sub_doc.page_content],
                     source=source,
                 )
             else:
                 fused_doc_elements[key].fragments.append(
-                    parent if parent else sub_doc.page_content
+                    parent.page_content if parent else sub_doc.page_content
                 )
 
         fused_docs: List[Document] = []
         for element in sorted(fused_doc_elements.values(), key=lambda x: x.rank):
-            fragments_str = "\n\n".join([d.strip() for d in element.fragments])
+            fragments_str: str = "\n\n".join([d.strip() for d in element.fragments])
             fused_docs.append(
                 Document(
                     page_content=DOCUMENT_SUMMARY_TEMPLATE.format(
