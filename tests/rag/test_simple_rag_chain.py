@@ -1,49 +1,112 @@
 import os
+from typing import Optional
 
 import pytest
 from langchain_community.vectorstores.faiss import FAISS
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
-from langchain_core.vectorstores import VectorStore
+from langchain_core.retrievers import BaseRetriever
 
 from langchain_docugami.chains import SimpleRAGChain
+from langchain_docugami.config import RETRIEVER_K
 from langchain_docugami.document_loaders.docugami import DocugamiLoader
-from tests.conftest import TEST_DATA_DIR, verify_chain_response
+from langchain_docugami.retrievers.fused_summary import (
+    FusedSummaryRetriever,
+    SearchType,
+)
+from langchain_docugami.retrievers.mappings import (
+    build_chunk_summary_mappings,
+    build_doc_maps_from_chunks,
+    build_full_doc_summary_mappings,
+)
+from tests.conftest import TEST_DATA_DIR, is_core_tests_only_mode, verify_chain_response
 
 TEST_QUESTION = "What is the accident number for the incident in madill, oklahoma?"
 TEST_ANSWER_OPTIONS = ["DFW08CA044"]
 
 
-def build_vectorstore(embeddings: Embeddings) -> VectorStore:
+RAG_TEST_DGML_DATA_DIR = TEST_DATA_DIR / "dgml_samples"
+EXAMPLES_PATH = TEST_DATA_DIR / "examples"
+if is_core_tests_only_mode():
+    # RAG over fewer files when in core tests mode (to speed things up)
+    RAG_TEST_DGML_DATA_DIR = RAG_TEST_DGML_DATA_DIR / "NTSB Aviation Incident Reports"
+
+
+def build_retriever(llm: BaseLanguageModel, embeddings: Embeddings) -> BaseRetriever:
     """
     Builds a vector store pre-populated with chunks from test documents
-    using the given embeddings.
+    using the given embeddings, and returns a retriever off it.
     """
-    dgml_samples_path = TEST_DATA_DIR / "dgml_samples"
-    test_dgml_files = list(dgml_samples_path.rglob("*.xml"))
-    loader = DocugamiLoader(file_paths=test_dgml_files)
+    test_dgml_files = list(RAG_TEST_DGML_DATA_DIR.rglob("*.xml"))
+    loader = DocugamiLoader(file_paths=test_dgml_files, parent_hierarchy_levels=2)
     chunks = loader.load()
-    return FAISS.from_documents(
-        documents=chunks,
+    full_docs_by_id, parent_chunks_by_id = build_doc_maps_from_chunks(chunks)
+
+    full_doc_summaries_by_id = build_full_doc_summary_mappings(
+        docs_by_id=full_docs_by_id,
+        llm=llm,
+        embeddings=embeddings,
+        include_xml_tags=False,
+        summarize_document_examples_file=EXAMPLES_PATH
+        / "test_summarize_document_examples.yaml",
+    )
+    chunk_summaries_by_id = build_chunk_summary_mappings(
+        docs_by_id=parent_chunks_by_id,
+        llm=llm,
+        embeddings=embeddings,
+        include_xml_tags=False,
+        summarize_chunk_examples_file=EXAMPLES_PATH
+        / "test_summarize_chunk_examples.yaml",
+    )
+
+    vector_store = FAISS.from_documents(
+        documents=list(
+            chunk_summaries_by_id.values()
+        ),  # embed chunk summaries for small to big retrieval
         embedding=embeddings,
+    )
+
+    def _fetch_parent_doc_callback(key: str) -> Optional[str]:
+        parent_chunk_doc = parent_chunks_by_id.get(key)
+        if parent_chunk_doc:
+            return parent_chunk_doc.page_content
+        return None
+
+    def _fetch_full_doc_summary_callback(key: str) -> Optional[str]:
+        full_doc_summary_doc = full_doc_summaries_by_id.get(key)
+        if full_doc_summary_doc:
+            return full_doc_summary_doc.page_content
+        return None
+
+    return FusedSummaryRetriever(
+        vectorstore=vector_store,
+        fetch_parent_doc_callback=_fetch_parent_doc_callback,
+        fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
+        search_kwargs={"k": RETRIEVER_K},
+        search_type=SearchType.mmr,
     )
 
 
 @pytest.fixture()
-def huggingface_minilm_vectorstore(huggingface_minilm: Embeddings) -> VectorStore:
-    return build_vectorstore(huggingface_minilm)
+def huggingface_retriever(
+    fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
+) -> BaseRetriever:
+    return build_retriever(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
 
 
 @pytest.fixture()
-def openai_ada_vectorstore(openai_ada: Embeddings) -> VectorStore:
-    return build_vectorstore(openai_ada)
+def openai_retriever(
+    openai_gpt35: BaseLanguageModel,
+    openai_ada: Embeddings,
+) -> BaseRetriever:
+    return build_retriever(llm=openai_gpt35, embeddings=openai_ada)
 
 
 @pytest.fixture()
 def fireworksai_mixtral_simple_rag_chain(
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
-    huggingface_minilm_vectorstore: VectorStore,
+    huggingface_retriever: BaseRetriever,
 ) -> SimpleRAGChain:
     """
     Fireworks AI chain to do simple RAG queries using mixtral.
@@ -51,7 +114,7 @@ def fireworksai_mixtral_simple_rag_chain(
     chain = SimpleRAGChain(
         llm=fireworksai_mixtral,
         embeddings=huggingface_minilm,
-        chunk_vectorstore=huggingface_minilm_vectorstore,
+        retriever=huggingface_retriever,
     )
     return chain
 
@@ -60,7 +123,7 @@ def fireworksai_mixtral_simple_rag_chain(
 def openai_gpt35_simple_rag_chain(
     openai_gpt35: BaseLanguageModel,
     openai_ada: Embeddings,
-    openai_ada_vectorstore: VectorStore,
+    openai_retriever: BaseRetriever,
 ) -> SimpleRAGChain:
     """
     OpenAI chain to do simple RAG queries using GPT 3.5.
@@ -68,7 +131,7 @@ def openai_gpt35_simple_rag_chain(
     chain = SimpleRAGChain(
         llm=openai_gpt35,
         embeddings=openai_ada,
-        chunk_vectorstore=openai_ada_vectorstore,
+        retriever=openai_retriever,
     )
     return chain
 

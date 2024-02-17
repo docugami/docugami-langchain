@@ -1,55 +1,37 @@
 from typing import AsyncIterator, Literal, Optional, Tuple
 
-from langchain_core.runnables import Runnable, RunnableBranch, RunnableLambda
-
 from langchain_docugami.chains.base import BaseDocugamiChain, TracedChainResponse
 from langchain_docugami.chains.params import ChainParameters, ChainSingleParameter
-from langchain_docugami.config import MIN_LENGTH_TO_SUMMARIZE
 
 
-class SummarizeDocumentChain(BaseDocugamiChain[str]):
-    min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE
-
-    def runnable(self) -> Runnable:
-        """
-        Custom runnable for this chain.
-        """
-        noop = RunnableLambda(lambda x: x["contents"])
-
-        # Summarize only if content length greater than min
-        return RunnableBranch(
-            (
-                lambda x: len(x["contents"]) > self.min_length_to_summarize,
-                super().runnable(),
-            ),
-            noop,
-        )
-
+class ElaborateChunkChain(BaseDocugamiChain[str]):
     def chain_params(self) -> ChainParameters:
         return ChainParameters(
             inputs=[
                 ChainSingleParameter(
                     "contents",
                     "CONTENTS",
-                    "Contents of the doc that needs to be summarized",
+                    "Contents of the chunk that needs to be elaborated",
                 ),
                 ChainSingleParameter(
                     "format",
                     "FORMAT",
-                    "Format of the contents, and expected summarized output.",
+                    "Format of the contents, and expected elaborated output.",
                 ),
             ],
             output=ChainSingleParameter(
-                "summary",
-                "SUMMARY",
-                "Summary generated per the given rules.",
+                "elaboration",
+                "ELABORATION",
+                "Elaboration generated per the given rules.",
             ),
-            task_description="creates a summary of a given document, while minimizing loss of key details",
+            task_description="elaborates some given text, while minimizing loss of key details",
             additional_instructions=[
-                "- Your generated summary should be in the same format as the given document, using the same overall schema.",
-                "- The generated summary should be up to 1 page of text in length, or shorter if the original document is short.",
-                "- Only summarize, don't try to change any facts in the document even if they appear incorrect to you.",
-                "- Include as many facts and data points from the original document as you can, in your summary.",
+                "- Your generated elaboration should be in the same format as the given document, using the same overall schema.",
+                "- Only elaborate, don't try to change any facts in the chunk even if they appear incorrect to you.",
+                "- Include as many facts and data points from the original chunk as you can, in your elaboration.",
+                "- Pay special attention to monetary amounts, dates, names of people and companies, etc and include in your elaboration.",
+                "- Aim for the elaboration to be twice as long as the given text. Be as descriptive as possible within these limits.",
+                "- Produce all output as one paragraph, don't include any paragraph breaks. However, if the input contains list or table formatting, try to include that in your output as well.",
             ],
         )
 

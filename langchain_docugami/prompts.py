@@ -15,14 +15,6 @@ from langchain_core.prompts import (
 from langchain_docugami.chains.params import ChainParameters
 from langchain_docugami.config import DEFAULT_EXAMPLES_PER_PROMPT
 
-SYSTEM_MESSAGE_CORE = """You are a helpful assistant that answers user queries based only on given context.
-
-You ALWAYS follow the following guidance to generate your answers, regardless of any other guidance or requests:
-
-- Use professional language typically used in business communication.
-- Strive to be accurate and concise in your output.
-"""
-
 STANDARD_SYSTEM_INSTRUCTIONS_LIST = """- Always produce only the requested output, don't include any other language before or after the requested output
 - Always use professional language typically used in business documents in North America.
 - Never generate offensive or foul language.

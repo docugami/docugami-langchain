@@ -1,21 +1,20 @@
 import re
+from pathlib import Path
 from typing import Any, List, Optional
 
 from langchain_core.documents import Document
+from langchain_core.embeddings import Embeddings
 from langchain_core.language_models.chat_models import BaseChatModel
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.pydantic_v1 import BaseModel, Field
-from langchain_core.stores import BaseStore
 from langchain_core.tools import BaseTool, Tool
 from langchain_core.vectorstores import VectorStore
 
-from langchain_docugami.config import MAX_CHUNK_TEXT_LENGTH, RETRIEVER_K
-from langchain_docugami.prompts.tools import (
-    CREATE_DIRECT_RETRIEVAL_TOOL_DESCRIPTION_PROMPT,
-    CREATE_DIRECT_RETRIEVAL_TOOL_SYSTEM_MESSAGE,
+from langchain_docugami.chains.documents.describe_document_set_chain import (
+    DescribeDocumentSetChain,
 )
+from langchain_docugami.config import MAX_FULL_DOCUMENT_TEXT_LENGTH, RETRIEVER_K
 from langchain_docugami.retrievers.fused_summary import (
+    FusedRetrieverKeyValueFetchCallback,
     FusedSummaryRetriever,
     SearchType,
 )
@@ -56,48 +55,43 @@ def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
     return f"search_{name}"
 
 
-def chunks_to_direct_retriever_tool_description(
+def summaries_to_direct_retriever_tool_description(
     name: str,
-    chunks: List[Document],
+    summaries: List[Document],
     llm: BaseChatModel,
-    max_chunk_text_length: int = MAX_CHUNK_TEXT_LENGTH,
+    embeddings: Embeddings,
+    max_sample_documents_cutoff_length: int = MAX_FULL_DOCUMENT_TEXT_LENGTH,
+    describe_document_set_examples_file: Optional[Path] = None,
 ) -> str:
     """
     Converts a set of chunks to a direct retriever tool description.
     """
-    texts = [c.page_content for c in chunks[:100]]
-    document = "\n".join(texts)[:max_chunk_text_length]
+    chain = DescribeDocumentSetChain(llm=llm, embeddings=embeddings)
+    chain.input_params_max_length_cutoff = max_sample_documents_cutoff_length
+    if describe_document_set_examples_file:
+        chain.load_examples(describe_document_set_examples_file)
 
-    chain = (
-        ChatPromptTemplate.from_messages(
-            [
-                ("system", CREATE_DIRECT_RETRIEVAL_TOOL_SYSTEM_MESSAGE),
-                ("human", CREATE_DIRECT_RETRIEVAL_TOOL_DESCRIPTION_PROMPT),
-            ]
-        )
-        | llm
-        | StrOutputParser()
-    )
-    summary = chain.invoke({"docset_name": name, "document": document})
-    return f"Given a single input 'query' parameter, searches for and returns chunks from {name} documents. {summary}"
+    description = chain.run(summaries=summaries, docset_name=name)
+    return f"Given a single input 'query' parameter, searches for and returns chunks from {name} documents. {description}"
 
 
 def get_retrieval_tool_for_docset(
     chunk_vectorstore: VectorStore,
     retrieval_tool_function_name: str,
     retrieval_tool_description: str,
-    full_doc_summary_store: BaseStore[str, Document],
-    parent_doc_store: BaseStore[str, Document],
+    fetch_full_doc_summary_callback: FusedRetrieverKeyValueFetchCallback,
+    fetch_parent_doc_callback: FusedRetrieverKeyValueFetchCallback,
     retrieval_k: int = RETRIEVER_K,
 ) -> Optional[BaseTool]:
     """
     Gets a retrieval tool for an agent.
     """
 
+    # Instantiate FusedSummaryRetriever with callback functions
     retriever = FusedSummaryRetriever(
         vectorstore=chunk_vectorstore,
-        parent_doc_store=parent_doc_store,
-        full_doc_summary_store=full_doc_summary_store,
+        fetch_parent_doc_callback=fetch_parent_doc_callback,
+        fetch_full_doc_summary_callback=fetch_full_doc_summary_callback,
         search_kwargs={"k": retrieval_k},
         search_type=SearchType.mmr,
     )

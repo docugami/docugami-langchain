@@ -255,3 +255,127 @@
   sql_result: "[('Kazuya, Inc.', 'Eighty Five Thousand Dollars ($85,000)')]"
   answer: The client with the lowest initial payment is Kazuya, Inc. with an initial payment of Eighty Five Thousand Dollars ($85,000).
   query_explanation: "Identify the client with the lowest value in the 'Initial Payment' column."
+
+- question: Which client's contract expires the earliest?
+  table_info: |
+    CREATE TABLE "Report_Services_preview.xlsx" (
+      "File" TEXT, 
+      "Link to Document" TEXT, 
+      "Workers Compensation Insurance" TEXT, 
+      "Limit" TEXT, 
+      "Commercial General Liability Insurance" TEXT, 
+      "Technology Professional Liability Errors Omissions Policy" TEXT, 
+      "Excess Liability Umbrella Coverage" TEXT, 
+      "Services Agreement Date" TEXT, 
+      "Completion of the Services by Company Date" TEXT, 
+      "Charge" TEXT, 
+      "Initial Payment" TEXT, 
+      "Continue in Force And Effect Date" TEXT, 
+      "Non-refundable" TEXT, 
+      "Company" TEXT, 
+      "Client" TEXT, 
+      "Client Address" TEXT, 
+      "Magicsoft" TEXT, 
+      "Except" TEXT, 
+      "A Party" TEXT, 
+      "A Daily Basis" TEXT, 
+      "The Initial Understanding" TEXT, 
+      "Signature Page" TEXT
+    )
+  sql_query: SELECT "Client", "Completion of the Services by Company Date" FROM "Report_Services_preview.xlsx" ORDER BY "Completion of the Services by Company Date" LIMIT 1
+  sql_result: "[('Bioplex, Inc.', 'February 15, 2022')]"
+  answer: The contract for Bioplex, Inc. expires the earliest, on February 15, 2022.
+  query_explanation: "Identify the client with the earliest date in the 'Completion of the Services by Company Date' column."
+
+- question: What is the highest Workers Comp Insurance?
+  table_info: |
+    CREATE TABLE "Service Agreements Summary" (
+      "File" TEXT, 
+      "Link to Document" TEXT, 
+      "Workers Compensation Insurance" TEXT, 
+      "Limit" TEXT, 
+      "Commercial General Liability Insurance" TEXT, 
+      "Technology Professional Liability Errors Omissions Policy" TEXT, 
+      "Excess Liability Umbrella Coverage" TEXT, 
+      "Services Agreement Date" TEXT, 
+      "Completion of the Services by Company Date" TEXT, 
+      "Charge" TEXT, 
+      "Initial Payment" TEXT, 
+      "Continue in Force And Effect Date" TEXT, 
+      "Non-refundable" TEXT, 
+      "Company" TEXT, 
+      "Client" TEXT, 
+      "Client Address" TEXT, 
+      "Magicsoft" TEXT, 
+      "Except" TEXT, 
+      "A Party" TEXT, 
+      "A Daily Basis" TEXT, 
+      "The Initial Understanding" TEXT, 
+      "Signature Page" TEXT
+    )
+  sql_query: SELECT "Workers Compensation Insurance" FROM "Service Agreements Summary" ORDER BY "Workers Compensation Insurance" DESC LIMIT 1
+  sql_result: "[('$5,500,000',)]"
+  answer: The highest Workers Comp Insurance limit is $5,500,000.
+  query_explanation: "Identify the highest value in the 'Workers Compensation Insurance' column."
+
+- question: What are typical working hours?
+  table_info: |
+    CREATE TABLE "Service Agreements Summary" (
+      "File" TEXT, 
+      "Link to Document" TEXT, 
+      "Workers Compensation Insurance" TEXT, 
+      "Limit" TEXT, 
+      "Commercial General Liability Insurance" TEXT, 
+      "Technology Professional Liability Errors Omissions Policy" TEXT, 
+      "Excess Liability Umbrella Coverage" TEXT, 
+      "Services Agreement Date" TEXT, 
+      "Completion of the Services by Company Date" TEXT, 
+      "Charge" TEXT, 
+      "Initial Payment" TEXT, 
+      "Continue in Force And Effect Date" TEXT, 
+      "Non-refundable" TEXT, 
+      "Company" TEXT, 
+      "Client" TEXT, 
+      "Client Address" TEXT, 
+      "Magicsoft" TEXT, 
+      "Except" TEXT, 
+      "A Party" TEXT, 
+      "A Daily Basis" TEXT, 
+      "The Initial Understanding" TEXT, 
+      "Signature Page" TEXT
+    )
+  sql_query: SELECT "A Daily Basis" FROM "Service Agreements Summary" LIMIT 5
+  sql_result: "[('Onsite Services. 2.1 Onsite visits will be charged on a daily basis (minimum 8 hours). 2.2 Time and expenses will be charged based on actuals unless otherwise described in an Order Form or accompanying SOW. 2.3 All work will be executed during regular working hours Monday-Friday 0800-1900. For...',), ('Onsite Services. 2.1 Onsite visits will be charged on a daily basis (minimum 8 hours). 2.2 Time and expenses will be charged based on actuals unless otherwise described in an Order Form or accompanying SOW. 2.3 All work will be executed during regular working hours Monday-Friday 0800-1900. For...',), ('Onsite Services. 2.1 Onsite visits will be charged on a daily basis (minimum 8 hours). 2.2 Time and expenses will be charged based on actuals unless otherwise described in an Order Form or accompanying SOW. 2.3 All work will be executed during regular working hours Monday-Friday 0800-1900. For...',), ('Onsite Services. 2.1 Onsite visits will be charged on a daily basis (minimum 8 hours). 2.2 Time and expenses will be charged based on actuals unless otherwise described in an Order Form or accompanying SOW. 2.3 All work will be executed during regular working hours Monday-Friday 0800-1900. For...',), ('Onsite Services. 2.1 Onsite visits will be charged on a daily basis (minimum 8 hours). 2.2 Time and expenses will be charged based on actuals unless otherwise described in an Order Form or accompanying SOW. 2.3 All work will be executed during regular working hours Monday-Friday 0800-1900. For...',)]"
+  answer: "Regular working hours are Monday-Friday 0800-1900"
+  query_explanation: "Extract the typical working hours mentioned in the 'A Daily Basis' column."
+
+- question: What is the total number of clients with excess liability coverage?
+  table_info: |
+    CREATE TABLE "Report_Services_preview.xlsx" (
+      "File" TEXT, 
+      "Link to Document" TEXT, 
+      "Workers Compensation Insurance" TEXT, 
+      "Limit" TEXT, 
+      "Commercial General Liability Insurance" TEXT, 
+      "Technology Professional Liability Errors Omissions Policy" TEXT, 
+      "Excess Liability Umbrella Coverage" TEXT, 
+      "Services Agreement Date" TEXT, 
+      "Completion of the Services by Company Date" TEXT, 
+      "Charge" TEXT, 
+      "Initial Payment" TEXT, 
+      "Continue in Force And Effect Date" TEXT, 
+      "Non-refundable" TEXT, 
+      "Company" TEXT, 
+      "Client" TEXT, 
+      "Client Address" TEXT, 
+      "Magicsoft" TEXT, 
+      "Except" TEXT, 
+      "A Party" TEXT, 
+      "A Daily Basis" TEXT, 
+      "The Initial Understanding" TEXT, 
+      "Signature Page" TEXT
+    )
+  sql_query: SELECT COUNT("Client") FROM "Report_Services_preview.xlsx" WHERE "Excess Liability Umbrella Coverage" IS NOT NULL AND TRIM("Excess Liability Umbrella Coverage") <> '';
+  sql_result: "[(25,)]"
+  answer: "25 clients have Excess Liability Umbrella Coverage"
+  query_explanation: "Count the number of clients that have excess liability umbrella coverage"

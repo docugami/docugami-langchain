@@ -4,9 +4,12 @@ EXPECTED_CHAINS = [
     "AnswerChain",
     "BaseDocugamiChain",
     "TracedChainResponse",
+    "ElaborateChunkChain",
+    "SummarizeChunkChain",
+    "SummarizeDocumentChain",
+    "DescribeDocumentSetChain",
     "ChainParameters",
     "ChainSingleParameter",
-    "SummarizeDocumentChain",
     "DocugamiExplainedSQLQueryChain",
     "SQLFixupChain",
     "SQLQueryExplainerChain",
@@ -14,8 +17,6 @@ EXPECTED_CHAINS = [
     "SQLResultExplainerChain",
     "SuggestedQuestionsChain",
     "SuggestedReportChain",
-    "table_name_from_sql_create",
-    "replace_table_name_in_select",
     "SimpleRAGChain",
 ]
 
@@ -32,24 +33,12 @@ EXPECTED_OUTPUT_PARSERS = [
     "TimespanOutputParser",
 ]
 
-EXPECTED_PROMPTS = [
-    "SYSTEM_MESSAGE_CORE",
-    "ASSISTANT_SYSTEM_MESSAGE",
-    "CREATE_CHUNK_SUMMARY_PROMPT",
-    "CREATE_CHUNK_SUMMARY_SYSTEM_MESSAGE",
-    "CREATE_FULL_DOCUMENT_SUMMARY_PROMPT",
-    "CREATE_FULL_DOCUMENT_SUMMARY_SYSTEM_MESSAGE",
-    "CREATE_DIRECT_RETRIEVAL_TOOL_DESCRIPTION_PROMPT",
-    "CREATE_DIRECT_RETRIEVAL_TOOL_SYSTEM_MESSAGE",
-]
-
 EXPECTED_RETRIEVERS = ["SearchType", "FusedSummaryRetriever"]
 
 EXPECTED_ALL = (
     EXPECTED_CHAINS
     + EXPECTED_DOCUMENT_LOADERS
     + EXPECTED_OUTPUT_PARSERS
-    + EXPECTED_PROMPTS
     + EXPECTED_RETRIEVERS
 )
 

@@ -19,10 +19,10 @@ from langchain_core.vectorstores import VectorStore
 from langchain_docugami.chains.params import ChainParameters
 from langchain_docugami.config import (
     DEFAULT_EXAMPLES_PER_PROMPT,
-    MAX_PARAM_LENGTH_CHARS,
+    MAX_PARAMS_CUTOFF_LENGTH_CHARS,
 )
 from langchain_docugami.output_parsers import KeyfindingOutputParser
-from langchain_docugami.prompts.core import (
+from langchain_docugami.prompts import (
     chat_prompt_template,
     generic_string_prompt_template,
 )
@@ -48,6 +48,8 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
     embeddings: Embeddings
     examples_vectorstore_cls: type[VectorStore] = FAISS
 
+    input_params_max_length_cutoff: int = MAX_PARAMS_CUTOFF_LENGTH_CHARS
+    few_shot_params_max_length_cutoff: int = MAX_PARAMS_CUTOFF_LENGTH_CHARS
     _examples: list[dict] = []
     _example_selector: Optional[SemanticSimilarityExampleSelector] = None
 
@@ -95,9 +97,8 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
             for ex in self._examples:
                 # truncate example length to avoid overflowing context too much
                 keys = ex.keys()
-                max_val_len = int(MAX_PARAM_LENGTH_CHARS)
                 for k in keys:
-                    ex[k] = ex[k][:max_val_len].strip()
+                    ex[k] = ex[k][: self.few_shot_params_max_length_cutoff].strip()
 
             if self._examples and num_examples:
                 try:
@@ -179,7 +180,7 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
         for key in kwargs_dict:
             # for string args, cap at max to avoid chance of prompt overflow
             if isinstance(kwargs_dict[key], str):
-                kwargs_dict[key] = kwargs_dict[key][:MAX_PARAM_LENGTH_CHARS]
+                kwargs_dict[key] = kwargs_dict[key][: self.input_params_max_length_cutoff]
 
         return config, kwargs_dict
 
@@ -237,7 +238,7 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
             for key in input_dict:
                 # For string args, cap at max to avoid chance of prompt overflow
                 if isinstance(input_dict[key], str):
-                    input_dict[key] = input_dict[key][:MAX_PARAM_LENGTH_CHARS]
+                    input_dict[key] = input_dict[key][: self.input_params_max_length_cutoff]
 
         with torch.no_grad():
             return self.runnable().batch(inputs=inputs, config=config)  # type: ignore
