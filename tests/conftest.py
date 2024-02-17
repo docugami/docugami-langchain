@@ -11,7 +11,6 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_core.embeddings import Embeddings
 from langchain_core.globals import set_llm_cache
 from langchain_core.language_models import BaseLanguageModel
-
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
 CUDA_DEVICE = "cpu"

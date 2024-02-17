@@ -1,4 +1,5 @@
 import os
+from typing import Optional
 
 import pytest
 from langchain_community.vectorstores.faiss import FAISS
@@ -65,13 +66,24 @@ def build_retriever(llm: BaseLanguageModel, embeddings: Embeddings) -> BaseRetri
         embedding=embeddings,
     )
 
+    def _fetch_parent_doc_callback(key: str) -> Optional[str]:
+        parent_chunk_doc = parent_chunks_by_id.get(key)
+        if parent_chunk_doc:
+            return parent_chunk_doc.page_content
+        return None
+
+    def _fetch_full_doc_summary_callback(key: str) -> Optional[str]:
+        full_doc_summary_doc = full_doc_summaries_by_id.get(key)
+        if full_doc_summary_doc:
+            return full_doc_summary_doc.page_content
+        return None
+
     return FusedSummaryRetriever(
         vectorstore=vector_store,
-        fetch_parent_doc_callback=lambda x: parent_chunks_by_id.get(x),
-        fetch_full_doc_summary_callback=lambda x: full_doc_summaries_by_id.get(x),
+        fetch_parent_doc_callback=_fetch_parent_doc_callback,
+        fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
         search_kwargs={"k": RETRIEVER_K},
         search_type=SearchType.mmr,
-        # full_doc_summary_id_key="file_id"
     )
 
 
