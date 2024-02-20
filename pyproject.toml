@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docugami-langchain"
-version = "0.0.1"
+version = "0.0.2"
 description = "An integration package connecting Docugami and LangChain"
 authors = []
 readme = "README.md"
@@ -12,8 +12,8 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
-langchain-core = ">=0.0.12"
-langchain-community = "^0.0.19"
+langchain-core = ">=0.1.24"
+langchain-community = "^0.0.21"
 dgml-utils = "^0.3.2"
 wordtodigits = "^1.0.2"
 python-dateutil = "^2.8.2"
@@ -33,9 +33,9 @@ pytest-mock  = "^3.10.0"
 syrupy = "^4.0.2"
 pytest-watcher = "^0.3.4"
 pytest-asyncio = "^0.21.1"
-fireworks-ai = "^0.11.2"
+fireworks-ai = "^0.12.0"
 sentence-transformers = "^2.3.1"
-langchain-openai = "^0.0.5"
+langchain-openai = "^0.0.6"
 faiss-cpu = "^1.7.4"
 
 [tool.poetry.group.codespell]
