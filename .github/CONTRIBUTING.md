@@ -21,7 +21,7 @@ best way to get our attention.
 
 ### 🚩GitHub Issues
 
-Our [issues](https://github.com/langchain-ai/langchain-docugami/issues) page is kept up to date with bugs, improvements, and feature requests.
+Our [issues](https://github.com/docugami/docugami-langchain/issues) page is kept up to date with bugs, improvements, and feature requests.
 
 If you start working on an issue, please assign it to yourself.
 
@@ -44,7 +44,7 @@ we do not want these to get in the way of getting good code into the codebase.
 
 ### Local Development Dependencies
 
-Install langchain-docugami development requirements:
+Install docugami-langchain development requirements:
 
 ```bash
 poetry install --with test,lint

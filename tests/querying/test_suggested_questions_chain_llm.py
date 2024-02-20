@@ -5,8 +5,8 @@ from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from langchain_docugami.chains import SuggestedQuestionsChain
-from langchain_docugami.tools.reports import connect_to_excel
+from docugami_langchain.chains import SuggestedQuestionsChain
+from docugami_langchain.tools.reports import connect_to_excel
 from tests.conftest import TEST_DATA_DIR, verify_chain_response
 from tests.testdata.xlsx.sql_test_data import SQL_TEST_DATA, SQLTestData
 

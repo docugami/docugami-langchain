@@ -6,7 +6,7 @@ import sqlparse
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from langchain_docugami.chains.querying import SQLFixupChain
+from docugami_langchain.chains.querying import SQLFixupChain
 from tests.conftest import TEST_DATA_DIR, is_core_tests_only_mode, verify_chain_response
 
 

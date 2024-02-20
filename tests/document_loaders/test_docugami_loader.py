@@ -2,7 +2,7 @@
 
 import pytest
 
-from langchain_docugami.document_loaders.docugami import DocugamiLoader
+from docugami_langchain.document_loaders.docugami import DocugamiLoader
 from tests.conftest import TEST_DATA_DIR
 
 

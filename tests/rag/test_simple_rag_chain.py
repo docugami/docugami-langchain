@@ -7,14 +7,14 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.retrievers import BaseRetriever
 
-from langchain_docugami.chains import SimpleRAGChain
-from langchain_docugami.config import RETRIEVER_K
-from langchain_docugami.document_loaders.docugami import DocugamiLoader
-from langchain_docugami.retrievers.fused_summary import (
+from docugami_langchain.chains import SimpleRAGChain
+from docugami_langchain.config import RETRIEVER_K
+from docugami_langchain.document_loaders.docugami import DocugamiLoader
+from docugami_langchain.retrievers.fused_summary import (
     FusedSummaryRetriever,
     SearchType,
 )
-from langchain_docugami.retrievers.mappings import (
+from docugami_langchain.retrievers.mappings import (
     build_chunk_summary_mappings,
     build_doc_maps_from_chunks,
     build_full_doc_summary_mappings,

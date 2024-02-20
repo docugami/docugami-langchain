@@ -4,8 +4,8 @@ import pytest
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from langchain_docugami.chains.answer_chain import AnswerChain
-from langchain_docugami.chains.base import TracedChainResponse
+from docugami_langchain.chains.answer_chain import AnswerChain
+from docugami_langchain.chains.base import TracedChainResponse
 from tests.conftest import verify_chain_response
 
 

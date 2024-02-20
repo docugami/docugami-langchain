@@ -1,4 +1,4 @@
-from langchain_docugami import __all__
+from docugami_langchain import __all__
 
 EXPECTED_CHAINS = [
     "AnswerChain",

@@ -4,7 +4,7 @@
 all: help
 
 # Define a variable for the test file path.
-TEST_FILE ?= tests/ langchain_docugami/
+TEST_FILE ?= tests/ docugami_langchain/
 
 test:
 	poetry run pytest --doctest-modules $(TEST_FILE)
@@ -20,7 +20,7 @@ tests:
 PYTHON_FILES=.
 MYPY_CACHE=.mypy_cache
 lint format: PYTHON_FILES=.
-lint_package: PYTHON_FILES=langchain_docugami
+lint_package: PYTHON_FILES=docugami_langchain
 lint_tests: PYTHON_FILES=tests
 lint_tests: MYPY_CACHE=.mypy_cache_test
 
@@ -39,7 +39,7 @@ spell_check:
 spell_fix:
 	poetry run codespell --toml pyproject.toml -w
 
-check_imports: $(shell find langchain_docugami -name '*.py')
+check_imports: $(shell find docugami_langchain -name '*.py')
 	poetry run python ./scripts/check_imports.py $^
 
 ######################
