@@ -3,7 +3,7 @@
         "tests",
         "--doctest-modules",
         "tests",
-        "langchain_docugami"
+        "docugami_langchain"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true

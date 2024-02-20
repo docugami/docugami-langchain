@@ -1,4 +1,4 @@
-# langchain-docugami
+# docugami-langchain
 
 This package contains the LangChain integrations for Docugami through their `docugami` SDK.
 
@@ -6,11 +6,11 @@ This package contains the LangChain integrations for Docugami through their `doc
 
 To install with pip:
 
-`pip install langchain-docugami`
+`pip install docugami-langchain`
 
 To install with poetry:
 
-`poetry add langchain-docugami`
+`poetry add docugami-langchain`
 
 ## Development and Testing
 

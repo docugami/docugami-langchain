@@ -4,7 +4,7 @@ import pytest
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from langchain_docugami.chains import SQLResultExplainerChain
+from docugami_langchain.chains import SQLResultExplainerChain
 from tests.conftest import TEST_DATA_DIR, verify_chain_response
 from tests.testdata.xlsx.sql_test_data import SQL_TEST_DATA, SQLTestData
 

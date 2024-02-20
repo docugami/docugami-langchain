@@ -7,7 +7,7 @@ from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from langchain_docugami.chains import SuggestedReportChain, SummarizeDocumentChain
+from docugami_langchain.chains import SuggestedReportChain, SummarizeDocumentChain
 from tests.conftest import TEST_DATA_DIR
 from tests.testdata.dgml_samples.dgml_samples_test_data import (
     DG_SAMPLE_TEST_DATA,

@@ -4,7 +4,7 @@ import pytest
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from langchain_docugami.chains.chunks.summarize_chunk_chain import SummarizeChunkChain
+from docugami_langchain.chains.chunks.summarize_chunk_chain import SummarizeChunkChain
 from tests.conftest import TEST_DATA_DIR, verify_chain_response
 
 TEST_FORCE_MAJEURE_CLAUSE = """In no event shall the Trustee be responsible or liable for any failure or delay in the performance of its obligations hereunder
