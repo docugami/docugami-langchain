@@ -11,7 +11,7 @@ license = "MIT"
 "Source Code" = "https://github.com/langchain-ai/langchain-docugami/tree/master"
 
 [tool.poetry.dependencies]
-python = ">=3.8.1,<4.0"
+python = ">=3.9,<4.0"
 langchain-core = ">=0.0.12"
 langchain-community = "^0.0.19"
 dgml-utils = "^0.3.2"
@@ -20,8 +20,7 @@ python-dateutil = "^2.8.2"
 pandas = "^1.5.3"
 pyyaml = "^6.0.1"
 openpyxl = "^3.1.2"
-torch = "<=1.13.1" 
-faiss-cpu = "^1.7.4"
+
 sqlparse = "^0.4.4"
 
 [tool.poetry.group.test]
@@ -37,6 +36,7 @@ pytest-asyncio = "^0.21.1"
 fireworks-ai = "^0.11.2"
 sentence-transformers = "^2.3.1"
 langchain-openai = "^0.0.5"
+faiss-cpu = "^1.7.4"
 
 [tool.poetry.group.codespell]
 optional = true

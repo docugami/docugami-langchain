@@ -3,7 +3,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import AsyncIterator, Dict, Generic, List, Optional, Tuple, TypeVar
 
-import torch
 import yaml
 from langchain_community.vectorstores.faiss import FAISS
 from langchain_core.embeddings import Embeddings
@@ -180,7 +179,9 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
         for key in kwargs_dict:
             # for string args, cap at max to avoid chance of prompt overflow
             if isinstance(kwargs_dict[key], str):
-                kwargs_dict[key] = kwargs_dict[key][: self.input_params_max_length_cutoff]
+                kwargs_dict[key] = kwargs_dict[key][
+                    : self.input_params_max_length_cutoff
+                ]
 
         return config, kwargs_dict
 
@@ -188,8 +189,7 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
     def run(self, **kwargs) -> T:  # type: ignore
         config, kwargs_dict = self._prepare_run_args(kwargs)
 
-        with torch.no_grad():
-            return self.runnable().invoke(input=kwargs_dict, config=config)  # type: ignore
+        return self.runnable().invoke(input=kwargs_dict, config=config)  # type: ignore
 
     def traced_run(self, **kwargs) -> TracedChainResponse[T]:  # type: ignore
         with collect_runs() as cb:
@@ -201,27 +201,26 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
     async def run_stream(self, **kwargs) -> AsyncIterator[TracedChainResponse[T]]:  # type: ignore
         config, kwargs_dict = self._prepare_run_args(kwargs)
 
-        with torch.no_grad():
-            with collect_runs() as cb:
-                incremental_answer = None
-                async for chunk in self.runnable().astream(
-                    input=kwargs_dict,
-                    config=config,  # type: ignore
-                ):
-                    if not incremental_answer:
-                        incremental_answer = chunk
-                    else:
-                        incremental_answer += chunk
+        with collect_runs() as cb:
+            incremental_answer = None
+            async for chunk in self.runnable().astream(
+                input=kwargs_dict,
+                config=config,  # type: ignore
+            ):
+                if not incremental_answer:
+                    incremental_answer = chunk
+                else:
+                    incremental_answer += chunk
 
-                    yield TracedChainResponse[T](value=incremental_answer)
+                yield TracedChainResponse[T](value=incremental_answer)
 
-                # yield the final result with the run_id
-                if cb.traced_runs:
-                    run_id = str(cb.traced_runs[0].id)
-                    yield TracedChainResponse[T](
-                        run_id=run_id,
-                        value=incremental_answer,  # type: ignore
-                    )
+            # yield the final result with the run_id
+            if cb.traced_runs:
+                run_id = str(cb.traced_runs[0].id)
+                yield TracedChainResponse[T](
+                    run_id=run_id,
+                    value=incremental_answer,  # type: ignore
+                )
 
     @abstractmethod
     def run_batch(self, **kwargs) -> list[T]:  # type: ignore
@@ -238,10 +237,11 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
             for key in input_dict:
                 # For string args, cap at max to avoid chance of prompt overflow
                 if isinstance(input_dict[key], str):
-                    input_dict[key] = input_dict[key][: self.input_params_max_length_cutoff]
+                    input_dict[key] = input_dict[key][
+                        : self.input_params_max_length_cutoff
+                    ]
 
-        with torch.no_grad():
-            return self.runnable().batch(inputs=inputs, config=config)  # type: ignore
+        return self.runnable().batch(inputs=inputs, config=config)  # type: ignore
 
     @abstractmethod
     def chain_params(self) -> ChainParameters: ...
