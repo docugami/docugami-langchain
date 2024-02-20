@@ -4,7 +4,6 @@ from pathlib import Path
 from typing import Optional
 
 import pytest
-import torch
 from langchain_community.cache import SQLiteCache
 from langchain_community.chat_models import ChatFireworks
 from langchain_community.embeddings import HuggingFaceEmbeddings
@@ -12,10 +11,6 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.globals import set_llm_cache
 from langchain_core.language_models import BaseLanguageModel
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-
-CUDA_DEVICE = "cpu"
-if torch.cuda.is_available():
-    CUDA_DEVICE = "cuda"
 
 # Turn on caching
 LOCAL_LLM_CACHE_DB_FILE = os.environ.get(
@@ -99,7 +94,7 @@ def huggingface_minilm() -> Embeddings:
     """
     return HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2",
-        model_kwargs={"device": CUDA_DEVICE},
+        model_kwargs={"device": "cpu"},
     )
 
 
