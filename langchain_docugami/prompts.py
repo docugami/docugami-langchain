@@ -36,6 +36,8 @@ def system_prompt(chain_params: ChainParameters) -> str:
 {STANDARD_SYSTEM_INSTRUCTIONS_LIST}
 {additional_instructions_list}
 
+Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
+
 Your inputs will be in this format:
 
 {input_description_list}

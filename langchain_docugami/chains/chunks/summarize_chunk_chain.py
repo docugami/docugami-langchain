@@ -51,7 +51,7 @@ class SummarizeChunkChain(BaseDocugamiChain[str]):
                 "- Only summarize, don't try to change any facts in the chunk even if they appear incorrect to you.",
                 "- Include as many facts and data points from the original chunk as you can, in your summary.",
                 "- Pay special attention to monetary amounts, dates, names of people and companies, etc and include in your summary.",
-                "- Produce all output as one paragraph, don't include any paragraph breaks. However, if the input contains list or table formatting, try to include that in your output as well.",
+                "- Pay special attention to key facts like monetary amounts, dates, addresses, names of people and companies, etc and include in your summary.",
             ],
         )
 
