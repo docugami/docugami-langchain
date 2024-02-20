@@ -47,7 +47,7 @@ we do not want these to get in the way of getting good code into the codebase.
 Install docugami-langchain development requirements:
 
 ```bash
-poetry install --with test,lint
+poetry install --with test,lint,typing
 ```
 
 Then verify dependency installation:
