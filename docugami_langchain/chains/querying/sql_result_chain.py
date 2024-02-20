@@ -67,7 +67,7 @@ class SQLResultChain(BaseDocugamiChain[Dict]):
                 return {
                     "question": question,
                     "sql_query": sql_query,
-                    "sql_result": self.db.run(sql_query).strip(),
+                    "sql_result": str(self.db.run(sql_query)).strip(),
                 }
             except Exception as exc:
                 is_syntax_error = "syntax error" in str(exc)
@@ -86,7 +86,7 @@ class SQLResultChain(BaseDocugamiChain[Dict]):
                     return {
                         "question": question,
                         "sql_query": fixed_sql,
-                        "sql_result": self.db.run(fixed_sql).strip(),
+                        "sql_result": str(self.db.run(fixed_sql)).strip(),
                     }
                 else:
                     raise exc

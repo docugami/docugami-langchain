@@ -1,6 +1,6 @@
 # docugami-langchain
 
-This package contains the LangChain integrations for Docugami through their `docugami` SDK.
+This package contains the LangChain integrations for Docugami.
 
 ## Installation
 
