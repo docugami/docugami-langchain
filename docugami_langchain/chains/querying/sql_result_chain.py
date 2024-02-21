@@ -143,7 +143,7 @@ class SQLResultChain(BaseDocugamiChain[Dict]):
                 "\n",
                 ";",
                 "<s>",
-                "|",
+                "</s>",
             ],
         )
 

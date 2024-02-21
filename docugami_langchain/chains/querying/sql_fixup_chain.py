@@ -44,7 +44,7 @@ class SQLFixupChain(BaseDocugamiChain[str]):
                 "\n",
                 ";",
                 "<s>",
-                "|",
+                "</s>",
             ],
             additional_runnables=[SQLFindingOutputParser()],
         )

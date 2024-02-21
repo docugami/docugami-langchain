@@ -19,7 +19,7 @@ class AnswerChain(BaseDocugamiChain[str]):
             ),
             task_description="answers general questions",
             additional_instructions=["- Shorter answers are better."],
-            stop_sequences=["\n"],
+            stop_sequences=["\n", "<s>", "</s>"],
             key_finding_output_parse=False,  # set to False for streaming
         )
 
