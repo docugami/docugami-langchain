@@ -75,8 +75,6 @@ def generic_string_prompt_template(
                 + "\n"
                 + chain_params.output.key
                 + ":"
-                + "\n"
-                + prompt_input_templates(chain_params)
             ),
         )
     else:
