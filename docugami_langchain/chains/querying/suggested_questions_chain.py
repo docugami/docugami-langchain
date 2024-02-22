@@ -46,7 +46,7 @@ class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
                 "- Generate questions as a list, one question per line.",
             ],
             additional_runnables=[LineSeparatedListOutputParser()],
-            stop_sequences=["<s>", "</s>", "\n\n"],
+            stop_sequences=["\n\n", "<s>", "</s>", "|"],
             key_finding_output_parse=False,  # set to False for streaming
         )
 

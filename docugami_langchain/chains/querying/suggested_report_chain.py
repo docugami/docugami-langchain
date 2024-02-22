@@ -46,7 +46,7 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
                 "- Generate suggested columns as a list, one per line.",
             ],
             additional_runnables=[LineSeparatedListOutputParser()],
-            stop_sequences=["<s>", "</s>", "|"],
+            stop_sequences=["\n\n", "<s>", "</s>", "|"],
             key_finding_output_parse=False,  # set to False for streaming
         )
 
