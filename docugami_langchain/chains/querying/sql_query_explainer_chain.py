@@ -1,30 +1,30 @@
 from typing import AsyncIterator, Optional, Tuple
 
-from docugami_langchain.chains.base import BaseDocugamiChain, TracedChainResponse
-from docugami_langchain.chains.params import ChainParameters, ChainSingleParameter
+from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class SQLQueryExplainerChain(BaseDocugamiChain[str]):
-    def chain_params(self) -> ChainParameters:
-        return ChainParameters(
+class SQLQueryExplainerChain(BaseRunnable[str]):
+    def params(self) -> RunnableParameters:
+        return RunnableParameters(
             inputs=[
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "question",
                     "QUESTION",
                     "Question asked by the user.",
                 ),
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "sql_query",
                     "SQL QUERY",
                     "SQL Query that was run by the system, to answer the question asked.",
                 ),
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "sql_result",
                     "SQL RESULT",
                     "Result of the SQL Query.",
                 ),
             ],
-            output=ChainSingleParameter(
+            output=RunnableSingleParameter(
                 "query_explanation",
                 "QUERY EXPLANATION",
                 "Human readable explanation of the query based on the question, SQL Query and the SQL Result, considering the rules and examples provided."
@@ -67,7 +67,7 @@ class SQLQueryExplainerChain(BaseDocugamiChain[str]):
         sql_query: str,
         sql_result: str,
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedChainResponse[str]]:
+    ) -> AsyncIterator[TracedResponse[str]]:
         if not question or not sql_query:
             raise Exception("Inputs required: question, sql_query")
 

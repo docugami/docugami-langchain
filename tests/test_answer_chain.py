@@ -4,8 +4,8 @@ import pytest
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
+from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
-from docugami_langchain.chains.base import TracedChainResponse
 from tests.conftest import verify_chain_response
 
 
@@ -46,7 +46,7 @@ def test_fireworksai_answer(fireworksai_mixtral_answer_chain: AnswerChain) -> No
 async def test_fireworksai_streamed_answer(
     fireworksai_mixtral_answer_chain: AnswerChain,
 ) -> None:
-    chain_response = TracedChainResponse[str](value="")
+    chain_response = TracedResponse[str](value="")
     async for incremental_response in fireworksai_mixtral_answer_chain.run_stream(
         "Who formulated the theory of special relativity?"
     ):
@@ -85,7 +85,7 @@ def test_openai_traced_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
 )
 @pytest.mark.asyncio
 async def test_openai_streamed_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
-    chain_response = TracedChainResponse[str](value="")
+    chain_response = TracedResponse[str](value="")
     async for incremental_response in openai_gpt35_answer_chain.run_stream(
         "Who formulated the theory of special relativity?"
     ):

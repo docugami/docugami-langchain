@@ -1,18 +1,18 @@
 from typing import AsyncIterator, Optional
 
-from docugami_langchain.chains.base import BaseDocugamiChain, TracedChainResponse
-from docugami_langchain.chains.params import ChainParameters, ChainSingleParameter
+from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class AnswerChain(BaseDocugamiChain[str]):
-    def chain_params(self) -> ChainParameters:
-        return ChainParameters(
+class AnswerChain(BaseRunnable[str]):
+    def params(self) -> RunnableParameters:
+        return RunnableParameters(
             inputs=[
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "question", "QUESTION", "A question from the user."
                 )
             ],
-            output=ChainSingleParameter(
+            output=RunnableSingleParameter(
                 "answer",
                 "ANSWER",
                 "A helpful answer, aligned with the rules outlined above",
@@ -39,7 +39,7 @@ class AnswerChain(BaseDocugamiChain[str]):
         self,
         question: str,
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedChainResponse[str]]:
+    ) -> AsyncIterator[TracedResponse[str]]:
         if not question:
             raise Exception("Input required: question")
 

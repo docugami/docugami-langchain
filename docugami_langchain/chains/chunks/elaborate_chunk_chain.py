@@ -1,25 +1,25 @@
 from typing import AsyncIterator, Literal, Optional, Tuple
 
-from docugami_langchain.chains.base import BaseDocugamiChain, TracedChainResponse
-from docugami_langchain.chains.params import ChainParameters, ChainSingleParameter
+from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class ElaborateChunkChain(BaseDocugamiChain[str]):
-    def chain_params(self) -> ChainParameters:
-        return ChainParameters(
+class ElaborateChunkChain(BaseRunnable[str]):
+    def params(self) -> RunnableParameters:
+        return RunnableParameters(
             inputs=[
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "contents",
                     "CONTENTS",
                     "Contents of the chunk that needs to be elaborated",
                 ),
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "format",
                     "FORMAT",
                     "Format of the contents, and expected elaborated output.",
                 ),
             ],
-            output=ChainSingleParameter(
+            output=RunnableSingleParameter(
                 "elaboration",
                 "ELABORATION",
                 "Elaboration generated per the given rules.",
@@ -55,7 +55,7 @@ class ElaborateChunkChain(BaseDocugamiChain[str]):
         contents: str,
         format: str,
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedChainResponse[str]]:
+    ) -> AsyncIterator[TracedResponse[str]]:
         if not contents or not format:
             raise Exception("Inputs required: contents, format")
 

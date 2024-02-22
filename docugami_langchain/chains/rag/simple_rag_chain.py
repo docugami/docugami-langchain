@@ -5,29 +5,29 @@ from langchain_core.documents import Document
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.runnables import Runnable, RunnablePassthrough
 
-from docugami_langchain.chains.base import BaseDocugamiChain, TracedChainResponse
-from docugami_langchain.chains.params import ChainParameters, ChainSingleParameter
+from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class SimpleRAGChain(BaseDocugamiChain[str]):
+class SimpleRAGChain(BaseRunnable[str]):
 
     retriever: BaseRetriever
 
-    def chain_params(self) -> ChainParameters:
-        return ChainParameters(
+    def params(self) -> RunnableParameters:
+        return RunnableParameters(
             inputs=[
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "context",
                     "CONTEXT",
                     "Retrieved context, which should be used to answer the question.",
                 ),
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "question",
                     "QUESTION",
                     "Question asked by the user.",
                 ),
             ],
-            output=ChainSingleParameter(
+            output=RunnableSingleParameter(
                 "answer",
                 "ANSWER",
                 "Human readable answer to the question.",
@@ -71,7 +71,7 @@ class SimpleRAGChain(BaseDocugamiChain[str]):
         self,
         question: str,
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedChainResponse[str]]:
+    ) -> AsyncIterator[TracedResponse[str]]:
         if not question:
             raise Exception("Input required: question")
 

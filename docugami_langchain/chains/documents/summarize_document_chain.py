@@ -2,12 +2,12 @@ from typing import AsyncIterator, Literal, Optional, Tuple
 
 from langchain_core.runnables import Runnable, RunnableBranch, RunnableLambda
 
-from docugami_langchain.chains.base import BaseDocugamiChain, TracedChainResponse
-from docugami_langchain.chains.params import ChainParameters, ChainSingleParameter
+from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
 from docugami_langchain.config import MIN_LENGTH_TO_SUMMARIZE
+from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class SummarizeDocumentChain(BaseDocugamiChain[str]):
+class SummarizeDocumentChain(BaseRunnable[str]):
     min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE
 
     def runnable(self) -> Runnable:
@@ -25,21 +25,21 @@ class SummarizeDocumentChain(BaseDocugamiChain[str]):
             noop,
         )
 
-    def chain_params(self) -> ChainParameters:
-        return ChainParameters(
+    def params(self) -> RunnableParameters:
+        return RunnableParameters(
             inputs=[
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "contents",
                     "CONTENTS",
                     "Contents of the doc that needs to be summarized",
                 ),
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "format",
                     "FORMAT",
                     "Format of the contents, and expected summarized output.",
                 ),
             ],
-            output=ChainSingleParameter(
+            output=RunnableSingleParameter(
                 "summary",
                 "SUMMARY",
                 "Summary generated per the given rules.",
@@ -74,7 +74,7 @@ class SummarizeDocumentChain(BaseDocugamiChain[str]):
         contents: str,
         format: str,
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedChainResponse[str]]:
+    ) -> AsyncIterator[TracedResponse[str]]:
         if not contents or not format:
             raise Exception("Inputs required: contents, format")
 

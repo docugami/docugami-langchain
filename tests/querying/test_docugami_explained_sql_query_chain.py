@@ -5,7 +5,7 @@ from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from docugami_langchain.chains.base import TracedChainResponse
+from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.querying import (
     DocugamiExplainedSQLQueryChain,
     SQLFixupChain,
@@ -71,7 +71,7 @@ def _runtest(chain: DocugamiExplainedSQLQueryChain, test_data: SQLTestData) -> N
 async def _runtest_streamed(
     chain: DocugamiExplainedSQLQueryChain, test_data: SQLTestData
 ) -> None:
-    chain_response = TracedChainResponse[dict](value={})
+    chain_response = TracedResponse[dict](value={})
     async for incremental_response in chain.run_stream(question=test_data.question):
         chain_response = incremental_response
 

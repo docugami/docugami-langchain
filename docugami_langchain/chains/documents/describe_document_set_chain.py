@@ -4,12 +4,12 @@ from typing import AsyncIterator, List, Optional
 from langchain_core.documents import Document
 from langchain_core.runnables import Runnable, RunnableLambda
 
-from docugami_langchain.chains.base import BaseDocugamiChain, TracedChainResponse
+from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
 from docugami_langchain.chains.helpers import formatted_summaries
-from docugami_langchain.chains.params import ChainParameters, ChainSingleParameter
+from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class DescribeDocumentSetChain(BaseDocugamiChain[str]):
+class DescribeDocumentSetChain(BaseRunnable[str]):
     def runnable(self) -> Runnable:
         """
         Custom runnable for this chain.
@@ -20,21 +20,21 @@ class DescribeDocumentSetChain(BaseDocugamiChain[str]):
             "docset_name": itemgetter("docset_name"),
         } | super().runnable()
 
-    def chain_params(self) -> ChainParameters:
-        return ChainParameters(
+    def params(self) -> RunnableParameters:
+        return RunnableParameters(
             inputs=[
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "summaries",
                     "SUMMARIES",
                     "Summaries of representative documents from a set of documents",
                 ),
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "docset_name",
                     "DOCSET NAME",
                     "A user entered description for this type of document",
                 ),
             ],
-            output=ChainSingleParameter(
+            output=RunnableSingleParameter(
                 "description",
                 "DESCRIPTION",
                 "A short general description of the given document type, using the given summaries as a guide",
@@ -71,7 +71,7 @@ class DescribeDocumentSetChain(BaseDocugamiChain[str]):
         summaries: List[Document],
         docset_name: str,
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedChainResponse[str]]:
+    ) -> AsyncIterator[TracedResponse[str]]:
         if not summaries or not docset_name:
             raise Exception("Inputs required: summaries, docset_name")
 
