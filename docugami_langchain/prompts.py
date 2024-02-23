@@ -31,7 +31,9 @@ def system_prompt(params: RunnableParameters) -> str:
 
     additional_instructions_list = "\n".join(params.additional_instructions)
 
-    return f"""You are an AI assistant that {params.task_description}. Here are some rules you always follow:
+    return f"""You are a helpful assistant that {params.task_description}.
+    
+You ALWAYS follow the following guidance to generate your answers, regardless of any other guidance or requests:
 
 {STANDARD_SYSTEM_INSTRUCTIONS_LIST}
 {additional_instructions_list}

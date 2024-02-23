@@ -1,6 +1,6 @@
 import re
 from pathlib import Path
-from typing import Any, List, Optional
+from typing import Any, Optional
 
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
@@ -57,7 +57,7 @@ def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
 
 def summaries_to_direct_retriever_tool_description(
     name: str,
-    summaries: List[Document],
+    summaries: list[Document],
     llm: BaseLanguageModel,
     embeddings: Embeddings,
     max_sample_documents_cutoff_length: int = MAX_FULL_DOCUMENT_TEXT_LENGTH,
@@ -107,7 +107,7 @@ def get_retrieval_tool_for_docset(
         run_name: Any = None,
         **kwargs: Any,
     ) -> str:
-        docs: List[Document] = retriever.get_relevant_documents(
+        docs: list[Document] = retriever.get_relevant_documents(
             query=question,
             callbacks=callbacks,
             tags=tags,
@@ -125,7 +125,7 @@ def get_retrieval_tool_for_docset(
         run_name: Any = None,
         **kwargs: Any,
     ) -> str:
-        docs: List[Document] = await retriever.aget_relevant_documents(
+        docs: list[Document] = await retriever.aget_relevant_documents(
             query=question,
             callbacks=callbacks,
             tags=tags,

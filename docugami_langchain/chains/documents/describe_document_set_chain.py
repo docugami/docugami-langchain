@@ -1,5 +1,5 @@
 from operator import itemgetter
-from typing import AsyncIterator, List, Optional
+from typing import AsyncIterator, Optional
 
 from langchain_core.documents import Document
 from langchain_core.runnables import Runnable, RunnableLambda
@@ -53,7 +53,7 @@ class DescribeDocumentSetChain(BaseRunnable[str]):
 
     def run(  # type: ignore[override]
         self,
-        summaries: List[Document],
+        summaries: list[Document],
         docset_name: str,
         config: Optional[dict] = None,
     ) -> str:
@@ -68,7 +68,7 @@ class DescribeDocumentSetChain(BaseRunnable[str]):
 
     def run_stream(  # type: ignore[override]
         self,
-        summaries: List[Document],
+        summaries: list[Document],
         docset_name: str,
         config: Optional[dict] = None,
     ) -> AsyncIterator[TracedResponse[str]]:

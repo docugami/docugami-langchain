@@ -3,7 +3,7 @@ import io
 import logging
 import os
 from pathlib import Path
-from typing import Any, Dict, List, Mapping, Optional, Sequence, Union
+from typing import Any, Dict, Mapping, Optional, Sequence, Union
 
 import requests
 from langchain_community.document_loaders.base import BaseLoader
@@ -100,7 +100,7 @@ class DocugamiLoader(BaseLoader, BaseModel):
         content: bytes,
         document_name: Optional[str] = None,
         additional_doc_metadata: Optional[Mapping] = None,
-    ) -> List[Document]:
+    ) -> list[Document]:
         """Parse a single DGML document into a list of Documents."""
         try:
             from lxml import etree
@@ -170,7 +170,7 @@ class DocugamiLoader(BaseLoader, BaseModel):
 
         return list(framework_chunks.values())
 
-    def _document_details_for_docset_id(self, docset_id: str) -> List[Dict]:
+    def _document_details_for_docset_id(self, docset_id: str) -> list[Dict]:
         """Gets all document details for the given docset ID"""
         url = f"{self.api}/docsets/{docset_id}/documents"
         all_documents = []
@@ -191,7 +191,7 @@ class DocugamiLoader(BaseLoader, BaseModel):
 
         return all_documents
 
-    def _project_details_for_docset_id(self, docset_id: str) -> List[Dict]:
+    def _project_details_for_docset_id(self, docset_id: str) -> list[Dict]:
         """Gets all project details for the given docset ID"""
         url = f"{self.api}/projects?docset.id={docset_id}"
         all_projects = []
@@ -293,7 +293,7 @@ class DocugamiLoader(BaseLoader, BaseModel):
         docset_id: str,
         document_name: Optional[str] = None,
         additional_metadata: Optional[Mapping] = None,
-    ) -> List[Document]:
+    ) -> list[Document]:
         """Load chunks for a document."""
         url = f"{self.api}/docsets/{docset_id}/documents/{document_id}/dgml"
 
@@ -315,9 +315,9 @@ class DocugamiLoader(BaseLoader, BaseModel):
                 f"Failed to download {url} (status: {response.status_code})"
             )
 
-    def load(self) -> List[Document]:
+    def load(self) -> list[Document]:
         """Load documents."""
-        chunks: List[Document] = []
+        chunks: list[Document] = []
 
         if self.access_token and self.docset_id:
             # Remote mode

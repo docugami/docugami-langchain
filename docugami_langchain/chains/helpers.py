@@ -1,12 +1,10 @@
 from __future__ import annotations
 
-from typing import List
-
 import sqlparse
 from langchain_core.documents import Document
 
 
-def format_document_list(docs: List[Document], document_content_key: str) -> str:
+def format_document_list(docs: list[Document], document_content_key: str) -> str:
     if not docs:
         raise Exception("No docs provided")
 
@@ -23,7 +21,7 @@ def format_document_list(docs: List[Document], document_content_key: str) -> str
     return formatted_output
 
 
-def formatted_summaries(docs: List[Document]) -> str:
+def formatted_summaries(docs: list[Document]) -> str:
     return format_document_list(docs, document_content_key="DOCUMENT SUMMARY")
 
 

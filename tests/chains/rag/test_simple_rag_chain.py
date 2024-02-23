@@ -19,20 +19,10 @@ from docugami_langchain.retrievers.mappings import (
     build_doc_maps_from_chunks,
     build_full_doc_summary_mappings,
 )
-from tests.common import (
-    EXAMPLES_PATH,
-    RAG_TEST_DGML_DATA_DIR,
-    is_core_tests_only_mode,
-    verify_chain_response,
-)
+from tests.common import EXAMPLES_PATH, RAG_TEST_DGML_DATA_DIR, verify_chain_response
 
 TEST_QUESTION = "What is the accident number for the incident in madill, oklahoma?"
 TEST_ANSWER_OPTIONS = ["DFW08CA044"]
-
-
-if is_core_tests_only_mode():
-    # RAG over fewer files when in core tests mode (to speed things up)
-    RAG_TEST_DGML_DATA_DIR = RAG_TEST_DGML_DATA_DIR / "NTSB Aviation Incident Reports"
 
 
 def build_retriever(llm: BaseLanguageModel, embeddings: Embeddings) -> BaseRetriever:

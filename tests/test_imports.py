@@ -9,7 +9,10 @@ EXPECTED_BASE = [
 
 EXPECTED_AGENTS = [
     "ReWOOAgent",
+    "ReActAgent",
+    "RewriteGraderRAGAgent",
 ]
+
 EXPECTED_CHAINS = [
     "AnswerChain",
     "ElaborateChunkChain",
@@ -43,6 +46,7 @@ EXPECTED_RETRIEVERS = ["SearchType", "FusedSummaryRetriever"]
 
 EXPECTED_ALL = (
     EXPECTED_BASE
+    + EXPECTED_AGENTS
     + EXPECTED_CHAINS
     + EXPECTED_DOCUMENT_LOADERS
     + EXPECTED_OUTPUT_PARSERS

@@ -1,5 +1,5 @@
 from operator import itemgetter
-from typing import AsyncIterator, List, Optional
+from typing import AsyncIterator, Optional
 
 from langchain_core.documents import Document
 from langchain_core.retrievers import BaseRetriever
@@ -46,7 +46,7 @@ class SimpleRAGChain(BaseRunnable[str]):
         Custom runnable for this agent.
         """
 
-        def format_retrieved_docs(docs: List[Document]) -> str:
+        def format_retrieved_docs(docs: list[Document]) -> str:
             return "\n\n".join(doc.page_content for doc in docs)
 
         return {

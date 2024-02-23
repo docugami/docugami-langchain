@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from typing import List
 
 import pytest
 from langchain_core.documents import Document
@@ -78,7 +77,7 @@ def _runtest(
 ) -> None:
     data_dir: Path = TEST_DATA_DIR / "dgml_samples" / test_data.test_data_dir
 
-    test_data_full_docs: List[Document] = []
+    test_data_full_docs: list[Document] = []
     for md_file in data_dir.rglob("*.md"):
         # Read and process the contents of each file
         with open(md_file, "r", encoding="utf-8") as file:

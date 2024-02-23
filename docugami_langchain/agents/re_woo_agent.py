@@ -60,7 +60,7 @@ class ReWOOState(TypedDict):
 class ReWOOAgent(BaseRunnable[ReWOOState]):
     """Agent that implements ReWOO (Reasoning WithOut Observation) https://arxiv.org/abs/2305.18323"""
 
-    tools: List[BaseTool] = []
+    tools: list[BaseTool] = []
 
     def params(self) -> RunnableParameters:
         raise NotImplementedError()
@@ -90,7 +90,7 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
             if state["results"] is None:
                 return 1
             if len(state["results"]) == len(state["steps"]):
-                return None
+                return None  # type: ignore
             else:
                 return len(state["results"]) + 1
 

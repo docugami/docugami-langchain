@@ -8,7 +8,10 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_core.embeddings import Embeddings
 from langchain_core.globals import set_llm_cache
 from langchain_core.language_models import BaseLanguageModel
+from langchain_core.tools import BaseTool
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+
+from tests.common import build_retrieval_tool
 
 # Turn on caching
 LOCAL_LLM_CACHE_DB_FILE = os.environ.get(
@@ -64,3 +67,18 @@ def openai_ada() -> Embeddings:
     Ada embeddings by OpenAI.
     """
     return OpenAIEmbeddings(model="text-embedding-ada-002", client=None)
+
+
+@pytest.fixture()
+def huggingface_retrieval_tool(
+    fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
+) -> BaseTool:
+    return build_retrieval_tool(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
+
+
+@pytest.fixture()
+def openai_retrieval_tool(
+    openai_gpt35: BaseLanguageModel,
+    openai_ada: Embeddings,
+) -> BaseTool:
+    return build_retrieval_tool(llm=openai_gpt35, embeddings=openai_ada)

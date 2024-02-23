@@ -75,7 +75,7 @@ disallow_untyped_defs = "True"
 
 [[tool.mypy.overrides]]
 module = [
-    "wordtodigits", "pandas", "sqlparse", "langgraph.graph",
+    "wordtodigits", "pandas", "sqlparse", "langgraph.graph", "langgraph.prebuilt",
 ]
 ignore_missing_imports = true
 
