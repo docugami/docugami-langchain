@@ -40,7 +40,6 @@ retrieved corresponding Evidence to each Plan. Use them with caution since long 
 contain irrelevant information.
 
 {plan}
-
 Now solve the question or task according to provided Evidence above. Respond with the answer
 directly with no extra words.
 
@@ -122,7 +121,7 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
                 _results = state["results"] or {}
                 plan += f"Plan: {_plan}\n{step_name} = {tool}[{tool_input}]\n\n"
                 if step_name in _results:
-                    plan += _results[step_name] + "\n\n"
+                    plan += _results[step_name] + "\n"
             prompt = SOLVE_TASK_PROMPT.format(plan=plan, task=state["task"])
             result = self.llm.invoke(prompt)
             return {"result": result.content}

@@ -72,7 +72,7 @@ def summaries_to_direct_retriever_tool_description(
         chain.load_examples(describe_document_set_examples_file)
 
     description = chain.run(summaries=summaries, docset_name=name)
-    return f"Given a single input 'question' parameter, searches for and returns relecant chunks from {name} documents that might contain answers. {description}"
+    return f"Given a single input 'question' parameter, searches for and returns relevant chunks from {name} documents that might contain answers. {description}"
 
 
 def get_retrieval_tool_for_docset(
