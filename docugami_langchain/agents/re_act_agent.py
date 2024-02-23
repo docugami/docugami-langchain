@@ -1,12 +1,19 @@
 # Adapted with thanks from
 import operator
-from typing import Annotated, AsyncIterator, Dict, Optional, Tuple, Type, TypedDict, Union
+from typing import (
+    Annotated,
+    AsyncIterator,
+    Dict,
+    Optional,
+    Tuple,
+    TypedDict,
+    Union,
+)
 
 from langchain_core.agents import AgentAction, AgentFinish
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_core.pydantic_v1 import BaseModel, Field
-from langchain_core.runnables import Runnable, RunnableConfig
+from langchain_core.runnables import Runnable
 from langchain_core.tools import BaseTool
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt.tool_executor import ToolExecutor
@@ -89,14 +96,6 @@ Begin!
 """
 )
 
-class AgentInput(BaseModel):
-    input: str = ""
-    chat_history: list[Tuple[str, str]] = Field(
-        default=[],
-        extra={
-            "widget": {"type": "chat", "input": "input", "output": "output"},
-        },
-    )
 
 class AgentState(TypedDict):
     # The input question
@@ -118,11 +117,6 @@ class ReActAgent(BaseRunnable[AgentState]):
     """
 
     tools: list[BaseTool] = []
-
-    def get_input_schema(
-        self, config: Optional[RunnableConfig] = None
-    ) -> Type[BaseModel]:
-        return AgentInput
 
     def params(self) -> RunnableParameters:
         raise NotImplementedError()
@@ -167,9 +161,7 @@ class ReActAgent(BaseRunnable[AgentState]):
             """
             tool_strings = []
             for tool in tools:
-                tool_strings.append(
-                    f"{tool.name}: {tool.description}"
-                )
+                tool_strings.append(f"{tool.name}: {tool.description}")
             return "\n".join(tool_strings)
 
         prompt = ChatPromptTemplate.from_messages(
