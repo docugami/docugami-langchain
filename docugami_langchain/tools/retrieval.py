@@ -23,7 +23,7 @@ from docugami_langchain.retrievers.fused_summary import (
 class RetrieverInput(BaseModel):
     """Input to the retriever."""
 
-    query: str = Field(description="query to look up in retriever")
+    question: str = Field(description="question to look up in retriever, to find relevant chunks that might contain answers")
 
 
 def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
@@ -72,7 +72,7 @@ def summaries_to_direct_retriever_tool_description(
         chain.load_examples(describe_document_set_examples_file)
 
     description = chain.run(summaries=summaries, docset_name=name)
-    return f"Given a single input 'query' parameter, searches for and returns chunks from {name} documents. {description}"
+    return f"Given a single input 'question' parameter, searches for and returns relecant chunks from {name} documents that might contain answers. {description}"
 
 
 def get_retrieval_tool_for_docset(
@@ -100,7 +100,7 @@ def get_retrieval_tool_for_docset(
         return None
 
     def wrapped_get_relevant_documents(
-        query: str,
+        question: str,
         callbacks: Any = None,
         tags: Any = None,
         metadata: Any = None,
@@ -108,7 +108,7 @@ def get_retrieval_tool_for_docset(
         **kwargs: Any,
     ) -> str:
         docs: List[Document] = retriever.get_relevant_documents(
-            query,
+            query=question,
             callbacks=callbacks,
             tags=tags,
             metadata=metadata,
@@ -118,7 +118,7 @@ def get_retrieval_tool_for_docset(
         return "\n\n".join([doc.page_content for doc in docs])
 
     async def awrapped_get_relevant_documents(
-        query: str,
+        question: str,
         callbacks: Any = None,
         tags: Any = None,
         metadata: Any = None,
@@ -126,7 +126,7 @@ def get_retrieval_tool_for_docset(
         **kwargs: Any,
     ) -> str:
         docs: List[Document] = await retriever.aget_relevant_documents(
-            query,
+            query=question,
             callbacks=callbacks,
             tags=tags,
             metadata=metadata,
