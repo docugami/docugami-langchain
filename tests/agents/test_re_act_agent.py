@@ -1,15 +1,27 @@
 import os
 
 import pytest
+from langchain_core.agents import AgentFinish
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
 from docugami_langchain.agents import ReActAgent
-from tests.common import verify_chain_response
+from docugami_langchain.agents.re_act_agent import AgentState
+from tests.common import verify_response
 
 TEST_QUESTION = "What is the accident number for the incident in madill, oklahoma?"
 TEST_ANSWER_OPTIONS = ["DFW08CA044"]
+
+
+def _get_answer(response: AgentState):
+    outcome = response.get("agent_outcome")
+    assert outcome
+    assert isinstance(outcome, AgentFinish)
+    assert outcome.return_values
+    answer = outcome.return_values.get("output")
+    assert answer
+    return answer
 
 
 @pytest.fixture()
@@ -50,20 +62,18 @@ def openai_gpt35_re_act_agent(
 def test_fireworksai_re_act(
     fireworksai_mixtral_re_act_agent: ReActAgent,
 ) -> None:
-    
+
     # test general LLM response from agent
     response = fireworksai_mixtral_re_act_agent.run(
         "Who formulated the theory of special relativity?"
     )
-    result = response.get("result")
-    assert result
-    verify_chain_response(result, ["einstein"])
+    answer = _get_answer(response)
+    verify_response(answer, ["einstein"])
 
     # test retrieval response from agent
     response = fireworksai_mixtral_re_act_agent.run(TEST_QUESTION)
-    result = response.get("result")
-    assert result
-    verify_chain_response(result, TEST_ANSWER_OPTIONS)
+    answer = _get_answer(response)
+    verify_response(answer, TEST_ANSWER_OPTIONS)
 
 
 @pytest.mark.skipif(
@@ -75,12 +85,10 @@ def test_openai_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
     response = openai_gpt35_re_act_agent.run(
         "Who formulated the theory of special relativity?"
     )
-    result = response.get("result")
-    assert result
-    verify_chain_response(result, ["einstein"])
+    answer = _get_answer(response)
+    verify_response(answer, ["einstein"])
 
     # test retrieval response from agent
     response = openai_gpt35_re_act_agent.run(TEST_QUESTION)
-    result = response.get("result")
-    assert result
-    verify_chain_response(result, TEST_ANSWER_OPTIONS)
+    answer = _get_answer(response)
+    verify_response(answer, TEST_ANSWER_OPTIONS)

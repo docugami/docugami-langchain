@@ -7,7 +7,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.chains.querying import SQLFixupChain
-from tests.common import TEST_DATA_DIR, is_core_tests_only_mode, verify_chain_response
+from tests.common import TEST_DATA_DIR, is_core_tests_only_mode, verify_response
 
 
 @dataclass
@@ -75,7 +75,7 @@ def _runtest(chain: SQLFixupChain, test_data: SQLFixupTestData) -> None:
         sql_query=test_data.sql_query,
         exception=test_data.exception,
     )
-    verify_chain_response(fixed_sql)
+    verify_response(fixed_sql)
     assert fixed_sql
     assert fixed_sql.strip().lower().startswith("select")
     assert sqlparse.parse(fixed_sql)

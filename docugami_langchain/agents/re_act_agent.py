@@ -1,13 +1,14 @@
 # Adapted with thanks from
-from typing import AsyncIterator, Dict, Optional, Tuple
+import operator
+from typing import Annotated, AsyncIterator, Optional, Tuple, TypedDict, Union
 
-from langchain_core.agents import AgentAction
+from langchain_core.agents import AgentAction, AgentFinish
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_core.runnables import Runnable
 from langchain_core.tools import BaseTool
-from langgraph.prebuilt import create_agent_executor
+from langgraph.graph import END, StateGraph
+from langgraph.prebuilt.tool_executor import ToolExecutor
 
 from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
 from docugami_langchain.output_parsers.soft_react_json_single_input import (
@@ -88,18 +89,21 @@ Begin!
 )
 
 
-class ReactAgentInput(BaseModel):
-    input: str = ""
-    chat_history: list[Tuple[str, str]] = Field(
-        default=[],
-        extra={
-            # for langserve playground
-            "widget": {"type": "chat", "input": "input", "output": "output"},
-        },
-    )
+class AgentState(TypedDict):
+    # The input question
+    question: str
+    # The list of previous messages in the conversation
+    chat_history: list[BaseMessage]
+    # The outcome of a given call to the agent
+    # Needs `None` as a valid type, since this is what this will start as
+    agent_outcome: Union[AgentAction, AgentFinish, None]
+    # List of actions and corresponding observations
+    # Here we annotate this with `operator.add` to indicate that operations to
+    # this state should be ADDED to the existing values (not overwrite it)
+    intermediate_steps: Annotated[list[tuple[AgentAction, str]], operator.add]
 
 
-class ReActAgent(BaseRunnable[Dict]):
+class ReActAgent(BaseRunnable[AgentState]):
     """
     Agent that implements simple agentic RAG using the ReAct prompt style.
     """
@@ -117,11 +121,13 @@ class ReActAgent(BaseRunnable[Dict]):
         def format_chat_history(
             chat_history: list[Tuple[str, str]]
         ) -> list[BaseMessage]:
-            buffer: list[BaseMessage] = []
-            for human, ai in chat_history:
-                buffer.append(HumanMessage(content=human))
-                buffer.append(AIMessage(content=ai))
-            return buffer
+            messages: list[BaseMessage] = []
+
+            if chat_history:
+                for human, ai in chat_history:
+                    messages.append(HumanMessage(content=human))
+                    messages.append(AIMessage(content=ai))
+            return messages
 
         def format_log_to_str(
             intermediate_steps: list[Tuple[AgentAction, str]],
@@ -158,13 +164,13 @@ class ReActAgent(BaseRunnable[Dict]):
             [
                 ("system", REACT_AGENT_SYSTEM_MESSAGE),
                 MessagesPlaceholder(variable_name="chat_history"),
-                ("user", "{input}\n\n{agent_scratchpad}"),
+                ("user", "{question}\n\n{agent_scratchpad}"),
             ]
         )
 
         agent_runnable: Runnable = (
             {
-                "input": lambda x: x["input"],
+                "question": lambda x: x["question"],
                 "chat_history": lambda x: format_chat_history(x["chat_history"]),
                 "agent_scratchpad": lambda x: format_log_to_str(
                     x["intermediate_steps"]
@@ -177,15 +183,75 @@ class ReActAgent(BaseRunnable[Dict]):
             | SoftReActJsonSingleInputOutputParser()
         )
 
-        return create_agent_executor(
-            agent_runnable, self.tools, input_schema=ReactAgentInput
+        tool_executor = ToolExecutor(self.tools)
+
+        def run_agent(data):
+            agent_outcome = agent_runnable.invoke(data)
+            return {"agent_outcome": agent_outcome}
+
+        def execute_tools(data):
+            # Get the most recent agent_outcome - this is the key added in the `agent` above
+            agent_action = data["agent_outcome"]
+            output = tool_executor.invoke(agent_action)
+            return {"intermediate_steps": [(agent_action, str(output))]}
+
+        def should_continue(data):
+            # If the agent outcome is an AgentFinish, then we return `exit` string
+            # This will be used when setting up the graph to define the flow
+            if isinstance(data["agent_outcome"], AgentFinish):
+                return "end"
+            # Otherwise, an AgentAction is returned
+            # Here we return `continue` string
+            # This will be used when setting up the graph to define the flow
+            else:
+                return "continue"
+
+        # Define a new graph
+        workflow = StateGraph(AgentState)
+
+        # Define the two nodes we will cycle between
+        workflow.add_node("agent", run_agent)
+        workflow.add_node("action", execute_tools)
+
+        # Set the entrypoint as `agent`
+        # This means that this node is the first one called
+        workflow.set_entry_point("agent")
+
+        # We now add a conditional edge
+        workflow.add_conditional_edges(
+            # First, we define the start node. We use `agent`.
+            # This means these are the edges taken after the `agent` node is called.
+            "agent",
+            # Next, we pass in the function that will determine which node is called next.
+            should_continue,
+            # Finally we pass in a mapping.
+            # The keys are strings, and the values are other nodes.
+            # END is a special node marking that the graph should finish.
+            # What will happen is we will call `should_continue`, and then the output of that
+            # will be matched against the keys in this mapping.
+            # Based on which one it matches, that node will then be called.
+            {
+                # If `tools`, then we call the tool node.
+                "continue": "action",
+                # Otherwise we finish.
+                "end": END,
+            },
         )
+
+        # We now add a normal edge from `tools` to `agent`.
+        # This means that after `tools` is called, `agent` node is called next.
+        workflow.add_edge("action", "agent")
+
+        # Finally, we compile it!
+        # This compiles it into a LangChain Runnable,
+        # meaning you can use it as you would any other runnable
+        return workflow.compile()
 
     def run(  # type: ignore[override]
         self,
         question: str,
         config: Optional[dict] = None,
-    ) -> Dict:
+    ) -> AgentState:
         if not question:
             raise Exception("Input required: question")
 
@@ -198,7 +264,7 @@ class ReActAgent(BaseRunnable[Dict]):
         self,
         question: str,
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedResponse[Dict]]:
+    ) -> AsyncIterator[TracedResponse[AgentState]]:
         if not question:
             raise Exception("Input required: question")
 
@@ -211,8 +277,5 @@ class ReActAgent(BaseRunnable[Dict]):
         self,
         inputs: list[str],
         config: Optional[dict] = None,
-    ) -> list[Dict]:
-        return super().run_batch(
-            inputs=[{"question": i} for i in inputs],
-            config=config,
-        )
+    ) -> list[AgentState]:
+        raise NotImplementedError()

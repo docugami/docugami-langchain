@@ -15,13 +15,15 @@ PLAN_TASK_PROMPT = """For the following task, make plans that can solve the prob
 which external tool together with tool input to retrieve evidence. You can store the evidence into a
 variable #E that can be called by later tools. (Plan, #E1, Plan, #E2, Plan, ...)
 
-Tools can be one of the following:
+Supported tools can be ONLY be one of the following:
 (1) LLM[input]: A pretrained LLM like yourself. Useful when you need to act with general
 world knowledge and common sense. Prioritize it when you are confident in solving the problem
 yourself. Input can be any instruction.
 {tools}
 
-For example,
+Make sure you don't use a tool that does not exactly match one of the tools above.
+
+Here is a general outline of a plan (using hypothetical tools, make sure the tools you actually use are the supported ones above)
 Task: Thomas, Toby, and Rebecca worked a total of 157 hours in one week. Thomas worked x
 hours. Toby worked 10 hours less than twice what Thomas worked, and Rebecca worked 8 hours
 less than Toby. How many hours did Rebecca work?
@@ -101,16 +103,14 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
             _results = state["results"] or {}
             for k, v in _results.items():
                 tool_input = tool_input.replace(k, v)
-            if str(tool).lower() == "llm":
-                result = self.llm.invoke(tool_input)
+            matching_tools = [
+                t for t in self.tools if t.name.lower() == str(tool).lower()
+            ]
+            if matching_tools:
+                result = matching_tools[0].invoke(tool_input)
             else:
-                matching_tools = [
-                    t for t in self.tools if t.name.lower() == str(tool).lower()
-                ]
-                if matching_tools:
-                    result = matching_tools[0].invoke(tool_input)
-                else:
-                    raise ValueError(f"Invalid tool name: {tool}")
+                # if a tool name was made up, fall back to just llm
+                result = self.llm.invoke(tool_input)
 
             _results[step_name] = str(result)
             return {"results": _results}

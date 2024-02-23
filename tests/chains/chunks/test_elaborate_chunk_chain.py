@@ -5,7 +5,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.chains.chunks.elaborate_chunk_chain import ElaborateChunkChain
-from tests.common import TEST_DATA_DIR, verify_chain_response
+from tests.common import TEST_DATA_DIR, verify_response
 
 TEST_INSTRUCTIONS = "Force Majeure clause absolving Trustee of liability in case of factors outside their control"
 
@@ -43,7 +43,7 @@ def test_fireworksai_elaborate_chunk(
     fireworksai_mixtral_elaborate_chunk_chain: ElaborateChunkChain,
 ) -> None:
     elaboration = fireworksai_mixtral_elaborate_chunk_chain.run(TEST_INSTRUCTIONS)
-    verify_chain_response(elaboration)
+    verify_response(elaboration)
     assert elaboration
     assert len(elaboration) > len(TEST_INSTRUCTIONS)
 
@@ -55,6 +55,6 @@ def test_openai_elaborate_chunk(
     openai_gpt35_elaborate_chunk_chain: ElaborateChunkChain,
 ) -> None:
     elaboration = openai_gpt35_elaborate_chunk_chain.run(TEST_INSTRUCTIONS)
-    verify_chain_response(elaboration)
+    verify_response(elaboration)
     assert elaboration
     assert len(elaboration) > len(TEST_INSTRUCTIONS)

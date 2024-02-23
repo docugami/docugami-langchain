@@ -6,7 +6,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.chains.documents import SummarizeDocumentChain
-from tests.common import TEST_DATA_DIR, verify_chain_response
+from tests.common import TEST_DATA_DIR, verify_response
 from tests.testdata.dgml_samples.dgml_samples_test_data import (
     DG_SAMPLE_TEST_DATA,
     DGSamplesTestData,
@@ -54,7 +54,7 @@ def _runtest_serial(
         with open(md_file, "r", encoding="utf-8") as file:
             contents = file.read()
             summary = chain.run(contents)
-            verify_chain_response(summary)
+            verify_response(summary)
             assert summary
             assert len(summary) < len(contents)
 
@@ -77,7 +77,7 @@ def _runtest_batched(
 
     for idx in range(len(all_contents)):
         summary = all_summaries[idx]
-        verify_chain_response(summary)
+        verify_response(summary)
         assert summary
         assert len(summary) < len(all_contents[idx])
 

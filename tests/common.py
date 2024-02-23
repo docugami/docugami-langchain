@@ -51,7 +51,7 @@ def is_core_tests_only_mode() -> bool:
             return str(core_tests_env_var).lower() == "true"
 
 
-def verify_chain_response(
+def verify_response(
     response: Optional[str],
     match_fragment_str_options: list[str] = [],
     empty_ok: bool = False,

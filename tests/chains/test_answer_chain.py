@@ -6,7 +6,7 @@ from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
-from tests.common import verify_chain_response
+from tests.common import verify_response
 
 
 @pytest.fixture()
@@ -36,7 +36,7 @@ def test_fireworksai_answer(fireworksai_mixtral_answer_chain: AnswerChain) -> No
     answer = fireworksai_mixtral_answer_chain.run(
         "Who formulated the theory of special relativity?"
     )
-    verify_chain_response(answer, ["einstein"])
+    verify_response(answer, ["einstein"])
 
 
 @pytest.mark.skipif(
@@ -55,7 +55,7 @@ async def test_fireworksai_streamed_answer(
     assert chain_response.value
     assert chain_response.run_id
 
-    verify_chain_response(chain_response.value, ["einstein"])
+    verify_response(chain_response.value, ["einstein"])
 
 
 @pytest.mark.skipif(
@@ -65,7 +65,7 @@ def test_openai_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
     answer = openai_gpt35_answer_chain.run(
         "Who formulated the theory of special relativity?"
     )
-    verify_chain_response(answer, ["einstein"])
+    verify_response(answer, ["einstein"])
 
 
 @pytest.mark.skipif(
@@ -77,7 +77,7 @@ def test_openai_traced_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
     )
 
     assert response.run_id
-    verify_chain_response(response.value, ["einstein"])
+    verify_response(response.value, ["einstein"])
 
 
 @pytest.mark.skipif(
@@ -94,4 +94,4 @@ async def test_openai_streamed_answer(openai_gpt35_answer_chain: AnswerChain) ->
     assert chain_response.value
     assert chain_response.run_id
 
-    verify_chain_response(chain_response.value, ["einstein"])
+    verify_response(chain_response.value, ["einstein"])
