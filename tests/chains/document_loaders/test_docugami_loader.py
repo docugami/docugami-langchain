@@ -3,7 +3,7 @@
 import pytest
 
 from docugami_langchain.document_loaders.docugami import DocugamiLoader
-from tests.conftest import TEST_DATA_DIR
+from tests.common import TEST_DATA_DIR
 
 
 @pytest.mark.requires("dgml_utils")

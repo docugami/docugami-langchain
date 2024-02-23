@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 from pathlib import Path
 
-from tests.conftest import (
+from tests.common import (
     CHARTERS_SUMMARY_DATA_FILE,
     CHARTERS_SUMMARY_TABLE_NAME,
     DEMO_MSA_SERVICES_DATA_FILE,
@@ -45,7 +45,13 @@ SQL_TEST_DATA: list[SQLTestData] = [
         question="What are the top 5 companies that issued the most common stock?",
         sql_query='SELECT "Corporation Name", "Shares of Common Stock" FROM "Corporate Charters" ORDER BY "Shares of Common Stock" DESC LIMIT 5',
         sql_result="[('Clearstory Data Inc.', 150000000), ('Cardiva Medical, Inc.', 112000000), ('Avi Networks, Inc.', 110000000), ('Bugcrowd Inc.', 108787009), ('Aisera, Inc.', 90000000)]",
-        explained_result_answer_fragments=["clearstory", "cardiva", "avi networks", "bugcrowd", "aisera"],
+        explained_result_answer_fragments=[
+            "clearstory",
+            "cardiva",
+            "avi networks",
+            "bugcrowd",
+            "aisera",
+        ],
         explained_sql_query_fragments=["top", "common stock"],
     ),
     SQLTestData(
@@ -90,7 +96,12 @@ SQL_TEST_DATA: list[SQLTestData] = [
         question="Which client's contract expires the earliest?",
         sql_query='SELECT "Client", "Completion of the Services by Company Date" FROM "Service Agreements Summary" ORDER BY "Completion of the Services by Company Date" LIMIT 1',
         sql_result="[('Bioplex, Inc.', 'February 15, 2022')]",
-        explained_result_answer_fragments=["vector", "june 15, 2022", "bioplex", "propellant"],
+        explained_result_answer_fragments=[
+            "vector",
+            "june 15, 2022",
+            "bioplex",
+            "propellant",
+        ],
         explained_sql_query_fragments=[],
     ),
     SQLTestData(

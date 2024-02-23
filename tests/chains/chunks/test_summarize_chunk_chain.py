@@ -5,7 +5,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.chains.chunks.summarize_chunk_chain import SummarizeChunkChain
-from tests.conftest import TEST_DATA_DIR, verify_chain_response
+from tests.common import TEST_DATA_DIR, verify_chain_response
 
 TEST_FORCE_MAJEURE_CLAUSE = """In no event shall the Trustee be responsible or liable for any failure or delay in the performance of its obligations hereunder
 arising out of or caused by, directly or indirectly, forces beyond its control, including, without limitation, strikes, work stoppages, accidents, acts of war

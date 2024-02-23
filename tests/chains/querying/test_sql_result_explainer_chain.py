@@ -5,7 +5,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.chains import SQLResultExplainerChain
-from tests.conftest import TEST_DATA_DIR, verify_chain_response
+from tests.common import TEST_DATA_DIR, verify_chain_response
 from tests.testdata.xlsx.sql_test_data import SQL_TEST_DATA, SQLTestData
 
 SQL_EXAMPLES_FILE = TEST_DATA_DIR / "examples/test_sql_examples.yaml"

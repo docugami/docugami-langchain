@@ -14,7 +14,7 @@ from docugami_langchain.chains.querying import (
     SQLResultExplainerChain,
 )
 from docugami_langchain.tools.reports import connect_to_excel
-from tests.conftest import TEST_DATA_DIR, verify_chain_response
+from tests.common import TEST_DATA_DIR, verify_chain_response
 from tests.testdata.xlsx.sql_test_data import SQL_TEST_DATA, SQLTestData
 
 SQL_EXAMPLES_FILE = TEST_DATA_DIR / "examples/test_sql_examples.yaml"

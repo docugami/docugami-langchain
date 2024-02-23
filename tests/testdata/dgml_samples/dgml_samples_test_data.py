@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from tests.conftest import is_core_tests_only_mode
+from tests.common import is_core_tests_only_mode
 
 
 @dataclass

@@ -6,7 +6,7 @@ from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
-from tests.conftest import verify_chain_response
+from tests.common import verify_chain_response
 
 
 @pytest.fixture()

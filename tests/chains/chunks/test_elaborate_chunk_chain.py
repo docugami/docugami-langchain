@@ -5,7 +5,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.chains.chunks.elaborate_chunk_chain import ElaborateChunkChain
-from tests.conftest import TEST_DATA_DIR, verify_chain_response
+from tests.common import TEST_DATA_DIR, verify_chain_response
 
 TEST_INSTRUCTIONS = "Force Majeure clause absolving Trustee of liability in case of factors outside their control"
 
