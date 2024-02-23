@@ -3,8 +3,7 @@ from typing import AsyncIterator, Dict, Optional
 
 from langchain_core.runnables import Runnable, RunnableMap
 
-from docugami_langchain.chains.base import BaseDocugamiChain, TracedChainResponse
-from docugami_langchain.chains.params import ChainParameters
+from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
 from docugami_langchain.chains.querying.sql_query_explainer_chain import (
     SQLQueryExplainerChain,
 )
@@ -12,9 +11,10 @@ from docugami_langchain.chains.querying.sql_result_chain import SQLResultChain
 from docugami_langchain.chains.querying.sql_result_explainer_chain import (
     SQLResultExplainerChain,
 )
+from docugami_langchain.params import RunnableParameters
 
 
-class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[Dict]):
+class DocugamiExplainedSQLQueryChain(BaseRunnable[Dict]):
     sql_result_chain: SQLResultChain
     sql_result_explainer_chain: SQLResultExplainerChain
     sql_query_explainer_chain: Optional[SQLQueryExplainerChain]
@@ -46,7 +46,7 @@ class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[Dict]):
             }
         )
 
-    def chain_params(self) -> ChainParameters:
+    def params(self) -> RunnableParameters:
         raise NotImplementedError()
 
     def run(  # type: ignore[override]
@@ -66,7 +66,7 @@ class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[Dict]):
         self,
         question: str,
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedChainResponse[Dict]]:
+    ) -> AsyncIterator[TracedResponse[Dict]]:
         if not question:
             raise Exception("Input required: question")
 

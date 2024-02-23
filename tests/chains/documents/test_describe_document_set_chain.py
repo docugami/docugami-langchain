@@ -12,7 +12,7 @@ from docugami_langchain.chains.documents import (
     SummarizeDocumentChain,
 )
 from docugami_langchain.config import DEFAULT_EXAMPLES_PER_PROMPT
-from tests.conftest import TEST_DATA_DIR, verify_chain_response
+from tests.common import TEST_DATA_DIR, verify_response
 from tests.testdata.dgml_samples.dgml_samples_test_data import (
     DG_SAMPLE_TEST_DATA,
     DGSamplesTestData,
@@ -102,7 +102,7 @@ def _runtest(
         summaries=selected_summary_docs,
         docset_name=test_data.test_data_dir,
     )
-    verify_chain_response(description, empty_ok=False)
+    verify_response(description, empty_ok=False)
 
 
 @pytest.mark.parametrize("test_data", DG_SAMPLE_TEST_DATA)

@@ -7,19 +7,22 @@ from docugami_langchain.config import DEFAULT_EXAMPLES_PER_PROMPT
 
 
 @dataclass
-class ChainSingleParameter:
+class RunnableSingleParameter:
     variable: str
     key: str
     description: str
 
 
 @dataclass
-class ChainParameters:
-    inputs: list[ChainSingleParameter]
-    output: ChainSingleParameter
+class RunnableParameters:
+    inputs: list[RunnableSingleParameter]
+    output: RunnableSingleParameter
     task_description: str
     additional_instructions: list[str]
     stop_sequences: list[str] = field(default_factory=lambda: ["\n", "<s>", "</s>"])
     num_examples: int = DEFAULT_EXAMPLES_PER_PROMPT
     additional_runnables: Optional[list[Runnable]] = None
     key_finding_output_parse: bool = True
+
+
+__all__ = ["RunnableSingleParameter", "RunnableParameters"]

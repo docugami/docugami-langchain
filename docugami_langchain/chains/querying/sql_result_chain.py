@@ -5,19 +5,19 @@ from typing import Any, AsyncIterator, Dict, Optional
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.runnables import Runnable, RunnableLambda
 
-from docugami_langchain.chains.base import BaseDocugamiChain, TracedChainResponse
+from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
 from docugami_langchain.chains.helpers import (
     replace_table_name_in_select,
     table_name_from_sql_create,
 )
-from docugami_langchain.chains.params import ChainParameters, ChainSingleParameter
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
 from docugami_langchain.output_parsers.sql_finding import SQLFindingOutputParser
+from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 logger = logging.getLogger(__name__)
 
 
-class SQLResultChain(BaseDocugamiChain[Dict]):
+class SQLResultChain(BaseRunnable[Dict]):
     db: SQLDatabase
     sql_fixup_chain: Optional[SQLFixupChain] = None
 
@@ -104,21 +104,21 @@ class SQLResultChain(BaseDocugamiChain[Dict]):
             run_sql_query  # type: ignore
         )
 
-    def chain_params(self) -> ChainParameters:
-        return ChainParameters(
+    def params(self) -> RunnableParameters:
+        return RunnableParameters(
             inputs=[
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "question",
                     "QUESTION",
                     "Question asked by the user.",
                 ),
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "table_info",
                     "TABLE DESCRIPTION",
                     "Description of the table to be queried via SQL.",
                 ),
             ],
-            output=ChainSingleParameter(
+            output=RunnableSingleParameter(
                 "sql_query",
                 "SQL QUERY",
                 "SQL Query that should be run against the table to answer the question, considering the rules and examples provided. Do NOT generate a direct non-SQL answer, even if you know it."
@@ -164,7 +164,7 @@ class SQLResultChain(BaseDocugamiChain[Dict]):
         self,
         question: str,
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedChainResponse[Dict]]:
+    ) -> AsyncIterator[TracedResponse[Dict]]:
         if not question:
             raise Exception("Input required: question")
 

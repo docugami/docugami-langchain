@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docugami-langchain"
-version = "0.0.6"
+version = "0.0.7rc1"
 description = "An integration package connecting Docugami and LangChain"
 authors = []
 readme = "README.md"
@@ -12,15 +12,15 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
-langchain-core = ">=0.1.24"
+langchain-core = ">=0.1.25"
 langchain-community = "^0.0.21"
+langgraph = "^0.0.24"
 dgml-utils = "^0.3.2"
 wordtodigits = "^1.0.2"
 python-dateutil = "^2.8.2"
 pandas = "^1.5.3"
 pyyaml = "^6.0.1"
 openpyxl = "^3.1.2"
-
 sqlparse = "^0.4.4"
 
 [tool.poetry.group.test]
@@ -75,7 +75,7 @@ disallow_untyped_defs = "True"
 
 [[tool.mypy.overrides]]
 module = [
-    "wordtodigits", "pandas", "sqlparse"
+    "wordtodigits", "pandas", "sqlparse", "langgraph.*",
 ]
 ignore_missing_imports = true
 

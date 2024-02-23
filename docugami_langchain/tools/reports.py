@@ -9,7 +9,7 @@ from langchain_community.tools.sql_database.tool import BaseSQLDatabaseTool
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.callbacks import CallbackManagerForToolRun
 from langchain_core.embeddings import Embeddings
-from langchain_core.language_models.chat_models import BaseChatModel
+from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
@@ -119,7 +119,7 @@ def get_retrieval_tool_for_report(
     report_name: str,
     retrieval_tool_function_name: str,
     retrieval_tool_description: str,
-    sql_llm: BaseChatModel,
+    sql_llm: BaseLanguageModel,
     embeddings: Embeddings,
     sql_fixup_examples_file: Optional[Path] = None,
     sql_examples_file: Optional[Path] = None,

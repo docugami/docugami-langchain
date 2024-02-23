@@ -1,10 +1,10 @@
 import re
 from pathlib import Path
-from typing import Any, List, Optional
+from typing import Any, Optional
 
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
-from langchain_core.language_models.chat_models import BaseChatModel
+from langchain_core.language_models import BaseLanguageModel
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_core.tools import BaseTool, Tool
 from langchain_core.vectorstores import VectorStore
@@ -23,7 +23,7 @@ from docugami_langchain.retrievers.fused_summary import (
 class RetrieverInput(BaseModel):
     """Input to the retriever."""
 
-    query: str = Field(description="query to look up in retriever")
+    question: str = Field(description="question to look up in retriever, to find relevant chunks that might contain answers")
 
 
 def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
@@ -57,8 +57,8 @@ def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
 
 def summaries_to_direct_retriever_tool_description(
     name: str,
-    summaries: List[Document],
-    llm: BaseChatModel,
+    summaries: list[Document],
+    llm: BaseLanguageModel,
     embeddings: Embeddings,
     max_sample_documents_cutoff_length: int = MAX_FULL_DOCUMENT_TEXT_LENGTH,
     describe_document_set_examples_file: Optional[Path] = None,
@@ -72,7 +72,7 @@ def summaries_to_direct_retriever_tool_description(
         chain.load_examples(describe_document_set_examples_file)
 
     description = chain.run(summaries=summaries, docset_name=name)
-    return f"Given a single input 'query' parameter, searches for and returns chunks from {name} documents. {description}"
+    return f"Given a single input 'question' parameter, searches for and returns relevant chunks from {name} documents that might contain answers. {description}"
 
 
 def get_retrieval_tool_for_docset(
@@ -100,15 +100,15 @@ def get_retrieval_tool_for_docset(
         return None
 
     def wrapped_get_relevant_documents(
-        query: str,
+        question: str,
         callbacks: Any = None,
         tags: Any = None,
         metadata: Any = None,
         run_name: Any = None,
         **kwargs: Any,
     ) -> str:
-        docs: List[Document] = retriever.get_relevant_documents(
-            query,
+        docs: list[Document] = retriever.get_relevant_documents(
+            query=question,
             callbacks=callbacks,
             tags=tags,
             metadata=metadata,
@@ -118,15 +118,15 @@ def get_retrieval_tool_for_docset(
         return "\n\n".join([doc.page_content for doc in docs])
 
     async def awrapped_get_relevant_documents(
-        query: str,
+        question: str,
         callbacks: Any = None,
         tags: Any = None,
         metadata: Any = None,
         run_name: Any = None,
         **kwargs: Any,
     ) -> str:
-        docs: List[Document] = await retriever.aget_relevant_documents(
-            query,
+        docs: list[Document] = await retriever.aget_relevant_documents(
+            query=question,
             callbacks=callbacks,
             tags=tags,
             metadata=metadata,

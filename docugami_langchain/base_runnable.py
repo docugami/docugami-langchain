@@ -15,12 +15,12 @@ from langchain_core.runnables import Runnable
 from langchain_core.tracers.context import collect_runs
 from langchain_core.vectorstores import VectorStore
 
-from docugami_langchain.chains.params import ChainParameters
 from docugami_langchain.config import (
     DEFAULT_EXAMPLES_PER_PROMPT,
     MAX_PARAMS_CUTOFF_LENGTH_CHARS,
 )
 from docugami_langchain.output_parsers import KeyfindingOutputParser
+from docugami_langchain.params import RunnableParameters
 from docugami_langchain.prompts import (
     chat_prompt_template,
     generic_string_prompt_template,
@@ -33,14 +33,14 @@ RUN_NAME_KEY: str = "run_name"
 
 
 @dataclass
-class TracedChainResponse(Generic[T]):
+class TracedResponse(Generic[T]):
     value: T
     run_id: str = ""
 
 
-class BaseDocugamiChain(BaseModel, Generic[T], ABC):
+class BaseRunnable(BaseModel, Generic[T], ABC):
     """
-    Base class with common functionality for various chains.
+    Base class with common functionality for various runnables.
     """
 
     llm: BaseLanguageModel
@@ -80,7 +80,7 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
         """
         Optional: loads examples from the given examples file (YAML) and initializes an
         internal example selector that select appropriate examples for each prompt. Note
-        that each chain requires its own particular format for examples based on the
+        that each runnable requires its own particular format for examples based on the
         keys required in its prompt.
 
         The provided embeddings instance is used to embed the examples for similarity.
@@ -115,21 +115,21 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
 
     def prompt(
         self,
-        chain_params: ChainParameters,
+        params: RunnableParameters,
         num_examples: int = DEFAULT_EXAMPLES_PER_PROMPT,
     ) -> BasePromptTemplate:
         if isinstance(self.llm, BaseChatModel):
             # For chat model instances, use chat prompts with
             # specially crafted system and few shot messages.
             return chat_prompt_template(
-                chain_params=chain_params,
+                params=params,
                 example_selector=self._example_selector,
                 num_examples=min(num_examples, len(self._examples)),
             )
         else:
             # For non-chat model instances, we need a string prompt
             return generic_string_prompt_template(
-                chain_params=chain_params,
+                params=params,
                 example_selector=self._example_selector,
                 num_examples=min(num_examples, len(self._examples)),
             )
@@ -140,7 +140,7 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
         """
 
         # Build up prompt for this use case, possibly customizing for this model
-        params = self.chain_params()
+        params = self.params()
         prompt_template = self.prompt(params)
 
         # Generate answer from the LLM
@@ -191,14 +191,14 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
 
         return self.runnable().invoke(input=kwargs_dict, config=config)  # type: ignore
 
-    def traced_run(self, **kwargs) -> TracedChainResponse[T]:  # type: ignore
+    def traced_run(self, **kwargs) -> TracedResponse[T]:  # type: ignore
         with collect_runs() as cb:
             chain_output: T = self.run(**kwargs)
             run_id = str(cb.traced_runs[0].id)
-            return TracedChainResponse[T](run_id=run_id, value=chain_output)
+            return TracedResponse[T](run_id=run_id, value=chain_output)
 
     @abstractmethod
-    async def run_stream(self, **kwargs) -> AsyncIterator[TracedChainResponse[T]]:  # type: ignore
+    async def run_stream(self, **kwargs) -> AsyncIterator[TracedResponse[T]]:  # type: ignore
         config, kwargs_dict = self._prepare_run_args(kwargs)
 
         with collect_runs() as cb:
@@ -212,12 +212,12 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
                 else:
                     incremental_answer += chunk
 
-                yield TracedChainResponse[T](value=incremental_answer)
+                yield TracedResponse[T](value=incremental_answer)
 
             # yield the final result with the run_id
             if cb.traced_runs:
                 run_id = str(cb.traced_runs[0].id)
-                yield TracedChainResponse[T](
+                yield TracedResponse[T](
                     run_id=run_id,
                     value=incremental_answer,  # type: ignore
                 )
@@ -244,4 +244,7 @@ class BaseDocugamiChain(BaseModel, Generic[T], ABC):
         return self.runnable().batch(inputs=inputs, config=config)  # type: ignore
 
     @abstractmethod
-    def chain_params(self) -> ChainParameters: ...
+    def params(self) -> RunnableParameters: ...
+
+
+__all__ = ["TracedResponse", "BaseRunnable"]

@@ -5,7 +5,7 @@ from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from docugami_langchain.chains.base import TracedChainResponse
+from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.querying import (
     DocugamiExplainedSQLQueryChain,
     SQLFixupChain,
@@ -14,7 +14,7 @@ from docugami_langchain.chains.querying import (
     SQLResultExplainerChain,
 )
 from docugami_langchain.tools.reports import connect_to_excel
-from tests.conftest import TEST_DATA_DIR, verify_chain_response
+from tests.common import TEST_DATA_DIR, verify_response
 from tests.testdata.xlsx.sql_test_data import SQL_TEST_DATA, SQLTestData
 
 SQL_EXAMPLES_FILE = TEST_DATA_DIR / "examples/test_sql_examples.yaml"
@@ -63,7 +63,7 @@ def _runtest(chain: DocugamiExplainedSQLQueryChain, test_data: SQLTestData) -> N
     response = chain.run(question=test_data.question)
     results = response.get("results")
     assert results
-    verify_chain_response(
+    verify_response(
         results.get("explained_sql_result"), test_data.explained_result_answer_fragments
     )
 
@@ -71,7 +71,7 @@ def _runtest(chain: DocugamiExplainedSQLQueryChain, test_data: SQLTestData) -> N
 async def _runtest_streamed(
     chain: DocugamiExplainedSQLQueryChain, test_data: SQLTestData
 ) -> None:
-    chain_response = TracedChainResponse[dict](value={})
+    chain_response = TracedResponse[dict](value={})
     async for incremental_response in chain.run_stream(question=test_data.question):
         chain_response = incremental_response
 
@@ -79,7 +79,7 @@ async def _runtest_streamed(
     assert chain_response.run_id
     results = chain_response.value.get("results")
     assert results
-    verify_chain_response(
+    verify_response(
         results.get("explained_sql_result"), test_data.explained_result_answer_fragments
     )
 

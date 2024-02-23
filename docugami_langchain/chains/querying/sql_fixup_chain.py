@@ -1,31 +1,31 @@
 from typing import AsyncIterator, Optional, Tuple
 
-from docugami_langchain.chains.base import BaseDocugamiChain, TracedChainResponse
-from docugami_langchain.chains.params import ChainParameters, ChainSingleParameter
+from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
 from docugami_langchain.output_parsers.sql_finding import SQLFindingOutputParser
+from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class SQLFixupChain(BaseDocugamiChain[str]):
-    def chain_params(self) -> ChainParameters:
-        return ChainParameters(
+class SQLFixupChain(BaseRunnable[str]):
+    def params(self) -> RunnableParameters:
+        return RunnableParameters(
             inputs=[
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "table_info",
                     "TABLE DESCRIPTION",
                     "Description of the table to be queried via SQL.",
                 ),
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "sql_query",
                     "INPUT SQL QUERY",
                     "SQL query with possible mistakes that should be fixed.",
                 ),
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "exception",
                     "EXCEPTION",
                     "SQL exception returned when executing the SQL query with mistakes.",
                 ),
             ],
-            output=ChainSingleParameter(
+            output=RunnableSingleParameter(
                 "fixed_sql_query",
                 "FIXED SQL QUERY",
                 "Fixed SQL query, considering the rules and examples provided.",
@@ -72,7 +72,7 @@ class SQLFixupChain(BaseDocugamiChain[str]):
         sql_query: str,
         exception: str,
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedChainResponse[str]]:
+    ) -> AsyncIterator[TracedResponse[str]]:
         if not table_info or not sql_query or not exception:
             raise Exception("Inputs required: table_info, sql_query, exception")
 

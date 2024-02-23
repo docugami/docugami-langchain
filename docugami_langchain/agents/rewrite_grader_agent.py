@@ -1,32 +1,34 @@
-from typing import AsyncIterator, Optional
+# Adapted with thanks from https://github.com/langchain-ai/langgraph/blob/main/examples/rag/langgraph_agentic_rag.ipynb
+
+from typing import AsyncIterator, Dict, Optional
+
+from langchain_core.runnables import Runnable
 
 from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
-from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
+from docugami_langchain.params import RunnableParameters
 
 
-class AnswerChain(BaseRunnable[str]):
+class RewriteGraderRAGAgent(BaseRunnable[Dict]):
+    """
+    Agent that implements agentic RAG with the following additional optimizations:
+    1. Query Rewriting
+    2. Retrieval Grading
+    """
+
     def params(self) -> RunnableParameters:
-        return RunnableParameters(
-            inputs=[
-                RunnableSingleParameter(
-                    "question", "QUESTION", "A question from the user."
-                )
-            ],
-            output=RunnableSingleParameter(
-                "answer",
-                "ANSWER",
-                "A helpful answer, aligned with the rules outlined above",
-            ),
-            task_description="answers general questions",
-            additional_instructions=["- Shorter answers are better."],
-            key_finding_output_parse=False,  # set to False for streaming
-        )
+        raise NotImplementedError()
+
+    def runnable(self) -> Runnable:
+        """
+        Custom runnable for this chain.
+        """
+        raise NotImplementedError()
 
     def run(  # type: ignore[override]
         self,
         question: str,
         config: Optional[dict] = None,
-    ) -> str:
+    ) -> Dict:
         if not question:
             raise Exception("Input required: question")
 
@@ -39,7 +41,7 @@ class AnswerChain(BaseRunnable[str]):
         self,
         question: str,
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedResponse[str]]:
+    ) -> AsyncIterator[TracedResponse[Dict]]:
         if not question:
             raise Exception("Input required: question")
 
@@ -52,7 +54,7 @@ class AnswerChain(BaseRunnable[str]):
         self,
         inputs: list[str],
         config: Optional[dict] = None,
-    ) -> list[str]:
+    ) -> list[Dict]:
         return super().run_batch(
             inputs=[{"question": i} for i in inputs],
             config=config,

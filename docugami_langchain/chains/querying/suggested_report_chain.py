@@ -1,18 +1,18 @@
 from operator import itemgetter
-from typing import AsyncIterator, List, Optional
+from typing import AsyncIterator, Optional
 
 from langchain_core.documents import Document
 from langchain_core.runnables import Runnable, RunnableLambda
 
-from docugami_langchain.chains.base import BaseDocugamiChain, TracedChainResponse
+from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
 from docugami_langchain.chains.helpers import formatted_summaries
-from docugami_langchain.chains.params import ChainParameters, ChainSingleParameter
 from docugami_langchain.output_parsers.line_separated_list import (
     LineSeparatedListOutputParser,
 )
+from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class SuggestedReportChain(BaseDocugamiChain[list[str]]):
+class SuggestedReportChain(BaseRunnable[list[str]]):
     def runnable(self) -> Runnable:
         """
         Custom runnable for this chain.
@@ -22,16 +22,16 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
             "summaries": itemgetter("summaries") | RunnableLambda(formatted_summaries),
         } | super().runnable()
 
-    def chain_params(self) -> ChainParameters:
-        return ChainParameters(
+    def params(self) -> RunnableParameters:
+        return RunnableParameters(
             inputs=[
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "summaries",
                     "SUMMARIES",
                     "Summaries of representative documents from a set of documents",
                 ),
             ],
-            output=ChainSingleParameter(
+            output=RunnableSingleParameter(
                 "suggested_report_columns",
                 "SUGGESTED REPORT COLUMNS",
                 "Up to 20 suggested columns for an automatically generated report against documents similar to the ones provided.",
@@ -52,7 +52,7 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
 
     def run(  # type: ignore[override]
         self,
-        summaries: List[Document],
+        summaries: list[Document],
         config: Optional[dict] = None,
     ) -> list[str]:
         if not summaries:
@@ -65,9 +65,9 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
 
     def run_stream(  # type: ignore[override]
         self,
-        summaries: List[Document],
+        summaries: list[Document],
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedChainResponse[list[str]]]:
+    ) -> AsyncIterator[TracedResponse[list[str]]]:
         if not summaries:
             raise Exception("Input required: summaries")
 

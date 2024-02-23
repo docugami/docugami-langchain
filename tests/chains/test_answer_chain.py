@@ -4,9 +4,9 @@ import pytest
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
+from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
-from docugami_langchain.chains.base import TracedChainResponse
-from tests.conftest import verify_chain_response
+from tests.common import verify_response
 
 
 @pytest.fixture()
@@ -14,7 +14,7 @@ def fireworksai_mixtral_answer_chain(
     fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
 ) -> AnswerChain:
     """
-    FireworksAI endpoint chain to do generic answers using mixtral.
+    Fireworks AI endpoint chain to do generic answers using mixtral.
     """
     return AnswerChain(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
 
@@ -30,23 +30,23 @@ def openai_gpt35_answer_chain(
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="FireworksAI API token not set"
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
 )
 def test_fireworksai_answer(fireworksai_mixtral_answer_chain: AnswerChain) -> None:
     answer = fireworksai_mixtral_answer_chain.run(
         "Who formulated the theory of special relativity?"
     )
-    verify_chain_response(answer, ["einstein"])
+    verify_response(answer, ["einstein"])
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="FireworksAI API token not set"
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
 )
 @pytest.mark.asyncio
 async def test_fireworksai_streamed_answer(
     fireworksai_mixtral_answer_chain: AnswerChain,
 ) -> None:
-    chain_response = TracedChainResponse[str](value="")
+    chain_response = TracedResponse[str](value="")
     async for incremental_response in fireworksai_mixtral_answer_chain.run_stream(
         "Who formulated the theory of special relativity?"
     ):
@@ -55,7 +55,7 @@ async def test_fireworksai_streamed_answer(
     assert chain_response.value
     assert chain_response.run_id
 
-    verify_chain_response(chain_response.value, ["einstein"])
+    verify_response(chain_response.value, ["einstein"])
 
 
 @pytest.mark.skipif(
@@ -65,7 +65,7 @@ def test_openai_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
     answer = openai_gpt35_answer_chain.run(
         "Who formulated the theory of special relativity?"
     )
-    verify_chain_response(answer, ["einstein"])
+    verify_response(answer, ["einstein"])
 
 
 @pytest.mark.skipif(
@@ -77,7 +77,7 @@ def test_openai_traced_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
     )
 
     assert response.run_id
-    verify_chain_response(response.value, ["einstein"])
+    verify_response(response.value, ["einstein"])
 
 
 @pytest.mark.skipif(
@@ -85,7 +85,7 @@ def test_openai_traced_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
 )
 @pytest.mark.asyncio
 async def test_openai_streamed_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
-    chain_response = TracedChainResponse[str](value="")
+    chain_response = TracedResponse[str](value="")
     async for incremental_response in openai_gpt35_answer_chain.run_stream(
         "Who formulated the theory of special relativity?"
     ):
@@ -94,4 +94,4 @@ async def test_openai_streamed_answer(openai_gpt35_answer_chain: AnswerChain) ->
     assert chain_response.value
     assert chain_response.run_id
 
-    verify_chain_response(chain_response.value, ["einstein"])
+    verify_response(chain_response.value, ["einstein"])

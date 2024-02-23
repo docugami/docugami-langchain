@@ -3,14 +3,14 @@ from typing import Any, AsyncIterator
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.runnables import Runnable, RunnableLambda
 
-from docugami_langchain.chains.base import BaseDocugamiChain, TracedChainResponse
-from docugami_langchain.chains.params import ChainParameters, ChainSingleParameter
+from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
 from docugami_langchain.output_parsers.line_separated_list import (
     LineSeparatedListOutputParser,
 )
+from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
+class SuggestedQuestionsChain(BaseRunnable[list[str]]):
     db: SQLDatabase
 
     def runnable(self) -> Runnable:
@@ -25,16 +25,16 @@ class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
             "table_info": RunnableLambda(table_info),
         } | super().runnable()
 
-    def chain_params(self) -> ChainParameters:
-        return ChainParameters(
+    def params(self) -> RunnableParameters:
+        return RunnableParameters(
             inputs=[
-                ChainSingleParameter(
+                RunnableSingleParameter(
                     "table_info",
                     "TABLE DESCRIPTION",
                     "Description of the table.",
                 ),
             ],
-            output=ChainSingleParameter(
+            output=RunnableSingleParameter(
                 "suggested_questions",
                 "SUGGESTED QUESTIONS",
                 "Some suggested questions that may be asked against the table, considering the rules and examples provided.",
@@ -57,7 +57,7 @@ class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
 
     def run_stream(  # type: ignore[override]
         self,
-    ) -> AsyncIterator[TracedChainResponse[list[str]]]:
+    ) -> AsyncIterator[TracedResponse[list[str]]]:
         return super().run_stream()
 
     def run_batch(  # type: ignore[override]

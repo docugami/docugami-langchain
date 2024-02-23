@@ -1,15 +1,24 @@
 from docugami_langchain import __all__
 
+EXPECTED_BASE = [
+    "BaseRunnable",
+    "TracedResponse",
+    "RunnableParameters",
+    "RunnableSingleParameter",
+]
+
+EXPECTED_AGENTS = [
+    "ReWOOAgent",
+    "ReActAgent",
+    "RewriteGraderRAGAgent",
+]
+
 EXPECTED_CHAINS = [
     "AnswerChain",
-    "BaseDocugamiChain",
-    "TracedChainResponse",
     "ElaborateChunkChain",
     "SummarizeChunkChain",
     "SummarizeDocumentChain",
     "DescribeDocumentSetChain",
-    "ChainParameters",
-    "ChainSingleParameter",
     "DocugamiExplainedSQLQueryChain",
     "SQLFixupChain",
     "SQLQueryExplainerChain",
@@ -36,7 +45,9 @@ EXPECTED_OUTPUT_PARSERS = [
 EXPECTED_RETRIEVERS = ["SearchType", "FusedSummaryRetriever"]
 
 EXPECTED_ALL = (
-    EXPECTED_CHAINS
+    EXPECTED_BASE
+    + EXPECTED_AGENTS
+    + EXPECTED_CHAINS
     + EXPECTED_DOCUMENT_LOADERS
     + EXPECTED_OUTPUT_PARSERS
     + EXPECTED_RETRIEVERS

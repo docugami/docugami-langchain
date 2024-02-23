@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import Callable, Dict, List, Optional
+from typing import Callable, Dict, Optional
 
 from langchain_core.callbacks.manager import CallbackManagerForRetrieverRun
 from langchain_core.documents import Document
@@ -28,7 +28,7 @@ class SearchType(str, Enum):
 class FusedDocumentElements:
     rank: int
     summary: str
-    fragments: List[str]
+    fragments: list[str]
     source: str
 
 
@@ -87,7 +87,7 @@ class FusedSummaryRetriever(BaseRetriever):
 
     def _get_relevant_documents(
         self, query: str, *, run_manager: CallbackManagerForRetrieverRun
-    ) -> List[Document]:
+    ) -> list[Document]:
         """Get documents relevant to a query.
         Args:
             query: String to find relevant documents for
@@ -133,7 +133,7 @@ class FusedSummaryRetriever(BaseRetriever):
                     parent if parent else sub_doc.page_content
                 )
 
-        fused_docs: List[Document] = []
+        fused_docs: list[Document] = []
         for element in sorted(fused_doc_elements.values(), key=lambda x: x.rank):
             fragments_str: str = "\n\n".join([d.strip() for d in element.fragments])
             fused_docs.append(
