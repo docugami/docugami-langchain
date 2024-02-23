@@ -1,6 +1,6 @@
 # Adapted with thanks from
 import operator
-from typing import Annotated, AsyncIterator, Optional, Tuple, TypedDict, Union
+from typing import Annotated, AsyncIterator, Dict, Optional, Tuple, TypedDict, Union
 
 from langchain_core.agents import AgentAction, AgentFinish
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
@@ -185,17 +185,17 @@ class ReActAgent(BaseRunnable[AgentState]):
 
         tool_executor = ToolExecutor(self.tools)
 
-        def run_agent(data):
+        def run_agent(data: Dict) -> Dict:
             agent_outcome = agent_runnable.invoke(data)
             return {"agent_outcome": agent_outcome}
 
-        def execute_tools(data):
+        def execute_tools(data: Dict) -> Dict:
             # Get the most recent agent_outcome - this is the key added in the `agent` above
             agent_action = data["agent_outcome"]
             output = tool_executor.invoke(agent_action)
             return {"intermediate_steps": [(agent_action, str(output))]}
 
-        def should_continue(data):
+        def should_continue(data: Dict) -> str:
             # If the agent outcome is an AgentFinish, then we return `exit` string
             # This will be used when setting up the graph to define the flow
             if isinstance(data["agent_outcome"], AgentFinish):

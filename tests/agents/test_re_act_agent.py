@@ -14,7 +14,7 @@ TEST_QUESTION = "What is the accident number for the incident in madill, oklahom
 TEST_ANSWER_OPTIONS = ["DFW08CA044"]
 
 
-def _get_answer(response: AgentState):
+def _get_answer(response: AgentState) -> str:
     outcome = response.get("agent_outcome")
     assert outcome
     assert isinstance(outcome, AgentFinish)
