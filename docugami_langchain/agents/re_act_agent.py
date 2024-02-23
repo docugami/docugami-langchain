@@ -1,11 +1,12 @@
 # Adapted with thanks from
 import operator
-from typing import Annotated, AsyncIterator, Dict, Optional, Tuple, TypedDict, Union
+from typing import Annotated, AsyncIterator, Dict, Optional, Tuple, Type, TypedDict, Union
 
 from langchain_core.agents import AgentAction, AgentFinish
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_core.runnables import Runnable
+from langchain_core.pydantic_v1 import BaseModel, Field
+from langchain_core.runnables import Runnable, RunnableConfig
 from langchain_core.tools import BaseTool
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt.tool_executor import ToolExecutor
@@ -47,9 +48,9 @@ There are two kinds of tools:
 
         SOURCE: [Human readable version of SQL query from the tool's output. Do NOT include the SQL very verbatim, describe it in english for a non-technical user.]
 
-The way you use these tool is by specifying a json blob. Specifically:
+The way you use these tools is by specifying a json blob. Specifically:
 
-- This json should have a `action` key (with the name of the tool to use) and an `action_input` key (with the input to the tool going here).
+- This json should have a `action` key (with the name of the tool to use) and an `action_input` key (with the string input to the tool going here).
 - The only values that may exist in the "action" field are (one of): {tool_names}
 
 The $JSON_BLOB should only contain a SINGLE action, do NOT return a list of multiple actions. Here is an example of a valid $JSON_BLOB:
@@ -57,7 +58,7 @@ The $JSON_BLOB should only contain a SINGLE action, do NOT return a list of mult
 ```
 {{
   "action": $TOOL_NAME,
-  "action_input": $INPUT
+  "action_input": $INPUT_STRING
 }}
 ```
 
@@ -88,6 +89,14 @@ Begin!
 """
 )
 
+class AgentInput(BaseModel):
+    input: str = ""
+    chat_history: list[Tuple[str, str]] = Field(
+        default=[],
+        extra={
+            "widget": {"type": "chat", "input": "input", "output": "output"},
+        },
+    )
 
 class AgentState(TypedDict):
     # The input question
@@ -109,6 +118,11 @@ class ReActAgent(BaseRunnable[AgentState]):
     """
 
     tools: list[BaseTool] = []
+
+    def get_input_schema(
+        self, config: Optional[RunnableConfig] = None
+    ) -> Type[BaseModel]:
+        return AgentInput
 
     def params(self) -> RunnableParameters:
         raise NotImplementedError()
@@ -141,22 +155,20 @@ class ReActAgent(BaseRunnable[AgentState]):
                 thoughts += f"\n{observation_prefix}{observation}\n{llm_prefix}"
             return thoughts
 
-        def render_text_description_and_args(tools: list[BaseTool]) -> str:
-            """Render the tool name, description, and args in plain text.
+        def render_text_description(tools: list[BaseTool]) -> str:
+            """Render the tool name and description in plain text.
 
             Output will be in the format of:
 
             .. code-block:: markdown
 
-                search: This tool is used for search, args: {"query": {"type": "string"}}
-                calculator: This tool is used for math, \
-                args: {"expression": {"type": "string"}}
+                search: This tool is used for search
+                calculator: This tool is used for math
             """
             tool_strings = []
             for tool in tools:
-                args_schema = str(tool.args)
                 tool_strings.append(
-                    f"{tool.name}: {tool.description}, args: {args_schema}"
+                    f"{tool.name}: {tool.description}"
                 )
             return "\n".join(tool_strings)
 
@@ -175,7 +187,7 @@ class ReActAgent(BaseRunnable[AgentState]):
                 "agent_scratchpad": lambda x: format_log_to_str(
                     x["intermediate_steps"]
                 ),
-                "tools": lambda x: render_text_description_and_args(self.tools),
+                "tools": lambda x: render_text_description(self.tools),
                 "tool_names": lambda x: ", ".join([t.name for t in self.tools]),
             }
             | prompt
