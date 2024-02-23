@@ -20,7 +20,7 @@ def fireworksai_mixtral_summarize_chunk_chain(
     huggingface_minilm: Embeddings,
 ) -> SummarizeChunkChain:
     """
-    FireworksAI chain to do chunk summarize using mixtral.
+    Fireworks AI chain to do chunk summarize using mixtral.
     """
     chain = SummarizeChunkChain(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
     chain.load_examples(TEST_DATA_DIR / "examples/test_summarize_chunk_examples.yaml")

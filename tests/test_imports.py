@@ -7,6 +7,9 @@ EXPECTED_BASE = [
     "RunnableSingleParameter",
 ]
 
+EXPECTED_AGENTS = [
+    "ReWOOAgent",
+]
 EXPECTED_CHAINS = [
     "AnswerChain",
     "ElaborateChunkChain",

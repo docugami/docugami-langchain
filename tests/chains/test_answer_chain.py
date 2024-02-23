@@ -14,7 +14,7 @@ def fireworksai_mixtral_answer_chain(
     fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
 ) -> AnswerChain:
     """
-    FireworksAI endpoint chain to do generic answers using mixtral.
+    Fireworks AI endpoint chain to do generic answers using mixtral.
     """
     return AnswerChain(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
 
@@ -30,7 +30,7 @@ def openai_gpt35_answer_chain(
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="FireworksAI API token not set"
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
 )
 def test_fireworksai_answer(fireworksai_mixtral_answer_chain: AnswerChain) -> None:
     answer = fireworksai_mixtral_answer_chain.run(
@@ -40,7 +40,7 @@ def test_fireworksai_answer(fireworksai_mixtral_answer_chain: AnswerChain) -> No
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="FireworksAI API token not set"
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
 )
 @pytest.mark.asyncio
 async def test_fireworksai_streamed_answer(

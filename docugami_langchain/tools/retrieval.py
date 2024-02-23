@@ -4,7 +4,7 @@ from typing import Any, List, Optional
 
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
-from langchain_core.language_models.chat_models import BaseChatModel
+from langchain_core.language_models import BaseLanguageModel
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_core.tools import BaseTool, Tool
 from langchain_core.vectorstores import VectorStore
@@ -58,7 +58,7 @@ def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
 def summaries_to_direct_retriever_tool_description(
     name: str,
     summaries: List[Document],
-    llm: BaseChatModel,
+    llm: BaseLanguageModel,
     embeddings: Embeddings,
     max_sample_documents_cutoff_length: int = MAX_FULL_DOCUMENT_TEXT_LENGTH,
     describe_document_set_examples_file: Optional[Path] = None,

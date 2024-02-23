@@ -4,7 +4,8 @@ from pathlib import Path
 from typing import Optional
 
 TEST_DATA_DIR = Path(__file__).parent / "testdata"
-RAG_TEST_DGML_DATA_DIR = TEST_DATA_DIR / "dgml_samples"
+RAG_TEST_DGML_DOCSET_NAME = "NTSB Aviation Incident Reports"
+RAG_TEST_DGML_DATA_DIR = TEST_DATA_DIR / "dgml_samples" / RAG_TEST_DGML_DOCSET_NAME
 EXAMPLES_PATH = TEST_DATA_DIR / "examples"
 
 CHARTERS_SUMMARY_DATA_FILE = TEST_DATA_DIR / "xlsx/Charters Summary.xlsx"

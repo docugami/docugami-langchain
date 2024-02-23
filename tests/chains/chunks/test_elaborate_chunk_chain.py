@@ -16,7 +16,7 @@ def fireworksai_mixtral_elaborate_chunk_chain(
     huggingface_minilm: Embeddings,
 ) -> ElaborateChunkChain:
     """
-    FireworksAI endpoint chain to do chunk elaborate using mixtral.
+    Fireworks AI endpoint chain to do chunk elaborate using mixtral.
     """
     chain = ElaborateChunkChain(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
     chain.load_examples(TEST_DATA_DIR / "examples/test_elaborate_chunk_examples.yaml")

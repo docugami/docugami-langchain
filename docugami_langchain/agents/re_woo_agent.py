@@ -52,7 +52,7 @@ PLAN_REGEX_PATTERN = r"Plan:\s*(.+)\s*(#E\d+)\s*=\s*(\w+)\s*\[([^\]]+)\]"
 
 class ReWOOState(TypedDict):
     steps: List
-    plan: str
+    plan_string: str
     task: str
     results: Dict
     result: str
@@ -79,23 +79,25 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
             task = state["task"]
             tool_list = ""
             for i in range(len(self.tools)):
+                tool = self.tools[i]
                 # Start from (2) since (1) is always the default LLM tool
-                tool = self.tools[i + 2]
-                tool_list += f"({i}) {tool.name}[input]: {tool.description}"
+                tool_list += f"({i + 2}) {tool.name}[input]: {tool.description}"
             result = planner.invoke({"task": task, "tools": tool_list})
             # Find all matches in the sample text
             matches = re.findall(PLAN_REGEX_PATTERN, result.content)
             return {"steps": matches, "plan_string": result.content}
 
-        def _get_current_task(state: ReWOOState) -> int:
+        def get_current_task(state: ReWOOState) -> int:
             if state["results"] is None:
                 return 1
+            if len(state["results"]) == len(state["steps"]):
+                return None
             else:
                 return len(state["results"]) + 1
 
         def tool_execution(state: ReWOOState) -> Dict:
             """Worker node that executes the tools of a given plan."""
-            _step = _get_current_task(state)
+            _step = get_current_task(state)
             _, step_name, tool, tool_input = state["steps"][_step - 1]
             _results = state["results"] or {}
             for k, v in _results.items():
@@ -118,15 +120,15 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
             plan = ""
             for _plan, step_name, tool, tool_input in state["steps"]:
                 _results = state["results"] or {}
-                for k, v in _results.items():
-                    tool_input = tool_input.replace(k, v)
-                plan += f"Plan: {_plan}\n{step_name} = {tool}[{tool_input}]"
+                plan += f"Plan: {_plan}\n{step_name} = {tool}[{tool_input}]\n\n"
+                if step_name in _results:
+                    plan += _results[step_name] + "\n\n"
             prompt = SOLVE_TASK_PROMPT.format(plan=plan, task=state["task"])
             result = self.llm.invoke(prompt)
             return {"result": result.content}
 
         def route(state: ReWOOState) -> str:
-            _step = _get_current_task(state)
+            _step = get_current_task(state)
             if _step is None:
                 # We have executed all tasks
                 return "solve"
@@ -154,7 +156,7 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
             raise Exception("Input required: task")
 
         return super().run(
-            question=task,
+            task=task,
             config=config,
         )
 
