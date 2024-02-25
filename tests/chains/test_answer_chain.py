@@ -6,17 +6,56 @@ from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
-from tests.common import verify_response
+from tests.common import (
+    GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+    GENERAL_KNOWLEDGE_QUESTION,
+    TEST_DATA_DIR,
+    verify_response,
+)
 
 
 @pytest.fixture()
-def fireworksai_mixtral_answer_chain(
+def fireworksai_mistral_7b_answer_chain_no_examples(
+    fireworksai_mistral_7b: BaseLanguageModel, huggingface_minilm: Embeddings
+) -> AnswerChain:
+    """
+    Fireworks AI endpoint chain to do generic answers using mistral-7b (no examples)
+    """
+    return AnswerChain(llm=fireworksai_mistral_7b, embeddings=huggingface_minilm)
+
+
+@pytest.fixture()
+def fireworksai_mistral_7b_answer_chain_with_examples(
+    fireworksai_mistral_7b: BaseLanguageModel, huggingface_minilm: Embeddings
+) -> AnswerChain:
+    """
+    Fireworks AI endpoint chain to do generic answers using mistral-7b.
+    """
+    chain = AnswerChain(llm=fireworksai_mistral_7b, embeddings=huggingface_minilm)
+    chain.load_examples(TEST_DATA_DIR / "examples/test_answer_examples.yaml")
+    return chain
+
+
+@pytest.fixture()
+def fireworksai_mixtral_answer_chain_no_examples(
+    fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
+) -> AnswerChain:
+    """
+    Fireworks AI endpoint chain to do generic answers using mixtral (no examples).
+    """
+    return AnswerChain(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
+
+
+@pytest.fixture()
+def fireworksai_mixtral_answer_chain_with_examples(
     fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
 ) -> AnswerChain:
     """
     Fireworks AI endpoint chain to do generic answers using mixtral.
     """
-    return AnswerChain(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
+    chain = AnswerChain(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
+    chain.load_examples(TEST_DATA_DIR / "examples/test_answer_examples.yaml")
+    return chain
 
 
 @pytest.fixture()
@@ -26,72 +65,112 @@ def openai_gpt35_answer_chain(
     """
     OpenAI chain to do generic anwers using GPT 3.5.
     """
-    return AnswerChain(llm=openai_gpt35, embeddings=openai_ada)
+    chain = AnswerChain(llm=openai_gpt35, embeddings=openai_ada)
+    chain.load_examples(TEST_DATA_DIR / "examples/test_answer_examples.yaml")
+    return chain
 
 
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
 )
-def test_fireworksai_answer(fireworksai_mixtral_answer_chain: AnswerChain) -> None:
-    answer = fireworksai_mixtral_answer_chain.run(
-        "Who formulated the theory of special relativity?"
+def test_fireworksai_mistral_7b_answer_no_examples(
+    fireworksai_mistral_7b_answer_chain_no_examples: AnswerChain,
+) -> None:
+    answer = fireworksai_mistral_7b_answer_chain_no_examples.run(
+        GENERAL_KNOWLEDGE_QUESTION
     )
-    verify_response(answer, ["einstein"])
+    verify_response(answer, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
+
+
+@pytest.mark.skipif(
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
+)
+def test_fireworksai_mistral_7b_answer_with_examples(
+    fireworksai_mistral_7b_answer_chain_with_examples: AnswerChain,
+) -> None:
+    answer = fireworksai_mistral_7b_answer_chain_with_examples.run(
+        GENERAL_KNOWLEDGE_QUESTION
+    )
+    verify_response(answer, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
+
+
+@pytest.mark.skipif(
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
+)
+def test_fireworksai_mixtral_answer_no_examples(
+    fireworksai_mixtral_answer_chain_no_examples: AnswerChain,
+) -> None:
+    answer = fireworksai_mixtral_answer_chain_no_examples.run(
+        GENERAL_KNOWLEDGE_QUESTION
+    )
+    verify_response(answer, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
+
+
+@pytest.mark.skipif(
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
+)
+def test_fireworksai_mixtral_answer_with_examples(
+    fireworksai_mixtral_answer_chain_with_examples: AnswerChain,
+) -> None:
+    answer = fireworksai_mixtral_answer_chain_with_examples.run(
+        GENERAL_KNOWLEDGE_QUESTION
+    )
+    verify_response(answer, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
 
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
 )
 @pytest.mark.asyncio
-async def test_fireworksai_streamed_answer(
-    fireworksai_mixtral_answer_chain: AnswerChain,
+async def test_fireworksai_mixtral_streamed_answer(
+    fireworksai_mixtral_answer_chain_with_examples: AnswerChain,
 ) -> None:
     chain_response = TracedResponse[str](value="")
-    async for incremental_response in fireworksai_mixtral_answer_chain.run_stream(
-        "Who formulated the theory of special relativity?"
+    async for (
+        incremental_response
+    ) in fireworksai_mixtral_answer_chain_with_examples.run_stream(
+        GENERAL_KNOWLEDGE_QUESTION
     ):
         chain_response = incremental_response
 
     assert chain_response.value
     assert chain_response.run_id
 
-    verify_response(chain_response.value, ["einstein"])
+    verify_response(chain_response.value, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
 
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
-    answer = openai_gpt35_answer_chain.run(
-        "Who formulated the theory of special relativity?"
-    )
-    verify_response(answer, ["einstein"])
+def test_openai_gpt35_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
+    answer = openai_gpt35_answer_chain.run(GENERAL_KNOWLEDGE_QUESTION)
+    verify_response(answer, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
 
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_traced_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
-    response = openai_gpt35_answer_chain.traced_run(
-        question="Who formulated the theory of special relativity?"
-    )
+def test_openai_gpt35_traced_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
+    response = openai_gpt35_answer_chain.traced_run(question=GENERAL_KNOWLEDGE_QUESTION)
 
     assert response.run_id
-    verify_response(response.value, ["einstein"])
+    verify_response(response.value, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
 
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio
-async def test_openai_streamed_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
+async def test_openai_gpt35_streamed_answer(
+    openai_gpt35_answer_chain: AnswerChain,
+) -> None:
     chain_response = TracedResponse[str](value="")
     async for incremental_response in openai_gpt35_answer_chain.run_stream(
-        "Who formulated the theory of special relativity?"
+        GENERAL_KNOWLEDGE_QUESTION
     ):
         chain_response = incremental_response
 
     assert chain_response.value
     assert chain_response.run_id
 
-    verify_response(chain_response.value, ["einstein"])
+    verify_response(chain_response.value, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)

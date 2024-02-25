@@ -6,7 +6,7 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
 from docugami_langchain.agents import ReWOOAgent
-from tests.common import verify_response
+from tests.common import GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS, GENERAL_KNOWLEDGE_QUESTION, verify_response
 
 TEST_QUESTION = "What is the accident number for the incident in madill, oklahoma?"
 TEST_ANSWER_OPTIONS = ["DFW08CA044"]
@@ -51,14 +51,12 @@ def openai_gpt35_rewoo_agent(
 def test_fireworksai_rewoo(
     fireworksai_mixtral_rewoo_agent: ReWOOAgent,
 ) -> None:
-    
+
     # test general LLM response from agent
-    response = fireworksai_mixtral_rewoo_agent.run(
-        "Who formulated the theory of special relativity?"
-    )
+    response = fireworksai_mixtral_rewoo_agent.run(GENERAL_KNOWLEDGE_QUESTION)
     result = response.get("result")
     assert result
-    verify_response(result, ["einstein"])
+    verify_response(result, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
     # test retrieval response from agent
     response = fireworksai_mixtral_rewoo_agent.run(TEST_QUESTION)
@@ -73,12 +71,10 @@ def test_fireworksai_rewoo(
 def test_openai_rewoo(openai_gpt35_rewoo_agent: ReWOOAgent) -> None:
 
     # test general LLM response from agent
-    response = openai_gpt35_rewoo_agent.run(
-        "Who formulated the theory of special relativity?"
-    )
+    response = openai_gpt35_rewoo_agent.run(GENERAL_KNOWLEDGE_QUESTION)
     result = response.get("result")
     assert result
-    verify_response(result, ["einstein"])
+    verify_response(result, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
     # test retrieval response from agent
     response = openai_gpt35_rewoo_agent.run(TEST_QUESTION)

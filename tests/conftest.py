@@ -3,8 +3,9 @@ from pathlib import Path
 
 import pytest
 from langchain_community.cache import SQLiteCache
-from langchain_community.chat_models import ChatFireworks
+from langchain_community.chat_models.fireworks import ChatFireworks
 from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.llms.fireworks import Fireworks
 from langchain_core.embeddings import Embeddings
 from langchain_core.globals import set_llm_cache
 from langchain_core.language_models import BaseLanguageModel
@@ -19,6 +20,22 @@ LOCAL_LLM_CACHE_DB_FILE = os.environ.get(
 )
 os.makedirs(Path(LOCAL_LLM_CACHE_DB_FILE).parent, exist_ok=True)
 set_llm_cache(SQLiteCache(database_path=LOCAL_LLM_CACHE_DB_FILE))
+
+
+@pytest.fixture()
+def fireworksai_mistral_7b() -> BaseLanguageModel:
+    """
+    Mistral_7b model hosted on fireworksai.
+    """
+    return Fireworks(
+        model="accounts/fireworks/models/mistral-7b",
+        cache=True,
+        model_kwargs={
+            "context_length_exceeded_behavior": "truncate",
+            "temperature": 0,
+            "max_tokens": 2 * 1024,  # includes input and output tokens
+        },
+    )
 
 
 @pytest.fixture()

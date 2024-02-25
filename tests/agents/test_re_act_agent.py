@@ -8,7 +8,11 @@ from langchain_core.tools import BaseTool
 
 from docugami_langchain.agents import ReActAgent
 from docugami_langchain.agents.re_act_agent import AgentState
-from tests.common import verify_response
+from tests.common import (
+    GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+    GENERAL_KNOWLEDGE_QUESTION,
+    verify_response,
+)
 
 TEST_QUESTION = "What is the accident number for the incident in madill, oklahoma?"
 TEST_ANSWER_OPTIONS = ["DFW08CA044"]
@@ -64,11 +68,9 @@ def test_fireworksai_re_act(
 ) -> None:
 
     # test general LLM response from agent
-    response = fireworksai_mixtral_re_act_agent.run(
-        "Who formulated the theory of special relativity?"
-    )
+    response = fireworksai_mixtral_re_act_agent.run(GENERAL_KNOWLEDGE_QUESTION)
     answer = _get_answer(response)
-    verify_response(answer, ["einstein"])
+    verify_response(answer, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
     # test retrieval response from agent
     response = fireworksai_mixtral_re_act_agent.run(TEST_QUESTION)
@@ -82,11 +84,9 @@ def test_fireworksai_re_act(
 def test_openai_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
 
     # test general LLM response from agent
-    response = openai_gpt35_re_act_agent.run(
-        "Who formulated the theory of special relativity?"
-    )
+    response = openai_gpt35_re_act_agent.run(GENERAL_KNOWLEDGE_QUESTION)
     answer = _get_answer(response)
-    verify_response(answer, ["einstein"])
+    verify_response(answer, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
     # test retrieval response from agent
     response = openai_gpt35_re_act_agent.run(TEST_QUESTION)

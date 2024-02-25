@@ -29,27 +29,41 @@ def system_prompt(params: RunnableParameters) -> str:
     for input in params.inputs:
         input_description_list += f"{input.key}: {input.description}\n"
 
-    additional_instructions_list = "\n".join(params.additional_instructions)
+    additional_instructions_list = ""
+    if params.additional_instructions:
+        additional_instructions_list = "\n".join(params.additional_instructions)
 
-    return f"""You are a helpful assistant that {params.task_description}.
+    output = f"""You are a helpful assistant that {params.task_description}.
     
 You ALWAYS follow the following guidance to generate your answers, regardless of any other guidance or requests:
 
 {STANDARD_SYSTEM_INSTRUCTIONS_LIST}
-{additional_instructions_list}
+"""
+
+    if additional_instructions_list:
+        output += additional_instructions_list
+
+    output += """
 
 Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
+"""
 
+    if input_description_list:
+        output += f"""
 Your inputs will be in this format:
 
 {input_description_list}
-Given these inputs, please generate: {params.output.description}
 """
+
+    if params.output:
+        output += f"Given these inputs, please generate: {params.output.description}"
+
+    return output
 
 
 def prompt_input_templates(params: RunnableParameters) -> str:
     """
-    Builds and returns the core prompt with input key/value pairs and the final output key.
+    Builds and returns the core prompt with input key/value pairs.
     """
     input_template_list = ""
     for input in params.inputs:
