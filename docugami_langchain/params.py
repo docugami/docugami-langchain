@@ -18,8 +18,8 @@ class RunnableParameters:
     inputs: list[RunnableSingleParameter]
     output: RunnableSingleParameter
     task_description: str
-    additional_instructions: list[str]
-    stop_sequences: list[str] = field(default_factory=lambda: ["\n", "<s>", "</s>"])
+    additional_instructions: list[str] = field(default_factory=lambda: [])
+    stop_sequences: list[str] = field(default_factory=lambda: ["\n"])
     num_examples: int = DEFAULT_EXAMPLES_PER_PROMPT
     additional_runnables: Optional[list[Runnable]] = None
     key_finding_output_parse: bool = True
