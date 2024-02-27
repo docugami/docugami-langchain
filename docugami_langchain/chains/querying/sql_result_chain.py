@@ -6,7 +6,7 @@ from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.runnables import Runnable, RunnableLambda
 
 from docugami_langchain.base_runnable import TracedResponse
-from docugami_langchain.chains.base_chain import BaseDocugamiChain
+from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.chains.helpers import (
     replace_table_name_in_select,
     table_name_from_sql_create,

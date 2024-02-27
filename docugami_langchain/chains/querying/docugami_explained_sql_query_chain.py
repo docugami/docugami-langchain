@@ -4,7 +4,7 @@ from typing import AsyncIterator, Dict, Optional
 from langchain_core.runnables import Runnable, RunnableMap
 
 from docugami_langchain.base_runnable import TracedResponse
-from docugami_langchain.chains.base_chain import BaseDocugamiChain
+from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.chains.querying.sql_query_explainer_chain import (
     SQLQueryExplainerChain,
 )

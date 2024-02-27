@@ -3,7 +3,7 @@ from typing import AsyncIterator, Literal, Optional, Tuple
 from langchain_core.runnables import Runnable, RunnableBranch, RunnableLambda
 
 from docugami_langchain.base_runnable import TracedResponse
-from docugami_langchain.chains.base_chain import BaseDocugamiChain
+from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.config import MIN_LENGTH_TO_SUMMARIZE
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 

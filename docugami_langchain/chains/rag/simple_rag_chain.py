@@ -6,7 +6,7 @@ from langchain_core.retrievers import BaseRetriever
 from langchain_core.runnables import Runnable, RunnablePassthrough
 
 from docugami_langchain.base_runnable import TracedResponse
-from docugami_langchain.chains.base_chain import BaseDocugamiChain
+from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
