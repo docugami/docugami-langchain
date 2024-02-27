@@ -4,7 +4,8 @@ from typing import AsyncIterator, Optional
 from langchain_core.documents import Document
 from langchain_core.runnables import Runnable, RunnableLambda
 
-from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.base_runnable import TracedResponse
+from docugami_langchain.chains.base_chain import BaseChainRunnable
 from docugami_langchain.chains.helpers import formatted_summaries
 from docugami_langchain.output_parsers.line_separated_list import (
     LineSeparatedListOutputParser,
@@ -12,7 +13,7 @@ from docugami_langchain.output_parsers.line_separated_list import (
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class SuggestedReportChain(BaseRunnable[list[str]]):
+class SuggestedReportChain(BaseChainRunnable[list[str]]):
     def runnable(self) -> Runnable:
         """
         Custom runnable for this chain.
@@ -46,7 +47,7 @@ class SuggestedReportChain(BaseRunnable[list[str]]):
                 "- Generate suggested columns as a list, one per line.",
             ],
             additional_runnables=[LineSeparatedListOutputParser()],
-            stop_sequences=["\n\n", "<s>", "</s>", "|"],
+            stop_sequences=["\n\n", "|"],
             key_finding_output_parse=False,  # set to False for streaming
         )
 

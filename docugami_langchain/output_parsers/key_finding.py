@@ -18,10 +18,6 @@ class KeyfindingOutputParser(BaseOutputParser[str]):
     def parse(self, text: str) -> str:
         """Parse the output of an LLM call."""
 
-        text = text.replace("<s>", "")
-        text = text.replace("</s>", "")
-        text = text.strip()
-
         if "\n" in text and text.startswith("Sure"):
             # remove any pleasantries header
             text = "\n".join(text.splitlines()[1:])

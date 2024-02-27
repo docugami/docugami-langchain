@@ -3,14 +3,15 @@ from typing import Any, AsyncIterator
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.runnables import Runnable, RunnableLambda
 
-from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.base_runnable import TracedResponse
+from docugami_langchain.chains.base_chain import BaseChainRunnable
 from docugami_langchain.output_parsers.line_separated_list import (
     LineSeparatedListOutputParser,
 )
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class SuggestedQuestionsChain(BaseRunnable[list[str]]):
+class SuggestedQuestionsChain(BaseChainRunnable[list[str]]):
     db: SQLDatabase
 
     def runnable(self) -> Runnable:
@@ -46,7 +47,7 @@ class SuggestedQuestionsChain(BaseRunnable[list[str]]):
                 "- Generate questions as a list, one question per line.",
             ],
             additional_runnables=[LineSeparatedListOutputParser()],
-            stop_sequences=["\n\n", "<s>", "</s>", "|"],
+            stop_sequences=["\n\n", "|"],
             key_finding_output_parse=False,  # set to False for streaming
         )
 

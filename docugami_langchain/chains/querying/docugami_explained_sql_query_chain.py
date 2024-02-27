@@ -3,7 +3,8 @@ from typing import AsyncIterator, Dict, Optional
 
 from langchain_core.runnables import Runnable, RunnableMap
 
-from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.base_runnable import TracedResponse
+from docugami_langchain.chains.base_chain import BaseChainRunnable
 from docugami_langchain.chains.querying.sql_query_explainer_chain import (
     SQLQueryExplainerChain,
 )
@@ -14,7 +15,7 @@ from docugami_langchain.chains.querying.sql_result_explainer_chain import (
 from docugami_langchain.params import RunnableParameters
 
 
-class DocugamiExplainedSQLQueryChain(BaseRunnable[Dict]):
+class DocugamiExplainedSQLQueryChain(BaseChainRunnable[Dict]):
     sql_result_chain: SQLResultChain
     sql_result_explainer_chain: SQLResultExplainerChain
     sql_query_explainer_chain: Optional[SQLQueryExplainerChain]

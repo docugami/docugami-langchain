@@ -2,12 +2,13 @@ from typing import AsyncIterator, Literal, Optional, Tuple
 
 from langchain_core.runnables import Runnable, RunnableBranch, RunnableLambda
 
-from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.base_runnable import TracedResponse
+from docugami_langchain.chains.base_chain import BaseChainRunnable
 from docugami_langchain.config import MIN_LENGTH_TO_SUMMARIZE
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class SummarizeChunkChain(BaseRunnable[str]):
+class SummarizeChunkChain(BaseChainRunnable[str]):
     min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE
 
     def runnable(self) -> Runnable:
@@ -45,12 +46,12 @@ class SummarizeChunkChain(BaseRunnable[str]):
                 "Summary generated per the given rules.",
             ),
             task_description="creates a summary of some given text, while minimizing loss of key details",
+            stop_sequences=["CONTENTS:", "FORMAT:"],
             additional_instructions=[
                 "- Your generated summary should be in the same format as the given document, using the same overall schema.",
                 "- The generated summary will be embedded and used to retrieve the raw text or table elements from a vector database.",
                 "- Only summarize, don't try to change any facts in the chunk even if they appear incorrect to you.",
                 "- Include as many facts and data points from the original chunk as you can, in your summary.",
-                "- Pay special attention to monetary amounts, dates, names of people and companies, etc and include in your summary.",
                 "- Pay special attention to key facts like monetary amounts, dates, addresses, names of people and companies, etc and include in your summary.",
             ],
         )

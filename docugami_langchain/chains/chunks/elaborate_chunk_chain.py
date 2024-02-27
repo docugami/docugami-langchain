@@ -1,10 +1,11 @@
 from typing import AsyncIterator, Literal, Optional, Tuple
 
-from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.base_runnable import TracedResponse
+from docugami_langchain.chains.base_chain import BaseChainRunnable
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class ElaborateChunkChain(BaseRunnable[str]):
+class ElaborateChunkChain(BaseChainRunnable[str]):
     def params(self) -> RunnableParameters:
         return RunnableParameters(
             inputs=[
@@ -25,13 +26,13 @@ class ElaborateChunkChain(BaseRunnable[str]):
                 "Elaboration generated per the given rules.",
             ),
             task_description="elaborates some given text, while minimizing loss of key details",
+            stop_sequences=["CONTENTS:", "FORMAT:"],
             additional_instructions=[
                 "- Your generated elaboration should be in the same format as the given document, using the same overall schema.",
                 "- Only elaborate, don't try to change any facts in the chunk even if they appear incorrect to you.",
                 "- Include as many facts and data points from the original chunk as you can, in your elaboration.",
-                "- Pay special attention to monetary amounts, dates, names of people and companies, etc and include in your elaboration.",
+                "- Pay special attention to key facts like monetary amounts, dates, addresses, names of people and companies, etc and include in your summary.",
                 "- Aim for the elaboration to be twice as long as the given text. Be as descriptive as possible within these limits.",
-                "- Produce all output as one paragraph, don't include any paragraph breaks. However, if the input contains list or table formatting, try to include that in your output as well.",
             ],
         )
 

@@ -3,12 +3,13 @@
 import re
 from typing import AsyncIterator, Dict, List, Optional, TypedDict
 
-from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.prompts import BasePromptTemplate, ChatPromptTemplate
 from langchain_core.runnables import Runnable
 from langchain_core.tools import BaseTool
 from langgraph.graph import END, StateGraph
 
 from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.config import DEFAULT_EXAMPLES_PER_PROMPT
 from docugami_langchain.params import RunnableParameters
 
 PLAN_TASK_PROMPT = """For the following task, make plans that can solve the problem step by step. For each plan, indicate
@@ -65,6 +66,15 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
     tools: list[BaseTool] = []
 
     def params(self) -> RunnableParameters:
+        """The params are directly implemented in the runnable."""
+        raise NotImplementedError()
+
+    def prompt(
+        self,
+        params: RunnableParameters,
+        num_examples: int = DEFAULT_EXAMPLES_PER_PROMPT,
+    ) -> BasePromptTemplate:
+        """The prompt is directly implemented in the runnable."""
         raise NotImplementedError()
 
     def runnable(self) -> Runnable:
@@ -72,7 +82,7 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
         Custom runnable for this chain.
         """
         plan_prompt_template = ChatPromptTemplate.from_messages(
-            [("user", PLAN_TASK_PROMPT)]
+            [("human", PLAN_TASK_PROMPT)]
         )
         planner = plan_prompt_template | self.llm
 

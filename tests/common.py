@@ -39,6 +39,8 @@ FINANCIAL_SAMPLE_TABLE_NAME = "Financial Data"
 DEMO_MSA_SERVICES_DATA_FILE = TEST_DATA_DIR / "xlsx/Report Services_preview.xlsx"
 DEMO_MSA_SERVICES_TABLE_NAME = "Service Agreements Summary"
 
+GENERAL_KNOWLEDGE_QUESTION = "Who formulated the theory of special relativity?"
+GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS = ["einstein"]
 
 def is_core_tests_only_mode() -> bool:
     core_tests_env_var = os.environ.get("DOCUGAMI_ONLY_CORE_TESTS")

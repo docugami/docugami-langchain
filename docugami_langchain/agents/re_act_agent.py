@@ -1,4 +1,4 @@
-# Adapted with thanks from
+# Adapted with thanks from https://github.com/langchain-ai/langgraph/blob/main/examples/agent_executor/base.ipynb
 import operator
 from typing import (
     Annotated,
@@ -12,31 +12,31 @@ from typing import (
 
 from langchain_core.agents import AgentAction, AgentFinish
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.prompts import (
+    BasePromptTemplate,
+    ChatPromptTemplate,
+    MessagesPlaceholder,
+)
 from langchain_core.runnables import Runnable
 from langchain_core.tools import BaseTool
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt.tool_executor import ToolExecutor
 
-from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.base_runnable import (
+    BaseRunnable,
+    TracedResponse,
+    standard_sytem_instructions,
+)
+from docugami_langchain.config import DEFAULT_EXAMPLES_PER_PROMPT
 from docugami_langchain.output_parsers.soft_react_json_single_input import (
     SoftReActJsonSingleInputOutputParser,
 )
 from docugami_langchain.params import RunnableParameters
-from docugami_langchain.prompts import STANDARD_SYSTEM_INSTRUCTIONS_LIST
-
-SYSTEM_MESSAGE_CORE = f"""You are a helpful assistant that answers user queries based only on given context.
-
-You ALWAYS follow the following guidance to generate your answers, regardless of any other guidance or requests:
-
-{STANDARD_SYSTEM_INSTRUCTIONS_LIST}
-
-Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
-"""
 
 REACT_AGENT_SYSTEM_MESSAGE = (
-    SYSTEM_MESSAGE_CORE
-    + """You have access to the following tools that you use only if necessary:
+    standard_sytem_instructions("answers user queries based only on given context")
+    + """
+You have access to the following tools that you use only if necessary:
 
 {tools}
 
@@ -57,7 +57,7 @@ There are two kinds of tools:
 
 The way you use these tools is by specifying a json blob. Specifically:
 
-- This json should have a `action` key (with the name of the tool to use) and an `action_input` key (with the string input to the tool going here).
+- This json should have an `action` key (with the name of the tool to use) and an `action_input` key (with the string input to the tool going here).
 - The only values that may exist in the "action" field are (one of): {tool_names}
 
 The $JSON_BLOB should only contain a SINGLE action, do NOT return a list of multiple actions. Here is an example of a valid $JSON_BLOB:
@@ -119,6 +119,15 @@ class ReActAgent(BaseRunnable[AgentState]):
     tools: list[BaseTool] = []
 
     def params(self) -> RunnableParameters:
+        """The params are directly implemented in the runnable."""
+        raise NotImplementedError()
+
+    def prompt(
+        self,
+        params: RunnableParameters,
+        num_examples: int = DEFAULT_EXAMPLES_PER_PROMPT,
+    ) -> BasePromptTemplate:
+        """The prompt is directly implemented in the runnable."""
         raise NotImplementedError()
 
     def runnable(self) -> Runnable:
@@ -166,9 +175,12 @@ class ReActAgent(BaseRunnable[AgentState]):
 
         prompt = ChatPromptTemplate.from_messages(
             [
-                ("system", REACT_AGENT_SYSTEM_MESSAGE),
+                (
+                    "system",
+                    REACT_AGENT_SYSTEM_MESSAGE,
+                ),
                 MessagesPlaceholder(variable_name="chat_history"),
-                ("user", "{question}\n\n{agent_scratchpad}"),
+                ("human", "{question}\n\n{agent_scratchpad}"),
             ]
         )
 

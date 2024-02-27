@@ -4,12 +4,13 @@ from typing import AsyncIterator, Optional
 from langchain_core.documents import Document
 from langchain_core.runnables import Runnable, RunnableLambda
 
-from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.base_runnable import TracedResponse
+from docugami_langchain.chains.base_chain import BaseChainRunnable
 from docugami_langchain.chains.helpers import formatted_summaries
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class DescribeDocumentSetChain(BaseRunnable[str]):
+class DescribeDocumentSetChain(BaseChainRunnable[str]):
     def runnable(self) -> Runnable:
         """
         Custom runnable for this chain.
