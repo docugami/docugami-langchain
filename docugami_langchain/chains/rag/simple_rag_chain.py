@@ -52,7 +52,7 @@ class SimpleRAGChain(BaseDocugamiChain[str]):
 
         return {
             "context": itemgetter("question") | self.retriever | format_retrieved_docs,
-            "question": RunnablePassthrough(),
+            "question": itemgetter("question"),
         } | super().runnable()
 
     def run(  # type: ignore[override]
