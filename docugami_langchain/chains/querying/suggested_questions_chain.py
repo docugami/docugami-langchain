@@ -4,14 +4,14 @@ from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.runnables import Runnable, RunnableLambda
 
 from docugami_langchain.base_runnable import TracedResponse
-from docugami_langchain.chains.base_chain import BaseChainRunnable
+from docugami_langchain.chains.base_chain import BaseDocugamiChain
 from docugami_langchain.output_parsers.line_separated_list import (
     LineSeparatedListOutputParser,
 )
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class SuggestedQuestionsChain(BaseChainRunnable[list[str]]):
+class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
     db: SQLDatabase
 
     def runnable(self) -> Runnable:

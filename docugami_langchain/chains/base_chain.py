@@ -146,7 +146,7 @@ def chain_chat_prompt_template(
     return prompt_template
 
 
-class BaseChainRunnable(BaseRunnable[T]):
+class BaseDocugamiChain(BaseRunnable[T]):
     """
     Base class with common functionality for various chains.
     """

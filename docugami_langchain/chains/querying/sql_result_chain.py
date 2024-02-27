@@ -6,7 +6,7 @@ from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.runnables import Runnable, RunnableLambda
 
 from docugami_langchain.base_runnable import TracedResponse
-from docugami_langchain.chains.base_chain import BaseChainRunnable
+from docugami_langchain.chains.base_chain import BaseDocugamiChain
 from docugami_langchain.chains.helpers import (
     replace_table_name_in_select,
     table_name_from_sql_create,
@@ -18,7 +18,7 @@ from docugami_langchain.params import RunnableParameters, RunnableSingleParamete
 logger = logging.getLogger(__name__)
 
 
-class SQLResultChain(BaseChainRunnable[Dict]):
+class SQLResultChain(BaseDocugamiChain[Dict]):
     db: SQLDatabase
     sql_fixup_chain: Optional[SQLFixupChain] = None
 

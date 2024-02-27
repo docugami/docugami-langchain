@@ -1,11 +1,11 @@
 from typing import AsyncIterator, Optional
 
 from docugami_langchain.base_runnable import TracedResponse
-from docugami_langchain.chains.base_chain import BaseChainRunnable
+from docugami_langchain.chains.base_chain import BaseDocugamiChain
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class AnswerChain(BaseChainRunnable[str]):
+class AnswerChain(BaseDocugamiChain[str]):
     def params(self) -> RunnableParameters:
         return RunnableParameters(
             inputs=[
