@@ -143,7 +143,6 @@ class SQLResultChain(BaseDocugamiChain[Dict]):
             stop_sequences=[
                 "\n",
                 ";",
-                "</s>",
                 "|",
             ],
         )

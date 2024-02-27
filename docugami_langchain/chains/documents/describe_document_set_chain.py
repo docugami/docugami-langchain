@@ -48,7 +48,7 @@ class DescribeDocumentSetChain(BaseDocugamiChain[str]):
                 + "decide whether the answer for that question is likely to be found in this type of document or not.",
                 "- Do NOT include any data or details from these particular sample documents but DO use these sample documents to get a better understanding of what types of information this type of "
                 + "document might contain.",
-                "- The generated description should be very short and up to 2 sentences max.",
+                "- The generated description should be very short and up to 2 sentences max in a single paragraph, with no line breaks.",
             ],
         )
 
