@@ -3,7 +3,7 @@ from typing import AsyncIterator, Optional
 
 from langchain_core.documents import Document
 from langchain_core.retrievers import BaseRetriever
-from langchain_core.runnables import Runnable, RunnablePassthrough
+from langchain_core.runnables import Runnable
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
