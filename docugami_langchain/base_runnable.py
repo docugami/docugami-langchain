@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from pathlib import Path
-from typing import AsyncIterator, Dict, Generic, List, Optional, Tuple, TypeVar
+from typing import AsyncIterator, Generic, List, Optional, Tuple, TypeVar
 
 import yaml
 from langchain_community.vectorstores.faiss import FAISS
@@ -11,7 +11,7 @@ from langchain_core.language_models import BaseChatModel, BaseLanguageModel
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import BasePromptTemplate
 from langchain_core.pydantic_v1 import BaseModel
-from langchain_core.runnables import Runnable
+from langchain_core.runnables import Runnable, RunnableConfig
 from langchain_core.tracers.context import collect_runs
 from langchain_core.vectorstores import VectorStore
 
@@ -166,9 +166,9 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
 
         return full_runnable
 
-    def _prepare_run_args(self, kwargs_dict: Dict) -> Tuple[Dict, Dict]:
+    def _prepare_run_args(self, kwargs_dict: dict) -> Tuple[RunnableConfig, dict]:
         # In langsmith, default the run to be named according the the chain class
-        config = {RUN_NAME_KEY: self.__class__.__name__}
+        config = RunnableConfig(run_name=self.__class__.__name__)
         if kwargs_dict and CONFIG_KEY in kwargs_dict:
             if kwargs_dict[CONFIG_KEY]:
                 # Use additional caller specified config, e.g. in case of chains

@@ -1,6 +1,6 @@
 # Adapted with thanks from https://github.com/langchain-ai/langgraph/blob/main/examples/rag/langgraph_agentic_rag.ipynb
 
-from typing import AsyncIterator, Dict, Optional
+from typing import AsyncIterator, Optional
 
 from langchain_core.runnables import Runnable
 
@@ -8,7 +8,7 @@ from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
 from docugami_langchain.params import RunnableParameters
 
 
-class RewriteGraderRAGAgent(BaseRunnable[Dict]):
+class RewriteGraderRAGAgent(BaseRunnable[dict]):
     """
     Agent that implements agentic RAG with the following additional optimizations:
     1. Query Rewriting
@@ -28,7 +28,7 @@ class RewriteGraderRAGAgent(BaseRunnable[Dict]):
         self,
         question: str,
         config: Optional[dict] = None,
-    ) -> Dict:
+    ) -> dict:
         if not question:
             raise Exception("Input required: question")
 
@@ -41,7 +41,7 @@ class RewriteGraderRAGAgent(BaseRunnable[Dict]):
         self,
         question: str,
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedResponse[Dict]]:
+    ) -> AsyncIterator[TracedResponse[dict]]:
         if not question:
             raise Exception("Input required: question")
 
@@ -54,7 +54,7 @@ class RewriteGraderRAGAgent(BaseRunnable[Dict]):
         self,
         inputs: list[str],
         config: Optional[dict] = None,
-    ) -> list[Dict]:
+    ) -> list[dict]:
         return super().run_batch(
             inputs=[{"question": i} for i in inputs],
             config=config,

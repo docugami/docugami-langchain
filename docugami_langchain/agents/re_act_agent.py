@@ -3,7 +3,6 @@ import operator
 from typing import (
     Annotated,
     AsyncIterator,
-    Dict,
     Optional,
     Tuple,
     TypedDict,
@@ -201,17 +200,17 @@ class ReActAgent(BaseRunnable[AgentState]):
 
         tool_executor = ToolExecutor(self.tools)
 
-        def run_agent(data: Dict) -> Dict:
+        def run_agent(data: dict) -> dict:
             agent_outcome = agent_runnable.invoke(data)
             return {"agent_outcome": agent_outcome}
 
-        def execute_tools(data: Dict) -> Dict:
+        def execute_tools(data: dict) -> dict:
             # Get the most recent agent_outcome - this is the key added in the `agent` above
             agent_action = data["agent_outcome"]
             output = tool_executor.invoke(agent_action)
             return {"intermediate_steps": [(agent_action, str(output))]}
 
-        def should_continue(data: Dict) -> str:
+        def should_continue(data: dict) -> str:
             # If the agent outcome is an AgentFinish, then we return `exit` string
             # This will be used when setting up the graph to define the flow
             if isinstance(data["agent_outcome"], AgentFinish):

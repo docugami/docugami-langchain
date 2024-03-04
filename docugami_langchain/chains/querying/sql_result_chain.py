@@ -1,6 +1,6 @@
 import logging
 from operator import itemgetter
-from typing import Any, AsyncIterator, Dict, Optional
+from typing import Any, AsyncIterator, Optional
 
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.runnables import Runnable, RunnableLambda
@@ -18,7 +18,7 @@ from docugami_langchain.params import RunnableParameters, RunnableSingleParamete
 logger = logging.getLogger(__name__)
 
 
-class SQLResultChain(BaseDocugamiChain[Dict]):
+class SQLResultChain(BaseDocugamiChain[dict]):
     db: SQLDatabase
     sql_fixup_chain: Optional[SQLFixupChain] = None
 
@@ -52,7 +52,7 @@ class SQLResultChain(BaseDocugamiChain[Dict]):
             # Just echo back the input if unable to fix
             return sql_query
 
-        def run_sql_query(inputs: dict, config: dict) -> Dict:
+        def run_sql_query(inputs: dict, config: dict) -> dict:
             """
             Runs the given query against the database connection for this chain, and returns the result.
             """
@@ -151,7 +151,7 @@ class SQLResultChain(BaseDocugamiChain[Dict]):
         self,
         question: str,
         config: Optional[dict] = None,
-    ) -> Dict:
+    ) -> dict:
         if not question:
             raise Exception("Input required: question")
 
@@ -164,7 +164,7 @@ class SQLResultChain(BaseDocugamiChain[Dict]):
         self,
         question: str,
         config: Optional[dict] = None,
-    ) -> AsyncIterator[TracedResponse[Dict]]:
+    ) -> AsyncIterator[TracedResponse[dict]]:
         if not question:
             raise Exception("Input required: question")
 
@@ -177,7 +177,7 @@ class SQLResultChain(BaseDocugamiChain[Dict]):
         self,
         inputs: list[str],
         config: Optional[dict] = None,
-    ) -> list[Dict]:
+    ) -> list[dict]:
         return super().run_batch(
             inputs=[{"question": i} for i in inputs],
             config=config,

@@ -24,14 +24,14 @@ from docugami_langchain.retrievers.fused_summary import (
 
 
 def _build_summary_mappings(
-    docs_by_id: Dict[str, Document],
+    docs_by_id: dict[str, Document],
     chain: Union[SummarizeChunkChain, SummarizeDocumentChain],
     include_xml_tags: bool,
-) -> Dict[str, Document]:
+) -> dict[str, Document]:
     """
     Build summaries for all the given documents.
     """
-    summaries: Dict[str, Document] = {}
+    summaries: dict[str, Document] = {}
     format: str = (
         "text"
         if not include_xml_tags
@@ -57,14 +57,14 @@ def _build_summary_mappings(
 
 
 def build_full_doc_summary_mappings(
-    docs_by_id: Dict[str, Document],
+    docs_by_id: dict[str, Document],
     llm: BaseLanguageModel,
     embeddings: Embeddings,
     include_xml_tags: bool = INCLUDE_XML_TAGS,
     min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE,
     max_length_cutoff: int = MAX_FULL_DOCUMENT_TEXT_LENGTH,
     summarize_document_examples_file: Optional[Path] = None,
-) -> Dict[str, Document]:
+) -> dict[str, Document]:
     """
     Build summary mappings for all the given full documents.
     """
@@ -83,14 +83,14 @@ def build_full_doc_summary_mappings(
 
 
 def build_chunk_summary_mappings(
-    docs_by_id: Dict[str, Document],
+    docs_by_id: dict[str, Document],
     llm: BaseLanguageModel,
     embeddings: Embeddings,
     include_xml_tags: bool = INCLUDE_XML_TAGS,
     min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE,
     max_length_cutoff: int = MAX_CHUNK_TEXT_LENGTH,
     summarize_chunk_examples_file: Optional[Path] = None,
-) -> Dict[str, Document]:
+) -> dict[str, Document]:
     """
     Build summary mappings for all the given chunks.
     """
@@ -117,8 +117,8 @@ def build_doc_maps_from_chunks(
 ) -> Tuple[Dict[str, Document], Dict[str, Document]]:
     """Build separate maps of full docs and parent chunks (by individual chunk id)"""
     # Build separate maps of chunks, and parents
-    parent_chunks_by_id: Dict[str, Document] = {}
-    chunks_by_source: Dict[str, list[str]] = {}
+    parent_chunks_by_id: dict[str, Document] = {}
+    chunks_by_source: dict[str, list[str]] = {}
     for chunk in chunks:
         chunk_id = str(chunk.metadata.get(chunk_id_key))
         chunk_source = str(chunk.metadata.get(source_key))
@@ -135,8 +135,8 @@ def build_doc_maps_from_chunks(
             chunks_by_source[chunk_source].append(chunk.page_content)
 
     # Build up the full docs by concatenating all the child chunks from a source
-    full_docs_by_id: Dict[str, Document] = {}
-    full_doc_ids_by_source: Dict[str, str] = {}
+    full_docs_by_id: dict[str, Document] = {}
+    full_doc_ids_by_source: dict[str, str] = {}
     for source in chunks_by_source:
         chunks_from_source = chunks_by_source[source]
         full_doc_text = "\n".join([c for c in chunks_from_source])

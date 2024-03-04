@@ -1,7 +1,7 @@
 # Adapted with thanks from https://github.com/langchain-ai/langgraph/blob/main/examples/rewoo/rewoo.ipynb
 
 import re
-from typing import AsyncIterator, Dict, List, Optional, TypedDict
+from typing import AsyncIterator, Optional, TypedDict
 
 from langchain_core.prompts import BasePromptTemplate, ChatPromptTemplate
 from langchain_core.runnables import Runnable
@@ -53,10 +53,10 @@ PLAN_REGEX_PATTERN = r"Plan:\s*(.+)\s*(#E\d+)\s*=\s*(\w+)\s*\[([^\]]+)\]"
 
 
 class ReWOOState(TypedDict):
-    steps: List
+    steps: list
     plan_string: str
     task: str
-    results: Dict
+    results: dict
     result: str
 
 
@@ -86,7 +86,7 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
         )
         planner = plan_prompt_template | self.llm
 
-        def get_plan(state: ReWOOState) -> Dict:
+        def get_plan(state: ReWOOState) -> dict:
             task = state["task"]
             tool_list = ""
             for i in range(len(self.tools)):
@@ -106,7 +106,7 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
             else:
                 return len(state["results"]) + 1
 
-        def tool_execution(state: ReWOOState) -> Dict:
+        def tool_execution(state: ReWOOState) -> dict:
             """Worker node that executes the tools of a given plan."""
             _step = get_current_task(state)
             _, step_name, tool, tool_input = state["steps"][_step - 1]
@@ -125,7 +125,7 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
             _results[step_name] = str(result)
             return {"results": _results}
 
-        def solve(state: ReWOOState) -> Dict:
+        def solve(state: ReWOOState) -> dict:
             plan = ""
             for _plan, step_name, tool, tool_input in state["steps"]:
                 _results = state["results"] or {}
