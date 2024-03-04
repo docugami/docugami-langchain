@@ -3,7 +3,7 @@ import io
 import logging
 import os
 from pathlib import Path
-from typing import Any, Dict, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 
 import requests
 from langchain_community.document_loaders.base import BaseLoader
@@ -328,7 +328,7 @@ class DocugamiLoader(BaseLoader, BaseModel):
                 ]
 
             _project_details = self._project_details_for_docset_id(self.docset_id)
-            combined_project_metadata: dict[str, Dict] = {}
+            combined_project_metadata: dict[str, dict] = {}
             if _project_details and self.include_project_metadata_in_doc_metadata:
                 # If there are any projects for this docset and the caller requested
                 # project metadata, load it.
