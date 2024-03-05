@@ -28,19 +28,7 @@ TEST_CHAT_HISTORY = [
         "It was named in honor of George Alexander Madill, an attorney for the St. Louis-San Francisco Railway.",
     ),
 ]
-TEST_QUESTION_WITH_HISTORY = (
-    "List the accident numbers for any aviation incidents that happened there"
-)
-
-
-def _get_answer(response: AgentState) -> str:
-    outcome = response.get("agent_outcome")
-    assert outcome
-    assert isinstance(outcome, AgentFinish)
-    assert outcome.return_values
-    answer = outcome.return_values.get("output")
-    assert answer
-    return answer
+TEST_QUESTION_WITH_HISTORY = "List the accident numbers for any aviation incidents that happened at this location?"
 
 
 @pytest.fixture()
@@ -86,7 +74,7 @@ def _runtest(
     response = agent.traced_run(question=question, chat_history=chat_history)
     assert response.value
     assert response.run_id
-    answer = _get_answer(response.value)
+    answer = response.value.to_human_readable()
     verify_response(answer, answer_options)
 
 
@@ -97,15 +85,20 @@ async def _runtest_streamed(
     chat_history: list[tuple[str, str]] = [],
 ) -> None:
     response = TracedResponse[AgentState](value={})  # type: ignore
+
+    steps: list = []
     async for incremental_response in agent.run_stream(
         question=question,
         chat_history=chat_history,
     ):
+        steps.append(AgentState.to_human_readable(incremental_response.value))
         response = incremental_response
 
+    assert "Thinking..." in steps
     assert response.value
     assert response.run_id
-    answer = _get_answer(response.value)
+
+    answer = AgentState.to_human_readable(response.value)
     verify_response(answer, answer_options)
 
 

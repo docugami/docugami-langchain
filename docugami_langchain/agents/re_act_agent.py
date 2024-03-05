@@ -1,4 +1,6 @@
 # Adapted with thanks from https://github.com/langchain-ai/langgraph/blob/main/examples/agent_executor/base.ipynb
+from __future__ import annotations
+
 import operator
 from typing import (
     Annotated,
@@ -104,6 +106,26 @@ class AgentState(TypedDict):
     # this state should be ADDED to the existing values (not overwrite it)
     intermediate_steps: Annotated[list[tuple[AgentAction, str]], operator.add]
 
+    @staticmethod
+    def to_human_readable(state: AgentState) -> str:
+        outcome = state.get("agent_outcome", None)
+        if outcome:
+            if isinstance(outcome, AgentAction):
+                tool_name = outcome.tool
+                tool_input = outcome.tool_input
+                if tool_name.startswith("search"):
+                    return f"Searching documents for '{tool_input}'"
+                elif tool_name.startswith("query"):
+                    return f"Querying report for '{tool_input}'"
+            elif isinstance(outcome, AgentFinish):
+                return_values = outcome.return_values
+                if return_values:
+                    answer = return_values.get("output")
+                    if answer:
+                        return answer
+
+        return "Thinking..."
+
 
 class ReActAgent(BaseDocugamiAgent[AgentState]):
     """
@@ -150,9 +172,10 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
         ) -> str:
             """Construct the scratchpad that lets the agent continue its thought process."""
             thoughts = ""
-            for action, observation in intermediate_steps:
-                thoughts += action.log
-                thoughts += f"\n{observation_prefix}{observation}\n{llm_prefix}"
+            if intermediate_steps:
+                for action, observation in intermediate_steps:
+                    thoughts += action.log
+                    thoughts += f"\n{observation_prefix}{observation}\n{llm_prefix}"
             return thoughts
 
         def render_text_description(tools: list[BaseTool]) -> str:
