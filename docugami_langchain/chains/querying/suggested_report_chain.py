@@ -64,7 +64,7 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         summaries: list[Document],
         config: Optional[dict] = None,
@@ -72,10 +72,11 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
         if not summaries:
             raise Exception("Input required: summaries")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             summaries=summaries,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,

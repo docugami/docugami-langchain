@@ -56,10 +56,10 @@ class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
     ) -> list[str]:
         return super().run()
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
     ) -> AsyncIterator[TracedResponse[list[str]]]:
-        return super().run_stream()
+        raise NotImplementedError()
 
     def run_batch(  # type: ignore[override]
         self,

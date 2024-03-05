@@ -8,7 +8,8 @@ from langchain_core.runnables import Runnable
 from langchain_core.tools import BaseTool
 from langgraph.graph import END, StateGraph
 
-from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.agents.base import BaseDocugamiAgent
+from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.config import DEFAULT_EXAMPLES_PER_PROMPT
 from docugami_langchain.params import RunnableParameters
 
@@ -60,7 +61,7 @@ class ReWOOState(TypedDict):
     result: str
 
 
-class ReWOOAgent(BaseRunnable[ReWOOState]):
+class ReWOOAgent(BaseDocugamiAgent[ReWOOState]):
     """Agent that implements ReWOO (Reasoning WithOut Observation) https://arxiv.org/abs/2305.18323"""
 
     tools: list[BaseTool] = []
@@ -169,7 +170,7 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         task: str,
         config: Optional[dict] = None,
@@ -177,10 +178,11 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
         if not task:
             raise Exception("Input required: task")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             task=task,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,

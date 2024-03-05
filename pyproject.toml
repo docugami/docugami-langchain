@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docugami-langchain"
-version = "0.0.7rc7"
+version = "0.0.7"
 description = "An integration package connecting Docugami and LangChain"
 authors = []
 readme = "README.md"
@@ -12,37 +12,35 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
-langchain-core = ">=0.1.25"
-langchain-community = "^0.0.21"
-langgraph = "^0.0.24"
-dgml-utils = "^0.3.2"
-wordtodigits = "^1.0.2"
-python-dateutil = "^2.8.2"
-pandas = "^1.5.3"
-pyyaml = "^6.0.1"
-openpyxl = "^3.1.2"
-sqlparse = "^0.4.4"
+langchain-core = ">=0.1.28"
+langchain-community = ">=0.0.25"
+langgraph = ">=0.0.26"
+dgml-utils = ">=0.3.2"
+wordtodigits = ">=1.0.2"
+python-dateutil = ">=2.9.0"
+pandas = ">=2.2.1"
+pyyaml = ">=6.0.1"
+openpyxl = ">=3.1.2"
+sqlparse = ">=0.4.4"
 
 [tool.poetry.group.test]
 optional = true
 
 [tool.poetry.group.test.dependencies]
-pytest = "^7.3.0"
-freezegun = "^1.2.2"
-pytest-mock  = "^3.10.0"
-syrupy = "^4.0.2"
-pytest-watcher = "^0.3.4"
-pytest-asyncio = "^0.21.1"
-fireworks-ai = "^0.12.0"
-sentence-transformers = "^2.3.1"
-langchain-openai = "^0.0.6"
-faiss-cpu = "^1.7.4"
+pytest = ">=8.0.2"
+pytest-mock = ">=3.12.0"
+pytest-watcher = ">=0.4.1"
+pytest-asyncio = ">=0.23.5"
+sentence-transformers = ">=2.5.1"
+langchain-openai = ">=0.0.8"
+langchain-fireworks = ">=0.1.1"
+faiss-cpu = ">=1.8.0"
 
 [tool.poetry.group.codespell]
 optional = true
 
 [tool.poetry.group.codespell.dependencies]
-codespell = "^2.2.0"
+codespell = ">=2.2.6"
 
 [tool.poetry.group.test_integration]
 optional = true
@@ -53,14 +51,14 @@ optional = true
 optional = true
 
 [tool.poetry.group.lint.dependencies]
-ruff = "^0.2.1"
+ruff = ">=0.3.0"
 
 [tool.poetry.group.typing.dependencies]
-mypy = "^1.8.0"
-types-lxml = "^2023.10.21"
-types-python-dateutil = "^2.8.19.20240106"
-types-pyyaml = "^6.0.12.12"
-types-requests = "^2.31.0.20240125"
+mypy = ">=1.8.0"
+types-lxml = ">=2024.2.9"
+types-python-dateutil = ">=2.8.19.20240106"
+types-pyyaml = ">=6.0.12.12"
+types-requests = ">=2.31.0.20240218"
 
 [tool.ruff]
 lint.select = [

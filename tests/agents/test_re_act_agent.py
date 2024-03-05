@@ -1,5 +1,4 @@
 import os
-from docugami_langchain.base_runnable import TracedResponse
 
 import pytest
 from langchain_core.agents import AgentFinish
@@ -9,6 +8,7 @@ from langchain_core.tools import BaseTool
 
 from docugami_langchain.agents import ReActAgent
 from docugami_langchain.agents.re_act_agent import AgentState
+from docugami_langchain.base_runnable import TracedResponse
 from tests.common import (
     GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     GENERAL_KNOWLEDGE_QUESTION,
@@ -55,38 +55,44 @@ def openai_gpt35_re_act_agent(
     """
     OpenAI ReAct Agent using GPT 3.5.
     """
-    chain = ReActAgent(llm=openai_gpt35, embeddings=openai_ada, tools=[openai_retrieval_tool])
+    chain = ReActAgent(
+        llm=openai_gpt35,
+        embeddings=openai_ada,
+        tools=[openai_retrieval_tool],
+    )
     return chain
 
 
 def _runtest(
     agent: ReActAgent,
     question: str,
-    answer_options=list[str],
+    answer_options: list[str],
 ) -> None:
     response = agent.traced_run(question=question)
     assert response.value
     assert response.run_id
-    answer = _get_answer(response)
+    answer = _get_answer(response.value)
     verify_response(answer, answer_options)
 
 
 async def _runtest_streamed(
     agent: ReActAgent,
     question: str,
-    answer_options=list[str],
+    answer_options: list[str],
 ) -> None:
-    response = TracedResponse[dict](value={})
+    response = TracedResponse[AgentState](value={})  # type: ignore
     async for incremental_response in agent.run_stream(question=question):
         response = incremental_response
 
     assert response.value
     assert response.run_id
-    answer = _get_answer(response)
+    answer = _get_answer(response.value)
     verify_response(answer, answer_options)
 
 
-@pytest.mark.skipif("FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set")
+@pytest.mark.skipif(
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+)
 def test_fireworksai_re_act(fireworksai_mixtral_re_act_agent: ReActAgent) -> None:
     # test general LLM response from agent
     _runtest(
@@ -103,8 +109,13 @@ def test_fireworksai_re_act(fireworksai_mixtral_re_act_agent: ReActAgent) -> Non
     )
 
 
-@pytest.mark.skipif("FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set")
-async def test_fireworksai_streamed_re_act(fireworksai_mixtral_re_act_agent: ReActAgent) -> None:
+@pytest.mark.skipif(
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+)
+@pytest.mark.asyncio
+async def test_fireworksai_streamed_re_act(
+    fireworksai_mixtral_re_act_agent: ReActAgent,
+) -> None:
     # test general LLM response from agent
     await _runtest_streamed(
         fireworksai_mixtral_re_act_agent,
@@ -120,7 +131,9 @@ async def test_fireworksai_streamed_re_act(fireworksai_mixtral_re_act_agent: ReA
     )
 
 
-@pytest.mark.skipif("OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set")
+@pytest.mark.skipif(
+    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+)
 def test_openai_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
     # test general LLM response from agent
     _runtest(
@@ -137,7 +150,10 @@ def test_openai_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
     )
 
 
-@pytest.mark.skipif("OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set")
+@pytest.mark.skipif(
+    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+)
+@pytest.mark.asyncio
 async def test_openai_streamed_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
     # test general LLM response from agent
     await _runtest_streamed(

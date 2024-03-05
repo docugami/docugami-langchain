@@ -62,7 +62,7 @@ class SQLQueryExplainerChain(BaseDocugamiChain[str]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         question: str,
         sql_query: str,
@@ -72,12 +72,13 @@ class SQLQueryExplainerChain(BaseDocugamiChain[str]):
         if not question or not sql_query:
             raise Exception("Inputs required: question, sql_query")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             question=question,
             sql_query=sql_query,
             sql_result=sql_result,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,

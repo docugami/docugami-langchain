@@ -21,11 +21,8 @@ from langchain_core.tools import BaseTool
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt.tool_executor import ToolExecutor
 
-from docugami_langchain.base_runnable import (
-    BaseRunnable,
-    TracedResponse,
-    standard_sytem_instructions,
-)
+from docugami_langchain.agents.base import BaseDocugamiAgent
+from docugami_langchain.base_runnable import TracedResponse, standard_sytem_instructions
 from docugami_langchain.config import DEFAULT_EXAMPLES_PER_PROMPT
 from docugami_langchain.output_parsers.soft_react_json_single_input import (
     SoftReActJsonSingleInputOutputParser,
@@ -110,7 +107,7 @@ class AgentState(TypedDict):
     intermediate_steps: Annotated[list[tuple[AgentAction, str]], operator.add]
 
 
-class ReActAgent(BaseRunnable[AgentState]):
+class ReActAgent(BaseDocugamiAgent[AgentState]):
     """
     Agent that implements simple agentic RAG using the ReAct prompt style.
     """
@@ -275,7 +272,7 @@ class ReActAgent(BaseRunnable[AgentState]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         question: str,
         config: Optional[dict] = None,
@@ -283,10 +280,11 @@ class ReActAgent(BaseRunnable[AgentState]):
         if not question:
             raise Exception("Input required: question")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             question=question,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,

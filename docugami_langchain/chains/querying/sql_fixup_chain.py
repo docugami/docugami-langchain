@@ -66,7 +66,7 @@ class SQLFixupChain(BaseDocugamiChain[str]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         table_info: str,
         sql_query: str,
@@ -76,12 +76,13 @@ class SQLFixupChain(BaseDocugamiChain[str]):
         if not table_info or not sql_query or not exception:
             raise Exception("Inputs required: table_info, sql_query, exception")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             table_info=table_info,
             sql_query=sql_query,
             exception=exception,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,

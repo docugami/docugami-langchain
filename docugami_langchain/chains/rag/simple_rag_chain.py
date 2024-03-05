@@ -68,7 +68,7 @@ class SimpleRAGChain(BaseDocugamiChain[str]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         question: str,
         config: Optional[dict] = None,
@@ -76,10 +76,11 @@ class SimpleRAGChain(BaseDocugamiChain[str]):
         if not question:
             raise Exception("Input required: question")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             question=question,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,

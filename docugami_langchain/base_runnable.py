@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from pathlib import Path
-from typing import AsyncIterator, Generic, List, Optional, Tuple, TypeVar
+from typing import Any, AsyncIterator, Generic, List, Optional, Tuple, TypeVar
 
 import yaml
 from langchain_community.vectorstores.faiss import FAISS
@@ -12,6 +12,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import BasePromptTemplate
 from langchain_core.pydantic_v1 import BaseModel
 from langchain_core.runnables import Runnable, RunnableConfig
+from langchain_core.runnables.config import merge_configs
 from langchain_core.tracers.context import collect_runs
 from langchain_core.vectorstores import VectorStore
 
@@ -169,11 +170,12 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
     def _prepare_run_args(self, kwargs_dict: dict) -> Tuple[RunnableConfig, dict]:
         # In langsmith, default the run to be named according the the chain class
         config = RunnableConfig(run_name=self.__class__.__name__)
-        if kwargs_dict and CONFIG_KEY in kwargs_dict:
-            if kwargs_dict[CONFIG_KEY]:
+        if kwargs_dict:
+            arg_config: Optional[RunnableConfig] = kwargs_dict.get(CONFIG_KEY)
+            if arg_config and type(arg_config) == RunnableConfig:
                 # Use additional caller specified config, e.g. in case of chains
                 # nested inside lambdas
-                config.update(**kwargs_dict[CONFIG_KEY])
+                config = merge_configs(config, arg_config)
 
             # kwargs are used as inputs to the chain prompt, so remove the config
             # param if specified
@@ -201,32 +203,7 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
             return TracedResponse[T](run_id=run_id, value=chain_output)
 
     @abstractmethod
-    async def run_stream(self, **kwargs) -> AsyncIterator[TracedResponse[T]]:  # type: ignore
-        config, kwargs_dict = self._prepare_run_args(kwargs)
-
-        with collect_runs() as cb:
-            incremental_answer = None
-            async for chunk in self.runnable().astream(
-                input=kwargs_dict,
-                config=config,  # type: ignore
-            ):
-                if not incremental_answer:
-                    incremental_answer = chunk
-                else:
-                    incremental_answer += chunk
-
-                yield TracedResponse[T](value=incremental_answer)
-
-            # yield the final result with the run_id
-            if cb.traced_runs:
-                run_id = str(cb.traced_runs[0].id)
-                yield TracedResponse[T](
-                    run_id=run_id,
-                    value=incremental_answer,  # type: ignore
-                )
-
-    @abstractmethod
-    def run_batch(self, **kwargs) -> list[T]:  # type: ignore
+    def run_batch(self, **kwargs: Any) -> list[T]:
         config, kwargs_dict = self._prepare_run_args(kwargs)
 
         inputs = kwargs_dict.get("inputs")
@@ -245,6 +222,9 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
                     ]
 
         return self.runnable().batch(inputs=inputs, config=config)  # type: ignore
+
+    @abstractmethod
+    async def run_stream(self, **kwargs: Any) -> AsyncIterator[TracedResponse[T]]: ...
 
     @abstractmethod
     def params(self) -> RunnableParameters: ...

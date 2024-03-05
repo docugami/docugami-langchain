@@ -4,11 +4,12 @@ from typing import AsyncIterator, Optional
 
 from langchain_core.runnables import Runnable
 
-from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.agents.base import BaseDocugamiAgent
+from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.params import RunnableParameters
 
 
-class RewriteGraderRAGAgent(BaseRunnable[dict]):
+class RewriteGraderRAGAgent(BaseDocugamiAgent[dict]):
     """
     Agent that implements agentic RAG with the following additional optimizations:
     1. Query Rewriting
@@ -37,7 +38,7 @@ class RewriteGraderRAGAgent(BaseRunnable[dict]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         question: str,
         config: Optional[dict] = None,
@@ -45,10 +46,11 @@ class RewriteGraderRAGAgent(BaseRunnable[dict]):
         if not question:
             raise Exception("Input required: question")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             question=question,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,

@@ -71,7 +71,7 @@ class SummarizeChunkChain(BaseDocugamiChain[str]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         contents: str,
         format: str,
@@ -80,11 +80,12 @@ class SummarizeChunkChain(BaseDocugamiChain[str]):
         if not contents or not format:
             raise Exception("Inputs required: contents, format")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             contents=contents,
             format=format,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,

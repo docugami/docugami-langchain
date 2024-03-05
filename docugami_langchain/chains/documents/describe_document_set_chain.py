@@ -67,7 +67,7 @@ class DescribeDocumentSetChain(BaseDocugamiChain[str]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         summaries: list[Document],
         docset_name: str,
@@ -76,11 +76,12 @@ class DescribeDocumentSetChain(BaseDocugamiChain[str]):
         if not summaries or not docset_name:
             raise Exception("Inputs required: summaries, docset_name")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             summaries=summaries,
             docset_name=docset_name,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,
