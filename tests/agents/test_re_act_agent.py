@@ -38,12 +38,12 @@ def fireworksai_mixtral_re_act_agent(
     """
     Fireworks AI ReAct Agent using mixtral.
     """
-    chain = ReActAgent(
+    agent = ReActAgent(
         llm=fireworksai_mixtral,
         embeddings=huggingface_minilm,
         tools=[huggingface_retrieval_tool],
     )
-    return chain
+    return agent
 
 
 @pytest.fixture()
@@ -55,12 +55,12 @@ def openai_gpt35_re_act_agent(
     """
     OpenAI ReAct Agent using GPT 3.5.
     """
-    chain = ReActAgent(
+    agent = ReActAgent(
         llm=openai_gpt35,
         embeddings=openai_ada,
         tools=[openai_retrieval_tool],
     )
-    return chain
+    return agent
 
 
 def _runtest(

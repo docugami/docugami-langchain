@@ -6,7 +6,11 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
 from docugami_langchain.agents import ReWOOAgent
-from tests.common import GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS, GENERAL_KNOWLEDGE_QUESTION, verify_response
+from tests.common import (
+    GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+    GENERAL_KNOWLEDGE_QUESTION,
+    verify_response,
+)
 
 TEST_QUESTION = "What is the accident number for the incident in madill, oklahoma?"
 TEST_ANSWER_OPTIONS = ["DFW08CA044"]
@@ -21,12 +25,12 @@ def fireworksai_mixtral_rewoo_agent(
     """
     Fireworks AI ReWOO Agent using mixtral.
     """
-    chain = ReWOOAgent(
+    agent = ReWOOAgent(
         llm=fireworksai_mixtral,
         embeddings=huggingface_minilm,
         tools=[huggingface_retrieval_tool],
     )
-    return chain
+    return agent
 
 
 @pytest.fixture()
@@ -38,10 +42,10 @@ def openai_gpt35_rewoo_agent(
     """
     OpenAI ReWOO Agent using GPT 3.5.
     """
-    chain = ReWOOAgent(
+    agent = ReWOOAgent(
         llm=openai_gpt35, embeddings=openai_ada, tools=[openai_retrieval_tool]
     )
-    return chain
+    return agent
 
 
 @pytest.mark.skipif(
