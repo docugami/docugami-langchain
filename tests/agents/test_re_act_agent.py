@@ -18,6 +18,20 @@ from tests.common import (
 TEST_QUESTION = "What is the accident number for the incident in madill, oklahoma?"
 TEST_ANSWER_OPTIONS = ["DFW08CA044"]
 
+TEST_CHAT_HISTORY = [
+    (
+        "What is the county seat of Marshall county, OK?",
+        "Madill is a city in and the county seat of Marshall County, Oklahoma, United States.",
+    ),
+    (
+        "Do you know who it was named after?",
+        "It was named in honor of George Alexander Madill, an attorney for the St. Louis-San Francisco Railway.",
+    ),
+]
+TEST_QUESTION_WITH_HISTORY = (
+    "List the accident numbers for any aviation incidents that happened there"
+)
+
 
 def _get_answer(response: AgentState) -> str:
     outcome = response.get("agent_outcome")
@@ -67,8 +81,9 @@ def _runtest(
     agent: ReActAgent,
     question: str,
     answer_options: list[str],
+    chat_history: list[tuple[str, str]] = [],
 ) -> None:
-    response = agent.traced_run(question=question)
+    response = agent.traced_run(question=question, chat_history=chat_history)
     assert response.value
     assert response.run_id
     answer = _get_answer(response.value)
@@ -79,9 +94,13 @@ async def _runtest_streamed(
     agent: ReActAgent,
     question: str,
     answer_options: list[str],
+    chat_history: list[tuple[str, str]] = [],
 ) -> None:
     response = TracedResponse[AgentState](value={})  # type: ignore
-    async for incremental_response in agent.run_stream(question=question):
+    async for incremental_response in agent.run_stream(
+        question=question,
+        chat_history=chat_history,
+    ):
         response = incremental_response
 
     assert response.value
@@ -132,6 +151,22 @@ async def test_fireworksai_streamed_re_act(
 
 
 @pytest.mark.skipif(
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+)
+@pytest.mark.asyncio
+async def test_fireworksai_streamed_re_act_with_history(
+    fireworksai_mixtral_re_act_agent: ReActAgent,
+) -> None:
+    # test general LLM response from agent
+    await _runtest_streamed(
+        fireworksai_mixtral_re_act_agent,
+        TEST_QUESTION_WITH_HISTORY,
+        TEST_ANSWER_OPTIONS,
+        TEST_CHAT_HISTORY,
+    )
+
+
+@pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 def test_openai_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
@@ -167,4 +202,20 @@ async def test_openai_streamed_re_act(openai_gpt35_re_act_agent: ReActAgent) -> 
         openai_gpt35_re_act_agent,
         TEST_QUESTION,
         TEST_ANSWER_OPTIONS,
+    )
+
+
+@pytest.mark.skipif(
+    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+)
+@pytest.mark.asyncio
+async def test_openai_streamed_re_act_with_history(
+    openai_gpt35_re_act_agent: ReActAgent,
+) -> None:
+    # test general LLM response from agent
+    await _runtest_streamed(
+        openai_gpt35_re_act_agent,
+        TEST_QUESTION_WITH_HISTORY,
+        TEST_ANSWER_OPTIONS,
+        TEST_CHAT_HISTORY,
     )

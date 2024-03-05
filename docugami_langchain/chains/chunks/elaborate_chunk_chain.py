@@ -1,4 +1,4 @@
-from typing import AsyncIterator, Literal, Optional, Tuple
+from typing import AsyncIterator, Literal, Optional
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
@@ -69,7 +69,7 @@ class ElaborateChunkChain(BaseDocugamiChain[str]):
 
     def run_batch(  # type: ignore[override]
         self,
-        inputs: list[Tuple[str, str]],
+        inputs: list[tuple[str, str]],
         config: Optional[dict] = None,
     ) -> list[str]:
         return super().run_batch(

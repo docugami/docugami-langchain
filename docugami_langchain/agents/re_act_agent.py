@@ -4,7 +4,6 @@ from typing import (
     Annotated,
     AsyncIterator,
     Optional,
-    Tuple,
     TypedDict,
     Union,
 )
@@ -14,7 +13,6 @@ from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
 from langchain_core.prompts import (
     BasePromptTemplate,
     ChatPromptTemplate,
-    MessagesPlaceholder,
 )
 from langchain_core.runnables import Runnable
 from langchain_core.tools import BaseTool
@@ -114,6 +112,9 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
 
     tools: list[BaseTool] = []
 
+    iterations: int = 0
+    max_iterations: int = 10
+
     def params(self) -> RunnableParameters:
         """The params are directly implemented in the runnable."""
         raise NotImplementedError()
@@ -132,7 +133,7 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
         """
 
         def format_chat_history(
-            chat_history: list[Tuple[str, str]]
+            chat_history: list[tuple[str, str]]
         ) -> list[BaseMessage]:
             messages: list[BaseMessage] = []
 
@@ -143,7 +144,7 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
             return messages
 
         def format_log_to_str(
-            intermediate_steps: list[Tuple[AgentAction, str]],
+            intermediate_steps: list[tuple[AgentAction, str]],
             observation_prefix: str = "Observation: ",
             llm_prefix: str = "Thought: ",
         ) -> str:
@@ -175,8 +176,7 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
                     "system",
                     REACT_AGENT_SYSTEM_MESSAGE,
                 ),
-                MessagesPlaceholder(variable_name="chat_history"),
-                ("human", "{question}\n\n{agent_scratchpad}"),
+                ("human", "{chat_history}\n\n{question}\n\n{agent_scratchpad}"),
             ]
         )
 
@@ -208,6 +208,11 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
             return {"intermediate_steps": [(agent_action, str(output))]}
 
         def should_continue(data: dict) -> str:
+            self.iterations += 1
+
+            if self.iterations > self.max_iterations:
+                raise Exception(f"Max iterations reached for agent: {self.iterations}")
+
             # If the agent outcome is an AgentFinish, then we return `exit` string
             # This will be used when setting up the graph to define the flow
             if isinstance(data["agent_outcome"], AgentFinish):
@@ -262,6 +267,7 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
     def run(  # type: ignore[override]
         self,
         question: str,
+        chat_history: list[tuple[str, str]] = [],
         config: Optional[dict] = None,
     ) -> AgentState:
         if not question:
@@ -269,12 +275,14 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
 
         return super().run(
             question=question,
+            chat_history=chat_history,
             config=config,
         )
 
     async def run_stream(  # type: ignore[override]
         self,
         question: str,
+        chat_history: list[tuple[str, str]] = [],
         config: Optional[dict] = None,
     ) -> AsyncIterator[TracedResponse[AgentState]]:
         if not question:
@@ -282,6 +290,7 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
 
         async for item in super().run_stream(
             question=question,
+            chat_history=chat_history,
             config=config,
         ):
             yield item
@@ -289,6 +298,7 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
     def run_batch(  # type: ignore[override]
         self,
         inputs: list[str],
+        chat_history: list[list[tuple[str, str]]] = [],
         config: Optional[dict] = None,
     ) -> list[AgentState]:
         raise NotImplementedError()

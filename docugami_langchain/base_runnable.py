@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, AsyncIterator, Generic, List, Optional, Tuple, TypeVar
+from typing import Any, AsyncIterator, Generic, Optional, TypeVar
 
 import yaml
 from langchain_community.vectorstores.faiss import FAISS
@@ -167,7 +167,7 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
 
         return full_runnable
 
-    def _prepare_run_args(self, kwargs_dict: dict) -> Tuple[RunnableConfig, dict]:
+    def _prepare_run_args(self, kwargs_dict: dict) -> tuple[RunnableConfig, dict]:
         # In langsmith, default the run to be named according the the chain class
         config = RunnableConfig(run_name=self.__class__.__name__)
         if kwargs_dict:
@@ -210,7 +210,7 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
         if not inputs:
             raise Exception("Please specify a batch for inference")
 
-        if not isinstance(inputs, List):
+        if not isinstance(inputs, list):
             raise Exception("Input for batch processing must be a List")
 
         for input_dict in inputs:

@@ -1,6 +1,6 @@
 import hashlib
 from pathlib import Path
-from typing import Optional, Tuple, Union
+from typing import Optional, Union
 
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
@@ -114,7 +114,7 @@ def build_doc_maps_from_chunks(
     parent_id_key: str = PARENT_DOC_ID_KEY,
     full_doc_summary_id_key: str = FULL_DOC_SUMMARY_ID_KEY,
     source_key: str = SOURCE_KEY,
-) -> Tuple[dict[str, Document], dict[str, Document]]:
+) -> tuple[dict[str, Document], dict[str, Document]]:
     """Build separate maps of full docs and parent chunks (by individual chunk id)"""
     # Build separate maps of chunks, and parents
     parent_chunks_by_id: dict[str, Document] = {}

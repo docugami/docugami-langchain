@@ -1,4 +1,4 @@
-from typing import AsyncIterator, Literal, Optional, Tuple
+from typing import AsyncIterator, Literal, Optional
 
 from langchain_core.runnables import Runnable, RunnableBranch, RunnableLambda
 
@@ -89,7 +89,7 @@ class SummarizeDocumentChain(BaseDocugamiChain[str]):
 
     def run_batch(  # type: ignore[override]
         self,
-        inputs: list[Tuple[str, str]],
+        inputs: list[tuple[str, str]],
         config: Optional[dict] = None,
     ) -> list[str]:
         return super().run_batch(
