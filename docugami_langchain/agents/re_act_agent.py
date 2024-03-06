@@ -16,7 +16,7 @@ from langchain_core.prompts import (
     BasePromptTemplate,
     ChatPromptTemplate,
 )
-from langchain_core.runnables import Runnable
+from langchain_core.runnables import Runnable, RunnableConfig
 from langchain_core.tools import BaseTool
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt.tool_executor import ToolExecutor
@@ -78,9 +78,14 @@ Observation: the result of the action
 Thought: I now know the final answer
 Final Answer: the final answer to the original input question, with citation describing which tool you used and how. See notes above for how to cite each type of tool.
 
-You may also choose not to use a tool, e.g. if none of the provided tools is appropriate to answer the question or the question is conversational
-in nature or something you can directly respond to based on conversation history. In that case, you don't need to take an action and can just
-do something like:
+You may also choose not to use a tool in the following cases:
+1. The question is conversational in nature (e.g. a greeting or a joke) and you can directly reply without using a tool
+2. The question pertains to general knowledge (e.g. a well known fact) and you can directly reply without using a tool
+3. The question can be directly answered based on the provided conversation history or context without using a tool
+
+Note that you should answer directly only if you know the answer. If you don't know the answer, try one of the given tools to attempt to answer it.
+
+If you choose not to use a tool, you don't need to take an action and can just do something like:
 
 Question: The input question you must answer
 Thought: I can answer this question directly without using a tool
@@ -106,7 +111,15 @@ class AgentState(TypedDict):
     # this state should be ADDED to the existing values (not overwrite it)
     intermediate_steps: Annotated[list[tuple[AgentAction, str]], operator.add]
 
-    @staticmethod
+
+class ReActAgent(BaseDocugamiAgent[AgentState]):
+    """
+    Agent that implements simple agentic RAG using the ReAct prompt style.
+    """
+
+    tools: list[BaseTool] = []
+
+    @staticmethod  # type: ignore
     def to_human_readable(state: AgentState) -> str:
         outcome = state.get("agent_outcome", None)
         if outcome:
@@ -125,17 +138,6 @@ class AgentState(TypedDict):
                         return answer
 
         return "Thinking..."
-
-
-class ReActAgent(BaseDocugamiAgent[AgentState]):
-    """
-    Agent that implements simple agentic RAG using the ReAct prompt style.
-    """
-
-    tools: list[BaseTool] = []
-
-    iterations: int = 0
-    max_iterations: int = 10
 
     def params(self) -> RunnableParameters:
         """The params are directly implemented in the runnable."""
@@ -224,18 +226,13 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
             agent_outcome = agent_runnable.invoke(data)
             return {"agent_outcome": agent_outcome}
 
-        def execute_tools(data: dict) -> dict:
+        def execute_tools(data: dict, config: Optional[RunnableConfig]) -> dict:
             # Get the most recent agent_outcome - this is the key added in the `agent` above
             agent_action = data["agent_outcome"]
-            output = tool_executor.invoke(agent_action)
+            output = tool_executor.invoke(agent_action, config)
             return {"intermediate_steps": [(agent_action, str(output))]}
 
         def should_continue(data: dict) -> str:
-            self.iterations += 1
-
-            if self.iterations > self.max_iterations:
-                raise Exception(f"Max iterations reached for agent: {self.iterations}")
-
             # If the agent outcome is an AgentFinish, then we return `exit` string
             # This will be used when setting up the graph to define the flow
             if isinstance(data["agent_outcome"], AgentFinish):
@@ -291,8 +288,8 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
         self,
         question: str,
         chat_history: list[tuple[str, str]] = [],
-        config: Optional[dict] = None,
-    ) -> AgentState:
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[AgentState]:
         if not question:
             raise Exception("Input required: question")
 
@@ -306,7 +303,7 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
         self,
         question: str,
         chat_history: list[tuple[str, str]] = [],
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[AgentState]]:
         if not question:
             raise Exception("Input required: question")
@@ -322,6 +319,6 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
         self,
         inputs: list[str],
         chat_history: list[list[tuple[str, str]]] = [],
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> list[AgentState]:
         raise NotImplementedError()

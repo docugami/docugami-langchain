@@ -2,7 +2,7 @@
 
 from typing import AsyncIterator, Optional
 
-from langchain_core.runnables import Runnable
+from langchain_core.runnables import Runnable, RunnableConfig
 
 from docugami_langchain.agents.base import BaseDocugamiAgent
 from docugami_langchain.base_runnable import TracedResponse
@@ -28,8 +28,8 @@ class RewriteGraderRAGAgent(BaseDocugamiAgent[dict]):
     def run(  # type: ignore[override]
         self,
         question: str,
-        config: Optional[dict] = None,
-    ) -> dict:
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[dict]:
         if not question:
             raise Exception("Input required: question")
 
@@ -41,7 +41,7 @@ class RewriteGraderRAGAgent(BaseDocugamiAgent[dict]):
     async def run_stream(  # type: ignore[override]
         self,
         question: str,
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[dict]]:
         if not question:
             raise Exception("Input required: question")
@@ -55,7 +55,7 @@ class RewriteGraderRAGAgent(BaseDocugamiAgent[dict]):
     def run_batch(  # type: ignore[override]
         self,
         inputs: list[str],
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> list[dict]:
         return super().run_batch(
             inputs=[{"question": i} for i in inputs],

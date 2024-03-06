@@ -1,5 +1,7 @@
 from typing import AsyncIterator, Literal, Optional
 
+from langchain_core.runnables import RunnableConfig
+
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
@@ -40,8 +42,8 @@ class ElaborateChunkChain(BaseDocugamiChain[str]):
         self,
         contents: str,
         format: Literal["xml", "text"] = "text",
-        config: Optional[dict] = None,
-    ) -> str:
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[str]:
         if not contents or not format:
             raise Exception("Inputs required: contents, format")
 
@@ -55,7 +57,7 @@ class ElaborateChunkChain(BaseDocugamiChain[str]):
         self,
         contents: str,
         format: str,
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[str]]:
         if not contents or not format:
             raise Exception("Inputs required: contents, format")
@@ -70,7 +72,7 @@ class ElaborateChunkChain(BaseDocugamiChain[str]):
     def run_batch(  # type: ignore[override]
         self,
         inputs: list[tuple[str, str]],
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> list[str]:
         return super().run_batch(
             inputs=[

@@ -915,13 +915,13 @@ langchain-core = ">=0.1.25,<0.2.0"
 
 [[package]]
 name = "langsmith"
-version = "0.1.17"
+version = "0.1.21"
 description = "Client library to connect to the LangSmith LLM Tracing and Evaluation Platform."
 optional = false
 python-versions = ">=3.8.1,<4.0"
 files = [
-    {file = "langsmith-0.1.17-py3-none-any.whl", hash = "sha256:563e88d8629db23cfd5312b96fd3c6cbf990fdf2abb404d2fba3b76a73f4828f"},
-    {file = "langsmith-0.1.17.tar.gz", hash = "sha256:1a4aed855a97aae01276c832c6857b3902d910065abdb0de36ae2ad520edd92a"},
+    {file = "langsmith-0.1.21-py3-none-any.whl", hash = "sha256:ac3d455d9651879ed306500a0504a2b9b9909225ab178e2446a8bace75e65e23"},
+    {file = "langsmith-0.1.21.tar.gz", hash = "sha256:eef6b8a0d3bec7fcfc69ac5b35a16365ffac025dab0c1a4d77d6a7f7d3bbd3de"},
 ]
 
 [package.dependencies]

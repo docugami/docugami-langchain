@@ -101,8 +101,7 @@ def _runtest(
         test_data_summarized_docs.append(doc)
 
     answers = suggested_report_chain.run(test_data_summarized_docs)
-    assert answers
-    assert len(answers) > 0
+    assert len(answers.value) > 0
 
 
 @pytest.mark.parametrize("test_data", DG_SAMPLE_TEST_DATA)

@@ -1,7 +1,7 @@
 from operator import itemgetter
 from typing import AsyncIterator, Optional
 
-from langchain_core.runnables import Runnable, RunnableMap
+from langchain_core.runnables import Runnable, RunnableConfig, RunnableMap
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
@@ -53,8 +53,8 @@ class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[dict]):
     def run(  # type: ignore[override]
         self,
         question: str,
-        config: Optional[dict] = None,
-    ) -> dict:
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[dict]:
         if not question:
             raise Exception("Input required: question")
 
@@ -66,7 +66,7 @@ class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[dict]):
     async def run_stream(  # type: ignore[override]
         self,
         question: str,
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[dict]]:
         if not question:
             raise Exception("Input required: question")
@@ -80,7 +80,7 @@ class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[dict]):
     def run_batch(  # type: ignore[override]
         self,
         inputs: list[str],
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> list[dict]:
         return super().run_batch(
             inputs=[{"question": i} for i in inputs],

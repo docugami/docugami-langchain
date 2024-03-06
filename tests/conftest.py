@@ -12,7 +12,7 @@ from langchain_fireworks.chat_models import ChatFireworks
 from langchain_fireworks.llms import Fireworks
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
-from tests.common import build_retrieval_tool
+from tests.common import build_test_search_tool
 
 # Turn on caching
 LOCAL_LLM_CACHE_DB_FILE = os.environ.get(
@@ -90,7 +90,7 @@ def openai_ada() -> Embeddings:
 def huggingface_retrieval_tool(
     fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
 ) -> BaseTool:
-    return build_retrieval_tool(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
+    return build_test_search_tool(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
 
 
 @pytest.fixture()
@@ -98,4 +98,4 @@ def openai_retrieval_tool(
     openai_gpt35: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> BaseTool:
-    return build_retrieval_tool(llm=openai_gpt35, embeddings=openai_ada)
+    return build_test_search_tool(llm=openai_gpt35, embeddings=openai_ada)

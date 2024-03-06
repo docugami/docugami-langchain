@@ -44,8 +44,7 @@ def test_fireworksai_elaborate_chunk(
 ) -> None:
     elaboration = fireworksai_mixtral_elaborate_chunk_chain.run(TEST_INSTRUCTIONS)
     verify_response(elaboration)
-    assert elaboration
-    assert len(elaboration) > len(TEST_INSTRUCTIONS)
+    assert len(elaboration.value) > len(TEST_INSTRUCTIONS)
 
 
 @pytest.mark.skipif(
@@ -56,5 +55,4 @@ def test_openai_elaborate_chunk(
 ) -> None:
     elaboration = openai_gpt35_elaborate_chunk_chain.run(TEST_INSTRUCTIONS)
     verify_response(elaboration)
-    assert elaboration
-    assert len(elaboration) > len(TEST_INSTRUCTIONS)
+    assert len(elaboration.value) > len(TEST_INSTRUCTIONS)

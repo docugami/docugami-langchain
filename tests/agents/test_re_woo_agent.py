@@ -58,15 +58,11 @@ def test_fireworksai_rewoo(
 
     # test general LLM response from agent
     response = fireworksai_mixtral_rewoo_agent.run(GENERAL_KNOWLEDGE_QUESTION)
-    result = response.get("result")
-    assert result
-    verify_response(result, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
+    verify_response(response, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
     # test retrieval response from agent
     response = fireworksai_mixtral_rewoo_agent.run(TEST_QUESTION)
-    result = response.get("result")
-    assert result
-    verify_response(result, TEST_ANSWER_OPTIONS)
+    verify_response(response, TEST_ANSWER_OPTIONS)
 
 
 @pytest.mark.skipif(
@@ -76,12 +72,8 @@ def test_openai_rewoo(openai_gpt35_rewoo_agent: ReWOOAgent) -> None:
 
     # test general LLM response from agent
     response = openai_gpt35_rewoo_agent.run(GENERAL_KNOWLEDGE_QUESTION)
-    result = response.get("result")
-    assert result
-    verify_response(result, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
+    verify_response(response, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
     # test retrieval response from agent
     response = openai_gpt35_rewoo_agent.run(TEST_QUESTION)
-    result = response.get("result")
-    assert result
-    verify_response(result, TEST_ANSWER_OPTIONS)
+    verify_response(response, TEST_ANSWER_OPTIONS)

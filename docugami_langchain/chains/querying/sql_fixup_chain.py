@@ -1,5 +1,7 @@
 from typing import AsyncIterator, Optional
 
+from langchain_core.runnables import RunnableConfig
+
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.output_parsers.sql_finding import SQLFindingOutputParser
@@ -54,8 +56,8 @@ class SQLFixupChain(BaseDocugamiChain[str]):
         table_info: str,
         sql_query: str,
         exception: str,
-        config: Optional[dict] = None,
-    ) -> str:
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[str]:
         if not table_info or not sql_query or not exception:
             raise Exception("Inputs required: table_info, sql_query, exception")
 
@@ -71,7 +73,7 @@ class SQLFixupChain(BaseDocugamiChain[str]):
         table_info: str,
         sql_query: str,
         exception: str,
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[str]]:
         if not table_info or not sql_query or not exception:
             raise Exception("Inputs required: table_info, sql_query, exception")
@@ -87,7 +89,7 @@ class SQLFixupChain(BaseDocugamiChain[str]):
     def run_batch(  # type: ignore[override]
         self,
         inputs: list[tuple[str, str, str]],
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> list[str]:
         return super().run_batch(
             inputs=[

@@ -53,7 +53,7 @@ class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
 
     def run(  # type: ignore[override]
         self,
-    ) -> list[str]:
+    ) -> TracedResponse[list[str]]:
         return super().run()
 
     async def run_stream(  # type: ignore[override]

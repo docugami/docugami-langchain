@@ -4,7 +4,7 @@ import re
 from typing import AsyncIterator, Optional, TypedDict
 
 from langchain_core.prompts import BasePromptTemplate, ChatPromptTemplate
-from langchain_core.runnables import Runnable
+from langchain_core.runnables import Runnable, RunnableConfig
 from langchain_core.tools import BaseTool
 from langgraph.graph import END, StateGraph
 
@@ -160,8 +160,8 @@ class ReWOOAgent(BaseDocugamiAgent[ReWOOState]):
     def run(  # type: ignore[override]
         self,
         task: str,
-        config: Optional[dict] = None,
-    ) -> ReWOOState:
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[ReWOOState]:
         if not task:
             raise Exception("Input required: task")
 
@@ -173,7 +173,7 @@ class ReWOOAgent(BaseDocugamiAgent[ReWOOState]):
     async def run_stream(  # type: ignore[override]
         self,
         task: str,
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[ReWOOState]]:
         if not task:
             raise Exception("Input required: task")
@@ -187,7 +187,7 @@ class ReWOOAgent(BaseDocugamiAgent[ReWOOState]):
     def run_batch(  # type: ignore[override]
         self,
         inputs: list[str],
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> list[ReWOOState]:
         return super().run_batch(
             inputs=[{"task": i} for i in inputs],

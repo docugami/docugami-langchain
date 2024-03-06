@@ -1,7 +1,6 @@
 import os
 
 import pytest
-from langchain_core.agents import AgentFinish
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
@@ -71,11 +70,8 @@ def _runtest(
     answer_options: list[str],
     chat_history: list[tuple[str, str]] = [],
 ) -> None:
-    response = agent.traced_run(question=question, chat_history=chat_history)
-    assert response.value
-    assert response.run_id
-    answer = response.value.to_human_readable()
-    verify_response(answer, answer_options)
+    response = agent.run(question=question, chat_history=chat_history)
+    verify_response(response, answer_options)
 
 
 async def _runtest_streamed(
@@ -91,15 +87,14 @@ async def _runtest_streamed(
         question=question,
         chat_history=chat_history,
     ):
-        steps.append(AgentState.to_human_readable(incremental_response.value))
+        human_readable_step = agent.to_human_readable(incremental_response.value)
+        if human_readable_step not in steps:
+            steps.append(human_readable_step)
+
         response = incremental_response
 
-    assert "Thinking..." in steps
-    assert response.value
-    assert response.run_id
-
-    answer = AgentState.to_human_readable(response.value)
-    verify_response(answer, answer_options)
+    assert steps
+    verify_response(response, answer_options)
 
 
 @pytest.mark.skipif(

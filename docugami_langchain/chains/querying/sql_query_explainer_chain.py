@@ -1,5 +1,7 @@
 from typing import AsyncIterator, Optional
 
+from langchain_core.runnables import RunnableConfig
+
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
@@ -50,8 +52,8 @@ class SQLQueryExplainerChain(BaseDocugamiChain[str]):
         question: str,
         sql_query: str,
         sql_result: str,
-        config: Optional[dict] = None,
-    ) -> str:
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[str]:
         if not question or not sql_query:
             raise Exception("Inputs required: question, sql_query")
 
@@ -67,7 +69,7 @@ class SQLQueryExplainerChain(BaseDocugamiChain[str]):
         question: str,
         sql_query: str,
         sql_result: str,
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[str]]:
         if not question or not sql_query:
             raise Exception("Inputs required: question, sql_query")
@@ -83,7 +85,7 @@ class SQLQueryExplainerChain(BaseDocugamiChain[str]):
     def run_batch(  # type: ignore[override]
         self,
         inputs: list[tuple[str, str, str]],
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> list[str]:
         return super().run_batch(
             inputs=[

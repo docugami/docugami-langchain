@@ -3,7 +3,7 @@ from operator import itemgetter
 from typing import Any, AsyncIterator, Optional
 
 from langchain_community.utilities.sql_database import SQLDatabase
-from langchain_core.runnables import Runnable, RunnableLambda
+from langchain_core.runnables import Runnable, RunnableConfig, RunnableLambda
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
@@ -52,7 +52,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
             # Just echo back the input if unable to fix
             return sql_query
 
-        def run_sql_query(inputs: dict, config: dict) -> dict:
+        def run_sql_query(inputs: dict, config: Optional[RunnableConfig]) -> dict:
             """
             Runs the given query against the database connection for this chain, and returns the result.
             """
@@ -76,7 +76,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
 
                 if is_syntax_error and self.sql_fixup_chain:
                     # If syntax error in Raw SQL, try to fix up the SQL
-                    fixed_sql = self.sql_fixup_chain.run(
+                    fixed_sql_response = self.sql_fixup_chain.run(
                         table_info=table_info(self),
                         sql_query=sql_query,
                         exception=str(exc),
@@ -84,6 +84,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
                     )
 
                     # Run Fixed-up SQL
+                    fixed_sql = fixed_sql_response.value
                     return {
                         "question": question,
                         "sql_query": fixed_sql,
@@ -150,8 +151,8 @@ class SQLResultChain(BaseDocugamiChain[dict]):
     def run(  # type: ignore[override]
         self,
         question: str,
-        config: Optional[dict] = None,
-    ) -> dict:
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[dict]:
         if not question:
             raise Exception("Input required: question")
 
@@ -163,7 +164,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
     async def run_stream(  # type: ignore[override]
         self,
         question: str,
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[dict]]:
         if not question:
             raise Exception("Input required: question")
@@ -177,7 +178,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
     def run_batch(  # type: ignore[override]
         self,
         inputs: list[str],
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> list[dict]:
         return super().run_batch(
             inputs=[{"question": i} for i in inputs],
