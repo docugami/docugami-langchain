@@ -76,9 +76,8 @@ def _runtest(chain: SQLFixupChain, test_data: SQLFixupTestData) -> None:
         exception=test_data.exception,
     )
     verify_response(fixed_sql)
-    assert fixed_sql
-    assert fixed_sql.strip().lower().startswith("select")
-    assert sqlparse.parse(fixed_sql)
+    assert fixed_sql.value.strip().lower().startswith("select")
+    assert sqlparse.parse(fixed_sql.value)
 
 
 @pytest.mark.parametrize("test_data", SQL_FIXUP_TEST_DATA)

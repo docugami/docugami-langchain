@@ -2,7 +2,7 @@ from operator import itemgetter
 from typing import AsyncIterator, Optional
 
 from langchain_core.documents import Document
-from langchain_core.runnables import Runnable, RunnableLambda
+from langchain_core.runnables import Runnable, RunnableConfig, RunnableLambda
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
@@ -54,8 +54,8 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
     def run(  # type: ignore[override]
         self,
         summaries: list[Document],
-        config: Optional[dict] = None,
-    ) -> list[str]:
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[list[str]]:
         if not summaries:
             raise Exception("Input required: summaries")
 
@@ -64,18 +64,19 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         summaries: list[Document],
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[list[str]]]:
         if not summaries:
             raise Exception("Input required: summaries")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             summaries=summaries,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,

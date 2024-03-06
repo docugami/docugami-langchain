@@ -28,11 +28,13 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseTool):
         run_manager: Optional[CallbackManagerForToolRun] = None,
     ) -> str:  # type: ignore
         """Use the tool."""
-        result = self.chain.run(question=question).get("sql_result")
-        if result:
-            return str(result)
-        else:
-            return ""
+        chain_response = self.chain.run(question=question)
+        if chain_response.value:
+            sql_result = chain_response.value.get("sql_result")
+            if sql_result:
+                return str(sql_result)
+
+        return ""
 
 
 def report_name_to_report_query_tool_function_name(name: str) -> str:

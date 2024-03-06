@@ -52,8 +52,7 @@ def test_fireworksai_summarize_chunk(
 ) -> None:
     summary = fireworksai_mixtral_summarize_chunk_chain.run(TEST_FORCE_MAJEURE_CLAUSE)
     verify_response(summary)
-    assert summary
-    assert len(summary) < len(TEST_FORCE_MAJEURE_CLAUSE)
+    assert len(summary.value) < len(TEST_FORCE_MAJEURE_CLAUSE)
 
 
 @pytest.mark.skipif(
@@ -64,5 +63,4 @@ def test_openai_summarize_chunk(
 ) -> None:
     summary = openai_gpt35_summarize_chunk_chain.run(TEST_FORCE_MAJEURE_CLAUSE)
     verify_response(summary)
-    assert summary
-    assert len(summary) < len(TEST_FORCE_MAJEURE_CLAUSE)
+    assert len(summary.value) < len(TEST_FORCE_MAJEURE_CLAUSE)

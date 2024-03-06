@@ -133,10 +133,7 @@ async def test_fireworksai_mixtral_streamed_answer(
     ):
         chain_response = incremental_response
 
-    assert chain_response.value
-    assert chain_response.run_id
-
-    verify_response(chain_response.value, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
+    verify_response(chain_response, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
 
 @pytest.mark.skipif(
@@ -145,16 +142,6 @@ async def test_fireworksai_mixtral_streamed_answer(
 def test_openai_gpt35_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
     answer = openai_gpt35_answer_chain.run(GENERAL_KNOWLEDGE_QUESTION)
     verify_response(answer, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
-
-
-@pytest.mark.skipif(
-    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
-)
-def test_openai_gpt35_traced_answer(openai_gpt35_answer_chain: AnswerChain) -> None:
-    response = openai_gpt35_answer_chain.traced_run(question=GENERAL_KNOWLEDGE_QUESTION)
-
-    assert response.run_id
-    verify_response(response.value, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
 
 @pytest.mark.skipif(
@@ -170,7 +157,4 @@ async def test_openai_gpt35_streamed_answer(
     ):
         chain_response = incremental_response
 
-    assert chain_response.value
-    assert chain_response.run_id
-
-    verify_response(chain_response.value, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
+    verify_response(chain_response, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)

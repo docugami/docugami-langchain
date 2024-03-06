@@ -2,15 +2,23 @@ import os
 import random
 import warnings
 from pathlib import Path
-from typing import Optional
+from typing import Any, Optional
 
 from langchain_community.vectorstores.faiss import FAISS
+from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
+from langchain_core.vectorstores import VectorStore
 
+from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.config import MAX_FULL_DOCUMENT_TEXT_LENGTH, RETRIEVER_K
 from docugami_langchain.document_loaders.docugami import DocugamiLoader
+from docugami_langchain.retrievers.fused_summary import (
+    FusedRetrieverKeyValueFetchCallback,
+    FusedSummaryRetriever,
+    SearchType,
+)
 from docugami_langchain.retrievers.mappings import (
     build_chunk_summary_mappings,
     build_doc_maps_from_chunks,
@@ -42,6 +50,7 @@ DEMO_MSA_SERVICES_TABLE_NAME = "Service Agreements Summary"
 GENERAL_KNOWLEDGE_QUESTION = "Who formulated the theory of special relativity?"
 GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS = ["einstein"]
 
+
 def is_core_tests_only_mode() -> bool:
     core_tests_env_var = os.environ.get("DOCUGAMI_ONLY_CORE_TESTS")
     if not core_tests_env_var:
@@ -54,36 +63,56 @@ def is_core_tests_only_mode() -> bool:
 
 
 def verify_response(
-    response: Optional[str],
+    response: TracedResponse[Any],
     match_fragment_str_options: list[str] = [],
     empty_ok: bool = False,
 ) -> None:
-    if empty_ok and not response:
+    assert response.run_id
+    if empty_ok and not response.value:
         return
 
-    assert response
+    value = str(response.value)
+    assert value
     if match_fragment_str_options:
         output_match = False
         for fragment in match_fragment_str_options:
-            output_match = output_match or fragment.lower() in response.lower()
+            output_match = output_match or fragment.lower() in value.lower()
 
         assert (
             output_match
         ), f"{response} does not contain one of the expected output substrings {match_fragment_str_options}"
 
     # Check guardrails and warn if any violations detected based on string checks
-    for banned_word in ["sql"]:
-        if banned_word.lower() in response.lower():
+    for banned_word in ["sql", "context"]:
+        if banned_word.lower() in value.lower():
             warnings.warn(
-                UserWarning(f"Output contains banned word {banned_word}: {response}")
+                UserWarning(f"Output contains banned word {banned_word}: {value}")
             )
 
-def build_retrieval_tool(llm: BaseLanguageModel, embeddings: Embeddings) -> BaseTool:
+
+def build_test_query_tool(llm: BaseLanguageModel, embeddings: Embeddings) -> BaseTool:
+    """
+    Builds a query tool over a test database
+    """
+    raise Exception()
+
+
+def build_test_retrieval_artifacts(
+    llm: BaseLanguageModel,
+    embeddings: Embeddings,
+    data_dir: Path = RAG_TEST_DGML_DATA_DIR,
+    data_files_glob: str = "*.xml",
+) -> tuple[
+    VectorStore,
+    dict[str, Document],
+    FusedRetrieverKeyValueFetchCallback,
+    FusedRetrieverKeyValueFetchCallback,
+]:
     """
     Builds a vector store pre-populated with chunks from test documents
-    using the given embeddings, and returns a retriever tool off it.
+    using the given embeddings, document summaries, and callbacks used for retrieval tests.
     """
-    test_dgml_files = list(RAG_TEST_DGML_DATA_DIR.rglob("*.xml"))
+    test_dgml_files = list(data_dir.rglob(data_files_glob))
     loader = DocugamiLoader(file_paths=test_dgml_files, parent_hierarchy_levels=2)
     chunks = loader.load()
     full_docs_by_id, parent_chunks_by_id = build_doc_maps_from_chunks(chunks)
@@ -123,6 +152,57 @@ def build_retrieval_tool(llm: BaseLanguageModel, embeddings: Embeddings) -> Base
         if full_doc_summary_doc:
             return full_doc_summary_doc.page_content
         return None
+
+    return (
+        vector_store,
+        full_doc_summaries_by_id,
+        _fetch_parent_doc_callback,
+        _fetch_full_doc_summary_callback,
+    )
+
+
+def build_test_fused_retriever(
+    llm: BaseLanguageModel,
+    embeddings: Embeddings,
+    data_dir: Path = RAG_TEST_DGML_DATA_DIR,
+    data_files_glob: str = "*.xml",
+) -> FusedSummaryRetriever:
+    """
+    Builds a vector store pre-populated with chunks from test documents
+    using the given embeddings, and returns a retriever off it.
+    """
+    (
+        vector_store,
+        _,
+        _fetch_parent_doc_callback,
+        _fetch_full_doc_summary_callback,
+    ) = build_test_retrieval_artifacts(llm, embeddings, data_dir, data_files_glob)
+
+    return FusedSummaryRetriever(
+        vectorstore=vector_store,
+        fetch_parent_doc_callback=_fetch_parent_doc_callback,
+        fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
+        search_kwargs={"k": RETRIEVER_K},
+        search_type=SearchType.mmr,
+    )
+
+
+def build_test_search_tool(
+    llm: BaseLanguageModel,
+    embeddings: Embeddings,
+    data_dir: Path = RAG_TEST_DGML_DATA_DIR,
+    data_files_glob: str = "*.xml",
+) -> BaseTool:
+    """
+    Builds a vector store pre-populated with chunks from test documents
+    using the given embeddings, and returns a retriever tool off it.
+    """
+    (
+        vector_store,
+        full_doc_summaries_by_id,
+        _fetch_parent_doc_callback,
+        _fetch_full_doc_summary_callback,
+    ) = build_test_retrieval_artifacts(llm, embeddings, data_dir, data_files_glob)
 
     retrieval_tool_description = summaries_to_direct_retriever_tool_description(
         name=RAG_TEST_DGML_DOCSET_NAME,

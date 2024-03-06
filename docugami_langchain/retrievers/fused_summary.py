@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import Callable, Dict, Optional
+from typing import Callable, Optional
 
 from langchain_core.callbacks.manager import CallbackManagerForRetrieverRun
 from langchain_core.documents import Document
@@ -103,7 +103,7 @@ class FusedSummaryRetriever(BaseRetriever):
         else:
             sub_docs = self.vectorstore.similarity_search(query, **self.search_kwargs)
 
-        fused_doc_elements: Dict[str, FusedDocumentElements] = {}
+        fused_doc_elements: dict[str, FusedDocumentElements] = {}
         for i, sub_doc in enumerate(sub_docs):
             parent_id = sub_doc.metadata.get(self.parent_id_key)
             full_doc_summary_id = sub_doc.metadata.get(self.full_doc_summary_id_key)

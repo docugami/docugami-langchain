@@ -40,9 +40,9 @@ def _runtest(chain: SQLResultChain, test_data: SQLTestData) -> None:
     #
     # There are other tests in the explainer chain that look at the answer
     verify_response(
-        response.get("sql_result"),
+        response,
         [],
-        empty_ok=True,  # if query is valid but returns nothing, it will be empty
+        empty_ok=True,  # If query is valid but returns nothing, it will be empty
     )
 
 

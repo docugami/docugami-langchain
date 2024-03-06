@@ -1,4 +1,6 @@
-from typing import AsyncIterator, Optional, Tuple
+from typing import AsyncIterator, Optional
+
+from langchain_core.runnables import RunnableConfig
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
@@ -54,8 +56,8 @@ class SQLFixupChain(BaseDocugamiChain[str]):
         table_info: str,
         sql_query: str,
         exception: str,
-        config: Optional[dict] = None,
-    ) -> str:
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[str]:
         if not table_info or not sql_query or not exception:
             raise Exception("Inputs required: table_info, sql_query, exception")
 
@@ -66,27 +68,28 @@ class SQLFixupChain(BaseDocugamiChain[str]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         table_info: str,
         sql_query: str,
         exception: str,
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[str]]:
         if not table_info or not sql_query or not exception:
             raise Exception("Inputs required: table_info, sql_query, exception")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             table_info=table_info,
             sql_query=sql_query,
             exception=exception,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,
-        inputs: list[Tuple[str, str, str]],
-        config: Optional[dict] = None,
+        inputs: list[tuple[str, str, str]],
+        config: Optional[RunnableConfig] = None,
     ) -> list[str]:
         return super().run_batch(
             inputs=[

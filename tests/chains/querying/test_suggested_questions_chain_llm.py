@@ -31,9 +31,8 @@ def init_suggested_questions_chain(
 
 def _runtest(chain: SuggestedQuestionsChain) -> None:
     suggestions = chain.run()
-    verify_response(str(suggestions))
-    assert suggestions
-    assert len(suggestions) > 0
+    verify_response(suggestions)
+    assert len(suggestions.value) > 0
 
 
 @pytest.mark.parametrize("test_data", SQL_TEST_DATA)

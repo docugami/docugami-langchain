@@ -1,14 +1,15 @@
 # Adapted with thanks from https://github.com/langchain-ai/langgraph/blob/main/examples/rewoo/rewoo.ipynb
 
 import re
-from typing import AsyncIterator, Dict, List, Optional, TypedDict
+from typing import AsyncIterator, Optional, TypedDict
 
 from langchain_core.prompts import BasePromptTemplate, ChatPromptTemplate
-from langchain_core.runnables import Runnable
+from langchain_core.runnables import Runnable, RunnableConfig
 from langchain_core.tools import BaseTool
 from langgraph.graph import END, StateGraph
 
-from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.agents.base import BaseDocugamiAgent
+from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.config import DEFAULT_EXAMPLES_PER_PROMPT
 from docugami_langchain.params import RunnableParameters
 
@@ -53,14 +54,14 @@ PLAN_REGEX_PATTERN = r"Plan:\s*(.+)\s*(#E\d+)\s*=\s*(\w+)\s*\[([^\]]+)\]"
 
 
 class ReWOOState(TypedDict):
-    steps: List
+    steps: list
     plan_string: str
     task: str
-    results: Dict
+    results: dict
     result: str
 
 
-class ReWOOAgent(BaseRunnable[ReWOOState]):
+class ReWOOAgent(BaseDocugamiAgent[ReWOOState]):
     """Agent that implements ReWOO (Reasoning WithOut Observation) https://arxiv.org/abs/2305.18323"""
 
     tools: list[BaseTool] = []
@@ -86,7 +87,7 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
         )
         planner = plan_prompt_template | self.llm
 
-        def get_plan(state: ReWOOState) -> Dict:
+        def get_plan(state: ReWOOState) -> dict:
             task = state["task"]
             tool_list = ""
             for i in range(len(self.tools)):
@@ -106,7 +107,7 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
             else:
                 return len(state["results"]) + 1
 
-        def tool_execution(state: ReWOOState) -> Dict:
+        def tool_execution(state: ReWOOState) -> dict:
             """Worker node that executes the tools of a given plan."""
             _step = get_current_task(state)
             _, step_name, tool, tool_input = state["steps"][_step - 1]
@@ -125,7 +126,7 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
             _results[step_name] = str(result)
             return {"results": _results}
 
-        def solve(state: ReWOOState) -> Dict:
+        def solve(state: ReWOOState) -> dict:
             plan = ""
             for _plan, step_name, tool, tool_input in state["steps"]:
                 _results = state["results"] or {}
@@ -159,8 +160,8 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
     def run(  # type: ignore[override]
         self,
         task: str,
-        config: Optional[dict] = None,
-    ) -> ReWOOState:
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[ReWOOState]:
         if not task:
             raise Exception("Input required: task")
 
@@ -169,23 +170,24 @@ class ReWOOAgent(BaseRunnable[ReWOOState]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         task: str,
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[ReWOOState]]:
         if not task:
             raise Exception("Input required: task")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             task=task,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,
         inputs: list[str],
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> list[ReWOOState]:
         return super().run_batch(
             inputs=[{"task": i} for i in inputs],

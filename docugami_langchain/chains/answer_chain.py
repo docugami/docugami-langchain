@@ -1,5 +1,7 @@
 from typing import AsyncIterator, Optional
 
+from langchain_core.runnables import RunnableConfig
+
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
@@ -26,8 +28,8 @@ class AnswerChain(BaseDocugamiChain[str]):
     def run(  # type: ignore[override]
         self,
         question: str,
-        config: Optional[dict] = None,
-    ) -> str:
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[str]:
         if not question:
             raise Exception("Input required: question")
 
@@ -36,23 +38,24 @@ class AnswerChain(BaseDocugamiChain[str]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         question: str,
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[str]]:
         if not question:
             raise Exception("Input required: question")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             question=question,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,
         inputs: list[str],
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> list[str]:
         return super().run_batch(
             inputs=[{"question": i} for i in inputs],

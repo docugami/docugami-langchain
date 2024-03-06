@@ -3,7 +3,7 @@ import io
 import logging
 import os
 from pathlib import Path
-from typing import Any, Dict, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 
 import requests
 from langchain_community.document_loaders.base import BaseLoader
@@ -75,7 +75,7 @@ class DocugamiLoader(BaseLoader, BaseModel):
     """Set to True if you want to include the project metadata in the doc metadata."""
 
     @root_validator
-    def validate_local_or_remote(cls, values: Dict[str, Any]) -> Dict[str, Any]:
+    def validate_local_or_remote(cls, values: dict[str, Any]) -> dict[str, Any]:
         """Validate that either local file paths are given, or remote API docset ID.
 
         Args:
@@ -155,7 +155,7 @@ class DocugamiLoader(BaseLoader, BaseModel):
             parent_hierarchy_levels=self.parent_hierarchy_levels,
         )
 
-        framework_chunks: Dict[str, Document] = {}
+        framework_chunks: dict[str, Document] = {}
         for dg_chunk in dg_chunks:
             framework_chunk = _build_framework_chunk(dg_chunk)
             chunk_id = framework_chunk.metadata.get(ID_KEY)
@@ -170,7 +170,7 @@ class DocugamiLoader(BaseLoader, BaseModel):
 
         return list(framework_chunks.values())
 
-    def _document_details_for_docset_id(self, docset_id: str) -> list[Dict]:
+    def _document_details_for_docset_id(self, docset_id: str) -> list[dict]:
         """Gets all document details for the given docset ID"""
         url = f"{self.api}/docsets/{docset_id}/documents"
         all_documents = []
@@ -191,7 +191,7 @@ class DocugamiLoader(BaseLoader, BaseModel):
 
         return all_documents
 
-    def _project_details_for_docset_id(self, docset_id: str) -> list[Dict]:
+    def _project_details_for_docset_id(self, docset_id: str) -> list[dict]:
         """Gets all project details for the given docset ID"""
         url = f"{self.api}/projects?docset.id={docset_id}"
         all_projects = []
@@ -214,14 +214,14 @@ class DocugamiLoader(BaseLoader, BaseModel):
 
         return all_projects
 
-    def _metadata_for_project(self, project: Dict) -> Dict:
+    def _metadata_for_project(self, project: dict) -> dict:
         """Gets project metadata for all files"""
         project_id = project.get(ID_KEY)
 
         url = f"{self.api}/projects/{project_id}/artifacts/latest"
         all_artifacts = []
 
-        per_file_metadata: Dict = {}
+        per_file_metadata: dict = {}
         while url:
             response = requests.request(
                 "GET",
@@ -248,7 +248,7 @@ class DocugamiLoader(BaseLoader, BaseModel):
 
             if artifact_name == "report-values.xml" and artifact_url and artifact_doc:
                 doc_id = artifact_doc[ID_KEY]
-                metadata: Dict = {}
+                metadata: dict = {}
 
                 # The evaluated XML for each document is named after the project
                 response = requests.request(
@@ -328,7 +328,7 @@ class DocugamiLoader(BaseLoader, BaseModel):
                 ]
 
             _project_details = self._project_details_for_docset_id(self.docset_id)
-            combined_project_metadata: Dict[str, Dict] = {}
+            combined_project_metadata: dict[str, dict] = {}
             if _project_details and self.include_project_metadata_in_doc_metadata:
                 # If there are any projects for this docset and the caller requested
                 # project metadata, load it.

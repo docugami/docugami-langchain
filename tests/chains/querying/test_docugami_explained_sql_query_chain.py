@@ -61,11 +61,7 @@ def init_docugami_explained_sql_query_chain(
 
 def _runtest(chain: DocugamiExplainedSQLQueryChain, test_data: SQLTestData) -> None:
     response = chain.run(question=test_data.question)
-    results = response.get("results")
-    assert results
-    verify_response(
-        results.get("explained_sql_result"), test_data.explained_result_answer_fragments
-    )
+    verify_response(response, test_data.explained_result_answer_fragments)
 
 
 async def _runtest_streamed(
@@ -75,13 +71,7 @@ async def _runtest_streamed(
     async for incremental_response in chain.run_stream(question=test_data.question):
         chain_response = incremental_response
 
-    assert chain_response.value
-    assert chain_response.run_id
-    results = chain_response.value.get("results")
-    assert results
-    verify_response(
-        results.get("explained_sql_result"), test_data.explained_result_answer_fragments
-    )
+    verify_response(chain_response, test_data.explained_result_answer_fragments)
 
 
 @pytest.mark.parametrize("test_data", SQL_TEST_DATA)

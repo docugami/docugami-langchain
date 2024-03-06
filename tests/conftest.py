@@ -3,16 +3,16 @@ from pathlib import Path
 
 import pytest
 from langchain_community.cache import SQLiteCache
-from langchain_community.chat_models.fireworks import ChatFireworks
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.llms.fireworks import Fireworks
 from langchain_core.embeddings import Embeddings
 from langchain_core.globals import set_llm_cache
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
+from langchain_fireworks.chat_models import ChatFireworks
+from langchain_fireworks.llms import Fireworks
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
-from tests.common import build_retrieval_tool
+from tests.common import build_test_search_tool
 
 # Turn on caching
 LOCAL_LLM_CACHE_DB_FILE = os.environ.get(
@@ -30,10 +30,10 @@ def fireworksai_mistral_7b() -> BaseLanguageModel:
     return Fireworks(
         model="accounts/fireworks/models/mistral-7b",
         cache=True,
+        temperature=0,
+        max_tokens=2 * 1024,  # includes input and output tokens
         model_kwargs={
             "context_length_exceeded_behavior": "truncate",
-            "temperature": 0,
-            "max_tokens": 2 * 1024,  # includes input and output tokens
         },
     )
 
@@ -46,10 +46,10 @@ def fireworksai_mixtral() -> BaseLanguageModel:
     return ChatFireworks(
         model="accounts/fireworks/models/mixtral-8x7b-instruct",
         cache=True,
+        temperature=0,
+        max_tokens=32 * 1024,  # includes input and output tokens
         model_kwargs={
             "context_length_exceeded_behavior": "truncate",
-            "temperature": 0,
-            "max_tokens": 32 * 1024,  # includes input and output tokens
         },
     )
 
@@ -90,7 +90,7 @@ def openai_ada() -> Embeddings:
 def huggingface_retrieval_tool(
     fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
 ) -> BaseTool:
-    return build_retrieval_tool(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
+    return build_test_search_tool(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
 
 
 @pytest.fixture()
@@ -98,4 +98,4 @@ def openai_retrieval_tool(
     openai_gpt35: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> BaseTool:
-    return build_retrieval_tool(llm=openai_gpt35, embeddings=openai_ada)
+    return build_test_search_tool(llm=openai_gpt35, embeddings=openai_ada)

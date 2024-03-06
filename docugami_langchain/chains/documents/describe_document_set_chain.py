@@ -2,7 +2,7 @@ from operator import itemgetter
 from typing import AsyncIterator, Optional
 
 from langchain_core.documents import Document
-from langchain_core.runnables import Runnable, RunnableLambda
+from langchain_core.runnables import Runnable, RunnableConfig, RunnableLambda
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
@@ -56,8 +56,8 @@ class DescribeDocumentSetChain(BaseDocugamiChain[str]):
         self,
         summaries: list[Document],
         docset_name: str,
-        config: Optional[dict] = None,
-    ) -> str:
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[str]:
         if not summaries or not docset_name:
             raise Exception("Inputs required: summaries, docset_name")
 
@@ -67,20 +67,21 @@ class DescribeDocumentSetChain(BaseDocugamiChain[str]):
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         summaries: list[Document],
         docset_name: str,
-        config: Optional[dict] = None,
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[str]]:
         if not summaries or not docset_name:
             raise Exception("Inputs required: summaries, docset_name")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             summaries=summaries,
             docset_name=docset_name,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,

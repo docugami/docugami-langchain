@@ -55,8 +55,7 @@ def _runtest_serial(
             contents = file.read()
             summary = chain.run(contents)
             verify_response(summary)
-            assert summary
-            assert len(summary) < len(contents)
+            assert len(summary.value) < len(contents)
 
 
 def _runtest_batched(
@@ -77,8 +76,6 @@ def _runtest_batched(
 
     for idx in range(len(all_contents)):
         summary = all_summaries[idx]
-        verify_response(summary)
-        assert summary
         assert len(summary) < len(all_contents[idx])
 
 

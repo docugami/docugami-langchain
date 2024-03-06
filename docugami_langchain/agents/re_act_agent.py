@@ -1,11 +1,11 @@
 # Adapted with thanks from https://github.com/langchain-ai/langgraph/blob/main/examples/agent_executor/base.ipynb
+from __future__ import annotations
+
 import operator
 from typing import (
     Annotated,
     AsyncIterator,
-    Dict,
     Optional,
-    Tuple,
     TypedDict,
     Union,
 )
@@ -15,18 +15,14 @@ from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
 from langchain_core.prompts import (
     BasePromptTemplate,
     ChatPromptTemplate,
-    MessagesPlaceholder,
 )
-from langchain_core.runnables import Runnable
+from langchain_core.runnables import Runnable, RunnableConfig
 from langchain_core.tools import BaseTool
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt.tool_executor import ToolExecutor
 
-from docugami_langchain.base_runnable import (
-    BaseRunnable,
-    TracedResponse,
-    standard_sytem_instructions,
-)
+from docugami_langchain.agents.base import BaseDocugamiAgent
+from docugami_langchain.base_runnable import TracedResponse, standard_sytem_instructions
 from docugami_langchain.config import DEFAULT_EXAMPLES_PER_PROMPT
 from docugami_langchain.output_parsers.soft_react_json_single_input import (
     SoftReActJsonSingleInputOutputParser,
@@ -82,9 +78,14 @@ Observation: the result of the action
 Thought: I now know the final answer
 Final Answer: the final answer to the original input question, with citation describing which tool you used and how. See notes above for how to cite each type of tool.
 
-You may also choose not to use a tool, e.g. if none of the provided tools is appropriate to answer the question or the question is conversational
-in nature or something you can directly respond to based on conversation history. In that case, you don't need to take an action and can just
-do something like:
+You may also choose not to use a tool in the following cases:
+1. The question is conversational in nature (e.g. a greeting or a joke) and you can directly reply without using a tool
+2. The question pertains to general knowledge (e.g. a well known fact) and you can directly reply without using a tool
+3. The question can be directly answered based on the provided conversation history or context without using a tool
+
+Note that you should answer directly only if you know the answer. If you don't know the answer, try one of the given tools to attempt to answer it.
+
+If you choose not to use a tool, you don't need to take an action and can just do something like:
 
 Question: The input question you must answer
 Thought: I can answer this question directly without using a tool
@@ -111,12 +112,32 @@ class AgentState(TypedDict):
     intermediate_steps: Annotated[list[tuple[AgentAction, str]], operator.add]
 
 
-class ReActAgent(BaseRunnable[AgentState]):
+class ReActAgent(BaseDocugamiAgent[AgentState]):
     """
     Agent that implements simple agentic RAG using the ReAct prompt style.
     """
 
     tools: list[BaseTool] = []
+
+    @staticmethod  # type: ignore
+    def to_human_readable(state: AgentState) -> str:
+        outcome = state.get("agent_outcome", None)
+        if outcome:
+            if isinstance(outcome, AgentAction):
+                tool_name = outcome.tool
+                tool_input = outcome.tool_input
+                if tool_name.startswith("search"):
+                    return f"Searching documents for '{tool_input}'"
+                elif tool_name.startswith("query"):
+                    return f"Querying report for '{tool_input}'"
+            elif isinstance(outcome, AgentFinish):
+                return_values = outcome.return_values
+                if return_values:
+                    answer = return_values.get("output")
+                    if answer:
+                        return answer
+
+        return "Thinking..."
 
     def params(self) -> RunnableParameters:
         """The params are directly implemented in the runnable."""
@@ -136,7 +157,7 @@ class ReActAgent(BaseRunnable[AgentState]):
         """
 
         def format_chat_history(
-            chat_history: list[Tuple[str, str]]
+            chat_history: list[tuple[str, str]]
         ) -> list[BaseMessage]:
             messages: list[BaseMessage] = []
 
@@ -147,15 +168,16 @@ class ReActAgent(BaseRunnable[AgentState]):
             return messages
 
         def format_log_to_str(
-            intermediate_steps: list[Tuple[AgentAction, str]],
+            intermediate_steps: list[tuple[AgentAction, str]],
             observation_prefix: str = "Observation: ",
             llm_prefix: str = "Thought: ",
         ) -> str:
             """Construct the scratchpad that lets the agent continue its thought process."""
             thoughts = ""
-            for action, observation in intermediate_steps:
-                thoughts += action.log
-                thoughts += f"\n{observation_prefix}{observation}\n{llm_prefix}"
+            if intermediate_steps:
+                for action, observation in intermediate_steps:
+                    thoughts += action.log
+                    thoughts += f"\n{observation_prefix}{observation}\n{llm_prefix}"
             return thoughts
 
         def render_text_description(tools: list[BaseTool]) -> str:
@@ -179,8 +201,7 @@ class ReActAgent(BaseRunnable[AgentState]):
                     "system",
                     REACT_AGENT_SYSTEM_MESSAGE,
                 ),
-                MessagesPlaceholder(variable_name="chat_history"),
-                ("human", "{question}\n\n{agent_scratchpad}"),
+                ("human", "{chat_history}\n\n{question}\n\n{agent_scratchpad}"),
             ]
         )
 
@@ -201,17 +222,17 @@ class ReActAgent(BaseRunnable[AgentState]):
 
         tool_executor = ToolExecutor(self.tools)
 
-        def run_agent(data: Dict) -> Dict:
-            agent_outcome = agent_runnable.invoke(data)
+        def run_agent(data: dict, config: Optional[RunnableConfig]) -> dict:
+            agent_outcome = agent_runnable.invoke(data, config)
             return {"agent_outcome": agent_outcome}
 
-        def execute_tools(data: Dict) -> Dict:
+        def execute_tools(data: dict, config: Optional[RunnableConfig]) -> dict:
             # Get the most recent agent_outcome - this is the key added in the `agent` above
             agent_action = data["agent_outcome"]
-            output = tool_executor.invoke(agent_action)
+            output = tool_executor.invoke(agent_action, config)
             return {"intermediate_steps": [(agent_action, str(output))]}
 
-        def should_continue(data: Dict) -> str:
+        def should_continue(data: dict) -> str:
             # If the agent outcome is an AgentFinish, then we return `exit` string
             # This will be used when setting up the graph to define the flow
             if isinstance(data["agent_outcome"], AgentFinish):
@@ -266,32 +287,38 @@ class ReActAgent(BaseRunnable[AgentState]):
     def run(  # type: ignore[override]
         self,
         question: str,
-        config: Optional[dict] = None,
-    ) -> AgentState:
+        chat_history: list[tuple[str, str]] = [],
+        config: Optional[RunnableConfig] = None,
+    ) -> TracedResponse[AgentState]:
         if not question:
             raise Exception("Input required: question")
 
         return super().run(
             question=question,
+            chat_history=chat_history,
             config=config,
         )
 
-    def run_stream(  # type: ignore[override]
+    async def run_stream(  # type: ignore[override]
         self,
         question: str,
-        config: Optional[dict] = None,
+        chat_history: list[tuple[str, str]] = [],
+        config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[AgentState]]:
         if not question:
             raise Exception("Input required: question")
 
-        return super().run_stream(
+        async for item in super().run_stream(
             question=question,
+            chat_history=chat_history,
             config=config,
-        )
+        ):
+            yield item
 
     def run_batch(  # type: ignore[override]
         self,
         inputs: list[str],
-        config: Optional[dict] = None,
+        chat_history: list[list[tuple[str, str]]] = [],
+        config: Optional[RunnableConfig] = None,
     ) -> list[AgentState]:
         raise NotImplementedError()
