@@ -222,8 +222,8 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
 
         tool_executor = ToolExecutor(self.tools)
 
-        def run_agent(data: dict) -> dict:
-            agent_outcome = agent_runnable.invoke(data)
+        def run_agent(data: dict, config: Optional[RunnableConfig]) -> dict:
+            agent_outcome = agent_runnable.invoke(data, config)
             return {"agent_outcome": agent_outcome}
 
         def execute_tools(data: dict, config: Optional[RunnableConfig]) -> dict:

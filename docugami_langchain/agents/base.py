@@ -36,10 +36,6 @@ class BaseDocugamiAgent(BaseRunnable[T]):
                 last_answer = output[key]
                 yield TracedResponse[T](value=last_answer)
 
-                # stop processing once we have output from the end of the graph
-                if key == END:
-                    break
-
             # yield the final result with the run_id
             if cb.traced_runs:
                 run_id = str(cb.traced_runs[0].id)
