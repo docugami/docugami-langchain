@@ -66,6 +66,19 @@ class ReWOOAgent(BaseDocugamiAgent[ReWOOState]):
 
     tools: list[BaseTool] = []
 
+    @staticmethod
+    def to_human_readable(state: ReWOOState) -> str:
+        return state.get("result", "")
+
+    def create_finish_state(self, content: str) -> ReWOOState:
+        return ReWOOState(
+            steps=[],
+            plan_string="",
+            task="",
+            results={},
+            result=content,
+        )
+
     def params(self) -> RunnableParameters:
         """The params are directly implemented in the runnable."""
         raise NotImplementedError()

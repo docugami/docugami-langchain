@@ -45,6 +45,7 @@ def fireworksai_mixtral() -> BaseLanguageModel:
     """
     return ChatFireworks(
         model="accounts/fireworks/models/mixtral-8x7b-instruct",
+        streaming=True,
         cache=True,
         temperature=0,
         max_tokens=32 * 1024,  # includes input and output tokens
@@ -72,6 +73,7 @@ def openai_gpt35() -> BaseLanguageModel:
     """
     return ChatOpenAI(
         model="gpt-3.5-turbo-16k",
+        streaming=True,
         cache=True,
         temperature=0,
         max_tokens=2 * 1024,  # only output tokens
@@ -90,7 +92,9 @@ def openai_ada() -> Embeddings:
 def huggingface_retrieval_tool(
     fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
 ) -> BaseTool:
-    return build_test_search_tool(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
+    return build_test_search_tool(
+        llm=fireworksai_mixtral, embeddings=huggingface_minilm
+    )
 
 
 @pytest.fixture()
