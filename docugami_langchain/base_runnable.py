@@ -201,7 +201,11 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
         config, kwargs_dict = self._prepare_run_args(kwargs)
         with collect_runs() as cb:
             chain_output: T = self.runnable().invoke(input=kwargs_dict, config=config)  # type: ignore
-            run_id = str(cb.traced_runs[0].id)
+
+            run_id = ""
+            if cb.traced_runs:
+                run_id = str(cb.traced_runs[0].id)
+
             return TracedResponse[T](run_id=run_id, value=chain_output)
 
     @abstractmethod

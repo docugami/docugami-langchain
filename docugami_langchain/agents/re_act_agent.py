@@ -40,7 +40,7 @@ There are two kinds of tools:
 
 1. Tools with names that start with search_*. Use one of these if you think the answer to the question is likely to come from one or a few documents.
    Use the tool description to decide which tool to use in particular if there are multiple search_* tools. For the final result from these tools, cite your answer
-   as follows after your final answer:
+   as follows after your final answer (use actual document names you will find in the context):
 
         SOURCE: I formulated an answer based on information I found in [document names, found in context]
 
@@ -98,7 +98,7 @@ Begin!
 )
 
 
-class AgentState(TypedDict):
+class ReActState(TypedDict):
     # The input question
     question: str
     # The list of previous messages in the conversation
@@ -112,15 +112,15 @@ class AgentState(TypedDict):
     intermediate_steps: Annotated[list[tuple[AgentAction, str]], operator.add]
 
 
-class ReActAgent(BaseDocugamiAgent[AgentState]):
+class ReActAgent(BaseDocugamiAgent[ReActState]):
     """
     Agent that implements simple agentic RAG using the ReAct prompt style.
     """
 
     tools: list[BaseTool] = []
 
-    @staticmethod  # type: ignore
-    def to_human_readable(state: AgentState) -> str:
+    @staticmethod
+    def to_human_readable(state: ReActState) -> str:
         outcome = state.get("agent_outcome", None)
         if outcome:
             if isinstance(outcome, AgentAction):
@@ -138,6 +138,14 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
                         return answer
 
         return "Thinking..."
+
+    def create_finish_state(self, content: str) -> ReActState:
+        return ReActState(
+            question="",
+            chat_history=[],
+            agent_outcome=AgentFinish(return_values={"output": content}, log=""),
+            intermediate_steps=[],
+        )
 
     def params(self) -> RunnableParameters:
         """The params are directly implemented in the runnable."""
@@ -244,7 +252,7 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
                 return "continue"
 
         # Define a new graph
-        workflow = StateGraph(AgentState)
+        workflow = StateGraph(ReActState)
 
         # Define the two nodes we will cycle between
         workflow.add_node("agent", run_agent)
@@ -289,7 +297,7 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
         question: str,
         chat_history: list[tuple[str, str]] = [],
         config: Optional[RunnableConfig] = None,
-    ) -> TracedResponse[AgentState]:
+    ) -> TracedResponse[ReActState]:
         if not question:
             raise Exception("Input required: question")
 
@@ -304,7 +312,7 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
         question: str,
         chat_history: list[tuple[str, str]] = [],
         config: Optional[RunnableConfig] = None,
-    ) -> AsyncIterator[TracedResponse[AgentState]]:
+    ) -> AsyncIterator[TracedResponse[ReActState]]:
         if not question:
             raise Exception("Input required: question")
 
@@ -320,5 +328,5 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
         inputs: list[str],
         chat_history: list[list[tuple[str, str]]] = [],
         config: Optional[RunnableConfig] = None,
-    ) -> list[AgentState]:
+    ) -> list[ReActState]:
         raise NotImplementedError()
