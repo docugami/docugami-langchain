@@ -11,7 +11,7 @@ from typing import (
 )
 
 from langchain_core.agents import AgentAction, AgentFinish
-from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
+from langchain_core.messages import BaseMessage
 from langchain_core.prompts import (
     BasePromptTemplate,
     ChatPromptTemplate,
@@ -161,47 +161,8 @@ class ReActAgent(BaseDocugamiAgent[ReActState]):
 
     def runnable(self) -> Runnable:
         """
-        Custom runnable for this chain.
+        Custom runnable for this agent.
         """
-
-        def format_chat_history(
-            chat_history: list[tuple[str, str]]
-        ) -> list[BaseMessage]:
-            messages: list[BaseMessage] = []
-
-            if chat_history:
-                for human, ai in chat_history:
-                    messages.append(HumanMessage(content=human))
-                    messages.append(AIMessage(content=ai))
-            return messages
-
-        def format_log_to_str(
-            intermediate_steps: list[tuple[AgentAction, str]],
-            observation_prefix: str = "Observation: ",
-            llm_prefix: str = "Thought: ",
-        ) -> str:
-            """Construct the scratchpad that lets the agent continue its thought process."""
-            thoughts = ""
-            if intermediate_steps:
-                for action, observation in intermediate_steps:
-                    thoughts += action.log
-                    thoughts += f"\n{observation_prefix}{observation}\n{llm_prefix}"
-            return thoughts
-
-        def render_text_description(tools: list[BaseTool]) -> str:
-            """Render the tool name and description in plain text.
-
-            Output will be in the format of:
-
-            .. code-block:: markdown
-
-                search: This tool is used for search
-                calculator: This tool is used for math
-            """
-            tool_strings = []
-            for tool in tools:
-                tool_strings.append(f"{tool.name}: {tool.description}")
-            return "\n".join(tool_strings)
 
         prompt = ChatPromptTemplate.from_messages(
             [
@@ -216,11 +177,11 @@ class ReActAgent(BaseDocugamiAgent[ReActState]):
         agent_runnable: Runnable = (
             {
                 "question": lambda x: x["question"],
-                "chat_history": lambda x: format_chat_history(x["chat_history"]),
-                "agent_scratchpad": lambda x: format_log_to_str(
+                "chat_history": lambda x: self.format_chat_history(x["chat_history"]),
+                "agent_scratchpad": lambda x: self.format_log_to_str(
                     x["intermediate_steps"]
                 ),
-                "tools": lambda x: render_text_description(self.tools),
+                "tools": lambda x: self.render_text_description(self.tools),
                 "tool_names": lambda x: ", ".join([t.name for t in self.tools]),
             }
             | prompt

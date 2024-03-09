@@ -93,7 +93,7 @@ class ReWOOAgent(BaseDocugamiAgent[ReWOOState]):
 
     def runnable(self) -> Runnable:
         """
-        Custom runnable for this chain.
+        Custom runnable for this agent.
         """
         plan_prompt_template = ChatPromptTemplate.from_messages(
             [("human", PLAN_TASK_PROMPT)]
