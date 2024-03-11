@@ -21,7 +21,12 @@ from langchain_core.tools import BaseTool
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt.tool_executor import ToolExecutor
 
-from docugami_langchain.agents.base import BaseDocugamiAgent
+from docugami_langchain.agents.base import (
+    BaseDocugamiAgent,
+    chat_history_to_messages,
+    format_log_to_str,
+    render_text_description,
+)
 from docugami_langchain.base_runnable import TracedResponse, standard_sytem_instructions
 from docugami_langchain.config import DEFAULT_EXAMPLES_PER_PROMPT
 from docugami_langchain.output_parsers.soft_react_json_single_input import (
@@ -38,8 +43,8 @@ You have access to the following tools that you use only if necessary:
 
 There are two kinds of tools:
 
-1. Tools with names that start with search_*. Use one of these if you think the answer to the question is likely to come from one or a few documents.
-   Use the tool description to decide which tool to use in particular if there are multiple search_* tools. For the final result from these tools, cite your answer
+1. Tools with names that start with retrieval_*. Use one of these if you think the answer to the question is likely to come from one or a few documents.
+   Use the tool description to decide which tool to use in particular if there are multiple retrieval_* tools. For the final result from these tools, cite your answer
    as follows after your final answer (use actual document names you will find in the context):
 
         SOURCE: I formulated an answer based on information I found in [document names, found in context]
@@ -177,11 +182,11 @@ class ReActAgent(BaseDocugamiAgent[ReActState]):
         agent_runnable: Runnable = (
             {
                 "question": lambda x: x["question"],
-                "chat_history": lambda x: self.format_chat_history(x["chat_history"]),
-                "agent_scratchpad": lambda x: self.format_log_to_str(
+                "chat_history": lambda x: chat_history_to_messages(x["chat_history"]),
+                "agent_scratchpad": lambda x: format_log_to_str(
                     x["intermediate_steps"]
                 ),
-                "tools": lambda x: self.render_text_description(self.tools),
+                "tools": lambda x: render_text_description(self.tools),
                 "tool_names": lambda x: ", ".join([t.name for t in self.tools]),
             }
             | prompt
@@ -191,17 +196,19 @@ class ReActAgent(BaseDocugamiAgent[ReActState]):
 
         tool_executor = ToolExecutor(self.tools)
 
-        def run_agent(data: dict, config: Optional[RunnableConfig]) -> dict:
+        def run_agent(data: ReActState, config: Optional[RunnableConfig]) -> ReActState:
             agent_outcome = agent_runnable.invoke(data, config)
             return {"agent_outcome": agent_outcome}
 
-        def execute_tools(data: dict, config: Optional[RunnableConfig]) -> dict:
+        def execute_tools(
+            data: ReActState, config: Optional[RunnableConfig]
+        ) -> ReActState:
             # Get the most recent agent_outcome - this is the key added in the `agent` above
             agent_action = data["agent_outcome"]
             output = tool_executor.invoke(agent_action, config)
             return {"intermediate_steps": [(agent_action, str(output))]}
 
-        def should_continue(data: dict) -> str:
+        def should_continue(data: ReActState) -> str:
             # If the agent outcome is an AgentFinish, then we return `exit` string
             # This will be used when setting up the graph to define the flow
             if isinstance(data["agent_outcome"], AgentFinish):
@@ -286,8 +293,16 @@ class ReActAgent(BaseDocugamiAgent[ReActState]):
 
     def run_batch(  # type: ignore[override]
         self,
-        inputs: list[str],
-        chat_history: list[list[tuple[str, str]]] = [],
+        inputs: list[tuple[str, list[tuple[str, str]]]],
         config: Optional[RunnableConfig] = None,
     ) -> list[ReActState]:
-        raise NotImplementedError()
+        return super().run_batch(
+            inputs=[
+                {
+                    "question": i[0],
+                    "chat_history": i[1],
+                }
+                for i in inputs
+            ],
+            config=config,
+        )

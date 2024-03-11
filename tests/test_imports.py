@@ -10,7 +10,7 @@ EXPECTED_BASE = [
 EXPECTED_AGENTS = [
     "ReWOOAgent",
     "ReActAgent",
-    "RewriteGraderRAGAgent",
+    "ToolRouterAgent",
 ]
 
 EXPECTED_CHAINS = [

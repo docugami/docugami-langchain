@@ -70,6 +70,7 @@ line-length = 200
 
 [tool.mypy]
 disallow_untyped_defs = "True"
+disable_error_code = "typeddict-item"
 
 [[tool.mypy.overrides]]
 module = [

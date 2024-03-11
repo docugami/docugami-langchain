@@ -8,7 +8,10 @@ from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
 from tests.common import (
     GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+    GENERAL_KNOWLEDGE_ANSWER_WITH_HISTORY_FRAGMENTS,
+    GENERAL_KNOWLEDGE_CHAT_HISTORY,
     GENERAL_KNOWLEDGE_QUESTION,
+    GENERAL_KNOWLEDGE_QUESTION_WITH_HISTORY,
     TEST_DATA_DIR,
     verify_response,
 )
@@ -135,6 +138,22 @@ async def test_fireworksai_mixtral_streamed_answer(
 
     verify_response(chain_response, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
+@pytest.mark.skipif(
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
+)
+@pytest.mark.asyncio
+async def test_fireworksai_mixtral_streamed_answer_with_history(
+    fireworksai_mixtral_answer_chain_with_examples: AnswerChain,
+) -> None:
+    chain_response = TracedResponse[str](value="")
+    async for incremental_response in fireworksai_mixtral_answer_chain_with_examples.run_stream(
+        GENERAL_KNOWLEDGE_QUESTION_WITH_HISTORY,
+        GENERAL_KNOWLEDGE_CHAT_HISTORY,
+    ):
+        chain_response = incremental_response
+
+    verify_response(chain_response, GENERAL_KNOWLEDGE_ANSWER_WITH_HISTORY_FRAGMENTS)
+
 
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
@@ -158,3 +177,20 @@ async def test_openai_gpt35_streamed_answer(
         chain_response = incremental_response
 
     verify_response(chain_response, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
+
+
+@pytest.mark.skipif(
+    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+)
+@pytest.mark.asyncio
+async def test_openai_gpt35_streamed_answer_with_history(
+    openai_gpt35_answer_chain: AnswerChain,
+) -> None:
+    chain_response = TracedResponse[str](value="")
+    async for incremental_response in openai_gpt35_answer_chain.run_stream(
+        GENERAL_KNOWLEDGE_QUESTION_WITH_HISTORY,
+        GENERAL_KNOWLEDGE_CHAT_HISTORY,
+    ):
+        chain_response = incremental_response
+
+    verify_response(chain_response, GENERAL_KNOWLEDGE_ANSWER_WITH_HISTORY_FRAGMENTS)

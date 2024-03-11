@@ -50,6 +50,36 @@ DEMO_MSA_SERVICES_TABLE_NAME = "Service Agreements Summary"
 GENERAL_KNOWLEDGE_QUESTION = "Who formulated the theory of special relativity?"
 GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS = ["einstein"]
 
+GENERAL_KNOWLEDGE_CHAT_HISTORY = [
+    (
+        "Who formulated the theory of special relativity?",
+        "Albert Einstein",
+    ),
+    (
+        "What about the theory of natural selection?",
+        "The theory of natural selection was formulated by Charles Darwin and Alfred Russel Wallace.",
+    ),
+]
+GENERAL_KNOWLEDGE_QUESTION_WITH_HISTORY = "When were they all born?"
+GENERAL_KNOWLEDGE_ANSWER_WITH_HISTORY_FRAGMENTS = ["1879", "1809", "1823"]
+
+
+RAG_QUESTION = "What is the accident number for the incident in madill, oklahoma?"
+RAG_ANSWER_FRAGMENTS = ["DFW08CA044"]
+
+RAG_CHAT_HISTORY = [
+    (
+        "What is the county seat of Marshall county, OK?",
+        "Madill is a city in and the county seat of Marshall County, Oklahoma, United States.",
+    ),
+    (
+        "Do you know who it was named after?",
+        "It was named in honor of George Alexander Madill, an attorney for the St. Louis-San Francisco Railway.",
+    ),
+]
+RAG_QUESTION_WITH_HISTORY = "List the accident numbers for any aviation incidents that happened at this location"
+RAG_ANSWER_WITH_HISTORY_FRAGMENTS = ["DFW08CA044"]
+
 
 def is_core_tests_only_mode() -> bool:
     core_tests_env_var = os.environ.get("DOCUGAMI_ONLY_CORE_TESTS")
@@ -187,7 +217,7 @@ def build_test_fused_retriever(
     )
 
 
-def build_test_search_tool(
+def build_test_retrieval_tool(
     llm: BaseLanguageModel,
     embeddings: Embeddings,
     data_dir: Path = RAG_TEST_DGML_DATA_DIR,

@@ -150,5 +150,4 @@ def get_retrieval_tool_for_report(
         chain=sql_result_chain,
         name=retrieval_tool_function_name,
         description=retrieval_tool_description,
-        return_direct=True,
     )

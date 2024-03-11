@@ -5,9 +5,8 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
-from docugami_langchain.agents import ReActAgent
-from docugami_langchain.agents.re_act_agent import ReActState
-from docugami_langchain.base_runnable import TracedResponse
+from docugami_langchain.agents import ToolRouterAgent
+from docugami_langchain.base_runnable import CitedAnswer, TracedResponse
 from tests.common import (
     GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     GENERAL_KNOWLEDGE_QUESTION,
@@ -21,15 +20,15 @@ from tests.common import (
 
 
 @pytest.fixture()
-def fireworksai_mixtral_re_act_agent(
+def fireworksai_mixtral_tool_router_agent(
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
     huggingface_retrieval_tool: BaseTool,
-) -> ReActAgent:
+) -> ToolRouterAgent:
     """
     Fireworks AI ReAct Agent using mixtral.
     """
-    agent = ReActAgent(
+    agent = ToolRouterAgent(
         llm=fireworksai_mixtral,
         embeddings=huggingface_minilm,
         tools=[huggingface_retrieval_tool],
@@ -38,15 +37,15 @@ def fireworksai_mixtral_re_act_agent(
 
 
 @pytest.fixture()
-def openai_gpt35_re_act_agent(
+def openai_gpt35_tool_router_agent(
     openai_gpt35: BaseLanguageModel,
     openai_ada: Embeddings,
     openai_retrieval_tool: BaseTool,
-) -> ReActAgent:
+) -> ToolRouterAgent:
     """
     OpenAI ReAct Agent using GPT 3.5.
     """
-    agent = ReActAgent(
+    agent = ToolRouterAgent(
         llm=openai_gpt35,
         embeddings=openai_ada,
         tools=[openai_retrieval_tool],
@@ -55,7 +54,7 @@ def openai_gpt35_re_act_agent(
 
 
 def _runtest(
-    agent: ReActAgent,
+    agent: ToolRouterAgent,
     question: str,
     answer_options: list[str],
     chat_history: list[tuple[str, str]] = [],
@@ -68,12 +67,12 @@ def _runtest(
 
 
 async def _runtest_streamed(
-    agent: ReActAgent,
+    agent: ToolRouterAgent,
     question: str,
     answer_options: list[str],
     chat_history: list[tuple[str, str]] = [],
 ) -> None:
-    last_response = TracedResponse[ReActState](value={})  # type: ignore
+    last_response = TracedResponse[CitedAnswer](value={})  # type: ignore
 
     steps: list = []
     async for incremental_response in agent.run_stream(
@@ -92,17 +91,19 @@ async def _runtest_streamed(
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_re_act(fireworksai_mixtral_re_act_agent: ReActAgent) -> None:
+def test_fireworksai_re_act(
+    fireworksai_mixtral_tool_router_agent: ToolRouterAgent,
+) -> None:
     # test general LLM response from agent
     _runtest(
-        fireworksai_mixtral_re_act_agent,
+        fireworksai_mixtral_tool_router_agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
     # test retrieval response from agent
     _runtest(
-        fireworksai_mixtral_re_act_agent,
+        fireworksai_mixtral_tool_router_agent,
         RAG_QUESTION,
         RAG_ANSWER_FRAGMENTS,
     )
@@ -113,18 +114,18 @@ def test_fireworksai_re_act(fireworksai_mixtral_re_act_agent: ReActAgent) -> Non
 )
 @pytest.mark.asyncio
 async def test_fireworksai_streamed_re_act(
-    fireworksai_mixtral_re_act_agent: ReActAgent,
+    fireworksai_mixtral_tool_router_agent: ToolRouterAgent,
 ) -> None:
     # test general LLM response from agent
     await _runtest_streamed(
-        fireworksai_mixtral_re_act_agent,
+        fireworksai_mixtral_tool_router_agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
     # test retrieval response from agent
     await _runtest_streamed(
-        fireworksai_mixtral_re_act_agent,
+        fireworksai_mixtral_tool_router_agent,
         RAG_QUESTION,
         RAG_ANSWER_FRAGMENTS,
     )
@@ -135,11 +136,11 @@ async def test_fireworksai_streamed_re_act(
 )
 @pytest.mark.asyncio
 async def test_fireworksai_streamed_re_act_with_history(
-    fireworksai_mixtral_re_act_agent: ReActAgent,
+    fireworksai_mixtral_tool_router_agent: ToolRouterAgent,
 ) -> None:
     # test general LLM response from agent
     await _runtest_streamed(
-        fireworksai_mixtral_re_act_agent,
+        fireworksai_mixtral_tool_router_agent,
         RAG_QUESTION_WITH_HISTORY,
         RAG_ANSWER_WITH_HISTORY_FRAGMENTS,
         RAG_CHAT_HISTORY,
@@ -149,17 +150,17 @@ async def test_fireworksai_streamed_re_act_with_history(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
+def test_openai_re_act(openai_gpt35_tool_router_agent: ToolRouterAgent) -> None:
     # test general LLM response from agent
     _runtest(
-        openai_gpt35_re_act_agent,
+        openai_gpt35_tool_router_agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
     # test retrieval response from agent
     _runtest(
-        openai_gpt35_re_act_agent,
+        openai_gpt35_tool_router_agent,
         RAG_QUESTION,
         RAG_ANSWER_FRAGMENTS,
     )
@@ -169,17 +170,19 @@ def test_openai_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio
-async def test_openai_streamed_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
+async def test_openai_streamed_re_act(
+    openai_gpt35_tool_router_agent: ToolRouterAgent,
+) -> None:
     # test general LLM response from agent
     await _runtest_streamed(
-        openai_gpt35_re_act_agent,
+        openai_gpt35_tool_router_agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
     # test retrieval response from agent
     await _runtest_streamed(
-        openai_gpt35_re_act_agent,
+        openai_gpt35_tool_router_agent,
         RAG_QUESTION,
         RAG_ANSWER_FRAGMENTS,
     )
@@ -190,11 +193,11 @@ async def test_openai_streamed_re_act(openai_gpt35_re_act_agent: ReActAgent) -> 
 )
 @pytest.mark.asyncio
 async def test_openai_streamed_re_act_with_history(
-    openai_gpt35_re_act_agent: ReActAgent,
+    openai_gpt35_tool_router_agent: ToolRouterAgent,
 ) -> None:
     # test general LLM response from agent
     await _runtest_streamed(
-        openai_gpt35_re_act_agent,
+        openai_gpt35_tool_router_agent,
         RAG_QUESTION_WITH_HISTORY,
         RAG_ANSWER_WITH_HISTORY_FRAGMENTS,
         RAG_CHAT_HISTORY,

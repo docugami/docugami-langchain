@@ -9,11 +9,10 @@ from docugami_langchain.agents import ReWOOAgent
 from tests.common import (
     GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     GENERAL_KNOWLEDGE_QUESTION,
+    RAG_ANSWER_FRAGMENTS,
+    RAG_QUESTION,
     verify_response,
 )
-
-TEST_QUESTION = "What is the accident number for the incident in madill, oklahoma?"
-TEST_ANSWER_OPTIONS = ["DFW08CA044"]
 
 
 @pytest.fixture()
@@ -61,8 +60,8 @@ def test_fireworksai_rewoo(
     verify_response(response, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
     # test retrieval response from agent
-    response = fireworksai_mixtral_rewoo_agent.run(TEST_QUESTION)
-    verify_response(response, TEST_ANSWER_OPTIONS)
+    response = fireworksai_mixtral_rewoo_agent.run(RAG_QUESTION)
+    verify_response(response, RAG_ANSWER_FRAGMENTS)
 
 
 @pytest.mark.skipif(
@@ -75,5 +74,5 @@ def test_openai_rewoo(openai_gpt35_rewoo_agent: ReWOOAgent) -> None:
     verify_response(response, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
 
     # test retrieval response from agent
-    response = openai_gpt35_rewoo_agent.run(TEST_QUESTION)
-    verify_response(response, TEST_ANSWER_OPTIONS)
+    response = openai_gpt35_rewoo_agent.run(RAG_QUESTION)
+    verify_response(response, RAG_ANSWER_FRAGMENTS)

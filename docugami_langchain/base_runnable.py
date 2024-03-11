@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, AsyncIterator, Generic, Optional, TypeVar
+from typing import Any, AsyncIterator, Generic, Optional, TypedDict, TypeVar
 
 import yaml
 from langchain_community.vectorstores.faiss import FAISS
@@ -65,6 +65,23 @@ class TracedResponse(Generic[T]):
     run_id: str = ""
 
 
+class CitationLink(TypedDict):
+    label: str
+    href: str
+
+
+class Citation(TypedDict):
+    text: str
+    links: list[CitationLink]
+
+
+class CitedAnswer(TypedDict):
+    source: str
+    answer: str
+    citations: list[tuple[str, list[Citation]]]
+    metadata: dict
+
+
 class BaseRunnable(BaseModel, Generic[T], ABC):
     """
     Base class with common functionality for various runnables.
@@ -126,7 +143,10 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
                 # truncate example length to avoid overflowing context too much
                 keys = ex.keys()
                 for k in keys:
-                    ex[k] = ex[k][: self.few_shot_params_max_length_cutoff].strip()
+                    if ex[k]:
+                        ex[k] = ex[k][: self.few_shot_params_max_length_cutoff].strip()
+                    else:
+                        ex[k] = ""
 
             if self._examples and num_examples:
                 try:
