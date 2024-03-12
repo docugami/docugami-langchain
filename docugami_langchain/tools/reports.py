@@ -72,9 +72,8 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     """
     table_info = re.sub(r"\s+", " ", table_info)
     description = (
-        f"Given a single input 'question' parameter, generates and runs a SQL query over the {name}"
-        + f" report, represented internally as the following SQL Table. "
-        + "Use this tool if you think the answer can be calculated via SQL query on this table.\n\n{table_info}"
+        f"Given a single input 'question' parameter, generates and runs a SQL query over the {name} report, represented internally as the following SQL Table. "
+        + f"Use this tool if you think the answer can be calculated via SQL query on this table.\n\n{table_info}"
     )
 
     return description[:2048]  # cap to avoid failures when the description is too long

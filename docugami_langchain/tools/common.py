@@ -67,8 +67,9 @@ class GeneralKnowlegeTool(BaseTool):
 class HumanInterventionTool(BaseTool):
     name: str = "human_intervention"
     description: str = (
-        """Use when no other tool is likely to answer this question, but you think the question """
-        """can likely be answered via SQL query over a table (assuming the table contains the data the user is looking for)."""
+        """Use you think the question can likely be answered from the document set described by the retrieval_* tool, however there is no given """
+        """query_* tool that has the requisite information in its table schema to answer the question. This tool will request the user to update the """
+        """query_* tool or create a new one that can answer questions like this one."""
     )
 
     def _run(
