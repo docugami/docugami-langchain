@@ -14,7 +14,7 @@ class SmallTalkTool(BaseTool):
     answer_chain: AnswerChain
     name: str = "small_talk"
     description: str = (
-        "Use to respond to greetings, small talk, or question you can directly answer based on the chat history."
+        "Responds to greetings, small talk, or questions that can be directly answered from the chat history."
     )
 
     def _run(
@@ -41,7 +41,7 @@ class SmallTalkTool(BaseTool):
 class GeneralKnowlegeTool(BaseTool):
     answer_chain: AnswerChain
     name: str = "general_knowledge"
-    description: str = "Use to answer general knowledge questions"
+    description: str = "Answers general knowledge questions"
 
     def _run(
         self,
@@ -67,9 +67,9 @@ class GeneralKnowlegeTool(BaseTool):
 class HumanInterventionTool(BaseTool):
     name: str = "human_intervention"
     description: str = (
-        """Use you think the question can likely be answered from the document set described by the retrieval_* tool, however there is no given """
-        """query_* tool that has the requisite information in its table schema to answer the question. This tool will request the user to update the """
-        """query_* tool or create a new one that can answer questions like this one."""
+        """This tool will request the user to create or update a query_* tool with data sufficient to answer questions like this one. """
+        """Use this tool if the question is likely to be answered with the document set described by the retrieval_* tool, however there is no given """
+        """query_* tool that has the requisite information in its table schema to answer the question. """
     )
 
     def _run(
