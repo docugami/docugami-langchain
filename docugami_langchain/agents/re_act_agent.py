@@ -68,9 +68,7 @@ Observation: the result of the action
 Thought: I now know the final answer
 Final Answer: the final answer to the original input question, with citation describing which tool you used and how. See tool description above for how to cite each type of tool.
 
-Remember to ALWAYS use the format specified, since any output that does not follow this format is unparseable.
-
-Begin!
+Begin! Remember to ALWAYS use the format specified, especially the $JSON_BLOB (enclosed by ```) and marking your Final Answer. Any output that does not follow this format is unparseable.
 """
 )
 
