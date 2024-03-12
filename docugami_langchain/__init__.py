@@ -5,6 +5,7 @@ from docugami_langchain.document_loaders import __all__ as __all__document_loade
 from docugami_langchain.output_parsers import __all__ as __all_output_parsers
 from docugami_langchain.params import __all__ as __all_params
 from docugami_langchain.retrievers import __all__ as __all_retrievers
+from docugami_langchain.tools import __all__ as __all_tools
 
 __all__ = (
     __all_base_runnable
@@ -14,4 +15,5 @@ __all__ = (
     + __all__document_loaders
     + __all_output_parsers
     + __all_retrievers
+    + __all_tools
 )

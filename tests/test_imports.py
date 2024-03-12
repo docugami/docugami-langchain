@@ -1,8 +1,11 @@
 from docugami_langchain import __all__
 
 EXPECTED_BASE = [
-    "BaseRunnable",
     "TracedResponse",
+    "CitationLink",
+    "Citation",
+    "CitedAnswer",
+    "BaseRunnable",
     "RunnableParameters",
     "RunnableSingleParameter",
 ]
@@ -44,6 +47,14 @@ EXPECTED_OUTPUT_PARSERS = [
 
 EXPECTED_RETRIEVERS = ["SearchType", "FusedSummaryRetriever"]
 
+EXPECTED_TOOLS = [
+    "SmallTalkTool",
+    "GeneralKnowlegeTool",
+    "HumanInterventionTool",
+    "CustomReportRetrievalTool",
+]
+
+
 EXPECTED_ALL = (
     EXPECTED_BASE
     + EXPECTED_AGENTS
@@ -51,6 +62,7 @@ EXPECTED_ALL = (
     + EXPECTED_DOCUMENT_LOADERS
     + EXPECTED_OUTPUT_PARSERS
     + EXPECTED_RETRIEVERS
+    + EXPECTED_TOOLS
 )
 
 

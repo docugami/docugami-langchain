@@ -6,10 +6,7 @@ from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from docugami_langchain.chains import (
-    SummarizeChunkChain,
-    SummarizeDocumentChain,
-)
+from docugami_langchain.chains import SummarizeChunkChain, SummarizeDocumentChain
 from docugami_langchain.config import (
     INCLUDE_XML_TAGS,
     MAX_CHUNK_TEXT_LENGTH,
