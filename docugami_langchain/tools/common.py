@@ -75,7 +75,7 @@ class HumanInterventionTool(BaseTool):
     def _run(
         self,
         question: str,
-        chat_history: tuple[str, str],
+        chat_history: tuple[str, str] = [],
         run_manager: Optional[CallbackManagerForToolRun] = None,
     ) -> CitedAnswer:  # type: ignore
         """Use the tool."""
