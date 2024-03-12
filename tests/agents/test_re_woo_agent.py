@@ -20,6 +20,8 @@ def fireworksai_mixtral_rewoo_agent(
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
     huggingface_retrieval_tool: BaseTool,
+    huggingface_query_tool: BaseTool,
+    huggingface_common_tools: list[BaseTool],
 ) -> ReWOOAgent:
     """
     Fireworks AI ReWOO Agent using mixtral.
@@ -27,7 +29,8 @@ def fireworksai_mixtral_rewoo_agent(
     agent = ReWOOAgent(
         llm=fireworksai_mixtral,
         embeddings=huggingface_minilm,
-        tools=[huggingface_retrieval_tool],
+        tools=[huggingface_retrieval_tool, huggingface_query_tool]
+        + huggingface_common_tools,
     )
     return agent
 
@@ -37,12 +40,16 @@ def openai_gpt35_rewoo_agent(
     openai_gpt35: BaseLanguageModel,
     openai_ada: Embeddings,
     openai_retrieval_tool: BaseTool,
+    openai_query_tool: BaseTool,
+    openai_common_tools: list[BaseTool],
 ) -> ReWOOAgent:
     """
     OpenAI ReWOO Agent using GPT 3.5.
     """
     agent = ReWOOAgent(
-        llm=openai_gpt35, embeddings=openai_ada, tools=[openai_retrieval_tool]
+        llm=openai_gpt35,
+        embeddings=openai_ada,
+        tools=[openai_retrieval_tool, openai_query_tool] + openai_common_tools,
     )
     return agent
 

@@ -24,6 +24,13 @@ from docugami_langchain.retrievers.mappings import (
     build_doc_maps_from_chunks,
     build_full_doc_summary_mappings,
 )
+from docugami_langchain.tools.common import get_generic_tools
+from docugami_langchain.tools.reports import (
+    connect_to_excel,
+    get_retrieval_tool_for_report,
+    report_details_to_report_query_tool_description,
+    report_name_to_report_query_tool_function_name,
+)
 from docugami_langchain.tools.retrieval import (
     docset_name_to_direct_retriever_tool_function_name,
     get_retrieval_tool_for_docset,
@@ -43,6 +50,10 @@ SAAS_CONTRACTS_TABLE_NAME = "SaaS Contracts"
 
 FINANCIAL_SAMPLE_DATA_FILE = TEST_DATA_DIR / "xlsx/Financial Sample.xlsx"
 FINANCIAL_SAMPLE_TABLE_NAME = "Financial Data"
+
+AVIATION_INCIDENTS_DATA_FILE = TEST_DATA_DIR / "xlsx/Aviation Incidents Report.xlsx"
+AVIATION_INCIDENTS_TABLE_NAME = "Aviation Incidents Report"
+
 
 DEMO_MSA_SERVICES_DATA_FILE = TEST_DATA_DIR / "xlsx/Report Services_preview.xlsx"
 DEMO_MSA_SERVICES_TABLE_NAME = "Service Agreements Summary"
@@ -120,11 +131,45 @@ def verify_response(
             )
 
 
+def build_test_common_tools(
+    llm: BaseLanguageModel, embeddings: Embeddings
+) -> list[BaseTool]:
+    """
+    Builds common tools for test purposes
+    """
+    return get_generic_tools(
+        llm=llm,
+        embeddings=embeddings,
+        answer_examples_file=EXAMPLES_PATH / "test_answer_examples.yaml",
+    )
+
+
 def build_test_query_tool(llm: BaseLanguageModel, embeddings: Embeddings) -> BaseTool:
     """
     Builds a query tool over a test database
     """
-    raise Exception()
+    xlsx = AVIATION_INCIDENTS_DATA_FILE
+    name = AVIATION_INCIDENTS_TABLE_NAME
+    db = connect_to_excel(xlsx, name)
+    description = report_details_to_report_query_tool_description(
+        name, db.get_table_info()
+    )
+    tool = get_retrieval_tool_for_report(
+        local_xlsx_path=xlsx,
+        report_name=name,
+        retrieval_tool_function_name=report_name_to_report_query_tool_function_name(
+            name
+        ),
+        retrieval_tool_description=description,
+        sql_llm=llm,
+        embeddings=embeddings,
+        sql_fixup_examples_file=EXAMPLES_PATH / "test_sql_fixup_examples.yaml",
+        sql_examples_file=EXAMPLES_PATH / "test_sql_examples.yaml",
+    )
+    if not tool:
+        raise Exception("Could not create test query tool")
+
+    return tool
 
 
 def build_test_retrieval_artifacts(

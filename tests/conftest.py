@@ -12,7 +12,11 @@ from langchain_fireworks.chat_models import ChatFireworks
 from langchain_fireworks.llms import Fireworks
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
-from tests.common import build_test_retrieval_tool
+from tests.common import (
+    build_test_common_tools,
+    build_test_query_tool,
+    build_test_retrieval_tool,
+)
 
 # Turn on caching
 LOCAL_LLM_CACHE_DB_FILE = os.environ.get(
@@ -89,11 +93,54 @@ def openai_ada() -> Embeddings:
 
 
 @pytest.fixture()
+def huggingface_common_tools(
+    fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
+) -> list[BaseTool]:
+    return build_test_common_tools(
+        llm=fireworksai_mixtral,
+        embeddings=huggingface_minilm,
+    )
+
+
+@pytest.fixture()
+def openai_common_tools(
+    openai_gpt35: BaseLanguageModel,
+    openai_ada: Embeddings,
+) -> list[BaseTool]:
+    return build_test_common_tools(
+        llm=openai_gpt35,
+        embeddings=openai_ada,
+    )
+
+
+@pytest.fixture()
+def huggingface_query_tool(
+    fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
+) -> BaseTool:
+    return build_test_query_tool(
+        llm=fireworksai_mixtral,
+        embeddings=huggingface_minilm,
+    )
+
+
+@pytest.fixture()
+def openai_query_tool(
+    openai_gpt35: BaseLanguageModel,
+    openai_ada: Embeddings,
+) -> BaseTool:
+    return build_test_query_tool(
+        llm=openai_gpt35,
+        embeddings=openai_ada,
+    )
+
+
+@pytest.fixture()
 def huggingface_retrieval_tool(
     fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
 ) -> BaseTool:
     return build_test_retrieval_tool(
-        llm=fireworksai_mixtral, embeddings=huggingface_minilm
+        llm=fireworksai_mixtral,
+        embeddings=huggingface_minilm,
     )
 
 
@@ -102,4 +149,7 @@ def openai_retrieval_tool(
     openai_gpt35: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> BaseTool:
-    return build_test_retrieval_tool(llm=openai_gpt35, embeddings=openai_ada)
+    return build_test_retrieval_tool(
+        llm=openai_gpt35,
+        embeddings=openai_ada,
+    )

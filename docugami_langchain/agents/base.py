@@ -62,7 +62,7 @@ def render_text_description(tools: list[BaseTool]) -> str:
     """
     tool_strings = []
     for tool in tools:
-        tool_strings.append(f"{tool.name}: {tool.description}")
+        tool_strings.append(f"- {tool.name}: {tool.description}")
     return "\n".join(tool_strings)
 
 
@@ -83,7 +83,7 @@ def render_text_description_and_args(tools: list[BaseTool]) -> str:
     tool_strings = []
     for tool in tools:
         args_schema = str(tool.args)
-        tool_strings.append(f"{tool.name}: {tool.description}, args: {args_schema}")
+        tool_strings.append(f"- {tool.name}: {tool.description}, args: {args_schema}")
     return "\n".join(tool_strings)
 
 

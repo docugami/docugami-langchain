@@ -14,13 +14,39 @@ class SmallTalkTool(BaseTool):
     answer_chain: AnswerChain
     name: str = "small_talk"
     description: str = (
-        "Use when user greets you, wants to smalltalk, or asks a question you can directly answer based on general knowledge without consulting any other tool."
+        "Use to respond to greetings, small talk, or question you can directly answer based on the chat history."
     )
 
     def _run(
         self,
         question: str,
-        chat_history: list[tuple[str, str]],
+        chat_history: list[tuple[str, str]] = [],
+        run_manager: Optional[CallbackManagerForToolRun] = None,
+    ) -> CitedAnswer:  # type: ignore
+        """Use the tool."""
+
+        chain_response: TracedResponse[str] = self.answer_chain.run(
+            question=question,
+            chat_history=chat_history,
+        )
+
+        return CitedAnswer(
+            source=self.name,
+            answer=chain_response.value,
+            citations=[],
+            metadata={},
+        )
+
+
+class GeneralKnowlegeTool(BaseTool):
+    answer_chain: AnswerChain
+    name: str = "general_knowledge"
+    description: str = "Use to answer general knowledge questions"
+
+    def _run(
+        self,
+        question: str,
+        chat_history: list[tuple[str, str]] = [],
         run_manager: Optional[CallbackManagerForToolRun] = None,
     ) -> CitedAnswer:  # type: ignore
         """Use the tool."""
@@ -72,6 +98,7 @@ def get_generic_tools(
         answer_chain.load_examples(answer_examples_file)
 
     small_talk_tool = SmallTalkTool(answer_chain=answer_chain)
+    general_knowledge_Tool = GeneralKnowlegeTool(answer_chain=answer_chain)
     human_intervention_tool = HumanInterventionTool()
 
-    return [small_talk_tool, human_intervention_tool]
+    return [small_talk_tool, general_knowledge_Tool, human_intervention_tool]

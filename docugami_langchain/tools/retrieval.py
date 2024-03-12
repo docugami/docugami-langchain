@@ -23,7 +23,9 @@ from docugami_langchain.retrievers.fused_summary import (
 class RetrieverInput(BaseModel):
     """Input to the retriever."""
 
-    question: str = Field(description="question to look up in retriever, to find relevant chunks that might contain answers")
+    question: str = Field(
+        description="question to look up in retriever, to find relevant chunks that might contain answers"
+    )
 
 
 def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
@@ -72,7 +74,10 @@ def summaries_to_direct_retriever_tool_description(
         chain.load_examples(describe_document_set_examples_file)
 
     description = chain.run(summaries=summaries, docset_name=name)
-    return f"Given a single input 'question' parameter, searches for and returns relevant chunks from {name} documents that might contain answers. {description.value}"
+    return (
+        f"Given a single input 'question' parameter, searches for and returns relevant chunks from {name} documents that might contain answers. "
+        + "Use this tool if you think the answer is likely to come from one or a few of these documents. {description.value}"
+    )
 
 
 def get_retrieval_tool_for_docset(
