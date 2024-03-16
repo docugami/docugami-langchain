@@ -164,9 +164,7 @@ class ReActAgent(BaseDocugamiAgent[ReActState]):
         Custom runnable for this chain.
         """
 
-        def format_chat_history(
-            chat_history: list[tuple[str, str]]
-        ) -> list[BaseMessage]:
+        def format_chat_history(chat_history: list[tuple[str, str]]) -> list[BaseMessage]:
             messages: list[BaseMessage] = []
 
             if chat_history:
@@ -217,9 +215,7 @@ class ReActAgent(BaseDocugamiAgent[ReActState]):
             {
                 "question": lambda x: x["question"],
                 "chat_history": lambda x: format_chat_history(x["chat_history"]),
-                "agent_scratchpad": lambda x: format_log_to_str(
-                    x["intermediate_steps"]
-                ),
+                "agent_scratchpad": lambda x: format_log_to_str(x["intermediate_steps"]),
                 "tools": lambda x: render_text_description(self.tools),
                 "tool_names": lambda x: ", ".join([t.name for t in self.tools]),
             }
@@ -255,8 +251,8 @@ class ReActAgent(BaseDocugamiAgent[ReActState]):
         workflow = StateGraph(ReActState)
 
         # Define the two nodes we will cycle between
-        workflow.add_node("agent", run_agent)
-        workflow.add_node("action", execute_tools)
+        workflow.add_node("agent", run_agent)  # type: ignore
+        workflow.add_node("action", execute_tools)  # type: ignore
 
         # Set the entrypoint as `agent`
         # This means that this node is the first one called
