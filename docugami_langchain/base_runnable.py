@@ -163,7 +163,7 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
             for ex in self._examples:
                 keys = ex.keys()
                 for k in keys:
-                    # whitspace normalize
+                    # whitespace normalize
                     ex[k] = normalize_whitespace(ex[k])
 
                     # truncate length to avoid overflowing context too much (strip any trailing whitespace again)
@@ -226,7 +226,7 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
 
         for key in kwargs_dict:
             if isinstance(kwargs_dict[key], str):
-                # whitspace normalize
+                # whitespace normalize
                 kwargs_dict[key] = normalize_whitespace(kwargs_dict[key])
 
                 # truncate length to avoid overflowing context too much (strip any trailing whitespace again)
