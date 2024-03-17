@@ -1,3 +1,4 @@
+import re
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from pathlib import Path
@@ -57,6 +58,43 @@ def prompt_input_templates(params: RunnableParameters) -> str:
         input_template_list += f"{input.key}: {{{input.variable}}}\n"
 
     return input_template_list.strip()
+
+
+def normalize_whitespace(text: str) -> str:
+    """
+    Normalizes whitespace in given text without affecting visual formatting.
+
+    This function aims to:
+    1. Compress multiple vertical whitespace (more than two newlines) into two newlines, without affecting horizontal whitespace (indentation).
+    2. Remove leading and trailing whitespace from the text.
+
+    >>> normalize_whitespace("  Hello\\n\\n\\nWorld  ")
+    'Hello\\n\\nWorld'
+    >>> normalize_whitespace("\\n\\n\\n    Indented text\\nMore indented text\\n\\n")
+    'Indented text\\nMore indented text'
+    >>> normalize_whitespace("No extra\\nwhitespace here.")
+    'No extra\\nwhitespace here.'
+    >>> normalize_whitespace("  \\n  Leading and trailing newlines and spaces  \\n  ")
+    'Leading and trailing newlines and spaces'
+    >>> normalize_whitespace("\\n\\n\\n\\nOnly newlines here\\n\\n\\n\\nHello")
+    'Only newlines here\\n\\nHello'
+
+    Note that horizontal spaces before and after the text in a single line are not preserved if they're at the beginning or end of the text.
+
+    Args:
+        text (str): The input text to normalize.
+
+    Returns:
+        str: The normalized text with whitespace adjusted.
+    """
+
+    # compress vertical whitespace without affecting horizontal whitespace (indentation)
+    text = re.sub(r"(\s*\n){3,}", "\n\n", text)
+
+    # remove leading and trailing whitespace
+    text = text.strip()
+
+    return text
 
 
 @dataclass
@@ -123,20 +161,21 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
             self._examples = yaml.safe_load(in_f)
 
             for ex in self._examples:
-                # truncate example length to avoid overflowing context too much
                 keys = ex.keys()
                 for k in keys:
+                    # whitespace normalize
+                    ex[k] = normalize_whitespace(ex[k])
+
+                    # truncate length to avoid overflowing context too much (strip any trailing whitespace again)
                     ex[k] = ex[k][: self.few_shot_params_max_length_cutoff].strip()
 
             if self._examples and num_examples:
                 try:
-                    self._example_selector = (
-                        SemanticSimilarityExampleSelector.from_examples(
-                            examples=self._examples,
-                            embeddings=self.embeddings,
-                            vectorstore_cls=self.examples_vectorstore_cls,
-                            k=num_examples,
-                        )
+                    self._example_selector = SemanticSimilarityExampleSelector.from_examples(
+                        examples=self._examples,
+                        embeddings=self.embeddings,
+                        vectorstore_cls=self.examples_vectorstore_cls,
+                        k=num_examples,
                     )
                 except Exception as exc:
                     details = f"Exception while loading samples from YAML {examples_yaml}. Details: {exc}"
@@ -161,9 +200,7 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
             # Increase accuracy for models that require very specific output, by
             # looking for the output key however adding such an output parser disables
             # streaming, so use carefully
-            full_runnable = full_runnable | KeyfindingOutputParser(
-                output_key=params.output.key
-            )
+            full_runnable = full_runnable | KeyfindingOutputParser(output_key=params.output.key)
 
         if params.additional_runnables:
             for runnable in params.additional_runnables:
@@ -188,11 +225,12 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
             del kwargs_dict[CONFIG_KEY]
 
         for key in kwargs_dict:
-            # for string args, cap at max to avoid chance of prompt overflow
             if isinstance(kwargs_dict[key], str):
-                kwargs_dict[key] = kwargs_dict[key][
-                    : self.input_params_max_length_cutoff
-                ]
+                # whitespace normalize
+                kwargs_dict[key] = normalize_whitespace(kwargs_dict[key])
+
+                # truncate length to avoid overflowing context too much (strip any trailing whitespace again)
+                kwargs_dict[key] = kwargs_dict[key][: self.few_shot_params_max_length_cutoff].strip()
 
         return config, kwargs_dict
 
@@ -223,9 +261,7 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
             for key in input_dict:
                 # For string args, cap at max to avoid chance of prompt overflow
                 if isinstance(input_dict[key], str):
-                    input_dict[key] = input_dict[key][
-                        : self.input_params_max_length_cutoff
-                    ]
+                    input_dict[key] = input_dict[key][: self.input_params_max_length_cutoff]
 
         return self.runnable().batch(inputs=inputs, config=config)  # type: ignore
 
