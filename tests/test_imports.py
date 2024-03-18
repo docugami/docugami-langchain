@@ -43,7 +43,7 @@ EXPECTED_DOCUMENT_LOADERS = [
 EXPECTED_OUTPUT_PARSERS = [
     "KeyfindingOutputParser",
     "LineSeparatedListOutputParser",
-    "SoftReActJsonSingleInputOutputParser",
+    "CustomReActJsonSingleInputOutputParser",
     "SQLFindingOutputParser",
     "TimeSpan",
     "TimespanOutputParser",

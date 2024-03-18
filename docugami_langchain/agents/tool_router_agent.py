@@ -1,12 +1,12 @@
 from typing import AsyncIterator, Optional
 
-from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.runnables import Runnable, RunnableConfig
 from langchain_core.tracers.context import collect_runs
 from langgraph.graph import END, StateGraph
 
 from docugami_langchain.agents.base import BaseDocugamiAgent
-from docugami_langchain.agents.models import AgentState
+from docugami_langchain.agents.models import AgentState, Invocation
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.history import chat_history_to_str
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
@@ -54,7 +54,7 @@ class ToolRouterAgent(BaseDocugamiAgent[AgentState]):
                 "- You must pick one of these values for the `tool_name` key: {tool_names}",
             ],
             stop_sequences=[],
-            additional_runnables=[JsonOutputParser()],
+            additional_runnables=[PydanticOutputParser(pydantic_object=Invocation)],
         )
 
     def runnable(self) -> Runnable:
