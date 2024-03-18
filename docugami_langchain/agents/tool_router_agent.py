@@ -5,7 +5,8 @@ from langchain_core.runnables import Runnable, RunnableConfig
 from langchain_core.tracers.context import collect_runs
 from langgraph.graph import END, StateGraph
 
-from docugami_langchain.agents.base import AgentState, BaseDocugamiAgent
+from docugami_langchain.agents.base import BaseDocugamiAgent
+from docugami_langchain.agents.models import AgentState
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.history import chat_history_to_str
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter

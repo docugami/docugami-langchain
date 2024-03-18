@@ -12,10 +12,9 @@ from langchain_core.runnables import Runnable, RunnableConfig
 from langchain_core.tracers.context import collect_runs
 from langgraph.graph import END, StateGraph
 
-from docugami_langchain.agents.base import (
-    THINKING,
+from docugami_langchain.agents.base import THINKING, BaseDocugamiAgent
+from docugami_langchain.agents.models import (
     AgentState,
-    BaseDocugamiAgent,
     CitedAnswer,
     Invocation,
     format_steps_to_str,

@@ -6,7 +6,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
-from docugami_langchain.agents.base import CitedAnswer
+from docugami_langchain.agents.models import CitedAnswer
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
 

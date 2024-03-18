@@ -5,7 +5,7 @@ from typing import Union
 from langchain_core.exceptions import OutputParserException
 from langchain_core.output_parsers import BaseOutputParser
 
-from docugami_langchain.agents.base import Invocation
+from docugami_langchain.agents.models import Invocation
 
 FINAL_ANSWER_ACTION = "Final Answer:"
 
