@@ -12,7 +12,7 @@ from langchain_core.tools import BaseTool
 from langchain_core.vectorstores import VectorStore
 
 from docugami_langchain.base_runnable import TracedResponse
-from docugami_langchain.config import MAX_FULL_DOCUMENT_TEXT_LENGTH, RETRIEVER_K
+from docugami_langchain.config import DEFAULT_RETRIEVER_K, MAX_FULL_DOCUMENT_TEXT_LENGTH
 from docugami_langchain.document_loaders.docugami import DocugamiLoader
 from docugami_langchain.retrievers.fused_summary import (
     FusedRetrieverKeyValueFetchCallback,
@@ -257,7 +257,7 @@ def build_test_fused_retriever(
         vectorstore=vector_store,
         fetch_parent_doc_callback=_fetch_parent_doc_callback,
         fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
-        search_kwargs={"k": RETRIEVER_K},
+        search_kwargs={"k": DEFAULT_RETRIEVER_K},
         search_type=SearchType.mmr,
     )
 
@@ -299,7 +299,7 @@ def build_test_retrieval_tool(
         retrieval_tool_description=retrieval_tool_description,
         fetch_parent_doc_callback=_fetch_parent_doc_callback,
         fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
-        retrieval_k=RETRIEVER_K,
+        retrieval_k=DEFAULT_RETRIEVER_K,
     )
     if not tool:
         raise Exception("Failed to create retrieval tool")

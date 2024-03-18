@@ -16,10 +16,13 @@ jobs:
         shell: bash
 
       - name: Install dependencies
-        run: poetry install --with test,lint
+        run: poetry install --with test,lint,typing,codespell
 
       - name: Lint code
         run: make lint
+
+      - name: Check spellings
+        run: make spell_check
 
       - name: Test code
         run: make test

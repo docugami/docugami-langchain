@@ -14,6 +14,7 @@ from langchain_core.tools import BaseTool
 
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
 from docugami_langchain.chains.querying.sql_result_chain import SQLResultChain
+from docugami_langchain.config import DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO
 
 
 class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseTool):
@@ -70,7 +71,6 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     """
     Converts a set of chunks to a direct retriever tool description.
     """
-    table_info = re.sub(r"\s+", " ", table_info)
     description = (
         f"Given a single input 'question' parameter, generates and runs a SQL query over the {name} report, represented internally as the following SQL Table. "
         + f"Use this tool if you think the answer can be calculated via SQL query on this table.\n\n{table_info}"
@@ -101,7 +101,7 @@ def excel_to_sqlite_connection(
 
 def connect_to_db(
     conn: sqlite3.Connection,
-    sample_rows_in_table_info: int = 0,
+    sample_rows_in_table_info: int = DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO,
 ) -> SQLDatabase:
     temp_db_file = tempfile.NamedTemporaryFile(suffix=".sqlite")
     with sqlite3.connect(temp_db_file.name) as disk_conn:

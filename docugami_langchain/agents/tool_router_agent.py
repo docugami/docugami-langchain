@@ -1,43 +1,21 @@
-import operator
-from typing import Annotated, AsyncIterator, Optional, TypedDict, Union
+from typing import AsyncIterator, Optional
 
-from langchain_core.agents import AgentAction, AgentFinish
-from langchain_core.messages import BaseMessage
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.runnables import Runnable, RunnableConfig
-from langchain_core.tools import BaseTool
+from langchain_core.tracers.context import collect_runs
 from langgraph.graph import END, StateGraph
-from langgraph.prebuilt.tool_executor import ToolExecutor
 
-from docugami_langchain.agents.base import (
-    BaseDocugamiAgent,
-    chat_history_to_str,
-    render_text_description,
-)
-from docugami_langchain.base_runnable import CitedAnswer, TracedResponse
+from docugami_langchain.agents.base import AgentState, BaseDocugamiAgent
+from docugami_langchain.base_runnable import TracedResponse
+from docugami_langchain.history import chat_history_to_str
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
+from docugami_langchain.tools.common import render_text_description
 
 
-class ToolRouterState(TypedDict):
-    # The input question
-    question: str
-    # The list of previous messages in the conversation
-    chat_history: list[BaseMessage]
-    # The outcome of a given call to the agent
-    # Needs `None` as a valid type, since this is what this will start as
-    agent_outcome: Union[AgentAction, AgentFinish, None]
-    # List of actions and corresponding observations
-    # Here we annotate this with `operator.add` to indicate that operations to
-    # this state should be ADDED to the existing values (not overwrite it)
-    intermediate_steps: Annotated[list[tuple[AgentAction, str]], operator.add]
-
-
-class ToolRouterAgent(BaseDocugamiAgent[CitedAnswer]):
+class ToolRouterAgent(BaseDocugamiAgent[AgentState]):
     """
     Agent that implements agentic RAG with a tool router implementation.
     """
-
-    tools: list[BaseTool] = []
 
     def params(self) -> RunnableParameters:
         """The params are directly implemented in the runnable."""
@@ -71,10 +49,11 @@ class ToolRouterAgent(BaseDocugamiAgent[CitedAnswer]):
             ),
             task_description="selects an appropriate tool for the question a user is asking, and builds a tool invocation JSON blob for the tool",
             additional_instructions=[
-                "- Your output must be a valid JSON blob, with a `tool_name` key (with the name of the tool to use) and a `tool_input` key (with the string input to the tool going here).",
+                "- Your output must be a valid JSON blob, with a `tool_name` key (with the name of the tool to use) and a `tool_input` key (with the string input to the tool).",
                 "- You must pick one of these values for the `tool_name` key: {tool_names}",
             ],
-            additional_runnables=[JsonOutputParser(pydantic_object=AgentAction)],
+            stop_sequences=[],
+            additional_runnables=[JsonOutputParser()],
         )
 
     def runnable(self) -> Runnable:
@@ -82,127 +61,86 @@ class ToolRouterAgent(BaseDocugamiAgent[CitedAnswer]):
         Custom runnable for this agent.
         """
 
-        tool_executor = ToolExecutor(self.tools)
+        agent_runnable: Runnable = {
+            "question": lambda x: x["question"],
+            "chat_history": lambda x: chat_history_to_str(x["chat_history"]),
+            "tool_names": lambda x: ", ".join([t.name for t in self.tools]),
+            "tool_descriptions": lambda x: "\n" + render_text_description(self.tools),
+        } | super().runnable()
 
         def run_agent(
-            data: ToolRouterState, config: Optional[RunnableConfig]
-        ) -> ToolRouterState:
-            return {
-                "agent_outcome": super().runnable().invoke(data, config),
-            }
-
-        def execute_tools(
-            data: ToolRouterState, config: Optional[RunnableConfig]
-        ) -> ToolRouterState:
-            # Get the most recent agent_outcome - this is the key added in the `agent` above
-            agent_action = data["agent_outcome"]
-            output = tool_executor.invoke(agent_action, config)
-            return {"intermediate_steps": [(agent_action, str(output))]}
-
-        def should_continue(data: ToolRouterState) -> str:
-            # If the agent outcome is an AgentFinish, then we return `exit` string
-            # This will be used when setting up the graph to define the flow
-            if isinstance(data["agent_outcome"], AgentFinish):
-                return "end"
-            # Otherwise, an AgentAction is returned
-            # Here we return `continue` string
-            # This will be used when setting up the graph to define the flow
-            else:
-                return "continue"
+            state: AgentState, config: Optional[RunnableConfig]
+        ) -> AgentState:
+            invocation = agent_runnable.invoke(state, config)
+            return {"tool_invocation": invocation}
 
         # Define a new graph
-        workflow = StateGraph(ToolRouterAgent)
+        workflow = StateGraph(AgentState)
 
-        # Define the two nodes we will cycle between
-        workflow.add_node("agent", run_agent)
-        workflow.add_node("action", execute_tools)
+        # Define the nodes of the graph (no cycles for now)
+        workflow.add_node("run_agent", run_agent)  # type: ignore
+        workflow.add_node("execute_tool", self.execute_tool)  # type: ignore
 
-        # Set the entrypoint as `agent`
-        # This means that this node is the first one called
-        workflow.set_entry_point("agent")
+        # Set the entrypoint
+        workflow.set_entry_point("run_agent")
 
-        # We now add a conditional edge
-        workflow.add_conditional_edges(
-            # First, we define the start node. We use `agent`.
-            # This means these are the edges taken after the `agent` node is called.
-            "agent",
-            # Next, we pass in the function that will determine which node is called next.
-            should_continue,
-            # Finally we pass in a mapping.
-            # The keys are strings, and the values are other nodes.
-            # END is a special node marking that the graph should finish.
-            # What will happen is we will call `should_continue`, and then the output of that
-            # will be matched against the keys in this mapping.
-            # Based on which one it matches, that node will then be called.
-            {
-                # If `tools`, then we call the tool node.
-                "continue": "action",
-                # Otherwise we finish.
-                "end": END,
-            },
-        )
+        # Add edges
+        workflow.add_edge("run_agent", "execute_tool")
 
-        # We now add a normal edge from `tools` to `agent`.
-        # This means that after `tools` is called, `agent` node is called next.
-        workflow.add_edge("action", "agent")
+        # TODO 1: add final answer edge that takes history, question, tool invocation, and result of tool invocation... and builds cited answer
+        # Problem is this is probably going to be a different implementation for each tool (rag tool returns docs? query tool returns frame ? etc),
+        # so maybe have this function exposed from each tool class? or maybe create custom chains / functions sand wire them up here conditionally based on the state in the graph?
 
-        # Finally, we compile it!
-        # This compiles it into a LangChain Runnable,
-        # meaning you can use it as you would any other runnable
+        # TODO 2: add reflection stage... look at examples but basically ask the llm if the answer is good and if not, loop back
+        # however make sure on the loop back the agent knows what you tried before and why it didn't work so it can try something else?
+        # Use this as an example:
+
+        # TODO 3: for explained citations, how do we do that at the end in a special node? The streaming implementation will need to stream the answer before the citations
+
+        workflow.add_edge("execute_tool", END)
+
+        # Compile
         return workflow.compile()
-
-    def run(  # type: ignore[override]
-        self,
-        question: str,
-        chat_history: list[tuple[str, str]] = [],
-        config: Optional[RunnableConfig] = None,
-    ) -> TracedResponse[CitedAnswer]:
-        if not question:
-            raise Exception("Input required: question")
-
-        return super().run(
-            question=question,
-            chat_history=chat_history_to_str(chat_history),
-            tool_names=", ".join([tool.name for tool in self.tools]),
-            tool_descriptions=render_text_description(self.tools),
-            config=config,
-        )
 
     async def run_stream(  # type: ignore[override]
         self,
         question: str,
         chat_history: list[tuple[str, str]] = [],
         config: Optional[RunnableConfig] = None,
-    ) -> AsyncIterator[TracedResponse[CitedAnswer]]:
+    ) -> AsyncIterator[TracedResponse[AgentState]]:
         if not question:
             raise Exception("Input required: question")
 
-        async for item in super().run_stream(
-            question=question,
-            chat_history=chat_history_to_str(chat_history),
-            tool_names=", ".join([tool.name for tool in self.tools]),
-            tool_descriptions=render_text_description(self.tools),
-            config=config,
-        ):
-            yield item
-
-    def run_batch(  # type: ignore[override]
-        self,
-        inputs: list[tuple[str, list[tuple[str, str]]]],
-        config: Optional[RunnableConfig] = None,
-    ) -> list[CitedAnswer]:
-        tool_names = (", ".join([tool.name for tool in self.tools]),)
-        tool_descriptions = (render_text_description(self.tools),)
-
-        return super().run_batch(
-            inputs=[
-                {
-                    "question": i[0],
-                    "chat_history": chat_history_to_str(i[1]),
-                    "tool_names": tool_names,
-                    "tool_descriptions": tool_descriptions,
-                }
-                for i in inputs
-            ],
-            config=config,
+        config, kwargs_dict = self._prepare_run_args(
+            {
+                "question": question,
+                "chat_history": chat_history,
+            }
         )
+
+        with collect_runs() as cb:
+            last_response_value = None
+            async for output in self.runnable().astream(
+                input=kwargs_dict,
+                config=config,
+            ):
+                # stream() yields dictionaries with output keyed by node name
+                for key, value in output.items():
+
+                    if not isinstance(value, dict):
+                        # agent step-wise streaming yields dictionaries keyed by node name
+                        # Ref: https://python.langchain.com/docs/langgraph#streaming-node-output
+                        raise Exception(
+                            "Expected dictionary output from agent streaming"
+                        )
+
+                    last_response_value = value
+                    yield TracedResponse[AgentState](value=last_response_value)  # type: ignore
+
+            # yield the final result with the run_id
+            if cb.traced_runs:
+                run_id = str(cb.traced_runs[0].id)
+                yield TracedResponse[AgentState](
+                    run_id=run_id,
+                    value=last_response_value,  # type: ignore
+                )

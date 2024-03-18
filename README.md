@@ -14,4 +14,4 @@ To install with poetry:
 
 ## Development and Testing
 
-To install with development and testing dependencies, install as `poetry install --with test,lint,typing`.
+To install with development and testing dependencies, install as `poetry install --with test,lint,typing,codespell`.

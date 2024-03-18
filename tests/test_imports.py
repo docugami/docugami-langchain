@@ -2,21 +2,25 @@ from docugami_langchain import __all__
 
 EXPECTED_BASE = [
     "TracedResponse",
-    "CitationLink",
-    "Citation",
-    "CitedAnswer",
     "BaseRunnable",
     "RunnableParameters",
     "RunnableSingleParameter",
 ]
 
 EXPECTED_AGENTS = [
-    "ReWOOAgent",
+    "AgentState",
+    "BaseDocugamiAgent",
+    "Citation",
+    "CitationLink",
+    "CitedAnswer",
+    "Invocation",
+    "StepState",
     "ReActAgent",
     "ToolRouterAgent",
 ]
 
 EXPECTED_CHAINS = [
+    "BaseDocugamiChain",
     "AnswerChain",
     "ElaborateChunkChain",
     "SummarizeChunkChain",

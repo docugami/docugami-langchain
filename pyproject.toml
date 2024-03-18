@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docugami-langchain"
-version = "0.0.7rc9"
+version = "0.0.7"
 description = "An integration package connecting Docugami and LangChain"
 authors = []
 readme = "README.md"
@@ -12,9 +12,9 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
-langchain-core = ">=0.1.30"
-langchain-community = ">=0.0.27"
-langgraph = ">=0.0.26"
+langchain-core = ">=0.1.32"
+langchain-community = ">=0.0.28"
+langgraph = ">=0.0.28"
 dgml-utils = ">=0.3.2"
 wordtodigits = ">=1.0.2"
 python-dateutil = ">=2.9.0"
@@ -56,9 +56,10 @@ ruff = ">=0.3.0"
 [tool.poetry.group.typing.dependencies]
 mypy = ">=1.8.0"
 types-lxml = ">=2024.2.9"
-types-python-dateutil = ">=2.8.19.20240106"
+types-python-dateutil = ">=2.9.0.20240316"
 types-pyyaml = ">=6.0.12.12"
 types-requests = ">=2.31.0.20240218"
+types-regex = "^2023.12.25.20240311"
 
 [tool.ruff]
 lint.select = [

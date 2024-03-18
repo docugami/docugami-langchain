@@ -2,9 +2,9 @@ from typing import AsyncIterator, Optional
 
 from langchain_core.runnables import RunnableConfig
 
-from docugami_langchain.agents.base import chat_history_to_str
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
+from docugami_langchain.history import chat_history_to_str
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 

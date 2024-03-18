@@ -6,7 +6,7 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
 from docugami_langchain.agents import ReActAgent
-from docugami_langchain.agents.re_act_agent import ReActState
+from docugami_langchain.agents.base import AgentState
 from docugami_langchain.base_runnable import TracedResponse
 from tests.common import (
     GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
@@ -78,15 +78,15 @@ async def _runtest_streamed(
     answer_options: list[str],
     chat_history: list[tuple[str, str]] = [],
 ) -> None:
-    last_response = TracedResponse[ReActState](value={})  # type: ignore
+    last_response = TracedResponse[AgentState](value={})  # type: ignore
 
     steps: list = []
     async for incremental_response in agent.run_stream(
         question=question,
         chat_history=chat_history,
     ):
-        human_readable_step = agent.to_human_readable(incremental_response.value)
-        steps.append(human_readable_step)
+        step = incremental_response.value.get("current_answer")
+        steps.append(step)
 
         last_response = incremental_response
 

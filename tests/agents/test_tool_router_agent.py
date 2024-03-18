@@ -6,7 +6,8 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
 from docugami_langchain.agents import ToolRouterAgent
-from docugami_langchain.base_runnable import CitedAnswer, TracedResponse
+from docugami_langchain.agents.base import AgentState
+from docugami_langchain.base_runnable import TracedResponse
 from tests.common import (
     GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     GENERAL_KNOWLEDGE_QUESTION,
@@ -77,15 +78,15 @@ async def _runtest_streamed(
     answer_options: list[str],
     chat_history: list[tuple[str, str]] = [],
 ) -> None:
-    last_response = TracedResponse[CitedAnswer](value={})  # type: ignore
+    last_response = TracedResponse[AgentState](value={})  # type: ignore
 
     steps: list = []
     async for incremental_response in agent.run_stream(
         question=question,
         chat_history=chat_history,
     ):
-        human_readable_step = agent.to_human_readable(incremental_response.value)
-        steps.append(human_readable_step)
+        step = incremental_response.value.get("current_answer")
+        steps.append(step)
 
         last_response = incremental_response
 
@@ -96,7 +97,7 @@ async def _runtest_streamed(
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_re_act(
+def test_fireworksai_tool_router(
     fireworksai_mixtral_tool_router_agent: ToolRouterAgent,
 ) -> None:
     # test general LLM response from agent
@@ -118,7 +119,7 @@ def test_fireworksai_re_act(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 @pytest.mark.asyncio
-async def test_fireworksai_streamed_re_act(
+async def test_fireworksai_streamed_tool_router(
     fireworksai_mixtral_tool_router_agent: ToolRouterAgent,
 ) -> None:
     # test general LLM response from agent
@@ -140,7 +141,7 @@ async def test_fireworksai_streamed_re_act(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 @pytest.mark.asyncio
-async def test_fireworksai_streamed_re_act_with_history(
+async def test_fireworksai_streamed_tool_router_with_history(
     fireworksai_mixtral_tool_router_agent: ToolRouterAgent,
 ) -> None:
     # test general LLM response from agent
@@ -155,7 +156,7 @@ async def test_fireworksai_streamed_re_act_with_history(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_re_act(openai_gpt35_tool_router_agent: ToolRouterAgent) -> None:
+def test_openai_tool_router(openai_gpt35_tool_router_agent: ToolRouterAgent) -> None:
     # test general LLM response from agent
     _runtest(
         openai_gpt35_tool_router_agent,
@@ -175,7 +176,7 @@ def test_openai_re_act(openai_gpt35_tool_router_agent: ToolRouterAgent) -> None:
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio
-async def test_openai_streamed_re_act(
+async def test_openai_streamed_tool_router(
     openai_gpt35_tool_router_agent: ToolRouterAgent,
 ) -> None:
     # test general LLM response from agent
@@ -197,7 +198,7 @@ async def test_openai_streamed_re_act(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio
-async def test_openai_streamed_re_act_with_history(
+async def test_openai_streamed_tool_router_with_history(
     openai_gpt35_tool_router_agent: ToolRouterAgent,
 ) -> None:
     # test general LLM response from agent

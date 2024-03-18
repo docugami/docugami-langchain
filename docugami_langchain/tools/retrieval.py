@@ -12,7 +12,7 @@ from langchain_core.vectorstores import VectorStore
 from docugami_langchain.chains.documents.describe_document_set_chain import (
     DescribeDocumentSetChain,
 )
-from docugami_langchain.config import MAX_FULL_DOCUMENT_TEXT_LENGTH, RETRIEVER_K
+from docugami_langchain.config import DEFAULT_RETRIEVER_K, MAX_FULL_DOCUMENT_TEXT_LENGTH
 from docugami_langchain.retrievers.fused_summary import (
     FusedRetrieverKeyValueFetchCallback,
     FusedSummaryRetriever,
@@ -87,7 +87,7 @@ def get_retrieval_tool_for_docset(
     retrieval_tool_description: str,
     fetch_full_doc_summary_callback: FusedRetrieverKeyValueFetchCallback,
     fetch_parent_doc_callback: FusedRetrieverKeyValueFetchCallback,
-    retrieval_k: int = RETRIEVER_K,
+    retrieval_k: int = DEFAULT_RETRIEVER_K,
 ) -> Optional[BaseTool]:
     """
     Gets a retrieval tool for an agent.

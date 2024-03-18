@@ -6,8 +6,50 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
-from docugami_langchain.base_runnable import CitedAnswer, TracedResponse
+from docugami_langchain.agents.base import CitedAnswer
+from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
+
+
+def render_text_description(tools: list[BaseTool]) -> str:
+    """
+    Copied from https://github.com/langchain-ai/langchain/blob/master/libs/langchain/langchain/tools/render.py
+    to avoid taking a dependency on the entire langchain library
+
+    Render the tool name and description in plain text.
+
+    Output will be in the format of:
+
+    .. code-block:: markdown
+
+        search: This tool is used for search
+        calculator: This tool is used for math
+    """
+    tool_strings = []
+    for tool in tools:
+        tool_strings.append(f"- {tool.name}: {tool.description}")
+    return "\n".join(tool_strings)
+
+
+def render_text_description_and_args(tools: list[BaseTool]) -> str:
+    """
+    Copied from https://github.com/langchain-ai/langchain/blob/master/libs/langchain/langchain/tools/render.py
+    to avoid taking a dependency on the entire langchain library
+
+    Render the tool name, description, and args in plain text.
+
+    Output will be in the format of:
+
+    .. code-block:: markdown
+
+        search: This tool is used for search, args: {"query": {"type": "string"}}
+        calculator: This tool is used for math, args: {"expression": {"type": "string"}}
+    """
+    tool_strings = []
+    for tool in tools:
+        args_schema = str(tool.args)
+        tool_strings.append(f"- {tool.name}: {tool.description}, args: {args_schema}")
+    return "\n".join(tool_strings)
 
 
 class SmallTalkTool(BaseTool):
@@ -30,12 +72,7 @@ class SmallTalkTool(BaseTool):
             chat_history=chat_history,
         )
 
-        return CitedAnswer(
-            source=self.name,
-            answer=chain_response.value,
-            citations=[],
-            metadata={},
-        )
+        return CitedAnswer(source=self.name, answer=chain_response.value)
 
 
 class GeneralKnowlegeTool(BaseTool):
@@ -56,12 +93,7 @@ class GeneralKnowlegeTool(BaseTool):
             chat_history=chat_history,
         )
 
-        return CitedAnswer(
-            source=self.name,
-            answer=chain_response.value,
-            citations=[],
-            metadata={},
-        )
+        return CitedAnswer(source=self.name, answer=chain_response.value)
 
 
 class HumanInterventionTool(BaseTool):
@@ -75,7 +107,7 @@ class HumanInterventionTool(BaseTool):
     def _run(
         self,
         question: str,
-        chat_history: tuple[str, str] = [],
+        chat_history: list[tuple[str, str]] = [],
         run_manager: Optional[CallbackManagerForToolRun] = None,
     ) -> CitedAnswer:  # type: ignore
         """Use the tool."""
@@ -84,8 +116,6 @@ class HumanInterventionTool(BaseTool):
             source=self.name,
             answer="""Sorry, I don't have enough information to answer this question. Please try rephrasing the question, or please """
             """create or update reports against the relevant docset that maybe queried to answer questions like this one""",
-            citations=[],
-            metadata={},
         )
 
 
