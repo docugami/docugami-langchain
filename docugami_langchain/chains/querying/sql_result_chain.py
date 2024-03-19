@@ -22,6 +22,8 @@ class SQLResultChain(BaseDocugamiChain[dict]):
     db: SQLDatabase
     sql_fixup_chain: Optional[SQLFixupChain] = None
 
+    fix_only_syntax_errors = False  # Set to true to be more efficient and only try to fix SQL in case of errors
+
     def runnable(self) -> Runnable:
         """
         Custom runnable for this chain.
@@ -64,7 +66,19 @@ class SQLResultChain(BaseDocugamiChain[dict]):
                 raise Exception("Inputs required: question, sql_query")
 
             try:
-                # Run Raw SQL
+                if not self.fix_only_syntax_errors:
+                    # Pre-emptively try to fix the SQL query to increase chances that it will be valid
+                    # This is not very efficient (so you can set fix_only_syntax_errors to True), however
+                    # not all invalid sql statements (e.g. with invalid column names) are raising exceptions
+                    # when called via the SQLDatabase implementation in LangChain.
+                    fixed_sql_response = self.sql_fixup_chain.run(
+                        table_info=table_info(self),
+                        sql_query=sql_query,
+                        config=config,  # Pass the config down to link traces in langsmith
+                    )
+                    sql_query = fixed_sql_response.value
+
+                # Run
                 return {
                     "question": question,
                     "sql_query": sql_query,
@@ -76,6 +90,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
 
                 if is_syntax_error and self.sql_fixup_chain:
                     # If syntax error in Raw SQL, try to fix up the SQL
+                    # giving the LLM context on the exception to aid fixup
                     fixed_sql_response = self.sql_fixup_chain.run(
                         table_info=table_info(self),
                         sql_query=sql_query,

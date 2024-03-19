@@ -74,7 +74,8 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     Converts a set of chunks to a direct retriever tool description.
     """
     description = (
-        f"Translates the input string to a SQL query over the {name} report, runs it, and returns the result. "
+        f"Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. "
+        + "Internally, it has logic to translate it to a SQL query over the {name} report, runs it, and returns the result. "
         + f"Use this tool if you think the answer can be calculated via SQL query on the following table.\n\n{table_info}"
     )
 

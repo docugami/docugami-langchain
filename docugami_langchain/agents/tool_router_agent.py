@@ -4,8 +4,8 @@ from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.runnables import Runnable, RunnableConfig
 from langgraph.graph import END, StateGraph
 
-from docugami_langchain.agents.base import BaseDocugamiAgent
-from docugami_langchain.agents.models import AgentState, Invocation
+from docugami_langchain.agents.base import THINKING, BaseDocugamiAgent
+from docugami_langchain.agents.models import AgentState, CitedAnswer, Invocation
 from docugami_langchain.history import chat_history_to_str
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 from docugami_langchain.tools.common import render_text_description
@@ -76,16 +76,26 @@ class ToolRouterAgent(BaseDocugamiAgent):
         def run_agent(
             state: AgentState, config: Optional[RunnableConfig]
         ) -> AgentState:
-            invocation = agent_runnable.invoke(state, config)
-            return {"tool_invocation": invocation}
+            invocation: Invocation = agent_runnable.invoke(state, config)
+            answer_source = ToolRouterAgent.__name__
 
-        # def should_continue(state: AgentState) -> str:
-        #     ... reflect on answer, and decide to continue or not
+            # This agent always decides to invoke a tool
+            tool_name = invocation.tool_name
+            tool_input = invocation.tool_input
+            if tool_name and tool_input:
+                busy_text = THINKING
+                if tool_name.startswith("retrieval"):
+                    busy_text = f"Searching documents for '{tool_input}'"
+                elif tool_name.startswith("query"):
+                    busy_text = f"Querying report for '{tool_input}'"
 
-        #     if answer and answer.is_final:
-        #         return "end"
-        #     else:
-        #         return "continue"
+            return {
+                "tool_invocation": invocation,
+                "cited_answer": CitedAnswer(
+                    source=answer_source,
+                    answer=busy_text,  # Show the user interim output.
+                ),
+            }
 
         # Define a new graph
         workflow = StateGraph(AgentState)
