@@ -1,3 +1,4 @@
+import re
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from pathlib import Path
@@ -193,6 +194,43 @@ def chat_prompt_template(
     return prompt_template
 
 
+def normalize_whitespace(text: str) -> str:
+    """
+    Normalizes whitespace in given text without affecting visual formatting.
+
+    This function aims to:
+    1. Compress multiple vertical whitespace (more than two newlines) into two newlines, without affecting horizontal whitespace (indentation).
+    2. Remove leading and trailing whitespace from the text.
+
+    >>> normalize_whitespace("  Hello\\n\\n\\nWorld  ")
+    'Hello\\n\\nWorld'
+    >>> normalize_whitespace("\\n\\n\\n    Indented text\\nMore indented text\\n\\n")
+    'Indented text\\nMore indented text'
+    >>> normalize_whitespace("No extra\\nwhitespace here.")
+    'No extra\\nwhitespace here.'
+    >>> normalize_whitespace("  \\n  Leading and trailing newlines and spaces  \\n  ")
+    'Leading and trailing newlines and spaces'
+    >>> normalize_whitespace("\\n\\n\\n\\nOnly newlines here\\n\\n\\n\\nHello")
+    'Only newlines here\\n\\nHello'
+
+    Note that horizontal spaces before and after the text in a single line are not preserved if they're at the beginning or end of the text.
+
+    Args:
+        text (str): The input text to normalize.
+
+    Returns:
+        str: The normalized text with whitespace adjusted.
+    """
+
+    # compress vertical whitespace without affecting horizontal whitespace (indentation)
+    text = re.sub(r"(\s*\n){3,}", "\n\n", text)
+
+    # remove leading and trailing whitespace
+    text = text.strip()
+
+    return text
+
+
 @dataclass
 class TracedResponse(Generic[T]):
     value: T
@@ -257,10 +295,13 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
             self._examples = yaml.safe_load(in_f)
 
             for ex in self._examples:
-                # truncate example length to avoid overflowing context too much
                 keys = ex.keys()
                 for k in keys:
                     if ex[k]:
+                        # whitespace normalize
+                        ex[k] = normalize_whitespace(ex[k])
+
+                        # truncate length to avoid overflowing context too much (strip any trailing whitespace again)
                         ex[k] = ex[k][: self.few_shot_params_max_length_cutoff].strip()
                     else:
                         ex[k] = ""
@@ -326,11 +367,14 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
                 del kwargs_dict[CONFIG_KEY]
 
         for key in kwargs_dict:
-            # for string args, cap at max to avoid chance of prompt overflow
             if isinstance(kwargs_dict[key], str):
+                # whitespace normalize
+                kwargs_dict[key] = normalize_whitespace(kwargs_dict[key])
+
+                # truncate length to avoid overflowing context too much (strip any trailing whitespace again)
                 kwargs_dict[key] = kwargs_dict[key][
-                    : self.input_params_max_length_cutoff
-                ]
+                    : self.few_shot_params_max_length_cutoff
+                ].strip()
 
         return config, kwargs_dict
 
