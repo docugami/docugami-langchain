@@ -14,7 +14,6 @@ from langchain_core.tools import BaseTool
 
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
 from docugami_langchain.chains.querying.sql_result_chain import SQLResultChain
-from docugami_langchain.config import DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO
 
 NOT_FOUND = "Not found"
 
@@ -102,16 +101,13 @@ def excel_to_sqlite_connection(
     return conn
 
 
-def connect_to_db(
-    conn: sqlite3.Connection,
-    sample_rows_in_table_info: int = DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO,
-) -> SQLDatabase:
+def connect_to_db(conn: sqlite3.Connection) -> SQLDatabase:
     temp_db_file = tempfile.NamedTemporaryFile(suffix=".sqlite")
     with sqlite3.connect(temp_db_file.name) as disk_conn:
         conn.backup(disk_conn)  # dumps the connection to disk
     return SQLDatabase.from_uri(
         f"sqlite:///{temp_db_file.name}",
-        sample_rows_in_table_info=sample_rows_in_table_info,
+        sample_rows_in_table_info=0,  # We select and insert sample rows using custom logic
     )
 
 
