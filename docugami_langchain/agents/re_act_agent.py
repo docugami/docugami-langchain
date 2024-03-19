@@ -1,15 +1,13 @@
 # Adapted with thanks from https://github.com/langchain-ai/langgraph/blob/main/examples/agent_executor/base.ipynb
 from __future__ import annotations
 
-from typing import AsyncIterator, Optional
+from typing import Optional
 
-from langchain_core.messages import AIMessageChunk
 from langchain_core.prompts import (
     BasePromptTemplate,
     ChatPromptTemplate,
 )
 from langchain_core.runnables import Runnable, RunnableConfig
-from langchain_core.tracers.context import collect_runs
 from langgraph.graph import END, StateGraph
 
 from docugami_langchain.agents.base import THINKING, BaseDocugamiAgent
@@ -19,7 +17,7 @@ from docugami_langchain.agents.models import (
     Invocation,
     format_steps_to_str,
 )
-from docugami_langchain.base_runnable import TracedResponse, standard_sytem_instructions
+from docugami_langchain.base_runnable import standard_sytem_instructions
 from docugami_langchain.config import DEFAULT_EXAMPLES_PER_PROMPT
 from docugami_langchain.history import chat_history_to_str
 from docugami_langchain.output_parsers.custom_react_json_single_input import (
@@ -69,7 +67,7 @@ Begin! Remember to ALWAYS use the format specified. Any output that does not fol
 )
 
 
-class ReActAgent(BaseDocugamiAgent[AgentState]):
+class ReActAgent(BaseDocugamiAgent):
     """
     Agent that implements simple agentic RAG using the ReAct prompt style.
     """
@@ -135,7 +133,7 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
 
                 return {
                     "tool_invocation": react_output,
-                    "current_answer": CitedAnswer(
+                    "cited_answer": CitedAnswer(
                         source=answer_source,
                         answer=busy_text,  # Show the user interim output.
                     ),
@@ -149,7 +147,7 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
                     answer_source = tool_invocation.tool_name
 
                 return {
-                    "current_answer": CitedAnswer(
+                    "cited_answer": CitedAnswer(
                         source=answer_source,
                         is_final=True,
                         answer=react_output,  # This is the final answer.
@@ -160,7 +158,7 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
 
         def should_continue(state: AgentState) -> str:
             # Decide whether to continue, based on the current state
-            answer = state.get("current_answer")
+            answer = state.get("cited_answer")
             if answer and answer.is_final:
                 return "end"
             else:
@@ -193,93 +191,8 @@ class ReActAgent(BaseDocugamiAgent[AgentState]):
         # Compile
         return workflow.compile()
 
-    async def run_stream(  # type: ignore[override]
-        self,
-        question: str,
-        chat_history: list[tuple[str, str]] = [],
-        config: Optional[RunnableConfig] = None,
-    ) -> AsyncIterator[TracedResponse[AgentState]]:
-        if not question:
-            raise Exception("Input required: question")
+    def parse_final_answer(self, text: str) -> str:
+        if FINAL_ANSWER_ACTION in text:
+            return str(text).split(FINAL_ANSWER_ACTION)[-1].strip()
 
-        config, kwargs_dict = self._prepare_run_args(
-            {
-                "question": question,
-                "chat_history": chat_history,
-            }
-        )
-
-        with collect_runs() as cb:
-            last_response_value = None
-            current_step_token_stream = ""
-            final_streaming_started = False
-            async for output in self.runnable().astream_log(
-                input=kwargs_dict,
-                config=config,
-                include_types=["llm"],
-            ):
-                for op in output.ops:
-                    op_path = op.get("path", "")
-                    op_value = op.get("value", "")
-                    if not final_streaming_started and op_path == "/streamed_output/-":
-                        # Restart token stream for each interim step
-                        current_step_token_stream = ""
-                        if not isinstance(op_value, dict):
-                            # Agent step-wise streaming yields dictionaries keyed by node name
-                            # Ref: https://python.langchain.com/docs/langgraph#streaming-node-output
-                            raise Exception(
-                                "Expected dictionary output from agent streaming"
-                            )
-
-                        if not len(op_value.keys()) == 1:
-                            raise Exception(
-                                "Expected output from one node at a time in step-wise agent streaming output"
-                            )
-
-                        key = list(op_value.keys())[0]
-                        last_response_value = op_value[key]
-                        yield TracedResponse[AgentState](value=last_response_value)
-                    elif op_path.startswith("/logs/") and op_path.endswith(
-                        "/streamed_output/-"
-                    ):
-                        # Because we chose to only include LLMs, these are LLM tokens
-                        if isinstance(op_value, AIMessageChunk):
-                            current_step_token_stream += str(op_value.content)
-
-                            if not final_streaming_started:
-                                # Set final streaming started once as soon as we see the final
-                                # answer action in the token stream
-                                final_streaming_started = (
-                                    FINAL_ANSWER_ACTION in current_step_token_stream
-                                )
-
-                            if final_streaming_started:
-                                # Start streaming the final answer, we are done with intermediate steps
-                                final_answer = (
-                                    str(current_step_token_stream)
-                                    .split(FINAL_ANSWER_ACTION)[-1]
-                                    .strip()
-                                )
-                                if final_answer:
-                                    # Start streaming the final answer, no more interim steps
-                                    last_response_value = AgentState(
-                                        chat_history=[],
-                                        question="",
-                                        tool_invocation=None,
-                                        intermediate_steps=[],
-                                        current_answer=CitedAnswer(
-                                            source=ReActAgent.__name__,
-                                            answer=final_answer,
-                                        ),
-                                    )
-                                    yield TracedResponse[AgentState](
-                                        value=last_response_value
-                                    )
-
-            # Yield the final result with the run_id
-            if cb.traced_runs:
-                run_id = str(cb.traced_runs[0].id)
-                yield TracedResponse[AgentState](
-                    run_id=run_id,
-                    value=last_response_value,  # type: ignore
-                )
+        return ""  # not found

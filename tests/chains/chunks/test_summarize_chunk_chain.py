@@ -5,7 +5,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.chains.chunks.summarize_chunk_chain import SummarizeChunkChain
-from tests.common import TEST_DATA_DIR, verify_response
+from tests.common import TEST_DATA_DIR, verify_traced_response
 
 TEST_FORCE_MAJEURE_CLAUSE = """In no event shall the Trustee be responsible or liable for any failure or delay in the performance of its obligations hereunder
 arising out of or caused by, directly or indirectly, forces beyond its control, including, without limitation, strikes, work stoppages, accidents, acts of war
@@ -51,7 +51,7 @@ def test_fireworksai_summarize_chunk(
     fireworksai_mixtral_summarize_chunk_chain: SummarizeChunkChain,
 ) -> None:
     summary = fireworksai_mixtral_summarize_chunk_chain.run(TEST_FORCE_MAJEURE_CLAUSE)
-    verify_response(summary)
+    verify_traced_response(summary)
     assert len(summary.value) < len(TEST_FORCE_MAJEURE_CLAUSE)
 
 
@@ -62,5 +62,5 @@ def test_openai_summarize_chunk(
     openai_gpt35_summarize_chunk_chain: SummarizeChunkChain,
 ) -> None:
     summary = openai_gpt35_summarize_chunk_chain.run(TEST_FORCE_MAJEURE_CLAUSE)
-    verify_response(summary)
+    verify_traced_response(summary)
     assert len(summary.value) < len(TEST_FORCE_MAJEURE_CLAUSE)

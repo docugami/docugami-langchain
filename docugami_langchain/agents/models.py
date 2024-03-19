@@ -68,4 +68,4 @@ class AgentState(TypedDict):
     intermediate_steps: Annotated[list[StepState], operator.add]
 
     # **** Output
-    current_answer: CitedAnswer
+    cited_answer: CitedAnswer

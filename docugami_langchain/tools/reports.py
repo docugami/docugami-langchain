@@ -16,6 +16,8 @@ from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
 from docugami_langchain.chains.querying.sql_result_chain import SQLResultChain
 from docugami_langchain.config import DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO
 
+NOT_FOUND = "Not found"
+
 
 class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseTool):
     db: SQLDatabase
@@ -35,7 +37,7 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseTool):
             if sql_result:
                 return str(sql_result)
 
-        return ""
+        return NOT_FOUND
 
 
 def report_name_to_report_query_tool_function_name(name: str) -> str:
@@ -72,8 +74,8 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     Converts a set of chunks to a direct retriever tool description.
     """
     description = (
-        f"Given a single input 'question' parameter, generates and runs a SQL query over the {name} report, represented internally as the following SQL Table. "
-        + f"Use this tool if you think the answer can be calculated via SQL query on this table.\n\n{table_info}"
+        f"Translates the input string to a SQL query over the {name} report, runs it, and returns the result. "
+        + f"Use this tool if you think the answer can be calculated via SQL query on the following table.\n\n{table_info}"
     )
 
     return description[:2048]  # cap to avoid failures when the description is too long

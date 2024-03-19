@@ -6,8 +6,7 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
 from docugami_langchain.agents import ToolRouterAgent
-from docugami_langchain.agents.base import AgentState
-from docugami_langchain.base_runnable import TracedResponse
+from tests.agents.common import run_agent_test, run_streaming_agent_test
 from tests.common import (
     GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     GENERAL_KNOWLEDGE_QUESTION,
@@ -16,7 +15,7 @@ from tests.common import (
     RAG_CHAT_HISTORY,
     RAG_QUESTION,
     RAG_QUESTION_WITH_HISTORY,
-    verify_response,
+    TEST_DATA_DIR,
 )
 
 
@@ -37,6 +36,7 @@ def fireworksai_mixtral_tool_router_agent(
         tools=[huggingface_retrieval_tool, huggingface_query_tool]
         + huggingface_common_tools,
     )
+    agent.load_examples(TEST_DATA_DIR / "examples/test_tool_router_examples.yaml")
     return agent
 
 
@@ -56,42 +56,8 @@ def openai_gpt35_tool_router_agent(
         embeddings=openai_ada,
         tools=[openai_retrieval_tool, openai_query_tool] + openai_common_tools,
     )
+    agent.load_examples(TEST_DATA_DIR / "examples/test_tool_router_examples.yaml")
     return agent
-
-
-def _runtest(
-    agent: ToolRouterAgent,
-    question: str,
-    answer_options: list[str],
-    chat_history: list[tuple[str, str]] = [],
-) -> None:
-    response = agent.run(
-        question=question,
-        chat_history=chat_history,
-    )
-    verify_response(response, answer_options)
-
-
-async def _runtest_streamed(
-    agent: ToolRouterAgent,
-    question: str,
-    answer_options: list[str],
-    chat_history: list[tuple[str, str]] = [],
-) -> None:
-    last_response = TracedResponse[AgentState](value={})  # type: ignore
-
-    steps: list = []
-    async for incremental_response in agent.run_stream(
-        question=question,
-        chat_history=chat_history,
-    ):
-        step = incremental_response.value.get("current_answer")
-        steps.append(step)
-
-        last_response = incremental_response
-
-    assert steps
-    verify_response(last_response, answer_options)
 
 
 @pytest.mark.skipif(
@@ -101,14 +67,14 @@ def test_fireworksai_tool_router(
     fireworksai_mixtral_tool_router_agent: ToolRouterAgent,
 ) -> None:
     # test general LLM response from agent
-    _runtest(
+    run_agent_test(
         fireworksai_mixtral_tool_router_agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
     # test retrieval response from agent
-    _runtest(
+    run_agent_test(
         fireworksai_mixtral_tool_router_agent,
         RAG_QUESTION,
         RAG_ANSWER_FRAGMENTS,
@@ -123,14 +89,14 @@ async def test_fireworksai_streamed_tool_router(
     fireworksai_mixtral_tool_router_agent: ToolRouterAgent,
 ) -> None:
     # test general LLM response from agent
-    await _runtest_streamed(
+    await run_streaming_agent_test(
         fireworksai_mixtral_tool_router_agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
     # test retrieval response from agent
-    await _runtest_streamed(
+    await run_streaming_agent_test(
         fireworksai_mixtral_tool_router_agent,
         RAG_QUESTION,
         RAG_ANSWER_FRAGMENTS,
@@ -145,7 +111,7 @@ async def test_fireworksai_streamed_tool_router_with_history(
     fireworksai_mixtral_tool_router_agent: ToolRouterAgent,
 ) -> None:
     # test general LLM response from agent
-    await _runtest_streamed(
+    await run_streaming_agent_test(
         fireworksai_mixtral_tool_router_agent,
         RAG_QUESTION_WITH_HISTORY,
         RAG_ANSWER_WITH_HISTORY_FRAGMENTS,
@@ -158,14 +124,14 @@ async def test_fireworksai_streamed_tool_router_with_history(
 )
 def test_openai_tool_router(openai_gpt35_tool_router_agent: ToolRouterAgent) -> None:
     # test general LLM response from agent
-    _runtest(
+    run_agent_test(
         openai_gpt35_tool_router_agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
     # test retrieval response from agent
-    _runtest(
+    run_agent_test(
         openai_gpt35_tool_router_agent,
         RAG_QUESTION,
         RAG_ANSWER_FRAGMENTS,
@@ -180,14 +146,14 @@ async def test_openai_streamed_tool_router(
     openai_gpt35_tool_router_agent: ToolRouterAgent,
 ) -> None:
     # test general LLM response from agent
-    await _runtest_streamed(
+    await run_streaming_agent_test(
         openai_gpt35_tool_router_agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
     # test retrieval response from agent
-    await _runtest_streamed(
+    await run_streaming_agent_test(
         openai_gpt35_tool_router_agent,
         RAG_QUESTION,
         RAG_ANSWER_FRAGMENTS,
@@ -202,7 +168,7 @@ async def test_openai_streamed_tool_router_with_history(
     openai_gpt35_tool_router_agent: ToolRouterAgent,
 ) -> None:
     # test general LLM response from agent
-    await _runtest_streamed(
+    await run_streaming_agent_test(
         openai_gpt35_tool_router_agent,
         RAG_QUESTION_WITH_HISTORY,
         RAG_ANSWER_WITH_HISTORY_FRAGMENTS,

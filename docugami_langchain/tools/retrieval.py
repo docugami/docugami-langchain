@@ -75,8 +75,9 @@ def summaries_to_direct_retriever_tool_description(
 
     description = chain.run(summaries=summaries, docset_name=name)
     return (
-        f"Given a single input 'question' parameter, searches for and returns relevant chunks from {name} documents that might contain answers. "
-        + "Use this tool if you think the answer is likely to come from one or a few of these documents. "
+        f"Uses the input string as a search query to retrieve relevant chunks from {name} documents that might contain answers. "
+        + "Use this tool if you think the answer is likely to come from one or a few of these documents, and can be synthesized from"
+        + "retrieved chunks. "
         + description.value
     )
 

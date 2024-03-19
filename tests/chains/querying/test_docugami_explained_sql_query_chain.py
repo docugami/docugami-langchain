@@ -14,7 +14,7 @@ from docugami_langchain.chains.querying import (
     SQLResultExplainerChain,
 )
 from docugami_langchain.tools.reports import connect_to_excel
-from tests.common import TEST_DATA_DIR, verify_response
+from tests.common import TEST_DATA_DIR, verify_traced_response
 from tests.testdata.xlsx.sql_test_data import SQL_TEST_DATA, SQLTestData
 
 SQL_EXAMPLES_FILE = TEST_DATA_DIR / "examples/test_sql_examples.yaml"
@@ -61,7 +61,7 @@ def init_docugami_explained_sql_query_chain(
 
 def _runtest(chain: DocugamiExplainedSQLQueryChain, test_data: SQLTestData) -> None:
     response = chain.run(question=test_data.question)
-    verify_response(response, test_data.explained_result_answer_fragments)
+    verify_traced_response(response, test_data.explained_result_answer_fragments)
 
 
 async def _runtest_streamed(
@@ -71,7 +71,7 @@ async def _runtest_streamed(
     async for incremental_response in chain.run_stream(question=test_data.question):
         chain_response = incremental_response
 
-    verify_response(chain_response, test_data.explained_result_answer_fragments)
+    verify_traced_response(chain_response, test_data.explained_result_answer_fragments)
 
 
 @pytest.mark.parametrize("test_data", SQL_TEST_DATA)

@@ -1,19 +1,17 @@
-from typing import AsyncIterator, Optional
+from typing import Optional
 
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.runnables import Runnable, RunnableConfig
-from langchain_core.tracers.context import collect_runs
 from langgraph.graph import END, StateGraph
 
 from docugami_langchain.agents.base import BaseDocugamiAgent
 from docugami_langchain.agents.models import AgentState, Invocation
-from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.history import chat_history_to_str
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 from docugami_langchain.tools.common import render_text_description
 
 
-class ToolRouterAgent(BaseDocugamiAgent[AgentState]):
+class ToolRouterAgent(BaseDocugamiAgent):
     """
     Agent that implements agentic RAG with a tool router implementation.
     """
@@ -23,14 +21,14 @@ class ToolRouterAgent(BaseDocugamiAgent[AgentState]):
         return RunnableParameters(
             inputs=[
                 RunnableSingleParameter(
-                    "question",
-                    "QUESTION",
-                    "Question asked by the user, which must be answered from one of the given tools.",
-                ),
-                RunnableSingleParameter(
                     "chat_history",
                     "CHAT HISTORY",
                     "Previous chat messages that may provide additional context for this question.",
+                ),
+                RunnableSingleParameter(
+                    "question",
+                    "QUESTION",
+                    "Question asked by the user, which must be answered from one of the given tools.",
                 ),
                 RunnableSingleParameter(
                     "tool_names",
@@ -50,8 +48,14 @@ class ToolRouterAgent(BaseDocugamiAgent[AgentState]):
             ),
             task_description="selects an appropriate tool for the question a user is asking, and builds a tool invocation JSON blob for the tool",
             additional_instructions=[
-                "- Your output must be a valid JSON blob, with a `tool_name` key (with the name of the tool to use) and a `tool_input` key (with the string input to the tool).",
-                "- You must pick one of these values for the `tool_name` key: {tool_names}",
+                """- Here is an example of a valid JSON blob for your output. Please STRICTLY follow this format:
+{{
+  "tool_name": $TOOL_NAME,
+  "tool_input": $INPUT_STRING
+}}""",
+                "- $TOOL_NAME is the name of the tool to use, and must be one of these values: {tool_names}",
+                "- $INPUT_STRING is the (string) input carefully crafted to answer the question using the given tool.",
+                "- Always use one of the tools, don't try to directly answer the question even if you think you know the answer",
             ],
             stop_sequences=[],
             additional_runnables=[PydanticOutputParser(pydantic_object=Invocation)],
@@ -74,6 +78,14 @@ class ToolRouterAgent(BaseDocugamiAgent[AgentState]):
         ) -> AgentState:
             invocation = agent_runnable.invoke(state, config)
             return {"tool_invocation": invocation}
+
+        # def should_continue(state: AgentState) -> str:
+        #     ... reflect on answer, and decide to continue or not
+
+        #     if answer and answer.is_final:
+        #         return "end"
+        #     else:
+        #         return "continue"
 
         # Define a new graph
         workflow = StateGraph(AgentState)
@@ -103,45 +115,5 @@ class ToolRouterAgent(BaseDocugamiAgent[AgentState]):
         # Compile
         return workflow.compile()
 
-    async def run_stream(  # type: ignore[override]
-        self,
-        question: str,
-        chat_history: list[tuple[str, str]] = [],
-        config: Optional[RunnableConfig] = None,
-    ) -> AsyncIterator[TracedResponse[AgentState]]:
-        if not question:
-            raise Exception("Input required: question")
-
-        config, kwargs_dict = self._prepare_run_args(
-            {
-                "question": question,
-                "chat_history": chat_history,
-            }
-        )
-
-        with collect_runs() as cb:
-            last_response_value = None
-            async for output in self.runnable().astream(
-                input=kwargs_dict,
-                config=config,
-            ):
-                # stream() yields dictionaries with output keyed by node name
-                for key, value in output.items():
-
-                    if not isinstance(value, dict):
-                        # agent step-wise streaming yields dictionaries keyed by node name
-                        # Ref: https://python.langchain.com/docs/langgraph#streaming-node-output
-                        raise Exception(
-                            "Expected dictionary output from agent streaming"
-                        )
-
-                    last_response_value = value
-                    yield TracedResponse[AgentState](value=last_response_value)  # type: ignore
-
-            # yield the final result with the run_id
-            if cb.traced_runs:
-                run_id = str(cb.traced_runs[0].id)
-                yield TracedResponse[AgentState](
-                    run_id=run_id,
-                    value=last_response_value,  # type: ignore
-                )
+    def parse_final_answer(self, text: str) -> str:
+        return text  # no special delimiter in final answer

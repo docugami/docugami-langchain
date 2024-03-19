@@ -1,0 +1,19 @@
+- chat_history: |
+    Human: Can you name a famous wizard from literature?
+    AI: One of the most famous wizards from literature is Harry Potter.
+    Human: And who is his main enemy?
+    AI: Harry Potter's main enemy is Lord Voldemort.
+  question: Who wrote the book that introduced these characters?
+  tool_names: retrieval_ndas, query_nda_report, small_talk, general_knowledge, human_intervention
+  tool_descriptions: |
+    - retrieval_ntsb_aviation_incident_reports: Uses the input string as a search query to retrieve relevant chunks from {name} documents that might contain answers.
+      Use this tool if you think the answer is likely to come from one or a few of these documents, and can be synthesized from retrieved chunks. 
+      This document type is the National Transportation Safety Board (NTSB) Aviation Accident Final Report. It provides a detailed summary of aviation accidents or incidents, including information about the circumstances, causes, and findings of the accident or incident. The report includes details about the aircraft, individuals involved, meteorological conditions, flight plans, airport information, and the investigation process.
+    - small_talk: Responds to greetings, small talk, or questions that can be directly answered from the chat history.
+    - general_knowledge: Answers general knowledge questions
+    - human_intervention: This tool will request the user to create or update a query_* tool with data sufficient to answer questions like this one via SQL queries against a table. Use this tool if the question IS LIKELY to be answerable with the document set described by the retrieval_* tool, however there is no given query_* tool that has the requisite information in its table schema to answer the question via SQL query.
+  tool_invocation_json: |
+    {
+      "tool_name": "general_knowledge",
+      "tool_input": "Author of the Harry Potter series"
+    }

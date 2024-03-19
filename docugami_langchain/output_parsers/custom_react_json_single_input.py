@@ -49,30 +49,37 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
 
     def parse(self, text: str) -> Union[Invocation, str]:
         includes_answer = FINAL_ANSWER_ACTION in text
+
         try:
+            # First, try parsing with STRICT_REACT_PATTERN
             response = self._parse_regex(text, STRICT_REACT_PATTERN)
             action = response.get("action", "")
 
-            if not action:
+            if action:  # If action is found, construct and return Invocation
+                return Invocation(
+                    tool_name=action,
+                    tool_input=response.get("action_input", ""),
+                    log=text,
+                )
+        except ValueError:
+            # Next, try parsing with SIMPLE_JSON_PATTERN
+            try:
                 response = self._parse_regex(text, SIMPLE_JSON_PATTERN)
                 action = response.get("action", "")
 
-            if includes_answer and action:
-                raise OutputParserException(
-                    "Parsing LLM output produced a final answer "
-                    f"and a parse-able action: {text}"
-                )
+                if action:  # If action is found, construct and return Invocation
+                    return Invocation(
+                        tool_name=action,
+                        tool_input=response.get("action_input", ""),
+                        log=text,
+                    )
+            except ValueError:
+                # If neither pattern matches, handle according to permissive mode
+                if not includes_answer:
+                    if not self.permissive:
+                        raise OutputParserException(
+                            f"Could not parse LLM output: {text}"
+                        )
 
-            return Invocation(
-                tool_name=action,
-                tool_input=response.get("action_input", ""),
-                log=text,
-            )
-
-        except Exception:
-            if not includes_answer:
-                if not self.permissive:
-                    raise OutputParserException(f"Could not parse LLM output: {text}")
-
-            output = text.split(FINAL_ANSWER_ACTION)[-1].strip()
-            return output
+                output = text.split(FINAL_ANSWER_ACTION)[-1].strip()
+                return output

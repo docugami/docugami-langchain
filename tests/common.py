@@ -103,16 +103,12 @@ def is_core_tests_only_mode() -> bool:
             return str(core_tests_env_var).lower() == "true"
 
 
-def verify_response(
-    response: TracedResponse[Any],
+def verify_value(
+    value: Any,
     match_fragment_str_options: list[str] = [],
     empty_ok: bool = False,
 ) -> None:
-    assert response.run_id
-    if empty_ok and not response.value:
-        return
-
-    value = str(response.value)
+    value = str(value)
     assert value
     if match_fragment_str_options:
         output_match = False
@@ -121,7 +117,7 @@ def verify_response(
 
         assert (
             output_match
-        ), f"{response} does not contain one of the expected output substrings {match_fragment_str_options}"
+        ), f"{value} does not contain one of the expected output substrings {match_fragment_str_options}"
 
     # Check guardrails and warn if any violations detected based on string checks
     for banned_word in ["sql", "context"]:
@@ -129,6 +125,18 @@ def verify_response(
             warnings.warn(
                 UserWarning(f"Output contains banned word {banned_word}: {value}")
             )
+
+
+def verify_traced_response(
+    response: TracedResponse[Any],
+    match_fragment_str_options: list[str] = [],
+    empty_ok: bool = False,
+) -> None:
+    assert response.run_id
+    if empty_ok and not response.value:
+        return
+
+    return verify_value(response.value, match_fragment_str_options, empty_ok)
 
 
 def build_test_common_tools(

@@ -6,8 +6,7 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
 from docugami_langchain.agents import ReActAgent
-from docugami_langchain.agents.base import AgentState
-from docugami_langchain.base_runnable import TracedResponse
+from tests.agents.common import run_agent_test, run_streaming_agent_test
 from tests.common import (
     GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     GENERAL_KNOWLEDGE_QUESTION,
@@ -16,7 +15,6 @@ from tests.common import (
     RAG_CHAT_HISTORY,
     RAG_QUESTION,
     RAG_QUESTION_WITH_HISTORY,
-    verify_response,
 )
 
 
@@ -59,54 +57,21 @@ def openai_gpt35_re_act_agent(
     return agent
 
 
-def _runtest(
-    agent: ReActAgent,
-    question: str,
-    answer_options: list[str],
-    chat_history: list[tuple[str, str]] = [],
-) -> None:
-    response = agent.run(
-        question=question,
-        chat_history=chat_history,
-    )
-    verify_response(response, answer_options)
-
-
-async def _runtest_streamed(
-    agent: ReActAgent,
-    question: str,
-    answer_options: list[str],
-    chat_history: list[tuple[str, str]] = [],
-) -> None:
-    last_response = TracedResponse[AgentState](value={})  # type: ignore
-
-    steps: list = []
-    async for incremental_response in agent.run_stream(
-        question=question,
-        chat_history=chat_history,
-    ):
-        step = incremental_response.value.get("current_answer")
-        steps.append(step)
-
-        last_response = incremental_response
-
-    assert steps
-    verify_response(last_response, answer_options)
-
-
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_re_act(fireworksai_mixtral_re_act_agent: ReActAgent) -> None:
+def test_fireworksai_re_act(
+    fireworksai_mixtral_re_act_agent: ReActAgent,
+) -> None:
     # test general LLM response from agent
-    _runtest(
+    run_agent_test(
         fireworksai_mixtral_re_act_agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
     # test retrieval response from agent
-    _runtest(
+    run_agent_test(
         fireworksai_mixtral_re_act_agent,
         RAG_QUESTION,
         RAG_ANSWER_FRAGMENTS,
@@ -121,14 +86,14 @@ async def test_fireworksai_streamed_re_act(
     fireworksai_mixtral_re_act_agent: ReActAgent,
 ) -> None:
     # test general LLM response from agent
-    await _runtest_streamed(
+    await run_streaming_agent_test(
         fireworksai_mixtral_re_act_agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
     # test retrieval response from agent
-    await _runtest_streamed(
+    await run_streaming_agent_test(
         fireworksai_mixtral_re_act_agent,
         RAG_QUESTION,
         RAG_ANSWER_FRAGMENTS,
@@ -143,7 +108,7 @@ async def test_fireworksai_streamed_re_act_with_history(
     fireworksai_mixtral_re_act_agent: ReActAgent,
 ) -> None:
     # test general LLM response from agent
-    await _runtest_streamed(
+    await run_streaming_agent_test(
         fireworksai_mixtral_re_act_agent,
         RAG_QUESTION_WITH_HISTORY,
         RAG_ANSWER_WITH_HISTORY_FRAGMENTS,
@@ -156,14 +121,14 @@ async def test_fireworksai_streamed_re_act_with_history(
 )
 def test_openai_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
     # test general LLM response from agent
-    _runtest(
+    run_agent_test(
         openai_gpt35_re_act_agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
     # test retrieval response from agent
-    _runtest(
+    run_agent_test(
         openai_gpt35_re_act_agent,
         RAG_QUESTION,
         RAG_ANSWER_FRAGMENTS,
@@ -174,16 +139,18 @@ def test_openai_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio
-async def test_openai_streamed_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
+async def test_openai_streamed_re_act(
+    openai_gpt35_re_act_agent: ReActAgent,
+) -> None:
     # test general LLM response from agent
-    await _runtest_streamed(
+    await run_streaming_agent_test(
         openai_gpt35_re_act_agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
     # test retrieval response from agent
-    await _runtest_streamed(
+    await run_streaming_agent_test(
         openai_gpt35_re_act_agent,
         RAG_QUESTION,
         RAG_ANSWER_FRAGMENTS,
@@ -198,7 +165,7 @@ async def test_openai_streamed_re_act_with_history(
     openai_gpt35_re_act_agent: ReActAgent,
 ) -> None:
     # test general LLM response from agent
-    await _runtest_streamed(
+    await run_streaming_agent_test(
         openai_gpt35_re_act_agent,
         RAG_QUESTION_WITH_HISTORY,
         RAG_ANSWER_WITH_HISTORY_FRAGMENTS,
