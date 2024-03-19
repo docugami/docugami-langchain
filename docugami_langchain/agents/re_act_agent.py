@@ -15,7 +15,7 @@ from docugami_langchain.agents.models import (
     AgentState,
     CitedAnswer,
     Invocation,
-    format_steps_to_str,
+    StepState,
 )
 from docugami_langchain.base_runnable import standard_sytem_instructions
 from docugami_langchain.config import DEFAULT_EXAMPLES_PER_PROMPT
@@ -67,6 +67,22 @@ Begin! Remember to ALWAYS use the format specified. Any output that does not fol
 )
 
 
+def format_steps_to_react_scratchpad(
+    intermediate_steps: list[StepState],
+    observation_prefix: str = "Observation: ",
+    llm_prefix: str = "Thought: ",
+) -> str:
+    """Construct the scratchpad that lets the agent continue its thought process."""
+    thoughts = ""
+    if intermediate_steps:
+        for step in intermediate_steps:
+            if step.invocation:
+                thoughts += step.invocation.log
+
+            thoughts += f"\n{observation_prefix}{step.output}\n{llm_prefix}"
+    return thoughts
+
+
 class ReActAgent(BaseDocugamiAgent):
     """
     Agent that implements simple agentic RAG using the ReAct prompt style.
@@ -103,7 +119,7 @@ class ReActAgent(BaseDocugamiAgent):
             {
                 "question": lambda x: x["question"],
                 "chat_history": lambda x: chat_history_to_str(x["chat_history"]),
-                "agent_scratchpad": lambda x: format_steps_to_str(
+                "agent_scratchpad": lambda x: format_steps_to_react_scratchpad(
                     x["intermediate_steps"]
                 ),
                 "tool_names": lambda x: ", ".join([t.name for t in self.tools]),

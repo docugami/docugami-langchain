@@ -1,7 +1,6 @@
 import operator
-from typing import Annotated, TypedDict, Union
+from typing import Annotated, Optional, TypedDict, Union
 
-from langchain_core.messages import BaseMessage
 from langchain_core.pydantic_v1 import BaseModel
 
 
@@ -30,30 +29,14 @@ class Invocation(BaseModel):
 
 
 class StepState(BaseModel):
-    invocation: Invocation
     output: str
-
-
-def format_steps_to_str(
-    intermediate_steps: list[StepState],
-    observation_prefix: str = "Observation: ",
-    llm_prefix: str = "Thought: ",
-) -> str:
-    """Construct the scratchpad that lets the agent continue its thought process."""
-    thoughts = ""
-    if intermediate_steps:
-        for step in intermediate_steps:
-            if step.invocation:
-                thoughts += step.invocation.log
-
-            thoughts += f"\n{observation_prefix}{step.output}\n{llm_prefix}"
-    return thoughts
+    invocation: Optional[Invocation] = None
 
 
 class AgentState(TypedDict):
     # **** Inputs
     # The list of previous messages in the conversation
-    chat_history: list[BaseMessage]
+    chat_history: list[tuple[str, str]]
 
     # The input question
     question: str

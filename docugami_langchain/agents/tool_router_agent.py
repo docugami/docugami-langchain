@@ -5,8 +5,14 @@ from langchain_core.runnables import Runnable, RunnableConfig
 from langgraph.graph import END, StateGraph
 
 from docugami_langchain.agents.base import THINKING, BaseDocugamiAgent
-from docugami_langchain.agents.models import AgentState, CitedAnswer, Invocation
-from docugami_langchain.history import chat_history_to_str
+from docugami_langchain.agents.models import (
+    AgentState,
+    CitedAnswer,
+    Invocation,
+    StepState,
+)
+from docugami_langchain.chains.rag.tool_final_answer_chain import ToolFinalAnswerChain
+from docugami_langchain.history import chat_history_to_str, steps_to_str
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 from docugami_langchain.tools.common import render_text_description
 
@@ -15,6 +21,8 @@ class ToolRouterAgent(BaseDocugamiAgent):
     """
     Agent that implements agentic RAG with a tool router implementation.
     """
+
+    final_answer_chain: ToolFinalAnswerChain
 
     def params(self) -> RunnableParameters:
         """The params are directly implemented in the runnable."""
@@ -39,6 +47,12 @@ class ToolRouterAgent(BaseDocugamiAgent):
                     "tool_descriptions",
                     "TOOL DESCRIPTIONS",
                     "Detailed description of tools that you must exclusively pick one from, in order to answer the given question.",
+                ),
+                RunnableSingleParameter(
+                    "intermediate_steps",
+                    "INTERMEDIATE STEPS",
+                    "The inputs and outputs to various intermediate steps an AI agent has previously taken to consider the question using specialized tools. "
+                    + "Try to compose your final answer from these intermediate steps.",
                 ),
             ],
             output=RunnableSingleParameter(
@@ -71,6 +85,7 @@ class ToolRouterAgent(BaseDocugamiAgent):
             "chat_history": lambda x: chat_history_to_str(x["chat_history"]),
             "tool_names": lambda x: ", ".join([t.name for t in self.tools]),
             "tool_descriptions": lambda x: "\n" + render_text_description(self.tools),
+            "intermediate_steps": lambda x: steps_to_str(x["intermediate_steps"]),
         } | super().runnable()
 
         def run_agent(
@@ -97,28 +112,56 @@ class ToolRouterAgent(BaseDocugamiAgent):
                 ),
             }
 
+        def generate_final_answer(
+            state: AgentState, config: Optional[RunnableConfig]
+        ) -> AgentState:
+            chain_response = self.final_answer_chain.run(
+                question=state.get("question", ""),
+                chat_history=state.get("chat_history", []),
+                intermediate_steps=state.get("intermediate_steps", []),
+                config=config,
+            )
+
+            final_answer_candidate = chain_response.value
+
+            return {
+                "cited_answer": final_answer_candidate,
+                "intermediate_steps": [StepState(output=str(final_answer_candidate))],
+            }
+
+        def should_continue(state: AgentState) -> str:
+            # Decide whether to continue, based on the current state
+            answer = state.get("cited_answer")
+            if answer and answer.is_final:
+                return "end"
+            else:
+                return "continue"
+
         # Define a new graph
         workflow = StateGraph(AgentState)
 
         # Define the nodes of the graph (no cycles for now)
         workflow.add_node("run_agent", run_agent)  # type: ignore
         workflow.add_node("execute_tool", self.execute_tool)  # type: ignore
+        workflow.add_node("generate_final_answer", generate_final_answer)  # type: ignore
 
         # Set the entrypoint
         workflow.set_entry_point("run_agent")
 
         # Add edges
         workflow.add_edge("run_agent", "execute_tool")
+        workflow.add_edge("execute_tool", "generate_final_answer")
 
-        # TODO 1: add final answer edge that takes history, question, tool invocation, and result of tool invocation... and builds cited answer
-        # Problem is this is probably going to be a different implementation for each tool (rag tool returns docs? query tool returns frame ? etc),
-        # so maybe have this function exposed from each tool class? or maybe create custom chains / functions sand wire them up here conditionally based on the state in the graph?
-
-        # TODO 2: add reflection stage... look at examples but basically ask the llm if the answer is good and if not, loop back
-        # however make sure on the loop back the agent knows what you tried before and why it didn't work so it can try something else?
-        # Use this as an example:
-
-        # TODO 3: for explained citations, how do we do that at the end in a special node? The streaming implementation will need to stream the answer before the citations
+        # Decide whether to end iteration if agent determines final answer is achieved
+        # otherwise keep iterating
+        workflow.add_conditional_edges(
+            "generate_final_answer",
+            should_continue,
+            {
+                "continue": "run_agent",
+                "end": END,
+            },
+        )
 
         workflow.add_edge("execute_tool", END)
 

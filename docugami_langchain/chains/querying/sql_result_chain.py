@@ -66,7 +66,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
                 raise Exception("Inputs required: question, sql_query")
 
             try:
-                if not self.fix_only_syntax_errors:
+                if not self.fix_only_syntax_errors and self.sql_fixup_chain:
                     # Pre-emptively try to fix the SQL query to increase chances that it will be valid
                     # This is not very efficient (so you can set fix_only_syntax_errors to True), however
                     # not all invalid sql statements (e.g. with invalid column names) are raising exceptions

@@ -55,25 +55,29 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
             response = self._parse_regex(text, STRICT_REACT_PATTERN)
             action = response.get("action", "")
 
-            if action:  # If action is found, construct and return Invocation
-                return Invocation(
-                    tool_name=action,
-                    tool_input=response.get("action_input", ""),
-                    log=text,
-                )
-        except ValueError:
+            if not action:
+                raise Exception(f"could not find action in text: {text}")
+
+            return Invocation(
+                tool_name=action,
+                tool_input=response.get("action_input", ""),
+                log=text,
+            )
+        except Exception:
             # Next, try parsing with SIMPLE_JSON_PATTERN
             try:
                 response = self._parse_regex(text, SIMPLE_JSON_PATTERN)
                 action = response.get("action", "")
 
-                if action:  # If action is found, construct and return Invocation
-                    return Invocation(
-                        tool_name=action,
-                        tool_input=response.get("action_input", ""),
-                        log=text,
-                    )
-            except ValueError:
+                if not action:
+                    raise Exception(f"could not find action in text: {text}")
+
+                return Invocation(
+                    tool_name=action,
+                    tool_input=response.get("action_input", ""),
+                    log=text,
+                )
+            except Exception:
                 # If neither pattern matches, handle according to permissive mode
                 if not includes_answer:
                     if not self.permissive:

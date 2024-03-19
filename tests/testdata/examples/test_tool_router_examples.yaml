@@ -12,6 +12,7 @@
     - small_talk: Responds to greetings, small talk, or questions that can be directly answered from the chat history.
     - general_knowledge: Answers general knowledge questions
     - human_intervention: This tool will request the user to create or update a query_* tool with data sufficient to answer questions like this one via SQL queries against a table. Use this tool if the question IS LIKELY to be answerable with the document set described by the retrieval_* tool, however there is no given query_* tool that has the requisite information in its table schema to answer the question via SQL query.
+  intermediate_steps:
   tool_invocation_json: |
     {
       "tool_name": "general_knowledge",

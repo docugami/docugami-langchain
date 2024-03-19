@@ -157,8 +157,9 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
                                     )
 
             # Yield the final result with the run_id
-            if "cited_answer" in last_response_value:
-                last_response_value["cited_answer"].is_final = True
+            if last_response_value:
+                if "cited_answer" in last_response_value:
+                    last_response_value["cited_answer"].is_final = True
 
             if cb.traced_runs:
                 run_id = str(cb.traced_runs[0].id)

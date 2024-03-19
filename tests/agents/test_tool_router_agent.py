@@ -6,6 +6,7 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
 from docugami_langchain.agents import ToolRouterAgent
+from docugami_langchain.chains.rag.tool_final_answer_chain import ToolFinalAnswerChain
 from tests.agents.common import run_agent_test, run_streaming_agent_test
 from tests.common import (
     GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
@@ -30,11 +31,17 @@ def fireworksai_mixtral_tool_router_agent(
     """
     Fireworks AI ReAct Agent using mixtral.
     """
+    final_answer_chain = ToolFinalAnswerChain(
+        llm=fireworksai_mixtral, embeddings=huggingface_minilm
+    )
+    # TODO: examples
+
     agent = ToolRouterAgent(
         llm=fireworksai_mixtral,
         embeddings=huggingface_minilm,
         tools=[huggingface_retrieval_tool, huggingface_query_tool]
         + huggingface_common_tools,
+        final_answer_chain=final_answer_chain,
     )
     agent.load_examples(TEST_DATA_DIR / "examples/test_tool_router_examples.yaml")
     return agent
@@ -51,10 +58,14 @@ def openai_gpt35_tool_router_agent(
     """
     OpenAI ReAct Agent using GPT 3.5.
     """
+    final_answer_chain = ToolFinalAnswerChain(llm=openai_gpt35, embeddings=openai_ada)
+    # TODO: examples
+
     agent = ToolRouterAgent(
         llm=openai_gpt35,
         embeddings=openai_ada,
         tools=[openai_retrieval_tool, openai_query_tool] + openai_common_tools,
+        final_answer_chain=final_answer_chain,
     )
     agent.load_examples(TEST_DATA_DIR / "examples/test_tool_router_examples.yaml")
     return agent

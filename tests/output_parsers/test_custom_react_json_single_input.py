@@ -9,7 +9,7 @@ from docugami_langchain.output_parsers.custom_react_json_single_input import (
 
 # Define a fixture for the parser instance
 @pytest.fixture
-def parser():
+def parser() -> CustomReActJsonSingleInputOutputParser:
     return CustomReActJsonSingleInputOutputParser()
 
 
@@ -117,7 +117,11 @@ def parser():
         ),
     ],
 )
-def test_parse(parser, text, expected):
+def test_parse(
+    parser: CustomReActJsonSingleInputOutputParser,
+    text: str,
+    expected: Invocation,
+) -> None:
     result = parser.parse(text)
     if isinstance(result, Invocation):
         assert (
