@@ -61,7 +61,8 @@ $JSON_BLOB
 Observation: the result of the action
 ... (this Thought/Action/Observation can repeat N times)
 Thought: I now know the final answer
-Final Answer: the final answer to the original input question, with citation describing which tool you used and how. See tool description above for how to cite each type of tool.
+Final Answer: The final answer to the original input question. Make sure a complete answer follows the "Final Answer:" prefix, 
+since any text before this label will not be shown to the user.
 
 Begin! Remember to ALWAYS use the format specified. Any output that does not follow the EXACT format above is unparsable.
 """

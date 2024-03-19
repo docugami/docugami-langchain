@@ -26,9 +26,15 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
     1. Decouples from langchain dependency and returns a simple custom TypedDict.
     2. If the standard ReAct style output is not found in the text, try to parse
     any json found in the text and return that if it matches the return type.
+    3. Permissive parsing mode that assumes unparseable output is final answer,
+    since some weaker models fail to respect the ReAct prompt format when producing
+    the final answer.
 
     Ref: libs/langchain/langchain/agents/output_parsers/react_json_single_input.py
     """
+
+    permissive = True
+    """Softer parsing. Specifies whether unparseable input is considered final output."""
 
     @property
     def _type(self) -> str:
@@ -65,6 +71,8 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
 
         except Exception:
             if not includes_answer:
-                raise OutputParserException(f"Could not parse LLM output: {text}")
+                if not self.permissive:
+                    raise OutputParserException(f"Could not parse LLM output: {text}")
+
             output = text.split(FINAL_ANSWER_ACTION)[-1].strip()
             return output
