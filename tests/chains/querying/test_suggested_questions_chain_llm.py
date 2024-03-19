@@ -7,7 +7,7 @@ from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.chains import SuggestedQuestionsChain
 from docugami_langchain.tools.reports import connect_to_excel
-from tests.common import TEST_DATA_DIR, verify_response
+from tests.common import TEST_DATA_DIR, verify_traced_response
 from tests.testdata.xlsx.sql_test_data import SQL_TEST_DATA, SQLTestData
 
 SQL_SUGGESTIONS_EXAMPLES_FILE = (
@@ -31,7 +31,7 @@ def init_suggested_questions_chain(
 
 def _runtest(chain: SuggestedQuestionsChain) -> None:
     suggestions = chain.run()
-    verify_response(suggestions)
+    verify_traced_response(suggestions)
     assert len(suggestions.value) > 0
 
 

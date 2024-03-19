@@ -1,19 +1,26 @@
 from docugami_langchain import __all__
 
 EXPECTED_BASE = [
-    "BaseRunnable",
     "TracedResponse",
+    "BaseRunnable",
     "RunnableParameters",
     "RunnableSingleParameter",
 ]
 
 EXPECTED_AGENTS = [
-    "ReWOOAgent",
+    "AgentState",
+    "BaseDocugamiAgent",
+    "Citation",
+    "CitationLink",
+    "CitedAnswer",
+    "Invocation",
+    "StepState",
     "ReActAgent",
-    "RewriteGraderRAGAgent",
+    "ToolRouterAgent",
 ]
 
 EXPECTED_CHAINS = [
+    "BaseDocugamiChain",
     "AnswerChain",
     "ElaborateChunkChain",
     "SummarizeChunkChain",
@@ -36,13 +43,21 @@ EXPECTED_DOCUMENT_LOADERS = [
 EXPECTED_OUTPUT_PARSERS = [
     "KeyfindingOutputParser",
     "LineSeparatedListOutputParser",
-    "SoftReActJsonSingleInputOutputParser",
+    "CustomReActJsonSingleInputOutputParser",
     "SQLFindingOutputParser",
     "TimeSpan",
     "TimespanOutputParser",
 ]
 
 EXPECTED_RETRIEVERS = ["SearchType", "FusedSummaryRetriever"]
+
+EXPECTED_TOOLS = [
+    "SmallTalkTool",
+    "GeneralKnowlegeTool",
+    "HumanInterventionTool",
+    "CustomReportRetrievalTool",
+]
+
 
 EXPECTED_ALL = (
     EXPECTED_BASE
@@ -51,6 +66,7 @@ EXPECTED_ALL = (
     + EXPECTED_DOCUMENT_LOADERS
     + EXPECTED_OUTPUT_PARSERS
     + EXPECTED_RETRIEVERS
+    + EXPECTED_TOOLS
 )
 
 

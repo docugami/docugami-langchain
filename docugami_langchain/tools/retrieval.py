@@ -12,7 +12,7 @@ from langchain_core.vectorstores import VectorStore
 from docugami_langchain.chains.documents.describe_document_set_chain import (
     DescribeDocumentSetChain,
 )
-from docugami_langchain.config import MAX_FULL_DOCUMENT_TEXT_LENGTH, RETRIEVER_K
+from docugami_langchain.config import DEFAULT_RETRIEVER_K, MAX_FULL_DOCUMENT_TEXT_LENGTH
 from docugami_langchain.retrievers.fused_summary import (
     FusedRetrieverKeyValueFetchCallback,
     FusedSummaryRetriever,
@@ -23,7 +23,9 @@ from docugami_langchain.retrievers.fused_summary import (
 class RetrieverInput(BaseModel):
     """Input to the retriever."""
 
-    question: str = Field(description="question to look up in retriever, to find relevant chunks that might contain answers")
+    question: str = Field(
+        description="question to look up in retriever, to find relevant chunks that might contain answers"
+    )
 
 
 def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
@@ -31,7 +33,7 @@ def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
     Converts a docset name to a direct retriever tool function name.
 
     Direct retriever tool function names follow these conventions:
-    1. Retrieval tool function names always start with "search_".
+    1. Retrieval tool function names always start with "retrieval_".
     2. The rest of the name should be a lowercased string, with underscores
        for whitespace.
     3. Exclude any characters other than a-z (lowercase) from the function
@@ -39,11 +41,11 @@ def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
     4. The final function name should not have more than one underscore together.
 
     >>> docset_name_to_direct_retriever_tool_function_name('Earnings Calls')
-    'search_earnings_calls'
+    'retrieval_earnings_calls'
     >>> docset_name_to_direct_retriever_tool_function_name('COVID-19   Statistics')
-    'search_covid_19_statistics'
+    'retrieval_covid_19_statistics'
     >>> docset_name_to_direct_retriever_tool_function_name('2023 Market Report!!!')
-    'search_2023_market_report'
+    'retrieval_2023_market_report'
     """
     # Replace non-letter characters with underscores and remove extra whitespaces
     name = re.sub(r"[^a-z\d]", "_", name.lower())
@@ -52,7 +54,7 @@ def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
     name = re.sub(r"_{2,}", "_", name)
     name = name.strip("_")
 
-    return f"search_{name}"
+    return f"retrieval_{name}"
 
 
 def summaries_to_direct_retriever_tool_description(
@@ -72,7 +74,13 @@ def summaries_to_direct_retriever_tool_description(
         chain.load_examples(describe_document_set_examples_file)
 
     description = chain.run(summaries=summaries, docset_name=name)
-    return f"Given a single input 'question' parameter, searches for and returns relevant chunks from {name} documents that might contain answers. {description}"
+    return (
+        "Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. "
+        + "Internally, it has logic to retrieve relevant chunks from {name} documents that might contain answers to the question. "
+        + "Use this tool if you think the answer is likely to come from one or a few of these documents, and can be synthesized from"
+        + "retrieved chunks. "
+        + description.value
+    )
 
 
 def get_retrieval_tool_for_docset(
@@ -81,7 +89,7 @@ def get_retrieval_tool_for_docset(
     retrieval_tool_description: str,
     fetch_full_doc_summary_callback: FusedRetrieverKeyValueFetchCallback,
     fetch_parent_doc_callback: FusedRetrieverKeyValueFetchCallback,
-    retrieval_k: int = RETRIEVER_K,
+    retrieval_k: int = DEFAULT_RETRIEVER_K,
 ) -> Optional[BaseTool]:
     """
     Gets a retrieval tool for an agent.

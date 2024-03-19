@@ -6,10 +6,7 @@ from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from docugami_langchain.chains import (
-    SummarizeChunkChain,
-    SummarizeDocumentChain,
-)
+from docugami_langchain.chains import SummarizeChunkChain, SummarizeDocumentChain
 from docugami_langchain.config import (
     INCLUDE_XML_TAGS,
     MAX_CHUNK_TEXT_LENGTH,
@@ -123,16 +120,15 @@ def build_doc_maps_from_chunks(
         chunk_id = str(chunk.metadata.get(chunk_id_key))
         chunk_source = str(chunk.metadata.get(source_key))
         parent_chunk_id = chunk.metadata.get(parent_id_key)
+
+        if chunk_source not in chunks_by_source:
+            chunks_by_source[chunk_source] = []
+
+        chunks_by_source[chunk_source].append(chunk.page_content)
+
         if not parent_chunk_id:
             # parent chunk, we will use this (for expanded context) as our chunk
             parent_chunks_by_id[chunk_id] = chunk
-        else:
-            # child chunk, we will keep track of this to build up our
-            # full document summary
-            if chunk_source not in chunks_by_source:
-                chunks_by_source[chunk_source] = []
-
-            chunks_by_source[chunk_source].append(chunk.page_content)
 
     # Build up the full docs by concatenating all the child chunks from a source
     full_docs_by_id: dict[str, Document] = {}

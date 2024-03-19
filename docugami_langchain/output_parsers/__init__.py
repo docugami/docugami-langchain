@@ -1,9 +1,9 @@
+from docugami_langchain.output_parsers.custom_react_json_single_input import (
+    CustomReActJsonSingleInputOutputParser,
+)
 from docugami_langchain.output_parsers.key_finding import KeyfindingOutputParser
 from docugami_langchain.output_parsers.line_separated_list import (
     LineSeparatedListOutputParser,
-)
-from docugami_langchain.output_parsers.soft_react_json_single_input import (
-    SoftReActJsonSingleInputOutputParser,
 )
 from docugami_langchain.output_parsers.sql_finding import SQLFindingOutputParser
 from docugami_langchain.output_parsers.timespan import TimeSpan, TimespanOutputParser
@@ -11,7 +11,7 @@ from docugami_langchain.output_parsers.timespan import TimeSpan, TimespanOutputP
 __all__ = [
     "KeyfindingOutputParser",
     "LineSeparatedListOutputParser",
-    "SoftReActJsonSingleInputOutputParser",
+    "CustomReActJsonSingleInputOutputParser",
     "SQLFindingOutputParser",
     "TimeSpan",
     "TimespanOutputParser",

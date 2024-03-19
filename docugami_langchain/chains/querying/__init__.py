@@ -1,7 +1,3 @@
-from docugami_langchain.chains.helpers import (
-    replace_table_name_in_select,
-    table_name_from_sql_create,
-)
 from docugami_langchain.chains.querying.docugami_explained_sql_query_chain import (
     DocugamiExplainedSQLQueryChain,
 )
@@ -28,6 +24,4 @@ __all__ = [
     "SQLResultExplainerChain",
     "SuggestedQuestionsChain",
     "SuggestedReportChain",
-    "table_name_from_sql_create",
-    "replace_table_name_in_select",
 ]

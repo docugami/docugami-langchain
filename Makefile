@@ -34,10 +34,10 @@ format format_diff:
 	poetry run ruff check --select I --fix $(PYTHON_FILES)
 
 spell_check:
-	poetry run codespell --toml pyproject.toml
+	poetry run codespell --skip "./tests/testdata/*" --toml pyproject.toml
 
 spell_fix:
-	poetry run codespell --toml pyproject.toml -w
+	poetry run codespell --skip "./tests/testdata/*" --toml pyproject.toml -w
 
 check_imports: $(shell find docugami_langchain -name '*.py')
 	poetry run python ./scripts/check_imports.py $^
@@ -51,6 +51,7 @@ help:
 	@echo 'check_imports				- check imports'
 	@echo 'format                       - run code formatters'
 	@echo 'lint                         - run linters'
+	@echo 'spell_check                  - run spell checker'
 	@echo 'test                         - run unit tests'
 	@echo 'tests                        - run unit tests'
 	@echo 'test TEST_FILE=<test_file>   - run all tests in file'

@@ -14,6 +14,9 @@ from langchain_core.tools import BaseTool
 
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
 from docugami_langchain.chains.querying.sql_result_chain import SQLResultChain
+from docugami_langchain.config import DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO
+
+NOT_FOUND = "Not found"
 
 
 class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseTool):
@@ -34,7 +37,7 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseTool):
             if sql_result:
                 return str(sql_result)
 
-        return ""
+        return NOT_FOUND
 
 
 def report_name_to_report_query_tool_function_name(name: str) -> str:
@@ -70,10 +73,10 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     """
     Converts a set of chunks to a direct retriever tool description.
     """
-    table_info = re.sub(r"\s+", " ", table_info)
     description = (
-        f"Given a single input 'question' parameter, generates and runs a SQL query over the {name}"
-        + f" report, represented internally as the following SQL Table:\n\n{table_info}"
+        "Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. "
+        + "Internally, it has logic to translate it to a SQL query over the {name} report, runs it, and returns the result. "
+        + f"Use this tool if you think the answer can be calculated via SQL query on the following table.\n\n{table_info}"
     )
 
     return description[:2048]  # cap to avoid failures when the description is too long
@@ -101,7 +104,7 @@ def excel_to_sqlite_connection(
 
 def connect_to_db(
     conn: sqlite3.Connection,
-    sample_rows_in_table_info: int = 0,
+    sample_rows_in_table_info: int = DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO,
 ) -> SQLDatabase:
     temp_db_file = tempfile.NamedTemporaryFile(suffix=".sqlite")
     with sqlite3.connect(temp_db_file.name) as disk_conn:
@@ -150,5 +153,4 @@ def get_retrieval_tool_for_report(
         chain=sql_result_chain,
         name=retrieval_tool_function_name,
         description=retrieval_tool_description,
-        return_direct=True,
     )

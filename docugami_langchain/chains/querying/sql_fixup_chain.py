@@ -25,7 +25,7 @@ class SQLFixupChain(BaseDocugamiChain[str]):
                 RunnableSingleParameter(
                     "exception",
                     "EXCEPTION",
-                    "SQL exception returned when executing the SQL query with mistakes.",
+                    "Optional SQL exception that was returned when this SQL query was executed. If not provided, just ignore.",
                 ),
             ],
             output=RunnableSingleParameter(
@@ -39,6 +39,7 @@ class SQLFixupChain(BaseDocugamiChain[str]):
                 "- Make sure the correct number of arguments are used for functions",
                 "- Make sure you casting to the correct data type",
                 "- Quote all column names and strings appropriately per SQLite syntax",
+                "- Make sure all column names in SELECT statements actually exist in the table (update column names if you find a near match)",
                 "- Don't select more than 10 columns to avoid making the query so long that it gets truncated",
                 "",
                 "If you see any of the above mistakes, or any other mistakes, rewrite the query to fix them. If there are no mistakes, just reproduce the original query.",
@@ -55,11 +56,11 @@ class SQLFixupChain(BaseDocugamiChain[str]):
         self,
         table_info: str,
         sql_query: str,
-        exception: str,
+        exception: str = "",
         config: Optional[RunnableConfig] = None,
     ) -> TracedResponse[str]:
-        if not table_info or not sql_query or not exception:
-            raise Exception("Inputs required: table_info, sql_query, exception")
+        if not table_info or not sql_query:
+            raise Exception("Inputs required: table_info, sql_query")
 
         return super().run(
             table_info=table_info,
@@ -72,11 +73,11 @@ class SQLFixupChain(BaseDocugamiChain[str]):
         self,
         table_info: str,
         sql_query: str,
-        exception: str,
+        exception: str = "",
         config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[str]]:
-        if not table_info or not sql_query or not exception:
-            raise Exception("Inputs required: table_info, sql_query, exception")
+        if not table_info or not sql_query:
+            raise Exception("Inputs required: table_info, sql_query")
 
         async for item in super().run_stream(
             table_info=table_info,

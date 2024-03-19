@@ -7,7 +7,7 @@ from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.chains import SQLFixupChain, SQLResultChain
 from docugami_langchain.tools.reports import connect_to_excel
-from tests.common import TEST_DATA_DIR, verify_response
+from tests.common import TEST_DATA_DIR, verify_traced_response
 from tests.testdata.xlsx.sql_test_data import SQL_TEST_DATA, SQLTestData
 
 SQL_EXAMPLES_FILE = TEST_DATA_DIR / "examples/test_sql_examples.yaml"
@@ -39,7 +39,7 @@ def _runtest(chain: SQLResultChain, test_data: SQLTestData) -> None:
     # only that it does not throw an exception.
     #
     # There are other tests in the explainer chain that look at the answer
-    verify_response(
+    verify_traced_response(
         response,
         [],
         empty_ok=True,  # If query is valid but returns nothing, it will be empty
