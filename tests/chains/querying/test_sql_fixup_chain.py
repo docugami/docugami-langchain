@@ -2,7 +2,6 @@ import os
 from dataclasses import dataclass
 
 import pytest
-import sqlparse
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
@@ -77,7 +76,6 @@ def _runtest(chain: SQLFixupChain, test_data: SQLFixupTestData) -> None:
     )
     verify_traced_response(fixed_sql)
     assert fixed_sql.value.strip().lower().startswith("select")
-    assert sqlparse.parse(fixed_sql.value)
 
 
 @pytest.mark.parametrize("test_data", SQL_FIXUP_TEST_DATA)

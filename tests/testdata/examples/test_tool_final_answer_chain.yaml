@@ -1,0 +1,23 @@
+- chat_history:
+  question: When does the contract for ABC corp expire?
+  tool_descriptions: |
+    1. query_contracts_report: Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. Internally, it has logic to retrieve 
+    relevant chunks from MSA Contract documents that might contain answers to the question. Use this tool if you think the answer is likely to come from one or a few of these documents, and 
+    can be synthesized from retrieved chunks. This document type is the Master Service Agreement Contracts.
+
+    2. small_talk: Responds to greetings, small talk, or questions that can be directly answered from the chat history.
+
+    3. general_knowledge: Answers general knowledge questions
+
+    4. human_intervention: This tool will request the user to create or update a query_* tool with data sufficient to answer questions like this one via SQL queries against a table. Use this tool if the question 
+    IS LIKELY to be answerable with the document set described by the retrieval_* tool, however there is no given query_* tool that has the requisite information in its table schema to answer the question via SQL query.
+  intermediate_steps: |
+    Tool Name: query_contracts_report
+    input: SELECT Expiry_Date FROM Contracts_Report WHERE Name LIKE '%abc%'
+    output: Looks like you passed in a SQL query. This tool takes natural language inputs, and automatically translates them to SQL queries. Please try passing in a natural language query.
+  cited_answer_json: |
+    {
+      "source": "query_contracts_report",
+      "answer": "Looks like you passed in a SQL query. This tool takes natural language inputs, and automatically translates them to SQL queries. Please try passing in a natural language query.",
+      "is_final": false
+    }

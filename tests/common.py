@@ -36,6 +36,7 @@ from docugami_langchain.tools.retrieval import (
     get_retrieval_tool_for_docset,
     summaries_to_direct_retriever_tool_description,
 )
+from docugami_langchain.utils.sql import get_table_info
 
 TEST_DATA_DIR = Path(__file__).parent / "testdata"
 RAG_TEST_DGML_DOCSET_NAME = "NTSB Aviation Incident Reports"
@@ -160,7 +161,7 @@ def build_test_query_tool(llm: BaseLanguageModel, embeddings: Embeddings) -> Bas
     name = AVIATION_INCIDENTS_TABLE_NAME
     db = connect_to_excel(xlsx, name)
     description = report_details_to_report_query_tool_description(
-        name, db.get_table_info()
+        name, get_table_info(db)
     )
     tool = get_retrieval_tool_for_report(
         local_xlsx_path=xlsx,

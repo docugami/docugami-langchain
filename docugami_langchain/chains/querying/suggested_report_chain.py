@@ -6,11 +6,11 @@ from langchain_core.runnables import Runnable, RunnableConfig, RunnableLambda
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
-from docugami_langchain.chains.helpers import formatted_summaries
 from docugami_langchain.output_parsers.line_separated_list import (
     LineSeparatedListOutputParser,
 )
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
+from docugami_langchain.utils.documents import formatted_summaries
 
 
 class SuggestedReportChain(BaseDocugamiChain[list[str]]):

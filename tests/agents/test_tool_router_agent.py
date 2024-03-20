@@ -34,7 +34,7 @@ def fireworksai_mixtral_tool_router_agent(
     final_answer_chain = ToolFinalAnswerChain(
         llm=fireworksai_mixtral, embeddings=huggingface_minilm
     )
-    # TODO: examples
+    final_answer_chain.load_examples(TEST_DATA_DIR / "examples/test_tool_final_answer_chain.yaml")
 
     agent = ToolRouterAgent(
         llm=fireworksai_mixtral,
@@ -59,7 +59,7 @@ def openai_gpt35_tool_router_agent(
     OpenAI ReAct Agent using GPT 3.5.
     """
     final_answer_chain = ToolFinalAnswerChain(llm=openai_gpt35, embeddings=openai_ada)
-    # TODO: examples
+    final_answer_chain.load_examples(TEST_DATA_DIR / "examples/test_tool_final_answer_chain.yaml")
 
     agent = ToolRouterAgent(
         llm=openai_gpt35,

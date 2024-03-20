@@ -22,13 +22,15 @@ def render_text_description(tools: list[BaseTool]) -> str:
 
     .. code-block:: markdown
 
-        search: This tool is used for search
-        calculator: This tool is used for math
+        1. search: This tool is used for search
+
+        2. calculator: This tool is used for math
     """
     tool_strings = []
-    for tool in tools:
-        tool_strings.append(f"- {tool.name}: {tool.description}")
-    return "\n".join(tool_strings)
+    for i, tool in enumerate(tools):
+        tool_strings.append(f"{i+1}. {tool.name}: {tool.description}")
+
+    return "\n\n".join(tool_strings)
 
 
 def render_text_description_and_args(tools: list[BaseTool]) -> str:
@@ -46,10 +48,13 @@ def render_text_description_and_args(tools: list[BaseTool]) -> str:
         calculator: This tool is used for math, args: {"expression": {"type": "string"}}
     """
     tool_strings = []
-    for tool in tools:
-        args_schema = str(tool.args)
-        tool_strings.append(f"- {tool.name}: {tool.description}, args: {args_schema}")
-    return "\n".join(tool_strings)
+    for i, tool in enumerate(tools):
+        args_schema = tool.args
+        tool_strings.append(
+            f"{i+1}. {tool.name}: {tool.description}, args: {args_schema}"
+        )
+
+    return "\n\n".join(tool_strings)
 
 
 class SmallTalkTool(BaseTool):

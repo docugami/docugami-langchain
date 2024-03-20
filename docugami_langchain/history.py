@@ -25,5 +25,5 @@ def steps_to_str(steps: list[StepState]) -> str:
             if step.invocation:
                 formatted_steps += f"Tool Name: {step.invocation.tool_name}\n"
                 formatted_steps += f"\tinput: {step.invocation.tool_input}\n"
-            formatted_steps += f"\toutput: {step.output}\n"
+                formatted_steps += f"\toutput: {step.output}\n"
     return "\n" + formatted_steps

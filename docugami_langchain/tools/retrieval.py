@@ -76,8 +76,8 @@ def summaries_to_direct_retriever_tool_description(
     description = chain.run(summaries=summaries, docset_name=name)
     return (
         "Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. "
-        + "Internally, it has logic to retrieve relevant chunks from {name} documents that might contain answers to the question. "
-        + "Use this tool if you think the answer is likely to come from one or a few of these documents, and can be synthesized from"
+        + f"Internally, it has logic to retrieve relevant chunks from {name} documents that might contain answers to the question. "
+        + "Use this tool if you think the answer is likely to come from one or a few of these documents, and can be synthesized from "
         + "retrieved chunks. "
         + description.value
     )

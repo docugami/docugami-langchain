@@ -9,6 +9,7 @@ from docugami_langchain.output_parsers.line_separated_list import (
     LineSeparatedListOutputParser,
 )
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
+from docugami_langchain.utils.sql import get_table_info
 
 
 class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
@@ -20,7 +21,7 @@ class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
         """
 
         def table_info(_: Any) -> str:
-            return self.db.get_table_info()
+            return get_table_info(self.db)
 
         return {
             "table_info": RunnableLambda(table_info),
