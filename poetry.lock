@@ -828,19 +828,19 @@ files = [
 
 [[package]]
 name = "langchain-community"
-version = "0.0.28"
+version = "0.0.29"
 description = "Community contributed LangChain integrations."
 optional = false
-python-versions = ">=3.8.1,<4.0"
+python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langchain_community-0.0.28-py3-none-any.whl", hash = "sha256:bdb015ac455ae68432ea104628717583dce041e1abdfcefe86e39f034f5e90b8"},
-    {file = "langchain_community-0.0.28.tar.gz", hash = "sha256:8664d243a90550fc5ddc137b712034e02c8d43afc8d4cc832ba5842b44c864ce"},
+    {file = "langchain_community-0.0.29-py3-none-any.whl", hash = "sha256:1652dddf257089b7b5066974b636262b4a5b680339f4539be133b14ae351e67d"},
+    {file = "langchain_community-0.0.29.tar.gz", hash = "sha256:d88107fafa9fe2c5733da9630c68d9ee51cd33b1c88a4950e7a2d9a38f7e7aa3"},
 ]
 
 [package.dependencies]
 aiohttp = ">=3.8.3,<4.0.0"
 dataclasses-json = ">=0.5.7,<0.7"
-langchain-core = ">=0.1.31,<0.2.0"
+langchain-core = ">=0.1.33,<0.2.0"
 langsmith = ">=0.1.0,<0.2.0"
 numpy = ">=1,<2"
 PyYAML = ">=5.3"
@@ -854,13 +854,13 @@ extended-testing = ["aiosqlite (>=0.19.0,<0.20.0)", "aleph-alpha-client (>=2.15.
 
 [[package]]
 name = "langchain-core"
-version = "0.1.32"
+version = "0.1.33"
 description = "Building applications with LLMs through composability"
 optional = false
-python-versions = ">=3.8.1,<4.0"
+python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langchain_core-0.1.32-py3-none-any.whl", hash = "sha256:192aecdee6216af19b596ec18e7be3da0b9ecb9083eec263e02b68125737245d"},
-    {file = "langchain_core-0.1.32.tar.gz", hash = "sha256:d62683becbf20f51f12875791a042320f45eaa0c87a267d30bc03bc1a07f5ec2"},
+    {file = "langchain_core-0.1.33-py3-none-any.whl", hash = "sha256:cee7fbab114c74b7279a92c8a376b40344b0fa3d0f0af3143a858e3b7485bf13"},
+    {file = "langchain_core-0.1.33.tar.gz", hash = "sha256:545eff3de83cc58231bd2b0c6d672323fc2077b94d326ba1a3219118af1d1a66"},
 ]
 
 [package.dependencies]
@@ -912,13 +912,13 @@ tiktoken = ">=0.5.2,<1"
 
 [[package]]
 name = "langgraph"
-version = "0.0.28"
+version = "0.0.29"
 description = "langgraph"
 optional = false
-python-versions = ">=3.9.0,<4.0"
+python-versions = "<4.0,>=3.9.0"
 files = [
-    {file = "langgraph-0.0.28-py3-none-any.whl", hash = "sha256:69461073c262fb11694b767238c986b36084cded4e6b4338042549fabdaf1cc0"},
-    {file = "langgraph-0.0.28.tar.gz", hash = "sha256:e630fec69dce6801540ab78d2aac615029945293ec113e6a632de2162e0a1239"},
+    {file = "langgraph-0.0.29-py3-none-any.whl", hash = "sha256:ebb308f0afeffda6cc929c466aacfca73a7b561d4ba3fc190202c7bd3905702d"},
+    {file = "langgraph-0.0.29.tar.gz", hash = "sha256:12be459587ca7e753f06e94917028d54c7359664e0a04a8cedb0a7b595c4c996"},
 ]
 
 [package.dependencies]
@@ -2558,13 +2558,13 @@ sqlcipher = ["sqlcipher3_binary"]
 
 [[package]]
 name = "sqlglot"
-version = "23.0.3"
+version = "23.0.5"
 description = "An easily customizable SQL parser and transpiler"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "sqlglot-23.0.3-py3-none-any.whl", hash = "sha256:03b46104a7b2c387a14f3e2991516521a404d1bec6617e2c76496500299160a5"},
-    {file = "sqlglot-23.0.3.tar.gz", hash = "sha256:96a2336aacda2db64636ed22c5a09c8b4e2d8527a847dd88f3b411eb2501a864"},
+    {file = "sqlglot-23.0.5-py3-none-any.whl", hash = "sha256:12aadd50775209573e7dfa0136f5769da865de3d5954e8e88a02eb0081d1ad6b"},
+    {file = "sqlglot-23.0.5.tar.gz", hash = "sha256:68386c5aebdc9a1c74e2a623f6373805a2f839d205d46945258dde5ac692d515"},
 ]
 
 [package.extras]
@@ -2615,13 +2615,13 @@ doc = ["reno", "sphinx", "tornado (>=4.5)"]
 
 [[package]]
 name = "threadpoolctl"
-version = "3.3.0"
+version = "3.4.0"
 description = "threadpoolctl"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "threadpoolctl-3.3.0-py3-none-any.whl", hash = "sha256:6155be1f4a39f31a18ea70f94a77e0ccd57dced08122ea61109e7da89883781e"},
-    {file = "threadpoolctl-3.3.0.tar.gz", hash = "sha256:5dac632b4fa2d43f42130267929af3ba01399ef4bd1882918e92dbc30365d30c"},
+    {file = "threadpoolctl-3.4.0-py3-none-any.whl", hash = "sha256:8f4c689a65b23e5ed825c8436a92b818aac005e0f3715f6a1664d7c7ee29d262"},
+    {file = "threadpoolctl-3.4.0.tar.gz", hash = "sha256:f11b491a03661d6dd7ef692dd422ab34185d982466c49c8f98c8f716b5c93196"},
 ]
 
 [[package]]
@@ -3296,4 +3296,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<4.0"
-content-hash = "f92d8f464c48d02c35fe0c459ca38c302ce78dd8e33eb0f844e947d4cf41627e"
+content-hash = "bd5353ff289547d1079593c9cc245fb5ef2800895028084bde7f36cdd0c92c6f"
