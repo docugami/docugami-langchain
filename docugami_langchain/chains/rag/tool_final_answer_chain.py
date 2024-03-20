@@ -49,11 +49,10 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
   "answer": $ANSWER,
   "is_final": $IS_FINAL
 }}""",
+                "- Always consider the intermediate steps to formulate your answer. Don't try to directly answer the question even if you think you know the answer",
                 "- $ANSWER is the (string) final answer to the user's question, after carefully considering the intermediate steps.",
                 "- $IS_FINAL is a boolean judment of self-critiquing your own final answer. If you think it adequately answers the user's question, set this to True. "
                 + "Otherwise set this to False. Your output will be sent back to the AI agent and it will try again with different tools or inputs."
-                + "- Always consider the available tools and the intermediate steps to formulate your answer. Don't try to directly answer the question "
-                + "even if you think you know the answer",
             ],
             stop_sequences=[],
             additional_runnables=[PydanticOutputParser(pydantic_object=CitedAnswer)],

@@ -101,7 +101,10 @@ def excel_to_sqlite_connection(
     df = pd.read_excel(file_path, sheet_name=0)
 
     # Ignore non-informational columns
-    df = df.drop(columns=["FileId", "Link to Document"])
+    DROP_COLUMNS = ["FileId", "Link to Document"]
+    for col in DROP_COLUMNS:
+        if col in df.columns:
+            df = df.drop(columns=[col])
 
     # Write the table to the SQLite database
     df.to_sql(table_name, conn, if_exists="replace", index=False)

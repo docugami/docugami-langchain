@@ -52,7 +52,7 @@ class ToolRouterAgent(BaseDocugamiAgent):
                     "intermediate_steps",
                     "INTERMEDIATE STEPS",
                     "The inputs and outputs to various intermediate steps an AI agent has previously taken to consider the question using specialized tools. "
-                    + "Try to compose your final answer from these intermediate steps.",
+                    + "Carefully consider these intermediate steps as you decide on your next tool invocation, think step by step!",
                 ),
             ],
             output=RunnableSingleParameter(
@@ -67,9 +67,10 @@ class ToolRouterAgent(BaseDocugamiAgent):
   "tool_name": $TOOL_NAME,
   "tool_input": $INPUT_STRING
 }}""",
+                "- Always use one of the tools, don't try to directly answer the question even if you think you know the answer",
                 "- $TOOL_NAME is the name of the tool to use, and must be one of these values: {tool_names}",
                 "- $INPUT_STRING is the (string) input carefully crafted to answer the question using the given tool.",
-                "- Always use one of the tools, don't try to directly answer the question even if you think you know the answer",
+                "- Before retrying a tool, look at previous attempts at running the tool (in intermediate steps) and try to update the inputs to the tool before trying again",
             ],
             stop_sequences=[],
             additional_runnables=[PydanticOutputParser(pydantic_object=Invocation)],
@@ -126,7 +127,9 @@ class ToolRouterAgent(BaseDocugamiAgent):
 
             return {
                 "cited_answer": final_answer_candidate,
-                "intermediate_steps": [StepState(output=str(final_answer_candidate))],
+                "intermediate_steps": [
+                    StepState(output=str(final_answer_candidate.answer))
+                ],
             }
 
         def should_continue(state: AgentState) -> str:
