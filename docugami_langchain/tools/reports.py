@@ -15,7 +15,7 @@ from langchain_core.tools import BaseTool
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
 from docugami_langchain.chains.querying.sql_result_chain import SQLResultChain
 
-NOT_FOUND = "Not found"
+NOT_FOUND = "Not found, please consider trying a different query"
 
 
 class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseTool):

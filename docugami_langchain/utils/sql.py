@@ -100,7 +100,7 @@ def sample_rows(
         maxcolwidths=DEFAULT_TABLE_AS_TEXT_CELL_MAX_WIDTH,
     )
 
-    return f"{len(sample_rows)} example rows from the table (consider these to better craft and format queries):\n {grid_str}\n"
+    return f"{len(sample_rows)} example rows from the table (consider these to better craft and format queries e.g. considering the format of typical values in the data when crafting LIKE statements):\n {grid_str}\n"
 
 
 def get_table_info(

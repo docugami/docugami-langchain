@@ -61,7 +61,9 @@ Observation: the result of the action
 Thought: I now know the final answer
 Final Answer: The final answer to the original input question. Make sure a complete answer follows the "Final Answer:" prefix, since any text before this label will not be shown to the user.
 
-Begin! Remember to ALWAYS use the format specified. Any output that does not follow the EXACT format above is unparsable.
+Don't give up easily. If you cannot find an answer using a tool, try using a different tool or the same tool with different inputs.
+
+Begin! Remember to ALWAYS use the format specified, especially being mindful of using the Thought/Action/Observation and "Final Answer" prefixes in your output. Any output that does not follow the EXACT format above is unparsable.
 """
 )
 
