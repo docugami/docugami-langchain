@@ -25,10 +25,15 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
                     "A question from the user.",
                 ),
                 RunnableSingleParameter(
+                    "tool_descriptions",
+                    "TOOL DESCRIPTIONS",
+                    "Detailed description of tools that the AI agent must exclusively pick one from, in order to answer the given question.",
+                ),
+                RunnableSingleParameter(
                     "intermediate_steps",
                     "INTERMEDIATE STEPS",
-                    "The inputs and outputs to various intermediate steps an AI agent has previously taken to consider the question using specialized tools. "
-                    + "Try to compose your final answer from these intermediate steps.",
+                    "The inputs and outputs to various intermediate steps an AI agent has previously taken to try and answer the question using specialized tools. "
+                    + "Try to compose your final answer from these intermediate steps, or if you cannot then explain why you cannot in your answer.",
                 ),
             ],
             output=RunnableSingleParameter(
@@ -36,7 +41,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
                 "CITED ANSWER JSON",
                 "A JSON blob with a cited answer to the given question after considering the information in intermediate steps",
             ),
-            task_description="generates a final answer to a question, considering the output from specialized tools that know how to answer questions",
+            task_description="generates a final answer to a question, considering the output from an AI agent that has used specialized tools that know how to answer questions",
             additional_instructions=[
                 """- Here is an example of a valid JSON blob for your output. Please STRICTLY follow this format:
 {{
@@ -46,8 +51,8 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
 }}""",
                 "- $ANSWER is the (string) final answer to the user's question, after carefully considering the intermediate steps.",
                 "- $IS_FINAL is a boolean judment of self-critiquing your own final answer. If you think it adequately answers the user's question, set this to True. "
-                + "Otherwise set this to False. Your output will be sent back to the AI agent and it will try again to try and anwer the question correctly."
-                "- Always use the tool inputs and outputs in the intermediate steps to formulate your answer, don't try to directly answer the question "
+                + "Otherwise set this to False. Your output will be sent back to the AI agent and it will try again with different tools or inputs."
+                + "- Always consider the available tools and the intermediate steps to formulate your answer. Don't try to directly answer the question "
                 + "even if you think you know the answer",
             ],
             stop_sequences=[],
@@ -58,6 +63,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
         self,
         question: str,
         chat_history: list[tuple[str, str]] = [],
+        tool_descriptions: Optional[str] = "",
         intermediate_steps: list[StepState] = [],
         config: Optional[RunnableConfig] = None,
     ) -> TracedResponse[CitedAnswer]:
@@ -67,6 +73,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
         return super().run(
             question=question,
             chat_history=chat_history_to_str(chat_history),
+            tool_descriptions=tool_descriptions,
             intermediate_steps=steps_to_str(intermediate_steps),
             config=config,
         )
@@ -75,6 +82,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
         self,
         question: str,
         chat_history: list[tuple[str, str]] = [],
+        tool_descriptions: Optional[str] = "",
         intermediate_steps: list[StepState] = [],
         config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[CitedAnswer]]:
@@ -84,6 +92,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
         async for item in super().run_stream(
             question=question,
             chat_history=chat_history_to_str(chat_history),
+            tool_descriptions=tool_descriptions,
             intermediate_steps=steps_to_str(intermediate_steps),
             config=config,
         ):
@@ -91,7 +100,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
 
     def run_batch(  # type: ignore[override]
         self,
-        inputs: list[tuple[str, list[tuple[str, str]], list[StepState]]],
+        inputs: list[tuple[str, list[tuple[str, str]], Optional[str], list[StepState]]],
         config: Optional[RunnableConfig] = None,
     ) -> list[CitedAnswer]:
         return super().run_batch(
@@ -99,7 +108,8 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
                 {
                     "question": i[0],
                     "chat_history": chat_history_to_str(i[1]),
-                    "intermediate_steps": steps_to_str(i[2]),
+                    "tool_descriptions": i[2],
+                    "intermediate_steps": steps_to_str(i[3]),
                 }
                 for i in inputs
             ],
