@@ -30,6 +30,10 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseTool):
         run_manager: Optional[CallbackManagerForToolRun] = None,
     ) -> str:  # type: ignore
         """Use the tool."""
+
+        if "select" in question.lower() and "from" in question.lower():
+            return "Looks like you passed in a SQL query. This tool takes natural language inputs, and automatically translates them to SQL queries. Please try passing in a natural language query."
+
         chain_response = self.chain.run(question=question)
         if chain_response.value:
             sql_result = chain_response.value.get("sql_result")
@@ -74,7 +78,8 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     """
     description = (
         "Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. "
-        + "Internally, it has logic to translate it to a SQL query over the {name} report, runs it, and returns the result. "
+        + f"Internally, it has logic to translate the question to a SQL query over the {name} report, run it, and return the result. "
+        + "Do NOT pass SQL as input to the tool even if you think you know it (trust the tool to translate the question to SQL). "
         + f"Use this tool if you think the answer can be calculated via SQL query on the following table.\n\n{table_info}"
     )
 
@@ -94,6 +99,9 @@ def excel_to_sqlite_connection(
 
     # Read the Excel file using pandas (only the first sheet)
     df = pd.read_excel(file_path, sheet_name=0)
+
+    # Ignore non-informational columns
+    df = df.drop(columns=["FileId", "Link to Document"])
 
     # Write the table to the SQLite database
     df.to_sql(table_name, conn, if_exists="replace", index=False)
@@ -143,6 +151,8 @@ def get_retrieval_tool_for_report(
 
     if sql_examples_file:
         sql_result_chain.load_examples(sql_examples_file)
+
+    sql_result_chain.optimize()
 
     return CustomReportRetrievalTool(
         db=db,
