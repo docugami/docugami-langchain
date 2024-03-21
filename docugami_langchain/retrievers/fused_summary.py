@@ -1,12 +1,17 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import Callable, Optional
+from typing import Any, Callable, Optional
 
+import numpy as np
 from langchain_core.callbacks.manager import CallbackManagerForRetrieverRun
 from langchain_core.documents import Document
 from langchain_core.pydantic_v1 import Field
 from langchain_core.retrievers import BaseRetriever
 from langchain_core.vectorstores import VectorStore
+from rerankers import Reranker
+from rerankers.models.ranker import BaseRanker
+
+from docugami_langchain.config import DEFAULT_RETRIEVER_K
 
 PARENT_DOC_ID_KEY = "doc_id"
 FULL_DOC_SUMMARY_ID_KEY = "full_doc_id"
@@ -62,6 +67,21 @@ class FusedSummaryRetriever(BaseRetriever):
     """The underlying vectorstore to use to store small chunks
     and their embedding vectors."""
 
+    retriever_k: int = DEFAULT_RETRIEVER_K
+    """The number of chunks the retriever tries to get from the vectorstore."""
+
+    re_rank_enabled: bool = True
+    """Set to False to disable re_rank."""
+
+    re_rank_filter_percentile: float = 80
+    """Results above this percentile are kept, others are rejected (0 means keep them all, 90 means keep only very good ones, 100 means keep the top one, etc.)."""
+
+    re_rank_model_id: str = "mixedbread-ai/mxbai-rerank-base-v1"
+    """The model ID to use for re_rank. See https://github.com/AnswerDotAI/rerankers for details."""
+
+    re_ranker: Optional[BaseRanker] = None
+    """Re-ranker is automatically created on init (based on the other re_rank properties)."""
+
     parent_id_key: str = PARENT_DOC_ID_KEY
     """Metadata key for parent doc ID (maps chunk summaries in the vector store to parent / unsummarized chunks)."""
 
@@ -82,8 +102,14 @@ class FusedSummaryRetriever(BaseRetriever):
     search_kwargs: dict = Field(default_factory=dict)
     """Keyword arguments to pass to the search function."""
 
-    search_type: SearchType = SearchType.similarity
+    search_type: SearchType = SearchType.mmr
     """Type of search to perform (similarity / mmr)"""
+
+    def __init__(self, **kwargs: Any) -> None:
+        super().__init__(**kwargs)
+
+        if self.re_rank_enabled:
+            self.re_ranker = Reranker(self.re_rank_model_id, verbose=0)
 
     def _get_relevant_documents(
         self, query: str, *, run_manager: CallbackManagerForRetrieverRun
@@ -96,12 +122,36 @@ class FusedSummaryRetriever(BaseRetriever):
             List of relevant documents
         """
 
+        if self.search_kwargs:
+            if "k" not in self.search_kwargs:
+                self.search_kwargs["k"] = self.retriever_k
+
         if self.search_type == SearchType.mmr:
             sub_docs = self.vectorstore.max_marginal_relevance_search(
                 query, **self.search_kwargs
             )
         else:
             sub_docs = self.vectorstore.similarity_search(query, **self.search_kwargs)
+
+        if self.re_rank_enabled and self.re_ranker:
+            # Re-rank
+            doc_contents = [doc.page_content for doc in sub_docs]
+            ranked_results = self.re_ranker.rank(
+                query=query, docs=doc_contents, doc_ids=list(range(len(sub_docs)))
+            )
+            scores_by_ranker_id = {
+                result.doc_id: result.score for result in ranked_results.results
+            }
+            score_threshold = np.percentile(
+                [float(s) for s in scores_by_ranker_id.values()],
+                self.re_rank_filter_percentile, 
+            )
+            filtered_sub_docs = [
+                doc
+                for idx, doc in enumerate(sub_docs)
+                if scores_by_ranker_id[idx] >= score_threshold
+            ]
+            sub_docs = filtered_sub_docs
 
         fused_doc_elements: dict[str, FusedDocumentElements] = {}
         for i, sub_doc in enumerate(sub_docs):

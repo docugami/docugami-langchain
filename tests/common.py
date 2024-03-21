@@ -55,7 +55,6 @@ FINANCIAL_SAMPLE_TABLE_NAME = "Financial Data"
 AVIATION_INCIDENTS_DATA_FILE = TEST_DATA_DIR / "xlsx/Aviation Incidents Report.xlsx"
 AVIATION_INCIDENTS_TABLE_NAME = "Aviation Incidents Report"
 
-
 DEMO_MSA_SERVICES_DATA_FILE = TEST_DATA_DIR / "xlsx/Report Services_preview.xlsx"
 DEMO_MSA_SERVICES_TABLE_NAME = "Service Agreements Summary"
 
@@ -267,6 +266,7 @@ def build_test_fused_retriever(
         fetch_parent_doc_callback=_fetch_parent_doc_callback,
         fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
         search_kwargs={"k": DEFAULT_RETRIEVER_K},
+        # retrieval_k=DEFAULT_RETRIEVER_K,
         search_type=SearchType.mmr,
     )
 

@@ -6,10 +6,7 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.retrievers import BaseRetriever
 
 from docugami_langchain.chains import SimpleRAGChain
-from tests.common import build_test_fused_retriever, verify_traced_response
-
-TEST_QUESTION = "What is the accident number for the incident in madill, oklahoma?"
-TEST_ANSWER_OPTIONS = ["DFW08CA044"]
+from tests.common import RAG_ANSWER_FRAGMENTS, RAG_QUESTION, build_test_fused_retriever, verify_traced_response
 
 
 @pytest.fixture()
@@ -69,13 +66,13 @@ def openai_gpt35_simple_rag_chain(
 def test_fireworksai_simple_rag(
     fireworksai_mixtral_simple_rag_chain: SimpleRAGChain,
 ) -> None:
-    answer = fireworksai_mixtral_simple_rag_chain.run(TEST_QUESTION)
-    verify_traced_response(answer, TEST_ANSWER_OPTIONS)
+    answer = fireworksai_mixtral_simple_rag_chain.run(RAG_QUESTION)
+    verify_traced_response(answer, RAG_ANSWER_FRAGMENTS)
 
 
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 def test_openai_simple_rag(openai_gpt35_simple_rag_chain: SimpleRAGChain) -> None:
-    answer = openai_gpt35_simple_rag_chain.run(TEST_QUESTION)
-    verify_traced_response(answer, TEST_ANSWER_OPTIONS)
+    answer = openai_gpt35_simple_rag_chain.run(RAG_QUESTION)
+    verify_traced_response(answer, RAG_ANSWER_FRAGMENTS)

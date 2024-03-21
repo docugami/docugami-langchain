@@ -52,7 +52,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
                 "- Always consider the intermediate steps to formulate your answer. Don't try to directly answer the question even if you think you know the answer",
                 "- $ANSWER is the (string) final answer to the user's question, after carefully considering the intermediate steps.",
                 "- $IS_FINAL is a boolean judment of self-critiquing your own final answer. If you think it adequately answers the user's question, set this to True. "
-                + "Otherwise set this to False. Your output will be sent back to the AI agent and it will try again with different tools or inputs."
+                + "Otherwise set this to False. Your output will be sent back to the AI agent and it will try again with different tools or inputs.",
             ],
             stop_sequences=[],
             additional_runnables=[PydanticOutputParser(pydantic_object=CitedAnswer)],
@@ -62,7 +62,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
         self,
         question: str,
         chat_history: list[tuple[str, str]] = [],
-        tool_descriptions: Optional[str] = "",
+        tool_descriptions: str = "",
         intermediate_steps: list[StepState] = [],
         config: Optional[RunnableConfig] = None,
     ) -> TracedResponse[CitedAnswer]:
@@ -81,7 +81,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
         self,
         question: str,
         chat_history: list[tuple[str, str]] = [],
-        tool_descriptions: Optional[str] = "",
+        tool_descriptions: str = "",
         intermediate_steps: list[StepState] = [],
         config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[CitedAnswer]]:
@@ -99,7 +99,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
 
     def run_batch(  # type: ignore[override]
         self,
-        inputs: list[tuple[str, list[tuple[str, str]], Optional[str], list[StepState]]],
+        inputs: list[tuple[str, list[tuple[str, str]], str, list[StepState]]],
         config: Optional[RunnableConfig] = None,
     ) -> list[CitedAnswer]:
         return super().run_batch(

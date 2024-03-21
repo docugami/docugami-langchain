@@ -38,8 +38,12 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
             tool_input=inv_model.tool_input,
         )
 
-        tool_executor = ToolExecutor(self.tools)
-        output = tool_executor.invoke(inv_obj, config)
+        previous_steps = state.get("intermediate_steps")
+        if previous_steps and inv_obj in previous_steps:
+            output = "This tool has been invoked before with identical inputs. Please refer to the previous invocation results or try different inputs."
+        else:
+            tool_executor = ToolExecutor(self.tools)
+            output = tool_executor.invoke(inv_obj, config)
 
         step = StepState(
             invocation=inv_model,

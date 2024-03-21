@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import operator
 from typing import Annotated, Optional, TypedDict, Union
 
@@ -27,10 +29,24 @@ class Invocation(BaseModel):
     tool_input: str
     log: str = ""
 
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Invocation):
+            return NotImplemented
+
+        # Compare tool_name and tool_input for equality
+        return (self.tool_name, self.tool_input) == (other.tool_name, other.tool_input)
+
 
 class StepState(BaseModel):
     output: str
     invocation: Optional[Invocation] = None
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, StepState):
+            return NotImplemented
+
+        # Compare invocations for equality
+        return self.invocation == other.invocation
 
 
 class AgentState(TypedDict):
@@ -43,8 +59,10 @@ class AgentState(TypedDict):
 
     # **** Internal State
 
+    # Descriptions of all tools available to the agent
+    tool_descriptions: Union[str, None]
+
     # The next tool invocation that must be made
-    # Needs `None` as a valid type, since this is what this will start as
     tool_invocation: Union[Invocation, None]
 
     # List of steps taken so far (this state is added to, not overwritten)
