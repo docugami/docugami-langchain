@@ -13,8 +13,8 @@
     IS LIKELY to be answerable with the document set described by the retrieval_* tool, however there is no given query_* tool that has the requisite information in its table schema to answer the question via SQL query.
   intermediate_steps: |
     Tool Name: query_contracts_report
-    input: SELECT Expiry_Date FROM Contracts_Report WHERE Name LIKE '%abc%'
-    output: Looks like you passed in a SQL query. This tool takes natural language inputs, and automatically translates them to SQL queries. Please try passing in a natural language query.
+      input: SELECT Expiry_Date FROM Contracts_Report WHERE Name LIKE '%abc%'
+      output: Looks like you passed in a SQL query. This tool takes natural language inputs, and automatically translates them to SQL queries. Please try passing in a natural language query.
   cited_answer_json: |
     {
       "source": "query_contracts_report",

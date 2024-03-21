@@ -100,7 +100,7 @@ def get_retrieval_tool_for_docset(
         vectorstore=chunk_vectorstore,
         fetch_parent_doc_callback=fetch_parent_doc_callback,
         fetch_full_doc_summary_callback=fetch_full_doc_summary_callback,
-        search_kwargs={"k": retrieval_k},
+        retrieval_k=retrieval_k,
         search_type=SearchType.mmr,
     )
 

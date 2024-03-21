@@ -106,6 +106,7 @@ class ToolRouterAgent(BaseDocugamiAgent):
                     busy_text = f"Querying report for '{tool_input}'"
 
             return {
+                "tool_descriptions": "\n" + render_text_description(self.tools),
                 "tool_invocation": invocation,
                 "cited_answer": CitedAnswer(
                     source=answer_source,
@@ -117,9 +118,10 @@ class ToolRouterAgent(BaseDocugamiAgent):
             state: AgentState, config: Optional[RunnableConfig]
         ) -> AgentState:
             chain_response = self.final_answer_chain.run(
-                question=state.get("question", ""),
-                chat_history=state.get("chat_history", []),
-                intermediate_steps=state.get("intermediate_steps", []),
+                question=state.get("question") or "",
+                chat_history=state.get("chat_history") or [],
+                tool_descriptions=state.get("tool_descriptions") or "",
+                intermediate_steps=state.get("intermediate_steps") or [],
                 config=config,
             )
 
@@ -165,8 +167,6 @@ class ToolRouterAgent(BaseDocugamiAgent):
                 "end": END,
             },
         )
-
-        workflow.add_edge("execute_tool", END)
 
         # Compile
         return workflow.compile()
