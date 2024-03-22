@@ -18,6 +18,30 @@ SIMPLE_JSON_PATTERN = re.compile(
 """Regex pattern to just find any simple JSON objects in the output, not delimited by anything."""
 
 
+def replace_null_outside_quotes(text: str) -> str:
+    """
+    Looks for null outside quotes, and if found replaces it with "".
+    """
+
+    def replacement(match: re.Match) -> str:
+        before = text[: match.start()]
+        if before.count('"') % 2 == 0:  # Even number of quotes before 'null'
+            return '""'
+        else:
+            return str(match.group(0))  # 'null' is inside quotes, don't replace
+
+    return re.sub(r"\bnull\b", replacement, text, flags=re.IGNORECASE)
+
+
+def escape_non_escaped_backslashes(text: str) -> str:
+    """
+    Escape backslashes that are not part of a known escape sequence.
+
+    Looks for a backslash that is not a part of any known escape characters ('n', 'r', 't', 'f', '\\', '"'), and escapes it.
+    """
+    return re.sub(r'\\(?!["\\nrtf])', r"\\\\", text)
+
+
 class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, str]]):
     """
     A custom version of ReActJsonSingleInputOutputParser from the
@@ -43,9 +67,12 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
     def _parse_regex(self, text: str, regex: re.Pattern[str]) -> dict:
         found = regex.search(text)
         if not found:
-            raise ValueError("action not found")
-        action = found.group(1)
-        return json.loads(action.strip())
+            raise ValueError("Invocation text not found")
+        invocation_text = found.group(1)
+        invocation_text = replace_null_outside_quotes(invocation_text)
+        invocation_text = escape_non_escaped_backslashes(invocation_text)
+
+        return json.loads(invocation_text.strip())
 
     def parse(self, text: str) -> Union[Invocation, str]:
         includes_answer = FINAL_ANSWER_ACTION in text
@@ -63,7 +90,7 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
                 tool_input=response.get("action_input", ""),
                 log=text,
             )
-        except Exception:
+        except Exception as exc1:
             # Next, try parsing with SIMPLE_JSON_PATTERN
             try:
                 response = self._parse_regex(text, SIMPLE_JSON_PATTERN)
@@ -77,7 +104,7 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
                     tool_input=response.get("action_input", ""),
                     log=text,
                 )
-            except Exception:
+            except Exception as exc2:
                 # If neither pattern matches, handle according to permissive mode
                 if not includes_answer:
                     if not self.permissive:

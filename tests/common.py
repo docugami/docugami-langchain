@@ -265,8 +265,7 @@ def build_test_fused_retriever(
         vectorstore=vector_store,
         fetch_parent_doc_callback=_fetch_parent_doc_callback,
         fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
-        search_kwargs={"k": DEFAULT_RETRIEVER_K},
-        # retrieval_k=DEFAULT_RETRIEVER_K,
+        retrieval_k=DEFAULT_RETRIEVER_K,
         search_type=SearchType.mmr,
     )
 
