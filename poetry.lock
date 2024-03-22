@@ -945,13 +945,13 @@ tiktoken = ">=0.5.2,<1"
 
 [[package]]
 name = "langgraph"
-version = "0.0.29"
+version = "0.0.30"
 description = "langgraph"
 optional = false
 python-versions = "<4.0,>=3.9.0"
 files = [
-    {file = "langgraph-0.0.29-py3-none-any.whl", hash = "sha256:ebb308f0afeffda6cc929c466aacfca73a7b561d4ba3fc190202c7bd3905702d"},
-    {file = "langgraph-0.0.29.tar.gz", hash = "sha256:12be459587ca7e753f06e94917028d54c7359664e0a04a8cedb0a7b595c4c996"},
+    {file = "langgraph-0.0.30-py3-none-any.whl", hash = "sha256:835d34d66d1ec1cad1825eee682f0c8a85edfd591ab552706a4f4211a3119b88"},
+    {file = "langgraph-0.0.30.tar.gz", hash = "sha256:58bb9faf081fdb4490cda8cef4421b01b64b241df92c5556c327b2c83cfd5e0f"},
 ]
 
 [package.dependencies]
@@ -975,13 +975,13 @@ requests = ">=2,<3"
 
 [[package]]
 name = "litellm"
-version = "1.33.1"
+version = "1.33.4"
 description = "Library to easily interface with LLM API providers"
 optional = false
 python-versions = "!=2.7.*,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,!=3.7.*,>=3.8"
 files = [
-    {file = "litellm-1.33.1-py3-none-any.whl", hash = "sha256:d6eedce389cf71a228e9ecdddc93d8ff66399e7baea9cad65cdcc1a0c67f30fd"},
-    {file = "litellm-1.33.1.tar.gz", hash = "sha256:6747603463191975665d14a6918a0cced4ef5f73572d7cbbdba5b06f030e37c0"},
+    {file = "litellm-1.33.4-py3-none-any.whl", hash = "sha256:5e564bd4b55f14a9b9d0cb5bd2fed1afb4a907efe527236c06f36fdf71bc4d3f"},
+    {file = "litellm-1.33.4.tar.gz", hash = "sha256:80ccf0a915bdbdd829d954345fa31d78b86c95b15383007e2880e8603c0d1246"},
 ]
 
 [package.dependencies]
@@ -997,7 +997,7 @@ tokenizers = "*"
 
 [package.extras]
 extra-proxy = ["streamlit (>=1.29.0,<2.0.0)"]
-proxy = ["PyJWT (>=2.8.0,<3.0.0)", "apscheduler (>=3.10.4,<4.0.0)", "argon2-cffi (>=23.1.0,<24.0.0)", "backoff", "fastapi (>=0.104.1,<0.105.0)", "fastapi-sso (>=0.10.0,<0.11.0)", "gunicorn (>=21.2.0,<22.0.0)", "orjson (>=3.9.7,<4.0.0)", "python-multipart (>=0.0.6,<0.0.7)", "pyyaml (>=6.0.1,<7.0.0)", "rq", "uvicorn (>=0.22.0,<0.23.0)"]
+proxy = ["PyJWT (>=2.8.0,<3.0.0)", "apscheduler (>=3.10.4,<4.0.0)", "argon2-cffi (>=23.1.0,<24.0.0)", "backoff", "fastapi (>=0.109.1,<0.110.0)", "fastapi-sso (>=0.10.0,<0.11.0)", "gunicorn (>=21.2.0,<22.0.0)", "orjson (>=3.9.7,<4.0.0)", "python-multipart (>=0.0.6,<0.0.7)", "pyyaml (>=6.0.1,<7.0.0)", "rq", "uvicorn (>=0.22.0,<0.23.0)"]
 
 [[package]]
 name = "lxml"
@@ -2025,13 +2025,13 @@ testing = ["coverage (>=6.2)", "hypothesis (>=5.7.1)"]
 
 [[package]]
 name = "pytest-mock"
-version = "3.13.0"
+version = "3.14.0"
 description = "Thin-wrapper around the mock package for easier use with pytest"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pytest-mock-3.13.0.tar.gz", hash = "sha256:58c73e7eae1fc05aebe7bd4b3b59eb5beb5c0b644c7e2dd3cc652a749f0056e3"},
-    {file = "pytest_mock-3.13.0-py3-none-any.whl", hash = "sha256:158462fe2124763df267f20c81f098bdccf8928e2649e5e1093955ad1e515f80"},
+    {file = "pytest-mock-3.14.0.tar.gz", hash = "sha256:2719255a1efeceadbc056d6bf3df3d1c5015530fb40cf347c0f9afac88410bd0"},
+    {file = "pytest_mock-3.14.0-py3-none-any.whl", hash = "sha256:0b72c38033392a5f4621342fe11e9219ac11ec9d375f8e2a0c164539e0d70f6f"},
 ]
 
 [package.dependencies]
@@ -2549,13 +2549,13 @@ test = ["asv", "gmpy2", "hypothesis", "mpmath", "pooch", "pytest", "pytest-cov",
 
 [[package]]
 name = "sentence-transformers"
-version = "2.5.1"
+version = "2.6.0"
 description = "Multilingual text embeddings"
 optional = false
 python-versions = ">=3.8.0"
 files = [
-    {file = "sentence-transformers-2.5.1.tar.gz", hash = "sha256:754bf2b2623eb46904fd9c72ff89a0f90200fe141a8d45b03e83bc6d51718153"},
-    {file = "sentence_transformers-2.5.1-py3-none-any.whl", hash = "sha256:f12346f7fca06ed1198d24235cb9114a74665506f7c30044e0a6f12de7eeeb77"},
+    {file = "sentence-transformers-2.6.0.tar.gz", hash = "sha256:cf519d311ddcc8ff84d78d18fae051985bef348716354e069e3d6d670e4db604"},
+    {file = "sentence_transformers-2.6.0-py3-none-any.whl", hash = "sha256:8807db6db0cf0a92f02be799b7c8260029ff91315d18f7b4b51c30b10d6b4fdb"},
 ]
 
 [package.dependencies]
@@ -3494,4 +3494,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<4.0"
-content-hash = "a080e8fcdab5ec8a491f05807d7b2dcf0c69b039c38a1971b57dcf839b2b4bc0"
+content-hash = "3357889a1a6a93b29569fb8f309437d5ed89923792b0e684cd2faa2776ec80e5"

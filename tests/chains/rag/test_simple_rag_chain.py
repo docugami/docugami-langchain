@@ -4,17 +4,27 @@ import pytest
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.retrievers import BaseRetriever
+from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.chains import SimpleRAGChain
-from tests.common import RAG_ANSWER_FRAGMENTS, RAG_QUESTION, build_test_fused_retriever, verify_traced_response
+from tests.common import (
+    RAG_ANSWER_FRAGMENTS,
+    RAG_QUESTION,
+    build_test_fused_retriever,
+    verify_traced_response,
+)
 
 
 @pytest.fixture()
 def huggingface_retriever(
-    fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
+    fireworksai_mixtral: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
+    mxbai_re_rank: BaseRanker,
 ) -> BaseRetriever:
     return build_test_fused_retriever(
-        llm=fireworksai_mixtral, embeddings=huggingface_minilm
+        llm=fireworksai_mixtral,
+        embeddings=huggingface_minilm,
+        re_ranker=mxbai_re_rank,
     )
 
 
@@ -22,8 +32,13 @@ def huggingface_retriever(
 def openai_retriever(
     openai_gpt35: BaseLanguageModel,
     openai_ada: Embeddings,
+    openai_gpt35_re_rank: BaseRanker,
 ) -> BaseRetriever:
-    return build_test_fused_retriever(llm=openai_gpt35, embeddings=openai_ada)
+    return build_test_fused_retriever(
+        llm=openai_gpt35,
+        embeddings=openai_ada,
+        re_ranker=openai_gpt35_re_rank,
+    )
 
 
 @pytest.fixture()

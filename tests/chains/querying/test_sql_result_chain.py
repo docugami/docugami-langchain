@@ -29,6 +29,8 @@ def init_sql_result_chain(
         sql_fixup_chain=fixup_chain,
     )
     sql_result_chain.load_examples(SQL_EXAMPLES_FILE)
+    sql_result_chain.optimize()
+
     return sql_result_chain
 
 

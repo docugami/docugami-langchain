@@ -10,6 +10,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 from langchain_core.vectorstores import VectorStore
+from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.config import DEFAULT_RETRIEVER_K, MAX_FULL_DOCUMENT_TEXT_LENGTH
@@ -247,6 +248,7 @@ def build_test_retrieval_artifacts(
 def build_test_fused_retriever(
     llm: BaseLanguageModel,
     embeddings: Embeddings,
+    re_ranker: BaseRanker,
     data_dir: Path = RAG_TEST_DGML_DATA_DIR,
     data_files_glob: str = "*.xml",
 ) -> FusedSummaryRetriever:
@@ -263,9 +265,10 @@ def build_test_fused_retriever(
 
     return FusedSummaryRetriever(
         vectorstore=vector_store,
+        re_ranker=re_ranker,
         fetch_parent_doc_callback=_fetch_parent_doc_callback,
         fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
-        retrieval_k=DEFAULT_RETRIEVER_K,
+        retriever_k=DEFAULT_RETRIEVER_K,
         search_type=SearchType.mmr,
     )
 
@@ -273,6 +276,7 @@ def build_test_fused_retriever(
 def build_test_retrieval_tool(
     llm: BaseLanguageModel,
     embeddings: Embeddings,
+    re_ranker: BaseRanker,
     data_dir: Path = RAG_TEST_DGML_DATA_DIR,
     data_files_glob: str = "*.xml",
 ) -> BaseTool:
@@ -301,6 +305,7 @@ def build_test_retrieval_tool(
     )
     tool = get_retrieval_tool_for_docset(
         chunk_vectorstore=vector_store,
+        re_ranker=re_ranker,
         retrieval_tool_function_name=docset_name_to_direct_retriever_tool_function_name(
             RAG_TEST_DGML_DOCSET_NAME
         ),

@@ -11,6 +11,8 @@ from langchain_core.tools import BaseTool
 from langchain_fireworks.chat_models import ChatFireworks
 from langchain_fireworks.llms import Fireworks
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from rerankers import Reranker
+from rerankers.models.ranker import BaseRanker
 
 from tests.common import (
     build_test_common_tools,
@@ -71,6 +73,11 @@ def huggingface_minilm() -> Embeddings:
 
 
 @pytest.fixture()
+def mxbai_re_rank() -> BaseRanker:
+    return Reranker("mixedbread-ai/mxbai-rerank-base-v1", verbose=0)
+
+
+@pytest.fixture()
 def openai_gpt35() -> BaseLanguageModel:
     """
     GPT 3.5 model by OpenAI.
@@ -93,8 +100,14 @@ def openai_ada() -> Embeddings:
 
 
 @pytest.fixture()
+def openai_gpt35_re_rank() -> BaseRanker:
+    return Reranker("rankgpt3", api_key=os.environ.get("OPENAI_API_KEY"), verbose=0)
+
+
+@pytest.fixture()
 def huggingface_common_tools(
-    fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
+    fireworksai_mixtral: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
 ) -> list[BaseTool]:
     return build_test_common_tools(
         llm=fireworksai_mixtral,
@@ -115,7 +128,8 @@ def openai_common_tools(
 
 @pytest.fixture()
 def huggingface_query_tool(
-    fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
+    fireworksai_mixtral: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
 ) -> BaseTool:
     return build_test_query_tool(
         llm=fireworksai_mixtral,
@@ -136,11 +150,14 @@ def openai_query_tool(
 
 @pytest.fixture()
 def huggingface_retrieval_tool(
-    fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
+    fireworksai_mixtral: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
+    mxbai_re_rank: BaseRanker,
 ) -> BaseTool:
     return build_test_retrieval_tool(
         llm=fireworksai_mixtral,
         embeddings=huggingface_minilm,
+        re_ranker=mxbai_re_rank,
     )
 
 
@@ -148,8 +165,10 @@ def huggingface_retrieval_tool(
 def openai_retrieval_tool(
     openai_gpt35: BaseLanguageModel,
     openai_ada: Embeddings,
+    openai_gpt35_re_rank: BaseRanker,
 ) -> BaseTool:
     return build_test_retrieval_tool(
         llm=openai_gpt35,
         embeddings=openai_ada,
+        re_ranker=openai_gpt35_re_rank,
     )

@@ -53,6 +53,7 @@ SQL_TEST_DATA: list[SQLTestData] = [
             "aisera",
         ],
         explained_sql_query_fragments=["top", "common stock"],
+        is_core_test=True,
     ),
     SQLTestData(
         data_file=SAAS_CONTRACTS_DATA_FILE,
