@@ -33,17 +33,20 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
         if not inv_model:
             raise Exception(f"No tool invocation in model: {state}")
 
-        inv_obj = ToolInvocation(
-            tool=inv_model.tool_name,
-            tool_input=inv_model.tool_input,
-        )
-
         previous_steps = state.get("intermediate_steps")
-        if previous_steps and inv_obj in previous_steps:
+        if previous_steps and any(
+            [s for s in previous_steps if s.invocation == inv_model]
+        ):
             output = "This tool has been invoked before with identical inputs. Please refer to the previous invocation results or try different inputs."
         else:
             tool_executor = ToolExecutor(self.tools)
-            output = tool_executor.invoke(inv_obj, config)
+            output = tool_executor.invoke(
+                ToolInvocation(  # LangChain version of the Invocation object
+                    tool=inv_model.tool_name,
+                    tool_input=inv_model.tool_input,
+                ),
+                config,
+            )
 
         step = StepState(
             invocation=inv_model,

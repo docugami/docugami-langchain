@@ -37,6 +37,7 @@ def init_docugami_explained_sql_query_chain(
         sql_fixup_chain=fixup_chain,
     )
     sql_result_chain.load_examples(SQL_EXAMPLES_FILE)
+    sql_result_chain.optimize()
 
     sql_result_explainer_chain = SQLResultExplainerChain(
         llm=explainer_llm,

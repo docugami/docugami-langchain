@@ -8,6 +8,7 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_core.tools import BaseTool, Tool
 from langchain_core.vectorstores import VectorStore
+from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.chains.documents.describe_document_set_chain import (
     DescribeDocumentSetChain,
@@ -87,6 +88,7 @@ def get_retrieval_tool_for_docset(
     chunk_vectorstore: VectorStore,
     retrieval_tool_function_name: str,
     retrieval_tool_description: str,
+    re_ranker: BaseRanker,
     fetch_full_doc_summary_callback: FusedRetrieverKeyValueFetchCallback,
     fetch_parent_doc_callback: FusedRetrieverKeyValueFetchCallback,
     retrieval_k: int = DEFAULT_RETRIEVER_K,
@@ -98,9 +100,10 @@ def get_retrieval_tool_for_docset(
     # Instantiate FusedSummaryRetriever with callback functions
     retriever = FusedSummaryRetriever(
         vectorstore=chunk_vectorstore,
+        re_ranker=re_ranker,
         fetch_parent_doc_callback=fetch_parent_doc_callback,
         fetch_full_doc_summary_callback=fetch_full_doc_summary_callback,
-        retrieval_k=retrieval_k,
+        retriever_k=retrieval_k,
         search_type=SearchType.mmr,
     )
 
