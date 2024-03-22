@@ -81,18 +81,26 @@ class ToolRouterAgent(BaseDocugamiAgent):
         Custom runnable for this agent.
         """
 
-        agent_runnable: Runnable = {
-            "question": lambda x: x["question"],
-            "chat_history": lambda x: chat_history_to_str(x["chat_history"]),
-            "tool_names": lambda x: ", ".join([t.name for t in self.tools]),
-            "tool_descriptions": lambda x: "\n" + render_text_description(self.tools),
-            "intermediate_steps": lambda x: steps_to_str(x["intermediate_steps"]),
-        } | super().runnable()
-
         def run_agent(
             state: AgentState, config: Optional[RunnableConfig]
         ) -> AgentState:
-            invocation: Invocation = agent_runnable.invoke(state, config)
+            return {
+                "tool_names": ", ".join([t.name for t in self.tools]),
+                "tool_descriptions": "\n" + render_text_description(self.tools),
+            }
+
+        tool_invocation_runnable: Runnable = {
+            "question": lambda x: x["question"],
+            "chat_history": lambda x: chat_history_to_str(x["chat_history"]),
+            "tool_names": lambda x: x["tool_names"],
+            "tool_descriptions": lambda x: x["tool_descriptions"],
+            "intermediate_steps": lambda x: steps_to_str(x["intermediate_steps"]),
+        } | super().runnable()
+
+        def generate_tool_invocation(
+            state: AgentState, config: Optional[RunnableConfig]
+        ) -> AgentState:
+            invocation: Invocation = tool_invocation_runnable.invoke(state, config)
             answer_source = ToolRouterAgent.__name__
 
             # This agent always decides to invoke a tool
@@ -106,7 +114,6 @@ class ToolRouterAgent(BaseDocugamiAgent):
                     busy_text = f"Querying report for '{tool_input}'"
 
             return {
-                "tool_descriptions": "\n" + render_text_description(self.tools),
                 "tool_invocation": invocation,
                 "cited_answer": CitedAnswer(
                     source=answer_source,
@@ -130,7 +137,12 @@ class ToolRouterAgent(BaseDocugamiAgent):
             return {
                 "cited_answer": final_answer_candidate,
                 "intermediate_steps": [
-                    StepState(output=str(final_answer_candidate.answer))
+                    StepState(
+                        invocation=state.get("tool_invocation"),
+                        output=str(
+                            final_answer_candidate.answer,
+                        ),
+                    )
                 ],
             }
 
@@ -145,8 +157,9 @@ class ToolRouterAgent(BaseDocugamiAgent):
         # Define a new graph
         workflow = StateGraph(AgentState)
 
-        # Define the nodes of the graph (no cycles for now)
+        # Define the nodes of the graph
         workflow.add_node("run_agent", run_agent)  # type: ignore
+        workflow.add_node("generate_tool_invocation", generate_tool_invocation)  # type: ignore
         workflow.add_node("execute_tool", self.execute_tool)  # type: ignore
         workflow.add_node("generate_final_answer", generate_final_answer)  # type: ignore
 
@@ -154,7 +167,8 @@ class ToolRouterAgent(BaseDocugamiAgent):
         workflow.set_entry_point("run_agent")
 
         # Add edges
-        workflow.add_edge("run_agent", "execute_tool")
+        workflow.add_edge("run_agent", "generate_tool_invocation")
+        workflow.add_edge("generate_tool_invocation", "execute_tool")
         workflow.add_edge("execute_tool", "generate_final_answer")
 
         # Decide whether to end iteration if agent determines final answer is achieved
@@ -163,7 +177,7 @@ class ToolRouterAgent(BaseDocugamiAgent):
             "generate_final_answer",
             should_continue,
             {
-                "continue": "run_agent",
+                "continue": "generate_tool_invocation",
                 "end": END,
             },
         )

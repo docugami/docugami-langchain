@@ -90,7 +90,7 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
                 tool_input=response.get("action_input", ""),
                 log=text,
             )
-        except Exception as exc1:
+        except Exception:
             # Next, try parsing with SIMPLE_JSON_PATTERN
             try:
                 response = self._parse_regex(text, SIMPLE_JSON_PATTERN)
@@ -104,7 +104,7 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
                     tool_input=response.get("action_input", ""),
                     log=text,
                 )
-            except Exception as exc2:
+            except Exception:
                 # If neither pattern matches, handle according to permissive mode
                 if not includes_answer:
                     if not self.permissive:
@@ -113,4 +113,8 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
                         )
 
                 output = text.split(FINAL_ANSWER_ACTION)[-1].strip()
+
+                if "{" in output:
+                    raise OutputParserException(f"Potential JSON in parsed {output}")
+
                 return output

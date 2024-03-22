@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import operator
-from typing import Annotated, Optional, TypedDict, Union
+from typing import Annotated, TypedDict, Union
 
 from langchain_core.pydantic_v1 import BaseModel
 
@@ -39,14 +39,14 @@ class Invocation(BaseModel):
 
 class StepState(BaseModel):
     output: str
-    invocation: Optional[Invocation] = None
+    invocation: Invocation
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, StepState):
             return NotImplemented
 
-        # Compare invocations for equality
-        return self.invocation == other.invocation
+        # Compare invocation and output for equality
+        return (self.invocation, self.output) == (other.invocation, other.output)
 
 
 class AgentState(TypedDict):
@@ -58,6 +58,9 @@ class AgentState(TypedDict):
     question: str
 
     # **** Internal State
+
+    # Names of all tools available to the agent
+    tool_names: Union[str, None]
 
     # Descriptions of all tools available to the agent
     tool_descriptions: Union[str, None]

@@ -163,19 +163,19 @@ def test_parse(
 ) -> None:
     result = parser.parse(text)
 
-    assert type(result) == type(expected)
-
-    if isinstance(result, Invocation):
+    if isinstance(result, Invocation) and isinstance(expected, Invocation):
         assert (
             result.tool_name == expected.tool_name
         ), f"Expected {expected.tool_name}, got {result.tool_name}"
         assert (
             result.tool_input == expected.tool_input
         ), f"Expected {expected.tool_input}, got {result.tool_input}"
-    elif isinstance(result, str):
+    elif isinstance(result, str) and isinstance(expected, str):
         assert "{" not in result  # no json in output
         assert "}" not in result  # no json in output
         assert result == expected.split(FINAL_ANSWER_ACTION)[-1].strip()
+    else:
+        raise Exception(f"Mismatched types: {result, expected}")
 
 
 @pytest.mark.parametrize(
@@ -197,7 +197,7 @@ def test_parse(
         ("This is a test\\", "This is a test\\\\"),  # Backslash at the end is handled
     ],
 )
-def test_escape_non_escaped_backslashes(text, expected):
+def test_escape_non_escaped_backslashes(text: str, expected: str) -> None:
     assert escape_non_escaped_backslashes(text) == expected
 
 
@@ -230,5 +230,5 @@ def test_escape_non_escaped_backslashes(text, expected):
         ),  # Edge case with quotes but no "null"
     ],
 )
-def test_replace_null_outside_quotes(text, expected):
+def test_replace_null_outside_quotes(text: str, expected: str) -> None:
     assert replace_null_outside_quotes(text) == expected
