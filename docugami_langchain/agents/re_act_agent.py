@@ -113,14 +113,16 @@ class ReActAgent(BaseDocugamiAgent):
                     "system",
                     REACT_AGENT_SYSTEM_MESSAGE,
                 ),
-                ("human", "{chat_history}\n\n{question}\n\n{agent_scratchpad}"),
+                ("human", "{chat_history}{question}\n\n{agent_scratchpad}"),
             ]
         )
 
         agent_runnable: Runnable = (
             {
                 "question": lambda x: x["question"],
-                "chat_history": lambda x: chat_history_to_str(x["chat_history"]),
+                "chat_history": lambda x: chat_history_to_str(
+                    x["chat_history"], include_human_marker=True
+                ),
                 "agent_scratchpad": lambda x: format_steps_to_react_scratchpad(
                     x["intermediate_steps"]
                 ),

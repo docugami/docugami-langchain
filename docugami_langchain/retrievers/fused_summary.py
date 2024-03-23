@@ -10,7 +10,10 @@ from langchain_core.retrievers import BaseRetriever
 from langchain_core.vectorstores import VectorStore
 from rerankers.models.ranker import BaseRanker
 
-from docugami_langchain.config import DEFAULT_RETRIEVER_K
+from docugami_langchain.config import (
+    ________SINGLE_TOKEN_LINE________,
+    DEFAULT_RETRIEVER_K,
+)
 
 PARENT_DOC_ID_KEY = "doc_id"
 FULL_DOC_SUMMARY_ID_KEY = "full_doc_id"
@@ -36,8 +39,10 @@ class FusedDocumentElements:
     source: str
 
 
-DOCUMENT_SUMMARY_TEMPLATE: str = """
---------------------------------
+DOCUMENT_SUMMARY_TEMPLATE: str = (
+    "\n"
+    + ________SINGLE_TOKEN_LINE________
+    + """
 **** DOCUMENT NAME: {doc_name}
 
 **** DOCUMENT SUMMARY:
@@ -45,8 +50,10 @@ DOCUMENT_SUMMARY_TEMPLATE: str = """
 
 **** RELEVANT FRAGMENTS:
 {fragments}
---------------------------------
 """
+    + ________SINGLE_TOKEN_LINE________
+    + "\n"
+)
 
 
 class FusedSummaryRetriever(BaseRetriever):

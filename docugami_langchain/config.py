@@ -1,3 +1,5 @@
+________SINGLE_TOKEN_LINE________ = "----------------"
+
 # Lengths are in terms of characters, 1 token ~= 4 chars in English
 # Reference: https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them
 
@@ -22,4 +24,4 @@ DEFAULT_TABLE_AS_TEXT_CELL_MAX_WIDTH = 64  # cell width
 DEFAULT_RETRIEVER_K: int = 12
 INCLUDE_XML_TAGS = True
 
-DEFAULT_RECURSION_LIMIT = 25
+DEFAULT_RECURSION_LIMIT = 35
