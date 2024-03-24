@@ -78,9 +78,9 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     """
     description = (
         "Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. "
-        + f"Internally, it has logic to translate the question to a SQL query over the {name} report, run it, and return the result. "
         + "Do NOT pass SQL as input to the tool even if you think you know it (trust the tool to translate the question to SQL). "
-        + f"Use this tool if you think the answer can be calculated via SQL query on the following table.\n\n{table_info}"
+        + f"Internally, it has logic to translate the user's question to a SQL query over the {name} report, run it, and return the result. "
+        + f"Use this tool if you think the answer can be calculated from the following table.\n\n{table_info}"
     )
 
     return description[:2048]  # cap to avoid failures when the description is too long

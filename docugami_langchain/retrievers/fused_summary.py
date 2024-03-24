@@ -76,7 +76,7 @@ class FusedSummaryRetriever(BaseRetriever):
     retriever_k: int = DEFAULT_RETRIEVER_K
     """The number of chunks the retriever tries to get from the vectorstore."""
 
-    re_rank_filter_percentile: float = 80
+    re_rank_filter_percentile: float = 60
     """Results above this percentile are kept, others are rejected (0 means keep them all, 90 means keep only very good ones, 100 means keep the top one, etc.)."""
 
     re_ranker: Optional[BaseRanker] = None

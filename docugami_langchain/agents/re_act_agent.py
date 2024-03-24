@@ -144,8 +144,8 @@ class ReActAgent(BaseDocugamiAgent):
                 # Agent wants to invoke a tool
                 tool_name = react_output.tool_name
                 tool_input = react_output.tool_input
+                busy_text = THINKING
                 if tool_name and tool_input:
-                    busy_text = THINKING
                     if tool_name.startswith("retrieval"):
                         busy_text = f"Searching documents for '{tool_input}'"
                     elif tool_name.startswith("query"):
