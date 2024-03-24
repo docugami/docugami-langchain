@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import operator
-from typing import Annotated, TypedDict, Union
+from typing import Annotated, Sequence, TypedDict, Union
 
 from langchain_core.pydantic_v1 import BaseModel
 
@@ -69,7 +69,7 @@ class AgentState(TypedDict):
     tool_invocation: Union[Invocation, None]
 
     # List of steps taken so far (this state is added to, not overwritten)
-    intermediate_steps: Annotated[list[StepState], operator.add]
+    intermediate_steps: Annotated[Sequence[StepState], operator.add]
 
     # **** Output
     cited_answer: CitedAnswer

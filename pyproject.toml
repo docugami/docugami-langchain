@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docugami-langchain"
-version = "0.0.7rc14"
+version = "0.0.7rc15"
 description = "An integration package connecting Docugami and LangChain"
 authors = []
 readme = "README.md"

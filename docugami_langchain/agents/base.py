@@ -33,11 +33,11 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
         if not inv_model:
             raise Exception(f"No tool invocation in model: {state}")
 
-        previous_steps = state.get("intermediate_steps")
+        previous_steps = state.get("intermediate_steps") or []
         if previous_steps and any(
             [s for s in previous_steps if s.invocation == inv_model]
         ):
-            output = "This tool has been invoked before with identical inputs. Please refer to the previous invocation results or try different inputs."
+            output = "This tool has been invoked before with identical inputs. Please try different inputs or a different tool."
         else:
             tool_executor = ToolExecutor(self.tools)
             output = tool_executor.invoke(
@@ -52,7 +52,7 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
             invocation=inv_model,
             output=str(output),
         )
-        return {"intermediate_steps": [step]}  # appended
+        return {"intermediate_steps": previous_steps + [step]}
 
     def run(  # type: ignore[override]
         self,

@@ -1,7 +1,16 @@
+from typing import Sequence
+
 from docugami_langchain.agents.models import StepState
+from docugami_langchain.config import ________SINGLE_TOKEN_LINE________
+
+HUMAN_MARKER = "Human"
+AI_MARKER = "AI"
 
 
-def chat_history_to_str(chat_history: list[tuple[str, str]]) -> str:
+def chat_history_to_str(
+    chat_history: list[tuple[str, str]],
+    include_human_marker: bool = False,
+) -> str:
 
     if not chat_history:
         return ""
@@ -9,12 +18,20 @@ def chat_history_to_str(chat_history: list[tuple[str, str]]) -> str:
     formatted_history: str = ""
     if chat_history:
         for human, ai in chat_history:
-            formatted_history += f"Human: {human}\n"
-            formatted_history += f"AI: {ai}\n"
-    return "\n" + formatted_history
+            formatted_history += ________SINGLE_TOKEN_LINE________ + "\n"
+            formatted_history += f"{HUMAN_MARKER}: {human}\n"
+            formatted_history += ________SINGLE_TOKEN_LINE________ + "\n"
+            formatted_history += f"{AI_MARKER}: {ai}\n"
+            formatted_history += ________SINGLE_TOKEN_LINE________ + "\n"
+    formatted_history = "\n" + formatted_history + "\n"
+
+    if include_human_marker:
+        formatted_history += HUMAN_MARKER + ": "
+
+    return formatted_history
 
 
-def steps_to_str(steps: list[StepState]) -> str:
+def steps_to_str(steps: Sequence[StepState]) -> str:
 
     if not steps:
         return ""

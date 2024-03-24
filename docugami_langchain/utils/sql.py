@@ -4,7 +4,7 @@ import sqlglot
 import sqlglot.expressions as exp
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.embeddings import Embeddings
-from langchain_core.example_selectors import SemanticSimilarityExampleSelector
+from langchain_core.example_selectors import MaxMarginalRelevanceExampleSelector
 from langchain_core.vectorstores import VectorStore
 from sqlalchemy import Table, exc, select, text
 from sqlalchemy.engine.reflection import Inspector
@@ -39,7 +39,7 @@ def create_example_selector(
     db: SQLDatabase,
     embeddings: Embeddings,
     examples_vectorstore_cls: type[VectorStore],
-) -> SemanticSimilarityExampleSelector:
+) -> MaxMarginalRelevanceExampleSelector:
     """Reads all rows from the first table of the db and indexes them for few shot retrieval."""
     table = first_table(db)
     select_all_query = select(table)
@@ -55,7 +55,7 @@ def create_example_selector(
                 sanitized_row_dict[key] = sanitize_example_value(raw_row_dict[key])
             example_rows.append(sanitized_row_dict)
 
-        return SemanticSimilarityExampleSelector.from_examples(
+        return MaxMarginalRelevanceExampleSelector.from_examples(
             examples=example_rows,
             embeddings=embeddings,
             vectorstore_cls=examples_vectorstore_cls,
@@ -65,7 +65,7 @@ def create_example_selector(
 def sample_rows(
     db: SQLDatabase,
     question: Optional[str] = None,
-    example_selector: Optional[SemanticSimilarityExampleSelector] = None,
+    example_selector: Optional[MaxMarginalRelevanceExampleSelector] = None,
     included_sample_rows: int = DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO,
     sample_row_grid_format: str = DEFAULT_SAMPLE_ROWS_GRID_FORMAT,
 ) -> str:
@@ -109,7 +109,7 @@ def sample_rows(
 def get_table_info(
     db: SQLDatabase,
     question: Optional[str] = None,
-    example_selector: Optional[SemanticSimilarityExampleSelector] = None,
+    example_selector: Optional[MaxMarginalRelevanceExampleSelector] = None,
     included_sample_rows: int = DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO,
     grid_format: str = DEFAULT_SAMPLE_ROWS_GRID_FORMAT,
     override_table_name: Optional[str] = None,

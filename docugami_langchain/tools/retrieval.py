@@ -1,32 +1,48 @@
 import re
 from pathlib import Path
-from typing import Any, Optional
+from typing import Optional
 
+from langchain_core.callbacks import CallbackManagerForToolRun
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
-from langchain_core.pydantic_v1 import BaseModel, Field
-from langchain_core.tools import BaseTool, Tool
+from langchain_core.tools import BaseTool
 from langchain_core.vectorstores import VectorStore
 from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.chains.documents.describe_document_set_chain import (
     DescribeDocumentSetChain,
 )
+from docugami_langchain.chains.rag.simple_rag_chain import SimpleRAGChain
 from docugami_langchain.config import DEFAULT_RETRIEVER_K, MAX_FULL_DOCUMENT_TEXT_LENGTH
 from docugami_langchain.retrievers.fused_summary import (
     FusedRetrieverKeyValueFetchCallback,
     FusedSummaryRetriever,
     SearchType,
 )
+from docugami_langchain.tools.common import NOT_FOUND
 
 
-class RetrieverInput(BaseModel):
-    """Input to the retriever."""
+class CustomDocsetRetrievalTool(BaseTool):
+    chain: SimpleRAGChain
+    name: str = "query_docset"
+    description: str = ""
 
-    question: str = Field(
-        description="question to look up in retriever, to find relevant chunks that might contain answers"
-    )
+    def _run(
+        self,
+        question: str,
+        run_manager: Optional[CallbackManagerForToolRun] = None,
+    ) -> str:  # type: ignore
+        """Use the tool."""
+
+        if not question:
+            return "Please specify a question that you want to answer from this docset"
+
+        chain_response = self.chain.run(question=question)
+        if chain_response.value:
+            return chain_response.value
+
+        return NOT_FOUND
 
 
 def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
@@ -88,6 +104,8 @@ def get_retrieval_tool_for_docset(
     chunk_vectorstore: VectorStore,
     retrieval_tool_function_name: str,
     retrieval_tool_description: str,
+    llm: BaseLanguageModel,
+    embeddings: Embeddings,
     re_ranker: BaseRanker,
     fetch_full_doc_summary_callback: FusedRetrieverKeyValueFetchCallback,
     fetch_parent_doc_callback: FusedRetrieverKeyValueFetchCallback,
@@ -107,49 +125,14 @@ def get_retrieval_tool_for_docset(
         search_type=SearchType.mmr,
     )
 
-    if not retriever:
-        return None
+    simple_rag_chain = SimpleRAGChain(
+        llm=llm,
+        embeddings=embeddings,
+        retriever=retriever,
+    )
 
-    def wrapped_get_relevant_documents(
-        question: str,
-        callbacks: Any = None,
-        tags: Any = None,
-        metadata: Any = None,
-        run_name: Any = None,
-        **kwargs: Any,
-    ) -> str:
-        docs: list[Document] = retriever.get_relevant_documents(
-            query=question,
-            callbacks=callbacks,
-            tags=tags,
-            metadata=metadata,
-            run_name=run_name,
-            **kwargs,
-        )
-        return "\n\n".join([doc.page_content for doc in docs])
-
-    async def awrapped_get_relevant_documents(
-        question: str,
-        callbacks: Any = None,
-        tags: Any = None,
-        metadata: Any = None,
-        run_name: Any = None,
-        **kwargs: Any,
-    ) -> str:
-        docs: list[Document] = await retriever.aget_relevant_documents(
-            query=question,
-            callbacks=callbacks,
-            tags=tags,
-            metadata=metadata,
-            run_name=run_name,
-            **kwargs,
-        )
-        return "\n\n".join([doc.page_content for doc in docs])
-
-    return Tool(
+    return CustomDocsetRetrievalTool(
+        chain=simple_rag_chain,
         name=retrieval_tool_function_name,
         description=retrieval_tool_description,
-        func=wrapped_get_relevant_documents,
-        coroutine=awrapped_get_relevant_documents,
-        args_schema=RetrieverInput,
     )

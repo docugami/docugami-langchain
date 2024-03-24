@@ -1,13 +1,11 @@
 from docugami_langchain.tools.common import (
-    GeneralKnowlegeTool,
+    ChatBotTool,
     HumanInterventionTool,
-    SmallTalkTool,
 )
 from docugami_langchain.tools.reports import CustomReportRetrievalTool
 
 __all__ = [
-    "SmallTalkTool",
-    "GeneralKnowlegeTool",
+    "ChatBotTool",
     "HumanInterventionTool",
     "CustomReportRetrievalTool",
 ]

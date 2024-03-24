@@ -30,6 +30,7 @@ jobs:
           FIREWORKS_API_KEY: ${{ secrets.FIREWORKS_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           DOCUGAMI_ONLY_CORE_TESTS: true
+          IS_CI: true
 
       - name: Check PR status
         run: |

@@ -29,8 +29,8 @@ def parser() -> CustomReActJsonSingleInputOutputParser:
 Action:
 ```
 {
-    "action": "xyz some value",
-    "action_input": "xyz some value"
+    "tool_name": "xyz some value",
+    "tool_input": "xyz some value"
 }
 ```
 
@@ -47,8 +47,8 @@ Action:
 (some preceding text)
 
 {
-    "action": "xyz some value",
-    "action_input": "xyz some value"
+    "tool_name": "xyz some value",
+    "tool_input": "xyz some value"
 }
 
 (some following text)
@@ -62,8 +62,8 @@ Action:
         (
             """
 {
-    "action": "xyz some value",
-    "action_input": "xyz some value"
+    "tool_name": "xyz some value",
+    "tool_input": "xyz some value"
 }
     """,
             Invocation(
@@ -77,13 +77,13 @@ Action:
         (
             """
 {
-    "action": "first action",
-    "action_input": "first input"
+    "tool_name": "first action",
+    "tool_input": "first input"
 }
 Random text
 {
-    "action": "second action",
-    "action_input": "second input"
+    "tool_name": "second action",
+    "tool_input": "second input"
 }
     """,
             Invocation(
@@ -109,8 +109,8 @@ Some text before.
 {FINAL_ANSWER_ACTION} Text after the final answer, but we have JSON after this that:
 ```
 {{
-    "action": "action before final answer",
-    "action_input": "input before final answer"
+    "tool_name": "action before final answer",
+    "tool_input": "input before final answer"
 }}
 ```
     """,
@@ -127,8 +127,8 @@ to request the user to provide a query\_financials tool with the necessary data.
 Action:
 ```json
 {
-  "action": "human_intervention",
-  "action_input": "Please create or update a query_financials tool with data sufficient to answer questions like this one: company, quarter, eps, and gross\_income."
+  "tool_name": "human_intervention",
+  "tool_input": "Please create or update a query_financials tool with data sufficient to answer questions like this one: company, quarter, eps, and gross\_income."
 }
 ```
 """,
@@ -144,14 +144,28 @@ Thought: Just enough to make an XML dev scream, "Please, no more nested tags!".
 Action:
 ```json
 {
-  "action": "human_intervention",
-  "action_input": null
+  "tool_name": "human_intervention",
+  "tool_input": null
 }
 ```
 """,
             Invocation(
                 tool_name="human_intervention",
                 tool_input="",
+            ),
+        ),
+        # Case 11: JSON without delimiters, and nested quotes
+        (
+            """Thought: I can use the query_aviation_incidents_report tool to find the accident number for the incident in Madill, Oklahoma.
+
+Action:
+{
+  "tool_name": "query_aviation_incidents_report",
+  "tool_input": "SELECT \\"Accident Number\\" FROM \\"Aviation Incidents Report\\" WHERE \\"Location\\" LIKE '%Madill, Oklahoma%'"
+}""",
+            Invocation(
+                tool_name="query_aviation_incidents_report",
+                tool_input='SELECT "Accident Number" FROM "Aviation Incidents Report" WHERE "Location" LIKE \'%Madill, Oklahoma%\'',
             ),
         ),
     ],
