@@ -1,7 +1,7 @@
 # Adapted with thanks from https://github.com/langchain-ai/langgraph/blob/main/examples/agent_executor/base.ipynb
 from __future__ import annotations
 
-from typing import Optional
+from typing import Optional, Sequence
 
 from langchain_core.prompts import (
     BasePromptTemplate,
@@ -69,8 +69,8 @@ Any output that does not follow the EXACT format above is unparsable.
 )
 
 
-def format_steps_to_react_scratchpad(
-    intermediate_steps: list[StepState],
+def steps_to_react_str(
+    intermediate_steps: Sequence[StepState],
     observation_prefix: str = "Observation: ",
     llm_prefix: str = "Thought: ",
 ) -> str:
@@ -107,15 +107,13 @@ class ReActAgent(BaseDocugamiAgent):
         Custom runnable for this agent.
         """
 
-        prompt = ChatPromptTemplate.from_messages(
-            [
-                (
-                    "system",
-                    REACT_AGENT_SYSTEM_MESSAGE,
-                ),
-                ("human", "{chat_history}{question}\n\n{agent_scratchpad}"),
-            ]
-        )
+        def run_agent(
+            state: AgentState, config: Optional[RunnableConfig]
+        ) -> AgentState:
+            return {
+                "tool_names": ", ".join([t.name for t in self.tools]),
+                "tool_descriptions": "\n" + render_text_description(self.tools),
+            }
 
         agent_runnable: Runnable = (
             {
@@ -123,18 +121,29 @@ class ReActAgent(BaseDocugamiAgent):
                 "chat_history": lambda x: chat_history_to_str(
                     x["chat_history"], include_human_marker=True
                 ),
-                "agent_scratchpad": lambda x: format_steps_to_react_scratchpad(
-                    x["intermediate_steps"]
-                ),
                 "tool_names": lambda x: ", ".join([t.name for t in self.tools]),
                 "tool_descriptions": lambda x: render_text_description(self.tools),
+                "intermediate_steps": lambda x: steps_to_react_str(
+                    x["intermediate_steps"]
+                ),
             }
-            | prompt
+            | ChatPromptTemplate.from_messages(
+                [
+                    (
+                        "system",
+                        REACT_AGENT_SYSTEM_MESSAGE,
+                    ),
+                    (
+                        "human",
+                        "{chat_history}{question}\n\n{intermediate_steps}",
+                    ),
+                ]
+            )
             | self.llm.bind(stop=["\nObservation"])
             | CustomReActJsonSingleInputOutputParser()
         )
 
-        def run_agent(
+        def generate_re_act(
             state: AgentState, config: Optional[RunnableConfig]
         ) -> AgentState:
             react_output = agent_runnable.invoke(state, config)
@@ -187,20 +196,22 @@ class ReActAgent(BaseDocugamiAgent):
         # Define a new graph
         workflow = StateGraph(AgentState)
 
-        # Define the two nodes we will cycle between
+        # Define the nodes of the graph
         workflow.add_node("run_agent", run_agent)  # type: ignore
+        workflow.add_node("generate_re_act", generate_re_act)  # type: ignore
         workflow.add_node("execute_tool", self.execute_tool)  # type: ignore
 
         # Set the entrypoint node
         workflow.set_entry_point("run_agent")
 
-        # Add an edge from tool output back to the agent to look at the tool output
-        workflow.add_edge("execute_tool", "run_agent")
+        # Add edges
+        workflow.add_edge("run_agent", "generate_re_act")
+        workflow.add_edge("execute_tool", "generate_re_act")  # loop back
 
         # Decide whether to end iteration if agent determines final answer is achieved
         # otherwise keep iterating
         workflow.add_conditional_edges(
-            "run_agent",
+            "generate_re_act",
             should_continue,
             {
                 "continue": "execute_tool",

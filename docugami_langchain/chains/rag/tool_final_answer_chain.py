@@ -1,4 +1,4 @@
-from typing import AsyncIterator, Optional
+from typing import AsyncIterator, Optional, Sequence
 
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.runnables import RunnableConfig
@@ -63,7 +63,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
         question: str,
         chat_history: list[tuple[str, str]] = [],
         tool_descriptions: str = "",
-        intermediate_steps: list[StepState] = [],
+        intermediate_steps: Sequence[StepState] = [],
         config: Optional[RunnableConfig] = None,
     ) -> TracedResponse[CitedAnswer]:
         if not question:
@@ -82,7 +82,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
         question: str,
         chat_history: list[tuple[str, str]] = [],
         tool_descriptions: str = "",
-        intermediate_steps: list[StepState] = [],
+        intermediate_steps: Sequence[StepState] = [],
         config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[CitedAnswer]]:
         if not question:
@@ -99,7 +99,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
 
     def run_batch(  # type: ignore[override]
         self,
-        inputs: list[tuple[str, list[tuple[str, str]], str, list[StepState]]],
+        inputs: list[tuple[str, list[tuple[str, str]], str, Sequence[StepState]]],
         config: Optional[RunnableConfig] = None,
     ) -> list[CitedAnswer]:
         return super().run_batch(

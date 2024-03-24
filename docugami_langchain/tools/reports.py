@@ -14,6 +14,7 @@ from langchain_core.tools import BaseTool
 
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
 from docugami_langchain.chains.querying.sql_result_chain import SQLResultChain
+from docugami_langchain.config import MAX_PARAMS_CUTOFF_LENGTH_CHARS
 
 NOT_FOUND = "Not found, please consider trying a different query"
 
@@ -83,7 +84,8 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
         + f"Use this tool if you think the answer can be calculated from the following table.\n\n{table_info}"
     )
 
-    return description[:2048]  # cap to avoid failures when the description is too long
+    # Cap to avoid runaway tool descriptions.
+    return description[:MAX_PARAMS_CUTOFF_LENGTH_CHARS]
 
 
 def excel_to_sqlite_connection(

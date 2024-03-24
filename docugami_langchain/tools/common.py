@@ -57,33 +57,12 @@ def render_text_description_and_args(tools: list[BaseTool]) -> str:
     return "\n\n".join(tool_strings)
 
 
-class SmallTalkTool(BaseTool):
+class ChatBotTool(BaseTool):
     answer_chain: AnswerChain
-    name: str = "small_talk"
+    name: str = "chat_bot"
     description: str = (
-        "Responds to greetings, small talk, or questions that can be directly answered from the chat history."
+        "Responds to greetings, small talk, or general knowledge questions."
     )
-
-    def _run(
-        self,
-        question: str,
-        chat_history: list[tuple[str, str]] = [],
-        run_manager: Optional[CallbackManagerForToolRun] = None,
-    ) -> CitedAnswer:  # type: ignore
-        """Use the tool."""
-
-        chain_response: TracedResponse[str] = self.answer_chain.run(
-            question=question,
-            chat_history=chat_history,
-        )
-
-        return CitedAnswer(source=self.name, answer=chain_response.value)
-
-
-class GeneralKnowlegeTool(BaseTool):
-    answer_chain: AnswerChain
-    name: str = "general_knowledge"
-    description: str = "Answers general knowledge questions"
 
     def _run(
         self,
@@ -120,7 +99,7 @@ class HumanInterventionTool(BaseTool):
         return CitedAnswer(
             source=self.name,
             answer="""Sorry, I don't have enough information to answer this question. Please try rephrasing the question, or please """
-            """create or update reports against the relevant docset that maybe queried to answer questions like this one""",
+            """create or update reports against the relevant docset that may be queried to answer questions like this one.""",
         )
 
 
@@ -133,8 +112,7 @@ def get_generic_tools(
     if answer_examples_file:
         answer_chain.load_examples(answer_examples_file)
 
-    small_talk_tool = SmallTalkTool(answer_chain=answer_chain)
-    general_knowledge_Tool = GeneralKnowlegeTool(answer_chain=answer_chain)
+    chat_bot_tool = ChatBotTool(answer_chain=answer_chain)
     human_intervention_tool = HumanInterventionTool()
 
-    return [small_talk_tool, general_knowledge_Tool, human_intervention_tool]
+    return [chat_bot_tool, human_intervention_tool]

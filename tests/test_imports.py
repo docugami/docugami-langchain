@@ -52,8 +52,7 @@ EXPECTED_OUTPUT_PARSERS = [
 EXPECTED_RETRIEVERS = ["SearchType", "FusedSummaryRetriever"]
 
 EXPECTED_TOOLS = [
-    "SmallTalkTool",
-    "GeneralKnowlegeTool",
+    "ChatBotTool",
     "HumanInterventionTool",
     "CustomReportRetrievalTool",
 ]

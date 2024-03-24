@@ -1,3 +1,5 @@
+from typing import Sequence
+
 from docugami_langchain.agents.models import StepState
 from docugami_langchain.config import ________SINGLE_TOKEN_LINE________
 
@@ -29,7 +31,7 @@ def chat_history_to_str(
     return formatted_history
 
 
-def steps_to_str(steps: list[StepState]) -> str:
+def steps_to_str(steps: Sequence[StepState]) -> str:
 
     if not steps:
         return ""
