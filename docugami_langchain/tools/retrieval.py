@@ -16,6 +16,7 @@ from docugami_langchain.chains.documents.describe_document_set_chain import (
 from docugami_langchain.chains.rag.simple_rag_chain import SimpleRAGChain
 from docugami_langchain.config import DEFAULT_RETRIEVER_K, MAX_FULL_DOCUMENT_TEXT_LENGTH
 from docugami_langchain.retrievers.fused_summary import (
+    FULL_DOC_SUMMARY_ID_KEY,
     FusedRetrieverKeyValueFetchCallback,
     FusedSummaryRetriever,
     SearchType,
@@ -110,6 +111,7 @@ def get_retrieval_tool_for_docset(
     fetch_full_doc_summary_callback: FusedRetrieverKeyValueFetchCallback,
     fetch_parent_doc_callback: FusedRetrieverKeyValueFetchCallback,
     retrieval_k: int = DEFAULT_RETRIEVER_K,
+    full_doc_summary_id_key=FULL_DOC_SUMMARY_ID_KEY,
 ) -> Optional[BaseTool]:
     """
     Gets a retrieval tool for an agent.
@@ -120,6 +122,7 @@ def get_retrieval_tool_for_docset(
         vectorstore=chunk_vectorstore,
         re_ranker=re_ranker,
         fetch_parent_doc_callback=fetch_parent_doc_callback,
+        full_doc_summary_id_key=full_doc_summary_id_key,
         fetch_full_doc_summary_callback=fetch_full_doc_summary_callback,
         retriever_k=retrieval_k,
         search_type=SearchType.mmr,
