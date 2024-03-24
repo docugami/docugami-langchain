@@ -33,7 +33,8 @@ class ElaborateChunkChain(BaseDocugamiChain[str]):
                 "- Your generated elaboration should be in the same format as the given document, using the same overall schema.",
                 "- Only elaborate, don't try to change any facts in the chunk even if they appear incorrect to you.",
                 "- Include as many facts and data points from the original chunk as you can, in your elaboration.",
-                "- Pay special attention to key facts like monetary amounts, dates, addresses, names of people and companies, etc and include in your summary.",
+                "- Pay special attention to unique facts like monetary amounts, dates, time durations, addresses, names of people and companies, "
+                "phone numbers, email address, etc and include these in your elaboration to ensure it does not lose semantic value.",
                 "- Aim for the elaboration to be twice as long as the given text. Be as descriptive as possible within these limits.",
             ],
         )

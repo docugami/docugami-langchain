@@ -57,8 +57,8 @@ class SummarizeDocumentChain(BaseDocugamiChain[str]):
                 "- The generated summary should be up to 1 page of text in length, or shorter if the original document is short.",
                 "- Only summarize, don't try to change any facts in the document even if they appear incorrect to you.",
                 "- Include as many facts and data points from the original document as you can, in your summary.",
-                "- Pay special attention to unique facts like monetary amounts, dates, time durations addresses, names of people and companies,"
-                " phone numbers, email address, etc and include these in your summary to ensure the summary does not lose semantic value.",
+                "- Pay special attention to unique facts like monetary amounts, dates, time durations, addresses, names of people and companies, "
+                "phone numbers, email address, etc and include these in your summary to ensure it does not lose semantic value.",
             ],
         )
 
