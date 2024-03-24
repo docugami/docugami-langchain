@@ -7,7 +7,7 @@ from typing import Any, AsyncIterator, Generic, Optional, TypeVar
 import yaml
 from langchain_community.vectorstores.faiss import FAISS
 from langchain_core.embeddings import Embeddings
-from langchain_core.example_selectors import SemanticSimilarityExampleSelector
+from langchain_core.example_selectors import MaxMarginalRelevanceExampleSelector
 from langchain_core.language_models import BaseChatModel, BaseLanguageModel
 from langchain_core.messages import SystemMessage
 from langchain_core.output_parsers import StrOutputParser
@@ -101,7 +101,7 @@ Your inputs will be in this format:
 
 def generic_string_prompt_template(
     params: RunnableParameters,
-    example_selector: Optional[SemanticSimilarityExampleSelector] = None,
+    example_selector: Optional[MaxMarginalRelevanceExampleSelector] = None,
     num_examples: int = DEFAULT_EXAMPLES_PER_PROMPT,
 ) -> StringPromptTemplate:
     """
@@ -138,7 +138,7 @@ def generic_string_prompt_template(
 
 def chat_prompt_template(
     params: RunnableParameters,
-    example_selector: Optional[SemanticSimilarityExampleSelector] = None,
+    example_selector: Optional[MaxMarginalRelevanceExampleSelector] = None,
     num_examples: int = DEFAULT_EXAMPLES_PER_PROMPT,
 ) -> ChatPromptTemplate:
     """
@@ -246,7 +246,7 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
     input_params_max_length_cutoff: int = MAX_PARAMS_CUTOFF_LENGTH_CHARS
     few_shot_params_max_length_cutoff: int = MAX_PARAMS_CUTOFF_LENGTH_CHARS
     _examples: list[dict] = []
-    _example_selector: Optional[SemanticSimilarityExampleSelector] = None
+    _example_selector: Optional[MaxMarginalRelevanceExampleSelector] = None
 
     recursion_limit = DEFAULT_RECURSION_LIMIT
 
@@ -306,7 +306,7 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
             if self._examples and num_examples:
                 try:
                     self._example_selector = (
-                        SemanticSimilarityExampleSelector.from_examples(
+                        MaxMarginalRelevanceExampleSelector.from_examples(
                             examples=self._examples,
                             embeddings=self.embeddings,
                             vectorstore_cls=self.examples_vectorstore_cls,
