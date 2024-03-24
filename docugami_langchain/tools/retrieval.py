@@ -107,11 +107,13 @@ def get_retrieval_tool_for_docset(
     retrieval_tool_description: str,
     llm: BaseLanguageModel,
     embeddings: Embeddings,
-    re_ranker: BaseRanker,
-    fetch_full_doc_summary_callback: FusedRetrieverKeyValueFetchCallback,
-    fetch_parent_doc_callback: FusedRetrieverKeyValueFetchCallback,
+    re_ranker: Optional[BaseRanker] = None,
+    fetch_full_doc_summary_callback: Optional[
+        FusedRetrieverKeyValueFetchCallback
+    ] = None,
+    fetch_parent_doc_callback: Optional[FusedRetrieverKeyValueFetchCallback] = None,
     retrieval_k: int = DEFAULT_RETRIEVER_K,
-    full_doc_summary_id_key=FULL_DOC_SUMMARY_ID_KEY,
+    full_doc_summary_id_key: str = FULL_DOC_SUMMARY_ID_KEY,
 ) -> Optional[BaseTool]:
     """
     Gets a retrieval tool for an agent.
