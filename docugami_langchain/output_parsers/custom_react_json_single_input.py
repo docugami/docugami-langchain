@@ -12,10 +12,8 @@ FINAL_ANSWER_ACTION = "Final Answer:"
 STRICT_REACT_PATTERN = re.compile(r"^.*?`{3}(?:json)?\n?(.*?)`{3}.*?$", re.DOTALL)
 """Regex pattern to parse the output strictly, JSON delimited by ``` as instructed in a ReAct prompt."""
 
-SIMPLE_JSON_PATTERN = re.compile(
-    r'(\{(?:\s*"[^"]+?"\s*:\s*(?:"[^"]*?"|\d+|\[\])\s*,?\s*)+\})'
-)
-"""Regex pattern to just find any simple JSON in the output, not delimited by anything."""
+SIMPLE_JSON_PATTERN = re.compile(r"(\{[^}]*\})")
+"""Regex pattern to just find any simple (non-nested) JSON in the output, not delimited by anything."""
 
 
 def replace_null_outside_quotes(text: str) -> str:

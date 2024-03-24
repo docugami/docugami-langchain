@@ -154,6 +154,20 @@ Action:
                 tool_input="",
             ),
         ),
+        # Case 11: JSON without delimiters, and nested quotes
+        (
+            """Thought: I can use the query_aviation_incidents_report tool to find the accident number for the incident in Madill, Oklahoma.
+
+Action:
+{
+  "tool_name": "query_aviation_incidents_report",
+  "tool_input": "SELECT \\"Accident Number\\" FROM \\"Aviation Incidents Report\\" WHERE \\"Location\\" LIKE '%Madill, Oklahoma%'"
+}""",
+            Invocation(
+                tool_name="query_aviation_incidents_report",
+                tool_input='SELECT "Accident Number" FROM "Aviation Incidents Report" WHERE "Location" LIKE \'%Madill, Oklahoma%\'',
+            ),
+        ),
     ],
 )
 def test_parse(

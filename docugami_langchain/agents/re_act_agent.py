@@ -63,15 +63,15 @@ Final Answer: The final answer to the original input question. Make sure a compl
 
 Don't give up easily. If you cannot find an answer using a tool, try using a different tool or the same tool with different inputs.
 
-Begin! Remember to ALWAYS use the format specified, especially being mindful of using the Thought/Tool Invocation/Observation and "Final Answer" prefixes in your output.
-Any output that does not follow the EXACT format above is unparsable.
+Make extra sure that the "Final Answer" prefix marks the output you want to show to the user.
+
+Begin! Remember to ALWAYS use the format specified, since output that does not follow the EXACT format above is unparsable.
 """
 )
 
 
 def steps_to_react_str(
     intermediate_steps: Sequence[StepState],
-    thought_prefix: str = "Thought: ",
     observation_prefix: str = "Observation: ",
 ) -> str:
     """Construct the scratchpad that lets the agent continue its thought process."""
@@ -81,7 +81,7 @@ def steps_to_react_str(
             if step.invocation:
                 thoughts += step.invocation.log
 
-            thoughts += f"\n{observation_prefix}{step.output}\n{thought_prefix}"
+            thoughts += f"\n{observation_prefix}{step.output}\n"
     return thoughts
 
 

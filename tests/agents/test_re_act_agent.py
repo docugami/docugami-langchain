@@ -60,7 +60,6 @@ def openai_gpt35_re_act_agent(
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-@pytest.mark.flaky(max_runs=3)
 def test_fireworksai_re_act(
     fireworksai_mixtral_re_act_agent: ReActAgent,
 ) -> None:
@@ -82,7 +81,6 @@ def test_fireworksai_re_act(
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-@pytest.mark.flaky(max_runs=3)
 @pytest.mark.asyncio
 async def test_fireworksai_streamed_re_act(
     fireworksai_mixtral_re_act_agent: ReActAgent,
@@ -105,7 +103,6 @@ async def test_fireworksai_streamed_re_act(
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-@pytest.mark.flaky(max_runs=3)
 @pytest.mark.asyncio
 async def test_fireworksai_streamed_re_act_with_history(
     fireworksai_mixtral_re_act_agent: ReActAgent,
@@ -122,7 +119,6 @@ async def test_fireworksai_streamed_re_act_with_history(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-@pytest.mark.flaky(max_runs=3)
 def test_openai_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
     # test general LLM response from agent
     run_agent_test(
@@ -142,7 +138,6 @@ def test_openai_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-@pytest.mark.flaky(max_runs=3)
 @pytest.mark.asyncio
 async def test_openai_streamed_re_act(
     openai_gpt35_re_act_agent: ReActAgent,
@@ -165,7 +160,6 @@ async def test_openai_streamed_re_act(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-@pytest.mark.flaky(max_runs=3)
 @pytest.mark.asyncio
 async def test_openai_streamed_re_act_with_history(
     openai_gpt35_re_act_agent: ReActAgent,
