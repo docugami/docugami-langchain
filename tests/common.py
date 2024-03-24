@@ -305,11 +305,13 @@ def build_test_retrieval_tool(
     )
     tool = get_retrieval_tool_for_docset(
         chunk_vectorstore=vector_store,
-        re_ranker=re_ranker,
         retrieval_tool_function_name=docset_name_to_direct_retriever_tool_function_name(
             RAG_TEST_DGML_DOCSET_NAME
         ),
         retrieval_tool_description=retrieval_tool_description,
+        llm=llm,
+        embeddings=embeddings,
+        re_ranker=re_ranker,
         fetch_parent_doc_callback=_fetch_parent_doc_callback,
         fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
         retrieval_k=DEFAULT_RETRIEVER_K,

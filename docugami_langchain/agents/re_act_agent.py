@@ -36,15 +36,15 @@ You have access to the following tools that you use only if necessary:
 
 The way you use these tools is by specifying a json blob. Specifically:
 
-- This json should have an `action` key (with the name of the tool to use) and an `action_input` key (with the string input to the tool going here).
-- The only values that may exist in the "action" field are (one of): {tool_names}
+- This json should have an `tool_name` key (with the name of the tool to use) and a `tool_input` key (with the string input to the tool).
+- The only values that may exist in the "tool_name" field are (one of): {tool_names}
 
-The $JSON_BLOB should only contain a SINGLE action, do NOT return a list of multiple actions. Here is an example of a valid $JSON_BLOB:
+Here is an example of a valid $JSON_BLOB:
 
 ```
 {{
-  "action": $TOOL_NAME,
-  "action_input": $INPUT_STRING
+  "tool_name": $TOOL_NAME,
+  "tool_input": $INPUT_STRING
 }}
 ```
 
@@ -63,7 +63,7 @@ Final Answer: The final answer to the original input question. Make sure a compl
 
 Don't give up easily. If you cannot find an answer using a tool, try using a different tool or the same tool with different inputs.
 
-Begin! Remember to ALWAYS use the format specified, especially being mindful of using the Thought/Action/Observation and "Final Answer" prefixes in your output.
+Begin! Remember to ALWAYS use the format specified, especially being mindful of using the Thought/Tool Invocation/Observation and "Final Answer" prefixes in your output.
 Any output that does not follow the EXACT format above is unparsable.
 """
 )
@@ -71,8 +71,8 @@ Any output that does not follow the EXACT format above is unparsable.
 
 def steps_to_react_str(
     intermediate_steps: Sequence[StepState],
+    thought_prefix: str = "Thought: ",
     observation_prefix: str = "Observation: ",
-    llm_prefix: str = "Thought: ",
 ) -> str:
     """Construct the scratchpad that lets the agent continue its thought process."""
     thoughts = ""
@@ -81,7 +81,7 @@ def steps_to_react_str(
             if step.invocation:
                 thoughts += step.invocation.log
 
-            thoughts += f"\n{observation_prefix}{step.output}\n{llm_prefix}"
+            thoughts += f"\n{observation_prefix}{step.output}\n{thought_prefix}"
     return thoughts
 
 
@@ -135,7 +135,7 @@ class ReActAgent(BaseDocugamiAgent):
                     ),
                     (
                         "human",
-                        "{chat_history}{question}\n\n{intermediate_steps}",
+                        "{chat_history}Question: {question}\n\n{intermediate_steps}",
                     ),
                 ]
             )

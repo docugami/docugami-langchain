@@ -6,9 +6,10 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
-from docugami_langchain.agents.models import CitedAnswer
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
+
+NOT_FOUND = "Not found, please consider trying a different query"
 
 
 def render_text_description(tools: list[BaseTool]) -> str:
@@ -69,7 +70,7 @@ class ChatBotTool(BaseTool):
         question: str,
         chat_history: list[tuple[str, str]] = [],
         run_manager: Optional[CallbackManagerForToolRun] = None,
-    ) -> CitedAnswer:  # type: ignore
+    ) -> str:
         """Use the tool."""
 
         chain_response: TracedResponse[str] = self.answer_chain.run(
@@ -77,7 +78,7 @@ class ChatBotTool(BaseTool):
             chat_history=chat_history,
         )
 
-        return CitedAnswer(source=self.name, answer=chain_response.value)
+        return chain_response.value
 
 
 class HumanInterventionTool(BaseTool):
@@ -93,13 +94,12 @@ class HumanInterventionTool(BaseTool):
         question: str,
         chat_history: list[tuple[str, str]] = [],
         run_manager: Optional[CallbackManagerForToolRun] = None,
-    ) -> CitedAnswer:  # type: ignore
+    ) -> str:
         """Use the tool."""
 
-        return CitedAnswer(
-            source=self.name,
-            answer="""Sorry, I don't have enough information to answer this question. Please try rephrasing the question, or please """
-            """create or update reports against the relevant docset that may be queried to answer questions like this one.""",
+        return (
+            """Sorry, I don't have enough information to answer this question. Please try rephrasing the question, or please """
+            + """create or update reports against the relevant docset that may be queried to answer questions like this one."""
         )
 
 

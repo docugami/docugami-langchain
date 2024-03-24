@@ -15,8 +15,7 @@ from langchain_core.tools import BaseTool
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
 from docugami_langchain.chains.querying.sql_result_chain import SQLResultChain
 from docugami_langchain.config import MAX_PARAMS_CUTOFF_LENGTH_CHARS
-
-NOT_FOUND = "Not found, please consider trying a different query"
+from docugami_langchain.tools.common import NOT_FOUND
 
 
 class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseTool):
