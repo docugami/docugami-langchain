@@ -51,8 +51,6 @@ DOCUMENT_SUMMARY_TEMPLATE: str = (
 **** RELEVANT FRAGMENTS:
 {fragments}
 """
-    + ________SINGLE_TOKEN_LINE________
-    + "\n"
 )
 
 

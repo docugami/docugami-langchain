@@ -9,7 +9,7 @@ from langchain_core.tools import BaseTool
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
 
-NOT_FOUND = "Not found, please consider trying a different query"
+NOT_FOUND = "Not found, please consider rephrasing your question."
 
 
 def render_text_description(tools: list[BaseTool]) -> str:
@@ -81,28 +81,6 @@ class ChatBotTool(BaseTool):
         return chain_response.value
 
 
-class HumanInterventionTool(BaseTool):
-    name: str = "human_intervention"
-    description: str = (
-        """This tool will request the user to create or update a query_* tool with data sufficient to answer questions like this one via SQL queries against a table. """
-        """Use this tool if the question IS LIKELY to be answerable with the document set described by the retrieval_* tool, however there is no given """
-        """query_* tool that has the requisite information in its table schema to answer the question via SQL query. """
-    )
-
-    def _run(
-        self,
-        question: str,
-        chat_history: list[tuple[str, str]] = [],
-        run_manager: Optional[CallbackManagerForToolRun] = None,
-    ) -> str:
-        """Use the tool."""
-
-        return (
-            """Sorry, I don't have enough information to answer this question. Please try rephrasing the question, or please """
-            + """create or update reports against the relevant docset that may be queried to answer questions like this one."""
-        )
-
-
 def get_generic_tools(
     llm: BaseLanguageModel,
     embeddings: Embeddings,
@@ -113,6 +91,5 @@ def get_generic_tools(
         answer_chain.load_examples(answer_examples_file)
 
     chat_bot_tool = ChatBotTool(answer_chain=answer_chain)
-    human_intervention_tool = HumanInterventionTool()
 
-    return [chat_bot_tool, human_intervention_tool]
+    return [chat_bot_tool]  # add other tools as needed over time
