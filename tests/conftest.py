@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 from langchain_community.cache import SQLiteCache
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings.huggingface import HuggingFaceEmbeddings
 from langchain_core.embeddings import Embeddings
 from langchain_core.globals import set_llm_cache
 from langchain_core.language_models import BaseLanguageModel

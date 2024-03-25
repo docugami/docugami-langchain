@@ -53,7 +53,6 @@ EXPECTED_RETRIEVERS = ["SearchType", "FusedSummaryRetriever"]
 
 EXPECTED_TOOLS = [
     "ChatBotTool",
-    "HumanInterventionTool",
     "CustomReportRetrievalTool",
 ]
 

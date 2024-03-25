@@ -379,3 +379,31 @@
   sql_result: "[(25,)]"
   answer: "25 clients have Excess Liability Umbrella Coverage"
   query_explanation: "Count the number of clients that have excess liability umbrella coverage"
+
+- question: What is the accident number for the incident in Madill, Oklahoma?
+  table_info: |
+    TABLE DESCRIPTION: 
+    CREATE TABLE "Aviation Incidents Report" (
+      "File" TEXT, 
+      "Accident Number" TEXT, 
+      "Registration Number" TEXT, 
+      "Aircraft Make and Model" TEXT, 
+      "Location" TEXT, 
+      "Accident Date" TEXT, 
+      "Accident Time" TEXT
+    )
+
+    3 example rows from the table (consider these to better craft and format queries e.g. considering the format of typical values in the data when crafting LIKE statements):
+    +--------------------+-------------------+-----------------------+-------------------------------+---------------+-----------------+-----------------+
+    | File               | Accident Number   | Registration Number   | Aircraft Make and Model       | Location      | Accident Date   | Accident Time   |
+    +====================+===================+=======================+===============================+===============+=================+=================+
+    | 20080111X00040.pdf | DFW08CA044        | N6135M                | Cessna 152                    | Madill, OK    | 11/30/2007      | 1200 CST        |
+    +--------------------+-------------------+-----------------------+-------------------------------+---------------+-----------------+-----------------+
+    | 20080102X00005.pdf | DEN08CA034        | N74SR                 | Godwin, David P Sorrell SNJ-7 | Belen, NM     | 11/27/2007      | 1100 MST        |
+    +--------------------+-------------------+-----------------------+-------------------------------+---------------+-----------------+-----------------+
+    | 20080207X00156.pdf | LAX08CA040        | N7229R                | Eldredge Aircamper SDE        | Sahuarita, AZ | 12/20/2007      | 1715 MST        |
+    +--------------------+-------------------+-----------------------+-------------------------------+---------------+-----------------+-----------------+
+  sql_query: SELECT "Accident Number" FROM "Aviation Incidents Report" WHERE LOWER("Location") LIKE "%madill, ok%"
+  sql_result: "[('DFW08CA044',)]"
+  answer: The accident number for the incident in Madill, Oklahoma is DFW08CA044.
+  query_explanation: "Select the Accident Number for the incident in Madill, OK"

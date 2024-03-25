@@ -81,15 +81,15 @@ RAG_ANSWER_FRAGMENTS = ["DFW08CA044"]
 
 RAG_CHAT_HISTORY = [
     (
-        "What is the county seat of Marshall county, OK?",
-        "Madill is a city in and the county seat of Marshall County, Oklahoma, United States.",
+        "What is the largest city in Marshall county, OK?",
+        "Madill is the largest city in Marshall County, Oklahoma, with a population of 4,094 in 2023. It's also the county seat.",
     ),
     (
         "Do you know who it was named after?",
         "It was named in honor of George Alexander Madill, an attorney for the St. Louis-San Francisco Railway.",
     ),
 ]
-RAG_QUESTION_WITH_HISTORY = "List the accident numbers for any aviation incidents that happened at this location"
+RAG_QUESTION_WITH_HISTORY = "List the accident numbers for any aviation incidents that happened there"
 RAG_ANSWER_WITH_HISTORY_FRAGMENTS = ["DFW08CA044"]
 
 
