@@ -3,9 +3,9 @@ import os
 import pytest
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
-from langchain_core.tools import BaseTool
 
 from docugami_langchain.agents import ReActAgent
+from docugami_langchain.tools.common import BaseDocugamiTool
 from tests.agents.common import run_agent_test, run_streaming_agent_test
 from tests.common import (
     GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
@@ -22,9 +22,9 @@ from tests.common import (
 def fireworksai_mixtral_re_act_agent(
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
-    huggingface_retrieval_tool: BaseTool,
-    huggingface_query_tool: BaseTool,
-    huggingface_common_tools: list[BaseTool],
+    huggingface_retrieval_tool: BaseDocugamiTool,
+    huggingface_query_tool: BaseDocugamiTool,
+    huggingface_common_tools: list[BaseDocugamiTool],
 ) -> ReActAgent:
     """
     Fireworks AI ReAct Agent using mixtral.
@@ -42,9 +42,9 @@ def fireworksai_mixtral_re_act_agent(
 def openai_gpt35_re_act_agent(
     openai_gpt35: BaseLanguageModel,
     openai_ada: Embeddings,
-    openai_retrieval_tool: BaseTool,
-    openai_query_tool: BaseTool,
-    openai_common_tools: list[BaseTool],
+    openai_retrieval_tool: BaseDocugamiTool,
+    openai_query_tool: BaseDocugamiTool,
+    openai_common_tools: list[BaseDocugamiTool],
 ) -> ReActAgent:
     """
     OpenAI ReAct Agent using GPT 3.5.

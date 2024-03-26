@@ -5,6 +5,7 @@ from typing import AsyncIterator, Optional
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.example_selectors import MaxMarginalRelevanceExampleSelector
 from langchain_core.runnables import Runnable, RunnableConfig, RunnableLambda
+from sqlglot import ParseError
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
@@ -79,7 +80,8 @@ class SQLResultChain(BaseDocugamiChain[dict]):
                 }
 
             except Exception as exc:
-                is_syntax_error = "syntax error" in str(exc)
+                is_syntax_error = isinstance(exc, ParseError)
+                is_syntax_error = is_syntax_error or "syntax error" in str(exc)
                 is_syntax_error = is_syntax_error or ".OperationalError" in str(exc)
 
                 if is_syntax_error and self.sql_fixup_chain:

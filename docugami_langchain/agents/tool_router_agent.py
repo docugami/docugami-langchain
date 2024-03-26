@@ -4,10 +4,9 @@ from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.runnables import Runnable, RunnableConfig
 from langgraph.graph import END, StateGraph
 
-from docugami_langchain.agents.base import THINKING, BaseDocugamiAgent
+from docugami_langchain.agents.base import BaseDocugamiAgent
 from docugami_langchain.agents.models import (
     AgentState,
-    CitedAnswer,
     Invocation,
     StepState,
 )
@@ -104,22 +103,7 @@ class ToolRouterAgent(BaseDocugamiAgent):
             answer_source = ToolRouterAgent.__name__
 
             # This agent always decides to invoke a tool
-            tool_name = invocation.tool_name
-            tool_input = invocation.tool_input
-            if tool_name and tool_input:
-                busy_text = THINKING
-                if tool_name.startswith("retrieval"):
-                    busy_text = f"Searching documents for '{tool_input}'"
-                elif tool_name.startswith("query"):
-                    busy_text = f"Querying report for '{tool_input}'"
-
-            return {
-                "tool_invocation": invocation,
-                "cited_answer": CitedAnswer(
-                    source=answer_source,
-                    answer=busy_text,  # Show the user interim output.
-                ),
-            }
+            return self.invocation_answer(invocation, answer_source)
 
         def generate_final_answer(
             state: AgentState, config: Optional[RunnableConfig]

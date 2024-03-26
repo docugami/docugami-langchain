@@ -6,6 +6,10 @@ from langchain_core.exceptions import OutputParserException
 from langchain_core.output_parsers import BaseOutputParser
 
 from docugami_langchain.agents.models import Invocation
+from docugami_langchain.utils.string_cleanup import (
+    escape_non_escaped_backslashes,
+    replace_null_outside_quotes,
+)
 
 FINAL_ANSWER_ACTION = "Final Answer:"
 
@@ -14,30 +18,6 @@ STRICT_REACT_PATTERN = re.compile(r"^.*?`{3}(?:json)?\n?(.*?)`{3}.*?$", re.DOTAL
 
 SIMPLE_JSON_PATTERN = re.compile(r"(\{[^}]*\})")
 """Regex pattern to just find any simple (non-nested) JSON in the output, not delimited by anything."""
-
-
-def replace_null_outside_quotes(text: str) -> str:
-    """
-    Looks for null outside quotes, and if found replaces it with "".
-    """
-
-    def replacement(match: re.Match) -> str:
-        before = text[: match.start()]
-        if before.count('"') % 2 == 0:  # Even number of quotes before 'null'
-            return '""'
-        else:
-            return str(match.group(0))  # 'null' is inside quotes, don't replace
-
-    return re.sub(r"\bnull\b", replacement, text, flags=re.IGNORECASE)
-
-
-def escape_non_escaped_backslashes(text: str) -> str:
-    """
-    Escape backslashes that are not part of a known escape sequence.
-
-    Looks for a backslash that is not a part of any known escape characters ('n', 'r', 't', 'f', '\\', '"'), and escapes it.
-    """
-    return re.sub(r'\\(?!["\\nrtf])', r"\\\\", text)
 
 
 class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, str]]):

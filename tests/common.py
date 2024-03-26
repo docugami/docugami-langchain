@@ -8,7 +8,6 @@ from langchain_community.vectorstores.faiss import FAISS
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
-from langchain_core.tools import BaseTool
 from langchain_core.vectorstores import VectorStore
 from rerankers.models.ranker import BaseRanker
 
@@ -25,7 +24,7 @@ from docugami_langchain.retrievers.mappings import (
     build_doc_maps_from_chunks,
     build_full_doc_summary_mappings,
 )
-from docugami_langchain.tools.common import get_generic_tools
+from docugami_langchain.tools.common import BaseDocugamiTool, get_generic_tools
 from docugami_langchain.tools.reports import (
     connect_to_excel,
     get_retrieval_tool_for_report,
@@ -89,7 +88,9 @@ RAG_CHAT_HISTORY = [
         "It was named in honor of George Alexander Madill, an attorney for the St. Louis-San Francisco Railway.",
     ),
 ]
-RAG_QUESTION_WITH_HISTORY = "List the accident numbers for any aviation incidents that happened there"
+RAG_QUESTION_WITH_HISTORY = (
+    "List the accident numbers for any aviation incidents that happened there"
+)
 RAG_ANSWER_WITH_HISTORY_FRAGMENTS = ["DFW08CA044"]
 
 
@@ -142,7 +143,7 @@ def verify_traced_response(
 
 def build_test_common_tools(
     llm: BaseLanguageModel, embeddings: Embeddings
-) -> list[BaseTool]:
+) -> list[BaseDocugamiTool]:
     """
     Builds common tools for test purposes
     """
@@ -153,7 +154,9 @@ def build_test_common_tools(
     )
 
 
-def build_test_query_tool(llm: BaseLanguageModel, embeddings: Embeddings) -> BaseTool:
+def build_test_query_tool(
+    llm: BaseLanguageModel, embeddings: Embeddings
+) -> BaseDocugamiTool:
     """
     Builds a query tool over a test database
     """
@@ -279,7 +282,7 @@ def build_test_retrieval_tool(
     re_ranker: BaseRanker,
     data_dir: Path = RAG_TEST_DGML_DATA_DIR,
     data_files_glob: str = "*.xml",
-) -> BaseTool:
+) -> BaseDocugamiTool:
     """
     Builds a vector store pre-populated with chunks from test documents
     using the given embeddings, and returns a retriever tool off it.

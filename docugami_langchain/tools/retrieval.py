@@ -6,10 +6,10 @@ from langchain_core.callbacks import CallbackManagerForToolRun
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
-from langchain_core.tools import BaseTool
 from langchain_core.vectorstores import VectorStore
 from rerankers.models.ranker import BaseRanker
 
+from docugami_langchain.agents.models import Invocation
 from docugami_langchain.chains.documents.describe_document_set_chain import (
     DescribeDocumentSetChain,
 )
@@ -21,13 +21,19 @@ from docugami_langchain.retrievers.fused_summary import (
     FusedSummaryRetriever,
     SearchType,
 )
-from docugami_langchain.tools.common import NOT_FOUND
+from docugami_langchain.tools.common import NOT_FOUND, BaseDocugamiTool
 
 
-class CustomDocsetRetrievalTool(BaseTool):
+class CustomDocsetRetrievalTool(BaseDocugamiTool):
+    """A Tool that knows how to do retrieval over a docset."""
+
     chain: SimpleRAGChain
     name: str = "query_docset"
     description: str = ""
+
+    def to_human_readable(self, invocation: Invocation) -> str:
+        """Converts tool invocation to human readable string."""
+        return f"Searching documents for '{invocation.tool_input}'"
 
     def _run(
         self,
@@ -114,7 +120,7 @@ def get_retrieval_tool_for_docset(
     fetch_parent_doc_callback: Optional[FusedRetrieverKeyValueFetchCallback] = None,
     retrieval_k: int = DEFAULT_RETRIEVER_K,
     full_doc_summary_id_key: str = FULL_DOC_SUMMARY_ID_KEY,
-) -> Optional[BaseTool]:
+) -> Optional[BaseDocugamiTool]:
     """
     Gets a retrieval tool for an agent.
     """

@@ -3,12 +3,17 @@ from typing import AsyncIterator, Optional
 
 from langchain_core.messages import AIMessageChunk
 from langchain_core.runnables import RunnableConfig
-from langchain_core.tools import BaseTool
 from langchain_core.tracers.context import collect_runs
 from langgraph.prebuilt.tool_executor import ToolExecutor, ToolInvocation
 
-from docugami_langchain.agents.models import AgentState, CitedAnswer, StepState
+from docugami_langchain.agents.models import (
+    AgentState,
+    CitedAnswer,
+    Invocation,
+    StepState,
+)
 from docugami_langchain.base_runnable import BaseRunnable, TracedResponse
+from docugami_langchain.tools.common import BaseDocugamiTool
 
 THINKING = "Thinking..."
 
@@ -18,7 +23,7 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
     Base class with common functionality for various chains.
     """
 
-    tools: list[BaseTool] = []
+    tools: list[BaseDocugamiTool] = []
 
     @abstractmethod
     def parse_final_answer(self, text: str) -> str: ...
@@ -28,7 +33,10 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
         state: AgentState,
         config: Optional[RunnableConfig],
     ) -> AgentState:
-        # Get the most recent tool invocation (added by the agent) and execute it
+        """
+        Gets the most recent tool invocation (added by the agent) and execute it.
+        """
+
         inv_model = state.get("tool_invocation")
         if not inv_model:
             raise Exception(f"No tool invocation in model: {state}")
@@ -53,6 +61,31 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
             output=str(output),
         )
         return {"intermediate_steps": previous_steps + [step]}
+
+    def invocation_answer(
+        self,
+        invocation: Invocation,
+        answer_source: str,
+    ) -> AgentState:
+        """
+        Builds a human readable interim answer from a tool invocation.
+        """
+
+        tool_name = invocation.tool_name
+        tool_input = invocation.tool_input
+        if tool_name and tool_input:
+            busy_text = THINKING
+            match = [t for t in self.tools if t.name.lower() == tool_name]
+            if match:
+                busy_text = match[0].to_human_readable(invocation)
+
+        return {
+            "tool_invocation": invocation,
+            "cited_answer": CitedAnswer(
+                source=answer_source,
+                answer=busy_text,  # Show the user interim output.
+            ),
+        }
 
     def run(  # type: ignore[override]
         self,

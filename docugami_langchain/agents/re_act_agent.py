@@ -10,7 +10,7 @@ from langchain_core.prompts import (
 from langchain_core.runnables import Runnable, RunnableConfig
 from langgraph.graph import END, StateGraph
 
-from docugami_langchain.agents.base import THINKING, BaseDocugamiAgent
+from docugami_langchain.agents.base import BaseDocugamiAgent
 from docugami_langchain.agents.models import (
     AgentState,
     CitedAnswer,
@@ -130,8 +130,8 @@ class ReActAgent(BaseDocugamiAgent):
                 "chat_history": lambda x: chat_history_to_str(
                     x["chat_history"], include_human_marker=True
                 ),
-                "tool_names": lambda x: ", ".join([t.name for t in self.tools]),
-                "tool_descriptions": lambda x: render_text_description(self.tools),
+                "tool_names": lambda x: x["tool_names"],
+                "tool_descriptions": lambda x: x["tool_descriptions"],
                 "intermediate_steps": lambda x: steps_to_react_str(
                     x["intermediate_steps"]
                 ),
@@ -160,22 +160,7 @@ class ReActAgent(BaseDocugamiAgent):
             answer_source = ReActAgent.__name__
             if isinstance(react_output, Invocation):
                 # Agent wants to invoke a tool
-                tool_name = react_output.tool_name
-                tool_input = react_output.tool_input
-                busy_text = THINKING
-                if tool_name and tool_input:
-                    if tool_name.startswith("retrieval"):
-                        busy_text = f"Searching documents for '{tool_input}'"
-                    elif tool_name.startswith("query"):
-                        busy_text = f"Querying report for '{tool_input}'"
-
-                return {
-                    "tool_invocation": react_output,
-                    "cited_answer": CitedAnswer(
-                        source=answer_source,
-                        answer=busy_text,  # Show the user interim output.
-                    ),
-                }
+                return self.invocation_answer(react_output, answer_source)
             elif isinstance(react_output, str):
                 # Agent thinks it has a final answer.
 

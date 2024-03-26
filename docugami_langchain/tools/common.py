@@ -1,3 +1,4 @@
+from abc import abstractmethod
 from pathlib import Path
 from typing import Optional
 
@@ -6,6 +7,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.tools import BaseTool
 
+from docugami_langchain.agents.models import Invocation
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
 
@@ -58,12 +60,24 @@ def render_text_description_and_args(tools: list[BaseTool]) -> str:
     return "\n\n".join(tool_strings)
 
 
-class ChatBotTool(BaseTool):
+class BaseDocugamiTool(BaseTool):
+    """Customized representation of tools with additional functionality."""
+
+    @abstractmethod
+    def to_human_readable(self, invocation: Invocation) -> str:
+        """Converts tool invocation to human readable string."""
+        ...
+
+
+class ChatBotTool(BaseDocugamiTool):
     answer_chain: AnswerChain
     name: str = "chat_bot"
     description: str = (
         "Responds to greetings, small talk, or general knowledge questions."
     )
+
+    def to_human_readable(self, invocation: Invocation) -> str:
+        return f"Thinking about: {invocation.tool_input}"
 
     def _run(
         self,
@@ -85,7 +99,7 @@ def get_generic_tools(
     llm: BaseLanguageModel,
     embeddings: Embeddings,
     answer_examples_file: Optional[Path] = None,
-) -> list[BaseTool]:
+) -> list[BaseDocugamiTool]:
     answer_chain = AnswerChain(llm=llm, embeddings=embeddings)
     if answer_examples_file:
         answer_chain.load_examples(answer_examples_file)
