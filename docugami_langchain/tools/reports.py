@@ -10,19 +10,29 @@ from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.callbacks import CallbackManagerForToolRun
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
-from langchain_core.tools import BaseTool
 
+from docugami_langchain.agents.models import Invocation
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
 from docugami_langchain.chains.querying.sql_result_chain import SQLResultChain
 from docugami_langchain.config import MAX_PARAMS_CUTOFF_LENGTH_CHARS
-from docugami_langchain.tools.common import NOT_FOUND
+from docugami_langchain.tools.common import NOT_FOUND, BaseDocugamiTool
 
 
-class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseTool):
+class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
     db: SQLDatabase
     chain: SQLResultChain
     name: str = "query_report"
     description: str = ""
+
+    def _is_sql_like(self, question: str) -> bool:
+        question = question.lower().strip()
+        return question.startswith("select") and "from" in question
+
+    def to_human_readable(self, invocation: Invocation) -> str:
+        if self._is_sql_like(invocation.tool_input):
+            return "Querying report."
+        else:
+            return f"Querying report for '{invocation.tool_input}'"
 
     def _run(
         self,
@@ -31,7 +41,7 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseTool):
     ) -> str:  # type: ignore
         """Use the tool."""
 
-        if "select" in question.lower() and "from" in question.lower():
+        if self._is_sql_like(question):
             return "Looks like you passed in a SQL query. This tool takes natural language inputs, and automatically translates them to SQL queries. Please try passing in a natural language query."
 
         chain_response = self.chain.run(question=question)
@@ -102,7 +112,7 @@ def excel_to_sqlite_connection(
     df = pd.read_excel(file_path, sheet_name=0)
 
     # Ignore non-informational columns
-    DROP_COLUMNS = ["FileId", "Link to Document"]
+    DROP_COLUMNS = ["FileId", "File", "Link to Document"]
     for col in DROP_COLUMNS:
         if col in df.columns:
             df = df.drop(columns=[col])
@@ -136,7 +146,7 @@ def get_retrieval_tool_for_report(
     embeddings: Embeddings,
     sql_fixup_examples_file: Optional[Path] = None,
     sql_examples_file: Optional[Path] = None,
-) -> Optional[BaseTool]:
+) -> Optional[BaseDocugamiTool]:
     if not local_xlsx_path.exists():
         return None
 

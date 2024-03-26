@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docugami-langchain"
-version = "0.0.7rc18"
+version = "0.0.7rc19"
 description = "An integration package connecting Docugami and LangChain"
 authors = []
 readme = "README.md"
@@ -15,7 +15,7 @@ python = ">=3.9,<4.0"
 langchain-core = ">=0.1.33"
 langchain-community = ">=0.0.29"
 langgraph = ">=0.0.30"
-dgml-utils = ">=0.3.2"
+dgml-utils = ">=0.3.3"
 wordtodigits = ">=1.0.2"
 python-dateutil = ">=2.9.0"
 pandas = ">=2.2.1"
