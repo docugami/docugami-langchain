@@ -190,6 +190,7 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
                                         cited_answer=CitedAnswer(
                                             source=self.__class__.__name__,
                                             answer=final_answer,
+                                            is_final=True,
                                         ),
                                     )
                                     yield TracedResponse[AgentState](
