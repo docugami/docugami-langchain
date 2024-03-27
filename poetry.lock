@@ -326,6 +326,17 @@ files = [
 ]
 
 [[package]]
+name = "cssselect"
+version = "1.2.0"
+description = "cssselect parses CSS3 Selectors and translates them to XPath 1.0"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "cssselect-1.2.0-py2.py3-none-any.whl", hash = "sha256:da1885f0c10b60c03ed5eccbb6b68d6eff248d91976fcde348f395d54c9fd35e"},
+    {file = "cssselect-1.2.0.tar.gz", hash = "sha256:666b19839cfaddb9ce9d36bfe4c969132c647b92fc9088c4e23f786b30f1b3dc"},
+]
+
+[[package]]
 name = "dataclasses-json"
 version = "0.6.4"
 description = "Easily serialize dataclasses to and from JSON."
@@ -888,17 +899,16 @@ extended-testing = ["aiosqlite (>=0.19.0,<0.20.0)", "aleph-alpha-client (>=2.15.
 
 [[package]]
 name = "langchain-core"
-version = "0.1.33"
+version = "0.1.34"
 description = "Building applications with LLMs through composability"
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langchain_core-0.1.33-py3-none-any.whl", hash = "sha256:cee7fbab114c74b7279a92c8a376b40344b0fa3d0f0af3143a858e3b7485bf13"},
-    {file = "langchain_core-0.1.33.tar.gz", hash = "sha256:545eff3de83cc58231bd2b0c6d672323fc2077b94d326ba1a3219118af1d1a66"},
+    {file = "langchain_core-0.1.34-py3-none-any.whl", hash = "sha256:9b4882e9dd3b612fc967acd1253a9bcb6a880b77433d20b8b87a60325b611920"},
+    {file = "langchain_core-0.1.34.tar.gz", hash = "sha256:f50612f292166f2c4ebfe76a94c4cbee310b4eb3da475fb252f3cd5d78935bff"},
 ]
 
 [package.dependencies]
-anyio = ">=3,<5"
 jsonpatch = ">=1.33,<2.0"
 langsmith = ">=0.1.0,<0.2.0"
 packaging = ">=23.2,<24.0"
@@ -960,13 +970,13 @@ langchain-core = ">=0.1.25,<0.2.0"
 
 [[package]]
 name = "langsmith"
-version = "0.1.31"
+version = "0.1.33"
 description = "Client library to connect to the LangSmith LLM Tracing and Evaluation Platform."
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langsmith-0.1.31-py3-none-any.whl", hash = "sha256:5211a9dc00831db307eb843485a97096484b697b5d2cd1efaac34228e97ca087"},
-    {file = "langsmith-0.1.31.tar.gz", hash = "sha256:efd54ccd44be7fda911bfdc0ead340473df2fdd07345c7252901834d0c4aa37e"},
+    {file = "langsmith-0.1.33-py3-none-any.whl", hash = "sha256:b84642d854b8f13ab6f540bb6d1c2b0e3e897add34b6d0880f3c3682c1a657fe"},
+    {file = "langsmith-0.1.33.tar.gz", hash = "sha256:d368b7817c5a871f5ef8ca73435498aec1cbe1b13419417c91a34cffa49767ad"},
 ]
 
 [package.dependencies]
@@ -976,13 +986,13 @@ requests = ">=2,<3"
 
 [[package]]
 name = "litellm"
-version = "1.34.4"
+version = "1.34.6"
 description = "Library to easily interface with LLM API providers"
 optional = false
 python-versions = "!=2.7.*,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,!=3.7.*,>=3.8"
 files = [
-    {file = "litellm-1.34.4-py3-none-any.whl", hash = "sha256:bc89b831e24e7ebb98105d3de8c4fe32a584c221c9700d251387100d0d3c73d5"},
-    {file = "litellm-1.34.4.tar.gz", hash = "sha256:acc595df3e34efce4446b684670cc4f8c6355c8e83630c485d9338fb8f556499"},
+    {file = "litellm-1.34.6-py3-none-any.whl", hash = "sha256:9e86dc8039192939d2c32f38465c87887d79ca67816dc0a3e3292e4a49b2256c"},
+    {file = "litellm-1.34.6.tar.gz", hash = "sha256:289fc9a7756933bed2034c032856628dd6517ae3420a3e120b8255c285880606"},
 ]
 
 [package.dependencies]
@@ -2727,18 +2737,18 @@ sqlcipher = ["sqlcipher3_binary"]
 
 [[package]]
 name = "sqlglot"
-version = "23.0.5"
+version = "23.2.0"
 description = "An easily customizable SQL parser and transpiler"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "sqlglot-23.0.5-py3-none-any.whl", hash = "sha256:12aadd50775209573e7dfa0136f5769da865de3d5954e8e88a02eb0081d1ad6b"},
-    {file = "sqlglot-23.0.5.tar.gz", hash = "sha256:68386c5aebdc9a1c74e2a623f6373805a2f839d205d46945258dde5ac692d515"},
+    {file = "sqlglot-23.2.0-py3-none-any.whl", hash = "sha256:cb041741dfabb95cb0b0d4fbac6b76334a02f5dfb35c7f171404f26bf8895ebd"},
+    {file = "sqlglot-23.2.0.tar.gz", hash = "sha256:a4436fa33e58492495a3225f0f856121f2f3497a6b53e71a1d933334b70820c5"},
 ]
 
 [package.extras]
 dev = ["duckdb (>=0.6)", "maturin (>=1.4,<2.0)", "mypy", "pandas", "pandas-stubs", "pdoc", "pre-commit", "pyspark", "python-dateutil", "ruff (==0.3.2)", "types-python-dateutil", "typing-extensions"]
-rs = ["sqlglotrs (==0.1.2)"]
+rs = ["sqlglotrs (==0.1.3)"]
 
 [[package]]
 name = "sympy"
@@ -3179,21 +3189,22 @@ files = [
 
 [[package]]
 name = "types-lxml"
-version = "2024.2.9"
+version = "2024.3.27"
 description = "Complete lxml external type annotation"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "types-lxml-2024.2.9.tar.gz", hash = "sha256:f584856fe84cc05f7f5fd0da00308101f75a94a1d4e48ca6e6ab9eade0052d49"},
-    {file = "types_lxml-2024.2.9-py3-none-any.whl", hash = "sha256:740e3f09ba8e264c81fe0e1ea79171157f42489fab235c92b0d03ca00963b238"},
+    {file = "types-lxml-2024.3.27.tar.gz", hash = "sha256:c03bef3c9a3a9e2b48b413ae106e0607d3a7bb893cdbf48449e293c691be46d3"},
+    {file = "types_lxml-2024.3.27-py3-none-any.whl", hash = "sha256:26a6d59403827d9d42fc617b90fa2851df0752e258115adda1ac2938f077cffc"},
 ]
 
 [package.dependencies]
+cssselect = ">=1.2,<2.0"
 types-beautifulsoup4 = "*"
 typing-extensions = ">=4.5,<5.0"
 
 [package.extras]
-dev = ["tox (>=4.0,<5.0)"]
+test = ["html5lib (==1.1)", "lxml (==5.1.*)", "mypy (==1.5.1)", "pyright (>=1.1.289)", "pytest (>=7.0,<9)", "pytest-mypy-plugins (>1.10.0,<2.0)", "tox (>=4.0,<5.0)", "typeguard (>=3.0,<5)"]
 
 [[package]]
 name = "types-python-dateutil"
@@ -3480,4 +3491,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<4.0"
-content-hash = "88ef48bb4267a434096827f1dfe6082ab9832b01ec96ea5e35f20d80f1bc7208"
+content-hash = "b0efe51903c02c8d2c308afe89d1d6a046919b7acfb33d08f45ed72cbc7b06de"
