@@ -72,7 +72,7 @@ class ToolRouterAgent(BaseDocugamiAgent):
                 "- Before retrying a tool, look at previous attempts at running the tool (in intermediate steps) and try to update the inputs to the tool before trying again",
             ],
             stop_sequences=[],
-            additional_runnables=[PydanticOutputParser(pydantic_object=Invocation)],
+            additional_runnables=[PydanticOutputParser(pydantic_object=Invocation)],  # type: ignore
         )
 
     def runnable(self) -> Runnable:

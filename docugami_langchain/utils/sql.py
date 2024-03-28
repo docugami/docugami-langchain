@@ -14,6 +14,7 @@ from tabulate import tabulate
 from docugami_langchain.config import (
     DEFAULT_SAMPLE_ROWS_GRID_FORMAT,
     DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO,
+    DEFAULT_TABLE_AS_TEXT_CELL_MAX_LENGTH,
     DEFAULT_TABLE_AS_TEXT_CELL_MAX_WIDTH,
 )
 
@@ -30,6 +31,8 @@ def first_table(db: SQLDatabase) -> Table:
 
 def sanitize_example_value(val: Any) -> str:
     clean_val = str(val) or ""
+    clean_val = clean_val.strip()
+    clean_val = clean_val[:DEFAULT_TABLE_AS_TEXT_CELL_MAX_LENGTH]
     clean_val = clean_val.strip()
 
     return clean_val

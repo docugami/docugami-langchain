@@ -19,6 +19,7 @@ DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO = 3
 # Control tabular presentation of rows in SQL query prompts
 DEFAULT_SAMPLE_ROWS_GRID_FORMAT = "grid"  # format from the tabulate library
 DEFAULT_TABLE_AS_TEXT_CELL_MAX_WIDTH = 64  # cell width
+DEFAULT_TABLE_AS_TEXT_CELL_MAX_LENGTH = 64 * 3  # cell content length
 
 DEFAULT_RETRIEVER_K: int = 12
 INCLUDE_XML_TAGS = True
