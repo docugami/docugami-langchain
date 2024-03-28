@@ -55,7 +55,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
                 + "Otherwise set this to False. Your output will be sent back to the AI agent and it will try again with different tools or inputs.",
             ],
             stop_sequences=[],
-            additional_runnables=[PydanticOutputParser(pydantic_object=CitedAnswer)],
+            additional_runnables=[PydanticOutputParser(pydantic_object=CitedAnswer)],  # type: ignore
         )
 
     def run(  # type: ignore[override]
