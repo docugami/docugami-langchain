@@ -970,13 +970,13 @@ langchain-core = ">=0.1.25,<0.2.0"
 
 [[package]]
 name = "langsmith"
-version = "0.1.36"
+version = "0.1.37"
 description = "Client library to connect to the LangSmith LLM Tracing and Evaluation Platform."
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langsmith-0.1.36-py3-none-any.whl", hash = "sha256:8022a7460fc1369eed40d32f298e90f02887733494ac2e0a29185aaa64c94352"},
-    {file = "langsmith-0.1.36.tar.gz", hash = "sha256:1cf504013933bb3231ac52ac52946414ab768c1b4dced45cf0891e939047a0f7"},
+    {file = "langsmith-0.1.37-py3-none-any.whl", hash = "sha256:2ea0375eb76d95b1cd32f57fc27a5c9c529443fbe816c0c0671d7e25e432ea37"},
+    {file = "langsmith-0.1.37.tar.gz", hash = "sha256:d410491b6ff6e1f07aeb1d33fb19784f544eed5fb549b514c793ab19d8fb4b60"},
 ]
 
 [package.dependencies]
@@ -986,13 +986,13 @@ requests = ">=2,<3"
 
 [[package]]
 name = "litellm"
-version = "1.34.10"
+version = "1.34.11"
 description = "Library to easily interface with LLM API providers"
 optional = false
 python-versions = "!=2.7.*,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,!=3.7.*,>=3.8"
 files = [
-    {file = "litellm-1.34.10-py3-none-any.whl", hash = "sha256:a982c4e467ab2cf24c0ca035765952c3512568019fffb5baee5e234d9dba8c12"},
-    {file = "litellm-1.34.10.tar.gz", hash = "sha256:6ed3f2441f5d15982e6acf8a7b9d78b0abea5c91d776dab743cb6c11516fc8ad"},
+    {file = "litellm-1.34.11-py3-none-any.whl", hash = "sha256:d65346e1710c53eb3eac840b6fea7b6ad9b35bd7688f026dab65bff76f05cf07"},
+    {file = "litellm-1.34.11.tar.gz", hash = "sha256:f6523060c2b2100f9517b6ba0cc585f16329708967c6a20c1276cfe55003f793"},
 ]
 
 [package.dependencies]
