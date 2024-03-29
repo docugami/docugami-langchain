@@ -3,6 +3,7 @@ import pytest
 from docugami_langchain.utils.string_cleanup import (
     escape_non_escaped_backslashes,
     replace_null_outside_quotes,
+    unescape_quotes_outside_strings,
 )
 
 
@@ -60,3 +61,37 @@ def test_escape_non_escaped_backslashes(text: str, expected: str) -> None:
 )
 def test_replace_null_outside_quotes(text: str, expected: str) -> None:
     assert replace_null_outside_quotes(text) == expected
+
+
+@pytest.mark.parametrize(
+    "query,expected",
+    [
+        ("abc def", "abc def"),  # No quotes
+        (
+            'abc "def',
+            'abc "def',
+        ),  # An escaped double quote outside a quoted string should not be unescaped
+        (
+            "abc 'def",
+            "abc 'def",
+        ),  # An escaped single quote outside a quoted string should not be unescaped
+        (
+            'abc "def" ghi',
+            'abc "def" ghi',
+        ),  # A properly escaped double quoted string should not be unescaped
+        (
+            "abc 'def' ghi",
+            "abc 'def' ghi",
+        ),  # A properly escaped single quoted string should not be unescaped
+        (
+            'abc "d\\"ef" ghi',
+            'abc "d\\"ef" ghi',
+        ),  # A properly escaped double quoted string inside a double quoted string should not be unescaped
+        (
+            'SELECT AVG(CAST(\\"Crime Insurance Limit\\" AS REAL)) FROM \\"1.Spreadsheet Services Agreement Luis\\"',
+            'SELECT AVG(CAST("Crime Insurance Limit" AS REAL)) FROM "1.Spreadsheet Services Agreement Luis"',
+        ),  # An example SQL Query with outer quotes that should be correctly escaped
+    ],
+)
+def test_unescape_quotes_outside_strings(query: str, expected: str) -> None:
+    assert unescape_quotes_outside_strings(query) == expected
