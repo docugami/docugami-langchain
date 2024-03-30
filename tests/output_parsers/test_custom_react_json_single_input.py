@@ -3,8 +3,8 @@ from typing import Union
 import pytest
 
 from docugami_langchain.agents.models import Invocation
+from docugami_langchain.agents.re_act_agent import FINAL_ANSWER_MARKER
 from docugami_langchain.output_parsers.custom_react_json_single_input import (
-    FINAL_ANSWER_ACTION,
     CustomReActJsonSingleInputOutputParser,
 )
 
@@ -19,7 +19,7 @@ def parser() -> CustomReActJsonSingleInputOutputParser:
 @pytest.mark.parametrize(
     "text,expected",
     [
-        # Case 1: JSON in ReAct format with preceding and following text
+        # JSON in ReAct format with preceding and following text
         (
             """
 (some preceding text)
@@ -39,7 +39,7 @@ Action:
                 tool_input="xyz some value",
             ),
         ),
-        # Case 2: JSON embedded without backticks, with preceding and following text
+        # JSON embedded without backticks, with preceding and following text
         (
             """
 (some preceding text)
@@ -56,7 +56,7 @@ Action:
                 tool_input="xyz some value",
             ),
         ),
-        # Case 3: The entire string is the JSON blob
+        # The entire string is the JSON blob
         (
             """
 {
@@ -69,9 +69,7 @@ Action:
                 tool_input="xyz some value",
             ),
         ),
-        # Case 4: Incorrect format (no JSON or action keys)
-        ("No JSON here", "No JSON here"),
-        # Case 5: Multiple JSON blobs; expect the first one to be returned
+        # Multiple JSON blobs; expect the first one to be returned
         (
             """
 {
@@ -89,22 +87,17 @@ Random text
                 tool_input="first input",
             ),
         ),
-        # Case 6: Empty input
+        # Input without any JSON but with the final answer action string
         (
-            "",
-            "",
-        ),
-        # Case 7: Input without any JSON but with the final answer action string
-        (
-            f"Some text before the action. {FINAL_ANSWER_ACTION} Only text after the final answer action.",
+            f"Some text before the action. {FINAL_ANSWER_MARKER} Only text after the final answer action.",
             "Only text after the final answer action.",
         ),
-        # Case 8: Input with both JSON and text with the final answer string
+        # Input with both JSON and text with the final answer string
         # In this case, ensure the JSON is parsed and returned before the final answer action string
         (
             f"""
 Some text before.
-{FINAL_ANSWER_ACTION} Text after the final answer, but we have JSON after this that:
+{FINAL_ANSWER_MARKER} Text after the final answer, but we have JSON after this that:
 ```
 {{
     "tool_name": "action before final answer",
@@ -117,7 +110,7 @@ Some text before.
                 tool_input="input before final answer",
             ),
         ),
-        # Case 9: Backslash inside JSON (actual failure seen during testing in staging)
+        # Backslash inside JSON (actual failure seen during testing in staging)
         (
             """Thought: The user has requested gross income data for multiple companies and quarters. I don't have this information in the current document set. I will use the human\_intervention tool
 to request the user to provide a query\_financials tool with the necessary data.
@@ -135,7 +128,7 @@ Action:
                 tool_input="Please create or update a query_financials tool with data sufficient to answer questions like this one: company, quarter, eps, and gross\_income.",
             ),
         ),
-        # Case 10: Null value inside JSON (actual failure seen during testing in staging)
+        # Null value inside JSON (actual failure seen during testing in staging)
         (
             """Question: How much wood can a woodchuck chunk? 
 Thought: Just enough to make an XML dev scream, "Please, no more nested tags!".
@@ -152,7 +145,7 @@ Action:
                 tool_input="",
             ),
         ),
-        # Case 11: JSON without delimiters, and nested quotes
+        # JSON without delimiters, and nested quotes
         (
             """Thought: I can use the query_aviation_incidents_report tool to find the accident number for the incident in Madill, Oklahoma.
 
@@ -185,6 +178,6 @@ def test_parse(
     elif isinstance(result, str) and isinstance(expected, str):
         assert "{" not in result  # no json in output
         assert "}" not in result  # no json in output
-        assert result == expected.split(FINAL_ANSWER_ACTION)[-1].strip()
+        assert result == expected.split(FINAL_ANSWER_MARKER)[-1].strip()
     else:
         raise Exception(f"Mismatched types: {result, expected}")

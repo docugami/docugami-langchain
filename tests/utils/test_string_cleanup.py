@@ -1,9 +1,9 @@
 import pytest
 
 from docugami_langchain.utils.string_cleanup import (
-    escape_non_escaped_backslashes,
+    escape_non_escape_sequence_backslashes,
     replace_null_outside_quotes,
-    unescape_quotes_outside_strings,
+    unescape_escaped_chars_outside_quoted_strings,
 )
 
 
@@ -27,7 +27,7 @@ from docugami_langchain.utils.string_cleanup import (
     ],
 )
 def test_escape_non_escaped_backslashes(text: str, expected: str) -> None:
-    assert escape_non_escaped_backslashes(text) == expected
+    assert escape_non_escape_sequence_backslashes(text) == expected
 
 
 @pytest.mark.parametrize(
@@ -68,30 +68,34 @@ def test_replace_null_outside_quotes(text: str, expected: str) -> None:
     [
         ("abc def", "abc def"),  # No quotes
         (
+            'abc \\"def',
             'abc "def',
-            'abc "def',
-        ),  # An escaped double quote outside a quoted string should not be unescaped
+        ),  # An escaped double quote outside a quoted string should be unescaped
         (
+            "abc \\'def",
             "abc 'def",
-            "abc 'def",
-        ),  # An escaped single quote outside a quoted string should not be unescaped
+        ),  # An escaped single quote outside a quoted string should be unescaped
         (
+            'abc \\"def\\" ghi',
             'abc "def" ghi',
-            'abc "def" ghi',
-        ),  # A properly escaped double quoted string should not be unescaped
+        ),  # If the double quotes marking a quoted string are escaped, the should be unescaped
         (
+            "abc \\'def\\' ghi",
             "abc 'def' ghi",
-            "abc 'def' ghi",
-        ),  # A properly escaped single quoted string should not be unescaped
+        ),  # If the single quotes marking a quoted string are escaped, the should be unescaped
         (
             'abc "d\\"ef" ghi',
             'abc "d\\"ef" ghi',
-        ),  # A properly escaped double quoted string inside a double quoted string should not be unescaped
+        ),  # A properly escaped double quote inside a double quoted string should NOT be unescaped
         (
             'SELECT AVG(CAST(\\"Crime Insurance Limit\\" AS REAL)) FROM \\"1.Spreadsheet Services Agreement Luis\\"',
             'SELECT AVG(CAST("Crime Insurance Limit" AS REAL)) FROM "1.Spreadsheet Services Agreement Luis"',
-        ),  # An example SQL Query with outer quotes that should be correctly escaped
+        ),  # An example SQL Query with outer quotes that should be correctly un-escaped
+        (
+            'SELECT COUNT(\*) FROM "1.Spreadsheet Services Agreement Luis"',
+            'SELECT COUNT(*) FROM "1.Spreadsheet Services Agreement Luis"',
+        ),  # An example SQL Query with an escaped asterisk that should be un-escaped
     ],
 )
-def test_unescape_quotes_outside_strings(query: str, expected: str) -> None:
-    assert unescape_quotes_outside_strings(query) == expected
+def test_unescape_outside_strings(query: str, expected: str) -> None:
+    assert unescape_escaped_chars_outside_quoted_strings(query) == expected

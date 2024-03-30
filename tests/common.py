@@ -91,7 +91,7 @@ RAG_CHAT_HISTORY = [
 RAG_QUESTION_WITH_HISTORY = (
     "List the accident numbers for any aviation incidents that happened there"
 )
-RAG_ANSWER_WITH_HISTORY_FRAGMENTS = ["DFW08CA044"]
+RAG_ANSWER_WITH_HISTORY_FRAGMENTS = ["DFW08CA044", "N6135M", "Cessna"]
 
 
 def is_core_tests_only_mode() -> bool:

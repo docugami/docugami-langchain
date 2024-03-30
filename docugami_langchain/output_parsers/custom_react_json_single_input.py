@@ -7,11 +7,14 @@ from langchain_core.output_parsers import BaseOutputParser
 
 from docugami_langchain.agents.models import Invocation
 from docugami_langchain.utils.string_cleanup import (
-    escape_non_escaped_backslashes,
+    escape_non_escape_sequence_backslashes,
     replace_null_outside_quotes,
+    unescape_escaped_chars_outside_quoted_strings,
 )
 
-FINAL_ANSWER_ACTION = "Final Answer:"
+THOUGHT_MARKER = "Thought:"
+OBSERVATION_MARKER = "Observation:"
+FINAL_ANSWER_MARKER = "Final Answer:"
 
 STRICT_REACT_PATTERN = re.compile(r"^.*?`{3}(?:json)?\n?(.*?)`{3}.*?$", re.DOTALL)
 """Regex pattern to parse the output strictly, JSON delimited by ``` as instructed in a ReAct prompt."""
@@ -48,12 +51,12 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
             raise ValueError("Invocation text not found")
         invocation_text = found.group(1)
         invocation_text = replace_null_outside_quotes(invocation_text)
-        invocation_text = escape_non_escaped_backslashes(invocation_text)
+        invocation_text = escape_non_escape_sequence_backslashes(invocation_text)
 
         return json.loads(invocation_text.strip())
 
     def parse(self, text: str) -> Union[Invocation, str]:
-        includes_answer = FINAL_ANSWER_ACTION in text
+        includes_answer = FINAL_ANSWER_MARKER in text
 
         try:
             # First, try parsing with STRICT_REACT_PATTERN
@@ -90,9 +93,24 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
                             f"Could not parse LLM output: {text}"
                         )
 
-                output = text.split(FINAL_ANSWER_ACTION)[-1].strip()
+                output = text.split(FINAL_ANSWER_MARKER)[-1].strip()
 
                 if "{" in output:
-                    raise OutputParserException(f"Potential JSON in parsed {output}")
+                    raise OutputParserException(
+                        f"Potential JSON in parsed output {output}"
+                    )
+
+                if THOUGHT_MARKER in output:
+                    raise OutputParserException(
+                        f"Potential Thought Marker in parsed output {output}"
+                    )
+
+                if OBSERVATION_MARKER in output:
+                    raise OutputParserException(
+                        f"Potential Observation Marker in parsed output {output}"
+                    )
+
+                output = escape_non_escape_sequence_backslashes(output)
+                output = unescape_escaped_chars_outside_quoted_strings(output)
 
                 return output

@@ -45,7 +45,10 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
         if previous_steps and any(
             [s for s in previous_steps if s.invocation == inv_model]
         ):
-            output = "This tool has been invoked before with identical inputs. Please try different inputs or a different tool."
+            output = (
+                "This tool has been invoked before with identical inputs. Please try different inputs or a different tool, after reconsidering previous thoughts and observations. "
+                + "Be careful you don't get stuck in a loop."
+            )
         else:
             tool_executor = ToolExecutor(self.tools)
             output = tool_executor.invoke(

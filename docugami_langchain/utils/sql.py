@@ -105,7 +105,7 @@ def sample_rows(
 
     return (
         f"{len(sample_rows)} example rows from the table (consider these to better craft and format queries e.g. considering "
-        + f"the format of typical values in the data when generating LIKE statements):\n {grid_str}\n"
+        + f"the format of typical values in the data when generating LIKE statements):\n {grid_str}"
     )
 
 

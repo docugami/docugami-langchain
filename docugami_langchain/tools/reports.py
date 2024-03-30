@@ -42,15 +42,21 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
         """Use the tool."""
 
         if self._is_sql_like(question):
-            return "Looks like you passed in a SQL query. This tool takes natural language inputs, and automatically translates them to SQL queries. Please try passing in a natural language query."
+            return (
+                "Looks like you passed in a SQL query. This tool takes natural language questions, and automatically translates them to SQL queries. "
+                "Please try passing in a natural language question."
+            )
 
-        chain_response = self.chain.run(question=question)
-        if chain_response.value:
-            sql_result = chain_response.value.get("sql_result")
-            if sql_result:
-                return str(sql_result)
+        try:
+            chain_response = self.chain.run(question=question)
+            if chain_response.value:
+                sql_result = chain_response.value.get("sql_result")
+                if sql_result:
+                    return str(sql_result)
 
-        return NOT_FOUND
+            return NOT_FOUND
+        except Exception as exc:
+            return f"There was an error. Please try a different question, or a different tool. Details: {exc}"
 
 
 def report_name_to_report_query_tool_function_name(name: str) -> str:
@@ -90,7 +96,7 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
         "Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. "
         + "Do NOT pass SQL as input to the tool even if you think you know it (trust the tool to translate the question to SQL). "
         + f"Internally, it has logic to translate the user's question to a SQL query over the {name} report, run it, and return the result. "
-        + f"Use this tool if you think the answer can be calculated from the following table.\n\n{table_info}"
+        + f"Use this tool if you think the answer can be calculated from the following table.\n{table_info}"
     )
 
     # Cap to avoid runaway tool descriptions.
