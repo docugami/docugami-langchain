@@ -21,17 +21,17 @@ from docugami_langchain.base_runnable import standard_sytem_instructions
 from docugami_langchain.config import DEFAULT_EXAMPLES_PER_PROMPT
 from docugami_langchain.history import chat_history_to_str
 from docugami_langchain.output_parsers.custom_react_json_single_input import (
-    FINAL_ANSWER_ACTION,
+    FINAL_ANSWER_MARKER,
+    OBSERVATION_MARKER,
     CustomReActJsonSingleInputOutputParser,
 )
 from docugami_langchain.params import RunnableParameters
 from docugami_langchain.tools.common import render_text_description
 
 REACT_AGENT_SYSTEM_MESSAGE = (
-    standard_sytem_instructions("answers user queries based only on given context")
+    standard_sytem_instructions("answers user queries based ONLY on given context")
     + """
-You have access to the following tools that you use only if necessary:
-
+You have access to the following tools:
 {tool_descriptions}
 
 The way you use these tools is by specifying a json blob. Specifically:
@@ -61,13 +61,18 @@ Observation: the result of the action
 Thought: I now know the final answer
 Final Answer: The final answer to the original input question. Make sure this is a complete answer, since only text after this label will be shown to the user.
 
-Don't give up easily. If you cannot find an answer using a tool, try using a different tool or the same tool with different inputs.
+Don't give up easily and try your retrieval tool before deciding you cannot answer a question. If you cannot find an answer using a tool, try using a different tool or the same tool
+with different inputs. Be especially mindful of report querying tools, and try those with different inputs if they don't return results, since they do very specific string searches internally.
 
-If you think you need clarifying information to answer the question, just ask the user. The user will see your final answer, and their reply will be sent back to you in the 
-form of another question, and you can combine that with chat history to better answer the question.
+If you think you need clarifying information to answer the question, just ask the user to clarify in your final answer. The user will see this final answer, respond,
+and this interaction will be added to chat history. You will then have the clafirication you need to answer the original question.
 
-If you think the user is not getting the answer they need, suggest that they rephrase the question or ask them to build reports against the docset mentioned in your available tools,
-since you will be able to query those reports to answer questions better. Do this as a final answer, not an action, since the user sees only your final answers.
+Amongst other capabilities, Docugami allows users to build reports against docsets, which you as the Docugami Assistant can query to answer questions better. Here are
+some reasons you may want to remind the user to please create a report against the docset mentioned in your available tools:
+- If you think the user is not getting the answer they need despite clarifications or multiple tool executions.
+- If you don't have any appropriate report querying tools available, but the user is asking questions that require counting, averaging, sorting or similar computation over the entire docset.
+
+If you ask the user for clarifying information or to create a report, do this as a final answer (not an action) since the user sees only your final answers.
 
 Never mention tools (directly by name, or the fact that you have access to tools, or the topic of tools in general) in your response. Tools are an internal implementation detail,
 and the user only knows about document sets as well as reports built against document sets.
@@ -81,7 +86,7 @@ Begin! Remember to ALWAYS use the format specified, since output that does not f
 
 def steps_to_react_str(
     intermediate_steps: Sequence[StepState],
-    observation_prefix: str = "Observation: ",
+    observation_prefix: str = OBSERVATION_MARKER,
 ) -> str:
     """Construct the scratchpad that lets the agent continue its thought process."""
     thoughts = ""
@@ -90,7 +95,7 @@ def steps_to_react_str(
             if step.invocation:
                 thoughts += step.invocation.log
 
-            thoughts += f"\n{observation_prefix}{step.output}\n"
+            thoughts += f"\n{observation_prefix} {step.output}\n"
     return thoughts
 
 
@@ -217,7 +222,7 @@ class ReActAgent(BaseDocugamiAgent):
         return workflow.compile()
 
     def parse_final_answer(self, text: str) -> str:
-        if FINAL_ANSWER_ACTION in text:
-            return str(text).split(FINAL_ANSWER_ACTION)[-1].strip()
+        if FINAL_ANSWER_MARKER in text:
+            return str(text).split(FINAL_ANSWER_MARKER)[-1].strip()
 
         return ""  # not found

@@ -17,7 +17,7 @@ from docugami_langchain.utils.sql import (
     ensure_query,
     get_table_info,
 )
-from docugami_langchain.utils.string_cleanup import unescape_quotes_outside_strings
+from docugami_langchain.utils.string_cleanup import unescape_escaped_chars_outside_quoted_strings
 
 logger = logging.getLogger(__name__)
 
@@ -71,7 +71,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
 
             try:
                 # Ensure query is valid
-                sql_query = unescape_quotes_outside_strings(sql_query)
+                sql_query = unescape_escaped_chars_outside_quoted_strings(sql_query)
                 ensure_query(self.db, sql_query)
 
                 # Run
@@ -98,7 +98,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
 
                     # Run Fixed-up SQL
                     fixed_sql = fixed_sql_response.value
-                    fixed_sql = unescape_quotes_outside_strings(fixed_sql)
+                    fixed_sql = unescape_escaped_chars_outside_quoted_strings(fixed_sql)
 
                     # Ensure query is valid
                     ensure_query(self.db, fixed_sql)

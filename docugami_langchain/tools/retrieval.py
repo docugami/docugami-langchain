@@ -45,11 +45,14 @@ class CustomDocsetRetrievalTool(BaseDocugamiTool):
         if not question:
             return "Please specify a question that you want to answer from this docset"
 
-        chain_response = self.chain.run(question=question)
-        if chain_response.value:
-            return chain_response.value
+        try:
+            chain_response = self.chain.run(question=question)
+            if chain_response.value:
+                return chain_response.value
 
-        return NOT_FOUND
+            return NOT_FOUND
+        except Exception as exc:
+            return f"There was an error. Please try a different question, or a different tool. Details: {exc}"
 
 
 def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:

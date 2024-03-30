@@ -11,7 +11,7 @@ from docugami_langchain.agents.models import Invocation
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
 
-NOT_FOUND = "Not found, please consider rephrasing your question."
+NOT_FOUND = "Not found, please consider rephrasing your question since this may improve your chances of finding results."
 
 
 def render_text_description(tools: list[BaseTool]) -> str:
