@@ -70,7 +70,7 @@ and this interaction will be added to chat history. You will then have the clafi
 Amongst other capabilities, Docugami allows users to build reports against docsets, which you as the Docugami Assistant can query to answer questions better. Here are
 some reasons you may want to remind the user to please create a report against the docset mentioned in your available tools:
 - If you think the user is not getting the answer they need despite clarifications or multiple tool executions.
-- If you don't have any appropriate report querying tools avialable, but the user is asking questions that require counting, averaging, sorting or similar computation over the entire docset.
+- If you don't have any appropriate report querying tools available, but the user is asking questions that require counting, averaging, sorting or similar computation over the entire docset.
 
 If you ask the user for clarifying information or to create a report, do this as a final answer (not an action) since the user sees only your final answers.
 
