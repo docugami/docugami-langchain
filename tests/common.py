@@ -32,9 +32,9 @@ from docugami_langchain.tools.reports import (
     report_name_to_report_query_tool_function_name,
 )
 from docugami_langchain.tools.retrieval import (
-    docset_name_to_direct_retriever_tool_function_name,
+    docset_name_to_direct_retrieval_tool_function_name,
     get_retrieval_tool_for_docset,
-    summaries_to_direct_retriever_tool_description,
+    summaries_to_direct_retrieval_tool_description,
 )
 from docugami_langchain.utils.sql import get_table_info
 
@@ -294,7 +294,7 @@ def build_test_retrieval_tool(
         _fetch_full_doc_summary_callback,
     ) = build_test_retrieval_artifacts(llm, embeddings, data_dir, data_files_glob)
 
-    retrieval_tool_description = summaries_to_direct_retriever_tool_description(
+    retrieval_tool_description = summaries_to_direct_retrieval_tool_description(
         name=RAG_TEST_DGML_DOCSET_NAME,
         summaries=random.sample(
             list(full_doc_summaries_by_id.values()),
@@ -308,7 +308,7 @@ def build_test_retrieval_tool(
     )
     tool = get_retrieval_tool_for_docset(
         chunk_vectorstore=vector_store,
-        retrieval_tool_function_name=docset_name_to_direct_retriever_tool_function_name(
+        retrieval_tool_function_name=docset_name_to_direct_retrieval_tool_function_name(
             RAG_TEST_DGML_DOCSET_NAME
         ),
         retrieval_tool_description=retrieval_tool_description,
