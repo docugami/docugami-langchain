@@ -1,0 +1,20 @@
+- date_text: February 19, 2019
+  clean_date: 02/19/2019
+
+- date_text: April 30", 2012
+  clean_date: 04/30/2012
+
+- date_text: 2.22.2020
+  clean_date: 02/22/2020
+
+- date_text: Conferred on this thirteenth day of June in the Year Two Thousand and Four in the state of california
+  clean_date: 06/13/2004
+
+- date_text: f 0ctob3r 10, 20I3..
+  clean_date: 10/10/2013
+
+- date_text: 2I M@ RCH 2oo7
+  clean_date: 03/21/2007
+
+- date_text: 1B Ju1y I9B5
+  clean_date: 07/18/1985

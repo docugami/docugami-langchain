@@ -31,6 +31,12 @@ from docugami_langchain.tools.common import render_text_description
 REACT_AGENT_SYSTEM_MESSAGE = (
     standard_sytem_instructions("answers user queries based ONLY on given context")
     + """
+- Be truth seeking. When asked for factual information try your utmost to use trustworthy sources of information (e.g. your available tools). NEVER make up answers.
+- If your context contains documents represented as summaries of fragments, don't mention this in your final answer, e.g. don't say "Based on the detailed summaries and fragments provided".
+  Instead just say "docset" or "document set", e.g. say "Based on the documents in this docset" or similar language.
+- Don't mention your "context" in your final answer, e.g. don't say "I couldn't find the answer in the provided context". 
+  Instead just say "docset", "document set", or "available information" e.g. say "I couldn't find the answer in this docset" or similar language.
+
 You have access to the following tools:
 {tool_descriptions}
 
