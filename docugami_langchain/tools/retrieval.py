@@ -55,7 +55,7 @@ class CustomDocsetRetrievalTool(BaseDocugamiTool):
             return f"There was an error. Please try a different question, or a different tool. Details: {exc}"
 
 
-def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
+def docset_name_to_direct_retrieval_tool_function_name(name: str) -> str:
     """
     Converts a docset name to a direct retriever tool function name.
 
@@ -67,11 +67,11 @@ def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
        name, replacing them with underscores.
     4. The final function name should not have more than one underscore together.
 
-    >>> docset_name_to_direct_retriever_tool_function_name('Earnings Calls')
+    >>> docset_name_to_direct_retrieval_tool_function_name('Earnings Calls')
     'retrieval_earnings_calls'
-    >>> docset_name_to_direct_retriever_tool_function_name('COVID-19   Statistics')
+    >>> docset_name_to_direct_retrieval_tool_function_name('COVID-19   Statistics')
     'retrieval_covid_19_statistics'
-    >>> docset_name_to_direct_retriever_tool_function_name('2023 Market Report!!!')
+    >>> docset_name_to_direct_retrieval_tool_function_name('2023 Market Report!!!')
     'retrieval_2023_market_report'
     """
     # Replace non-letter characters with underscores and remove extra whitespaces
@@ -84,7 +84,17 @@ def docset_name_to_direct_retriever_tool_function_name(name: str) -> str:
     return f"retrieval_{name}"
 
 
-def summaries_to_direct_retriever_tool_description(
+def docset_details_to_direct_retrieval_tool_description(name: str, description: str) -> str:
+    return (
+        "Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. "
+        + f"Internally, it has logic to retrieve relevant chunks from {name} documents that might contain answers to the question. "
+        + "Use this tool if you think the answer is likely to come from one or a few of these documents, and can be synthesized from "
+        + "retrieved chunks. "
+        + description
+    )
+
+
+def summaries_to_direct_retrieval_tool_description(
     name: str,
     summaries: list[Document],
     llm: BaseLanguageModel,
@@ -101,13 +111,8 @@ def summaries_to_direct_retriever_tool_description(
         chain.load_examples(describe_document_set_examples_file)
 
     description = chain.run(summaries=summaries, docset_name=name)
-    return (
-        "Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. "
-        + f"Internally, it has logic to retrieve relevant chunks from {name} documents that might contain answers to the question. "
-        + "Use this tool if you think the answer is likely to come from one or a few of these documents, and can be synthesized from "
-        + "retrieved chunks. "
-        + description.value
-    )
+
+    return docset_details_to_direct_retrieval_tool_description(name, description.value)
 
 
 def get_retrieval_tool_for_docset(
