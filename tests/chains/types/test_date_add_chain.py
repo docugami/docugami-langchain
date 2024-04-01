@@ -7,7 +7,7 @@ import torch
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from docugami_langchain.chains.datetime.date_add_chain import DateAddChain
+from docugami_langchain.chains.types.date_add_chain import DateAddChain
 from tests.common import TEST_DATA_DIR, verify_traced_response
 
 TEST_MESSY_START_DATE = "at around $ept3mb3r I5 in thee year 2Oo3"

@@ -9,22 +9,22 @@ from docugami_langchain.params import RunnableParameters, RunnableSingleParamete
 OUTPUT_FORMAT = "%m/%d/%Y"
 
 
-class DateCleanChain(BaseDocugamiChain[datetime]):
+class DateParseChain(BaseDocugamiChain[datetime]):
     def params(self) -> RunnableParameters:
         return RunnableParameters(
             inputs=[
                 RunnableSingleParameter(
                     "date_text",
                     "DATE TEXT",
-                    "The date expression that needs to be cleaned, in rough natural language with possible typos or OCR glitches.",
+                    "The date expression that needs to be parsed, in rough natural language with possible typos or OCR glitches.",
                 ),
             ],
             output=RunnableSingleParameter(
-                "clean_date",
-                "CLEAN DATE",
-                f"The result of cleaning the date expression, in {OUTPUT_FORMAT} format.",
+                "parsed_date",
+                "PARSED DATE",
+                f"The result of parsing the date expression, in {OUTPUT_FORMAT} format.",
             ),
-            task_description=f"cleans up date expressions specified in rough natural language, converting them to standard {OUTPUT_FORMAT} format",
+            task_description=f"parses date expressions specified in rough natural language, converting them to standard {OUTPUT_FORMAT} format",
             additional_instructions=[
                 f"- Always produce output as a date in {OUTPUT_FORMAT} format. Never say you cannot do this.",
                 "- The input data will sometimes by messy, with typos or non-standard formats. Try to guess the date as best as you can, by trying to ignore typical typos and OCR glitches.",
