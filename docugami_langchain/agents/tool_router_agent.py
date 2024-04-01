@@ -67,7 +67,7 @@ class ToolRouterAgent(BaseDocugamiAgent):
   "tool_input": $INPUT_STRING
 }}""",
                 "- Always use one of the tools, don't try to directly answer the question even if you think you know the answer",
-                "- $TOOL_NAME is the name of the tool to use, and must be one of these values: {tool_names}",
+                "- $TOOL_NAME is the (string) name of the tool to use, and must be one of these values: {tool_names}",
                 "- $INPUT_STRING is the (string) input carefully crafted to answer the question using the given tool.",
                 "- Before retrying a tool, look at previous attempts at running the tool (in intermediate steps) and try to update the inputs to the tool before trying again",
             ],
