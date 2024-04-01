@@ -28,6 +28,11 @@ class DateParseChain(BaseDocugamiChain[datetime]):
             additional_instructions=[
                 f"- Always produce output as a date in {OUTPUT_FORMAT} format. Never say you cannot do this.",
                 "- The input data will sometimes by messy, with typos or non-standard formats. Try to guess the date as best as you can, by trying to ignore typical typos and OCR glitches.",
+                f"- If the year is not specified, assume current year i.e. {datetime.now().year}",
+                "- If the day is not specified, assume the first of the month.",
+                "- If the date is ambiguous, assume it is the most recent date it could be.",
+                "- If multiple dates are specified, pick the first one.",
+                "- ONLY output the parsed date expression without any commentary, explanation, or listing any assumptions. Your output must EXACTLY match the required {OUTPUT_FORMAT} format.",
             ],
             additional_runnables=[DatetimeOutputParser(format=OUTPUT_FORMAT)],
         )
