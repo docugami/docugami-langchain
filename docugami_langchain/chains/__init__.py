@@ -1,7 +1,10 @@
 from docugami_langchain.chains.answer_chain import AnswerChain
 from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.chains.chunks import ElaborateChunkChain, SummarizeChunkChain
-from docugami_langchain.chains.documents import DescribeDocumentSetChain, SummarizeDocumentChain
+from docugami_langchain.chains.documents import (
+    DescribeDocumentSetChain,
+    SummarizeDocumentChain,
+)
 from docugami_langchain.chains.querying import (
     DocugamiExplainedSQLQueryChain,
     SQLFixupChain,
@@ -12,14 +15,22 @@ from docugami_langchain.chains.querying import (
     SuggestedReportChain,
 )
 from docugami_langchain.chains.rag import SimpleRAGChain
+from docugami_langchain.chains.types import (
+    DataTypeDetectionChain,
+    DataTypes,
+    DateAddChain,
+    DateParseChain,
+    DocugamiDataType,
+    TimespanParseChain,
+)
 
 __all__ = [
-    "BaseDocugamiChain",
     "AnswerChain",
+    "BaseDocugamiChain",
     "ElaborateChunkChain",
     "SummarizeChunkChain",
-    "SummarizeDocumentChain",
     "DescribeDocumentSetChain",
+    "SummarizeDocumentChain",
     "DocugamiExplainedSQLQueryChain",
     "SQLFixupChain",
     "SQLQueryExplainerChain",
@@ -28,4 +39,10 @@ __all__ = [
     "SuggestedQuestionsChain",
     "SuggestedReportChain",
     "SimpleRAGChain",
+    "DataTypeDetectionChain",
+    "DataTypes",
+    "DocugamiDataType",
+    "DateAddChain",
+    "DateParseChain",
+    "TimespanParseChain",
 ]

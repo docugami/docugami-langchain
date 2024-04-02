@@ -34,6 +34,12 @@ EXPECTED_CHAINS = [
     "SuggestedQuestionsChain",
     "SuggestedReportChain",
     "SimpleRAGChain",
+    "DataTypeDetectionChain",
+    "DataTypes",
+    "DocugamiDataType",
+    "DateAddChain",
+    "DateParseChain",
+    "TimespanParseChain",
 ]
 
 EXPECTED_DOCUMENT_LOADERS = [

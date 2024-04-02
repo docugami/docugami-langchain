@@ -8,22 +8,22 @@ from docugami_langchain.params import RunnableParameters, RunnableSingleParamete
 OUTPUT_FORMAT = "year:month:day:hour:minute:second"
 
 
-class TimespanCleanChain(BaseDocugamiChain[TimeSpan]):
+class TimespanParseChain(BaseDocugamiChain[TimeSpan]):
     def params(self) -> RunnableParameters:
         return RunnableParameters(
             inputs=[
                 RunnableSingleParameter(
                     "timespan_text",
                     "TIME SPAN TEXT",
-                    "The timespan expression that needs to be cleaned, in rough natural language with possible typos or OCR glitches.",
+                    "The timespan expression that needs to be parsed, in rough natural language with possible typos or OCR glitches.",
                 ),
             ],
             output=RunnableSingleParameter(
-                "clean_timespan",
-                "CLEAN TIME SPAN",
-                f"The result of cleaning the timespan expression, in {OUTPUT_FORMAT} format.",
+                "parsed_timespan",
+                "PARSED TIME SPAN",
+                f"The result of parsing the timespan expression, in {OUTPUT_FORMAT} format.",
             ),
-            task_description=f"cleans up time span expressions specified in rough natural language, converting them to standard {OUTPUT_FORMAT} format",
+            task_description=f"parses up time span expressions specified in rough natural language, converting them to standard {OUTPUT_FORMAT} format",
             additional_instructions=[
                 f"- Always produce output as a timespan in {OUTPUT_FORMAT} format. Never say you cannot do this.",
                 "- The input data will sometimes by messy, with typos or non-standard formats. Try to guess the timespan as best as you can, by trying to ignore typical typos and OCR glitches.",
