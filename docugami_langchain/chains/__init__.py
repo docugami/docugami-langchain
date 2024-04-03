@@ -11,10 +11,12 @@ from docugami_langchain.chains.querying import (
     SQLQueryExplainerChain,
     SQLResultChain,
     SQLResultExplainerChain,
+)
+from docugami_langchain.chains.rag import (
+    SimpleRAGChain,
     SuggestedQuestionsChain,
     SuggestedReportChain,
 )
-from docugami_langchain.chains.rag import SimpleRAGChain
 from docugami_langchain.chains.types import (
     DataTypeDetectionChain,
     DataTypes,
@@ -36,9 +38,9 @@ __all__ = [
     "SQLQueryExplainerChain",
     "SQLResultChain",
     "SQLResultExplainerChain",
+    "SimpleRAGChain",
     "SuggestedQuestionsChain",
     "SuggestedReportChain",
-    "SimpleRAGChain",
     "DataTypeDetectionChain",
     "DataTypes",
     "DocugamiDataType",

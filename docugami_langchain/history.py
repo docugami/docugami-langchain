@@ -62,10 +62,10 @@ def chat_history_to_str(
     formatted_history: str = ""
     if chat_history:
         for human, ai in chat_history:
-            formatted_history += ________SINGLE_TOKEN_LINE________ + "\n"
             formatted_history += f"{HUMAN_MARKER}: {human}\n"
             formatted_history += ________SINGLE_TOKEN_LINE________ + "\n"
             formatted_history += f"{AI_MARKER}: {ai}\n"
+            formatted_history += ________SINGLE_TOKEN_LINE________ + "\n"
 
     formatted_history = "\n" + formatted_history + "\n"
 

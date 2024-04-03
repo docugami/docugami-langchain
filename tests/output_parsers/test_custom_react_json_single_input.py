@@ -9,12 +9,6 @@ from docugami_langchain.output_parsers.custom_react_json_single_input import (
 )
 
 
-# Define a fixture for the parser instance
-@pytest.fixture
-def parser() -> CustomReActJsonSingleInputOutputParser:
-    return CustomReActJsonSingleInputOutputParser()
-
-
 # Use parametrize to test different scenarios
 @pytest.mark.parametrize(
     "text,expected",
@@ -162,10 +156,10 @@ Action:
     ],
 )
 def test_parse(
-    parser: CustomReActJsonSingleInputOutputParser,
     text: str,
     expected: Union[Invocation, str],
 ) -> None:
+    parser = CustomReActJsonSingleInputOutputParser()
     result = parser.parse(text)
 
     if isinstance(result, Invocation) and isinstance(expected, Invocation):

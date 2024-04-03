@@ -77,7 +77,7 @@ class ChatBotTool(BaseDocugamiTool):
     )
 
     def to_human_readable(self, invocation: Invocation) -> str:
-        return f"Thinking about: {invocation.tool_input}"
+        return f"Thinking: {invocation.tool_input}"
 
     def _run(
         self,

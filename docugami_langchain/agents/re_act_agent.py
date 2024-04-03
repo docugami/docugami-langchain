@@ -155,7 +155,7 @@ class ReActAgent(BaseDocugamiAgent):
                     ),
                     (
                         "human",
-                        "{chat_history}Question: {question}\n\n{intermediate_steps}",
+                        "{chat_history}{question}\n\n{intermediate_steps}",
                     ),
                 ]
             )

@@ -33,7 +33,7 @@ class CustomDocsetRetrievalTool(BaseDocugamiTool):
 
     def to_human_readable(self, invocation: Invocation) -> str:
         """Converts tool invocation to human readable string."""
-        return f"Searching documents for '{invocation.tool_input}'"
+        return f"Searching documents: {invocation.tool_input}"
 
     def _run(
         self,

@@ -15,7 +15,7 @@ from docugami_langchain.chains.querying import (
 )
 from docugami_langchain.tools.reports import connect_to_excel
 from tests.common import TEST_DATA_DIR, verify_traced_response
-from tests.testdata.xlsx.sql_test_data import SQL_TEST_DATA, SQLTestData
+from tests.testdata.xlsx.query_test_data import QUERY_TEST_DATA, QueryTestData
 
 SQL_EXAMPLES_FILE = TEST_DATA_DIR / "examples/test_sql_examples.yaml"
 SQL_FIXUP_EXAMPLES_FILE = TEST_DATA_DIR / "examples/test_sql_fixup_examples.yaml"
@@ -60,13 +60,13 @@ def init_docugami_explained_sql_query_chain(
     )
 
 
-def _runtest(chain: DocugamiExplainedSQLQueryChain, test_data: SQLTestData) -> None:
+def _runtest(chain: DocugamiExplainedSQLQueryChain, test_data: QueryTestData) -> None:
     response = chain.run(question=test_data.question)
     verify_traced_response(response, test_data.explained_result_answer_fragments)
 
 
 async def _runtest_streamed(
-    chain: DocugamiExplainedSQLQueryChain, test_data: SQLTestData
+    chain: DocugamiExplainedSQLQueryChain, test_data: QueryTestData
 ) -> None:
     chain_response = TracedResponse[dict](value={})
     async for incremental_response in chain.run_stream(question=test_data.question):
@@ -75,17 +75,17 @@ async def _runtest_streamed(
     verify_traced_response(chain_response, test_data.explained_result_answer_fragments)
 
 
-@pytest.mark.parametrize("test_data", SQL_TEST_DATA)
+@pytest.mark.parametrize("test_data", QUERY_TEST_DATA)
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 def test_fireworksai_docugami_explained_sql_query(
-    test_data: SQLTestData,
+    test_data: QueryTestData,
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
     db = connect_to_excel(
-        file_path=test_data.data_file, table_name=test_data.table_name
+        file_path=test_data.report.data_file, table_name=test_data.report.name
     )
     _runtest(
         init_docugami_explained_sql_query_chain(
@@ -98,18 +98,18 @@ def test_fireworksai_docugami_explained_sql_query(
     )
 
 
-@pytest.mark.parametrize("test_data", SQL_TEST_DATA)
+@pytest.mark.parametrize("test_data", QUERY_TEST_DATA)
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 @pytest.mark.asyncio
 async def test_fireworksai_streamed_docugami_explained_sql_query(
-    test_data: SQLTestData,
+    test_data: QueryTestData,
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
     db = connect_to_excel(
-        file_path=test_data.data_file, table_name=test_data.table_name
+        file_path=test_data.report.data_file, table_name=test_data.report.name
     )
     await _runtest_streamed(
         init_docugami_explained_sql_query_chain(
@@ -122,17 +122,17 @@ async def test_fireworksai_streamed_docugami_explained_sql_query(
     )
 
 
-@pytest.mark.parametrize("test_data", SQL_TEST_DATA)
+@pytest.mark.parametrize("test_data", QUERY_TEST_DATA)
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 def test_openai_docugami_explained_sql_query(
-    test_data: SQLTestData,
+    test_data: QueryTestData,
     openai_gpt35: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> None:
     db = connect_to_excel(
-        file_path=test_data.data_file, table_name=test_data.table_name
+        file_path=test_data.report.data_file, table_name=test_data.report.name
     )
     _runtest(
         init_docugami_explained_sql_query_chain(
@@ -145,18 +145,18 @@ def test_openai_docugami_explained_sql_query(
     )
 
 
-@pytest.mark.parametrize("test_data", SQL_TEST_DATA)
+@pytest.mark.parametrize("test_data", QUERY_TEST_DATA)
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio
 async def test_openai_docugami_streamed_explained_sql_query(
-    test_data: SQLTestData,
+    test_data: QueryTestData,
     openai_gpt35: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> None:
     db = connect_to_excel(
-        file_path=test_data.data_file, table_name=test_data.table_name
+        file_path=test_data.report.data_file, table_name=test_data.report.name
     )
     await _runtest_streamed(
         init_docugami_explained_sql_query_chain(

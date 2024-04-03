@@ -37,26 +37,11 @@ from docugami_langchain.tools.retrieval import (
     summaries_to_direct_retrieval_tool_description,
 )
 from docugami_langchain.utils.sql import get_table_info
+from tests.testdata.docsets.docset_test_data import DocsetTestData
+from tests.testdata.xlsx.query_test_data import TestReportData
 
 TEST_DATA_DIR = Path(__file__).parent / "testdata"
-RAG_TEST_DGML_DOCSET_NAME = "NTSB Aviation Incident Reports"
-RAG_TEST_DGML_DATA_DIR = TEST_DATA_DIR / "dgml_samples" / RAG_TEST_DGML_DOCSET_NAME
 EXAMPLES_PATH = TEST_DATA_DIR / "examples"
-
-CHARTERS_SUMMARY_DATA_FILE = TEST_DATA_DIR / "xlsx/Charters Summary.xlsx"
-CHARTERS_SUMMARY_TABLE_NAME = "Corporate Charters"
-
-SAAS_CONTRACTS_DATA_FILE = TEST_DATA_DIR / "xlsx/SaaS Contracts Report.xlsx"
-SAAS_CONTRACTS_TABLE_NAME = "SaaS Contracts"
-
-FINANCIAL_SAMPLE_DATA_FILE = TEST_DATA_DIR / "xlsx/Financial Sample.xlsx"
-FINANCIAL_SAMPLE_TABLE_NAME = "Financial Data"
-
-AVIATION_INCIDENTS_DATA_FILE = TEST_DATA_DIR / "xlsx/Aviation Incidents Report.xlsx"
-AVIATION_INCIDENTS_TABLE_NAME = "Aviation Incidents Report"
-
-DEMO_MSA_SERVICES_DATA_FILE = TEST_DATA_DIR / "xlsx/Report Services_preview.xlsx"
-DEMO_MSA_SERVICES_TABLE_NAME = "Service Agreements Summary"
 
 GENERAL_KNOWLEDGE_QUESTION = "Who formulated the theory of special relativity?"
 GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS = ["einstein"]
@@ -73,25 +58,6 @@ GENERAL_KNOWLEDGE_CHAT_HISTORY = [
 ]
 GENERAL_KNOWLEDGE_QUESTION_WITH_HISTORY = "When were they all born?"
 GENERAL_KNOWLEDGE_ANSWER_WITH_HISTORY_FRAGMENTS = ["1879", "1809", "1823"]
-
-
-RAG_QUESTION = "What is the accident number for the incident in madill, oklahoma?"
-RAG_ANSWER_FRAGMENTS = ["DFW08CA044"]
-
-RAG_CHAT_HISTORY = [
-    (
-        "What is the largest city in Marshall county, OK?",
-        "Madill is the largest city in Marshall County, Oklahoma, with a population of 4,094 in 2023. It's also the county seat.",
-    ),
-    (
-        "Do you know who it was named after?",
-        "It was named in honor of George Alexander Madill, an attorney for the St. Louis-San Francisco Railway.",
-    ),
-]
-RAG_QUESTION_WITH_HISTORY = (
-    "List the accident numbers for any aviation incidents that happened there"
-)
-RAG_ANSWER_WITH_HISTORY_FRAGMENTS = ["DFW08CA044", "N6135M", "Cessna"]
 
 
 def is_core_tests_only_mode() -> bool:
@@ -155,22 +121,20 @@ def build_test_common_tools(
 
 
 def build_test_query_tool(
-    llm: BaseLanguageModel, embeddings: Embeddings
+    report: TestReportData, llm: BaseLanguageModel, embeddings: Embeddings
 ) -> BaseDocugamiTool:
     """
     Builds a query tool over a test database
     """
-    xlsx = AVIATION_INCIDENTS_DATA_FILE
-    name = AVIATION_INCIDENTS_TABLE_NAME
-    db = connect_to_excel(xlsx, name)
+    db = connect_to_excel(report.data_file, report.name)
     description = report_details_to_report_query_tool_description(
-        name, get_table_info(db)
+        report.name, get_table_info(db)
     )
     tool = get_retrieval_tool_for_report(
-        local_xlsx_path=xlsx,
-        report_name=name,
+        local_xlsx_path=report.data_file,
+        report_name=report.name,
         retrieval_tool_function_name=report_name_to_report_query_tool_function_name(
-            name
+            report.name
         ),
         retrieval_tool_description=description,
         sql_llm=llm,
@@ -187,7 +151,7 @@ def build_test_query_tool(
 def build_test_retrieval_artifacts(
     llm: BaseLanguageModel,
     embeddings: Embeddings,
-    data_dir: Path = RAG_TEST_DGML_DATA_DIR,
+    data_dir: Path,
     data_files_glob: str = "*.xml",
 ) -> tuple[
     VectorStore,
@@ -252,7 +216,7 @@ def build_test_fused_retriever(
     llm: BaseLanguageModel,
     embeddings: Embeddings,
     re_ranker: BaseRanker,
-    data_dir: Path = RAG_TEST_DGML_DATA_DIR,
+    data_dir: Path,
     data_files_glob: str = "*.xml",
 ) -> FusedSummaryRetriever:
     """
@@ -280,7 +244,7 @@ def build_test_retrieval_tool(
     llm: BaseLanguageModel,
     embeddings: Embeddings,
     re_ranker: BaseRanker,
-    data_dir: Path = RAG_TEST_DGML_DATA_DIR,
+    docset: DocsetTestData,
     data_files_glob: str = "*.xml",
 ) -> BaseDocugamiTool:
     """
@@ -292,10 +256,15 @@ def build_test_retrieval_tool(
         full_doc_summaries_by_id,
         _fetch_parent_doc_callback,
         _fetch_full_doc_summary_callback,
-    ) = build_test_retrieval_artifacts(llm, embeddings, data_dir, data_files_glob)
+    ) = build_test_retrieval_artifacts(
+        llm,
+        embeddings,
+        TEST_DATA_DIR / "docsets" / docset.name,
+        data_files_glob,
+    )
 
     retrieval_tool_description = summaries_to_direct_retrieval_tool_description(
-        name=RAG_TEST_DGML_DOCSET_NAME,
+        name=docset.name,
         summaries=random.sample(
             list(full_doc_summaries_by_id.values()),
             min(len(full_doc_summaries_by_id), 3),
@@ -309,7 +278,7 @@ def build_test_retrieval_tool(
     tool = get_retrieval_tool_for_docset(
         chunk_vectorstore=vector_store,
         retrieval_tool_function_name=docset_name_to_direct_retrieval_tool_function_name(
-            RAG_TEST_DGML_DOCSET_NAME
+            docset.name
         ),
         retrieval_tool_description=retrieval_tool_description,
         llm=llm,

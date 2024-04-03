@@ -19,41 +19,8 @@ TEST_DATA = [
 ]
 
 
-@pytest.fixture()
-def local_date_parse_chain(
-    local_mistral7b: BaseLanguageModel,
-    huggingface_minilm: Embeddings,
-) -> DateParseChain:
-    """
-    Local chain to do date parsing.
-    """
-    chain = DateParseChain(llm=local_mistral7b, embeddings=huggingface_minilm)
-    chain.load_examples(TEST_DATA_DIR / "examples/test_date_parse_examples.yaml")
-    return chain
-
-
-@pytest.fixture()
-def fireworksai_date_parse_chain(
-    fireworksai_mixtral: BaseLanguageModel,
-    huggingface_minilm: Embeddings,
-) -> DateParseChain:
-    """
-    FireworksAI chain to do date parsing.
-    """
-    chain = DateParseChain(llm=fireworksai_mixtral, embeddings=huggingface_minilm)
-    chain.load_examples(TEST_DATA_DIR / "examples/test_date_parse_examples.yaml")
-    return chain
-
-
-@pytest.fixture()
-def openai_date_parse_chain(
-    openai_gpt35: BaseLanguageModel,
-    openai_ada: Embeddings,
-) -> DateParseChain:
-    """
-    OpenAI chain to do date parsing.
-    """
-    chain = DateParseChain(llm=openai_gpt35, embeddings=openai_ada)
+def init_chain(llm: BaseLanguageModel, embeddings: Embeddings) -> DateParseChain:
+    chain = DateParseChain(llm=llm, embeddings=embeddings)
     chain.load_examples(TEST_DATA_DIR / "examples/test_date_parse_examples.yaml")
     return chain
 
@@ -66,9 +33,13 @@ def openai_date_parse_chain(
 )
 @pytest.mark.parametrize("text,expected", TEST_DATA)
 def test_local_date_parse(
-    local_date_parse_chain: DateParseChain, text: str, expected: datetime
+    local_mistral7b: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
+    text: str,
+    expected: datetime,
 ) -> Any:
-    response = local_date_parse_chain.run(text)
+    chain = init_chain(local_mistral7b, huggingface_minilm)
+    response = chain.run(text)
     verify_traced_response(response)
     assert expected == response.value
 
@@ -78,9 +49,13 @@ def test_local_date_parse(
 )
 @pytest.mark.parametrize("text,expected", TEST_DATA)
 def test_fireworksai_date_parse(
-    fireworksai_date_parse_chain: DateParseChain, text: str, expected: datetime
+    fireworksai_mixtral: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
+    text: str,
+    expected: datetime,
 ) -> Any:
-    response = fireworksai_date_parse_chain.run(text)
+    chain = init_chain(fireworksai_mixtral, huggingface_minilm)
+    response = chain.run(text)
     verify_traced_response(response)
     assert expected == response.value
 
@@ -90,8 +65,12 @@ def test_fireworksai_date_parse(
 )
 @pytest.mark.parametrize("text,expected", TEST_DATA)
 def test_openai_date_parse(
-    openai_date_parse_chain: DateParseChain, text: str, expected: datetime
+    openai_gpt35: BaseLanguageModel,
+    openai_ada: Embeddings,
+    text: str,
+    expected: datetime,
 ) -> Any:
-    response = openai_date_parse_chain.run(text)
+    chain = init_chain(openai_gpt35, openai_ada)
+    response = chain.run(text)
     verify_traced_response(response)
     assert expected == response.value

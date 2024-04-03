@@ -9,12 +9,6 @@ from docugami_langchain.chains.querying.sql_result_chain import SQLResultChain
 from docugami_langchain.chains.querying.sql_result_explainer_chain import (
     SQLResultExplainerChain,
 )
-from docugami_langchain.chains.querying.suggested_questions_chain import (
-    SuggestedQuestionsChain,
-)
-from docugami_langchain.chains.querying.suggested_report_chain import (
-    SuggestedReportChain,
-)
 
 __all__ = [
     "DocugamiExplainedSQLQueryChain",
@@ -22,6 +16,4 @@ __all__ = [
     "SQLQueryExplainerChain",
     "SQLResultChain",
     "SQLResultExplainerChain",
-    "SuggestedQuestionsChain",
-    "SuggestedReportChain",
 ]

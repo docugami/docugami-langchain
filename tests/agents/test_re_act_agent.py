@@ -3,170 +3,156 @@ import os
 import pytest
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
+from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.agents import ReActAgent
-from docugami_langchain.tools.common import BaseDocugamiTool
 from tests.agents.common import run_agent_test, run_streaming_agent_test
 from tests.common import (
     GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     GENERAL_KNOWLEDGE_QUESTION,
-    RAG_ANSWER_FRAGMENTS,
-    RAG_ANSWER_WITH_HISTORY_FRAGMENTS,
-    RAG_CHAT_HISTORY,
-    RAG_QUESTION,
-    RAG_QUESTION_WITH_HISTORY,
+    build_test_common_tools,
+    build_test_query_tool,
+    build_test_retrieval_tool,
+)
+from tests.testdata.docsets.docset_test_data import (
+    DOCSET_TEST_DATA,
+    DocsetTestData,
 )
 
 
-@pytest.fixture()
-def fireworksai_mixtral_re_act_agent(
-    fireworksai_mixtral: BaseLanguageModel,
-    huggingface_minilm: Embeddings,
-    mixtral_retrieval_tool: BaseDocugamiTool,
-    mixtral_query_tool: BaseDocugamiTool,
-    mixtral_common_tools: list[BaseDocugamiTool],
+def init_re_act_agent(
+    docset: DocsetTestData,
+    llm: BaseLanguageModel,
+    embeddings: Embeddings,
+    re_ranker: BaseRanker,
 ) -> ReActAgent:
-    """
-    Fireworks AI ReAct Agent using mixtral.
-    """
+    tools = []
+    tools.append(build_test_retrieval_tool(llm, embeddings, re_ranker, docset))
+    if docset.report:
+        tools.append(build_test_query_tool(docset.report, llm, embeddings))
+    tools += build_test_common_tools(llm, embeddings)
+
     agent = ReActAgent(
-        llm=fireworksai_mixtral,
-        embeddings=huggingface_minilm,
-        tools=[mixtral_retrieval_tool, mixtral_query_tool] + mixtral_common_tools,
+        llm=llm,
+        embeddings=embeddings,
+        tools=tools,
     )
     return agent
 
 
-@pytest.fixture()
-def openai_gpt35_re_act_agent(
-    openai_gpt35: BaseLanguageModel,
-    openai_ada: Embeddings,
-    openai_retrieval_tool: BaseDocugamiTool,
-    openai_query_tool: BaseDocugamiTool,
-    openai_common_tools: list[BaseDocugamiTool],
-) -> ReActAgent:
-    """
-    OpenAI ReAct Agent using GPT 3.5.
-    """
-    agent = ReActAgent(
-        llm=openai_gpt35,
-        embeddings=openai_ada,
-        tools=[openai_retrieval_tool, openai_query_tool] + openai_common_tools,
-    )
-    return agent
-
-
+@pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 def test_fireworksai_re_act(
-    fireworksai_mixtral_re_act_agent: ReActAgent,
+    test_data: DocsetTestData,
+    fireworksai_mixtral: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
+    mxbai_re_rank: BaseRanker,
 ) -> None:
+    agent = init_re_act_agent(
+        test_data, fireworksai_mixtral, huggingface_minilm, mxbai_re_rank
+    )
+
     # test general LLM response from agent
     run_agent_test(
-        fireworksai_mixtral_re_act_agent,
+        agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
-    # test retrieval response from agent
-    run_agent_test(
-        fireworksai_mixtral_re_act_agent,
-        RAG_QUESTION,
-        RAG_ANSWER_FRAGMENTS,
-    )
+    for question in test_data.questions:
+        run_agent_test(
+            agent,
+            question.question,
+            question.acceptable_answer_fragments,
+            question.chat_history,
+        )
 
 
+@pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 @pytest.mark.asyncio
 async def test_fireworksai_streamed_re_act(
-    fireworksai_mixtral_re_act_agent: ReActAgent,
+    test_data: DocsetTestData,
+    fireworksai_mixtral: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
+    mxbai_re_rank: BaseRanker,
 ) -> None:
+    agent = init_re_act_agent(
+        test_data, fireworksai_mixtral, huggingface_minilm, mxbai_re_rank
+    )
+
     # test general LLM response from agent
     await run_streaming_agent_test(
-        fireworksai_mixtral_re_act_agent,
+        agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
-    # test retrieval response from agent
-    await run_streaming_agent_test(
-        fireworksai_mixtral_re_act_agent,
-        RAG_QUESTION,
-        RAG_ANSWER_FRAGMENTS,
-    )
+    for question in test_data.questions:
+        await run_streaming_agent_test(
+            agent,
+            question.question,
+            question.acceptable_answer_fragments,
+            question.chat_history,
+        )
 
 
-@pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
-)
-@pytest.mark.asyncio
-async def test_fireworksai_streamed_re_act_with_history(
-    fireworksai_mixtral_re_act_agent: ReActAgent,
-) -> None:
-    # test general LLM response from agent
-    await run_streaming_agent_test(
-        fireworksai_mixtral_re_act_agent,
-        RAG_QUESTION_WITH_HISTORY,
-        RAG_ANSWER_WITH_HISTORY_FRAGMENTS,
-        RAG_CHAT_HISTORY,
-    )
-
-
+@pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_re_act(openai_gpt35_re_act_agent: ReActAgent) -> None:
+def test_openai_re_act(
+    test_data: DocsetTestData,
+    openai_gpt35: BaseLanguageModel,
+    openai_ada: Embeddings,
+    openai_gpt35_re_rank: BaseRanker,
+) -> None:
+    agent = init_re_act_agent(test_data, openai_gpt35, openai_ada, openai_gpt35_re_rank)
+
     # test general LLM response from agent
     run_agent_test(
-        openai_gpt35_re_act_agent,
+        agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
-    # test retrieval response from agent
-    run_agent_test(
-        openai_gpt35_re_act_agent,
-        RAG_QUESTION,
-        RAG_ANSWER_FRAGMENTS,
-    )
+    for question in test_data.questions:
+        run_agent_test(
+            agent,
+            question.question,
+            question.acceptable_answer_fragments,
+            question.chat_history,
+        )
 
 
+@pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio
-async def test_openai_streamed_re_act(
-    openai_gpt35_re_act_agent: ReActAgent,
+async def test_openai_streaned_re_act(
+    test_data: DocsetTestData,
+    openai_gpt35: BaseLanguageModel,
+    openai_ada: Embeddings,
+    openai_gpt35_re_rank: BaseRanker,
 ) -> None:
+    agent = init_re_act_agent(test_data, openai_gpt35, openai_ada, openai_gpt35_re_rank)
+
     # test general LLM response from agent
     await run_streaming_agent_test(
-        openai_gpt35_re_act_agent,
+        agent,
         GENERAL_KNOWLEDGE_QUESTION,
         GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     )
 
-    # test retrieval response from agent
-    await run_streaming_agent_test(
-        openai_gpt35_re_act_agent,
-        RAG_QUESTION,
-        RAG_ANSWER_FRAGMENTS,
-    )
-
-
-@pytest.mark.skipif(
-    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
-)
-@pytest.mark.asyncio
-async def test_openai_streamed_re_act_with_history(
-    openai_gpt35_re_act_agent: ReActAgent,
-) -> None:
-    # test general LLM response from agent
-    await run_streaming_agent_test(
-        openai_gpt35_re_act_agent,
-        RAG_QUESTION_WITH_HISTORY,
-        RAG_ANSWER_WITH_HISTORY_FRAGMENTS,
-        RAG_CHAT_HISTORY,
-    )
+    for question in test_data.questions:
+        await run_streaming_agent_test(
+            agent,
+            question.question,
+            question.acceptable_answer_fragments,
+            question.chat_history,
+        )
