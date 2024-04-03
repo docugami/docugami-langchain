@@ -23,7 +23,7 @@ def init_chain(
     chain = AnswerChain(llm=llm, embeddings=embeddings)
     if examples:
         chain.load_examples(
-            TEST_DATA_DIR / "examples/test_summarize_chunk_examples.yaml"
+            TEST_DATA_DIR / "examples/test_answer_examples.yaml"
         )
     return chain
 
@@ -94,10 +94,11 @@ async def test_fireworksai_mixtral_streamed_answer_with_history(
 )
 @pytest.mark.asyncio
 async def test_openai_gpt35_streamed_answer_with_history(
-    openai_gpt35_answer_chain: AnswerChain,
+    openai_gpt35: BaseLanguageModel, openai_ada: Embeddings
 ) -> None:
+    chain = init_chain(openai_gpt35, openai_ada, examples=True)
     chain_response = TracedResponse[str](value="")
-    async for incremental_response in openai_gpt35_answer_chain.run_stream(
+    async for incremental_response in chain.run_stream(
         GENERAL_KNOWLEDGE_QUESTION_WITH_HISTORY,
         GENERAL_KNOWLEDGE_CHAT_HISTORY,
     ):

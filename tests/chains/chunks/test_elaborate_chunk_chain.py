@@ -12,7 +12,7 @@ TEST_INSTRUCTIONS = "Force Majeure clause absolving Trustee of liability in case
 
 def init_chain(llm: BaseLanguageModel, embeddings: Embeddings) -> ElaborateChunkChain:
     chain = ElaborateChunkChain(llm=llm, embeddings=embeddings)
-    chain.load_examples(TEST_DATA_DIR / "examples/test_summarize_chunk_examples.yaml")
+    chain.load_examples(TEST_DATA_DIR / "examples/test_elaborate_chunk_examples.yaml")
     return chain
 
 
