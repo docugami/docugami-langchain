@@ -32,7 +32,7 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
         if self._is_sql_like(invocation.tool_input):
             return "Querying report."
         else:
-            return f"Querying report for '{invocation.tool_input}'"
+            return f"Querying report: {invocation.tool_input}"
 
     def _run(
         self,

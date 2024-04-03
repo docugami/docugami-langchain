@@ -1,7 +1,6 @@
 from docugami_langchain.agents.base import AgentState, BaseDocugamiAgent
 from docugami_langchain.agents.models import (
     Citation,
-    CitationLink,
     CitedAnswer,
     Invocation,
     StepState,
@@ -13,7 +12,6 @@ __all__ = [
     "AgentState",
     "BaseDocugamiAgent",
     "Citation",
-    "CitationLink",
     "CitedAnswer",
     "Invocation",
     "StepState",

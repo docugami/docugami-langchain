@@ -32,7 +32,7 @@ class DateParseChain(BaseDocugamiChain[datetime]):
                 "- If the day is not specified, assume the first of the month.",
                 "- If the date is ambiguous, assume it is the most recent date it could be.",
                 "- If multiple dates are specified, pick the first one.",
-                "- ONLY output the parsed date expression without any commentary, explanation, or listing any assumptions. Your output must EXACTLY match the required {OUTPUT_FORMAT} format.",
+                f"- ONLY output the parsed date expression without any commentary, explanation, or listing any assumptions. Your output must EXACTLY match the required {OUTPUT_FORMAT} format.",
             ],
             additional_runnables=[DatetimeOutputParser(format=OUTPUT_FORMAT)],
         )

@@ -7,36 +7,16 @@ from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.chains.documents import SummarizeDocumentChain
 from tests.common import TEST_DATA_DIR, verify_traced_response
-from tests.testdata.dgml_samples.dgml_samples_test_data import (
-    DG_SAMPLE_TEST_DATA,
-    DGSamplesTestData,
+from tests.testdata.docsets.docset_test_data import (
+    DOCSET_TEST_DATA,
+    DocsetTestData,
 )
 
 
-@pytest.fixture()
-def fireworksai_mixtral_summarize_document_chain(
-    fireworksai_mixtral: BaseLanguageModel, huggingface_minilm: Embeddings
+def init_chain(
+    llm: BaseLanguageModel, embeddings: Embeddings
 ) -> SummarizeDocumentChain:
-    """
-    Fireworks AI chain to do document summarize using mixtral.
-    """
-    chain = SummarizeDocumentChain(
-        llm=fireworksai_mixtral, embeddings=huggingface_minilm
-    )
-    chain.load_examples(
-        TEST_DATA_DIR / "examples/test_summarize_document_examples.yaml"
-    )
-    return chain
-
-
-@pytest.fixture()
-def openai_gpt35_summarize_document_chain(
-    openai_gpt35: BaseLanguageModel, openai_ada: Embeddings
-) -> SummarizeDocumentChain:
-    """
-    OpenAI chain to do document summarize using GPT 3.5.
-    """
-    chain = SummarizeDocumentChain(llm=openai_gpt35, embeddings=openai_ada)
+    chain = SummarizeDocumentChain(llm=llm, embeddings=embeddings)
     chain.load_examples(
         TEST_DATA_DIR / "examples/test_summarize_document_examples.yaml"
     )
@@ -45,9 +25,9 @@ def openai_gpt35_summarize_document_chain(
 
 def _runtest_serial(
     chain: SummarizeDocumentChain,
-    test_data: DGSamplesTestData,
+    test_data: DocsetTestData,
 ) -> None:
-    data_dir: Path = TEST_DATA_DIR / "dgml_samples" / test_data.test_data_dir
+    data_dir: Path = TEST_DATA_DIR / "docsets" / test_data.name
 
     for md_file in data_dir.rglob("*.md"):
         # Read and process the contents of each file
@@ -60,9 +40,9 @@ def _runtest_serial(
 
 def _runtest_batched(
     chain: SummarizeDocumentChain,
-    test_data: DGSamplesTestData,
+    test_data: DocsetTestData,
 ) -> None:
-    data_dir: Path = TEST_DATA_DIR / "dgml_samples" / test_data.test_data_dir
+    data_dir: Path = TEST_DATA_DIR / "docsets" / test_data.name
 
     all_contents = []
     for md_file in data_dir.rglob("*.md"):
@@ -79,23 +59,25 @@ def _runtest_batched(
         assert len(summary) < len(all_contents[idx])
 
 
-@pytest.mark.parametrize("test_data", DG_SAMPLE_TEST_DATA)
+@pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 def test_fireworksai_summarize_document(
-    fireworksai_mixtral_summarize_document_chain: SummarizeDocumentChain,
-    test_data: DGSamplesTestData,
+    test_data: DocsetTestData,
+    fireworksai_mixtral: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
 ) -> None:
-    _runtest_batched(fireworksai_mixtral_summarize_document_chain, test_data)
+    chain = init_chain(fireworksai_mixtral, huggingface_minilm)
+    _runtest_batched(chain, test_data)
 
 
-@pytest.mark.parametrize("test_data", DG_SAMPLE_TEST_DATA)
+@pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 def test_openai_summarize_document(
-    openai_gpt35_summarize_document_chain: SummarizeDocumentChain,
-    test_data: DGSamplesTestData,
+    test_data: DocsetTestData, openai_gpt35: BaseLanguageModel, openai_ada: Embeddings
 ) -> None:
-    _runtest_serial(openai_gpt35_summarize_document_chain, test_data)
+    chain = init_chain(openai_gpt35, openai_ada)
+    _runtest_serial(chain, test_data)

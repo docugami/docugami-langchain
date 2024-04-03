@@ -11,7 +11,6 @@ EXPECTED_AGENTS = [
     "AgentState",
     "BaseDocugamiAgent",
     "Citation",
-    "CitationLink",
     "CitedAnswer",
     "Invocation",
     "StepState",

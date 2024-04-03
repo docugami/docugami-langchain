@@ -21,47 +21,10 @@ TEST_INPUT_TEXT_ITEMS = [
 TEST_PARSED_DATA_TYPE: DocugamiDataType = DocugamiDataType(type=DataTypes.DATETIME)
 
 
-@pytest.fixture()
-def local_data_type_detection_chain(
-    local_mistral7b: BaseLanguageModel,
-    huggingface_minilm: Embeddings,
+def init_chain(
+    llm: BaseLanguageModel, embeddings: Embeddings
 ) -> DataTypeDetectionChain:
-    """
-    Local chain to do data type detection.
-    """
-    chain = DataTypeDetectionChain(llm=local_mistral7b, embeddings=huggingface_minilm)
-    chain.load_examples(
-        TEST_DATA_DIR / "examples/test_data_type_detection_examples.yaml"
-    )
-    return chain
-
-
-@pytest.fixture()
-def fireworksai_data_type_detection_chain(
-    fireworksai_mixtral: BaseLanguageModel,
-    huggingface_minilm: Embeddings,
-) -> DataTypeDetectionChain:
-    """
-    FireworksAI chain to do data type detection.
-    """
-    chain = DataTypeDetectionChain(
-        llm=fireworksai_mixtral, embeddings=huggingface_minilm
-    )
-    chain.load_examples(
-        TEST_DATA_DIR / "examples/test_data_type_detection_examples.yaml"
-    )
-    return chain
-
-
-@pytest.fixture()
-def openai_data_type_detection_chain(
-    openai_gpt35: BaseLanguageModel,
-    openai_ada: Embeddings,
-) -> DataTypeDetectionChain:
-    """
-    OpenAI chain to do data type detection.
-    """
-    chain = DataTypeDetectionChain(llm=openai_gpt35, embeddings=openai_ada)
+    chain = DataTypeDetectionChain(llm=llm, embeddings=embeddings)
     chain.load_examples(
         TEST_DATA_DIR / "examples/test_data_type_detection_examples.yaml"
     )
@@ -75,9 +38,11 @@ def openai_data_type_detection_chain(
     reason="Not enough GPU memory to load model, need a larger GPU e.g. a 16GB T4",
 )
 def test_local_data_type_detection(
-    local_data_type_detection_chain: DataTypeDetectionChain,
+    local_mistral7b: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
 ) -> Any:
-    response = local_data_type_detection_chain.run(TEST_INPUT_TEXT_ITEMS)
+    chain = init_chain(local_mistral7b, huggingface_minilm)
+    response = chain.run(TEST_INPUT_TEXT_ITEMS)
     verify_traced_response(response)
     assert TEST_PARSED_DATA_TYPE == response.value
 
@@ -86,9 +51,11 @@ def test_local_data_type_detection(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 def test_fireworksai_data_type_detection(
-    fireworksai_data_type_detection_chain: DataTypeDetectionChain,
+    fireworksai_mixtral: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
 ) -> Any:
-    response = fireworksai_data_type_detection_chain.run(TEST_INPUT_TEXT_ITEMS)
+    chain = init_chain(fireworksai_mixtral, huggingface_minilm)
+    response = chain.run(TEST_INPUT_TEXT_ITEMS)
     verify_traced_response(response)
     assert TEST_PARSED_DATA_TYPE == response.value
 
@@ -97,8 +64,10 @@ def test_fireworksai_data_type_detection(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 def test_openai_data_type_detection(
-    openai_data_type_detection_chain: DataTypeDetectionChain,
+    openai_gpt35: BaseLanguageModel,
+    openai_ada: Embeddings,
 ) -> Any:
-    response = openai_data_type_detection_chain.run(TEST_INPUT_TEXT_ITEMS)
+    chain = init_chain(openai_gpt35, openai_ada)
+    response = chain.run(TEST_INPUT_TEXT_ITEMS)
     verify_traced_response(response)
     assert TEST_PARSED_DATA_TYPE == response.value

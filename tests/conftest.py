@@ -14,13 +14,6 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from rerankers import Reranker
 from rerankers.models.ranker import BaseRanker
 
-from docugami_langchain.tools.common import BaseDocugamiTool
-from tests.common import (
-    build_test_common_tools,
-    build_test_query_tool,
-    build_test_retrieval_tool,
-)
-
 # Turn on caching
 LOCAL_LLM_CACHE_DB_FILE = os.environ.get(
     "LOCAL_LLM_CACHE", "/tmp/docugami/.langchain.db"
@@ -30,6 +23,17 @@ set_llm_cache(SQLiteCache(database_path=LOCAL_LLM_CACHE_DB_FILE))
 
 # Enable logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(message)s")
+
+
+def is_core_tests_only_mode() -> bool:
+    core_tests_env_var = os.environ.get("DOCUGAMI_ONLY_CORE_TESTS")
+    if not core_tests_env_var:
+        return False
+    else:
+        if isinstance(core_tests_env_var, bool):
+            return core_tests_env_var
+        else:
+            return str(core_tests_env_var).lower() == "true"
 
 
 # Model fixtures
@@ -107,73 +111,3 @@ def openai_ada() -> Embeddings:
 @pytest.fixture()
 def openai_gpt35_re_rank() -> BaseRanker:
     return Reranker("rankgpt3", api_key=os.environ.get("OPENAI_API_KEY"), verbose=0)
-
-
-@pytest.fixture()
-def huggingface_common_tools(
-    fireworksai_mixtral: BaseLanguageModel,
-    huggingface_minilm: Embeddings,
-) -> list[BaseDocugamiTool]:
-    return build_test_common_tools(
-        llm=fireworksai_mixtral,
-        embeddings=huggingface_minilm,
-    )
-
-
-@pytest.fixture()
-def openai_common_tools(
-    openai_gpt35: BaseLanguageModel,
-    openai_ada: Embeddings,
-) -> list[BaseDocugamiTool]:
-    return build_test_common_tools(
-        llm=openai_gpt35,
-        embeddings=openai_ada,
-    )
-
-
-@pytest.fixture()
-def huggingface_query_tool(
-    fireworksai_mixtral: BaseLanguageModel,
-    huggingface_minilm: Embeddings,
-) -> BaseDocugamiTool:
-    return build_test_query_tool(
-        llm=fireworksai_mixtral,
-        embeddings=huggingface_minilm,
-    )
-
-
-@pytest.fixture()
-def openai_query_tool(
-    openai_gpt35: BaseLanguageModel,
-    openai_ada: Embeddings,
-) -> BaseDocugamiTool:
-    return build_test_query_tool(
-        llm=openai_gpt35,
-        embeddings=openai_ada,
-    )
-
-
-@pytest.fixture()
-def huggingface_retrieval_tool(
-    fireworksai_mixtral: BaseLanguageModel,
-    huggingface_minilm: Embeddings,
-    mxbai_re_rank: BaseRanker,
-) -> BaseDocugamiTool:
-    return build_test_retrieval_tool(
-        llm=fireworksai_mixtral,
-        embeddings=huggingface_minilm,
-        re_ranker=mxbai_re_rank,
-    )
-
-
-@pytest.fixture()
-def openai_retrieval_tool(
-    openai_gpt35: BaseLanguageModel,
-    openai_ada: Embeddings,
-    openai_gpt35_re_rank: BaseRanker,
-) -> BaseDocugamiTool:
-    return build_test_retrieval_tool(
-        llm=openai_gpt35,
-        embeddings=openai_ada,
-        re_ranker=openai_gpt35_re_rank,
-    )
