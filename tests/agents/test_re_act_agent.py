@@ -6,13 +6,16 @@ from langchain_core.language_models import BaseLanguageModel
 from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.agents import ReActAgent
-from tests.agents.common import run_agent_test, run_streaming_agent_test
-from tests.common import (
-    GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
-    GENERAL_KNOWLEDGE_QUESTION,
+from tests.agents.common import (
     build_test_common_tools,
     build_test_query_tool,
     build_test_retrieval_tool,
+    run_agent_test,
+    run_streaming_agent_test,
+)
+from tests.common import (
+    GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+    GENERAL_KNOWLEDGE_QUESTION,
 )
 from tests.testdata.docsets.docset_test_data import (
     DOCSET_TEST_DATA,

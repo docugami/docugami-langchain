@@ -1,22 +1,23 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Optional
 
-from tests.common import TEST_DATA_DIR, is_core_tests_only_mode
+from tests.common import TEST_DATA_DIR
+from tests.conftest import is_core_tests_only_mode
 from tests.testdata.xlsx.query_test_data import TestReportData
 
 
 @dataclass
 class TestQuestionData:
     question: str
-    chat_history: list[tuple[str, str]] = []
-    acceptable_answer_fragments: list[str] = []
+    chat_history: list[tuple[str, str]] = field(default_factory=lambda: [])
+    acceptable_answer_fragments: list[str] = field(default_factory=lambda: [])
 
 
 @dataclass
 class DocsetTestData:
     name: str
     is_core_test: bool = False
-    questions: list[TestQuestionData] = []
+    questions: list[TestQuestionData] = field(default_factory=lambda: [])
     report: Optional[TestReportData] = None
 
 

@@ -25,6 +25,17 @@ set_llm_cache(SQLiteCache(database_path=LOCAL_LLM_CACHE_DB_FILE))
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(message)s")
 
 
+def is_core_tests_only_mode() -> bool:
+    core_tests_env_var = os.environ.get("DOCUGAMI_ONLY_CORE_TESTS")
+    if not core_tests_env_var:
+        return False
+    else:
+        if isinstance(core_tests_env_var, bool):
+            return core_tests_env_var
+        else:
+            return str(core_tests_env_var).lower() == "true"
+
+
 # Model fixtures
 @pytest.fixture()
 def fireworksai_mistral_7b() -> BaseLanguageModel:

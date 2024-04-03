@@ -1,5 +1,3 @@
-import os
-import random
 import warnings
 from pathlib import Path
 from typing import Any, Optional
@@ -12,7 +10,7 @@ from langchain_core.vectorstores import VectorStore
 from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.base_runnable import TracedResponse
-from docugami_langchain.config import DEFAULT_RETRIEVER_K, MAX_FULL_DOCUMENT_TEXT_LENGTH
+from docugami_langchain.config import DEFAULT_RETRIEVER_K
 from docugami_langchain.document_loaders.docugami import DocugamiLoader
 from docugami_langchain.retrievers.fused_summary import (
     FusedRetrieverKeyValueFetchCallback,
@@ -24,21 +22,6 @@ from docugami_langchain.retrievers.mappings import (
     build_doc_maps_from_chunks,
     build_full_doc_summary_mappings,
 )
-from docugami_langchain.tools.common import BaseDocugamiTool, get_generic_tools
-from docugami_langchain.tools.reports import (
-    connect_to_excel,
-    get_retrieval_tool_for_report,
-    report_details_to_report_query_tool_description,
-    report_name_to_report_query_tool_function_name,
-)
-from docugami_langchain.tools.retrieval import (
-    docset_name_to_direct_retrieval_tool_function_name,
-    get_retrieval_tool_for_docset,
-    summaries_to_direct_retrieval_tool_description,
-)
-from docugami_langchain.utils.sql import get_table_info
-from tests.testdata.docsets.docset_test_data import DocsetTestData
-from tests.testdata.xlsx.query_test_data import TestReportData
 
 TEST_DATA_DIR = Path(__file__).parent / "testdata"
 EXAMPLES_PATH = TEST_DATA_DIR / "examples"
@@ -58,17 +41,6 @@ GENERAL_KNOWLEDGE_CHAT_HISTORY = [
 ]
 GENERAL_KNOWLEDGE_QUESTION_WITH_HISTORY = "When were they all born?"
 GENERAL_KNOWLEDGE_ANSWER_WITH_HISTORY_FRAGMENTS = ["1879", "1809", "1823"]
-
-
-def is_core_tests_only_mode() -> bool:
-    core_tests_env_var = os.environ.get("DOCUGAMI_ONLY_CORE_TESTS")
-    if not core_tests_env_var:
-        return False
-    else:
-        if isinstance(core_tests_env_var, bool):
-            return core_tests_env_var
-        else:
-            return str(core_tests_env_var).lower() == "true"
 
 
 def verify_value(
@@ -105,47 +77,6 @@ def verify_traced_response(
         return
 
     return verify_value(response.value, match_fragment_str_options, empty_ok)
-
-
-def build_test_common_tools(
-    llm: BaseLanguageModel, embeddings: Embeddings
-) -> list[BaseDocugamiTool]:
-    """
-    Builds common tools for test purposes
-    """
-    return get_generic_tools(
-        llm=llm,
-        embeddings=embeddings,
-        answer_examples_file=EXAMPLES_PATH / "test_answer_examples.yaml",
-    )
-
-
-def build_test_query_tool(
-    report: TestReportData, llm: BaseLanguageModel, embeddings: Embeddings
-) -> BaseDocugamiTool:
-    """
-    Builds a query tool over a test database
-    """
-    db = connect_to_excel(report.data_file, report.name)
-    description = report_details_to_report_query_tool_description(
-        report.name, get_table_info(db)
-    )
-    tool = get_retrieval_tool_for_report(
-        local_xlsx_path=report.data_file,
-        report_name=report.name,
-        retrieval_tool_function_name=report_name_to_report_query_tool_function_name(
-            report.name
-        ),
-        retrieval_tool_description=description,
-        sql_llm=llm,
-        embeddings=embeddings,
-        sql_fixup_examples_file=EXAMPLES_PATH / "test_sql_fixup_examples.yaml",
-        sql_examples_file=EXAMPLES_PATH / "test_sql_examples.yaml",
-    )
-    if not tool:
-        raise Exception("Could not create test query tool")
-
-    return tool
 
 
 def build_test_retrieval_artifacts(
@@ -238,57 +169,3 @@ def build_test_fused_retriever(
         retriever_k=DEFAULT_RETRIEVER_K,
         search_type=SearchType.mmr,
     )
-
-
-def build_test_retrieval_tool(
-    llm: BaseLanguageModel,
-    embeddings: Embeddings,
-    re_ranker: BaseRanker,
-    docset: DocsetTestData,
-    data_files_glob: str = "*.xml",
-) -> BaseDocugamiTool:
-    """
-    Builds a vector store pre-populated with chunks from test documents
-    using the given embeddings, and returns a retriever tool off it.
-    """
-    (
-        vector_store,
-        full_doc_summaries_by_id,
-        _fetch_parent_doc_callback,
-        _fetch_full_doc_summary_callback,
-    ) = build_test_retrieval_artifacts(
-        llm,
-        embeddings,
-        TEST_DATA_DIR / "docsets" / docset.name,
-        data_files_glob,
-    )
-
-    retrieval_tool_description = summaries_to_direct_retrieval_tool_description(
-        name=docset.name,
-        summaries=random.sample(
-            list(full_doc_summaries_by_id.values()),
-            min(len(full_doc_summaries_by_id), 3),
-        ),  # give 3 randomly selected summaries summaries
-        llm=llm,
-        embeddings=embeddings,
-        max_sample_documents_cutoff_length=MAX_FULL_DOCUMENT_TEXT_LENGTH,
-        describe_document_set_examples_file=EXAMPLES_PATH
-        / "test_describe_document_set_examples.yaml",
-    )
-    tool = get_retrieval_tool_for_docset(
-        chunk_vectorstore=vector_store,
-        retrieval_tool_function_name=docset_name_to_direct_retrieval_tool_function_name(
-            docset.name
-        ),
-        retrieval_tool_description=retrieval_tool_description,
-        llm=llm,
-        embeddings=embeddings,
-        re_ranker=re_ranker,
-        fetch_parent_doc_callback=_fetch_parent_doc_callback,
-        fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
-        retrieval_k=DEFAULT_RETRIEVER_K,
-    )
-    if not tool:
-        raise Exception("Failed to create retrieval tool")
-
-    return tool

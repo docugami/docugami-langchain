@@ -6,7 +6,8 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.chains.querying import SQLFixupChain
-from tests.common import TEST_DATA_DIR, is_core_tests_only_mode, verify_traced_response
+from tests.common import TEST_DATA_DIR, verify_traced_response
+from tests.conftest import is_core_tests_only_mode
 
 
 @dataclass

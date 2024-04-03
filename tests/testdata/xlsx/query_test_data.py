@@ -3,7 +3,8 @@
 from dataclasses import dataclass
 from pathlib import Path
 
-from tests.common import TEST_DATA_DIR, is_core_tests_only_mode
+from tests.common import TEST_DATA_DIR
+from tests.conftest import is_core_tests_only_mode
 
 CHARTERS_SUMMARY_DATA_FILE = TEST_DATA_DIR / "xlsx/Charters Summary.xlsx"
 CHARTERS_SUMMARY_TABLE_NAME = "Corporate Charters"
