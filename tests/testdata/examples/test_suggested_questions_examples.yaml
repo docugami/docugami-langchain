@@ -1,102 +1,107 @@
-- table_infos:
-    - |
-      CREATE TABLE "Corporate Charters" (
-        "FILED Date" TEXT,
-        "FILED Time" TEXT,
-        "SR" REAL,
-        "FileNumber" REAL,
-        "Corporation Name" TEXT,
-        "Registered Address" TEXT,
-        "Shares of Common Stock" INTEGER,
-        "Shares of Preferred Stock" INTEGER
-      )
+- chat_history:
+  summaries:
+  table_infos: |
+    CREATE TABLE "Corporate Charters" (
+      "FILED Date" TEXT,
+      "FILED Time" TEXT,
+      "SR" REAL,
+      "FileNumber" REAL,
+      "Corporation Name" TEXT,
+      "Registered Address" TEXT,
+      "Shares of Common Stock" INTEGER,
+      "Shares of Preferred Stock" INTEGER
+    )
   suggested_questions: |
     1. What are the companies with the least number of common stock?
     2. What's the average number of common stocks for the companies listed?
     3. Which company has the highest number of preferred stocks?
     4. How many companies have more preferred stocks than common stocks?
 
-- table_infos:
-    - |
-      CREATE TABLE "SaaS Contracts" (
-        "File Name" TEXT,
-        "Customer Number" TEXT,
-        "Client Name" TEXT,
-        "Effective Date" TEXT,
-        "Effective Date (clean)" TIMESTAMP,
-        "Term Expiry" TEXT,
-        "Term Expiry (clean)" TIMESTAMP,
-        "Payment Terms" TEXT
-      )
+- chat_history:
+  summaries:
+  table_infos: |
+    CREATE TABLE "SaaS Contracts" (
+      "File Name" TEXT,
+      "Customer Number" TEXT,
+      "Client Name" TEXT,
+      "Effective Date" TEXT,
+      "Effective Date (clean)" TIMESTAMP,
+      "Term Expiry" TEXT,
+      "Term Expiry (clean)" TIMESTAMP,
+      "Payment Terms" TEXT
+    )
   suggested_questions: |
     1. When does the contract with BioGenesis Corp. expire?
     2. What is the longest term of a contract?
     3. Which contracts have terms longer than two years?
     4. What are the common payment terms for the contracts?
 
-- table_infos:
-    - |
-      CREATE TABLE "Financial Data" (
-        "Segment" TEXT,
-        "Country" TEXT,
-        "Product" TEXT,
-        "Discount Band" TEXT,
-        "Units Sold" REAL,
-        "Manufacturing Price" INTEGER,
-        "Sale Price" INTEGER,
-        "Gross Sales" REAL,
-        "Discounts" REAL,
-        " Sales" REAL,
-        "COGS" REAL,
-        "Profit" REAL,
-        "Date" TIMESTAMP,
-        "Month Number" INTEGER,
-        "Month Name" TEXT,
-        "Year" INTEGER
-      )
+- chat_history:
+  summaries:
+  table_infos: |
+    CREATE TABLE "Financial Data" (
+      "Segment" TEXT,
+      "Country" TEXT,
+      "Product" TEXT,
+      "Discount Band" TEXT,
+      "Units Sold" REAL,
+      "Manufacturing Price" INTEGER,
+      "Sale Price" INTEGER,
+      "Gross Sales" REAL,
+      "Discounts" REAL,
+      " Sales" REAL,
+      "COGS" REAL,
+      "Profit" REAL,
+      "Date" TIMESTAMP,
+      "Month Number" INTEGER,
+      "Month Name" TEXT,
+      "Year" INTEGER
+    )
   suggested_questions: |
     1. What was the total profit for the midmarket segment in Mexico in 2014?
     2. What were the total gross sales for all segments in Mexico in 2014?
     3. What was the total units sold for the midmarket segment in Mexico in 2014?
     4. Which product had the highest gross sales in the midmarket segment in Mexico in 2014?
 
-- table_infos:
-    - |
-      CREATE TABLE "Genre" (
-        "GenreId" INTEGER NOT NULL,
-        "Name" NVARCHAR(120),
-        PRIMARY KEY ("GenreId")
-      )
+- chat_history:
+  summaries:
+  table_infos: |
+    CREATE TABLE "Genre" (
+      "GenreId" INTEGER NOT NULL,
+      "Name" NVARCHAR(120),
+      PRIMARY KEY ("GenreId")
+    )
   suggested_questions: |
     1. Which genres end with 'k'?
     2. How many genres have the word 'rock' in their names?
     3. Are there any genres that contain the letter 'z'?
     4. How many genres start with a vowel?
 
-- table_infos:
-    - |
-      CREATE TABLE "Report_Services_preview.xlsx" (
-        "Workers Compensation Insurance" TEXT, 
-        "Limit" TEXT, 
-        "Commercial General Liability Insurance" TEXT, 
-        "Technology Professional Liability Errors Omissions Policy" TEXT, 
-        "Excess Liability Umbrella Coverage" TEXT, 
-        "Services Agreement Date" TEXT, 
-        "Completion of the Services by Company Date" TEXT, 
-        "Charge" TEXT, 
-        "Initial Payment" TEXT, 
-        "Continue in Force And Effect Date" TEXT, 
-        "Non-refundable" TEXT, 
-        "Company" TEXT, 
-        "Client" TEXT, 
-        "Client Address" TEXT, 
-        "Magicsoft" TEXT, 
-        "Except" TEXT, 
-        "A Party" TEXT, 
-        "A Daily Basis" TEXT, 
-        "The Initial Understanding" TEXT, 
-        "Signature Page" TEXT
-      )
+- chat_history:
+  summaries:
+  table_infos: |
+    CREATE TABLE "Report_Services_preview.xlsx" (
+      "Workers Compensation Insurance" TEXT, 
+      "Limit" TEXT, 
+      "Commercial General Liability Insurance" TEXT, 
+      "Technology Professional Liability Errors Omissions Policy" TEXT, 
+      "Excess Liability Umbrella Coverage" TEXT, 
+      "Services Agreement Date" TEXT, 
+      "Completion of the Services by Company Date" TEXT, 
+      "Charge" TEXT, 
+      "Initial Payment" TEXT, 
+      "Continue in Force And Effect Date" TEXT, 
+      "Non-refundable" TEXT, 
+      "Company" TEXT, 
+      "Client" TEXT, 
+      "Client Address" TEXT, 
+      "Magicsoft" TEXT, 
+      "Except" TEXT, 
+      "A Party" TEXT, 
+      "A Daily Basis" TEXT, 
+      "The Initial Understanding" TEXT, 
+      "Signature Page" TEXT
+    )
   suggested_questions: |
     1. Which client has the highest liability cap?
     2. What is the average initial payment?

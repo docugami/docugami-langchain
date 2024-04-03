@@ -22,6 +22,7 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
 
         return {
             "summaries": itemgetter("summaries") | RunnableLambda(formatted_summaries),
+            "chat_history": itemgetter("chat_history"),
         } | super().runnable()
 
     def params(self) -> RunnableParameters:

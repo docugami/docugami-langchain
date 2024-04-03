@@ -32,8 +32,9 @@ class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
             return infos.strip()
 
         return {
-            "table_infos": RunnableLambda(table_info),
             "summaries": itemgetter("summaries") | RunnableLambda(formatted_summaries),
+            "table_infos": RunnableLambda(table_info),
+            "chat_history": itemgetter("chat_history"),
         } | super().runnable()
 
     def params(self) -> RunnableParameters:
