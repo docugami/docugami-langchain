@@ -6,20 +6,16 @@ from typing import Annotated, Sequence, TypedDict, Union
 from langchain_core.pydantic_v1 import BaseModel
 
 
-class CitationLink(BaseModel):
-    label: str
-    href: str
-
-
 class Citation(BaseModel):
-    text: str
-    links: list[CitationLink]
+    label: str
+    details: str
+    link: str
 
 
 class CitedAnswer(BaseModel):
     source: str
     answer: str
-    citations: list[tuple[str, list[Citation]]] = []
+    citations: list[Citation] = []
     is_final: bool = False
     metadata: dict = {}
 

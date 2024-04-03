@@ -22,9 +22,9 @@ from tests.common import (
 def fireworksai_mixtral_re_act_agent(
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
-    huggingface_retrieval_tool: BaseDocugamiTool,
-    huggingface_query_tool: BaseDocugamiTool,
-    huggingface_common_tools: list[BaseDocugamiTool],
+    mixtral_retrieval_tool: BaseDocugamiTool,
+    mixtral_query_tool: BaseDocugamiTool,
+    mixtral_common_tools: list[BaseDocugamiTool],
 ) -> ReActAgent:
     """
     Fireworks AI ReAct Agent using mixtral.
@@ -32,8 +32,7 @@ def fireworksai_mixtral_re_act_agent(
     agent = ReActAgent(
         llm=fireworksai_mixtral,
         embeddings=huggingface_minilm,
-        tools=[huggingface_retrieval_tool, huggingface_query_tool]
-        + huggingface_common_tools,
+        tools=[mixtral_retrieval_tool, mixtral_query_tool] + mixtral_common_tools,
     )
     return agent
 

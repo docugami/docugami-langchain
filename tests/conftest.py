@@ -110,7 +110,7 @@ def openai_gpt35_re_rank() -> BaseRanker:
 
 
 @pytest.fixture()
-def huggingface_common_tools(
+def mixtral_common_tools(
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> list[BaseDocugamiTool]:
@@ -132,7 +132,7 @@ def openai_common_tools(
 
 
 @pytest.fixture()
-def huggingface_query_tool(
+def mixtral_query_tool(
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> BaseDocugamiTool:
@@ -154,7 +154,7 @@ def openai_query_tool(
 
 
 @pytest.fixture()
-def huggingface_retrieval_tool(
+def mixtral_retrieval_tool(
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
     mxbai_re_rank: BaseRanker,
