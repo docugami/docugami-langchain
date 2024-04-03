@@ -11,6 +11,7 @@ class TestQuestionData:
     question: str
     chat_history: list[tuple[str, str]] = field(default_factory=lambda: [])
     acceptable_answer_fragments: list[str] = field(default_factory=lambda: [])
+    requires_report: bool = False
 
 
 @dataclass
@@ -72,6 +73,7 @@ DOCSET_TEST_DATA: list[DocsetTestData] = [
             TestQuestionData(
                 question="How many accidents involved Cessna aircraft?",
                 acceptable_answer_fragments=["27", "twenty", "seven"],
+                requires_report=True,
             ),
         ],
     ),

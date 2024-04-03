@@ -56,11 +56,12 @@ def test_fireworksai_simple_rag(
     )
 
     for question in test_data.questions:
-        answer = fireworksai_mixtral_simple_rag_chain.run(
-            question=question.question,
-            chat_history=question.chat_history,
-        )
-        verify_traced_response(answer, question.acceptable_answer_fragments)
+        if not question.requires_report:
+            answer = fireworksai_mixtral_simple_rag_chain.run(
+                question=question.question,
+                chat_history=question.chat_history,
+            )
+            verify_traced_response(answer, question.acceptable_answer_fragments)
 
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
@@ -81,8 +82,9 @@ def test_openai_simple_rag(
     )
 
     for question in test_data.questions:
-        answer = openai_gpt35_simple_rag_chain.run(
-            question=question.question,
-            chat_history=question.chat_history,
-        )
-        verify_traced_response(answer, question.acceptable_answer_fragments)
+        if not question.requires_report:
+            answer = openai_gpt35_simple_rag_chain.run(
+                question=question.question,
+                chat_history=question.chat_history,
+            )
+            verify_traced_response(answer, question.acceptable_answer_fragments)

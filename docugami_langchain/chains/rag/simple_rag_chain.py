@@ -45,6 +45,7 @@ class SimpleRAGChain(BaseDocugamiChain[str]):
                 "- If you don't know the answer, just say that you don't know.",
                 "- Your answer should be concise, up to three sentences long.",
             ],
+            stop_sequences=[],
             key_finding_output_parse=False,  # set to False for streaming
         )
 
@@ -58,6 +59,7 @@ class SimpleRAGChain(BaseDocugamiChain[str]):
 
         return {
             "context": itemgetter("question") | self.retriever | format_retrieved_docs,
+            "chat_history": itemgetter("chat_history"),
             "question": itemgetter("question"),
         } | super().runnable()
 
