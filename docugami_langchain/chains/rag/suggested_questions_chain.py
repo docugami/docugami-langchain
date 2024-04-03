@@ -66,7 +66,7 @@ class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
             additional_instructions=[
                 "- Base your questions only on the given document summaries, OR the columns in the provided pre-built report tables (if any).",
                 "- Generate the most likely questions a user may ask, in order of relevance, no more than that.",
-                "- If chat history is provided, consider that to determine the next set of questions the user is most likley to ask.",
+                "- If chat history is provided, consider that to determine the next set of questions the user is most likely to ask.",
                 "- Generate suggested questions as a list, one question per line.",
             ],
             additional_runnables=[LineSeparatedListOutputParser()],
