@@ -6,11 +6,10 @@
   question: Who wrote the book that introduced these characters?
   tool_names: retrieval_ndas, query_nda_report, small_talk, general_knowledge, human_intervention
   tool_descriptions: |
-    1. retrieval_ntsb_aviation_incident_reports: Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. Internally, it has logic to retrieve 
-    relevant chunks from NTSB Aviation Incident Reports documents that might contain answers to the question. Use this tool if you think the answer is likely to come from one or a few of these documents, and 
-    can be synthesized from retrieved chunks. This document type is the National Transportation Safety Board (NTSB) Aviation Accident Final Report or Summary. It provides detailed information about aviation 
-    accidents or incidents, including the circumstances, causes, findings, and analysis. The reports include information about the aircraft, individuals involved, meteorological conditions, airport information, 
-    and the probable cause of the accident or incident.
+    1. retrieval_ntsb_aviation_incident_reports: Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. Use this tool if you think the answer is 
+    likely to come from one or a few of these documents, and can be synthesized from retrieved chunks. This document type is the National Transportation Safety Board (NTSB) Aviation Accident Final Report or Summary. 
+    It provides detailed information about aviation accidents or incidents, including the circumstances, causes, findings, and analysis. The reports include information about the aircraft, individuals involved, 
+    meteorological conditions, airport information, and the probable cause of the accident or incident.
 
     2. small_talk: Responds to greetings, small talk, or questions that can be directly answered from the chat history.
 

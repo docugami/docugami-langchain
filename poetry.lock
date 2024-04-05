@@ -955,13 +955,13 @@ tiktoken = ">=0.5.2,<1"
 
 [[package]]
 name = "langgraph"
-version = "0.0.31"
+version = "0.0.32"
 description = "langgraph"
 optional = false
 python-versions = "<4.0,>=3.9.0"
 files = [
-    {file = "langgraph-0.0.31-py3-none-any.whl", hash = "sha256:4dfa5d424b0330bfcf2e077acbad545a924672af8b669225f2480b2f84afa710"},
-    {file = "langgraph-0.0.31.tar.gz", hash = "sha256:45b95c19dc4e66c4ef67678538070f77199d5f4673723ca66b84299e74693198"},
+    {file = "langgraph-0.0.32-py3-none-any.whl", hash = "sha256:b9330b75b420f6fc0b8b238c3dd974166e4e779fd11b6c73c58754db14644cb5"},
+    {file = "langgraph-0.0.32.tar.gz", hash = "sha256:28338cc525ae82b240de89bffec1bae412fedb4edb6267de5c7f944c47ea8263"},
 ]
 
 [package.dependencies]
@@ -969,13 +969,13 @@ langchain-core = ">=0.1.38,<0.2.0"
 
 [[package]]
 name = "langsmith"
-version = "0.1.39"
+version = "0.1.40"
 description = "Client library to connect to the LangSmith LLM Tracing and Evaluation Platform."
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langsmith-0.1.39-py3-none-any.whl", hash = "sha256:85c19177162585728001cb7ae91ab48ca4abe39b7bc1ff783212ac426ded222b"},
-    {file = "langsmith-0.1.39.tar.gz", hash = "sha256:2aec9d2f9cc664042d2121b13da569b0902aff842c86b17b440245d57da84ec5"},
+    {file = "langsmith-0.1.40-py3-none-any.whl", hash = "sha256:aa47d0f5a1eabd5c05ac6ce2cd3e28ccfc554d366e856a27b7c3c17c443881cb"},
+    {file = "langsmith-0.1.40.tar.gz", hash = "sha256:50fdf313741cf94e978de06025fd180b56acf1d1a4549b0fd5453ef23d5461ef"},
 ]
 
 [package.dependencies]
@@ -985,13 +985,13 @@ requests = ">=2,<3"
 
 [[package]]
 name = "litellm"
-version = "1.34.22"
+version = "1.34.27"
 description = "Library to easily interface with LLM API providers"
 optional = false
 python-versions = "!=2.7.*,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,!=3.7.*,>=3.8"
 files = [
-    {file = "litellm-1.34.22-py3-none-any.whl", hash = "sha256:0e573d56d762f4060c53493da4a08c48034b5bb5ba22e34517065739adfd9154"},
-    {file = "litellm-1.34.22.tar.gz", hash = "sha256:ca50ede3ca8d3f9dc2765ca13cf2ff5c4e4b9afb4db222f9d7cb9ee838b6180f"},
+    {file = "litellm-1.34.27-py3-none-any.whl", hash = "sha256:77c7084f4089cfc661e70730f2302ec3ddd015ae56f77a055aea0b681343e81d"},
+    {file = "litellm-1.34.27.tar.gz", hash = "sha256:03bd0abaca4317e003daa011766815b97420efb6584413a8735de6bdc0835041"},
 ]
 
 [package.dependencies]
@@ -1625,13 +1625,13 @@ files = [
 
 [[package]]
 name = "nvidia-nvjitlink-cu12"
-version = "12.4.99"
+version = "12.4.127"
 description = "Nvidia JIT LTO Library"
 optional = false
 python-versions = ">=3"
 files = [
-    {file = "nvidia_nvjitlink_cu12-12.4.99-py3-none-manylinux2014_x86_64.whl", hash = "sha256:c6428836d20fe7e327191c175791d38570e10762edc588fb46749217cd444c74"},
-    {file = "nvidia_nvjitlink_cu12-12.4.99-py3-none-win_amd64.whl", hash = "sha256:991905ffa2144cb603d8ca7962d75c35334ae82bf92820b6ba78157277da1ad2"},
+    {file = "nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl", hash = "sha256:06b3b9b25bf3f8af351d664978ca26a16d2c5127dbd53c0497e28d1fb9611d57"},
+    {file = "nvidia_nvjitlink_cu12-12.4.127-py3-none-win_amd64.whl", hash = "sha256:fd9020c501d27d135f983c6d3e244b197a7ccad769e34df53a42e276b0e25fa1"},
 ]
 
 [[package]]
@@ -1647,13 +1647,13 @@ files = [
 
 [[package]]
 name = "openai"
-version = "1.16.1"
+version = "1.16.2"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.7.1"
 files = [
-    {file = "openai-1.16.1-py3-none-any.whl", hash = "sha256:77ef3db6110071f7154859e234250fb945a36554207a30a4491092eadb73fcb5"},
-    {file = "openai-1.16.1.tar.gz", hash = "sha256:58922c785d167458b46e3c76e7b1bc2306f313ee9b71791e84cbf590abe160f2"},
+    {file = "openai-1.16.2-py3-none-any.whl", hash = "sha256:46a435380921e42dae218d04d6dd0e89a30d7f3b9d8a778d5887f78003cf9354"},
+    {file = "openai-1.16.2.tar.gz", hash = "sha256:c93d5efe5b73b6cb72c4cd31823852d2e7c84a138c0af3cbe4a8eb32b1164ab2"},
 ]
 
 [package.dependencies]
@@ -2810,13 +2810,13 @@ sqlcipher = ["sqlcipher3_binary"]
 
 [[package]]
 name = "sqlglot"
-version = "23.6.3"
+version = "23.7.0"
 description = "An easily customizable SQL parser and transpiler"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "sqlglot-23.6.3-py3-none-any.whl", hash = "sha256:61dacd21795fa21d96a16afb0ba034d3b9241cea99e6a31526bb420383fa7eed"},
-    {file = "sqlglot-23.6.3.tar.gz", hash = "sha256:2eae103593c73abcd89e2301436d58d2727c62e462ab98c3ef6a1720b6681a03"},
+    {file = "sqlglot-23.7.0-py3-none-any.whl", hash = "sha256:8b4523a0fc7adf1e43cf48c5c1ef47c1d575f711cfc50a6f4dfcb95bcb081ff0"},
+    {file = "sqlglot-23.7.0.tar.gz", hash = "sha256:8c37d7ffcae8d659554392366decbe2016e737e1161b4e51ad04f738be9c2f30"},
 ]
 
 [package.extras]
@@ -3339,13 +3339,13 @@ files = [
 
 [[package]]
 name = "typing-extensions"
-version = "4.10.0"
+version = "4.11.0"
 description = "Backported and Experimental Type Hints for Python 3.8+"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "typing_extensions-4.10.0-py3-none-any.whl", hash = "sha256:69b1a937c3a517342112fb4c6df7e72fc39a38e7891a5730ed4985b5214b5475"},
-    {file = "typing_extensions-4.10.0.tar.gz", hash = "sha256:b0abd7c89e8fb96f98db18d86106ff1d90ab692004eb746cf6eda2682f91b3cb"},
+    {file = "typing_extensions-4.11.0-py3-none-any.whl", hash = "sha256:c1f94d72897edaf4ce775bb7558d5b79d8126906a14ea5ed1635921406c0387a"},
+    {file = "typing_extensions-4.11.0.tar.gz", hash = "sha256:83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0"},
 ]
 
 [[package]]
@@ -3564,4 +3564,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<4.0"
-content-hash = "b0efe51903c02c8d2c308afe89d1d6a046919b7acfb33d08f45ed72cbc7b06de"
+content-hash = "064518bbd5aafb0d49258514b8eb85dbf06c06c850a86bdb4346e28226d44a69"

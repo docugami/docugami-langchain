@@ -1,9 +1,8 @@
 - chat_history:
   question: When does the contract for ABC corp expire?
   tool_descriptions: |
-    1. query_contracts_report: Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. Internally, it has logic to retrieve 
-    relevant chunks from MSA Contract documents that might contain answers to the question. Use this tool if you think the answer is likely to come from one or a few of these documents, and 
-    can be synthesized from retrieved chunks. This document type is the Master Service Agreement Contracts.
+    1. query_contracts_report: Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. Use this tool if you think the answer is 
+    likely to come from one or a few of these documents, and can be synthesized from retrieved chunks. This document type is the Master Service Agreement Contracts.
 
     2. small_talk: Responds to greetings, small talk, or questions that can be directly answered from the chat history.
 
