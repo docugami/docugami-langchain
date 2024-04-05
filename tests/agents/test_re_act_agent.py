@@ -137,7 +137,7 @@ def test_openai_re_act(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio
-async def test_openai_streaned_re_act(
+async def test_openai_streamed_re_act(
     test_data: DocsetTestData,
     openai_gpt35: BaseLanguageModel,
     openai_ada: Embeddings,
