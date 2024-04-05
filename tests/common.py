@@ -49,6 +49,9 @@ def verify_value(
     empty_ok: bool = False,
 ) -> None:
     value = str(value)
+    if empty_ok and not value:
+        return
+
     assert value
     if match_fragment_str_options:
         output_match = False
