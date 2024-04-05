@@ -5,6 +5,7 @@ from typing import Optional
 from langchain_core.callbacks import CallbackManagerForToolRun
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
+from langchain_core.runnables import RunnableConfig
 from langchain_core.tools import BaseTool
 
 from docugami_langchain.agents.models import Invocation
@@ -87,9 +88,17 @@ class ChatBotTool(BaseDocugamiTool):
     ) -> str:
         """Use the tool."""
 
+        config=None
+        if run_manager:
+            config=RunnableConfig(
+                    run_name=self.__class__.__name__,
+                    run_id=run_manager.run_id,
+                    callbacks=run_manager,
+                )
         chain_response: TracedResponse[str] = self.answer_chain.run(
             question=question,
             chat_history=chat_history,
+            config=config,
         )
 
         return chain_response.value

@@ -10,6 +10,7 @@ from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.callbacks import CallbackManagerForToolRun
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
+from langchain_core.runnables import RunnableConfig
 
 from docugami_langchain.agents.models import Invocation
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
@@ -48,7 +49,18 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
             )
 
         try:
-            chain_response = self.chain.run(question=question)
+            config = None
+            if run_manager:
+                config = RunnableConfig(
+                    run_name=self.__class__.__name__,
+                    run_id=run_manager.run_id,
+                    callbacks=run_manager,
+                )
+
+            chain_response = self.chain.run(
+                question=question,
+                config=config,
+            )
             if chain_response.value:
                 sql_result = chain_response.value.get("sql_result")
                 if sql_result:
@@ -95,7 +107,6 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     description = (
         "Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. "
         + "Do NOT pass SQL as input to the tool even if you think you know it (trust the tool to translate the question to SQL). "
-        + f"Internally, it has logic to translate the user's question to a SQL query over the {name} report, run it, and return the result. "
         + f"Use this tool if you think the answer can be calculated from the following table.\n{table_info}"
     )
 

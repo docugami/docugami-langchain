@@ -6,6 +6,7 @@ from langchain_core.callbacks import CallbackManagerForToolRun
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
+from langchain_core.runnables import RunnableConfig
 from langchain_core.vectorstores import VectorStore
 from rerankers.models.ranker import BaseRanker
 
@@ -46,7 +47,17 @@ class CustomDocsetRetrievalTool(BaseDocugamiTool):
             return "Please specify a question that you want to answer from this docset"
 
         try:
-            chain_response = self.chain.run(question=question)
+            config = None
+            if run_manager:
+                config = RunnableConfig(
+                    run_name=self.__class__.__name__,
+                    run_id=run_manager.run_id,
+                    callbacks=run_manager,
+                )
+            chain_response = self.chain.run(
+                question=question,
+                config=config,
+            )
             if chain_response.value:
                 return chain_response.value
 
@@ -84,12 +95,13 @@ def docset_name_to_direct_retrieval_tool_function_name(name: str) -> str:
     return f"retrieval_{name}"
 
 
-def docset_details_to_direct_retrieval_tool_description(name: str, description: str) -> str:
+def docset_details_to_direct_retrieval_tool_description(
+    name: str, description: str
+) -> str:
     return (
         "Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. "
-        + f"Internally, it has logic to retrieve relevant chunks from {name} documents that might contain answers to the question. "
-        + "Use this tool if you think the answer is likely to come from one or a few of these documents, and can be synthesized from "
-        + "retrieved chunks. "
+        + f"Internally, it knows how to answer questions directly from {name} documents. "
+        + "Use this tool if you think the answer is likely to come from one or a few of these documents."
         + description
     )
 
