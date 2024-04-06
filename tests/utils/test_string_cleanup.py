@@ -76,17 +76,25 @@ def test_replace_null_outside_quotes(text: str, expected: str) -> None:
             "abc 'def",
         ),  # An escaped single quote outside a quoted string should be unescaped
         (
+            "abc \\ndef",
+            "abc \ndef",
+        ),  # An escaped newline outside a quoted string should be unescaped
+        (
             'abc \\"def\\" ghi',
             'abc "def" ghi',
-        ),  # If the double quotes marking a quoted string are escaped, the should be unescaped
+        ),  # If the double quotes marking a quoted string are escaped, they should be unescaped
         (
             "abc \\'def\\' ghi",
             "abc 'def' ghi",
-        ),  # If the single quotes marking a quoted string are escaped, the should be unescaped
+        ),  # If the single quotes marking a quoted string are escaped, they should be unescaped
         (
             'abc "d\\"ef" ghi',
             'abc "d\\"ef" ghi',
         ),  # A properly escaped double quote inside a double quoted string should NOT be unescaped
+        (
+            'abc "d\\nef" ghi',
+            'abc "d\\nef" ghi',
+        ),  # A properly escaped newline inside a double quoted string should NOT be unescaped
         (
             'SELECT AVG(CAST(\\"Crime Insurance Limit\\" AS REAL)) FROM \\"1.Spreadsheet Services Agreement Luis\\"',
             'SELECT AVG(CAST("Crime Insurance Limit" AS REAL)) FROM "1.Spreadsheet Services Agreement Luis"',

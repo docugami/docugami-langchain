@@ -2,6 +2,10 @@ import re
 
 from langchain_core.output_parsers.list import ListOutputParser
 
+from docugami_langchain.utils.string_cleanup import (
+    unescape_escaped_chars_outside_quoted_strings,
+)
+
 
 class LineSeparatedListOutputParser(ListOutputParser):
     """Parse the output of an LLM call as a line-separated list."""
@@ -19,6 +23,8 @@ class LineSeparatedListOutputParser(ListOutputParser):
 
     def parse(self, text: str) -> list[str]:
         """Parse the output of an LLM call."""
+
+        text = unescape_escaped_chars_outside_quoted_strings(text)
 
         if self.ignore_pleasantry and "\n" in text and text.startswith("Sure"):
             # remove any pleasantries header
