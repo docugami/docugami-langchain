@@ -1,5 +1,21 @@
 import re
 
+UN_ESCAPE_MAP = {
+    "\\\\": "\\",
+    "\\'": "'",
+    '\\"': '"',
+    "\\b": "\b",
+    "\\f": "\f",
+    "\\n": "\n",
+    "\\r": "\r",
+    "\\t": "\t",
+    "\\(": "(",
+    "\\)": ")",
+    "\\[": "[",
+    "\\]": "]",
+    "\\_": "_",
+}
+
 
 def replace_null_outside_quotes(text: str) -> str:
     """
@@ -39,13 +55,17 @@ def unescape_escaped_chars_outside_quoted_strings(sql_query: str) -> str:
         single_quotes_count = len(re.findall(r"(?<!\\)'", before))
         double_quotes_count = len(re.findall(r'(?<!\\)"', before))
 
+        matched_sequence = match.group(0)
         # Determine if the match is outside quotes based on the counts
         if single_quotes_count % 2 == 0 and double_quotes_count % 2 == 0:
             # If both counts are even, we are outside quotes, so unescape
-            return match.group(0)[1:]  # Skip the backslash to unescape
+            if matched_sequence in UN_ESCAPE_MAP:
+                return UN_ESCAPE_MAP[matched_sequence]
+            else:
+                return matched_sequence[1:]  # Skip the backslash to unescape
         else:
             # Inside quotes, keep the original escaped character
-            return match.group(0)
+            return matched_sequence
 
     # This regex looks for any escaped character
     return re.sub(r"\\(.)", replacement, sql_query)
