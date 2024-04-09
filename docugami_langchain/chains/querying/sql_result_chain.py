@@ -13,11 +13,10 @@ from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
 from docugami_langchain.output_parsers.sql_finding import SQLFindingOutputParser
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 from docugami_langchain.utils.sql import (
+    check_and_format_query,
     create_example_selector,
-    ensure_query,
-    get_table_info,
+    get_table_info_as_create_table,
 )
-from docugami_langchain.utils.string_cleanup import unescape_escaped_chars_outside_quoted_strings
 
 logger = logging.getLogger(__name__)
 
@@ -51,7 +50,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
             Return the table info for the database connection for this chain.
             """
             question = inputs.get("question")
-            return get_table_info(
+            return get_table_info_as_create_table(
                 self.db,
                 question=question,
                 example_selector=self._example_row_selector,
@@ -70,9 +69,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
                 raise Exception("Inputs required: question, sql_query, table_info")
 
             try:
-                # Ensure query is valid
-                sql_query = unescape_escaped_chars_outside_quoted_strings(sql_query)
-                ensure_query(self.db, sql_query)
+                sql_query = check_and_format_query(self.db, sql_query)
 
                 # Run
                 return {
@@ -98,10 +95,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
 
                     # Run Fixed-up SQL
                     fixed_sql = fixed_sql_response.value
-                    fixed_sql = unescape_escaped_chars_outside_quoted_strings(fixed_sql)
-
-                    # Ensure query is valid
-                    ensure_query(self.db, fixed_sql)
+                    fixed_sql = check_and_format_query(self.db, fixed_sql)
 
                     return {
                         "question": question,
@@ -154,13 +148,11 @@ class SQLResultChain(BaseDocugamiChain[dict]):
                 """- When matching strings in WHERE clauses, always use LIKE with LOWER rather than exact string match with "=" since users may not fully specify complete input with the right """
                 + """casing, for example generate SELECT * from "athletes" WHERE LOWER("last name") LIKE '%jones%' instead of SELECT * from "athletes" WHERE "last name" = 'Jones'""",
                 "- Never provide any additional explanation or discussion, only output the SQLite query requested, which answers the question against the given table description.",
-                "- Always pay attention to the table name in your query, making sure it exactly matches the table description.",
                 "- If example rows are given, pay special attention to them to improve your query e.g. to account for abbreviations or formatting of values.",
             ],
             stop_sequences=[
                 "\n",
                 ";",
-                "|",
             ],
         )
 

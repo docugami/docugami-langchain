@@ -126,9 +126,9 @@ async def test_fireworksai_streamed_docugami_explained_sql_query(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_docugami_explained_sql_query(
+def test_openai_gpt4_docugami_explained_sql_query(
     test_data: QueryTestData,
-    openai_gpt35: BaseLanguageModel,
+    openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> None:
     db = connect_to_excel(
@@ -137,8 +137,8 @@ def test_openai_docugami_explained_sql_query(
     _runtest(
         init_docugami_explained_sql_query_chain(
             db=db,
-            sql_llm=openai_gpt35,
-            explainer_llm=openai_gpt35,
+            sql_llm=openai_gpt4,
+            explainer_llm=openai_gpt4,
             embeddings=openai_ada,
         ),
         test_data,
@@ -150,9 +150,9 @@ def test_openai_docugami_explained_sql_query(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio
-async def test_openai_docugami_streamed_explained_sql_query(
+async def test_openai_gpt4_docugami_streamed_explained_sql_query(
     test_data: QueryTestData,
-    openai_gpt35: BaseLanguageModel,
+    openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> None:
     db = connect_to_excel(
@@ -161,8 +161,8 @@ async def test_openai_docugami_streamed_explained_sql_query(
     await _runtest_streamed(
         init_docugami_explained_sql_query_chain(
             db=db,
-            sql_llm=openai_gpt35,
-            explainer_llm=openai_gpt35,
+            sql_llm=openai_gpt4,
+            explainer_llm=openai_gpt4,
             embeddings=openai_ada,
         ),
         test_data,

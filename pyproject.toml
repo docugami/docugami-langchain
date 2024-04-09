@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docugami-langchain"
-version = "0.0.7rc28"
+version = "0.0.7rc29"
 description = "An integration package connecting Docugami and LangChain"
 authors = []
 readme = "README.md"
@@ -79,7 +79,7 @@ disable_error_code = "typeddict-item"
 
 [[tool.mypy.overrides]]
 module = [
-    "wordtodigits", "pandas", "langgraph.*", "rerankers.*",
+    "wordtodigits", "pandas", "langgraph.*", "rerankers.*", "flaky",
 ]
 ignore_missing_imports = true
 

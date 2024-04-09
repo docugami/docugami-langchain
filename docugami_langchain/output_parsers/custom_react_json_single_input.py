@@ -6,11 +6,7 @@ from langchain_core.exceptions import OutputParserException
 from langchain_core.output_parsers import BaseOutputParser
 
 from docugami_langchain.agents.models import Invocation
-from docugami_langchain.utils.string_cleanup import (
-    escape_non_escape_sequence_backslashes,
-    replace_null_outside_quotes,
-    unescape_escaped_chars_outside_quoted_strings,
-)
+from docugami_langchain.utils.string_cleanup import clean_text
 
 THOUGHT_MARKER = "Thought:"
 OBSERVATION_MARKER = "Observation:"
@@ -50,8 +46,7 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
         if not found:
             raise ValueError("Invocation text not found")
         invocation_text = found.group(1)
-        invocation_text = replace_null_outside_quotes(invocation_text)
-        invocation_text = escape_non_escape_sequence_backslashes(invocation_text)
+        invocation_text = clean_text(invocation_text, protect_nested_strings=True)
 
         return json.loads(invocation_text.strip())
 
@@ -110,7 +105,6 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
                         f"Potential Observation Marker in parsed output {output}"
                     )
 
-                output = escape_non_escape_sequence_backslashes(output)
-                output = unescape_escaped_chars_outside_quoted_strings(output)
+                output = clean_text(output)
 
                 return output

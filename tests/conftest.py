@@ -71,6 +71,23 @@ def fireworksai_mixtral() -> BaseLanguageModel:
 
 
 @pytest.fixture()
+def fireworksai_dbrx() -> BaseLanguageModel:
+    """
+    DBRX model hosted on fireworksai.
+    """
+    return ChatFireworks(
+        model="accounts/fireworks/models/dbrx-instruct",
+        streaming=True,
+        cache=True,
+        temperature=0,
+        max_tokens=32 * 1024,  # includes input and output tokens
+        model_kwargs={
+            "context_length_exceeded_behavior": "truncate",
+        },
+    )
+
+
+@pytest.fixture()
 def huggingface_minilm() -> Embeddings:
     """
     MiniLM-L6-v2 embeddings running locally using huggingface.
@@ -87,12 +104,12 @@ def mxbai_re_rank() -> BaseRanker:
 
 
 @pytest.fixture()
-def openai_gpt35() -> BaseLanguageModel:
+def openai_gpt4() -> BaseLanguageModel:
     """
-    GPT 3.5 model by OpenAI.
+    GPT 4 model by OpenAI.
     """
     return ChatOpenAI(
-        model="gpt-3.5-turbo-16k",
+        model="gpt-4-turbo",
         streaming=True,
         cache=True,
         temperature=0,
@@ -109,5 +126,5 @@ def openai_ada() -> Embeddings:
 
 
 @pytest.fixture()
-def openai_gpt35_re_rank() -> BaseRanker:
+def openai_gpt4_re_rank() -> BaseRanker:
     return Reranker("rankgpt3", api_key=os.environ.get("OPENAI_API_KEY"), verbose=0)

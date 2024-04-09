@@ -33,6 +33,7 @@ EXPECTED_CHAINS = [
     "SuggestedQuestionsChain",
     "SuggestedReportChain",
     "SimpleRAGChain",
+    "StandaloneQuestionChain",
     "DataTypeDetectionChain",
     "DataTypes",
     "DocugamiDataType",

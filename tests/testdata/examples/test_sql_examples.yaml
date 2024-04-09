@@ -393,7 +393,7 @@
       "Accident Time" TEXT
     )
 
-    3 example rows from the table (consider these to better craft and format queries e.g. considering the format of typical values in the data when crafting LIKE statements):
+    3 example rows:
     +--------------------+-------------------+-----------------------+-------------------------------+---------------+-----------------+-----------------+
     | File               | Accident Number   | Registration Number   | Aircraft Make and Model       | Location      | Accident Date   | Accident Time   |
     +====================+===================+=======================+===============================+===============+=================+=================+

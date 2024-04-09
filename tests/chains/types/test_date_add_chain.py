@@ -53,11 +53,11 @@ def test_fireworksai_date_add(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_date_add(
-    openai_gpt35: BaseLanguageModel,
+def test_openai_gpt4_date_add(
+    openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> Any:
-    chain = init_chain(openai_gpt35, openai_ada)
+    chain = init_chain(openai_gpt4, openai_ada)
     response = chain.run(TEST_MESSY_START_DATE, TEST_MESSY_END_DATE_OR_DURATION)
     verify_traced_response(response)
     assert TEST_ADDED_DATE == response.value

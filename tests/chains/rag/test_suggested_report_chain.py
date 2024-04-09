@@ -92,11 +92,11 @@ def test_fireworksai_suggested_report(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_suggested_report(
-    test_data: DocsetTestData, openai_gpt35: BaseLanguageModel, openai_ada: Embeddings
+def test_openai_gpt4_suggested_report(
+    test_data: DocsetTestData, openai_gpt4: BaseLanguageModel, openai_ada: Embeddings
 ) -> None:
-    suggested_report_chain = init_suggested_report_chain(openai_gpt35, openai_ada)
-    summarize_document_chain = init_summarize_document_chain(openai_gpt35, openai_ada)
+    suggested_report_chain = init_suggested_report_chain(openai_gpt4, openai_ada)
+    summarize_document_chain = init_summarize_document_chain(openai_gpt4, openai_ada)
     _runtest(
         suggested_report_chain,
         summarize_document_chain,

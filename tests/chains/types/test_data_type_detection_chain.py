@@ -63,11 +63,11 @@ def test_fireworksai_data_type_detection(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_data_type_detection(
-    openai_gpt35: BaseLanguageModel,
+def test_openai_gpt4_data_type_detection(
+    openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> Any:
-    chain = init_chain(openai_gpt35, openai_ada)
+    chain = init_chain(openai_gpt4, openai_ada)
     response = chain.run(TEST_INPUT_TEXT_ITEMS)
     verify_traced_response(response)
     assert TEST_PARSED_DATA_TYPE == response.value

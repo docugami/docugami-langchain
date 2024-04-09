@@ -1,9 +1,9 @@
 - chat_history:
   question: What is the capital of france?
-  answer: Paris
+  standalone_question: What is the capital of france?
 - chat_history:
   question: What star is closest to earth?
-  answer: The sun is the closest star to the Earth. However, if you mean which star other than the Sun is the closest, that is Proxima Centauri.
+  standalone_question: What star is closest to earth?
 - chat_history: |
     Human: Can you name a famous wizard from literature?
     ----------------
@@ -14,7 +14,7 @@
     AI: Harry Potter's main enemy is Lord Voldemort.
     ----------------
   question: Who wrote the book that introduced these characters?
-  answer: J.K. Rowling wrote the Harry Potter series, which introduced these characters.
+  standalone_question: Who is the author of the book that includes the characters Harry Potter and Lord Voldemort?
 - chat_history: |
     Human: What is the tallest mountain in the world?
     ----------------
@@ -25,7 +25,7 @@
     AI: The second tallest is K2.
     ----------------
   question: What's the combined height of these mountains?
-  answer: Mount Everest is approximately 8,848 meters tall, and K2 is about 8,611 meters tall. The combined height is approximately 17,459 meters.
+  standalone_question: What is the combined height of Mount Everest and K2?
 - chat_history: |
     Human: What is the capital of Italy?
     ----------------
@@ -35,8 +35,8 @@
     ----------------
     AI: The city famous for the Leaning Tower is Pisa.
     ----------------
-  question: Which city are they planning to visit next?
-  answer: Based on the interest in famous landmarks, they are planning to visit Pisa next.
+  question: What continent are these cities in?
+  standalone_question: What continent are Rome and Pisa in?
 - chat_history: |
     Human: Name a famous physicist.
     ----------------
@@ -47,4 +47,16 @@
     AI: Charles Darwin is renowned for his work on the theory of evolution.
     ----------------
   question: Who's considered more influential in their field?
-  answer: Both Albert Einstein and Charles Darwin are considered highly influential in their respective fields, but the influence is domain-specific. Einstein is more influential in physics, while Darwin is in biology.
+  standalone_question: Between Albert Einstein and Charles Darwin, who is considered more influential in their field?
+
+- chat_history: |
+    Human: What is the largest city in King County, WA?
+    ----------------
+    AI: Seattle is the largest city in King County, Washington.
+    ----------------
+    Human: Do you know who it was named after?
+    ----------------
+    AI: Seattle is named after Chief Si'ahl (1780-1866), a leader of the Suquamish and Duwamish people.
+    ----------------
+  question: List some major companies headquartered there
+  standalone_question: The major companies headquartered in the Seattle area include Amazon, Microsoft, Boeing, Alaska Airlines, and Expedia Group.

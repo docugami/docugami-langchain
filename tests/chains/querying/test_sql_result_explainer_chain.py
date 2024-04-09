@@ -46,8 +46,8 @@ def test_fireworksai_sql_result_explainer(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_sql_result_explainer(
-    test_data: QueryTestData, openai_gpt35: BaseLanguageModel, openai_ada: Embeddings
+def test_openai_gpt4_sql_result_explainer(
+    test_data: QueryTestData, openai_gpt4: BaseLanguageModel, openai_ada: Embeddings
 ) -> None:
-    chain = init_chain(openai_gpt35, openai_ada)
+    chain = init_chain(openai_gpt4, openai_ada)
     _runtest(chain, test_data)

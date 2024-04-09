@@ -13,7 +13,7 @@ from docugami_langchain.output_parsers.line_separated_list import (
 )
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 from docugami_langchain.utils.documents import formatted_summaries
-from docugami_langchain.utils.sql import get_table_info
+from docugami_langchain.utils.sql import get_table_info_as_create_table
 
 
 class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
@@ -27,7 +27,7 @@ class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
         def table_info(_: Any) -> str:
             infos = ""
             for db in self.dbs:
-                infos += get_table_info(db) + "\n\n"
+                infos += get_table_info_as_create_table(db) + "\n\n"
 
             return infos.strip()
 
@@ -70,7 +70,7 @@ class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
                 "- Generate suggested questions as a list, one question per line.",
             ],
             additional_runnables=[LineSeparatedListOutputParser()],
-            stop_sequences=["\n\n", "|"],
+            stop_sequences=["\n\n"],
         )
 
     def run(  # type: ignore[override]

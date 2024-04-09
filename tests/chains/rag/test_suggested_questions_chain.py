@@ -6,10 +6,7 @@ from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from docugami_langchain.chains import SuggestedQuestionsChain
-from docugami_langchain.chains.documents.summarize_document_chain import (
-    SummarizeDocumentChain,
-)
+from docugami_langchain.chains import SuggestedQuestionsChain, SummarizeDocumentChain
 from docugami_langchain.tools.reports import connect_to_excel
 from tests.common import TEST_DATA_DIR
 from tests.testdata.docsets.docset_test_data import (
@@ -113,17 +110,17 @@ def test_fireworksai_suggestions(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_suggestions(
+def test_openai_gpt4_suggestions(
     test_data: DocsetTestData,
-    openai_gpt35: BaseLanguageModel,
+    openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> None:
     suggested_questions_chain = init_suggested_questions_chain(
         docset=test_data,
-        llm=openai_gpt35,
+        llm=openai_gpt4,
         embeddings=openai_ada,
     )
-    summarize_document_chain = init_summarize_document_chain(openai_gpt35, openai_ada)
+    summarize_document_chain = init_summarize_document_chain(openai_gpt4, openai_ada)
 
     _runtest(
         suggested_questions_chain,

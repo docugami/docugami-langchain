@@ -22,7 +22,7 @@ from docugami_langchain.tools.common import NOT_FOUND, BaseDocugamiTool
 class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
     db: SQLDatabase
     chain: SQLResultChain
-    name: str = "query_report"
+    name: str = "report_answer_tool"
     description: str = ""
 
     def _is_sql_like(self, question: str) -> bool:
@@ -45,7 +45,7 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
         if self._is_sql_like(question):
             return (
                 "Looks like you passed in a SQL query. This tool takes natural language questions, and automatically translates them to SQL queries. "
-                "Please try passing in a natural language question."
+                "Please try again with a natural language version of this question."
             )
 
         try:
@@ -76,7 +76,7 @@ def report_name_to_report_query_tool_function_name(name: str) -> str:
     Converts a report name to a report query tool function name.
 
     Report query tool function names follow these conventions:
-    1. Retrieval tool function names always start with "query_".
+    1. Report tool function names always start with "report_answer_tool_".
     2. The rest of the name should be a lowercased string, with underscores
        for whitespace.
     3. Exclude any characters other than a-z (lowercase) from the function name,
@@ -84,11 +84,11 @@ def report_name_to_report_query_tool_function_name(name: str) -> str:
     4. The final function name should not have more than one underscore together.
 
     >>> report_name_to_report_query_tool_function_name('Earnings Calls')
-    'query_earnings_calls'
+    'report_answer_tool_earnings_calls'
     >>> report_name_to_report_query_tool_function_name('COVID-19   Statistics')
-    'query_covid_19_statistics'
+    'report_answer_tool_covid_19_statistics'
     >>> report_name_to_report_query_tool_function_name('2023 Market Report!!!')
-    'query_2023_market_report'
+    'report_answer_tool_2023_market_report'
     """
     # Replace non-letter characters with underscores and remove extra whitespaces
     name = re.sub(r"[^a-z\d]", "_", name.lower())
@@ -97,7 +97,7 @@ def report_name_to_report_query_tool_function_name(name: str) -> str:
     name = re.sub(r"_{2,}", "_", name)
     name = name.strip("_")
 
-    return f"query_{name}"
+    return f"report_answer_tool_{name}"
 
 
 def report_details_to_report_query_tool_description(name: str, table_info: str) -> str:
@@ -105,9 +105,9 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     Converts a set of chunks to a direct retriever tool description.
     """
     description = (
-        "Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. "
-        + "Do NOT pass SQL as input to the tool even if you think you know it (trust the tool to translate the question to SQL). "
-        + f"Use this tool if you think the answer can be calculated from the following table.\n{table_info}"
+        "Pass a COMPLETE question, rewriting it as needed to be self-contained based on chat history, as input to this tool. "
+        + f"It implements logic to to answer questions by querying the {name} report and outputs only the answer to your question. "
+        + f"Use this tool if you think the answer can be calculated from the information in this report via standard data operations like counting, sorting, averaging or summing.\n\n{table_info}"
     )
 
     # Cap to avoid runaway tool descriptions.
