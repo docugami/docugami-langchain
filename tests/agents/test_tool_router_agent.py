@@ -1,10 +1,11 @@
 import os
 
 import pytest
+from flaky import flaky
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from rerankers.models.ranker import BaseRanker
-from flaky import flaky
+
 from docugami_langchain.agents import ToolRouterAgent
 from docugami_langchain.chains.rag.tool_final_answer_chain import ToolFinalAnswerChain
 from tests.agents.common import (
