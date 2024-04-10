@@ -25,7 +25,7 @@ class SQLFixupChain(BaseDocugamiChain[str]):
                 RunnableSingleParameter(
                     "exception",
                     "EXCEPTION",
-                    "Optional SQL exception that was returned when this SQL query was executed. If not provided, just ignore.",
+                    "Optional SQL exception that was returned when this SQL query was executed against the table. If not provided, just ignore.",
                 ),
             ],
             output=RunnableSingleParameter(
@@ -47,7 +47,6 @@ class SQLFixupChain(BaseDocugamiChain[str]):
             stop_sequences=[
                 "\n",
                 ";",
-                "|",
             ],
             additional_runnables=[SQLFindingOutputParser()],
         )

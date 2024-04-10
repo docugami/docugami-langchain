@@ -1,73 +1,65 @@
-from operator import itemgetter
 from typing import AsyncIterator, Optional
 
-from langchain_core.documents import Document
-from langchain_core.retrievers import BaseRetriever
-from langchain_core.runnables import Runnable, RunnableConfig
+from langchain_core.runnables import (
+    Runnable,
+    RunnableBranch,
+    RunnableConfig,
+    RunnableLambda,
+)
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
-from docugami_langchain.chains.rag.standalone_question_chain import (
-    StandaloneQuestionChain,
-)
 from docugami_langchain.history import chat_history_to_str
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class SimpleRAGChain(BaseDocugamiChain[str]):
+class StandaloneQuestionChain(BaseDocugamiChain[str]):
 
-    retriever: BaseRetriever
-    standalone_question_chain: StandaloneQuestionChain
+    def runnable(self) -> Runnable:
+        """
+        Custom runnable for this chain.
+        """
+        noop = RunnableLambda(lambda x: x["question"])
+
+        # Rewrite only if chat history is provided
+        return RunnableBranch(
+            (
+                lambda x: len(x["chat_history"]) > 0,
+                super().runnable(),
+            ),
+            noop,
+        )
 
     def params(self) -> RunnableParameters:
         return RunnableParameters(
             inputs=[
                 RunnableSingleParameter(
-                    "context",
-                    "CONTEXT",
-                    "Retrieved context, which should be used to answer the question.",
-                ),
-                RunnableSingleParameter(
                     "chat_history",
                     "CHAT HISTORY",
-                    "Previous chat messages that may provide additional context for this question.",
+                    "Previous chat messages that may provide additional information about this question.",
                 ),
                 RunnableSingleParameter(
                     "question",
                     "QUESTION",
-                    "Question asked by the user.",
+                    "A question from the user.",
                 ),
             ],
             output=RunnableSingleParameter(
-                "answer",
-                "ANSWER",
-                "Human readable answer to the question.",
+                "standalone_question",
+                "STANDALONE_QUESTION",
+                "A standalone version of the question (not an answer), re-written to incorporate additional information from the chat history",
             ),
-            task_description="acts as an assistant for question-answering tasks",
+            task_description="rewrites a question as a standalone question, incorporating additional information from the chat history",
             additional_instructions=[
-                "- Use only the given pieces of retrieved context to answer the question, don't make up answers.",
-                "- If you don't know the answer, just say that you don't know.",
-                "- Your answer should be concise, up to three sentences long.",
+                "- The generated standalone question will be used to search for relevant chunks within a set of documents that may answer the question.",
+                "- Focus on the chat history immediately preceding the question.",
+                "- Produce only the requested standalone question, no other commentary before or after.",
+                "- Do NOT try to answer the question. Just rewrite the question as instructed."
+                "- Never say you cannot do this. If all else fails, just repeat the given question without rewriting it.",
             ],
-            stop_sequences=[],
+            stop_sequences=["CHAT HISTORY:", "QUESTION:"],
             key_finding_output_parse=False,  # set to False for streaming
         )
-
-    def runnable(self) -> Runnable:
-        """
-        Custom runnable for this agent.
-        """
-
-        def format_retrieved_docs(docs: list[Document]) -> str:
-            return "\n\n".join(doc.page_content for doc in docs)
-
-        return {
-            "context": self.standalone_question_chain.runnable()
-            | self.retriever
-            | format_retrieved_docs,
-            "chat_history": itemgetter("chat_history"),
-            "question": itemgetter("question"),
-        } | super().runnable()
 
     def run(  # type: ignore[override]
         self,

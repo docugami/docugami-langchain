@@ -6,6 +6,9 @@ from langchain_core.language_models import BaseLanguageModel
 from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.chains import SimpleRAGChain
+from docugami_langchain.chains.rag.standalone_question_chain import (
+    StandaloneQuestionChain,
+)
 from tests.common import (
     TEST_DATA_DIR,
     build_test_fused_retriever,
@@ -30,10 +33,19 @@ def init_simple_rag_chain(
         data_dir=TEST_DATA_DIR / "docsets" / test_data.name,
     )
 
+    standalone_questions_chain = StandaloneQuestionChain(
+        llm=llm,
+        embeddings=embeddings,
+    )
+    standalone_questions_chain.load_examples(
+        TEST_DATA_DIR / "examples/test_standalone_question_examples.yaml"
+    )
+
     return SimpleRAGChain(
         llm=llm,
         embeddings=embeddings,
         retriever=retriever,
+        standalone_question_chain=standalone_questions_chain,
     )
 
 
@@ -68,22 +80,22 @@ def test_fireworksai_simple_rag(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_simple_rag(
+def test_openai_gpt4_simple_rag(
     test_data: DocsetTestData,
-    openai_gpt35: BaseLanguageModel,
+    openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
-    openai_gpt35_re_rank: BaseRanker,
+    openai_gpt4_re_rank: BaseRanker,
 ) -> None:
-    openai_gpt35_simple_rag_chain = init_simple_rag_chain(
+    openai_gpt4_simple_rag_chain = init_simple_rag_chain(
         test_data=test_data,
-        llm=openai_gpt35,
+        llm=openai_gpt4,
         embeddings=openai_ada,
-        re_ranker=openai_gpt35_re_rank,
+        re_ranker=openai_gpt4_re_rank,
     )
 
     for question in test_data.questions:
         if not question.requires_report:
-            answer = openai_gpt35_simple_rag_chain.run(
+            answer = openai_gpt4_simple_rag_chain.run(
                 question=question.question,
                 chat_history=question.chat_history,
             )

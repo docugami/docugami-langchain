@@ -32,11 +32,11 @@ def test_fireworksai_elaborate_chunk(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_elaborate_chunk(
-    openai_gpt35: BaseLanguageModel,
+def test_openai_gpt4_elaborate_chunk(
+    openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> None:
-    chain = init_chain(openai_gpt35, openai_ada)
+    chain = init_chain(openai_gpt4, openai_ada)
     elaboration = chain.run(TEST_INSTRUCTIONS)
     verify_traced_response(elaboration)
     assert len(elaboration.value) > len(TEST_INSTRUCTIONS)

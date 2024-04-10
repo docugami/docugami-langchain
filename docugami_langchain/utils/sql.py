@@ -17,6 +17,7 @@ from docugami_langchain.config import (
     DEFAULT_TABLE_AS_TEXT_CELL_MAX_LENGTH,
     DEFAULT_TABLE_AS_TEXT_CELL_MAX_WIDTH,
 )
+from docugami_langchain.utils.string_cleanup import clean_text
 
 
 def first_table(db: SQLDatabase) -> Table:
@@ -104,12 +105,11 @@ def sample_rows(
     )
 
     return (
-        f"{len(sample_rows)} example rows from the table (consider these to better craft and format queries e.g. considering "
-        + f"the format of typical values in the data when generating LIKE statements):\n {grid_str}"
+        f"{len(sample_rows)} example rows:\n {grid_str}"
     )
 
 
-def get_table_info(
+def get_table_info_as_list(
     db: SQLDatabase,
     question: Optional[str] = None,
     example_selector: Optional[MaxMarginalRelevanceExampleSelector] = None,
@@ -117,7 +117,38 @@ def get_table_info(
     grid_format: str = DEFAULT_SAMPLE_ROWS_GRID_FORMAT,
     override_table_name: Optional[str] = None,
 ) -> str:
-    """Gets the table info for the first table in the db underlying this chain."""
+    """Gets the table info for the first table in the db underlying this chain, as a list."""
+
+    table = first_table(db)
+    if override_table_name:
+        table.name = override_table_name
+
+    table_info_str = ""
+    for i, col in enumerate(table.columns):
+        table_info_str += f"{i+1}. {col.name} (in {str(col.type).lower()} format)\n"
+
+    sample_rows_str = sample_rows(
+        db=db,
+        question=question,
+        example_selector=example_selector,
+        included_sample_rows=included_sample_rows,
+        sample_row_grid_format=grid_format,
+    )
+
+    table_info_str += "\n" + sample_rows_str
+
+    return table_info_str
+
+
+def get_table_info_as_create_table(
+    db: SQLDatabase,
+    question: Optional[str] = None,
+    example_selector: Optional[MaxMarginalRelevanceExampleSelector] = None,
+    included_sample_rows: int = DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO,
+    grid_format: str = DEFAULT_SAMPLE_ROWS_GRID_FORMAT,
+    override_table_name: Optional[str] = None,
+) -> str:
+    """Gets the table info for the first table in the db underlying this chain, as a create table statement."""
 
     table = first_table(db)
     if override_table_name:
@@ -138,8 +169,44 @@ def get_table_info(
     return table_info_str
 
 
-def ensure_query(db: SQLDatabase, sql_query: str) -> str:
-    """Ensures the given query is syntactically correct, and contains columns and tables that actually exist in the db."""
+def lowercase_like_clause(sql_query: str) -> str:
+    """
+    Identifies and lowercases the string literal in a LIKE clause of the SQL query.
+    Assumes there is only one top-level LIKE so no recursion.
+
+    >>> lowercase_like_clause("SELECT * FROM table WHERE column LIKE '%Value%'")
+    "SELECT * FROM table WHERE column LIKE '%value%'"
+
+    >>> lowercase_like_clause("SELECT * FROM table WHERE column LIKE '%VALUE%' AND column2 = 'Something'")
+    "SELECT * FROM table WHERE column LIKE '%value%' AND column2 = 'Something'"
+
+    >>> lowercase_like_clause("SELECT * FROM table")  # No LIKE clause present
+    'SELECT * FROM table'
+    """
+    parsed_query = sqlglot.parse_one(sql_query)
+    like_expressions = parsed_query.find_all(exp.Like)
+
+    for like_expression in like_expressions:
+        expression = like_expression.args.get("expression")
+        if expression and isinstance(expression, exp.Literal):
+            # Lowercase the literal's value
+            like_expression.args["expression"] = exp.Literal.string(
+                str(expression.this).lower()
+            )
+
+    # Convert the modified AST back to a SQL string
+    return parsed_query.sql()
+
+
+def check_and_format_query(db: SQLDatabase, sql_query: str) -> str:
+    """
+    Ensures the given query is syntactically correct, and contains columns and tables that actually exist in the db.
+
+    It also does some additional formatting, e.g. making sure LIKE statements are lowercased.
+    """
+
+    sql_query = clean_text(sql_query, protect_nested_strings=True)
+    sql_query = lowercase_like_clause(sql_query)
 
     # Use sqlglot to parse and extract columns and tables from the query
     parsed_query = sqlglot.parse_one(sql_query)

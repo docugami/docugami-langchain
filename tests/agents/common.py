@@ -23,7 +23,7 @@ from docugami_langchain.tools.retrieval import (
     get_retrieval_tool_for_docset,
     summaries_to_direct_retrieval_tool_description,
 )
-from docugami_langchain.utils.sql import get_table_info
+from docugami_langchain.utils.sql import get_table_info_as_list
 from tests.common import (
     EXAMPLES_PATH,
     TEST_DATA_DIR,
@@ -42,7 +42,7 @@ def build_test_query_tool(
     """
     db = connect_to_excel(report.data_file, report.name)
     description = report_details_to_report_query_tool_description(
-        report.name, get_table_info(db)
+        report.name, get_table_info_as_list(db)
     )
     tool = get_retrieval_tool_for_report(
         local_xlsx_path=report.data_file,
@@ -122,6 +122,8 @@ def build_test_retrieval_tool(
         fetch_parent_doc_callback=_fetch_parent_doc_callback,
         fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
         retrieval_k=DEFAULT_RETRIEVER_K,
+        standalone_questions_examples_file=EXAMPLES_PATH
+        / "test_standalone_question_examples.yaml",
     )
     if not tool:
         raise Exception("Failed to create retrieval tool")

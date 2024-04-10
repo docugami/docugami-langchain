@@ -15,6 +15,9 @@ from docugami_langchain.chains.documents.describe_document_set_chain import (
     DescribeDocumentSetChain,
 )
 from docugami_langchain.chains.rag.simple_rag_chain import SimpleRAGChain
+from docugami_langchain.chains.rag.standalone_question_chain import (
+    StandaloneQuestionChain,
+)
 from docugami_langchain.config import DEFAULT_RETRIEVER_K, MAX_FULL_DOCUMENT_TEXT_LENGTH
 from docugami_langchain.retrievers.fused_summary import (
     FULL_DOC_SUMMARY_ID_KEY,
@@ -29,7 +32,7 @@ class CustomDocsetRetrievalTool(BaseDocugamiTool):
     """A Tool that knows how to do retrieval over a docset."""
 
     chain: SimpleRAGChain
-    name: str = "query_docset"
+    name: str = "document_answer_tool"
     description: str = ""
 
     def to_human_readable(self, invocation: Invocation) -> str:
@@ -71,7 +74,7 @@ def docset_name_to_direct_retrieval_tool_function_name(name: str) -> str:
     Converts a docset name to a direct retriever tool function name.
 
     Direct retriever tool function names follow these conventions:
-    1. Retrieval tool function names always start with "retrieval_".
+    1. Retrieval tool function names always start with "document_answer_tool".
     2. The rest of the name should be a lowercased string, with underscores
        for whitespace.
     3. Exclude any characters other than a-z (lowercase) from the function
@@ -79,11 +82,11 @@ def docset_name_to_direct_retrieval_tool_function_name(name: str) -> str:
     4. The final function name should not have more than one underscore together.
 
     >>> docset_name_to_direct_retrieval_tool_function_name('Earnings Calls')
-    'retrieval_earnings_calls'
+    'document_answer_tool_earnings_calls'
     >>> docset_name_to_direct_retrieval_tool_function_name('COVID-19   Statistics')
-    'retrieval_covid_19_statistics'
+    'document_answer_tool_covid_19_statistics'
     >>> docset_name_to_direct_retrieval_tool_function_name('2023 Market Report!!!')
-    'retrieval_2023_market_report'
+    'document_answer_tool_2023_market_report'
     """
     # Replace non-letter characters with underscores and remove extra whitespaces
     name = re.sub(r"[^a-z\d]", "_", name.lower())
@@ -92,16 +95,16 @@ def docset_name_to_direct_retrieval_tool_function_name(name: str) -> str:
     name = re.sub(r"_{2,}", "_", name)
     name = name.strip("_")
 
-    return f"retrieval_{name}"
+    return f"document_answer_tool_{name}"
 
 
 def docset_details_to_direct_retrieval_tool_description(
     name: str, description: str
 ) -> str:
     return (
-        "Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. "
-        + f"Internally, it knows how to answer questions directly from {name} documents. "
-        + "Use this tool if you think the answer is likely to come from one or a few of these documents."
+        "Pass a COMPLETE question, rewriting it as needed to be self-contained based on chat history, as input to this tool. "
+        + f"It implements logic to to answer questions based on information in {name} documents and outputs only the answer to your question. "
+        + "Use this tool if you think the answer is likely to come from one or a few of these documents. "
         + description
     )
 
@@ -140,6 +143,7 @@ def get_retrieval_tool_for_docset(
     fetch_parent_doc_callback: Optional[FusedRetrieverKeyValueFetchCallback] = None,
     retrieval_k: int = DEFAULT_RETRIEVER_K,
     full_doc_summary_id_key: str = FULL_DOC_SUMMARY_ID_KEY,
+    standalone_questions_examples_file: Optional[Path] = None,
 ) -> Optional[BaseDocugamiTool]:
     """
     Gets a retrieval tool for an agent.
@@ -156,10 +160,18 @@ def get_retrieval_tool_for_docset(
         search_type=SearchType.mmr,
     )
 
+    standalone_questions_chain = StandaloneQuestionChain(
+        llm=llm,
+        embeddings=embeddings,
+    )
+    if standalone_questions_examples_file:
+        standalone_questions_chain.load_examples(standalone_questions_examples_file)
+
     simple_rag_chain = SimpleRAGChain(
         llm=llm,
         embeddings=embeddings,
         retriever=retriever,
+        standalone_question_chain=standalone_questions_chain,
     )
 
     return CustomDocsetRetrievalTool(

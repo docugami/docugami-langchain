@@ -64,13 +64,13 @@ def test_fireworksai_date_parse(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 @pytest.mark.parametrize("text,expected", TEST_DATA)
-def test_openai_date_parse(
-    openai_gpt35: BaseLanguageModel,
+def test_openai_gpt4_date_parse(
+    openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
     text: str,
     expected: datetime,
 ) -> Any:
-    chain = init_chain(openai_gpt35, openai_ada)
+    chain = init_chain(openai_gpt4, openai_ada)
     response = chain.run(text)
     verify_traced_response(response)
     assert expected == response.value

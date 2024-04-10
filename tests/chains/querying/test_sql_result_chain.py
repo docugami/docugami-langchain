@@ -74,9 +74,9 @@ def test_fireworksai_sql_result(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_sql_result(
+def test_openai_gpt4_sql_result(
     test_data: QueryTestData,
-    openai_gpt35: BaseLanguageModel,
+    openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> None:
     db = connect_to_excel(
@@ -85,7 +85,7 @@ def test_openai_sql_result(
     _runtest(
         init_sql_result_chain(
             db=db,
-            llm=openai_gpt35,
+            llm=openai_gpt4,
             embeddings=openai_ada,
         ),
         test_data,

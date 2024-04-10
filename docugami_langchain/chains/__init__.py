@@ -14,6 +14,7 @@ from docugami_langchain.chains.querying import (
 )
 from docugami_langchain.chains.rag import (
     SimpleRAGChain,
+    StandaloneQuestionChain,
     SuggestedQuestionsChain,
     SuggestedReportChain,
 )
@@ -39,6 +40,7 @@ __all__ = [
     "SQLResultChain",
     "SQLResultExplainerChain",
     "SimpleRAGChain",
+    "StandaloneQuestionChain",
     "SuggestedQuestionsChain",
     "SuggestedReportChain",
     "DataTypeDetectionChain",

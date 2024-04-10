@@ -93,14 +93,14 @@ def test_fireworksai_describe_document_set(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_describe_document_set(
+def test_openai_gpt4_describe_document_set(
     test_data: DocsetTestData,
-    openai_gpt35: BaseLanguageModel,
+    openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> None:
-    summarize_document_chain = init_summarize_document_chain(openai_gpt35, openai_ada)
+    summarize_document_chain = init_summarize_document_chain(openai_gpt4, openai_ada)
     describe_document_set_chain = init_describe_document_set_chain(
-        openai_gpt35, openai_ada
+        openai_gpt4, openai_ada
     )
     _runtest(
         summarize_document_chain,
