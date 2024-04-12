@@ -1015,13 +1015,13 @@ tiktoken = ">=0.5.2,<1"
 
 [[package]]
 name = "langgraph"
-version = "0.0.36"
+version = "0.0.37"
 description = "langgraph"
 optional = false
 python-versions = "<4.0,>=3.9.0"
 files = [
-    {file = "langgraph-0.0.36-py3-none-any.whl", hash = "sha256:4396e3edbcce2e754c99ccc6c9b19847f987a401b5667a3e45c79d8b04f35701"},
-    {file = "langgraph-0.0.36.tar.gz", hash = "sha256:342edc503fd8177258f6ac890c64256b656c7d99812f217dc8240165863dec43"},
+    {file = "langgraph-0.0.37-py3-none-any.whl", hash = "sha256:2a3c366353ee3380ce5c88f6dceefb662652ec4bcda43ced7c5efc50c635617f"},
+    {file = "langgraph-0.0.37.tar.gz", hash = "sha256:fbed1906cbee764f644bb9c71352fa7f029bf3436caf837ca26de8a5ca21ce27"},
 ]
 
 [package.dependencies]
@@ -1029,13 +1029,13 @@ langchain-core = ">=0.1.42,<0.2.0"
 
 [[package]]
 name = "langsmith"
-version = "0.1.45"
+version = "0.1.46"
 description = "Client library to connect to the LangSmith LLM Tracing and Evaluation Platform."
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langsmith-0.1.45-py3-none-any.whl", hash = "sha256:5a5b7fafe767fa28826c925f175875c09bf5368bfdb141286381a94bf737e6ef"},
-    {file = "langsmith-0.1.45.tar.gz", hash = "sha256:713206107df636db1edf30867d64b92495afb1f09d2fee0857a77b7a8ee083d5"},
+    {file = "langsmith-0.1.46-py3-none-any.whl", hash = "sha256:459b76b25fe3b86e7bf5521f4dc8c3f796de288ceb3e0d05c99db4d509edaabf"},
+    {file = "langsmith-0.1.46.tar.gz", hash = "sha256:a5a96259e411641633561575b567c2139bede997f7104eeedb59cb9511416d1b"},
 ]
 
 [package.dependencies]
@@ -2923,13 +2923,13 @@ sqlcipher = ["sqlcipher3_binary"]
 
 [[package]]
 name = "sqlglot"
-version = "23.9.0"
+version = "23.10.0"
 description = "An easily customizable SQL parser and transpiler"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "sqlglot-23.9.0-py3-none-any.whl", hash = "sha256:066aac4246cd48f26b9cd4e882b18c69cdc26c7eddc4492a87a8c470b54872b2"},
-    {file = "sqlglot-23.9.0.tar.gz", hash = "sha256:809db70a5c15a3d17dad2056ee5d90008945468a5bf12ec17c2df0d73b6f1752"},
+    {file = "sqlglot-23.10.0-py3-none-any.whl", hash = "sha256:519ea26007688bbc831939c0c6125762ad5c71339df1ac8184a64d762f75684c"},
+    {file = "sqlglot-23.10.0.tar.gz", hash = "sha256:b80a35de7716464de89cc77678d0a7f972e4a8acaaa7cefcdc6db05ffeb6c951"},
 ]
 
 [package.extras]
@@ -3677,4 +3677,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<4.0"
-content-hash = "064518bbd5aafb0d49258514b8eb85dbf06c06c850a86bdb4346e28226d44a69"
+content-hash = "035844454fe649efae3d0f03e61f020dae32211641b0f1526ffae9ee6158bc19"
