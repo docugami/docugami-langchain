@@ -51,6 +51,7 @@ EXPECTED_OUTPUT_PARSERS = [
     "LineSeparatedListOutputParser",
     "CustomReActJsonSingleInputOutputParser",
     "SQLFindingOutputParser",
+    "TextCleaningOutputParser",
     "TimeSpan",
     "TimespanOutputParser",
 ]

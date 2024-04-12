@@ -70,7 +70,7 @@ class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
                 "- Generate suggested questions as a list, one question per line.",
             ],
             additional_runnables=[LineSeparatedListOutputParser()],
-            stop_sequences=["\n\n"],
+            stop_sequences=["\n\n", "<|im_end|>"],
         )
 
     def run(  # type: ignore[override]

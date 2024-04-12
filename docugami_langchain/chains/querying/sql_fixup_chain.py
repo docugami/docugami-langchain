@@ -44,10 +44,7 @@ class SQLFixupChain(BaseDocugamiChain[str]):
                 "",
                 "If you see any of the above mistakes, or any other mistakes, rewrite the query to fix them. If there are no mistakes, just reproduce the original query.",
             ],
-            stop_sequences=[
-                "\n",
-                ";",
-            ],
+            stop_sequences=["\n", ";", "<|im_end|>"],
             additional_runnables=[SQLFindingOutputParser()],
         )
 

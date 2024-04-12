@@ -74,6 +74,25 @@ async def test_fireworksai_mixtral_streamed_standalone_question_with_history(
 
 
 @pytest.mark.skipif(
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
+)
+@pytest.mark.asyncio
+async def test_fireworksai_mixtral_streamed_standalone_question_topic_change(
+    fireworksai_mixtral: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
+) -> None:
+    chain = init_chain(fireworksai_mixtral, huggingface_minilm, examples=True)
+    chain_response = TracedResponse[str](value="")
+    async for incremental_response in chain.run_stream(
+        "tell me a joke",
+        GENERAL_KNOWLEDGE_CHAT_HISTORY,
+    ):
+        chain_response = incremental_response
+
+    verify_traced_response(chain_response, ["joke"])
+
+
+@pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio

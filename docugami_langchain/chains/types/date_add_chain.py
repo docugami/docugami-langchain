@@ -30,7 +30,7 @@ class DateAddChain(BaseDocugamiChain[datetime]):
                 f"The result of adding the start date and duration, in {OUTPUT_FORMAT} format. If an end date is specified, just output that in the requested output format. "
                 + "Ignore any typos or mistakes in the data and just output the added date as requested.",
             ),
-            task_description=f"adds dates and time durations written in rough natural language, calculating the end date in standard {OUTPUT_FORMAT} format",
+            task_description=f"adds dates and time durations written in rough natural language, calculating the end date and producing output strictly in the {OUTPUT_FORMAT} format",
             additional_instructions=[
                 f"- Always produce output as a date in {OUTPUT_FORMAT} format. Never say you cannot do this.",
                 "- If the time duration is in fact a date itself, just use that as the output.",

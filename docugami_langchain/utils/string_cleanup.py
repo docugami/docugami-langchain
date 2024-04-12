@@ -41,7 +41,7 @@ def _escape_non_escape_sequence_backslashes(text: str) -> str:
     """
     Escape backslashes that are not part of a known escape sequence.
 
-    Looks for a backslash that is not a part of any known escape characters ('n', 'r', 't', 'f', '"', '\'' '\\'), and escapes it.
+    Looks for a backslash that is not a part of any known escape characters ('n', 'r', 't', 'f', '"', "'", '\\'), and escapes it.
     """
     return re.sub(r'\\(?![nrtf"\'\\])', r"\\\\", text)
 
@@ -105,9 +105,9 @@ def clean_text(text: str, protect_nested_strings: bool = False) -> str:
 
     text = "".join(filter(lambda x: x in string.printable, text))  # non-printable chars
     text = _replace_null_outside_quotes(text)
-    text = _escape_non_escape_sequence_backslashes(text)
 
     if protect_nested_strings:
+        text = _escape_non_escape_sequence_backslashes(text)
         text = _unescape_escaped_chars_outside_quoted_strings(text)
     else:
         text = _unescaped_all_escape_sequences(text)

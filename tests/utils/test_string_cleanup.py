@@ -4,6 +4,7 @@ from docugami_langchain.utils.string_cleanup import (
     _escape_non_escape_sequence_backslashes,
     _replace_null_outside_quotes,
     _unescape_escaped_chars_outside_quoted_strings,
+    clean_text,
 )
 
 
@@ -64,7 +65,7 @@ def test_replace_null_outside_quotes(text: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize(
-    "query,expected",
+    "text,expected",
     [
         ("abc def", "abc def"),  # No quotes
         (
@@ -105,5 +106,24 @@ def test_replace_null_outside_quotes(text: str, expected: str) -> None:
         ),  # An example SQL Query with an escaped asterisk that should be un-escaped
     ],
 )
-def test_unescape_outside_strings(query: str, expected: str) -> None:
-    assert _unescape_escaped_chars_outside_quoted_strings(query) == expected
+def test_unescape_outside_strings(text: str, expected: str) -> None:
+    assert _unescape_escaped_chars_outside_quoted_strings(text) == expected
+
+
+@pytest.mark.parametrize(
+    "text,protect_nested_strings,expected",
+    [
+        (
+            '{\n  "key_1": "val1",\n  "key\\_2": true\n}',
+            True,
+            '{\n  "key_1": "val1",\n  "key\\\\_2": true\n}',
+        ),  # an unnecessarily escaped underscore, but protected in nested string to make sure we retain the escape
+        (
+            '{\n  "key_1": "val1",\n  "key\\_2": true\n}',
+            False,
+            '{\n  "key_1": "val1",\n  "key_2": true\n}',
+        ),  # an unnecessarily escaped underscore, but protected in nested string
+    ],
+)
+def test_clean_text(text: str, protect_nested_strings: bool, expected: str) -> None:
+    assert clean_text(text, protect_nested_strings) == expected

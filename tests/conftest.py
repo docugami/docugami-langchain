@@ -127,4 +127,4 @@ def openai_ada() -> Embeddings:
 
 @pytest.fixture()
 def openai_gpt4_re_rank() -> BaseRanker:
-    return Reranker("rankgpt3", api_key=os.environ.get("OPENAI_API_KEY"), verbose=0)
+    return Reranker("rankgpt", api_key=os.environ.get("OPENAI_API_KEY"), verbose=0)

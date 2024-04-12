@@ -24,7 +24,7 @@ class DateParseChain(BaseDocugamiChain[datetime]):
                 "PARSED DATE",
                 f"The result of parsing the date expression, in {OUTPUT_FORMAT} format.",
             ),
-            task_description=f"parses date expressions specified in rough natural language, converting them to standard {OUTPUT_FORMAT} format",
+            task_description=f"parses date expressions specified in rough natural language, producing output strictly in the standard {OUTPUT_FORMAT} format",
             additional_instructions=[
                 f"- Always produce output as a date in {OUTPUT_FORMAT} format. Never say you cannot do this.",
                 "- The input data will sometimes by messy, with typos or non-standard formats. Try to guess the date as best as you can, by trying to ignore typical typos and OCR glitches.",
@@ -35,6 +35,7 @@ class DateParseChain(BaseDocugamiChain[datetime]):
                 f"- ONLY output the parsed date expression without any commentary, explanation, or listing any assumptions. Your output must EXACTLY match the required {OUTPUT_FORMAT} format.",
             ],
             additional_runnables=[DatetimeOutputParser(format=OUTPUT_FORMAT)],
+            include_output_instruction_suffix=True,
         )
 
     def run(  # type: ignore[override]

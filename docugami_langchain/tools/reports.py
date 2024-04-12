@@ -105,7 +105,7 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     Converts a set of chunks to a direct retriever tool description.
     """
     description = (
-        "Pass a COMPLETE question, rewriting it as needed to be self-contained based on chat history, as input to this tool. "
+        "Pass the COMPLETE question as input to this tool. "
         + f"It implements logic to to answer questions by querying the {name} report and outputs only the answer to your question. "
         + f"Use this tool if you think the answer can be calculated from the information in this report via standard data operations like counting, sorting, averaging or summing.\n\n{table_info}"
     )

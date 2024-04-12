@@ -150,10 +150,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
                 "- Never provide any additional explanation or discussion, only output the SQLite query requested, which answers the question against the given table description.",
                 "- If example rows are given, pay special attention to them to improve your query e.g. to account for abbreviations or formatting of values.",
             ],
-            stop_sequences=[
-                "\n",
-                ";",
-            ],
+            stop_sequences=["\n", ";", "<|im_end|>"],
         )
 
     def run(  # type: ignore[override]

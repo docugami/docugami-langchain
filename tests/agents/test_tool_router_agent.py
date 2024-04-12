@@ -1,12 +1,14 @@
 import os
 
 import pytest
-from flaky import flaky
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.agents import ToolRouterAgent
+from docugami_langchain.chains.rag.standalone_question_chain import (
+    StandaloneQuestionChain,
+)
 from docugami_langchain.chains.rag.tool_final_answer_chain import ToolFinalAnswerChain
 from tests.agents.common import (
     build_test_common_tools,
@@ -44,10 +46,19 @@ def init_tool_router_agent(
         tools.append(build_test_query_tool(docset.report, llm, embeddings))
     tools += build_test_common_tools(llm, embeddings)
 
+    standalone_questions_chain = StandaloneQuestionChain(
+        llm=llm,
+        embeddings=embeddings,
+    )
+    standalone_questions_chain.load_examples(
+        TEST_DATA_DIR / "examples/test_standalone_question_examples.yaml"
+    )
+
     agent = ToolRouterAgent(
         llm=llm,
         embeddings=embeddings,
         tools=tools,
+        standalone_question_chain=standalone_questions_chain,
         final_answer_chain=final_answer_chain,
     )
     agent.load_examples(TEST_DATA_DIR / "examples/test_tool_router_examples.yaml")
@@ -58,8 +69,6 @@ def init_tool_router_agent(
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-@flaky(max_runs=3)
-@pytest.mark.xfail(strict=False)  # Flaky test, sadly
 def test_fireworksai_tool_router(
     test_data: DocsetTestData,
     fireworksai_mixtral: BaseLanguageModel,
@@ -91,8 +100,6 @@ def test_fireworksai_tool_router(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 @pytest.mark.asyncio
-@flaky(max_runs=3)
-@pytest.mark.xfail(strict=False)  # Flaky test, sadly
 async def test_fireworksai_streamed_tool_router(
     test_data: DocsetTestData,
     fireworksai_mixtral: BaseLanguageModel,
@@ -123,8 +130,6 @@ async def test_fireworksai_streamed_tool_router(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-@flaky(max_runs=3)
-@pytest.mark.xfail(strict=False)  # Flaky test, sadly
 def test_openai_gpt4_tool_router(
     test_data: DocsetTestData,
     openai_gpt4: BaseLanguageModel,
@@ -156,8 +161,6 @@ def test_openai_gpt4_tool_router(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio
-@flaky(max_runs=3)
-@pytest.mark.xfail(strict=False)  # Flaky test, sadly
 async def test_openai_gpt4_streamed_tool_router(
     test_data: DocsetTestData,
     openai_gpt4: BaseLanguageModel,
