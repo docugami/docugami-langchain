@@ -15,9 +15,6 @@ from docugami_langchain.chains.documents.describe_document_set_chain import (
     DescribeDocumentSetChain,
 )
 from docugami_langchain.chains.rag.simple_rag_chain import SimpleRAGChain
-from docugami_langchain.chains.rag.standalone_question_chain import (
-    StandaloneQuestionChain,
-)
 from docugami_langchain.config import DEFAULT_RETRIEVER_K, MAX_FULL_DOCUMENT_TEXT_LENGTH
 from docugami_langchain.retrievers.fused_summary import (
     FULL_DOC_SUMMARY_ID_KEY,
@@ -102,7 +99,7 @@ def docset_details_to_direct_retrieval_tool_description(
     name: str, description: str
 ) -> str:
     return (
-        "Pass a COMPLETE question, rewriting it as needed to be self-contained based on chat history, as input to this tool. "
+        "Pass the COMPLETE question as input to this tool."
         + f"It implements logic to to answer questions based on information in {name} documents and outputs only the answer to your question. "
         + "Use this tool if you think the answer is likely to come from one or a few of these documents. "
         + description
@@ -143,7 +140,6 @@ def get_retrieval_tool_for_docset(
     fetch_parent_doc_callback: Optional[FusedRetrieverKeyValueFetchCallback] = None,
     retrieval_k: int = DEFAULT_RETRIEVER_K,
     full_doc_summary_id_key: str = FULL_DOC_SUMMARY_ID_KEY,
-    standalone_questions_examples_file: Optional[Path] = None,
 ) -> Optional[BaseDocugamiTool]:
     """
     Gets a retrieval tool for an agent.
@@ -160,18 +156,10 @@ def get_retrieval_tool_for_docset(
         search_type=SearchType.mmr,
     )
 
-    standalone_questions_chain = StandaloneQuestionChain(
-        llm=llm,
-        embeddings=embeddings,
-    )
-    if standalone_questions_examples_file:
-        standalone_questions_chain.load_examples(standalone_questions_examples_file)
-
     simple_rag_chain = SimpleRAGChain(
         llm=llm,
         embeddings=embeddings,
         retriever=retriever,
-        standalone_question_chain=standalone_questions_chain,
     )
 
     return CustomDocsetRetrievalTool(

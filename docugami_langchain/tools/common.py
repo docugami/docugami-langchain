@@ -83,7 +83,6 @@ class ChatBotTool(BaseDocugamiTool):
     def _run(
         self,
         question: str,
-        chat_history: list[tuple[str, str]] = [],
         run_manager: Optional[CallbackManagerForToolRun] = None,
     ) -> str:
         """Use the tool."""
@@ -97,7 +96,6 @@ class ChatBotTool(BaseDocugamiTool):
                 )
         chain_response: TracedResponse[str] = self.answer_chain.run(
             question=question,
-            chat_history=chat_history,
             config=config,
         )
 

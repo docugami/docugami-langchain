@@ -36,12 +36,12 @@ class StandaloneQuestionChain(BaseDocugamiChain[str]):
                 RunnableSingleParameter(
                     "chat_history",
                     "CHAT HISTORY",
-                    "Previous chat messages that may provide additional information about this question.",
+                    "Previous chat messages that may provide additional information about the question.",
                 ),
                 RunnableSingleParameter(
                     "question",
                     "QUESTION",
-                    "A question from the user.",
+                    "A question from the user that you need to rewrite as a standalone question (you don't have to answer it).",
                 ),
             ],
             output=RunnableSingleParameter(
@@ -49,7 +49,7 @@ class StandaloneQuestionChain(BaseDocugamiChain[str]):
                 "STANDALONE_QUESTION",
                 "A standalone version of the question (not an answer), re-written to incorporate additional information from the chat history",
             ),
-            task_description="rewrites a question as a standalone question, incorporating additional information from the chat history",
+            task_description="rewrites a question as a standalone question, incorporating additional information from the chat history without trying to answer the question",
             additional_instructions=[
                 "- The generated standalone question will be used to search for relevant chunks within a set of documents that may answer the question.",
                 "- Focus on the chat history immediately preceding the question.",
@@ -57,8 +57,7 @@ class StandaloneQuestionChain(BaseDocugamiChain[str]):
                 "- Do NOT try to answer the question. Just rewrite the question as instructed."
                 "- Never say you cannot do this. If all else fails, just repeat the given question without rewriting it.",
             ],
-            stop_sequences=["CHAT HISTORY:", "QUESTION:"],
-            key_finding_output_parse=False,  # set to False for streaming
+            stop_sequences=["CHAT HISTORY:", "QUESTION:", "<|im_end|>"],
         )
 
     def run(  # type: ignore[override]

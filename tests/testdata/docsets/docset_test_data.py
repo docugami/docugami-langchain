@@ -53,7 +53,7 @@ DOCSET_TEST_DATA: list[DocsetTestData] = [
         ),
         questions=[
             TestQuestionData(
-                question="What is the accident number for the incident in madill, oklahoma?",
+                question="What is the accident number for the incident in Madill, OK?",
                 acceptable_answer_fragments=["DFW08CA044"],
             ),
             TestQuestionData(
@@ -65,7 +65,7 @@ DOCSET_TEST_DATA: list[DocsetTestData] = [
                 chat_history=[
                     (
                         "What is the largest city in Marshall county, OK?",
-                        "Madill is the largest city in Marshall County, Oklahoma, with a population of 4,094 in 2023. It's also the county seat.",
+                        "Madill, OK is the largest city in Marshall County with a population of 4,094 in 2023. It's also the county seat.",
                     ),
                     (
                         "Do you know who it was named after?",

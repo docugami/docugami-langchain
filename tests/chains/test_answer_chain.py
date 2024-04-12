@@ -8,10 +8,7 @@ from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
 from tests.common import (
     GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
-    GENERAL_KNOWLEDGE_ANSWER_WITH_HISTORY_FRAGMENTS,
-    GENERAL_KNOWLEDGE_CHAT_HISTORY,
     GENERAL_KNOWLEDGE_QUESTION,
-    GENERAL_KNOWLEDGE_QUESTION_WITH_HISTORY,
     TEST_DATA_DIR,
     verify_traced_response,
 )
@@ -64,65 +61,3 @@ async def test_fireworksai_mixtral_streamed_answer(
         chain_response = incremental_response
 
     verify_traced_response(chain_response, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
-
-
-@pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
-)
-@pytest.mark.asyncio
-async def test_fireworksai_mixtral_streamed_answer_with_history(
-    fireworksai_mixtral: BaseLanguageModel,
-    huggingface_minilm: Embeddings,
-) -> None:
-    chain = init_chain(fireworksai_mixtral, huggingface_minilm, examples=True)
-    chain_response = TracedResponse[str](value="")
-    async for incremental_response in chain.run_stream(
-        GENERAL_KNOWLEDGE_QUESTION_WITH_HISTORY,
-        GENERAL_KNOWLEDGE_CHAT_HISTORY,
-    ):
-        chain_response = incremental_response
-
-    verify_traced_response(
-        chain_response, GENERAL_KNOWLEDGE_ANSWER_WITH_HISTORY_FRAGMENTS
-    )
-
-
-@pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
-)
-@pytest.mark.asyncio
-async def test_fireworksai_dbrx_streamed_answer_with_history(
-    fireworksai_dbrx: BaseLanguageModel,
-    huggingface_minilm: Embeddings,
-) -> None:
-    chain = init_chain(fireworksai_dbrx, huggingface_minilm, examples=True)
-    chain_response = TracedResponse[str](value="")
-    async for incremental_response in chain.run_stream(
-        GENERAL_KNOWLEDGE_QUESTION_WITH_HISTORY,
-        GENERAL_KNOWLEDGE_CHAT_HISTORY,
-    ):
-        chain_response = incremental_response
-
-    verify_traced_response(
-        chain_response, GENERAL_KNOWLEDGE_ANSWER_WITH_HISTORY_FRAGMENTS
-    )
-
-
-@pytest.mark.skipif(
-    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
-)
-@pytest.mark.asyncio
-async def test_openai_gpt4_gpt4_streamed_answer_with_history(
-    openai_gpt4: BaseLanguageModel, openai_ada: Embeddings
-) -> None:
-    chain = init_chain(openai_gpt4, openai_ada, examples=True)
-    chain_response = TracedResponse[str](value="")
-    async for incremental_response in chain.run_stream(
-        GENERAL_KNOWLEDGE_QUESTION_WITH_HISTORY,
-        GENERAL_KNOWLEDGE_CHAT_HISTORY,
-    ):
-        chain_response = incremental_response
-
-    verify_traced_response(
-        chain_response, GENERAL_KNOWLEDGE_ANSWER_WITH_HISTORY_FRAGMENTS
-    )

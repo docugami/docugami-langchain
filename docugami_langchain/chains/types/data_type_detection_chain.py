@@ -37,7 +37,7 @@ class DataTypeDetectionChain(BaseDocugamiChain[DocugamiDataType]):
                 "- $UNIT is the (optional, string) predominant unit of the data presented by the given text items. Leave this empty if not confident, or multiple units detected.",
             ],
             additional_runnables=[PydanticOutputParser(pydantic_object=DocugamiDataType)],  # type: ignore
-            stop_sequences=["TEXT ITEMS:"],
+            stop_sequences=["TEXT ITEMS:", "<|im_end|>"],
         )
 
     def run(  # type: ignore[override]

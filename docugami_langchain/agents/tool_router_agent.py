@@ -10,8 +10,12 @@ from docugami_langchain.agents.models import (
     Invocation,
     StepState,
 )
+from docugami_langchain.chains.rag.standalone_question_chain import (
+    StandaloneQuestionChain,
+)
 from docugami_langchain.chains.rag.tool_final_answer_chain import ToolFinalAnswerChain
-from docugami_langchain.history import chat_history_to_str, steps_to_str
+from docugami_langchain.history import steps_to_str
+from docugami_langchain.output_parsers import TextCleaningOutputParser
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 from docugami_langchain.tools.common import render_text_description
 
@@ -21,17 +25,13 @@ class ToolRouterAgent(BaseDocugamiAgent):
     Agent that implements agentic RAG with a tool router implementation.
     """
 
+    standalone_question_chain: StandaloneQuestionChain
     final_answer_chain: ToolFinalAnswerChain
 
     def params(self) -> RunnableParameters:
         """The params are directly implemented in the runnable."""
         return RunnableParameters(
             inputs=[
-                RunnableSingleParameter(
-                    "chat_history",
-                    "CHAT HISTORY",
-                    "Previous chat messages that may provide additional context for this question.",
-                ),
                 RunnableSingleParameter(
                     "question",
                     "QUESTION",
@@ -71,8 +71,8 @@ class ToolRouterAgent(BaseDocugamiAgent):
                 "- $INPUT_STRING is the (string) input carefully crafted to answer the question using the given tool.",
                 "- Before retrying a tool, look at previous attempts at running the tool (in intermediate steps) and try to update the inputs to the tool before trying again",
             ],
-            stop_sequences=[],
-            additional_runnables=[PydanticOutputParser(pydantic_object=Invocation)],  # type: ignore
+            stop_sequences=["<|im_end|>"],
+            additional_runnables=[TextCleaningOutputParser(), PydanticOutputParser(pydantic_object=Invocation)],  # type: ignore
         )
 
     def runnable(self) -> Runnable:
@@ -90,11 +90,26 @@ class ToolRouterAgent(BaseDocugamiAgent):
 
         tool_invocation_runnable: Runnable = {
             "question": lambda x: x["question"],
-            "chat_history": lambda x: chat_history_to_str(x["chat_history"]),
             "tool_names": lambda x: x["tool_names"],
             "tool_descriptions": lambda x: x["tool_descriptions"],
             "intermediate_steps": lambda x: steps_to_str(x["intermediate_steps"]),
         } | super().runnable()
+
+        def standalone_question(
+            state: AgentState, config: Optional[RunnableConfig]
+        ) -> AgentState:
+            question = state.get("question")
+            chat_history = state.get("chat_history")
+
+            if question and chat_history:
+                standalone_question_response = self.standalone_question_chain.run(
+                    question, chat_history, config
+                )
+
+                if standalone_question_response.value:
+                    state["question"] = standalone_question_response.value
+
+            return state
 
         def generate_tool_invocation(
             state: AgentState, config: Optional[RunnableConfig]
@@ -110,7 +125,6 @@ class ToolRouterAgent(BaseDocugamiAgent):
         ) -> AgentState:
             chain_response = self.final_answer_chain.run(
                 question=state.get("question") or "",
-                chat_history=state.get("chat_history") or [],
                 tool_descriptions=state.get("tool_descriptions") or "",
                 intermediate_steps=state.get("intermediate_steps") or [],
                 config=config,
@@ -143,6 +157,7 @@ class ToolRouterAgent(BaseDocugamiAgent):
 
         # Define the nodes of the graph
         workflow.add_node("run_agent", run_agent)  # type: ignore
+        workflow.add_node("standalone_question", standalone_question)  # type: ignore
         workflow.add_node("generate_tool_invocation", generate_tool_invocation)  # type: ignore
         workflow.add_node("execute_tool", self.execute_tool)  # type: ignore
         workflow.add_node("generate_final_answer", generate_final_answer)  # type: ignore
@@ -151,7 +166,8 @@ class ToolRouterAgent(BaseDocugamiAgent):
         workflow.set_entry_point("run_agent")
 
         # Add edges
-        workflow.add_edge("run_agent", "generate_tool_invocation")
+        workflow.add_edge("run_agent", "standalone_question")
+        workflow.add_edge("standalone_question", "generate_tool_invocation")
         workflow.add_edge("generate_tool_invocation", "execute_tool")
         workflow.add_edge("execute_tool", "generate_final_answer")
 

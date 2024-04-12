@@ -1,16 +1,15 @@
-- chat_history:
-  question: When does the contract for ABC corp expire?
+- question: When does the contract for ABC corp expire?
   tool_descriptions: |
-    1. document_answer_tool_contracts_report: Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. Use this tool if you think the answer is 
+    1. document_answer_tool_contracts_report: Pass the COMPLETE question as input to this tool. Use this tool if you think the answer is 
     likely to come from one or a few of these documents. This document type is the Master Service Agreement Contracts.
 
-    2. query_contracts_report: Pass the user's question, after rewriting it to be self-contained based on chat history, as input directly to this tool. Use this tool if you think the answer is 
+    2. report_answer_tool_contracts_report: Pass the COMPLETE question as input to this tool. Use this tool if you think the answer is 
     likely to come from one or a few of these documents. This document type is the Master Service Agreement Contracts.
 
-    3. chat_bot: Responds to greetings, small talk, or questions that can be directly answered from the chat history.
+    3. chat_bot: Responds to greetings, small talk, or general knowledge questions.
 
   intermediate_steps: |
-    Tool Name: query_contracts_report
+    Tool Name: report_answer_tool_contracts_report
       input: SELECT Expiry_Date FROM Contracts_Report WHERE Name LIKE '%abc%'
       output: Looks like you passed in a SQL query. This tool takes natural language inputs, and automatically translates them to SQL queries. Please try passing in a natural language query.
   cited_answer_json: |
@@ -18,4 +17,40 @@
       "source": "report_answer_tool_contracts_report",
       "answer": "Looks like you passed in a SQL query. This tool takes natural language inputs, and automatically translates them to SQL queries. Please try passing in a natural language query.",
       "is_final": false
+    }
+
+- question: How many accidents involved Cessna aircraft?
+  tool_descriptions: |
+    1. document_answer_tool_ntsb_aviation_incident_reports: Pass the COMPLETE question as input to this tool. It implements logic to answer questions based on information in NTSB Aviation Incident Reports documents and outputs only the answer to your question. Use this tool if you think the answer is likely to come from one or a few of these documents. This document type consists of NTSB Aviation Incident Reports, which provide detailed information about aircraft accidents or incidents, including the circumstances, probable cause, and contributing factors. The reports also include details about the aircraft, individuals involved, weather conditions, and the investigation process.
+
+    2. report_answer_tool_aviation_incidents_report: Pass the COMPLETE question as input to this tool. It implements logic to answer questions by querying the Aviation Incidents Report report and outputs only the answer to your question. Use this tool if you think the answer can be calculated from the information in this report via standard data operations like counting, sorting, averaging or summing.
+
+      1. Accident Number (in text format)
+      2. Registration Number (in text format)
+      3. Aircraft Make and Model (in text format)
+      4. Location (in text format)
+      5. Accident Date (in text format)
+      6. Accident Time (in text format)
+
+      3 example rows:
+      +-------------------+-----------------------+---------------------------+-------------------+-----------------+-----------------+
+      | Accident Number   | Registration Number   | Aircraft Make and Model   | Location          | Accident Date   | Accident Time   |
+      +===================+=======================+===========================+===================+=================+=================+
+      | LAX08CA040        | N7229R                | Eldredge Aircamper SDE    | Sahuarita, AZ     | 12/20/2007      | 1715 MST        |
+      +-------------------+-----------------------+---------------------------+-------------------+-----------------+-----------------+
+      | MIA08WA033        | N954PA                | Cessna 208B               | Chub Cay, Bahamas | 12/20/2007      | 1630 AST        |
+      +-------------------+-----------------------+---------------------------+-------------------+-----------------+-----------------+
+      | SEA08CA044        | N9048T                | Cessna 182                | Spokane, WA       | 12/08/2007      | 1030 PST        |
+      +-------------------+-----------------------+---------------------------+-------------------+-----------------+-----------------+
+
+      3. chat_bot: Responds to greetings, small talk, or general knowledge questions.
+  intermediate_steps: |
+    Tool Name: report_answer_tool_aviation_incidents_report
+      input: Number of accidents involving Cessna aircraft
+      output: [(27,)].
+  cited_answer_json: |
+    {
+      "source": "report_answer_tool_aviation_incidents_report",
+      "answer": "There were 27 accidents involving Cessna aircraft.",
+      "is_final": true
     }

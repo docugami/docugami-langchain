@@ -45,7 +45,6 @@ def init_simple_rag_chain(
         llm=llm,
         embeddings=embeddings,
         retriever=retriever,
-        standalone_question_chain=standalone_questions_chain,
     )
 
 
@@ -68,10 +67,9 @@ def test_fireworksai_simple_rag(
     )
 
     for question in test_data.questions:
-        if not question.requires_report:
+        if not question.requires_report and not question.chat_history:
             answer = fireworksai_mixtral_simple_rag_chain.run(
-                question=question.question,
-                chat_history=question.chat_history,
+                question=question.question
             )
             verify_traced_response(answer, question.acceptable_answer_fragments)
 
@@ -94,9 +92,8 @@ def test_openai_gpt4_simple_rag(
     )
 
     for question in test_data.questions:
-        if not question.requires_report:
+        if not question.requires_report and not question.chat_history:
             answer = openai_gpt4_simple_rag_chain.run(
                 question=question.question,
-                chat_history=question.chat_history,
             )
             verify_traced_response(answer, question.acceptable_answer_fragments)

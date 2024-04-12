@@ -7,6 +7,9 @@ from langchain_core.language_models import BaseLanguageModel
 from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.agents import ReActAgent
+from docugami_langchain.chains.rag.standalone_question_chain import (
+    StandaloneQuestionChain,
+)
 from tests.agents.common import (
     build_test_common_tools,
     build_test_query_tool,
@@ -17,6 +20,7 @@ from tests.agents.common import (
 from tests.common import (
     GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
     GENERAL_KNOWLEDGE_QUESTION,
+    TEST_DATA_DIR,
 )
 from tests.testdata.docsets.docset_test_data import (
     DOCSET_TEST_DATA,
@@ -36,10 +40,19 @@ def init_re_act_agent(
         tools.append(build_test_query_tool(docset.report, llm, embeddings))
     tools += build_test_common_tools(llm, embeddings)
 
+    standalone_questions_chain = StandaloneQuestionChain(
+        llm=llm,
+        embeddings=embeddings,
+    )
+    standalone_questions_chain.load_examples(
+        TEST_DATA_DIR / "examples/test_standalone_question_examples.yaml"
+    )
+
     agent = ReActAgent(
         llm=llm,
         embeddings=embeddings,
         tools=tools,
+        standalone_question_chain=standalone_questions_chain,
     )
     return agent
 

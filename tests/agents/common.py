@@ -122,8 +122,6 @@ def build_test_retrieval_tool(
         fetch_parent_doc_callback=_fetch_parent_doc_callback,
         fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
         retrieval_k=DEFAULT_RETRIEVER_K,
-        standalone_questions_examples_file=EXAMPLES_PATH
-        / "test_standalone_question_examples.yaml",
     )
     if not tool:
         raise Exception("Failed to create retrieval tool")
