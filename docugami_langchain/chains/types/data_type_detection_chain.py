@@ -25,7 +25,7 @@ class DataTypeDetectionChain(BaseDocugamiChain[DocugamiDataType]):
                 "DATA TYPE JSON",
                 "A JSON blob with the predominant data type (`type`) and the optional unit (`unit`) that best represents the given list of text items",
             ),
-            task_description="detects the predominant data type from a list of text items",
+            task_description="detects the predominant data type from a list of text items and produces valid JSON output per the given examples",
             additional_instructions=[
                 """- Here is an example of a valid JSON blob for your output. Please STRICTLY follow this format:
 {{
@@ -34,10 +34,11 @@ class DataTypeDetectionChain(BaseDocugamiChain[DocugamiDataType]):
 }}""",
                 "- $TYPE is the (string) predominant data type of the given text items, and must be one of these values: "
                 + ", ".join([t.value for t in DataTypes]),
-                "- $UNIT is the (optional, string) predominant unit of the data presented by the given text items. Leave this empty if not confident, or multiple units detected.",
+                "- $UNIT is the predominant unit of the data presented by the given text items. If there is no unit, just use the date type value here as well.",
             ],
             additional_runnables=[PydanticOutputParser(pydantic_object=DocugamiDataType)],  # type: ignore
             stop_sequences=["TEXT ITEMS:", "<|im_end|>"],
+            include_output_instruction_suffix=True,
         )
 
     def run(  # type: ignore[override]
@@ -53,7 +54,7 @@ class DataTypeDetectionChain(BaseDocugamiChain[DocugamiDataType]):
             text_items_numbered.append(f"{i+1}. {item.strip()}")
 
         return super().run(
-            text_items="\n\n".join(text_items_numbered),
+            text_items="\n".join(text_items_numbered),
             config=config,
         )
 

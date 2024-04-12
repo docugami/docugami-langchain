@@ -6,7 +6,7 @@
   data_type_json: |
     {
       "type": "datetime",
-      "unit": ""
+      "unit": "datetime"
     }
 - text_items: |
     1. pay the $300 fine

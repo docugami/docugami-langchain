@@ -23,12 +23,13 @@ class TimespanParseChain(BaseDocugamiChain[TimeSpan]):
                 "PARSED TIME SPAN",
                 f"The result of parsing the timespan expression, in {OUTPUT_FORMAT} format.",
             ),
-            task_description=f"parses up time span expressions specified in rough natural language, converting them to standard {OUTPUT_FORMAT} format",
+            task_description=f"parses time span expressions specified in rough natural language, producing output strictly in the {OUTPUT_FORMAT} format",
             additional_instructions=[
                 f"- Always produce output as a timespan in {OUTPUT_FORMAT} format. Never say you cannot do this.",
                 "- The input data will sometimes by messy, with typos or non-standard formats. Try to guess the timespan as best as you can, by trying to ignore typical typos and OCR glitches.",
             ],
             additional_runnables=[TimespanOutputParser()],
+            include_output_instruction_suffix=True,
         )
 
     def run(  # type: ignore[override]

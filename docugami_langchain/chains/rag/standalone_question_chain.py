@@ -19,7 +19,7 @@ class StandaloneQuestionChain(BaseDocugamiChain[str]):
         """
         Custom runnable for this chain.
         """
-        noop = RunnableLambda(lambda x: x["question"])
+        noop = RunnableLambda(lambda x: x["human"])
 
         # Rewrite only if chat history is provided
         return RunnableBranch(

@@ -18,7 +18,9 @@ TEST_INPUT_TEXT_ITEMS = [
     "This agreement was signed between Foo and Bar on the 2nd day of September, of the year twenty thirteen.",
     "02-01-23",
 ]
-TEST_PARSED_DATA_TYPE: DocugamiDataType = DocugamiDataType(type=DataTypes.DATETIME)
+TEST_PARSED_DATA_TYPE: DocugamiDataType = DocugamiDataType(
+    type=DataTypes.DATETIME, unit="datetime"
+)
 
 
 def init_chain(
