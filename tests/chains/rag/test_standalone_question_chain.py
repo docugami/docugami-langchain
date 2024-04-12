@@ -89,7 +89,7 @@ async def test_fireworksai_mixtral_streamed_standalone_question_topic_change(
     ):
         chain_response = incremental_response
 
-    verify_traced_response(chain_response, "joke")
+    verify_traced_response(chain_response, ["joke"])
 
 
 @pytest.mark.skipif(
