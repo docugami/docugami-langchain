@@ -23,6 +23,7 @@ class RunnableParameters:
     num_examples: int = DEFAULT_EXAMPLES_PER_PROMPT
     additional_runnables: Optional[list[Runnable]] = None
     key_finding_output_parse: bool = True
+    include_output_instruction_suffix: bool = False
 
 
 __all__ = ["RunnableSingleParameter", "RunnableParameters"]

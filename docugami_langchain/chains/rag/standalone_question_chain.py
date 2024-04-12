@@ -36,56 +36,58 @@ class StandaloneQuestionChain(BaseDocugamiChain[str]):
                 RunnableSingleParameter(
                     "chat_history",
                     "CHAT HISTORY",
-                    "Previous chat messages that may provide additional information about the question.",
+                    "Previous chat messages that the user has previous exchanged with the AI assistant",
                 ),
                 RunnableSingleParameter(
-                    "question",
-                    "QUESTION",
-                    "A question from the user that you need to rewrite as a standalone question (you don't have to answer it).",
+                    "human",
+                    "Human",
+                    "The most recent question or comment from the user, in continuation of the chat history. Look carefully at this, since it has the most relevance to what "
+                    "the user wants the AI assistant to respond to.",
                 ),
             ],
             output=RunnableSingleParameter(
-                "standalone_question",
-                "STANDALONE_QUESTION",
-                "A standalone version of the question (not an answer), re-written to incorporate additional information from the chat history",
+                "standalone_agent_input",
+                "STANDALONE_AGENT_INPUT",
+                "A one-sentence standalone version of the last question or comment from the user that can be sent as input to an AI assistant that knows how to respond to "
+                "such conversations (you don't need to answer any questions yourself)",
             ),
-            task_description="rewrites a question as a standalone question, incorporating additional information from the chat history without trying to answer the question",
+            task_description="rewrites a given chat session as a standalone input to an AI assistant, without trying to answer anything",
             additional_instructions=[
-                "- The generated standalone question will be used to search for relevant chunks within a set of documents that may answer the question.",
-                "- Focus on the chat history immediately preceding the question.",
-                "- Produce only the requested standalone question, no other commentary before or after.",
-                "- Do NOT try to answer the question. Just rewrite the question as instructed."
-                "- Never say you cannot do this. If all else fails, just repeat the given question without rewriting it.",
+                "- The generated standalone agent input will be used by an agent to respond to the user in the context of the chat session",
+                "- Produce only the requested standalone agent input, no other commentary before or after.",
+                "- Do NOT try to answer any questions or respond in any way to the conversation. Just generate the agent input as instructed."
+                "- Never say you cannot do this. If you don't know what to do, just repeat the most recent human question or comment without rewriting anything.",
             ],
-            stop_sequences=["CHAT HISTORY:", "QUESTION:", "<|im_end|>"],
+            stop_sequences=["CHAT HISTORY:", "HUMAN:", "<|im_end|>"],
+            include_output_instruction_suffix=True,
         )
 
     def run(  # type: ignore[override]
         self,
-        question: str,
+        human: str,
         chat_history: list[tuple[str, str]] = [],
         config: Optional[RunnableConfig] = None,
     ) -> TracedResponse[str]:
-        if not question:
-            raise Exception("Input required: question")
+        if not human:
+            raise Exception("Input required: human")
 
         return super().run(
-            question=question,
+            human=human,
             chat_history=chat_history_to_str(chat_history),
             config=config,
         )
 
     async def run_stream(  # type: ignore[override]
         self,
-        question: str,
+        human: str,
         chat_history: list[tuple[str, str]] = [],
         config: Optional[RunnableConfig] = None,
     ) -> AsyncIterator[TracedResponse[str]]:
-        if not question:
-            raise Exception("Input required: question")
+        if not human:
+            raise Exception("Input required: human")
 
         async for item in super().run_stream(
-            question=question,
+            human=human,
             chat_history=chat_history_to_str(chat_history),
             config=config,
         ):
@@ -99,7 +101,7 @@ class StandaloneQuestionChain(BaseDocugamiChain[str]):
         return super().run_batch(
             inputs=[
                 {
-                    "question": i[0],
+                    "human": i[0],
                     "chat_history": chat_history_to_str(i[1]),
                 }
                 for i in inputs
