@@ -254,7 +254,7 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
     """
 
     llm: BaseLanguageModel
-    embeddings: Embeddings
+    embeddings: Optional[Embeddings] = None
     examples_vectorstore_cls: type[VectorStore] = FAISS
 
     input_params_max_length_cutoff: int = MAX_PARAMS_CUTOFF_LENGTH_CHARS
