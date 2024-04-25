@@ -7,7 +7,7 @@ ________SINGLE_TOKEN_LINE________ = "----------------"
 MIN_LENGTH_TO_SUMMARIZE: int = 2048
 
 # When summarizing full docs we cut off input after this by default
-MAX_FULL_DOCUMENT_TEXT_LENGTH: int = int(1024 * 4 * 14)  # ~14k tokens,
+MAX_FULL_DOCUMENT_TEXT_LENGTH: int = int(1024 * 4 * 8)  # ~8k tokens,
 
 # When summarizing chunks we cut off input after this by default
 MAX_CHUNK_TEXT_LENGTH: int = int(1024 * 4 * 4.5)  # ~4.5k tokens

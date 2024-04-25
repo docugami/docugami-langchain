@@ -50,7 +50,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
                 "- $IS_FINAL is a boolean judment of self-critiquing your own final answer. If you think it adequately answers the user's question, set this to True. "
                 + "Otherwise set this to False. Your output will be sent back to the AI agent and it will try again with different tools or inputs.",
             ],
-            stop_sequences=["<|im_end|>"],
+            stop_sequences=["<|eot_id|>"],
             additional_runnables=[TextCleaningOutputParser(), PydanticOutputParser(pydantic_object=CitedAnswer)],  # type: ignore
         )
 

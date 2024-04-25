@@ -58,7 +58,7 @@ class StandaloneQuestionChain(BaseDocugamiChain[str]):
                 "- Do NOT try to answer any questions or respond in any way to the conversation. Just generate the agent input as instructed."
                 "- Never say you cannot do this. If you don't know what to do, just repeat the most recent human question or comment without rewriting anything.",
             ],
-            stop_sequences=["CHAT HISTORY:", "HUMAN:", "<|im_end|>"],
+            stop_sequences=["CHAT HISTORY:", "HUMAN:", "<|eot_id|>"],
             include_output_instruction_suffix=True,
         )
 

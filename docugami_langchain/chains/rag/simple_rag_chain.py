@@ -39,7 +39,7 @@ class SimpleRAGChain(BaseDocugamiChain[str]):
                 "- If you don't know the answer, just say that you don't know.",
                 "- Your answer should be concise, up to three sentences long.",
             ],
-            stop_sequences=["<|im_end|>"],
+            stop_sequences=["<|eot_id|>"],
             key_finding_output_parse=False,  # set to False for streaming
         )
 

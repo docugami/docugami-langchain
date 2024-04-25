@@ -51,7 +51,7 @@ class SummarizeChunkChain(BaseDocugamiChain[str]):
                 "Summary generated per the given rules.",
             ),
             task_description="creates a summary of some given text, while minimizing loss of key details",
-            stop_sequences=["CONTENTS:", "FORMAT:", "<|im_end|>"],
+            stop_sequences=["CONTENTS:", "FORMAT:", "<|eot_id|>"],
             additional_instructions=[
                 "- Your generated summary should be in the same format as the given document, using the same overall schema.",
                 "- The generated summary will be embedded and used to retrieve the raw text or table elements from a vector database.",

@@ -28,7 +28,7 @@ class ElaborateChunkChain(BaseDocugamiChain[str]):
                 "Elaboration generated per the given rules.",
             ),
             task_description="elaborates some given text, while minimizing loss of key details",
-            stop_sequences=["CONTENTS:", "FORMAT:", "<|im_end|>"],
+            stop_sequences=["CONTENTS:", "FORMAT:", "<|eot_id|>"],
             additional_instructions=[
                 "- Your generated elaboration should be in the same format as the given document, using the same overall schema.",
                 "- Only elaborate, don't try to change any facts in the chunk even if they appear incorrect to you.",

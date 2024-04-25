@@ -48,7 +48,6 @@
     ----------------
   human: Who's considered more influential in their field?
   standalone_agent_input: Between Albert Einstein and Charles Darwin, who is considered more influential in their field?
-
 - chat_history: |
     Human: What is the largest city in King County, WA?
     ----------------

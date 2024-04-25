@@ -37,7 +37,7 @@ class DataTypeDetectionChain(BaseDocugamiChain[DocugamiDataType]):
                 "- $UNIT is the predominant unit of the data presented by the given text items. If there is no unit, just use the date type value here as well.",
             ],
             additional_runnables=[PydanticOutputParser(pydantic_object=DocugamiDataType)],  # type: ignore
-            stop_sequences=["TEXT ITEMS:", "<|im_end|>"],
+            stop_sequences=["TEXT ITEMS:", "<|eot_id|>"],
             include_output_instruction_suffix=True,
         )
 
