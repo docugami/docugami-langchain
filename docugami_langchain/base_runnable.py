@@ -27,7 +27,7 @@ from langchain_core.vectorstores import VectorStore
 
 from docugami_langchain.config import (
     DEFAULT_EXAMPLES_PER_PROMPT,
-    DEFAULT_RECURSION_LIMIT,
+    DEFAULT_AGENT_RECURSION_LIMIT,
     MAX_PARAMS_CUTOFF_LENGTH_CHARS,
 )
 from docugami_langchain.output_parsers import KeyfindingOutputParser
@@ -262,7 +262,7 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
     _examples: list[dict] = []
     _example_selector: Optional[MaxMarginalRelevanceExampleSelector] = None
 
-    recursion_limit = DEFAULT_RECURSION_LIMIT
+    recursion_limit = DEFAULT_AGENT_RECURSION_LIMIT
 
     class Config:
         arbitrary_types_allowed = True

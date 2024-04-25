@@ -1,5 +1,7 @@
 ________SINGLE_TOKEN_LINE________ = "----------------"
 
+# ************ PARAMETERS TO CONTROL PROMPT SIZES
+
 # Lengths are in terms of characters, 1 token ~= 4 chars in English
 # Reference: https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them
 
@@ -14,14 +16,18 @@ MAX_CHUNK_TEXT_LENGTH: int = int(1024 * 4 * 4.5)  # ~4.5k tokens
 MAX_PARAMS_CUTOFF_LENGTH_CHARS: int = int(1024 * 4 * 2)  # ~2k tokens
 DEFAULT_EXAMPLES_PER_PROMPT = 3
 
-DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO = 3
+# ************ PARAMETERS TO CONTROL RETRIEVAL
+INCLUDE_XML_TAGS = True
+# The number of results retrieved (before re-ranking / filtering)
+DEFAULT_RETRIEVER_K: int = 24
+# Results above this percentile are kept, others are rejected (0 means keep them all, 90 means keep only very good ones, 100 means keep the top one, etc.)
+RE_RANK_FILTER_PERCENTILE: int = 70
 
-# Control tabular presentation of rows in SQL query prompts
+# ************ PARAMETERS TO TABULAR REPRESENTATION OF ROWS TO HELP GENERATE SQL
+DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO = 3
 DEFAULT_SAMPLE_ROWS_GRID_FORMAT = "grid"  # format from the tabulate library
 DEFAULT_TABLE_AS_TEXT_CELL_MAX_WIDTH = 64  # cell width
 DEFAULT_TABLE_AS_TEXT_CELL_MAX_LENGTH = 64 * 3  # cell content length
 
-DEFAULT_RETRIEVER_K: int = 24
-INCLUDE_XML_TAGS = True
-
-DEFAULT_RECURSION_LIMIT = 70
+# ************ PARAMETERS TO CONTROL AGENT BEHAVIOR
+DEFAULT_AGENT_RECURSION_LIMIT = 70

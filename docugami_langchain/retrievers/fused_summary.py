@@ -13,6 +13,7 @@ from rerankers.models.ranker import BaseRanker
 from docugami_langchain.config import (
     ________SINGLE_TOKEN_LINE________,
     DEFAULT_RETRIEVER_K,
+    RE_RANK_FILTER_PERCENTILE,
 )
 
 PARENT_DOC_ID_KEY = "doc_id"
@@ -74,7 +75,7 @@ class FusedSummaryRetriever(BaseRetriever):
     retriever_k: int = DEFAULT_RETRIEVER_K
     """The number of chunks the retriever tries to get from the vectorstore."""
 
-    re_rank_filter_percentile: float = 70
+    re_rank_filter_percentile: float = RE_RANK_FILTER_PERCENTILE
     """Results above this percentile are kept, others are rejected (0 means keep them all, 90 means keep only very good ones, 100 means keep the top one, etc.)."""
 
     re_ranker: Optional[BaseRanker] = None
