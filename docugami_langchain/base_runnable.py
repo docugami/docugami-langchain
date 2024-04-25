@@ -26,8 +26,8 @@ from langchain_core.tracers.context import collect_runs
 from langchain_core.vectorstores import VectorStore
 
 from docugami_langchain.config import (
-    DEFAULT_EXAMPLES_PER_PROMPT,
     DEFAULT_AGENT_RECURSION_LIMIT,
+    DEFAULT_EXAMPLES_PER_PROMPT,
     MAX_PARAMS_CUTOFF_LENGTH_CHARS,
 )
 from docugami_langchain.output_parsers import KeyfindingOutputParser
