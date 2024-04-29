@@ -23,7 +23,7 @@ class DataTypeDetectionChain(BaseDocugamiChain[DocugamiDataType]):
             output=RunnableSingleParameter(
                 "data_type_json",
                 "DATA TYPE JSON",
-                "A JSON blob with the predominant data type (`type`) and the optional unit (`unit`) that best represents the given list of text items",
+                "A JSON blob with the predominant data type (`type`) and the optional unit (`unit`) that best represents the given list of text items.",
             ),
             task_description="detects the predominant data type from a list of text items and produces valid JSON output per the given examples",
             additional_instructions=[

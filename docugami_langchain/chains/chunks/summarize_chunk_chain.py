@@ -37,7 +37,7 @@ class SummarizeChunkChain(BaseDocugamiChain[str]):
                 RunnableSingleParameter(
                     "contents",
                     "CONTENTS",
-                    "Contents of the chunk that needs to be summarized",
+                    "Contents of the chunk that needs to be summarized.",
                 ),
                 RunnableSingleParameter(
                     "format",

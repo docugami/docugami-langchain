@@ -14,7 +14,7 @@ class ElaborateChunkChain(BaseDocugamiChain[str]):
                 RunnableSingleParameter(
                     "contents",
                     "CONTENTS",
-                    "Contents of the chunk that needs to be elaborated",
+                    "Contents of the chunk that needs to be elaborated.",
                 ),
                 RunnableSingleParameter(
                     "format",

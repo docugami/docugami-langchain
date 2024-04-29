@@ -37,7 +37,7 @@ class SummarizeDocumentChain(BaseDocugamiChain[str]):
                 RunnableSingleParameter(
                     "contents",
                     "CONTENTS",
-                    "Contents of the doc that needs to be summarized",
+                    "Contents of the doc that needs to be summarized.",
                 ),
                 RunnableSingleParameter(
                     "format",

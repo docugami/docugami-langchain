@@ -35,7 +35,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
             output=RunnableSingleParameter(
                 "cited_answer_json",
                 "CITED ANSWER JSON",
-                "A JSON blob with a cited answer to the given question after considering the information in intermediate steps",
+                "A JSON blob with a cited answer to the given question after considering the information in intermediate steps.",
             ),
             task_description="generates a final answer to a question, considering the output from an AI agent that has used specialized tools that know how to answer questions",
             additional_instructions=[

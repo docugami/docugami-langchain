@@ -31,7 +31,7 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
                 RunnableSingleParameter(
                     "summaries",
                     "SUMMARIES",
-                    "Summaries of representative documents from a set of documents",
+                    "Summaries of representative documents from a set of documents.",
                 ),
                 RunnableSingleParameter(
                     "chat_history",

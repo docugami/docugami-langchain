@@ -58,4 +58,4 @@
     AI: Seattle is named after Chief Si'ahl (1780-1866), a leader of the Suquamish and Duwamish people.
     ----------------
   human: List some major companies headquartered there
-  standalone_agent_input: The major companies headquartered in the Seattle area include Amazon, Microsoft, Boeing, Alaska Airlines, and Expedia Group.
+  standalone_agent_input: Which major companies are headquartered in the Seattle area?
