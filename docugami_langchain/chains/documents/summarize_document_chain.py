@@ -37,7 +37,7 @@ class SummarizeDocumentChain(BaseDocugamiChain[str]):
                 RunnableSingleParameter(
                     "contents",
                     "CONTENTS",
-                    "Contents of the doc that needs to be summarized",
+                    "Contents of the doc that needs to be summarized.",
                 ),
                 RunnableSingleParameter(
                     "format",
@@ -51,7 +51,7 @@ class SummarizeDocumentChain(BaseDocugamiChain[str]):
                 "Summary generated per the given rules.",
             ),
             task_description="creates a summary of a given document, while minimizing loss of key details",
-            stop_sequences=["CONTENTS:", "FORMAT:", "<|im_end|>"],
+            stop_sequences=["CONTENTS:", "FORMAT:", "<|eot_id|>"],
             additional_instructions=[
                 "- Your generated summary should be in the same format as the given document, using the same overall schema.",
                 "- The generated summary should be up to 1 page of text in length, or shorter if the original document is short.",

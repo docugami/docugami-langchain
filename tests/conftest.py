@@ -71,16 +71,16 @@ def fireworksai_mixtral() -> BaseLanguageModel:
 
 
 @pytest.fixture()
-def fireworksai_dbrx() -> BaseLanguageModel:
+def fireworksai_llama3() -> BaseLanguageModel:
     """
-    DBRX model hosted on fireworksai.
+    Llama3 model hosted on fireworksai.
     """
     return ChatFireworks(
-        model="accounts/fireworks/models/dbrx-instruct",
+        model="accounts/fireworks/models/llama-v3-70b-instruct",
         streaming=True,
         cache=True,
         temperature=0,
-        max_tokens=32 * 1024,  # includes input and output tokens
+        max_tokens=8 * 1024,  # includes input and output tokens
         model_kwargs={
             "context_length_exceeded_behavior": "truncate",
         },

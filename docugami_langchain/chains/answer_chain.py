@@ -20,11 +20,11 @@ class AnswerChain(BaseDocugamiChain[str]):
             output=RunnableSingleParameter(
                 "answer",
                 "ANSWER",
-                "A helpful answer, aligned with the rules outlined above",
+                "A helpful answer, aligned with the rules outlined above.",
             ),
             task_description="answers general questions",
             additional_instructions=["- Shorter answers are better."],
-            stop_sequences=["CHAT HISTORY:", "QUESTION:", "<|im_end|>"],
+            stop_sequences=["CHAT HISTORY:", "QUESTION:", "<|eot_id|>"],
             key_finding_output_parse=False,  # set to False for streaming
         )
 

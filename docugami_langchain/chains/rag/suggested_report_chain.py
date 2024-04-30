@@ -31,7 +31,7 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
                 RunnableSingleParameter(
                     "summaries",
                     "SUMMARIES",
-                    "Summaries of representative documents from a set of documents",
+                    "Summaries of representative documents from a set of documents.",
                 ),
                 RunnableSingleParameter(
                     "chat_history",
@@ -54,7 +54,7 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
                 "- Generate up to 20 suggested columns as a list, one per line.",
             ],
             additional_runnables=[LineSeparatedListOutputParser()],
-            stop_sequences=["\n\n", "<|im_end|>"],
+            stop_sequences=["\n\n", "<|eot_id|>"],
             key_finding_output_parse=False,  # set to False for streaming
         )
 

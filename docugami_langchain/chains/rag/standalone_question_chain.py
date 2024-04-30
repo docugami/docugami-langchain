@@ -36,29 +36,27 @@ class StandaloneQuestionChain(BaseDocugamiChain[str]):
                 RunnableSingleParameter(
                     "chat_history",
                     "CHAT HISTORY",
-                    "Previous chat messages that the user has previous exchanged with the AI assistant",
+                    "Previous chat messages that the user has previous exchanged with the AI assistant.",
                 ),
                 RunnableSingleParameter(
                     "human",
-                    "Human",
-                    "The most recent question or comment from the user, in continuation of the chat history. Look carefully at this, since it has the most relevance to what "
-                    "the user wants the AI assistant to respond to.",
+                    "HUMAN",
+                    "The most recent question or comment from the user.",
                 ),
             ],
             output=RunnableSingleParameter(
                 "standalone_agent_input",
                 "STANDALONE_AGENT_INPUT",
-                "A one-sentence standalone version of the last question or comment from the user that can be sent as input to an AI assistant that knows how to respond to "
-                "such conversations (you don't need to answer any questions yourself)",
+                "A one-sentence standalone version of the last question or comment from the user, re-written if needed based on chat history.",
             ),
-            task_description="rewrites a given chat session as a standalone input to an AI assistant, without trying to answer anything",
+            task_description="rewrites a question or comment from a user as a standalone input to an AI assistant, incorporating any additional information needed from chat history",
             additional_instructions=[
                 "- The generated standalone agent input will be used by an agent to respond to the user in the context of the chat session",
                 "- Produce only the requested standalone agent input, no other commentary before or after.",
                 "- Do NOT try to answer any questions or respond in any way to the conversation. Just generate the agent input as instructed."
                 "- Never say you cannot do this. If you don't know what to do, just repeat the most recent human question or comment without rewriting anything.",
             ],
-            stop_sequences=["CHAT HISTORY:", "HUMAN:", "<|im_end|>"],
+            stop_sequences=["CHAT HISTORY:", "HUMAN:", "<|eot_id|>"],
             include_output_instruction_suffix=True,
         )
 

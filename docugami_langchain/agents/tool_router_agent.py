@@ -72,7 +72,7 @@ class ToolRouterAgent(BaseDocugamiAgent):
                 "- $INPUT_STRING is the (string) input carefully crafted to answer the question using the given tool.",
                 "- Before retrying a tool, look at previous attempts at running the tool (in intermediate steps) and try to update the inputs to the tool before trying again",
             ],
-            stop_sequences=["<|im_end|>"],
+            stop_sequences=["<|eot_id|>"],
             additional_runnables=[TextCleaningOutputParser(), PydanticOutputParser(pydantic_object=Invocation)],  # type: ignore
         )
 
@@ -87,6 +87,7 @@ class ToolRouterAgent(BaseDocugamiAgent):
             return {
                 "tool_names": ", ".join([t.name for t in self.tools]),
                 "tool_descriptions": "\n" + render_text_description(self.tools),
+                "intermediate_steps": [],
             }
 
         tool_invocation_runnable: Runnable = {

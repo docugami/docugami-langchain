@@ -27,18 +27,18 @@ class DescribeDocumentSetChain(BaseDocugamiChain[str]):
                 RunnableSingleParameter(
                     "summaries",
                     "SUMMARIES",
-                    "Summaries of representative documents from a set of documents",
+                    "Summaries of representative documents from a set of documents.",
                 ),
                 RunnableSingleParameter(
                     "docset_name",
                     "DOCSET NAME",
-                    "A user entered description for this type of document",
+                    "A user entered description for this type of document.",
                 ),
             ],
             output=RunnableSingleParameter(
                 "description",
                 "DESCRIPTION",
-                "A short general description of the given document type, using the given summaries as a guide",
+                "A short general description of the given document type, using the given summaries as a guide.",
             ),
             task_description="creates a short description of a document type, given a some sample documents as a guide",
             additional_instructions=[

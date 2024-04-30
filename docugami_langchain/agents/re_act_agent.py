@@ -139,6 +139,7 @@ class ReActAgent(BaseDocugamiAgent):
             return {
                 "tool_names": ", ".join([t.name for t in self.tools]),
                 "tool_descriptions": "\n" + render_text_description(self.tools),
+                "intermediate_steps": [],
             }
 
         agent_runnable: Runnable = (
@@ -162,7 +163,7 @@ class ReActAgent(BaseDocugamiAgent):
                     ),
                 ]
             )
-            | self.llm.bind(stop=["Observation:", "<|im_end|>"])
+            | self.llm.bind(stop=["Observation:", "<|eot_id|>"])
             | CustomReActJsonSingleInputOutputParser()
         )
 
@@ -210,7 +211,8 @@ class ReActAgent(BaseDocugamiAgent):
             raise Exception(f"Unrecognized agent output: {react_output}")
 
         def should_continue(state: AgentState) -> str:
-            # Decide whether to continue, based on the current state
+            """Decide whether to continue, based on the current state"""
+
             answer = state.get("cited_answer")
             if answer and answer.is_final:
                 return "end"

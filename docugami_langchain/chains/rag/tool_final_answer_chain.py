@@ -35,7 +35,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
             output=RunnableSingleParameter(
                 "cited_answer_json",
                 "CITED ANSWER JSON",
-                "A JSON blob with a cited answer to the given question after considering the information in intermediate steps",
+                "A JSON blob with a cited answer to the given question after considering the information in intermediate steps.",
             ),
             task_description="generates a final answer to a question, considering the output from an AI agent that has used specialized tools that know how to answer questions",
             additional_instructions=[
@@ -50,7 +50,7 @@ class ToolFinalAnswerChain(BaseDocugamiChain[CitedAnswer]):
                 "- $IS_FINAL is a boolean judment of self-critiquing your own final answer. If you think it adequately answers the user's question, set this to True. "
                 + "Otherwise set this to False. Your output will be sent back to the AI agent and it will try again with different tools or inputs.",
             ],
-            stop_sequences=["<|im_end|>"],
+            stop_sequences=["<|eot_id|>"],
             additional_runnables=[TextCleaningOutputParser(), PydanticOutputParser(pydantic_object=CitedAnswer)],  # type: ignore
         )
 

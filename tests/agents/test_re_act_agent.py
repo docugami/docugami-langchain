@@ -127,14 +127,14 @@ async def test_fireworksai_mixtral_streamed_re_act(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 @flaky(max_runs=3)  # A little flaky, but should pass with some retries
-def test_fireworksai_dbrx_re_act(
+def test_fireworksai_llama3_re_act(
     test_data: DocsetTestData,
-    fireworksai_dbrx: BaseLanguageModel,
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
     mxbai_re_rank: BaseRanker,
 ) -> None:
     agent = init_re_act_agent(
-        test_data, fireworksai_dbrx, huggingface_minilm, mxbai_re_rank
+        test_data, fireworksai_llama3, huggingface_minilm, mxbai_re_rank
     )
 
     # test general LLM response from agent
@@ -159,14 +159,14 @@ def test_fireworksai_dbrx_re_act(
 )
 @pytest.mark.asyncio
 @flaky(max_runs=3)  # A little flaky, but should pass with some retries
-async def test_fireworksai_dbrx_streamed_re_act(
+async def test_fireworksai_llama3_streamed_re_act(
     test_data: DocsetTestData,
-    fireworksai_dbrx: BaseLanguageModel,
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
     mxbai_re_rank: BaseRanker,
 ) -> None:
     agent = init_re_act_agent(
-        test_data, fireworksai_dbrx, huggingface_minilm, mxbai_re_rank
+        test_data, fireworksai_llama3, huggingface_minilm, mxbai_re_rank
     )
 
     # test general LLM response from agent

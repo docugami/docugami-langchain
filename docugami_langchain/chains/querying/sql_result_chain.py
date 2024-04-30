@@ -36,9 +36,10 @@ class SQLResultChain(BaseDocugamiChain[dict]):
         but recommended. If you don't run optimize, then the first N rows are
         returned in table info without considering similarity.
         """
-        self._example_row_selector = create_example_selector(
-            self.db, self.embeddings, self.examples_vectorstore_cls
-        )
+        if self.embeddings:
+            self._example_row_selector = create_example_selector(
+                self.db, self.embeddings, self.examples_vectorstore_cls
+            )
 
     def runnable(self) -> Runnable:
         """
@@ -150,7 +151,7 @@ class SQLResultChain(BaseDocugamiChain[dict]):
                 "- Never provide any additional explanation or discussion, only output the SQLite query requested, which answers the question against the given table description.",
                 "- If example rows are given, pay special attention to them to improve your query e.g. to account for abbreviations or formatting of values.",
             ],
-            stop_sequences=["\n", ";", "<|im_end|>"],
+            stop_sequences=["\n", ";", "<|eot_id|>"],
         )
 
     def run(  # type: ignore[override]
