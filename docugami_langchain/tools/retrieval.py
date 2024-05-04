@@ -51,7 +51,6 @@ class CustomDocsetRetrievalTool(BaseDocugamiTool):
             if run_manager:
                 config = RunnableConfig(
                     run_name=self.__class__.__name__,
-                    run_id=run_manager.run_id,
                     callbacks=run_manager,
                 )
             chain_response = self.chain.run(

@@ -41,6 +41,7 @@ class SimpleRAGChain(BaseDocugamiChain[str]):
             ],
             stop_sequences=["<|eot_id|>"],
             key_finding_output_parse=False,  # set to False for streaming
+            include_output_instruction_suffix=True,
         )
 
     def runnable(self) -> Runnable:

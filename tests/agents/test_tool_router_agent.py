@@ -69,7 +69,7 @@ def init_tool_router_agent(
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_tool_router(
+def test_fireworksai_mixtral_tool_router(
     test_data: DocsetTestData,
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
@@ -100,7 +100,7 @@ def test_fireworksai_tool_router(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 @pytest.mark.asyncio
-async def test_fireworksai_streamed_tool_router(
+async def test_fireworksai_mixtral_streamed_tool_router(
     test_data: DocsetTestData,
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
