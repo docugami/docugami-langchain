@@ -91,7 +91,6 @@ class ChatBotTool(BaseDocugamiTool):
         if run_manager:
             config=RunnableConfig(
                     run_name=self.__class__.__name__,
-                    run_id=run_manager.parent_run_id,
                     callbacks=run_manager,
                 )
         chain_response: TracedResponse[str] = self.answer_chain.run(
