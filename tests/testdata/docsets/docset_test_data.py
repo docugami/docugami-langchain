@@ -72,7 +72,7 @@ DOCSET_TEST_DATA: list[DocsetTestData] = [
                         "It was named in honor of George Alexander Madill, an attorney for the St. Louis-San Francisco Railway.",
                     ),
                 ],
-                question="List the accident numbers for any aviation incidents that happened there",
+                question="List the accident numbers and dates for all aviation incidents that happened there",
                 acceptable_answer_fragments=["DFW08CA044", "N6135M", "Cessna"],
             ),
         ],
