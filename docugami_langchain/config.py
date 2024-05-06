@@ -1,12 +1,15 @@
 ________SINGLE_TOKEN_LINE________ = "----------------"
 
-# ************ PARAMETERS TO CONTROL PROMPT SIZES
+# ************ PARAMETERS TO CONTROL PROMPTS
 
 # Lengths are in terms of characters, 1 token ~= 4 chars in English
 # Reference: https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them
 
 # Chunks and docs below this length are not summarized by default
 MIN_LENGTH_TO_SUMMARIZE: int = 2048
+
+# Change this to improve parallelization, or work around late limiting issues
+BATCH_SIZE = 8
 
 # When summarizing full docs we cut off input after this by default
 MAX_FULL_DOCUMENT_TEXT_LENGTH: int = int(1024 * 4 * 8)  # ~8k tokens,
