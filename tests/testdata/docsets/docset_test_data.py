@@ -57,7 +57,7 @@ DOCSET_TEST_DATA: list[DocsetTestData] = [
                 acceptable_answer_fragments=["DFW08CA044"],
             ),
             TestQuestionData(
-                question="How many accidents involved Cessna aircraft?",
+                question="How many accidents involved Cessna planes?",
                 acceptable_answer_fragments=["27", "twenty", "seven"],
                 requires_report=True,
             ),

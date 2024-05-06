@@ -45,23 +45,27 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
         if previous_steps and any(
             [s for s in previous_steps if s.invocation == inv_model]
         ):
-            output = (
-                "This tool has been invoked before with identical inputs. Please try different inputs or a different tool, after reconsidering previous thoughts and observations. "
-                + "Be careful you don't get stuck in a loop."
+            tool_output = CitedAnswer(
+                source=inv_model.tool_name,
+                answer="This tool has been invoked before with identical inputs. Please try different inputs or a different tool, after reconsidering previous thoughts and observations. "
+                + "Be careful you don't get stuck in a loop.",
             )
         else:
             tool_executor = ToolExecutor(self.tools)
-            output = tool_executor.invoke(
+            tool_output = tool_executor.invoke(
                 ToolInvocation(  # LangChain version of the Invocation object
                     tool=inv_model.tool_name,
                     tool_input=inv_model.tool_input,
                 ),
                 config,
             )
+            if not isinstance(tool_output, CitedAnswer):
+                raise Exception(f"Invalid output from tool executor: {tool_output}")
 
         step = StepState(
             invocation=inv_model,
-            output=str(output),
+            output=tool_output.answer,
+            citations=tool_output.citations,
         )
         return {"intermediate_steps": previous_steps + [step]}
 

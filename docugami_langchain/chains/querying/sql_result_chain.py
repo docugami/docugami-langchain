@@ -9,7 +9,7 @@ from sqlglot import ParseError
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
-from docugami_langchain.chains.querying.models import ExtendedSQLResult
+from docugami_langchain.chains.querying.models import ExplainedSQLResult
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
 from docugami_langchain.output_parsers.sql_finding import SQLFindingOutputParser
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
@@ -22,7 +22,7 @@ from docugami_langchain.utils.sql import (
 logger = logging.getLogger(__name__)
 
 
-class SQLResultChain(BaseDocugamiChain[ExtendedSQLResult]):
+class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
     db: SQLDatabase
     """The underlying SQL database that is queried by this chain."""
 
@@ -58,7 +58,7 @@ class SQLResultChain(BaseDocugamiChain[ExtendedSQLResult]):
                 example_selector=self._example_row_selector,
             )
 
-        def run_sql_query(inputs: dict, config: Optional[RunnableConfig]) -> ExtendedSQLResult:
+        def run_sql_query(inputs: dict, config: Optional[RunnableConfig]) -> ExplainedSQLResult:
             """
             Runs the given SQL query against the database connection for this chain, and returns the result.
             """
@@ -159,7 +159,7 @@ class SQLResultChain(BaseDocugamiChain[ExtendedSQLResult]):
         self,
         question: str,
         config: Optional[RunnableConfig] = None,
-    ) -> TracedResponse[ExtendedSQLResult]:
+    ) -> TracedResponse[ExplainedSQLResult]:
         if not question:
             raise Exception("Input required: question")
 
@@ -172,7 +172,7 @@ class SQLResultChain(BaseDocugamiChain[ExtendedSQLResult]):
         self,
         question: str,
         config: Optional[RunnableConfig] = None,
-    ) -> AsyncIterator[TracedResponse[ExtendedSQLResult]]:
+    ) -> AsyncIterator[TracedResponse[ExplainedSQLResult]]:
         if not question:
             raise Exception("Input required: question")
 
@@ -186,7 +186,7 @@ class SQLResultChain(BaseDocugamiChain[ExtendedSQLResult]):
         self,
         inputs: list[str],
         config: Optional[RunnableConfig] = None,
-    ) -> list[ExtendedSQLResult]:
+    ) -> list[ExplainedSQLResult]:
         return super().run_batch(
             inputs=[{"question": i} for i in inputs],
             config=config,

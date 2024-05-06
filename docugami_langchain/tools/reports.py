@@ -12,16 +12,20 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.runnables import RunnableConfig
 
-from docugami_langchain.agents.models import Invocation
-from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
-from docugami_langchain.chains.querying.sql_result_chain import SQLResultChain
+from docugami_langchain.agents.models import Citation, CitedAnswer, Invocation
+from docugami_langchain.chains.querying import (
+    DocugamiExplainedSQLQueryChain,
+    SQLFixupChain,
+    SQLQueryExplainerChain,
+    SQLResultChain,
+)
 from docugami_langchain.config import MAX_PARAMS_CUTOFF_LENGTH_CHARS
 from docugami_langchain.tools.common import NOT_FOUND, BaseDocugamiTool
 
 
 class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
     db: SQLDatabase
-    chain: SQLResultChain
+    chain: DocugamiExplainedSQLQueryChain
     name: str = "report_answer_tool"
     description: str = ""
 
@@ -39,13 +43,14 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
         self,
         question: str,
         run_manager: Optional[CallbackManagerForToolRun] = None,
-    ) -> str:  # type: ignore
+    ) -> CitedAnswer:  # type: ignore
         """Use the tool."""
 
         if self._is_sql_like(question):
-            return (
-                "Looks like you passed in a SQL query. This tool takes natural language questions, and automatically translates them to SQL queries. "
-                "Please try again with a natural language version of this question."
+            return CitedAnswer(
+                source=self.name,
+                answer="Looks like you passed in a SQL query. This tool takes natural language questions, and automatically translates them to SQL queries. "
+                "Please try again with a natural language version of this question.",
             )
 
         try:
@@ -61,13 +66,34 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
                 config=config,
             )
             if chain_response.value:
-                sql_result = chain_response.value.get("sql_result")
-                if sql_result:
-                    return str(sql_result)
+                result = chain_response.value.get("results")
+                if result:
+                    sql_result = result.get("sql_result")
+                    sql_query = result.get("sql_query")
+                    explained_sql_query = result.get("explained_sql_query")
+                    if sql_result:
+                        return CitedAnswer(
+                            source=self.name,
+                            answer=sql_result,
+                            citations=(
+                                [
+                                    Citation(
+                                        label="Query",
+                                        details=explained_sql_query,
+                                        link=sql_query if sql_query else "",
+                                    )
+                                ]
+                                if explained_sql_query
+                                else []
+                            ),
+                        )
 
-            return NOT_FOUND
+            return CitedAnswer(source=self.name, answer=NOT_FOUND)
         except Exception as exc:
-            return f"There was an error. Please try a different question, or a different tool. Details: {exc}"
+            return CitedAnswer(
+                source=self.name,
+                answer=f"There was an error. Please try a different question, or a different tool. Details: {exc}",
+            )
 
 
 def report_name_to_report_query_tool_function_name(name: str) -> str:
@@ -159,6 +185,7 @@ def get_retrieval_tool_for_report(
     retrieval_tool_function_name: str,
     retrieval_tool_description: str,
     sql_llm: BaseLanguageModel,
+    explainer_llm: BaseLanguageModel,
     embeddings: Embeddings,
     sql_fixup_examples_file: Optional[Path] = None,
     sql_examples_file: Optional[Path] = None,
@@ -178,15 +205,25 @@ def get_retrieval_tool_for_report(
         db=db,
         sql_fixup_chain=fixup_chain,
     )
-
     if sql_examples_file:
         sql_result_chain.load_examples(sql_examples_file)
-
     sql_result_chain.optimize()
+
+    sql_query_explainer_chain = SQLQueryExplainerChain(
+        llm=explainer_llm,
+        embeddings=embeddings,
+    )
+    if sql_examples_file:
+        sql_query_explainer_chain.load_examples(sql_examples_file)
 
     return CustomReportRetrievalTool(
         db=db,
-        chain=sql_result_chain,
+        chain=DocugamiExplainedSQLQueryChain(
+            llm=explainer_llm,
+            embeddings=embeddings,
+            sql_result_chain=sql_result_chain,
+            sql_query_explainer_chain=sql_query_explainer_chain,
+        ),
         name=retrieval_tool_function_name,
         description=retrieval_tool_description,
     )

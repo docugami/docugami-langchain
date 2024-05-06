@@ -1,11 +1,16 @@
 from operator import itemgetter
 from typing import AsyncIterator, Optional
 
-from langchain_core.runnables import Runnable, RunnableConfig, RunnableMap
+from langchain_core.runnables import (
+    Runnable,
+    RunnableConfig,
+    RunnableLambda,
+    RunnableMap,
+)
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
-from docugami_langchain.chains.querying.models import ExtendedSQLResult
+from docugami_langchain.chains.querying.models import ExplainedSQLQuestionResult
 from docugami_langchain.chains.querying.sql_query_explainer_chain import (
     SQLQueryExplainerChain,
 )
@@ -16,15 +21,18 @@ from docugami_langchain.chains.querying.sql_result_explainer_chain import (
 from docugami_langchain.params import RunnableParameters
 
 
-class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[ExtendedSQLResult]):
+class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[ExplainedSQLQuestionResult]):
     sql_result_chain: SQLResultChain
-    sql_result_explainer_chain: SQLResultExplainerChain
-    sql_query_explainer_chain: Optional[SQLQueryExplainerChain]
+    sql_result_explainer_chain: Optional[SQLResultExplainerChain] = None
+    sql_query_explainer_chain: Optional[SQLQueryExplainerChain] = None
 
     def runnable(self) -> Runnable:
         """
         Custom runnable for this chain.
         """
+
+        def empty_string(inputs: dict) -> str:
+            return ""
 
         return RunnableMap(
             {
@@ -38,11 +46,15 @@ class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[ExtendedSQLResult]):
                 | {
                     "sql_query": itemgetter("sql_query"),
                     "sql_result": itemgetter("sql_result"),
-                    "explained_sql_result": self.sql_result_explainer_chain.runnable(),
+                    "explained_sql_result": (
+                        self.sql_result_explainer_chain.runnable()
+                        if self.sql_result_explainer_chain
+                        else RunnableLambda(empty_string)
+                    ),
                     "explained_sql_query": (
                         self.sql_query_explainer_chain.runnable()
                         if self.sql_query_explainer_chain
-                        else None
+                        else RunnableLambda(empty_string)
                     ),
                 },
             }
@@ -55,7 +67,7 @@ class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[ExtendedSQLResult]):
         self,
         question: str,
         config: Optional[RunnableConfig] = None,
-    ) -> TracedResponse[ExtendedSQLResult]:
+    ) -> TracedResponse[ExplainedSQLQuestionResult]:
         if not question:
             raise Exception("Input required: question")
 
@@ -68,7 +80,7 @@ class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[ExtendedSQLResult]):
         self,
         question: str,
         config: Optional[RunnableConfig] = None,
-    ) -> AsyncIterator[TracedResponse[ExtendedSQLResult]]:
+    ) -> AsyncIterator[TracedResponse[ExplainedSQLQuestionResult]]:
         if not question:
             raise Exception("Input required: question")
 
@@ -82,7 +94,7 @@ class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[ExtendedSQLResult]):
         self,
         inputs: list[str],
         config: Optional[RunnableConfig] = None,
-    ) -> list[ExtendedSQLResult]:
+    ) -> list[ExplainedSQLQuestionResult]:
         return super().run_batch(
             inputs=[{"question": i} for i in inputs],
             config=config,

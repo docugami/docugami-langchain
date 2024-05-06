@@ -8,7 +8,7 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.runnables import RunnableConfig
 from langchain_core.tools import BaseTool
 
-from docugami_langchain.agents.models import Invocation
+from docugami_langchain.agents.models import CitedAnswer, Invocation
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.answer_chain import AnswerChain
 
@@ -69,6 +69,15 @@ class BaseDocugamiTool(BaseTool):
         """Converts tool invocation to human readable string."""
         ...
 
+    @abstractmethod
+    def _run(
+        self,
+        question: str,
+        run_manager: Optional[CallbackManagerForToolRun] = None,
+    ) -> CitedAnswer:  # type: ignore
+        """Use the tool."""
+        ...
+
 
 class ChatBotTool(BaseDocugamiTool):
     answer_chain: AnswerChain
@@ -84,21 +93,24 @@ class ChatBotTool(BaseDocugamiTool):
         self,
         question: str,
         run_manager: Optional[CallbackManagerForToolRun] = None,
-    ) -> str:
+    ) -> CitedAnswer:
         """Use the tool."""
 
-        config=None
+        config = None
         if run_manager:
-            config=RunnableConfig(
-                    run_name=self.__class__.__name__,
-                    callbacks=run_manager,
-                )
+            config = RunnableConfig(
+                run_name=self.__class__.__name__,
+                callbacks=run_manager,
+            )
         chain_response: TracedResponse[str] = self.answer_chain.run(
             question=question,
             config=config,
         )
 
-        return chain_response.value
+        return CitedAnswer(
+            source=self.name,
+            answer=chain_response.value,
+        )
 
 
 def get_generic_tools(

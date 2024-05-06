@@ -13,7 +13,7 @@ from docugami_langchain.chains.querying import (
     SQLResultChain,
     SQLResultExplainerChain,
 )
-from docugami_langchain.chains.querying.models import ExtendedSQLResult
+from docugami_langchain.chains.querying.models import ExplainedSQLQuestionResult
 from docugami_langchain.tools.reports import connect_to_excel
 from tests.common import TEST_DATA_DIR, verify_traced_response
 from tests.testdata.xlsx.query_test_data import QUERY_TEST_DATA, QueryTestData
@@ -69,7 +69,7 @@ def _runtest(chain: DocugamiExplainedSQLQueryChain, test_data: QueryTestData) ->
 async def _runtest_streamed(
     chain: DocugamiExplainedSQLQueryChain, test_data: QueryTestData
 ) -> None:
-    chain_response = TracedResponse[ExtendedSQLResult](value={})
+    chain_response = TracedResponse[ExplainedSQLQuestionResult](value={})
     async for incremental_response in chain.run_stream(question=test_data.question):
         chain_response = incremental_response
 

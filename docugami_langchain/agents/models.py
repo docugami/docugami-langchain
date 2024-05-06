@@ -8,8 +8,8 @@ from langchain_core.pydantic_v1 import BaseModel
 
 class Citation(BaseModel):
     label: str
-    details: str
-    link: str
+    details: str = ""
+    link: str = ""
 
 
 class CitedAnswer(BaseModel):
@@ -36,6 +36,7 @@ class Invocation(BaseModel):
 class StepState(BaseModel):
     output: str
     invocation: Invocation
+    citations: list[Citation] = []
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, StepState):

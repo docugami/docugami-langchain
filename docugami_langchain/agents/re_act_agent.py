@@ -189,21 +189,24 @@ class ReActAgent(BaseDocugamiAgent):
             react_output = agent_runnable.invoke(state, config)
 
             answer_source = ReActAgent.__name__
+            citations = []
             if isinstance(react_output, Invocation):
                 # Agent wants to invoke a tool
                 return self.invocation_answer(react_output, answer_source)
             elif isinstance(react_output, str):
                 # Agent thinks it has a final answer.
 
-                # Source final answer from the last invocation, if any.
-                tool_invocation = state.get("tool_invocation")
-                if tool_invocation and tool_invocation.tool_name:
-                    answer_source = tool_invocation.tool_name
-
+                # Source the answer from the last step, if any
+                intermediate_steps = state.get("intermediate_steps")
+                if intermediate_steps:
+                    last_step = intermediate_steps[-1]
+                    answer_source = last_step.invocation.tool_name
+                    citations = last_step.citations
                 return {
                     "cited_answer": CitedAnswer(
                         source=answer_source,
                         is_final=True,
+                        citations=citations,
                         answer=react_output,  # This is the final answer.
                     ),
                 }

@@ -10,7 +10,7 @@ from langchain_core.runnables import RunnableConfig
 from langchain_core.vectorstores import VectorStore
 from rerankers.models.ranker import BaseRanker
 
-from docugami_langchain.agents.models import Invocation
+from docugami_langchain.agents.models import Citation, CitedAnswer, Invocation
 from docugami_langchain.chains.documents.describe_document_set_chain import (
     DescribeDocumentSetChain,
 )
@@ -40,11 +40,14 @@ class CustomDocsetRetrievalTool(BaseDocugamiTool):
         self,
         question: str,
         run_manager: Optional[CallbackManagerForToolRun] = None,
-    ) -> str:  # type: ignore
+    ) -> CitedAnswer:  # type: ignore
         """Use the tool."""
 
         if not question:
-            return "Please specify a question that you want to answer from this docset"
+            return CitedAnswer(
+                source=self.name,
+                answer="Please specify a question that you want to answer from this docset",
+            )
 
         try:
             config = None
@@ -59,12 +62,20 @@ class CustomDocsetRetrievalTool(BaseDocugamiTool):
             )
             if chain_response.value:
                 answer = chain_response.value.get("answer")
+                sources = chain_response.value.get("sources", [])
                 if answer:
-                    return answer
+                    return CitedAnswer(
+                        source=self.name,
+                        answer=answer,
+                        citations=[Citation(label=s) for s in sources]
+                    )
 
-            return NOT_FOUND
+            return CitedAnswer(source=self.name, answer=NOT_FOUND)
         except Exception as exc:
-            return f"There was an error. Please try a different question, or a different tool. Details: {exc}"
+            return CitedAnswer(
+                source=self.name,
+                answer=f"There was an error. Please try a different question, or a different tool. Details: {exc}",
+            )
 
 
 def docset_name_to_direct_retrieval_tool_function_name(name: str) -> str:

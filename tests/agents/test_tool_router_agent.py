@@ -128,6 +128,67 @@ async def test_fireworksai_mixtral_streamed_tool_router(
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+)
+def test_fireworksai_llama3_tool_router(
+    test_data: DocsetTestData,
+    fireworksai_llama3: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
+    mxbai_re_rank: BaseRanker,
+) -> None:
+    agent = init_tool_router_agent(
+        test_data, fireworksai_llama3, huggingface_minilm, mxbai_re_rank
+    )
+
+    # test general LLM response from agent
+    run_agent_test(
+        agent,
+        GENERAL_KNOWLEDGE_QUESTION,
+        GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+    )
+
+    for question in test_data.questions:
+        run_agent_test(
+            agent,
+            question.question,
+            question.acceptable_answer_fragments,
+            question.chat_history,
+        )
+
+
+@pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
+@pytest.mark.skipif(
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+)
+@pytest.mark.asyncio
+async def test_fireworksai_llama3_streamed_tool_router(
+    test_data: DocsetTestData,
+    fireworksai_llama3: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
+    mxbai_re_rank: BaseRanker,
+) -> None:
+    agent = init_tool_router_agent(
+        test_data, fireworksai_llama3, huggingface_minilm, mxbai_re_rank
+    )
+
+    # test general LLM response from agent
+    await run_streaming_agent_test(
+        agent,
+        GENERAL_KNOWLEDGE_QUESTION,
+        GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+    )
+
+    for question in test_data.questions:
+        await run_streaming_agent_test(
+            agent,
+            question.question,
+            question.acceptable_answer_fragments,
+            question.chat_history,
+        )
+
+
+@pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
+@pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 def test_openai_gpt4_tool_router(
