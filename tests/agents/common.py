@@ -52,6 +52,7 @@ def build_test_query_tool(
         ),
         retrieval_tool_description=description,
         sql_llm=llm,
+        explainer_llm=llm,
         embeddings=embeddings,
         sql_fixup_examples_file=EXAMPLES_PATH / "test_sql_fixup_examples.yaml",
         sql_examples_file=EXAMPLES_PATH / "test_sql_examples.yaml",

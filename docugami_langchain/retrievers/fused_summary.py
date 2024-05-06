@@ -210,7 +210,8 @@ class FusedSummaryRetriever(BaseRetriever):
                         doc_name=element.source,
                         summary=element.summary,
                         fragments=fragments_str,
-                    )
+                    ),
+                    metadata={self.source_key: element.source},
                 )
             )
 
