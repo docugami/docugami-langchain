@@ -58,7 +58,9 @@ class CustomDocsetRetrievalTool(BaseDocugamiTool):
                 config=config,
             )
             if chain_response.value:
-                return chain_response.value
+                answer = chain_response.value.get("answer")
+                if answer:
+                    return answer
 
             return NOT_FOUND
         except Exception as exc:
