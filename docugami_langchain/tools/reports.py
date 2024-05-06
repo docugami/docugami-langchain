@@ -66,11 +66,11 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
                 config=config,
             )
             if chain_response.value:
-                result = chain_response.value.get("results")
-                if result:
-                    sql_result = result.get("sql_result")
-                    sql_query = result.get("sql_query")
-                    explained_sql_query = result.get("explained_sql_query")
+                results = chain_response.value.get("results")
+                if results:
+                    sql_result = results.get("sql_result", "")  # type: ignore
+                    sql_query = results.get("sql_query", "")  # type: ignore
+                    explained_sql_query = results.get("explained_sql_query", "")  # type: ignore
                     if sql_result:
                         return CitedAnswer(
                             source=self.name,
