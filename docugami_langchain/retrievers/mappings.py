@@ -68,6 +68,7 @@ def build_full_doc_summary_mappings(
     min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE,
     max_length_cutoff: int = MAX_FULL_DOCUMENT_TEXT_LENGTH,
     summarize_document_examples_file: Optional[Path] = None,
+    batch_size: int = BATCH_SIZE,
 ) -> dict[str, Document]:
     """
     Build summary mappings for all the given full documents.
@@ -83,6 +84,7 @@ def build_full_doc_summary_mappings(
         docs_by_id=docs_by_id,
         chain=chain,
         include_xml_tags=include_xml_tags,
+        batch_size=batch_size,
     )
 
 
@@ -94,6 +96,7 @@ def build_chunk_summary_mappings(
     min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE,
     max_length_cutoff: int = MAX_CHUNK_TEXT_LENGTH,
     summarize_chunk_examples_file: Optional[Path] = None,
+    batch_size: int = BATCH_SIZE,
 ) -> dict[str, Document]:
     """
     Build summary mappings for all the given chunks.
@@ -109,6 +112,7 @@ def build_chunk_summary_mappings(
         docs_by_id=docs_by_id,
         chain=chain,
         include_xml_tags=include_xml_tags,
+        batch_size=batch_size,
     )
 
 
