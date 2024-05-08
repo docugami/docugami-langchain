@@ -128,7 +128,6 @@ async def test_fireworksai_mixtral_streamed_re_act(
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-@flaky(max_runs=3)  # A little flaky, but should pass with some retries
 def test_fireworksai_llama3_re_act(
     test_data: DocsetTestData,
     fireworksai_llama3: BaseLanguageModel,
@@ -161,7 +160,6 @@ def test_fireworksai_llama3_re_act(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 @pytest.mark.asyncio
-@flaky(max_runs=3)  # A little flaky, but should pass with some retries
 async def test_fireworksai_llama3_streamed_re_act(
     test_data: DocsetTestData,
     fireworksai_llama3: BaseLanguageModel,
@@ -193,7 +191,6 @@ async def test_fireworksai_llama3_streamed_re_act(
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-@flaky(max_runs=3)  # A little flaky, but should pass with some retries
 def test_openai_gpt4_re_act(
     test_data: DocsetTestData,
     openai_gpt4: BaseLanguageModel,
@@ -224,7 +221,6 @@ def test_openai_gpt4_re_act(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio
-@flaky(max_runs=3)  # A little flaky, but should pass with some retries
 async def test_openai_gpt4_streamed_re_act(
     test_data: DocsetTestData,
     openai_gpt4: BaseLanguageModel,
