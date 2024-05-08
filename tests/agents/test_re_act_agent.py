@@ -86,6 +86,7 @@ def test_fireworksai_mixtral_re_act(
             question.question,
             question.acceptable_answer_fragments,
             question.chat_history,
+            question.acceptable_citation_label_fragments,
         )
 
 
@@ -119,6 +120,7 @@ async def test_fireworksai_mixtral_streamed_re_act(
             question.question,
             question.acceptable_answer_fragments,
             question.chat_history,
+            question.acceptable_citation_label_fragments,
         )
 
 
@@ -150,6 +152,7 @@ def test_fireworksai_llama3_re_act(
             question.question,
             question.acceptable_answer_fragments,
             question.chat_history,
+            question.acceptable_citation_label_fragments,
         )
 
 
@@ -182,6 +185,7 @@ async def test_fireworksai_llama3_streamed_re_act(
             question.question,
             question.acceptable_answer_fragments,
             question.chat_history,
+            question.acceptable_citation_label_fragments,
         )
 
 
@@ -211,6 +215,7 @@ def test_openai_gpt4_re_act(
             question.question,
             question.acceptable_answer_fragments,
             question.chat_history,
+            question.acceptable_citation_label_fragments,
         )
 
 
@@ -241,4 +246,5 @@ async def test_openai_gpt4_streamed_re_act(
             question.question,
             question.acceptable_answer_fragments,
             question.chat_history,
+            question.acceptable_citation_label_fragments,
         )

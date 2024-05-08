@@ -92,6 +92,7 @@ def test_fireworksai_mixtral_tool_router(
             question.question,
             question.acceptable_answer_fragments,
             question.chat_history,
+            question.acceptable_citation_label_fragments,
         )
 
 
@@ -123,6 +124,7 @@ async def test_fireworksai_mixtral_streamed_tool_router(
             question.question,
             question.acceptable_answer_fragments,
             question.chat_history,
+            question.acceptable_citation_label_fragments,
         )
 
 
@@ -153,6 +155,7 @@ def test_fireworksai_llama3_tool_router(
             question.question,
             question.acceptable_answer_fragments,
             question.chat_history,
+            question.acceptable_citation_label_fragments,
         )
 
 
@@ -184,6 +187,7 @@ async def test_fireworksai_llama3_streamed_tool_router(
             question.question,
             question.acceptable_answer_fragments,
             question.chat_history,
+            question.acceptable_citation_label_fragments,
         )
 
 
@@ -214,6 +218,7 @@ def test_openai_gpt4_tool_router(
             question.question,
             question.acceptable_answer_fragments,
             question.chat_history,
+            question.acceptable_citation_label_fragments,
         )
 
 
@@ -245,4 +250,5 @@ async def test_openai_gpt4_streamed_tool_router(
             question.question,
             question.acceptable_answer_fragments,
             question.chat_history,
+            question.acceptable_citation_label_fragments,
         )
