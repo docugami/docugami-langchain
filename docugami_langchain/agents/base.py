@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from typing import AsyncIterator, Optional
+from typing import AsyncIterator, Optional, Sequence
 
 from langchain_core.messages import AIMessageChunk
 from langchain_core.runnables import RunnableConfig
@@ -183,6 +183,16 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
                             )
 
                             if final_answer:
+                                # Source the answer from the last step, if any
+                                last_step = None
+                                intermediate_steps: Sequence[StepState] = []
+                                if last_response_value:
+                                    intermediate_steps = last_response_value.get(
+                                        "intermediate_steps"
+                                    )
+                                    if intermediate_steps:
+                                        last_step = intermediate_steps[-1]
+
                                 if not final_streaming_started:
                                     # Set final streaming started once as soon as we see the final
                                     # answer action in the token stream
@@ -192,11 +202,20 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
                                     last_response_value = AgentState(
                                         chat_history=[],
                                         question="",
-                                        tool_invocation=None,
-                                        intermediate_steps=[],
+                                        tool_invocation=(
+                                            last_step.invocation if last_step else None
+                                        ),
+                                        intermediate_steps=intermediate_steps,
                                         cited_answer=CitedAnswer(
-                                            source=self.__class__.__name__,
+                                            source=(
+                                                last_step.invocation.tool_name
+                                                if last_step
+                                                else self.__class__.__name__
+                                            ),
                                             answer=final_answer,
+                                            citations=(
+                                                last_step.citations if last_step else []
+                                            ),
                                             is_final=True,
                                         ),
                                     )
