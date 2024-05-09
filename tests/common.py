@@ -62,12 +62,12 @@ def verify_output_list(
             output_match
         ), f"The output {value} does not contain one of the expected output substrings {match_fragment_str_options}"
 
-    # Check guardrails and warn if any violations detected based on string checks
-    for banned_word in ["sql", "context"]:
-        if banned_word.lower() in value.lower():
-            warnings.warn(
-                UserWarning(f"Output contains banned word {banned_word}: {value}")
-            )
+        # Check guardrails and warn if any violations detected based on string checks
+        for banned_word in ["sql", "context"]:
+            if banned_word.lower() in value.lower():
+                warnings.warn(
+                    UserWarning(f"Output contains banned word {banned_word}: {value}")
+                )
 
 
 def verify_output(
@@ -90,7 +90,7 @@ def verify_traced_response(
     if empty_ok and not response.value:
         return
 
-    return verify_output(response.value, match_fragment_str_options, empty_ok)
+    return verify_output(str(response.value), match_fragment_str_options, empty_ok)
 
 
 def build_test_retrieval_artifacts(

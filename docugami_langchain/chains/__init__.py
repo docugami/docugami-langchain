@@ -17,6 +17,8 @@ from docugami_langchain.chains.rag import (
     StandaloneQuestionChain,
     SuggestedQuestionsChain,
     SuggestedReportChain,
+    ToolFinalAnswerChain,
+    ToolOutputGraderChain,
 )
 from docugami_langchain.chains.types import (
     DataTypeDetectionChain,
@@ -43,6 +45,8 @@ __all__ = [
     "StandaloneQuestionChain",
     "SuggestedQuestionsChain",
     "SuggestedReportChain",
+    "ToolFinalAnswerChain",
+    "ToolOutputGraderChain",
     "DataTypeDetectionChain",
     "DataTypes",
     "DocugamiDataType",

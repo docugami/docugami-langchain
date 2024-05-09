@@ -263,7 +263,3 @@ class ReActAgent(BaseDocugamiAgent):
             return str(text).split(FINAL_ANSWER_MARKER)[-1].strip()
 
         return ""  # Not found
-
-    def final_answer_node_names(self) -> list[str]:
-        """Node names, which once seen, force the agent into final answer mode."""
-        return []  # We are directly streaming out from an intermediate node

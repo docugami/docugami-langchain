@@ -36,11 +36,6 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
         """Given output stream from a streamable node, parses out the final answer (e.g. past a delimeter)."""
         ...
 
-    @abstractmethod
-    def final_answer_node_names(self) -> list[str]:
-        """Node names, which once seen, force the agent into final answer mode."""
-        ...
-
     def execute_tool(
         self,
         state: AgentState,
@@ -138,6 +133,8 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
             config=config,
         )
 
+    streamed_events: list[dict] = []
+
     async def run_stream(  # type: ignore[override]
         self,
         question: str,
@@ -165,32 +162,32 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
                 event_key = event.get("event")
                 event_name = event.get("name")
                 event_data = event.get("data")
-
                 if event_data:
-                    final_streaming_started = (
-                        event_key in self.final_answer_node_names()
-                    )
-                    if not final_streaming_started:
-                        if event_name in self.streamable_node_names():
-                            if event_key == "on_chain_start":
-                                # Restart token stream every time a streamable node starts
-                                current_step_token_stream = ""
-                            elif event_key == "on_chain_end":
-                                # Yield the completed output when a streamable node finishes
-                                last_response_value = event_data.get("output")
-                                if last_response_value:
-                                    yield TracedResponse[AgentState](
-                                        value=last_response_value
-                                    )
-                        elif event_name == "execute_tool":
-                            if event_key == "on_chain_end":
-                                state = event_data.get("output")
-                                if state:
-                                    answer = state.get("cited_answer")
-                                    citations = answer.citations if answer else []
+                    if event_name in self.streamable_node_names():
+                        if event_key == "on_chain_start":
+                            self.streamed_events.append(event)
+                            # Restart token stream every time a streamable node starts
+                            current_step_token_stream = ""
+                            final_streaming_started = True
+                        elif event_key == "on_chain_end":
+                            self.streamed_events.append(event)
+                            # Yield the completed output when a streamable node finishes
+                            last_response_value = event_data.get("output")
+                            if last_response_value:
+                                yield TracedResponse[AgentState](
+                                    value=last_response_value
+                                )
+                    elif event_name == "execute_tool":
+                        if event_key == "on_chain_end":
+                            self.streamed_events.append(event)
+                            state: AgentState = event_data.get("output")
+                            if state:
+                                answer = state.get("cited_answer")
+                                citations = answer.citations if answer else []
                     elif event_key == "on_chat_model_stream":
                         chunk = event_data.get("chunk")
                         if isinstance(chunk, AIMessageChunk):
+                            self.streamed_events.append(event)
                             current_step_token_stream += str(chunk.content)
                             final_answer = self.parse_final_answer_from_streamed_output(
                                 current_step_token_stream

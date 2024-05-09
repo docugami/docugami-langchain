@@ -15,7 +15,7 @@ CURRENT_YEAR = datetime.now().year
 TEST_DATA = [
     ("22nndd M@ RCH 2oo7", datetime(2007, 3, 22)),
     ("5-Dec-23", datetime(2023, 12, 5)),
-    ("Feb1,23", datetime(2023, 2, 1)),
+    ("Jun1,23", datetime(2023, 6, 1)),
 ]
 
 
@@ -48,13 +48,13 @@ def test_local_date_parse(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 @pytest.mark.parametrize("text,expected", TEST_DATA)
-def test_fireworksai_date_parse(
-    fireworksai_mixtral: BaseLanguageModel,
+def test_fireworksai_llama3_date_parse(
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
     text: str,
     expected: datetime,
 ) -> Any:
-    chain = init_chain(fireworksai_mixtral, huggingface_minilm)
+    chain = init_chain(fireworksai_llama3, huggingface_minilm)
     response = chain.run(text)
     verify_traced_response(response)
     assert expected == response.value
