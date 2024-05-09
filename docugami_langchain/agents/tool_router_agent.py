@@ -127,15 +127,19 @@ class ToolRouterAgent(BaseDocugamiAgent):
             tool_descriptions = state.get("tool_descriptions")
             intermediate_steps = state.get("intermediate_steps")
 
-            grader_output_response = self.output_grader_chain.run(
-                question, tool_descriptions, intermediate_steps, config
-            )
+            if question and tool_descriptions:
+                if not intermediate_steps:
+                    intermediate_steps = []
 
-            grader_output_result = grader_output_response.value.lower()
-            if "true" in grader_output_result or "yes" in grader_output_result:
-                return "true"
-            else:
-                return "false"
+                grader_output_response = self.output_grader_chain.run(
+                    question, tool_descriptions, intermediate_steps, config
+                )
+
+                grader_output_result = grader_output_response.value.lower()
+                if "true" in grader_output_result or "yes" in grader_output_result:
+                    return "true"
+
+            return "false"
 
         def generate_final_answer(
             state: AgentState, config: Optional[RunnableConfig]
@@ -143,6 +147,9 @@ class ToolRouterAgent(BaseDocugamiAgent):
             question = state.get("question")
             tool_descriptions = state.get("tool_descriptions")
             intermediate_steps = state.get("intermediate_steps")
+
+            if not question or not tool_descriptions or not intermediate_steps:
+                raise Exception("incomplete inputs")
 
             final_answer_response = self.final_answer_chain.run(
                 question, tool_descriptions, intermediate_steps, config

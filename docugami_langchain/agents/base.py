@@ -133,8 +133,6 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
             config=config,
         )
 
-    streamed_events: list[dict] = []
-
     async def run_stream(  # type: ignore[override]
         self,
         question: str,
@@ -165,12 +163,10 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
                 if event_data:
                     if event_name in self.streamable_node_names():
                         if event_key == "on_chain_start":
-                            self.streamed_events.append(event)
                             # Restart token stream every time a streamable node starts
                             current_step_token_stream = ""
                             final_streaming_started = True
                         elif event_key == "on_chain_end":
-                            self.streamed_events.append(event)
                             # Yield the completed output when a streamable node finishes
                             last_response_value = event_data.get("output")
                             if last_response_value:
@@ -179,15 +175,13 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
                                 )
                     elif event_name == "execute_tool":
                         if event_key == "on_chain_end":
-                            self.streamed_events.append(event)
-                            state: AgentState = event_data.get("output")
+                            state: Optional[AgentState] = event_data.get("output")
                             if state:
                                 answer = state.get("cited_answer")
                                 citations = answer.citations if answer else []
                     elif event_key == "on_chat_model_stream":
                         chunk = event_data.get("chunk")
                         if isinstance(chunk, AIMessageChunk):
-                            self.streamed_events.append(event)
                             current_step_token_stream += str(chunk.content)
                             final_answer = self.parse_final_answer_from_streamed_output(
                                 current_step_token_stream
