@@ -134,17 +134,14 @@ class ToolRouterAgent(BaseDocugamiAgent):
 
             final_answer_candidate = chain_response.value
 
-            return {
-                "cited_answer": final_answer_candidate,
-                "intermediate_steps": [
-                    StepState(
-                        invocation=state.get("tool_invocation"),
-                        output=str(
-                            final_answer_candidate.answer,
-                        ),
-                    )
-                ],
-            }
+            # Source the answer from the last step, if any
+            intermediate_steps = state.get("intermediate_steps")
+            if intermediate_steps:
+                last_step = intermediate_steps[-1]
+                final_answer_candidate.source = last_step.invocation.tool_name
+                final_answer_candidate.citations = last_step.citations
+
+            return {"cited_answer": final_answer_candidate}
 
         def should_continue(state: AgentState) -> str:
             # Decide whether to continue, based on the current state
@@ -187,5 +184,14 @@ class ToolRouterAgent(BaseDocugamiAgent):
         # Compile
         return workflow.compile()
 
-    def parse_final_answer(self, text: str) -> str:
+    def streamable_node_names(self) -> list[str]:
+        """Node names in the graph from which token by token output should be streamed."""
+        return ["generate_final_answer"]
+
+    def parse_final_answer_from_streamed_output(self, text: str) -> str:
+        """Given output stream from a streamable node, parses out the final answer (e.g. past a delimeter)."""
         return text  # no special delimiter in final answer
+
+    def final_answer_node_names(self) -> list[str]:
+        """Node names, which once seen, force the agent into final answer mode."""
+        return ["generate_final_answer"]

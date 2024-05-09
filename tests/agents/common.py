@@ -177,19 +177,22 @@ async def run_streaming_agent_test(
         question=question,
         chat_history=chat_history,
     ):
-
-        streamed_answer = incremental_response.value.get("cited_answer")
-        if streamed_answer:
-            streamed_answers.append(streamed_answer)
-            current_time = time.time()
-            step_deltas.append(
-                (
-                    streamed_answer.answer,
-                    round(
-                        current_time - start_time - sum([s[1] for s in step_deltas]), 2
-                    ),
+        if incremental_response.value:
+            streamed_answer = incremental_response.value.get("cited_answer")
+            if streamed_answer:
+                streamed_answers.append(streamed_answer)
+                current_time = time.time()
+                step_deltas.append(
+                    (
+                        streamed_answer.answer,
+                        round(
+                            current_time
+                            - start_time
+                            - sum([s[1] for s in step_deltas]),
+                            2,
+                        ),
+                    )
                 )
-            )
 
         last_response = incremental_response
 

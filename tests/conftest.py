@@ -100,7 +100,11 @@ def huggingface_minilm() -> Embeddings:
 
 @pytest.fixture()
 def mxbai_re_rank() -> BaseRanker:
-    return Reranker("mixedbread-ai/mxbai-rerank-base-v1", verbose=0)
+    return Reranker(
+        model_name="mixedbread-ai/mxbai-rerank-base-v1",
+        model_type="cross-encoder",
+        verbose=0,
+    )
 
 
 @pytest.fixture()
@@ -127,4 +131,8 @@ def openai_ada() -> Embeddings:
 
 @pytest.fixture()
 def openai_gpt4_re_rank() -> BaseRanker:
-    return Reranker("rankgpt", api_key=os.environ.get("OPENAI_API_KEY"), verbose=0)
+    return Reranker(
+        model_name="rankgpt",
+        api_key=os.environ.get("OPENAI_API_KEY"),
+        verbose=0,
+    )
