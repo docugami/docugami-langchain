@@ -258,7 +258,7 @@ class ReActAgent(BaseDocugamiAgent):
         return ["generate_re_act"]
 
     def parse_final_answer_from_streamed_output(self, text: str) -> str:
-        """Given output stream from a streamable node, parses out the final answer (e.g. past a delimeter)."""
+        """Given output stream from a streamable node, parses out the final answer (e.g. past a delimiter)."""
         if FINAL_ANSWER_MARKER in text:
             return str(text).split(FINAL_ANSWER_MARKER)[-1].strip()
 

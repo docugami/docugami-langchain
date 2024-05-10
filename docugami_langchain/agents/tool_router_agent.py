@@ -208,5 +208,5 @@ class ToolRouterAgent(BaseDocugamiAgent):
         return ["generate_final_answer"]
 
     def parse_final_answer_from_streamed_output(self, text: str) -> str:
-        """Given output stream from a streamable node, parses out the final answer (e.g. past a delimeter)."""
+        """Given output stream from a streamable node, parses out the final answer (e.g. past a delimiter)."""
         return text  # no special delimiter in final answer
