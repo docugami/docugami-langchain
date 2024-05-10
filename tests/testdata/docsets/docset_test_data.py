@@ -12,6 +12,7 @@ class TestQuestionData:
     chat_history: list[tuple[str, str]] = field(default_factory=lambda: [])
     acceptable_answer_fragments: list[str] = field(default_factory=lambda: [])
     requires_report: bool = False
+    acceptable_citation_label_fragments: list[str] = field(default_factory=lambda: [])
 
 
 @dataclass
@@ -55,11 +56,13 @@ DOCSET_TEST_DATA: list[DocsetTestData] = [
             TestQuestionData(
                 question="What is the accident number for the incident in Madill, OK?",
                 acceptable_answer_fragments=["DFW08CA044"],
+                acceptable_citation_label_fragments=["query", "20080111X00040.xml"],
             ),
             TestQuestionData(
                 question="How many accidents involved Cessna planes?",
                 acceptable_answer_fragments=["27", "twenty", "seven"],
                 requires_report=True,
+                acceptable_citation_label_fragments=["query"],
             ),
             TestQuestionData(
                 chat_history=[
@@ -74,6 +77,7 @@ DOCSET_TEST_DATA: list[DocsetTestData] = [
                 ],
                 question="List the accident numbers and dates for all aviation incidents that happened there",
                 acceptable_answer_fragments=["DFW08CA044", "N6135M", "Cessna"],
+                acceptable_citation_label_fragments=["query", "20080111X00040.xml"],
             ),
         ],
     ),

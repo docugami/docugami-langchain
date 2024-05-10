@@ -12,12 +12,8 @@
     Tool Name: report_answer_tool_contracts_report
       input: SELECT Expiry_Date FROM Contracts_Report WHERE Name LIKE '%abc%'
       output: Looks like you passed in a SQL query. This tool takes natural language inputs, and automatically translates them to SQL queries. Please try passing in a natural language query.
-  cited_answer_json: |
-    {
-      "source": "report_answer_tool_contracts_report",
-      "answer": "Looks like you passed in a SQL query. This tool takes natural language inputs, and automatically translates them to SQL queries. Please try passing in a natural language query.",
-      "is_final": false
-    }
+  is_answered: "false"
+  final_answer: Looks like you passed in a SQL query. This tool takes natural language inputs, and automatically translates them to SQL queries. Please try passing in a natural language query.
 
 - question: How many accidents involved Cessna aircraft?
   tool_descriptions: |
@@ -48,9 +44,5 @@
     Tool Name: report_answer_tool_aviation_incidents_report
       input: Number of accidents involving Cessna aircraft
       output: [(27,)].
-  cited_answer_json: |
-    {
-      "source": "report_answer_tool_aviation_incidents_report",
-      "answer": "There were 27 accidents involving Cessna aircraft.",
-      "is_final": true
-    }
+  is_answered: "true"
+  final_answer: There were 27 accidents involving Cessna aircraft.

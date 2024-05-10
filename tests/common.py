@@ -43,31 +43,42 @@ GENERAL_KNOWLEDGE_QUESTION_WITH_HISTORY = "When were they all born?"
 GENERAL_KNOWLEDGE_ANSWER_WITH_HISTORY_FRAGMENTS = ["1879", "1809", "1823"]
 
 
-def verify_value(
-    value: Any,
+def verify_output_list(
+    values: list[str],
     match_fragment_str_options: list[str] = [],
     empty_ok: bool = False,
 ) -> None:
-    value = str(value)
-    if empty_ok and not value:
+    if empty_ok and not values:
         return
 
-    assert value
+    assert values
     if match_fragment_str_options:
         output_match = False
-        for fragment in match_fragment_str_options:
-            output_match = output_match or fragment.lower() in value.lower()
+        for value in values:
+            for fragment in match_fragment_str_options:
+                output_match = output_match or fragment.lower() in value.lower()
 
         assert (
             output_match
-        ), f"{value} does not contain one of the expected output substrings {match_fragment_str_options}"
+        ), f"The output {value} does not contain one of the expected output substrings {match_fragment_str_options}"
 
-    # Check guardrails and warn if any violations detected based on string checks
-    for banned_word in ["sql", "context"]:
-        if banned_word.lower() in value.lower():
-            warnings.warn(
-                UserWarning(f"Output contains banned word {banned_word}: {value}")
-            )
+        # Check guardrails and warn if any violations detected based on string checks
+        for banned_word in ["sql", "context"]:
+            if banned_word.lower() in value.lower():
+                warnings.warn(
+                    UserWarning(f"Output contains banned word {banned_word}: {value}")
+                )
+
+
+def verify_output(
+    value: str,
+    match_fragment_str_options: list[str] = [],
+    empty_ok: bool = False,
+) -> None:
+    if empty_ok and not value:
+        return
+
+    verify_output_list([value], match_fragment_str_options, empty_ok)
 
 
 def verify_traced_response(
@@ -79,7 +90,7 @@ def verify_traced_response(
     if empty_ok and not response.value:
         return
 
-    return verify_value(response.value, match_fragment_str_options, empty_ok)
+    return verify_output(str(response.value), match_fragment_str_options, empty_ok)
 
 
 def build_test_retrieval_artifacts(

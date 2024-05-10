@@ -28,7 +28,8 @@ from tests.common import (
     EXAMPLES_PATH,
     TEST_DATA_DIR,
     build_test_retrieval_artifacts,
-    verify_value,
+    verify_output,
+    verify_output_list,
 )
 from tests.testdata.docsets.docset_test_data import DocsetTestData
 from tests.testdata.xlsx.query_test_data import TestReportData
@@ -133,8 +134,9 @@ def build_test_retrieval_tool(
 def run_agent_test(
     agent: BaseDocugamiAgent,
     question: str,
-    answer_options: list[str],
+    answer_options: list[str] = [],
     chat_history: list[tuple[str, str]] = [],
+    citation_label_options: list[str] = [],
 ) -> None:
 
     response = agent.run(
@@ -147,7 +149,15 @@ def run_agent_test(
 
     assert cited_answer
     assert cited_answer.is_final
-    verify_value(cited_answer.answer, answer_options)
+    verify_output(cited_answer.answer, answer_options)
+
+    if citation_label_options:
+        assert cited_answer.citations
+        verify_output_list(
+            [c.label for c in cited_answer.citations],
+            citation_label_options,
+            empty_ok=False,
+        )
 
 
 async def run_streaming_agent_test(
@@ -155,6 +165,7 @@ async def run_streaming_agent_test(
     question: str,
     answer_options: list[str],
     chat_history: list[tuple[str, str]] = [],
+    citation_label_options: list[str] = [],
 ) -> None:
     last_response = TracedResponse[AgentState](value={})  # type: ignore
 
@@ -166,19 +177,22 @@ async def run_streaming_agent_test(
         question=question,
         chat_history=chat_history,
     ):
-
-        streamed_answer = incremental_response.value.get("cited_answer")
-        if streamed_answer:
-            streamed_answers.append(streamed_answer)
-            current_time = time.time()
-            step_deltas.append(
-                (
-                    streamed_answer.answer,
-                    round(
-                        current_time - start_time - sum([s[1] for s in step_deltas]), 2
-                    ),
+        if incremental_response.value:
+            streamed_answer = incremental_response.value.get("cited_answer")
+            if streamed_answer:
+                streamed_answers.append(streamed_answer)
+                current_time = time.time()
+                step_deltas.append(
+                    (
+                        streamed_answer.answer,
+                        round(
+                            current_time
+                            - start_time
+                            - sum([s[1] for s in step_deltas]),
+                            2,
+                        ),
+                    )
                 )
-            )
 
         last_response = incremental_response
 
@@ -194,4 +208,12 @@ async def run_streaming_agent_test(
 
     assert cited_answer
     assert cited_answer.is_final
-    verify_value(cited_answer.answer, answer_options)
+    verify_output(cited_answer.answer, answer_options)
+
+    if citation_label_options:
+        assert cited_answer.citations
+        verify_output_list(
+            [c.label for c in cited_answer.citations],
+            citation_label_options,
+            empty_ok=False,
+        )

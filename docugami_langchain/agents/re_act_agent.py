@@ -253,8 +253,13 @@ class ReActAgent(BaseDocugamiAgent):
         # Compile
         return workflow.compile()
 
-    def parse_final_answer(self, text: str) -> str:
+    def streamable_node_names(self) -> list[str]:
+        """Node names in the graph from which token by token output should be streamed."""
+        return ["generate_re_act"]
+
+    def parse_final_answer_from_streamed_output(self, text: str) -> str:
+        """Given output stream from a streamable node, parses out the final answer (e.g. past a delimiter)."""
         if FINAL_ANSWER_MARKER in text:
             return str(text).split(FINAL_ANSWER_MARKER)[-1].strip()
 
-        return ""  # not found
+        return ""  # Not found

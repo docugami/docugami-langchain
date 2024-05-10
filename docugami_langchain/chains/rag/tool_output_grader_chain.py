@@ -9,7 +9,7 @@ from docugami_langchain.history import steps_to_str
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class ToolFinalAnswerChain(BaseDocugamiChain[str]):
+class ToolOutputGraderChain(BaseDocugamiChain[str]):
     def params(self) -> RunnableParameters:
         return RunnableParameters(
             inputs=[
@@ -26,16 +26,21 @@ class ToolFinalAnswerChain(BaseDocugamiChain[str]):
                 RunnableSingleParameter(
                     "intermediate_steps",
                     "INTERMEDIATE STEPS",
-                    "The inputs and outputs to various intermediate steps an AI agent has previously taken to try and answer the question using specialized tools. "
-                    + "Try to compose your final answer from these intermediate steps, or if you cannot then explain why you cannot in your answer.",
+                    "The inputs and outputs to various intermediate steps an AI agent has previously taken to try and answer the question using specialized tools. ",
                 ),
             ],
             output=RunnableSingleParameter(
-                "final_answer",
-                "FINAL ANSWER",
-                "A final answer to the question, considering the information in intermediate steps.",
+                "is_answered",
+                "IS ANSWERED",
+                "A boolean (true/false) value indicating whether or not the question is answered completely by the sequence of intermediate steps",
             ),
-            task_description="generates a final answer to a question, considering intermediate output from specialized tools that know how to answer questions",
+            task_description="determines whether a question has been answered or not by an AI agent, considering intermediate output from specialized tools that know how to answer questions",
+            additional_instructions=[
+                "- The output must be a boolean (true/false) judgment against only, with no preamble or other explanation.",
+                "- If you think the intermediate steps adequately and completely answer the question, output true otherwise output false. "
+                "- Your output will be used by the AI agent to determine if it is ready to generate the final answer from the intermediate steps, "
+                + "or if should try more intermediate steps with different tools and/or inputs.",
+            ],
             stop_sequences=["<|eot_id|>"],
         )
 

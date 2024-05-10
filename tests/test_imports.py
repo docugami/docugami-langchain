@@ -32,6 +32,8 @@ EXPECTED_CHAINS = [
     "SQLResultExplainerChain",
     "SuggestedQuestionsChain",
     "SuggestedReportChain",
+    "ToolFinalAnswerChain",
+    "ToolOutputGraderChain",
     "SimpleRAGChain",
     "StandaloneQuestionChain",
     "DataTypeDetectionChain",

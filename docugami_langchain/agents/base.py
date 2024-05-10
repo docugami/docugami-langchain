@@ -8,6 +8,7 @@ from langgraph.prebuilt.tool_executor import ToolExecutor, ToolInvocation
 
 from docugami_langchain.agents.models import (
     AgentState,
+    Citation,
     CitedAnswer,
     Invocation,
     StepState,
@@ -26,7 +27,14 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
     tools: list[BaseDocugamiTool] = []
 
     @abstractmethod
-    def parse_final_answer(self, text: str) -> str: ...
+    def streamable_node_names(self) -> list[str]:
+        """Node names in the graph from which token by token output should be streamed."""
+        ...
+
+    @abstractmethod
+    def parse_final_answer_from_streamed_output(self, text: str) -> str:
+        """Given output stream from a streamable node, parses out the final answer (e.g. past a delimiter)."""
+        ...
 
     def execute_tool(
         self,
@@ -145,47 +153,44 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
             last_response_value = None
             current_step_token_stream = ""
             final_streaming_started = False
-            async for output in self.runnable().astream_log(
-                input=kwargs_dict,
-                config=config,
-                include_types=["llm"],
+            citations: list[Citation] = []
+            async for event in self.runnable().astream_events(
+                input=kwargs_dict, config=config, version="v1"
             ):
-                for op in output.ops:
-                    op_path = op.get("path", "")
-                    op_value = op.get("value", "")
-                    if not final_streaming_started and op_path == "/streamed_output/-":
-                        # Restart token stream for each interim step
-                        current_step_token_stream = ""
-                        if not isinstance(op_value, dict):
-                            # Agent step-wise streaming yields dictionaries keyed by node name
-                            # Ref: https://python.langchain.com/docs/langgraph#streaming-node-output
-                            raise Exception(
-                                "Expected dictionary output from agent streaming"
-                            )
-
-                        if not len(op_value.keys()) == 1:
-                            raise Exception(
-                                "Expected output from one node at a time in step-wise agent streaming output"
-                            )
-
-                        key = list(op_value.keys())[0]
-                        last_response_value = op_value[key]
-                        yield TracedResponse[AgentState](value=last_response_value)
-                    elif op_path.startswith("/logs/") and op_path.endswith(
-                        "/streamed_output/-"
-                    ):
-                        # Because we chose to only include LLMs, these are LLM tokens
-                        if isinstance(op_value, AIMessageChunk):
-                            current_step_token_stream += str(op_value.content)
-
-                            final_answer = self.parse_final_answer(
+                event_key = event.get("event")
+                event_name = event.get("name")
+                event_data = event.get("data")
+                if event_data:
+                    if event_name in self.streamable_node_names():
+                        if event_key == "on_chain_start":
+                            # Restart token stream every time a streamable node starts
+                            current_step_token_stream = ""
+                            final_streaming_started = True
+                        elif event_key == "on_chain_end":
+                            # Yield the completed output when a streamable node finishes
+                            last_response_value = event_data.get("output")
+                            if last_response_value:
+                                yield TracedResponse[AgentState](
+                                    value=last_response_value
+                                )
+                    elif event_name == "execute_tool":
+                        if event_key == "on_chain_end":
+                            state: Optional[AgentState] = event_data.get("output")
+                            if state:
+                                answer = state.get("cited_answer")
+                                citations = answer.citations if answer else []
+                    elif event_key == "on_chat_model_stream":
+                        chunk = event_data.get("chunk")
+                        if isinstance(chunk, AIMessageChunk):
+                            current_step_token_stream += str(chunk.content)
+                            final_answer = self.parse_final_answer_from_streamed_output(
                                 current_step_token_stream
                             )
 
                             if final_answer:
+                                # Source the answer from the last step, if any
                                 if not final_streaming_started:
-                                    # Set final streaming started once as soon as we see the final
-                                    # answer action in the token stream
+                                    # Set final streaming started once as soon as we see the final answer
                                     final_streaming_started = bool(final_answer)
                                 else:
                                     # Start streaming the final answer, no more interim steps
@@ -193,10 +198,10 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
                                         chat_history=[],
                                         question="",
                                         tool_invocation=None,
-                                        intermediate_steps=[],
                                         cited_answer=CitedAnswer(
                                             source=self.__class__.__name__,
                                             answer=final_answer,
+                                            citations=citations,
                                             is_final=True,
                                         ),
                                     )
