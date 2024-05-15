@@ -5,6 +5,7 @@ from langchain_core.runnables import RunnableConfig
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.output_parsers.sql_finding import SQLFindingOutputParser
+from docugami_langchain.output_parsers.text_cleaning import TextCleaningOutputParser
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
@@ -45,7 +46,7 @@ class SQLFixupChain(BaseDocugamiChain[str]):
                 "If you see any of the above mistakes, or any other mistakes, rewrite the query to fix them. If there are no mistakes, just reproduce the original query.",
             ],
             stop_sequences=["\n", ";", "<|eot_id|>"],
-            additional_runnables=[SQLFindingOutputParser()],
+            additional_runnables=[TextCleaningOutputParser(), SQLFindingOutputParser()],
         )
 
     def run(  # type: ignore[override]

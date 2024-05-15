@@ -12,6 +12,7 @@ from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.chains.querying.models import ExplainedSQLResult
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
 from docugami_langchain.output_parsers.sql_finding import SQLFindingOutputParser
+from docugami_langchain.output_parsers.text_cleaning import TextCleaningOutputParser
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 from docugami_langchain.utils.sql import (
     check_and_format_query,
@@ -58,7 +59,9 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
                 example_selector=self._example_row_selector,
             )
 
-        def run_sql_query(inputs: dict, config: Optional[RunnableConfig]) -> ExplainedSQLResult:
+        def run_sql_query(
+            inputs: dict, config: Optional[RunnableConfig]
+        ) -> ExplainedSQLResult:
             """
             Runs the given SQL query against the database connection for this chain, and returns the result.
             """
@@ -153,6 +156,7 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
                 "- If example rows are given, pay special attention to them to improve your query e.g. to account for abbreviations or formatting of values.",
             ],
             stop_sequences=["\n", ";", "<|eot_id|>"],
+            additional_runnables=[TextCleaningOutputParser(), SQLFindingOutputParser()],
         )
 
     def run(  # type: ignore[override]
