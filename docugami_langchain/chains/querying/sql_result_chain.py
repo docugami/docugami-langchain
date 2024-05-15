@@ -5,7 +5,6 @@ from typing import AsyncIterator, Optional
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.example_selectors import MaxMarginalRelevanceExampleSelector
 from langchain_core.runnables import Runnable, RunnableConfig, RunnableLambda
-from sqlglot import ParseError
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
