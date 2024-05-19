@@ -83,24 +83,27 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
                 }
 
             except Exception as exc:
-                # If any exception with Raw SQL, try to fix up the SQL
-                # giving the LLM context on the exception to aid fixup
-                fixed_sql_response = self.sql_fixup_chain.run(
-                    table_info=table_info,
-                    sql_query=sql_query,
-                    exception=str(exc),
-                    config=config,  # Pass the config down to link traces in langsmith
-                )
+                if not self.sql_fixup_chain:
+                    raise
+                else:
+                    # If any exception with Raw SQL, try to fix up the SQL
+                    # giving the LLM context on the exception to aid fixup
+                    fixed_sql_response = self.sql_fixup_chain.run(
+                        table_info=table_info,
+                        sql_query=sql_query,
+                        exception=str(exc),
+                        config=config,  # Pass the config down to link traces in langsmith
+                    )
 
-                # Run Fixed-up SQL
-                fixed_sql = fixed_sql_response.value
-                fixed_sql = check_and_format_query(self.db, fixed_sql)
+                    # Run Fixed-up SQL
+                    fixed_sql = fixed_sql_response.value
+                    fixed_sql = check_and_format_query(self.db, fixed_sql)
 
-                return {
-                    "question": question,
-                    "sql_query": fixed_sql,
-                    "sql_result": str(self.db.run(fixed_sql)).strip(),
-                }
+                    return {
+                        "question": question,
+                        "sql_query": fixed_sql,
+                        "sql_result": str(self.db.run(fixed_sql)).strip(),
+                    }
 
         return {
             "question": itemgetter("question"),
