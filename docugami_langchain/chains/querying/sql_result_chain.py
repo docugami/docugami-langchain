@@ -149,6 +149,7 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
             ],
             stop_sequences=["\n", ";", "<|eot_id|>"],
             additional_runnables=[TextCleaningOutputParser(), SQLFindingOutputParser()],
+            include_output_instruction_suffix=True,
         )
 
     def run(  # type: ignore[override]

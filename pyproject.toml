@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docugami-langchain"
-version = "0.0.9rc8"
+version = "0.0.9rc9"
 description = "An integration package connecting Docugami and LangChain"
 authors = []
 readme = "README.md"
@@ -12,18 +12,18 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
-langchain-core = ">=0.1.52"
-langchain-community = ">=0.0.38"
-langgraph = ">=0.0.48"
+langchain-core = ">=0.2.0"
+langchain-community = ">=0.2.0"
+langgraph = ">=0.0.50"
 dgml-utils = ">=0.3.3"
 wordtodigits = ">=1.0.2"
 python-dateutil = ">=2.9.0"
 pandas = "*"
 pyyaml = ">=6.0.1"
 openpyxl = ">=3.1.2"
-sqlglot = ">=23.15.8"
+sqlglot = ">=23.16.0"
 tabulate = ">=0.9.0"
-rerankers = { extras = ["all"], version = ">=0.2.0" }
+rerankers = { extras = ["all"], version = ">=0.3.0" }
 
 [tool.poetry.group.test]
 optional = true
