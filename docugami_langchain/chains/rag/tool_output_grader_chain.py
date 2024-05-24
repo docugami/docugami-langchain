@@ -6,10 +6,11 @@ from docugami_langchain.agents.models import StepState
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.history import steps_to_str
+from docugami_langchain.output_parsers.truthy import TruthyOutputParser
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class ToolOutputGraderChain(BaseDocugamiChain[str]):
+class ToolOutputGraderChain(BaseDocugamiChain[bool]):
     def params(self) -> RunnableParameters:
         return RunnableParameters(
             inputs=[
@@ -36,12 +37,14 @@ class ToolOutputGraderChain(BaseDocugamiChain[str]):
             ),
             task_description="determines whether a question has been answered or not by an AI agent, considering intermediate output from specialized tools that know how to answer questions",
             additional_instructions=[
-                "- The output must be a boolean (true/false) judgment against only, with no preamble or other explanation.",
+                "- The output must be a boolean (true/false) judgment only, with no preamble or other explanation.",
                 "- If you think the intermediate steps adequately and completely answer the question, output true otherwise output false. "
                 "- Your output will be used by the AI agent to determine if it is ready to generate the final answer from the intermediate steps, "
                 + "or if should try more intermediate steps with different tools and/or inputs.",
             ],
             stop_sequences=["<|eot_id|>"],
+            additional_runnables=[TruthyOutputParser()],
+            include_output_instruction_suffix=True,
         )
 
     def run(  # type: ignore[override]
@@ -50,7 +53,7 @@ class ToolOutputGraderChain(BaseDocugamiChain[str]):
         tool_descriptions: str = "",
         intermediate_steps: Sequence[StepState] = [],
         config: Optional[RunnableConfig] = None,
-    ) -> TracedResponse[str]:
+    ) -> TracedResponse[bool]:
         if not question:
             raise Exception("Input required: question")
 
@@ -67,7 +70,7 @@ class ToolOutputGraderChain(BaseDocugamiChain[str]):
         tool_descriptions: str = "",
         intermediate_steps: Sequence[StepState] = [],
         config: Optional[RunnableConfig] = None,
-    ) -> AsyncIterator[TracedResponse[str]]:
+    ) -> AsyncIterator[TracedResponse[bool]]:
         if not question:
             raise Exception("Input required: question")
 
@@ -83,7 +86,7 @@ class ToolOutputGraderChain(BaseDocugamiChain[str]):
         self,
         inputs: list[tuple[str, str, Sequence[StepState]]],
         config: Optional[RunnableConfig] = None,
-    ) -> list[str]:
+    ) -> list[bool]:
         return super().run_batch(
             inputs=[
                 {

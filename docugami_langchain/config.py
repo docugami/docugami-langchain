@@ -21,10 +21,8 @@ DEFAULT_EXAMPLES_PER_PROMPT = 3
 
 # ************ PARAMETERS TO CONTROL RETRIEVAL
 INCLUDE_XML_TAGS = True
-# The number of results retrieved (before re-ranking / filtering)
+# The number of results retrieved (before grading/filtering)
 DEFAULT_RETRIEVER_K: int = 24
-# Results above this percentile are kept, others are rejected (0 means keep them all, 90 means keep only very good ones, 100 means keep the top one, etc.)
-RE_RANK_FILTER_PERCENTILE: int = 70
 
 # ************ PARAMETERS TO TABULAR REPRESENTATION OF ROWS TO HELP GENERATE SQL
 DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO = 3

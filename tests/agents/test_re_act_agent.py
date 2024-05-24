@@ -4,7 +4,6 @@ import pytest
 from flaky import flaky
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
-from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.agents import ReActAgent
 from docugami_langchain.chains.rag.standalone_question_chain import (
@@ -32,10 +31,9 @@ def init_re_act_agent(
     docset: DocsetTestData,
     llm: BaseLanguageModel,
     embeddings: Embeddings,
-    re_ranker: BaseRanker,
 ) -> ReActAgent:
     tools = []
-    tools.append(build_test_retrieval_tool(llm, embeddings, re_ranker, docset))
+    tools.append(build_test_retrieval_tool(llm, embeddings, docset))
     if docset.report:
         tools.append(build_test_query_tool(docset.report, llm, embeddings))
     tools += build_test_common_tools(llm, embeddings)
@@ -67,11 +65,8 @@ def test_fireworksai_mixtral_re_act(
     test_data: DocsetTestData,
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
-    mxbai_re_rank: BaseRanker,
 ) -> None:
-    agent = init_re_act_agent(
-        test_data, fireworksai_mixtral, huggingface_minilm, mxbai_re_rank
-    )
+    agent = init_re_act_agent(test_data, fireworksai_mixtral, huggingface_minilm)
 
     # test general LLM response from agent
     run_agent_test(
@@ -101,11 +96,8 @@ async def test_fireworksai_mixtral_streamed_re_act(
     test_data: DocsetTestData,
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
-    mxbai_re_rank: BaseRanker,
 ) -> None:
-    agent = init_re_act_agent(
-        test_data, fireworksai_mixtral, huggingface_minilm, mxbai_re_rank
-    )
+    agent = init_re_act_agent(test_data, fireworksai_mixtral, huggingface_minilm)
 
     # test general LLM response from agent
     await run_streaming_agent_test(
@@ -132,11 +124,8 @@ def test_fireworksai_llama3_re_act(
     test_data: DocsetTestData,
     fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
-    mxbai_re_rank: BaseRanker,
 ) -> None:
-    agent = init_re_act_agent(
-        test_data, fireworksai_llama3, huggingface_minilm, mxbai_re_rank
-    )
+    agent = init_re_act_agent(test_data, fireworksai_llama3, huggingface_minilm)
 
     # test general LLM response from agent
     run_agent_test(
@@ -164,11 +153,8 @@ async def test_fireworksai_llama3_streamed_re_act(
     test_data: DocsetTestData,
     fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
-    mxbai_re_rank: BaseRanker,
 ) -> None:
-    agent = init_re_act_agent(
-        test_data, fireworksai_llama3, huggingface_minilm, mxbai_re_rank
-    )
+    agent = init_re_act_agent(test_data, fireworksai_llama3, huggingface_minilm)
 
     # test general LLM response from agent
     await run_streaming_agent_test(
@@ -195,9 +181,8 @@ def test_openai_gpt4_re_act(
     test_data: DocsetTestData,
     openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
-    openai_gpt4_re_rank: BaseRanker,
 ) -> None:
-    agent = init_re_act_agent(test_data, openai_gpt4, openai_ada, openai_gpt4_re_rank)
+    agent = init_re_act_agent(test_data, openai_gpt4, openai_ada)
 
     # test general LLM response from agent
     run_agent_test(
@@ -225,9 +210,8 @@ async def test_openai_gpt4_streamed_re_act(
     test_data: DocsetTestData,
     openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
-    openai_gpt4_re_rank: BaseRanker,
 ) -> None:
-    agent = init_re_act_agent(test_data, openai_gpt4, openai_ada, openai_gpt4_re_rank)
+    agent = init_re_act_agent(test_data, openai_gpt4, openai_ada)
 
     # test general LLM response from agent
     await run_streaming_agent_test(

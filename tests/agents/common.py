@@ -5,7 +5,6 @@ from typing import Optional
 
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
-from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.agents.base import AgentState, BaseDocugamiAgent
 from docugami_langchain.agents.models import CitedAnswer
@@ -80,7 +79,6 @@ def build_test_common_tools(
 def build_test_retrieval_tool(
     llm: BaseLanguageModel,
     embeddings: Embeddings,
-    re_ranker: BaseRanker,
     docset: DocsetTestData,
     data_files_glob: str = "*.xml",
 ) -> BaseDocugamiTool:
@@ -120,7 +118,6 @@ def build_test_retrieval_tool(
         retrieval_tool_description=retrieval_tool_description,
         llm=llm,
         embeddings=embeddings,
-        re_ranker=re_ranker,
         fetch_parent_doc_callback=_fetch_parent_doc_callback,
         fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
         retrieval_k=DEFAULT_RETRIEVER_K,

@@ -23,7 +23,6 @@ pyyaml = ">=6.0.1"
 openpyxl = ">=3.1.2"
 sqlglot = ">=24.0.0"
 tabulate = ">=0.9.0"
-rerankers = { extras = ["all"], version = ">=0.3.0" }
 
 [tool.poetry.group.test]
 optional = true
@@ -67,26 +66,22 @@ types-tabulate = ">=0.9.0.20240106"
 
 [tool.ruff]
 lint.select = [
-  "E",  # pycodestyle
-  "F",  # pyflakes
-  "I",  # isort
+  "E", # pycodestyle
+  "F", # pyflakes
+  "I", # isort
 ]
 line-length = 200
 
 [tool.mypy]
-disallow_untyped_defs = "True"
+disallow_untyped_defs = true
 disable_error_code = "typeddict-item"
 
 [[tool.mypy.overrides]]
-module = [
-    "wordtodigits", "pandas", "langgraph.*", "rerankers.*", "flaky",
-]
+module = ["wordtodigits", "pandas", "llama_cpp.*", "langgraph.*", "flaky"]
 ignore_missing_imports = true
 
 [tool.coverage.run]
-omit = [
-    "tests/*",
-]
+omit = ["tests/*"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

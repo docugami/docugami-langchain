@@ -1,0 +1,49 @@
+- question: When does the contract for kazuya expire?
+  document_summary: |
+    MASTER SERVICES AGREEMENT SUMMARY
+
+    Parties: MagicSoft, Inc. (Company) and Kazuya, Inc. (Client)
+    Effective Date: December 1, 2021
+    Duration: Until May 31, 2025, with automatic annual renewals
+
+    Key Terms:
+
+    1. Deliverables: Company will provide software, technical support, product management, development, and testing services as described in one or more Statements of Work (SOW).
+    2. Onsite Services: Onsite visits will be charged on a daily basis, with higher rates for work outside regular working hours, weekends, and public holidays. Cancellations made less than 10 working days in advance will result in a 50% charge.
+    3. Payment: Client will pay Company all fees due under the applicable SOW. An initial payment of $85,000 is due at signing. Company will submit a final invoice for all services rendered upon completion.
+    4. Change in Services: Client can request changes to the SOW in writing. Additional SOWs will be part of this Agreement upon execution.
+    5. Termination: The agreement can be terminated by either party with notice before the end of the term. Company can modify, reject, or terminate any SOW with five days written notice.
+    6. Representations and Warranties: Company represents that materials used in the Deliverable will not infringe on any third party's rights or violate any laws. Client represents that materials provided to Company will not infringe on any third party's rights or violate any laws.
+    7. Indemnification: Client will defend, indemnify, and hold Company harmless from any claims regarding elements or materials provided by Client and incorporated into the Deliverable or Client's unauthorized use of any music, images, or other materials comprising the Deliverable.
+    8. Limitation of Liability: Neither party will be liable for remote or speculative damages or those that could not have been reasonably foreseen on entry into this agreement. Company's liability will not exceed $5,000,000 under this agreement during the 12 months preceding the date upon which the related claim arose.
+    9. Compliance with Laws: Each party shall perform all obligations under this Agreement in compliance with all foreign, federal, state, and local statutes, orders, and regulations, including those relating to privacy and data protection.
+    10. Insurance: Company will maintain the required insurance coverage during the entire term of this Agreement.
+
+    This summary highlights the essential terms and conditions of the MASTER SERVICES AGREEMENT between MagicSoft, Inc. and Kazuya, Inc. It is not a substitute for the actual agreement and is intended to provide a brief overview of the parties' obligations and responsibilities.
+  retrieved_chunk: |
+    This Services Agreement (the “Agreement”) sets forth terms under which MagicSoft, Inc. a Washington Corporation (“Company”) located at 600 4th Ave, Seattle, WA 98104 shall provide services to Kazuya, Inc., a Washington Corporation (the “Client”) located at 710-6998 15th Ave NW, Seattle, WA 98117. This Agreement is effective as of December 1, 2021 (“Effective Date”).
+  is_relevant: "true"
+
+- question: When does the contract for kazuya expire?
+  document_summary: |
+    MASTER SERVICES AGREEMENT SUMMARY
+
+    Parties: MagicSoft, Inc. (Company) and ACME Corp. (Client)
+    Effective Date: July 1, 1982
+    Expiry Date: Dec 31, 1985
+
+    Key Terms:
+
+    1. Deliverables: Company will provide software, technical support, product management, development, and testing services as described in one or more Statements of Work (SOW).
+    2. Onsite Services: Onsite visits will be charged on a daily basis, with higher rates for work outside regular working hours, weekends, and public holidays. Cancellations made less than 10 working days in advance will result in a 50% charge.
+    3. Payment: Client will pay Company all fees due under the applicable SOW. An initial payment of $85,000 is due at signing. Company will submit a final invoice for all services rendered upon completion.
+    4. Change in Services: Client can request changes to the SOW in writing. Additional SOWs will be part of this Agreement upon execution.
+    5. Termination: The agreement can be terminated by either party with notice before the end of the term. Company can modify, reject, or terminate any SOW with five days written notice.
+    6. Representations and Warranties: Company represents that materials used in the Deliverable will not infringe on any third party's rights or violate any laws. Client represents that materials provided to Company will not infringe on any third party's rights or violate any laws.
+    7. Indemnification: Client will defend, indemnify, and hold Company harmless from any claims regarding elements or materials provided by Client and incorporated into the Deliverable or Client's unauthorized use of any music, images, or other materials comprising the Deliverable.
+    8. Limitation of Liability: Neither party will be liable for remote or speculative damages or those that could not have been reasonably foreseen on entry into this agreement. Company's liability will not exceed $5,000,000 under this agreement during the 12 months preceding the date upon which the related claim arose.
+    9. Compliance with Laws: Each party shall perform all obligations under this Agreement in compliance with all foreign, federal, state, and local statutes, orders, and regulations, including those relating to privacy and data protection.
+    10. Insurance: Company will maintain the required insurance coverage during the entire term of this Agreement.
+  retrieved_chunk: |
+    This Services Agreement (the “Agreement”) sets forth terms under which MagicSoft, Inc. a Washington Corporation (“Company”) located at 600 4th Ave, Seattle, WA 98104 shall provide services to ACME Corp., (the “Client”) located at Alsterkrugchaussee 16, Obernzenn, Freistaat Bayern 91619, Germany. This Agreement expires on Dec 31, 1985.
+  is_relevant: "false"

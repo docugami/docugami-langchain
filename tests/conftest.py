@@ -11,8 +11,6 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_fireworks.chat_models import ChatFireworks
 from langchain_fireworks.llms import Fireworks
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from rerankers import Reranker
-from rerankers.models.ranker import BaseRanker
 
 # Turn on caching
 LOCAL_LLM_CACHE_DB_FILE = os.environ.get(
@@ -99,15 +97,6 @@ def huggingface_minilm() -> Embeddings:
 
 
 @pytest.fixture()
-def mxbai_re_rank() -> BaseRanker:
-    return Reranker(
-        model_name="mixedbread-ai/mxbai-rerank-base-v1",
-        model_type="cross-encoder",
-        verbose=0,
-    )
-
-
-@pytest.fixture()
 def openai_gpt4() -> BaseLanguageModel:
     """
     GPT 4 model by OpenAI.
@@ -127,12 +116,3 @@ def openai_ada() -> Embeddings:
     Ada embeddings by OpenAI.
     """
     return OpenAIEmbeddings(model="text-embedding-ada-002", client=None)
-
-
-@pytest.fixture()
-def openai_gpt4_re_rank() -> BaseRanker:
-    return Reranker(
-        model_name="rankgpt",
-        api_key=os.environ.get("OPENAI_API_KEY"),
-        verbose=0,
-    )

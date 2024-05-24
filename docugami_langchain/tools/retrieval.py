@@ -8,12 +8,12 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.runnables import RunnableConfig
 from langchain_core.vectorstores import VectorStore
-from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.agents.models import Citation, CitedAnswer, Invocation
 from docugami_langchain.chains.documents.describe_document_set_chain import (
     DescribeDocumentSetChain,
 )
+from docugami_langchain.chains.rag.retrieval_grader_chain import RetrievalGraderChain
 from docugami_langchain.chains.rag.simple_rag_chain import SimpleRAGChain
 from docugami_langchain.config import DEFAULT_RETRIEVER_K, MAX_FULL_DOCUMENT_TEXT_LENGTH
 from docugami_langchain.retrievers.fused_summary import (
@@ -67,7 +67,7 @@ class CustomDocsetRetrievalTool(BaseDocugamiTool):
                     return CitedAnswer(
                         source=self.name,
                         answer=answer,
-                        citations=[Citation(label=s) for s in sources]
+                        citations=[Citation(label=s) for s in sources],
                     )
 
             return CitedAnswer(source=self.name, answer=NOT_FOUND)
@@ -145,26 +145,29 @@ def get_retrieval_tool_for_docset(
     retrieval_tool_description: str,
     llm: BaseLanguageModel,
     embeddings: Embeddings,
-    re_ranker: Optional[BaseRanker] = None,
     fetch_full_doc_summary_callback: Optional[
         FusedRetrieverKeyValueFetchCallback
     ] = None,
     fetch_parent_doc_callback: Optional[FusedRetrieverKeyValueFetchCallback] = None,
     retrieval_k: int = DEFAULT_RETRIEVER_K,
     full_doc_summary_id_key: str = FULL_DOC_SUMMARY_ID_KEY,
+    retrieval_grader_examples_file: Optional[Path] = None,
 ) -> Optional[BaseDocugamiTool]:
     """
     Gets a retrieval tool for an agent.
     """
 
-    # Instantiate FusedSummaryRetriever with callback functions
+    grader_chain = RetrievalGraderChain(llm=llm, embeddings=embeddings)
+    if retrieval_grader_examples_file:
+        grader_chain.load_examples(retrieval_grader_examples_file)
+
     retriever = FusedSummaryRetriever(
         vectorstore=chunk_vectorstore,
-        re_ranker=re_ranker,
         fetch_parent_doc_callback=fetch_parent_doc_callback,
         full_doc_summary_id_key=full_doc_summary_id_key,
         fetch_full_doc_summary_callback=fetch_full_doc_summary_callback,
         retriever_k=retrieval_k,
+        grader_chain=grader_chain,
         search_type=SearchType.mmr,
     )
 

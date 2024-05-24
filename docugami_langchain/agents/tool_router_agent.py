@@ -127,6 +127,7 @@ class ToolRouterAgent(BaseDocugamiAgent):
             tool_descriptions = state.get("tool_descriptions")
             intermediate_steps = state.get("intermediate_steps")
 
+            grade = False
             if question and tool_descriptions:
                 if not intermediate_steps:
                     intermediate_steps = []
@@ -134,12 +135,9 @@ class ToolRouterAgent(BaseDocugamiAgent):
                 grader_output_response = self.output_grader_chain.run(
                     question, tool_descriptions, intermediate_steps, config
                 )
+                grade = grader_output_response.value
 
-                grader_output_result = grader_output_response.value.lower()
-                if "true" in grader_output_result or "yes" in grader_output_result:
-                    return "true"
-
-            return "false"
+            return "true" if grade else "false"
 
         def generate_final_answer(
             state: AgentState, config: Optional[RunnableConfig]
