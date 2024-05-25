@@ -4,7 +4,6 @@ import pytest
 from flaky import flaky
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
-from rerankers.models.ranker import BaseRanker
 
 from docugami_langchain.agents import ToolRouterAgent
 from docugami_langchain.chains.rag import ToolFinalAnswerChain, ToolOutputGraderChain
@@ -33,7 +32,6 @@ def init_tool_router_agent(
     docset: DocsetTestData,
     llm: BaseLanguageModel,
     embeddings: Embeddings,
-    re_ranker: BaseRanker,
 ) -> ToolRouterAgent:
 
     final_answer_chain = ToolFinalAnswerChain(llm=llm, embeddings=embeddings)
@@ -47,7 +45,7 @@ def init_tool_router_agent(
     )
 
     tools = []
-    tools.append(build_test_retrieval_tool(llm, embeddings, re_ranker, docset))
+    tools.append(build_test_retrieval_tool(llm, embeddings, docset))
     if docset.report:
         tools.append(build_test_query_tool(docset.report, llm, embeddings))
     tools += build_test_common_tools(llm, embeddings)
@@ -82,11 +80,8 @@ def test_fireworksai_mixtral_tool_router(
     test_data: DocsetTestData,
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
-    mxbai_re_rank: BaseRanker,
 ) -> None:
-    agent = init_tool_router_agent(
-        test_data, fireworksai_mixtral, huggingface_minilm, mxbai_re_rank
-    )
+    agent = init_tool_router_agent(test_data, fireworksai_mixtral, huggingface_minilm)
 
     # test general LLM response from agent
     run_agent_test(
@@ -116,11 +111,8 @@ async def test_fireworksai_mixtral_streamed_tool_router(
     test_data: DocsetTestData,
     fireworksai_mixtral: BaseLanguageModel,
     huggingface_minilm: Embeddings,
-    mxbai_re_rank: BaseRanker,
 ) -> None:
-    agent = init_tool_router_agent(
-        test_data, fireworksai_mixtral, huggingface_minilm, mxbai_re_rank
-    )
+    agent = init_tool_router_agent(test_data, fireworksai_mixtral, huggingface_minilm)
 
     # test general LLM response from agent
     await run_streaming_agent_test(
@@ -147,11 +139,8 @@ def test_fireworksai_llama3_tool_router(
     test_data: DocsetTestData,
     fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
-    mxbai_re_rank: BaseRanker,
 ) -> None:
-    agent = init_tool_router_agent(
-        test_data, fireworksai_llama3, huggingface_minilm, mxbai_re_rank
-    )
+    agent = init_tool_router_agent(test_data, fireworksai_llama3, huggingface_minilm)
 
     # test general LLM response from agent
     run_agent_test(
@@ -179,11 +168,8 @@ async def test_fireworksai_llama3_streamed_tool_router(
     test_data: DocsetTestData,
     fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
-    mxbai_re_rank: BaseRanker,
 ) -> None:
-    agent = init_tool_router_agent(
-        test_data, fireworksai_llama3, huggingface_minilm, mxbai_re_rank
-    )
+    agent = init_tool_router_agent(test_data, fireworksai_llama3, huggingface_minilm)
 
     # test general LLM response from agent
     await run_streaming_agent_test(
@@ -210,11 +196,8 @@ def test_openai_gpt4_tool_router(
     test_data: DocsetTestData,
     openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
-    openai_gpt4_re_rank: BaseRanker,
 ) -> None:
-    agent = init_tool_router_agent(
-        test_data, openai_gpt4, openai_ada, openai_gpt4_re_rank
-    )
+    agent = init_tool_router_agent(test_data, openai_gpt4, openai_ada)
 
     # test general LLM response from agent
     run_agent_test(
@@ -242,11 +225,8 @@ async def test_openai_gpt4_streamed_tool_router(
     test_data: DocsetTestData,
     openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
-    openai_gpt4_re_rank: BaseRanker,
 ) -> None:
-    agent = init_tool_router_agent(
-        test_data, openai_gpt4, openai_ada, openai_gpt4_re_rank
-    )
+    agent = init_tool_router_agent(test_data, openai_gpt4, openai_ada)
 
     # test general LLM response from agent
     await run_streaming_agent_test(
