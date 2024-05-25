@@ -9,7 +9,7 @@ ________SINGLE_TOKEN_LINE________ = "----------------"
 MIN_LENGTH_TO_SUMMARIZE: int = 2048
 
 # Change this to improve parallelization, or work around late limiting issues
-BATCH_SIZE = 8
+BATCH_SIZE = 4
 
 # When summarizing full docs we cut off input after this by default
 MAX_FULL_DOCUMENT_TEXT_LENGTH: int = int(1024 * 4 * 8)  # ~8k tokens,
