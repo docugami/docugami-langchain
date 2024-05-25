@@ -12,6 +12,7 @@ from langchain_core.vectorstores import VectorStore
 from docugami_langchain.chains.rag.retrieval_grader_chain import RetrievalGraderChain
 from docugami_langchain.config import (
     ________SINGLE_TOKEN_LINE________,
+    BATCH_SIZE,
     DEFAULT_RETRIEVER_K,
 )
 
@@ -77,6 +78,9 @@ class FusedSummaryRetriever(BaseRetriever):
     grader_chain: Optional[RetrievalGraderChain] = None
     """Chain used to filter relevant results from the Vector DB."""
 
+    grader_batch_size: int = BATCH_SIZE
+    """Batch size to use with the grader chain."""
+
     parent_id_key: str = PARENT_DOC_ID_KEY
     """Metadata key for parent doc ID (maps chunk summaries in the vector store to parent / unsummarized chunks)."""
 
@@ -124,12 +128,52 @@ class FusedSummaryRetriever(BaseRetriever):
         else:
             sub_docs = self.vectorstore.similarity_search(query, **self.search_kwargs)
 
+        if self.grader_chain:
+            # Use grader chain to filter docs to only relevant ones that answer the question
+            grader_inputs: list[tuple[str, str, str]] = []
+            grader_config = None
+            if run_manager:
+                grader_config = RunnableConfig(
+                    run_name=self.grader_chain.__class__.__name__,
+                    callbacks=run_manager,
+                )
+
+            for sub_doc in sub_docs:
+                parent_id = sub_doc.metadata.get(self.parent_id_key)
+                full_doc_summary_id = sub_doc.metadata.get(self.full_doc_summary_id_key)
+                parent: Optional[str] = None
+                full_doc_summary: Optional[str] = None
+
+                if parent_id and self.fetch_parent_doc_callback:
+                    parent = self.fetch_parent_doc_callback(parent_id)
+
+                if full_doc_summary_id and self.fetch_full_doc_summary_callback:
+                    full_doc_summary = self.fetch_full_doc_summary_callback(
+                        full_doc_summary_id
+                    )
+
+                grader_inputs.append(
+                    (query, full_doc_summary or "", parent or sub_doc.page_content)
+                )
+
+            grades: list[bool] = []
+            for i in range(0, len(grader_inputs), self.grader_batch_size):
+                batch = grader_inputs[i : i + self.grader_batch_size]
+                grades.extend(self.grader_chain.run_batch(batch, grader_config))
+
+            if len(grades) != len(sub_docs):
+                raise ValueError(
+                    "Grader responses length does not match sub_docs length."
+                )
+
+            sub_docs = [sub_doc for sub_doc, grade in zip(sub_docs, grades) if grade]
+
         fused_doc_elements: dict[str, FusedDocumentElements] = {}
         for i, sub_doc in enumerate(sub_docs):
             parent_id = sub_doc.metadata.get(self.parent_id_key)
             full_doc_summary_id = sub_doc.metadata.get(self.full_doc_summary_id_key)
-            parent: Optional[str] = None
-            full_doc_summary: Optional[str] = None
+            parent = None
+            full_doc_summary = None
 
             if parent_id and self.fetch_parent_doc_callback:
                 parent = self.fetch_parent_doc_callback(parent_id)
@@ -139,38 +183,18 @@ class FusedSummaryRetriever(BaseRetriever):
                     full_doc_summary_id
                 )
 
-            grade: bool = True
-            if self.grader_chain and full_doc_summary:
-                grader_config = None
-                if run_manager:
-                    grader_config = RunnableConfig(
-                        run_name=self.grader_chain.__class__.__name__,
-                        callbacks=run_manager,
-                    )
+            source: str = sub_doc.metadata.get(self.source_key, "")
+            key = full_doc_summary_id or "-1"
 
-                grade_response = self.grader_chain.run(
-                    question=query,
-                    document_summary=full_doc_summary,
-                    retrieved_chunk=sub_doc.page_content,
-                    config=grader_config,
+            if key not in fused_doc_elements:
+                fused_doc_elements[key] = FusedDocumentElements(
+                    rank=i,
+                    summary=(full_doc_summary or ""),
+                    fragments=[parent or sub_doc.page_content],
+                    source=source,
                 )
-                grade = grade_response.value
-
-            if grade:
-                source: str = sub_doc.metadata.get(self.source_key, "")
-                key = full_doc_summary_id if full_doc_summary_id else "-1"
-
-                if key not in fused_doc_elements:
-                    fused_doc_elements[key] = FusedDocumentElements(
-                        rank=i,
-                        summary=(full_doc_summary if full_doc_summary else ""),
-                        fragments=[parent if parent else sub_doc.page_content],
-                        source=source,
-                    )
-                else:
-                    fused_doc_elements[key].fragments.append(
-                        parent if parent else sub_doc.page_content
-                    )
+            else:
+                fused_doc_elements[key].fragments.append(parent or sub_doc.page_content)
 
         fused_docs: list[Document] = []
         for element in sorted(fused_doc_elements.values(), key=lambda x: x.rank):
