@@ -15,12 +15,15 @@ from docugami_langchain.chains.documents.describe_document_set_chain import (
 )
 from docugami_langchain.chains.rag.retrieval_grader_chain import RetrievalGraderChain
 from docugami_langchain.chains.rag.simple_rag_chain import SimpleRAGChain
-from docugami_langchain.config import DEFAULT_RETRIEVER_K, MAX_FULL_DOCUMENT_TEXT_LENGTH
+from docugami_langchain.config import (
+    BATCH_SIZE,
+    DEFAULT_RETRIEVER_K,
+    MAX_FULL_DOCUMENT_TEXT_LENGTH,
+)
 from docugami_langchain.retrievers.fused_summary import (
     FULL_DOC_SUMMARY_ID_KEY,
     FusedRetrieverKeyValueFetchCallback,
     FusedSummaryRetriever,
-    SearchType,
 )
 from docugami_langchain.tools.common import NOT_FOUND, BaseDocugamiTool
 
@@ -152,6 +155,7 @@ def get_retrieval_tool_for_docset(
     retrieval_k: int = DEFAULT_RETRIEVER_K,
     full_doc_summary_id_key: str = FULL_DOC_SUMMARY_ID_KEY,
     retrieval_grader_examples_file: Optional[Path] = None,
+    grader_batch_size: int = BATCH_SIZE,
 ) -> Optional[BaseDocugamiTool]:
     """
     Gets a retrieval tool for an agent.
@@ -168,7 +172,7 @@ def get_retrieval_tool_for_docset(
         fetch_full_doc_summary_callback=fetch_full_doc_summary_callback,
         retriever_k=retrieval_k,
         grader_chain=grader_chain,
-        search_type=SearchType.mmr,
+        grader_batch_size=grader_batch_size,
     )
 
     simple_rag_chain = SimpleRAGChain(
