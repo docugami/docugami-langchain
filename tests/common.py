@@ -109,7 +109,7 @@ def build_test_retrieval_artifacts(
     using the given embeddings, document summaries, and callbacks used for retrieval tests.
     """
     test_dgml_files = list(data_dir.rglob(data_files_glob))
-    loader = DocugamiLoader(file_paths=test_dgml_files, parent_hierarchy_levels=2)
+    loader = DocugamiLoader(file_paths=test_dgml_files, parent_chunk_hierarchy_levels=2)
     chunks = loader.load()
     full_docs_by_id, parent_chunks_by_id = build_doc_maps_from_chunks(chunks)
 

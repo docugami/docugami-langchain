@@ -56,13 +56,13 @@ DOCSET_TEST_DATA: list[DocsetTestData] = [
             TestQuestionData(
                 question="What is the accident number for the incident in Madill, OK?",
                 acceptable_answer_fragments=["DFW08CA044"],
-                acceptable_citation_label_fragments=["query", "20080111X00040.xml"],
+                acceptable_citation_label_fragments=["madill", "20080111X00040.xml"],
             ),
             TestQuestionData(
                 question="How many accidents involved Cessna planes?",
                 acceptable_answer_fragments=["27", "twenty", "seven"],
                 requires_report=True,
-                acceptable_citation_label_fragments=["query"],
+                acceptable_citation_label_fragments=["cessna"],
             ),
             TestQuestionData(
                 chat_history=[
@@ -77,7 +77,7 @@ DOCSET_TEST_DATA: list[DocsetTestData] = [
                 ],
                 question="List the accident numbers and dates for all aviation incidents that happened there",
                 acceptable_answer_fragments=["DFW08CA044", "N6135M", "Cessna"],
-                acceptable_citation_label_fragments=["query", "20080111X00040.xml"],
+                acceptable_citation_label_fragments=["madill", "20080111X00040.xml"],
             ),
         ],
     ),

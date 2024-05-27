@@ -55,9 +55,6 @@ class SimpleRAGChain(BaseDocugamiChain[ExtendedRAGResult]):
         def format_retrieved_docs(docs: list[Document]) -> str:
             return "\n\n".join(doc.page_content for doc in docs)
 
-        def list_retrieved_docs(docs: list[Document]) -> list[str]:
-            return [doc.metadata[self.retriever.source_key] for doc in docs]
-
         context = inputs.get("context")
         question = inputs.get("question")
 
@@ -76,7 +73,7 @@ class SimpleRAGChain(BaseDocugamiChain[ExtendedRAGResult]):
         return {
             "answer": answer,
             "question": question,
-            "sources": list_retrieved_docs(context),  # type: ignore
+            "source_docs": context,
         }
 
     def runnable(self) -> Runnable:

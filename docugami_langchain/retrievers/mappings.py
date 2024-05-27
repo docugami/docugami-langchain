@@ -15,8 +15,8 @@ from docugami_langchain.config import (
     MIN_LENGTH_TO_SUMMARIZE,
 )
 from docugami_langchain.retrievers.fused_summary import (
-    FULL_DOC_SUMMARY_ID_KEY,
-    PARENT_DOC_ID_KEY,
+    FILE_ID_KEY,
+    PARENT_CHUNK_ID_KEY,
     SOURCE_KEY,
 )
 
@@ -50,7 +50,7 @@ def _build_summary_mappings(
             summary_id = hashlib.md5(summary.encode()).hexdigest()
             meta = doc.metadata
             meta["id"] = summary_id
-            meta[PARENT_DOC_ID_KEY] = id
+            meta[PARENT_CHUNK_ID_KEY] = id
 
             summaries[id] = Document(
                 page_content=summary,
@@ -119,8 +119,8 @@ def build_chunk_summary_mappings(
 def build_doc_maps_from_chunks(
     chunks: list[Document],
     chunk_id_key: str = "id",
-    parent_id_key: str = PARENT_DOC_ID_KEY,
-    full_doc_summary_id_key: str = FULL_DOC_SUMMARY_ID_KEY,
+    parent_chunk_id_key: str = PARENT_CHUNK_ID_KEY,
+    file_id_key: str = FILE_ID_KEY,
     source_key: str = SOURCE_KEY,
 ) -> tuple[dict[str, Document], dict[str, Document]]:
     """Build separate maps of full docs and parent chunks (by individual chunk id)"""
@@ -130,7 +130,7 @@ def build_doc_maps_from_chunks(
     for chunk in chunks:
         chunk_id = str(chunk.metadata.get(chunk_id_key))
         chunk_source = str(chunk.metadata.get(source_key))
-        parent_chunk_id = chunk.metadata.get(parent_id_key)
+        parent_chunk_id = chunk.metadata.get(parent_chunk_id_key)
 
         if chunk_source not in chunks_by_source:
             chunks_by_source[chunk_source] = []
@@ -160,6 +160,6 @@ def build_doc_maps_from_chunks(
         if parent_chunk_source:
             full_doc_id = full_doc_ids_by_source.get(parent_chunk_source, "")
             if full_doc_id:
-                parent_chunk.metadata[full_doc_summary_id_key] = full_doc_id
+                parent_chunk.metadata[file_id_key] = full_doc_id
 
     return full_docs_by_id, parent_chunks_by_id

@@ -1,15 +1,29 @@
 from __future__ import annotations
 
 import operator
+from enum import Enum
 from typing import Annotated, Sequence, TypedDict, Union
 
 from langchain_core.pydantic_v1 import BaseModel
 
 
+class CitationType(Enum):
+    DOCUMENT = "Document"
+    REPORT = "Report"
+
+
 class Citation(BaseModel):
     label: str
-    details: str = ""
-    link: str = ""
+    """The citation label to show the user."""
+
+    citation_type: CitationType = CitationType.DOCUMENT
+    """The type of this citation."""
+
+    report_query: str = ""
+    """The associated query (if any), in case of a report type citation."""
+
+    document_id: str = ""
+    """The associated document ID (if known), in case of a document type citation."""
 
 
 class CitedAnswer(BaseModel):

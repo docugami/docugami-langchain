@@ -16,8 +16,8 @@ from docugami_langchain.config import (
     DEFAULT_RETRIEVER_K,
 )
 
-PARENT_DOC_ID_KEY = "doc_id"
-FULL_DOC_SUMMARY_ID_KEY = "full_doc_id"
+PARENT_CHUNK_ID_KEY = "parent_chunk_id"
+FILE_ID_KEY = "file_id"
 SOURCE_KEY = "source"
 
 FusedRetrieverKeyValueFetchCallback = Callable[[str], Optional[str]]
@@ -81,14 +81,14 @@ class FusedSummaryRetriever(BaseRetriever):
     grader_batch_size: int = BATCH_SIZE
     """Batch size to use with the grader chain."""
 
-    parent_id_key: str = PARENT_DOC_ID_KEY
-    """Metadata key for parent doc ID (maps chunk summaries in the vector store to parent / unsummarized chunks)."""
+    parent_chunk_id_key: str = PARENT_CHUNK_ID_KEY
+    """Metadata key for parent doc ID metadata on chunks in the vector store (maps chunk summaries in the vector store to parent / unsummarized chunks)."""
 
     fetch_parent_doc_callback: Optional[FusedRetrieverKeyValueFetchCallback] = None
     """Callback to fetch parent docs by ID key."""
 
-    full_doc_summary_id_key: str = FULL_DOC_SUMMARY_ID_KEY
-    """Metadata key for full doc summary ID (maps chunk summaries in the vector store to full doc summaries)."""
+    file_id_key: str = FILE_ID_KEY
+    """Metadata key for file (full doc) ID metadata on chunks in the vector store (maps chunk summaries in the vector store to full doc summaries)."""
 
     fetch_full_doc_summary_callback: Optional[FusedRetrieverKeyValueFetchCallback] = (
         None
@@ -139,13 +139,13 @@ class FusedSummaryRetriever(BaseRetriever):
                 )
 
             for sub_doc in sub_docs:
-                parent_id = sub_doc.metadata.get(self.parent_id_key)
-                full_doc_summary_id = sub_doc.metadata.get(self.full_doc_summary_id_key)
+                parent_chunk_id = sub_doc.metadata.get(self.parent_chunk_id_key)
+                full_doc_summary_id = sub_doc.metadata.get(self.file_id_key)
                 parent: Optional[str] = None
                 full_doc_summary: Optional[str] = None
 
-                if parent_id and self.fetch_parent_doc_callback:
-                    parent = self.fetch_parent_doc_callback(parent_id)
+                if parent_chunk_id and self.fetch_parent_doc_callback:
+                    parent = self.fetch_parent_doc_callback(parent_chunk_id)
 
                 if full_doc_summary_id and self.fetch_full_doc_summary_callback:
                     full_doc_summary = self.fetch_full_doc_summary_callback(
@@ -170,13 +170,13 @@ class FusedSummaryRetriever(BaseRetriever):
 
         fused_doc_elements: dict[str, FusedDocumentElements] = {}
         for i, sub_doc in enumerate(sub_docs):
-            parent_id = sub_doc.metadata.get(self.parent_id_key)
-            full_doc_summary_id = sub_doc.metadata.get(self.full_doc_summary_id_key)
+            parent_chunk_id = sub_doc.metadata.get(self.parent_chunk_id_key)
+            full_doc_summary_id = sub_doc.metadata.get(self.file_id_key)
             parent = None
             full_doc_summary = None
 
-            if parent_id and self.fetch_parent_doc_callback:
-                parent = self.fetch_parent_doc_callback(parent_id)
+            if parent_chunk_id and self.fetch_parent_doc_callback:
+                parent = self.fetch_parent_doc_callback(parent_chunk_id)
 
             if full_doc_summary_id and self.fetch_full_doc_summary_callback:
                 full_doc_summary = self.fetch_full_doc_summary_callback(
