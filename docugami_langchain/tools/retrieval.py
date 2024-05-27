@@ -9,7 +9,12 @@ from langchain_core.language_models import BaseLanguageModel
 from langchain_core.runnables import RunnableConfig
 from langchain_core.vectorstores import VectorStore
 
-from docugami_langchain.agents.models import Citation, CitedAnswer, Invocation
+from docugami_langchain.agents.models import (
+    Citation,
+    CitationType,
+    CitedAnswer,
+    Invocation,
+)
 from docugami_langchain.chains.documents.describe_document_set_chain import (
     DescribeDocumentSetChain,
 )
@@ -21,7 +26,7 @@ from docugami_langchain.config import (
     MAX_FULL_DOCUMENT_TEXT_LENGTH,
 )
 from docugami_langchain.retrievers.fused_summary import (
-    FULL_DOC_SUMMARY_ID_KEY,
+    FILE_ID_KEY,
     FusedRetrieverKeyValueFetchCallback,
     FusedSummaryRetriever,
 )
@@ -65,12 +70,31 @@ class CustomDocsetRetrievalTool(BaseDocugamiTool):
             )
             if chain_response.value:
                 answer = chain_response.value.get("answer")
-                sources = chain_response.value.get("sources", [])
+                source_docs = chain_response.value.get("source_docs", [])
                 if answer:
+                    citations: list[Citation] = []
+                    for doc in source_docs:
+                        if doc.metadata:
+                            file_id = doc.metadata.get(self.chain.retriever.file_id_key)
+                            file_source_path = doc.metadata.get(
+                                self.chain.retriever.source_key
+                            )
+                            citations.append(
+                                Citation(
+                                    label=(
+                                        Path(str(file_source_path)).name
+                                        if file_source_path
+                                        else ""
+                                    ),
+                                    citation_type=CitationType.DOCUMENT,
+                                    document_id=str(file_id) if file_id else "",
+                                )
+                            )
+
                     return CitedAnswer(
                         source=self.name,
                         answer=answer,
-                        citations=[Citation(label=s) for s in sources],
+                        citations=citations,
                     )
 
             return CitedAnswer(source=self.name, answer=NOT_FOUND)
@@ -153,7 +177,7 @@ def get_retrieval_tool_for_docset(
     ] = None,
     fetch_parent_doc_callback: Optional[FusedRetrieverKeyValueFetchCallback] = None,
     retrieval_k: int = DEFAULT_RETRIEVER_K,
-    full_doc_summary_id_key: str = FULL_DOC_SUMMARY_ID_KEY,
+    file_id_key: str = FILE_ID_KEY,
     retrieval_grader_examples_file: Optional[Path] = None,
     grader_batch_size: int = BATCH_SIZE,
 ) -> Optional[BaseDocugamiTool]:
@@ -168,7 +192,7 @@ def get_retrieval_tool_for_docset(
     retriever = FusedSummaryRetriever(
         vectorstore=chunk_vectorstore,
         fetch_parent_doc_callback=fetch_parent_doc_callback,
-        full_doc_summary_id_key=full_doc_summary_id_key,
+        file_id_key=file_id_key,
         fetch_full_doc_summary_callback=fetch_full_doc_summary_callback,
         retriever_k=retrieval_k,
         grader_chain=grader_chain,

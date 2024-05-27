@@ -49,11 +49,11 @@ class DocugamiLoader(BaseLoader, BaseModel):
     include_xml_tags: bool = False
     """Set to true for XML tags in chunk output text."""
 
-    parent_hierarchy_levels: int = 0
+    parent_chunk_hierarchy_levels: int = 0
     """Set appropriately to get parent chunks using the chunk hierarchy."""
 
-    parent_id_key: str = "doc_id"
-    """Metadata key for parent doc ID."""
+    parent_chunk_id_key: str = "parent_chunk_id"
+    """Metadata key for parent chunk ID."""
 
     sub_chunk_tables: bool = False
     """Set to True to return sub-chunks within tables."""
@@ -152,7 +152,7 @@ class DocugamiLoader(BaseLoader, BaseModel):
             whitespace_normalize_text=self.whitespace_normalize_text,
             sub_chunk_tables=self.sub_chunk_tables,
             include_xml_tags=self.include_xml_tags,
-            parent_hierarchy_levels=self.parent_hierarchy_levels,
+            parent_hierarchy_levels=self.parent_chunk_hierarchy_levels,
         )
 
         framework_chunks: dict[str, Document] = {}
@@ -163,10 +163,10 @@ class DocugamiLoader(BaseLoader, BaseModel):
                 framework_chunks[chunk_id] = framework_chunk
                 if dg_chunk.parent:
                     framework_parent_chunk = _build_framework_chunk(dg_chunk.parent)
-                    parent_id = framework_parent_chunk.metadata.get(ID_KEY)
-                    if parent_id and framework_parent_chunk.page_content:
-                        framework_chunk.metadata[self.parent_id_key] = parent_id
-                        framework_chunks[parent_id] = framework_parent_chunk
+                    parent_chunk_id = framework_parent_chunk.metadata.get(ID_KEY)
+                    if parent_chunk_id and framework_parent_chunk.page_content:
+                        framework_chunk.metadata[self.parent_chunk_id_key] = parent_chunk_id
+                        framework_chunks[parent_chunk_id] = framework_parent_chunk
 
         return list(framework_chunks.values())
 

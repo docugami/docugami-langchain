@@ -12,7 +12,12 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.runnables import RunnableConfig
 
-from docugami_langchain.agents.models import Citation, CitedAnswer, Invocation
+from docugami_langchain.agents.models import (
+    Citation,
+    CitationType,
+    CitedAnswer,
+    Invocation,
+)
 from docugami_langchain.chains.querying import (
     DocugamiExplainedSQLQueryChain,
     SQLFixupChain,
@@ -78,9 +83,9 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
                             citations=(
                                 [
                                     Citation(
-                                        label="Query",
-                                        details=explained_sql_query,
-                                        link=sql_query if sql_query else "",
+                                        label=explained_sql_query,
+                                        citation_type=CitationType.REPORT,
+                                        report_query=sql_query,
                                     )
                                 ]
                                 if explained_sql_query
