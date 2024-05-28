@@ -144,11 +144,10 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     return description[:MAX_PARAMS_CUTOFF_LENGTH_CHARS]
 
 
-def excel_to_sqlite_connection(
-    file_path: Union[Path, str], table_name: str
-) -> sqlite3.Connection:
-    # Create a temporary SQLite database in memory
-    conn = sqlite3.connect(":memory:")
+def excel_to_sqlite_connection(file_path: Union[Path, str], table_name: str) -> str:
+    # Create a temporary SQLite database file
+    temp_db_file = tempfile.NamedTemporaryFile(suffix=".sqlite", delete=False)
+    conn = sqlite3.connect(temp_db_file.name)
 
     # Verify the file path
     file_path = Path(file_path)
@@ -167,21 +166,19 @@ def excel_to_sqlite_connection(
     # Write the table to the SQLite database
     df.to_sql(table_name, conn, if_exists="replace", index=False)
 
-    return conn
+    return temp_db_file.name
 
 
-def connect_to_db(conn: sqlite3.Connection) -> SQLDatabase:
-    temp_db_file = tempfile.NamedTemporaryFile(suffix=".sqlite")
-    with sqlite3.connect(temp_db_file.name) as disk_conn:
-        conn.backup(disk_conn)  # dumps the connection to disk
+def connect_to_db(db_file_path: str) -> SQLDatabase:
     return SQLDatabase.from_uri(
-        f"sqlite:///{temp_db_file.name}",
+        f"sqlite:///{db_file_path}",
         sample_rows_in_table_info=0,  # We select and insert sample rows using custom logic
     )
 
 
 def connect_to_excel(file_path: Union[Path, str], table_name: str) -> SQLDatabase:
-    return connect_to_db(excel_to_sqlite_connection(file_path, table_name))
+    db_file_path = excel_to_sqlite_connection(file_path, table_name)
+    return connect_to_db(db_file_path)
 
 
 def get_retrieval_tool_for_report(

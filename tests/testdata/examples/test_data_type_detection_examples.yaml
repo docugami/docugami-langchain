@@ -1,20 +1,48 @@
-- text_items: |
-    1. 1st day of January, 2013
-    2. APR   09  2 o2|
-    3. some time this year
-    4. 2/21/2020
+- text: 1st day of January, 2013
   data_type_json: |
     {
       "type": "datetime",
       "unit": "datetime"
     }
-- text_items: |
-    1. pay the $300 fine
-    2. $1,000,000
-    3. 25 thousand dollars
-    4. USD $45
+- text: APR   09  2 o2|
+  data_type_json: |
+    {
+      "type": "datetime",
+      "unit": "datetime"
+    }
+- text: some time this year
+  data_type_json: |
+    {
+      "type": "datetime",
+      "unit": "datetime"
+    }
+- text: 2/21/2020
+  data_type_json: |
+    {
+      "type": "datetime",
+      "unit": "datetime"
+    }
+- text: pay the $300 fine
   data_type_json: |
     {
       "type": "number",
       "unit": "$"
+    }
+- text: $1,000,000
+  data_type_json: |
+    {
+      "type": "number",
+      "unit": "$"
+    }
+- text: 25 thousand canadian dollars
+  data_type_json: |
+    {
+      "type": "number",
+      "unit": "CAD $"
+    }
+- text: USD $45
+  data_type_json: |
+    {
+      "type": "number",
+      "unit": "USD $"
     }

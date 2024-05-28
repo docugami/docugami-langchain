@@ -32,3 +32,5 @@ DEFAULT_TABLE_AS_TEXT_CELL_MAX_LENGTH = 64 * 3  # cell content length
 
 # ************ PARAMETERS TO CONTROL AGENT BEHAVIOR
 DEFAULT_AGENT_RECURSION_LIMIT = 70
+
+TYPE_DETECTION_SAMPLE_SIZE = 20  # number of rows to sample for type detection

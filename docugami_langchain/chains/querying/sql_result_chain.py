@@ -145,6 +145,7 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
                 '- Wrap each column name in the query in double quotes (") to denote them as delimited identifiers.',
                 "- Pay attention to use only the column names you can see in the given tables. Be careful to not query for columns that do not exist.",
                 "- Pay attention to use the date('now') function to get the current date, if the question involves \"today\".",
+                "- Don't use column aliases where possible, since SQLite has problems with those.",
                 """- When matching strings in WHERE clauses, always use LIKE with LOWER rather than exact string match with "=" since users may not fully specify complete input with the right """
                 + """casing, for example generate SELECT * from "athletes" WHERE LOWER("last name") LIKE '%jones%' instead of SELECT * from "athletes" WHERE "last name" = 'Jones'""",
                 "- Never provide any additional explanation or discussion, only output the SQLite query requested, which answers the question against the given table description.",

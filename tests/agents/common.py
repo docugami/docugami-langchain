@@ -7,7 +7,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.agents.base import AgentState, BaseDocugamiAgent
-from docugami_langchain.agents.models import CitedAnswer
+from docugami_langchain.agents.models import CitationType, CitedAnswer
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.config import DEFAULT_RETRIEVER_K, MAX_FULL_DOCUMENT_TEXT_LENGTH
 from docugami_langchain.tools.common import BaseDocugamiTool, get_generic_tools
@@ -150,6 +150,14 @@ def run_agent_test(
 
     if citation_label_options:
         assert cited_answer.citations
+
+        for c in cited_answer.citations:
+            assert c.citation_type
+            if c.citation_type == CitationType.DOCUMENT:
+                assert c.document_id
+            elif c.citation_type == CitationType.REPORT:
+                assert c.report_query
+
         verify_output_list(
             [c.label for c in cited_answer.citations],
             citation_label_options,
@@ -209,6 +217,14 @@ async def run_streaming_agent_test(
 
     if citation_label_options:
         assert cited_answer.citations
+
+        for c in cited_answer.citations:
+            assert c.citation_type
+            if c.citation_type == CitationType.DOCUMENT:
+                assert c.document_id
+            elif c.citation_type == CitationType.REPORT:
+                assert c.report_query
+
         verify_output_list(
             [c.label for c in cited_answer.citations],
             citation_label_options,

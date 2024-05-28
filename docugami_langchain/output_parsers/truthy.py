@@ -1,10 +1,10 @@
 from langchain_core.output_parsers import BaseOutputParser
 
+TRUTHY_STRINGS = ["true", "yes"]
+
 
 class TruthyOutputParser(BaseOutputParser[bool]):
     """Parse the output of an LLM call as a boolean."""
-
-    TRUTHY_STRINGS = ["true", "yes"]
 
     @property
     def _type(self) -> str:
@@ -14,4 +14,4 @@ class TruthyOutputParser(BaseOutputParser[bool]):
     def parse(self, text: str) -> bool:
         """Parse the output of an LLM call."""
         text = text.lower()
-        return any(substring in text for substring in self.TRUTHY_STRINGS)
+        return any(substring in text for substring in TRUTHY_STRINGS)

@@ -10,6 +10,7 @@ class DataTypes(Enum):
     )
     DATETIME = "datetime"  # A predominantly date and/or time value, with or without text before/after
     TEXT = "text"  # Generic unstructured text that is not one of the other types
+    BOOL = "bool"  # A predominantly boolean (true/false or yes/no) value
 
 
 class DocugamiDataType(BaseModel):
