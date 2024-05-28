@@ -79,7 +79,7 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
                     if sql_result:
                         return CitedAnswer(
                             source=self.name,
-                            answer=sql_result,
+                            answer=f"Internally executed query '{sql_query}' which returned '{sql_result}'",
                             citations=(
                                 [
                                     Citation(

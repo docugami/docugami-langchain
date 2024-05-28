@@ -38,6 +38,7 @@ class FusedDocumentElements:
     summary: str
     fragments: list[str]
     source: str
+    file_id: str
 
 
 DOCUMENT_SUMMARY_TEMPLATE: str = (
@@ -128,46 +129,6 @@ class FusedSummaryRetriever(BaseRetriever):
         else:
             sub_docs = self.vectorstore.similarity_search(query, **self.search_kwargs)
 
-        if self.grader_chain:
-            # Use grader chain to filter docs to only relevant ones that answer the question
-            grader_inputs: list[tuple[str, str, str]] = []
-            grader_config = None
-            if run_manager:
-                grader_config = RunnableConfig(
-                    run_name=self.grader_chain.__class__.__name__,
-                    callbacks=run_manager,
-                )
-
-            for sub_doc in sub_docs:
-                parent_chunk_id = sub_doc.metadata.get(self.parent_chunk_id_key)
-                full_doc_summary_id = sub_doc.metadata.get(self.file_id_key)
-                parent: Optional[str] = None
-                full_doc_summary: Optional[str] = None
-
-                if parent_chunk_id and self.fetch_parent_doc_callback:
-                    parent = self.fetch_parent_doc_callback(parent_chunk_id)
-
-                if full_doc_summary_id and self.fetch_full_doc_summary_callback:
-                    full_doc_summary = self.fetch_full_doc_summary_callback(
-                        full_doc_summary_id
-                    )
-
-                grader_inputs.append(
-                    (query, full_doc_summary or "", parent or sub_doc.page_content)
-                )
-
-            grades: list[bool] = []
-            for i in range(0, len(grader_inputs), self.grader_batch_size):
-                batch = grader_inputs[i : i + self.grader_batch_size]
-                grades.extend(self.grader_chain.run_batch(batch, grader_config))
-
-            if len(grades) != len(sub_docs):
-                raise ValueError(
-                    "Grader responses length does not match sub_docs length."
-                )
-
-            sub_docs = [sub_doc for sub_doc, grade in zip(sub_docs, grades) if grade]
-
         fused_doc_elements: dict[str, FusedDocumentElements] = {}
         for i, sub_doc in enumerate(sub_docs):
             parent_chunk_id = sub_doc.metadata.get(self.parent_chunk_id_key)
@@ -184,6 +145,7 @@ class FusedSummaryRetriever(BaseRetriever):
                 )
 
             source: str = sub_doc.metadata.get(self.source_key, "")
+            file_id: str = sub_doc.metadata.get(self.file_id_key, "")
             key = full_doc_summary_id or "-1"
 
             if key not in fused_doc_elements:
@@ -192,6 +154,7 @@ class FusedSummaryRetriever(BaseRetriever):
                     summary=(full_doc_summary or ""),
                     fragments=[parent or sub_doc.page_content],
                     source=source,
+                    file_id=file_id,
                 )
             else:
                 fused_doc_elements[key].fragments.append(parent or sub_doc.page_content)
@@ -206,8 +169,36 @@ class FusedSummaryRetriever(BaseRetriever):
                         summary=element.summary,
                         fragments=fragments_str,
                     ),
-                    metadata={self.source_key: element.source},
+                    metadata={
+                        self.source_key: element.source,
+                        self.file_id_key: element.file_id,
+                    },
                 )
             )
+
+        if self.grader_chain:
+            # Use grader chain to filter docs to only relevant ones that answer the question
+            grader_config = None
+            if run_manager:
+                grader_config = RunnableConfig(
+                    run_name=self.grader_chain.__class__.__name__,
+                    callbacks=run_manager,
+                )
+
+            grader_inputs: list[tuple[str, str]] = []
+            for doc in fused_docs:
+                grader_inputs.append((query, doc.page_content))
+
+            grades: list[bool] = []
+            for i in range(0, len(grader_inputs), self.grader_batch_size):
+                batch = grader_inputs[i : i + self.grader_batch_size]
+                grades.extend(self.grader_chain.run_batch(batch, grader_config))
+
+            if len(grades) != len(fused_docs):
+                raise ValueError(
+                    "Grader responses length does not match fused_docs length."
+                )
+
+            fused_docs = [doc for doc, grade in zip(fused_docs, grades) if grade]
 
         return fused_docs
