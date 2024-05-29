@@ -5,12 +5,12 @@ from langchain_core.runnables import RunnableConfig
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
-from docugami_langchain.chains.types import DocugamiDataType
-from docugami_langchain.chains.types.common import DataTypes
+from docugami_langchain.chains.types import DataTypeWithUnit
+from docugami_langchain.chains.types.common import DataType
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class DataTypeDetectionChain(BaseDocugamiChain[DocugamiDataType]):
+class DataTypeDetectionChain(BaseDocugamiChain[DataTypeWithUnit]):
     def params(self) -> RunnableParameters:
         return RunnableParameters(
             inputs=[
@@ -33,10 +33,10 @@ class DataTypeDetectionChain(BaseDocugamiChain[DocugamiDataType]):
   "unit": $UNIT
 }}""",
                 "- $TYPE is the (string) predominant data type of the given text, and must be one of these values: "
-                + ", ".join([t.value for t in DataTypes]),
-                "- $UNIT is the predominant unit of the data presented by the given text. If there is no unit, just use the date type value here as well.",
+                + ", ".join([t.value for t in DataType]),
+                "- $UNIT is the unit of the data presented by the given text, for example a currency, meters or square feet. If you cannot detect a unit, leave this blank.",
             ],
-            additional_runnables=[PydanticOutputParser(pydantic_object=DocugamiDataType)],  # type: ignore
+            additional_runnables=[PydanticOutputParser(pydantic_object=DataTypeWithUnit)],  # type: ignore
             stop_sequences=["TEXT:", "<|eot_id|>"],
             include_output_instruction_suffix=True,
         )
@@ -45,7 +45,7 @@ class DataTypeDetectionChain(BaseDocugamiChain[DocugamiDataType]):
         self,
         text: str,
         config: Optional[RunnableConfig] = None,
-    ) -> TracedResponse[DocugamiDataType]:
+    ) -> TracedResponse[DataTypeWithUnit]:
         if not text:
             raise Exception("Input required: text")
 
@@ -58,14 +58,14 @@ class DataTypeDetectionChain(BaseDocugamiChain[DocugamiDataType]):
         self,
         text: str,
         config: Optional[RunnableConfig] = None,
-    ) -> AsyncIterator[TracedResponse[DocugamiDataType]]:
+    ) -> AsyncIterator[TracedResponse[DataTypeWithUnit]]:
         raise NotImplementedError()
 
     def run_batch(  # type: ignore[override]
         self,
         inputs: list[str],
         config: Optional[RunnableConfig] = None,
-    ) -> list[DocugamiDataType]:
+    ) -> list[DataTypeWithUnit]:
         return super().run_batch(
             inputs=[
                 {

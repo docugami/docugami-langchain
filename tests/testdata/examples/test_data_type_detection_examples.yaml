@@ -2,25 +2,25 @@
   data_type_json: |
     {
       "type": "datetime",
-      "unit": "datetime"
+      "unit": ""
     }
 - text: APR   09  2 o2|
   data_type_json: |
     {
       "type": "datetime",
-      "unit": "datetime"
+      "unit": ""
     }
 - text: some time this year
   data_type_json: |
     {
       "type": "datetime",
-      "unit": "datetime"
+      "unit": ""
     }
 - text: 2/21/2020
   data_type_json: |
     {
       "type": "datetime",
-      "unit": "datetime"
+      "unit": ""
     }
 - text: pay the $300 fine
   data_type_json: |

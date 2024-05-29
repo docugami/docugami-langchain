@@ -4,7 +4,7 @@ from typing import Optional
 from langchain_core.pydantic_v1 import BaseModel
 
 
-class DataTypes(Enum):
+class DataType(Enum):
     NUMBER = (
         "number"  # A predominantly numeric value, with or without text before/after
     )
@@ -13,12 +13,12 @@ class DataTypes(Enum):
     BOOL = "bool"  # A predominantly boolean (true/false or yes/no) value
 
 
-class DocugamiDataType(BaseModel):
+class DataTypeWithUnit(BaseModel):
     """
     A data type with optional unit
     """
 
-    type: DataTypes
+    type: DataType
 
     unit: Optional[str] = None
 
@@ -28,7 +28,7 @@ class DocugamiDataType(BaseModel):
         return ""
 
     def __eq__(self, other: object) -> bool:
-        if not isinstance(other, DocugamiDataType):
+        if not isinstance(other, DataTypeWithUnit):
             return NotImplemented
 
         # Compare type and (normalized) unit for equality
@@ -36,3 +36,7 @@ class DocugamiDataType(BaseModel):
             other.type,
             other.normalized_unit(),
         )
+
+    def __hash__(self) -> int:
+        # Create a hash based on the type and normalized unit
+        return hash((self.type, self.normalized_unit()))

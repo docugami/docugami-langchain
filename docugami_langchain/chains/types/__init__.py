@@ -1,4 +1,4 @@
-from docugami_langchain.chains.types.common import DataTypes, DocugamiDataType
+from docugami_langchain.chains.types.common import DataType, DataTypeWithUnit
 from docugami_langchain.chains.types.data_type_detection_chain import (
     DataTypeDetectionChain,
 )
@@ -8,9 +8,9 @@ from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
 from docugami_langchain.chains.types.timespan_parse_chain import TimespanParseChain
 
 __all__ = [
-    "DataTypes",
+    "DataType",
     "DataTypeDetectionChain",
-    "DocugamiDataType",
+    "DataTypeWithUnit",
     "DateAddChain",
     "DateParseChain",
     "FloatParseChain",

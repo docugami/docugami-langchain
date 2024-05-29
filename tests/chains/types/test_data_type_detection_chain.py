@@ -6,15 +6,15 @@ import torch
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from docugami_langchain.chains.types.common import DataTypes, DocugamiDataType
+from docugami_langchain.chains.types.common import DataType, DataTypeWithUnit
 from docugami_langchain.chains.types.data_type_detection_chain import (
     DataTypeDetectionChain,
 )
 from tests.common import TEST_DATA_DIR, verify_traced_response
 
 TEST_INPUT_TEXT = "This agreement was signed between Foo and Bar on the 2nd day of September, of the year twenty thirteen."
-TEST_PARSED_DATA_TYPE: DocugamiDataType = DocugamiDataType(
-    type=DataTypes.DATETIME, unit="datetime"
+TEST_PARSED_DATA_TYPE: DataTypeWithUnit = DataTypeWithUnit(
+    type=DataType.DATETIME, unit="datetime"
 )
 
 
