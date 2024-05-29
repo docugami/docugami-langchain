@@ -20,7 +20,7 @@ DATA_TYPE_TEST_TABLE_NAME = "Data Type Test"
 
 def init_chains(
     llm: BaseLanguageModel, embeddings: Embeddings
-) -> tuple[DataTypeDetectionChain, DateParseChain]:
+) -> tuple[DataTypeDetectionChain, DateParseChain, FloatParseChain]:
     detection_chain = DataTypeDetectionChain(llm=llm, embeddings=embeddings)
     detection_chain.load_examples(
         TEST_DATA_DIR / "examples/test_data_type_detection_examples.yaml"

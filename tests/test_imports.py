@@ -41,6 +41,7 @@ EXPECTED_CHAINS = [
     "DocugamiDataType",
     "DateAddChain",
     "DateParseChain",
+    "FloatParseChain",
     "TimespanParseChain",
 ]
 
@@ -49,13 +50,16 @@ EXPECTED_DOCUMENT_LOADERS = [
 ]
 
 EXPECTED_OUTPUT_PARSERS = [
+    "CustomReActJsonSingleInputOutputParser",
+    "DatetimeOutputParser",
+    "FloatOutputParser",
     "KeyfindingOutputParser",
     "LineSeparatedListOutputParser",
-    "CustomReActJsonSingleInputOutputParser",
     "SQLFindingOutputParser",
     "TextCleaningOutputParser",
     "TimeSpan",
     "TimespanOutputParser",
+    "TruthyOutputParser",
 ]
 
 EXPECTED_RETRIEVERS = ["SearchType", "FusedSummaryRetriever"]

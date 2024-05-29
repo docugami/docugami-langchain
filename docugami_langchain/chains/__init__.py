@@ -26,6 +26,7 @@ from docugami_langchain.chains.types import (
     DateAddChain,
     DateParseChain,
     DocugamiDataType,
+    FloatParseChain,
     TimespanParseChain,
 )
 
@@ -52,5 +53,6 @@ __all__ = [
     "DocugamiDataType",
     "DateAddChain",
     "DateParseChain",
+    "FloatParseChain",
     "TimespanParseChain",
 ]

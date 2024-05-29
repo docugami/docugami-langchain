@@ -23,7 +23,8 @@ class FloatParseChain(BaseDocugamiChain[float]):
             ),
             task_description="parses input text values specified in rough natural language, producing output strictly as a floating point value that best represents the input text",
             additional_instructions=[
-                "- Always produce output as a value in floating point format (parseable in python). Never say you cannot do this.",
+                "- Produce output as a value in floating point format (parseable in python) if you find a value.",
+                "- If you cannot find any value that represents the input text, don't output anything",
                 "- The input data will sometimes by messy, with typos or non-standard formats. Try to guess the value as best as you can, by trying to ignore typical typos and OCR glitches.",
                 "- If the value is ambiguous, assume it is the lowest value it could be.",
                 "- If multiple values are specified, pick the first one.",

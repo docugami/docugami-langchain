@@ -4,6 +4,7 @@ from docugami_langchain.chains.types.data_type_detection_chain import (
 )
 from docugami_langchain.chains.types.date_add_chain import DateAddChain
 from docugami_langchain.chains.types.date_parse_chain import DateParseChain
+from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
 from docugami_langchain.chains.types.timespan_parse_chain import TimespanParseChain
 
 __all__ = [
@@ -12,5 +13,6 @@ __all__ = [
     "DocugamiDataType",
     "DateAddChain",
     "DateParseChain",
+    "FloatParseChain",
     "TimespanParseChain",
 ]

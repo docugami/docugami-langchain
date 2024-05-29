@@ -26,7 +26,8 @@ class DateParseChain(BaseDocugamiChain[datetime]):
             ),
             task_description=f"parses date expressions specified in rough natural language, producing output strictly in the standard {OUTPUT_FORMAT} format",
             additional_instructions=[
-                f"- Always produce output as a date in {OUTPUT_FORMAT} format. Never say you cannot do this.",
+                f"- Produce output as a date in {OUTPUT_FORMAT} format if you find a date.",
+                "- If you cannot find anything resembling a date (in any format even if incomplete or messy), don't output anything",
                 "- The input data will sometimes by messy, with typos or non-standard formats. Try to guess the date as best as you can, by trying to ignore typical typos and OCR glitches.",
                 f"- If a two digit year is specified, assume the same century as the current year i.e. {str(datetime.now().year)[:2]}",
                 f"- If the year is not specified at all, assume current year i.e. {datetime.now().year}",
