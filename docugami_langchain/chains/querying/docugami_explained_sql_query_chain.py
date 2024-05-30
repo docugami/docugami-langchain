@@ -1,5 +1,5 @@
 from operator import itemgetter
-from typing import AsyncIterator, Optional
+from typing import AsyncIterator, Optional, Union
 
 from langchain_core.runnables import (
     Runnable,
@@ -94,8 +94,15 @@ class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[ExplainedSQLQuestionResul
         self,
         inputs: list[str],
         config: Optional[RunnableConfig] = None,
-    ) -> list[ExplainedSQLQuestionResult]:
+        return_exceptions: bool = True,
+    ) -> list[Union[ExplainedSQLQuestionResult, Exception]]:
         return super().run_batch(
-            inputs=[{"question": i} for i in inputs],
+            inputs=[
+                {
+                    "question": i,
+                }
+                for i in inputs
+            ],
             config=config,
+            return_exceptions=return_exceptions,
         )

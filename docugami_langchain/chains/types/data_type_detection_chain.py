@@ -1,4 +1,4 @@
-from typing import AsyncIterator, Optional
+from typing import AsyncIterator, Optional, Union
 
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.runnables import RunnableConfig
@@ -65,7 +65,8 @@ class DataTypeDetectionChain(BaseDocugamiChain[DataTypeWithUnit]):
         self,
         inputs: list[str],
         config: Optional[RunnableConfig] = None,
-    ) -> list[DataTypeWithUnit]:
+        return_exceptions: bool = True,
+    ) -> list[Union[DataTypeWithUnit, Exception]]:
         return super().run_batch(
             inputs=[
                 {
@@ -74,4 +75,5 @@ class DataTypeDetectionChain(BaseDocugamiChain[DataTypeWithUnit]):
                 for i in inputs
             ],
             config=config,
+            return_exceptions=return_exceptions,
         )

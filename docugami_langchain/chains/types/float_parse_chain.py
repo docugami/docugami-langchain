@@ -1,4 +1,4 @@
-from typing import Any, AsyncIterator, Optional
+from typing import Any, AsyncIterator, Optional, Union
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
@@ -51,9 +51,18 @@ class FloatParseChain(BaseDocugamiChain[float]):
         raise NotImplementedError()
 
     def run_batch(  # type: ignore[override]
-        self, inputs: list[str], config: Optional[dict] = None
-    ) -> list[float]:
+        self,
+        inputs: list[str],
+        config: Optional[dict] = None,
+        return_exceptions: bool = True,
+    ) -> list[Union[float, Exception]]:
         return super().run_batch(
-            inputs=[{"value_text": i} for i in inputs],
+            inputs=[
+                {
+                    "value_text": i,
+                }
+                for i in inputs
+            ],
             config=config,
+            return_exceptions=return_exceptions,
         )

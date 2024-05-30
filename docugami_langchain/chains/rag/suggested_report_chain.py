@@ -1,5 +1,5 @@
 from operator import itemgetter
-from typing import AsyncIterator, Optional
+from typing import AsyncIterator, Optional, Union
 
 from langchain_core.documents import Document
 from langchain_core.runnables import Runnable, RunnableConfig, RunnableLambda
@@ -91,5 +91,18 @@ class SuggestedReportChain(BaseDocugamiChain[list[str]]):
 
     def run_batch(  # type: ignore[override]
         self,
-    ) -> list[list[str]]:
-        raise NotImplementedError()
+        inputs: list[tuple[str, list[tuple[str, str]]]],
+        config: Optional[RunnableConfig] = None,
+        return_exceptions: bool = True,
+    ) -> list[Union[list[str], Exception]]:
+        return super().run_batch(
+            inputs=[
+                {
+                    "summaries": i[0],
+                    "chat_history": i[1],
+                }
+                for i in inputs
+            ],
+            config=config,
+            return_exceptions=return_exceptions,
+        )

@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any, AsyncIterator, Optional, Tuple
+from typing import Any, AsyncIterator, Optional, Tuple, Union
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
@@ -58,8 +58,11 @@ class DateAddChain(BaseDocugamiChain[datetime]):
         raise NotImplementedError()
 
     def run_batch(  # type: ignore[override]
-        self, inputs: list[Tuple[str, str]], config: Optional[dict] = None
-    ) -> list[datetime]:
+        self,
+        inputs: list[Tuple[str, str]],
+        config: Optional[dict] = None,
+        return_exceptions: bool = True,
+    ) -> list[Union[datetime, Exception]]:
         return super().run_batch(
             inputs=[
                 {
@@ -69,4 +72,5 @@ class DateAddChain(BaseDocugamiChain[datetime]):
                 for i in inputs
             ],
             config=config,
+            return_exceptions=return_exceptions,
         )

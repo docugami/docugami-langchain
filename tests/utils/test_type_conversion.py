@@ -2,6 +2,7 @@ import os
 from typing import Any
 
 import pytest
+from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
@@ -38,27 +39,20 @@ def init_chains(
     return detection_chain, date_parse_chain, float_parse_chain
 
 
-@pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
-)
-def test_fireworksai_data_type_conversion(
-    fireworksai_mixtral: BaseLanguageModel,
-    huggingface_minilm: Embeddings,
-) -> Any:
-    db = connect_to_excel(
-        file_path=DATA_TYPE_TEST_DATA_FILE, table_name=DATA_TYPE_TEST_TABLE_NAME
-    )
-    detection_chain, date_parse_chain, float_parse_chain = init_chains(
-        fireworksai_mixtral, huggingface_minilm
-    )
-    db = convert_to_typed(
+def _run_test(
+    db: SQLDatabase,
+    detection_chain: DataTypeDetectionChain,
+    date_parse_chain: DateParseChain,
+    float_parse_chain: FloatParseChain,
+) -> None:
+    converted_db = convert_to_typed(
         db=db,
         data_type_detection_chain=detection_chain,
         date_parse_chain=date_parse_chain,
         float_parse_chain=float_parse_chain,
     )
 
-    info = db.get_table_info()
+    info = converted_db.get_table_info()
 
     # Ensure table name is unchanged and there is only 1 table
     assert 'TABLE "Data Type Test"' in info
@@ -81,3 +75,35 @@ def test_fireworksai_data_type_conversion(
 
     # Ensure the text column is still text
     assert '"Test Text" TEXT' in info
+
+
+@pytest.mark.skipif(
+    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+)
+def test_fireworksai_data_type_conversion(
+    fireworksai_mixtral: BaseLanguageModel,
+    huggingface_minilm: Embeddings,
+) -> Any:
+    db = connect_to_excel(
+        file_path=DATA_TYPE_TEST_DATA_FILE, table_name=DATA_TYPE_TEST_TABLE_NAME
+    )
+    detection_chain, date_parse_chain, float_parse_chain = init_chains(
+        fireworksai_mixtral, huggingface_minilm
+    )
+    _run_test(db, detection_chain, date_parse_chain, float_parse_chain)
+
+
+@pytest.mark.skipif(
+    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+)
+def test_openai_gpt4_date_parse(
+    openai_gpt4: BaseLanguageModel,
+    openai_ada: Embeddings,
+) -> Any:
+    db = connect_to_excel(
+        file_path=DATA_TYPE_TEST_DATA_FILE, table_name=DATA_TYPE_TEST_TABLE_NAME
+    )
+    detection_chain, date_parse_chain, float_parse_chain = init_chains(
+        openai_gpt4, openai_ada
+    )
+    _run_test(db, detection_chain, date_parse_chain, float_parse_chain)

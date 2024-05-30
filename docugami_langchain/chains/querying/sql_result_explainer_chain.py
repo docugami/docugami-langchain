@@ -1,4 +1,4 @@
-from typing import AsyncIterator, Optional
+from typing import AsyncIterator, Optional, Union
 
 from langchain_core.runnables import RunnableConfig
 
@@ -80,7 +80,8 @@ class SQLResultExplainerChain(BaseDocugamiChain[str]):
         self,
         inputs: list[tuple[str, str, str]],
         config: Optional[RunnableConfig] = None,
-    ) -> list[str]:
+        return_exceptions: bool = True,
+    ) -> list[Union[str, Exception]]:
         return super().run_batch(
             inputs=[
                 {
@@ -91,4 +92,5 @@ class SQLResultExplainerChain(BaseDocugamiChain[str]):
                 for i in inputs
             ],
             config=config,
+            return_exceptions=return_exceptions,
         )

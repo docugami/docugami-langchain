@@ -1,4 +1,4 @@
-from typing import AsyncIterator, Optional, Sequence
+from typing import AsyncIterator, Optional, Sequence, Union
 
 from langchain_core.runnables import RunnableConfig
 
@@ -86,7 +86,8 @@ class ToolOutputGraderChain(BaseDocugamiChain[bool]):
         self,
         inputs: list[tuple[str, str, Sequence[StepState]]],
         config: Optional[RunnableConfig] = None,
-    ) -> list[bool]:
+        return_exceptions: bool = True,
+    ) -> list[Union[bool, Exception]]:
         return super().run_batch(
             inputs=[
                 {
@@ -97,4 +98,5 @@ class ToolOutputGraderChain(BaseDocugamiChain[bool]):
                 for i in inputs
             ],
             config=config,
+            return_exceptions=return_exceptions,
         )

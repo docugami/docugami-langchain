@@ -53,9 +53,14 @@ def _runtest(
             contents = file.read()
             all_contents.append(contents)
 
-    all_summaries = summarize_document_chain.run_batch(
+    all_summaries: list[str] = summarize_document_chain.run_batch(  # type: ignore
         [(c, "text") for c in all_contents]
     )
+
+    for summary in all_summaries:
+        if isinstance(summary, Exception):
+            raise summary
+
     selected_summaries = random.sample(
         all_summaries, min(len(all_summaries), DEFAULT_EXAMPLES_PER_PROMPT)
     )

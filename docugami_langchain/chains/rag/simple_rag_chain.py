@@ -1,5 +1,5 @@
 from operator import itemgetter
-from typing import AsyncIterator, Optional
+from typing import AsyncIterator, Optional, Union
 
 from langchain_core.documents import Document
 from langchain_core.runnables import Runnable, RunnableConfig, RunnableLambda
@@ -117,7 +117,8 @@ class SimpleRAGChain(BaseDocugamiChain[ExtendedRAGResult]):
         self,
         inputs: list[str],
         config: Optional[RunnableConfig] = None,
-    ) -> list[ExtendedRAGResult]:
+        return_exceptions: bool = True,
+    ) -> list[Union[ExtendedRAGResult, Exception]]:
         return super().run_batch(
             inputs=[
                 {
@@ -126,4 +127,5 @@ class SimpleRAGChain(BaseDocugamiChain[ExtendedRAGResult]):
                 for i in inputs
             ],
             config=config,
+            return_exceptions=return_exceptions,
         )

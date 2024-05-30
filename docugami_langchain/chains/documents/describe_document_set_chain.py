@@ -1,5 +1,5 @@
 from operator import itemgetter
-from typing import AsyncIterator, Optional
+from typing import AsyncIterator, Optional, Union
 
 from langchain_core.documents import Document
 from langchain_core.runnables import Runnable, RunnableConfig, RunnableLambda
@@ -85,5 +85,18 @@ class DescribeDocumentSetChain(BaseDocugamiChain[str]):
 
     def run_batch(  # type: ignore[override]
         self,
-    ) -> list[str]:
-        raise NotImplementedError()
+        inputs: list[tuple[list[Document], str]],
+        config: Optional[RunnableConfig] = None,
+        return_exceptions: bool = True,
+    ) -> list[Union[str, Exception]]:
+        return super().run_batch(
+            inputs=[
+                {
+                    "summaries": i[0],
+                    "docset_name": i[1],
+                }
+                for i in inputs
+            ],
+            config=config,
+            return_exceptions=return_exceptions,
+        )

@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from typing import AsyncIterator, Optional
+from typing import AsyncIterator, Optional, Union
 
 from langchain_core.messages import AIMessageChunk
 from langchain_core.runnables import RunnableConfig
@@ -121,7 +121,8 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
         self,
         inputs: list[tuple[str, list[tuple[str, str]]]],
         config: Optional[RunnableConfig] = None,
-    ) -> list[AgentState]:
+        return_exceptions: bool = True,
+    ) -> list[Union[AgentState, Exception]]:
         return super().run_batch(
             inputs=[
                 {
@@ -131,6 +132,7 @@ class BaseDocugamiAgent(BaseRunnable[AgentState]):
                 for i in inputs
             ],
             config=config,
+            return_exceptions=return_exceptions,
         )
 
     async def run_stream(  # type: ignore[override]

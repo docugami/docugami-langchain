@@ -1,4 +1,4 @@
-from typing import AsyncIterator, Optional, Sequence
+from typing import AsyncIterator, Optional, Sequence, Union
 
 from langchain_core.runnables import RunnableConfig
 
@@ -78,7 +78,8 @@ class ToolFinalAnswerChain(BaseDocugamiChain[str]):
         self,
         inputs: list[tuple[str, str, Sequence[StepState]]],
         config: Optional[RunnableConfig] = None,
-    ) -> list[str]:
+        return_exceptions: bool = True,
+    ) -> list[Union[str, Exception]]:
         return super().run_batch(
             inputs=[
                 {
@@ -89,4 +90,5 @@ class ToolFinalAnswerChain(BaseDocugamiChain[str]):
                 for i in inputs
             ],
             config=config,
+            return_exceptions=return_exceptions,
         )

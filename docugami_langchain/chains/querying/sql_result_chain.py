@@ -1,6 +1,6 @@
 import logging
 from operator import itemgetter
-from typing import AsyncIterator, Optional
+from typing import AsyncIterator, Optional, Union
 
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.example_selectors import MaxMarginalRelevanceExampleSelector
@@ -187,8 +187,14 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
         self,
         inputs: list[str],
         config: Optional[RunnableConfig] = None,
-    ) -> list[ExplainedSQLResult]:
+        return_exceptions: bool = True,
+    ) -> list[Union[ExplainedSQLResult, Exception]]:
         return super().run_batch(
-            inputs=[{"question": i} for i in inputs],
+            inputs=[
+                {
+                    "question": i,
+                }
+                for i in inputs
+            ],
             config=config,
         )

@@ -1,29 +1,46 @@
-from typing import Any, Dict
+from typing import Any, Union
 
+import sqlalchemy
 from langchain_community.utilities.sql_database import SQLDatabase
 from sqlalchemy import Column, Table, select, text
 from sqlalchemy.engine import Connection
-from sqlalchemy.engine.reflection import Inspector
 from sqlalchemy.sql.base import ReadOnlyColumnCollection
 
+from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.chains.types.common import DataType, DataTypeWithUnit
 from docugami_langchain.chains.types.data_type_detection_chain import (
     DataTypeDetectionChain,
 )
 from docugami_langchain.chains.types.date_parse_chain import DateParseChain
 from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
-from docugami_langchain.config import TYPE_DETECTION_SAMPLE_SIZE
+from docugami_langchain.config import BATCH_SIZE, TYPE_DETECTION_SAMPLE_SIZE
 from docugami_langchain.output_parsers.truthy import TRUTHY_STRINGS
+
+
+def _batch_process(chain: BaseDocugamiChain, inputs: list[str]) -> list[Any]:
+    """Process inputs in batches using the chain's run_batch method."""
+    results: list[Any] = []
+    for i in range(0, len(inputs), BATCH_SIZE):
+        batch = inputs[i : i + BATCH_SIZE]
+        batch_results = chain.run_batch(inputs=batch)
+        for result in batch_results:
+            if isinstance(result, Exception):
+                # ignore any items that failed to process in the batch
+                results.append(None)
+            else:
+                results.append(result)
+
+    return results
 
 
 def _get_column_types(
     connection: Connection,
     columns: ReadOnlyColumnCollection[str, Column[Any]],
     data_type_detection_chain: DataTypeDetectionChain,
-) -> Dict[str, DataTypeWithUnit]:
+) -> dict[str, DataTypeWithUnit]:
     """Determine the predominant type for each TEXT column."""
 
-    column_types: Dict[str, DataTypeWithUnit] = {}
+    column_types: dict[str, DataTypeWithUnit] = {}
 
     for column in columns:
         if str(column.type).lower() != "text":
@@ -33,14 +50,16 @@ def _get_column_types(
         sampling_select_query = select(column).limit(TYPE_DETECTION_SAMPLE_SIZE)
         sampling_result = connection.execute(sampling_select_query)
 
-        type_counts: dict[DataTypeWithUnit, int] = {}
+        sampled_col_values = [row[0] for row in sampling_result if row[0]]
+        detected_types: list[Union[None, DataTypeWithUnit]] = _batch_process(
+            data_type_detection_chain, sampled_col_values
+        )
 
-        for row in sampling_result:
-            if row[0]:
-                detected_type = data_type_detection_chain.run(row[0]).value
+        type_counts: dict[DataTypeWithUnit, int] = {}
+        for detected_type in detected_types:
+            if detected_type:
                 if detected_type not in type_counts:
                     type_counts[detected_type] = 0
-
                 type_counts[detected_type] += 1
 
         # Determine the predominant type
@@ -53,7 +72,7 @@ def _get_column_types(
 def _create_typed_table(
     connection: Connection,
     original_table: Table,
-    column_types: Dict[str, DataTypeWithUnit],
+    column_types: dict[str, DataTypeWithUnit],
 ) -> str:
     """Create a new table with typed columns."""
 
@@ -91,7 +110,7 @@ def _transfer_data_to_typed_table(
     connection: Connection,
     original_table: Table,
     typed_table: Table,
-    column_types: Dict[str, DataTypeWithUnit],
+    column_types: dict[str, DataTypeWithUnit],
     date_parse_chain: DateParseChain,
     float_parse_chain: FloatParseChain,
 ) -> None:
@@ -158,7 +177,7 @@ def convert_to_typed(
     Goes through all the tables in the database, and converts each TEXT column to a typed column where
     there is a predominant parseable data type detected.
     """
-    inspector = Inspector.from_engine(db._engine)
+    inspector = sqlalchemy.inspect(db._engine)
     original_table_names = inspector.get_table_names()
 
     with db._engine.connect() as connection:

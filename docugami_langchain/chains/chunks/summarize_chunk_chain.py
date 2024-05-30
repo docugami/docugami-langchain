@@ -1,4 +1,4 @@
-from typing import AsyncIterator, Literal, Optional
+from typing import AsyncIterator, Literal, Optional, Union
 
 from langchain_core.runnables import (
     Runnable,
@@ -97,7 +97,8 @@ class SummarizeChunkChain(BaseDocugamiChain[str]):
         self,
         inputs: list[tuple[str, str]],
         config: Optional[RunnableConfig] = None,
-    ) -> list[str]:
+        return_exceptions: bool = True,
+    ) -> list[Union[str, Exception]]:
         return super().run_batch(
             inputs=[
                 {
@@ -107,4 +108,5 @@ class SummarizeChunkChain(BaseDocugamiChain[str]):
                 for i in inputs
             ],
             config=config,
+            return_exceptions=return_exceptions,
         )
