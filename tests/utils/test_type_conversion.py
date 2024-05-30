@@ -51,9 +51,33 @@ def test_fireworksai_data_type_conversion(
     detection_chain, date_parse_chain, float_parse_chain = init_chains(
         fireworksai_mixtral, huggingface_minilm
     )
-    convert_to_typed(
+    db = convert_to_typed(
         db=db,
         data_type_detection_chain=detection_chain,
         date_parse_chain=date_parse_chain,
         float_parse_chain=float_parse_chain,
     )
+
+    info = db.get_table_info()
+
+    # Ensure table name is unchanged and there is only 1 table
+    assert 'TABLE "Data Type Test"' in info
+    assert info.count("CREATE TABLE") == 1
+
+    # Ensure the boolean column in the test file was converted as expected
+    assert '"Test Bool" TEXT' not in info
+    assert '"Test Bool" INTEGER' in info
+
+    # Ensure the money column in the test file was converted as expected
+    assert '"Test Money" TEXT' not in info
+    assert '"Test Money ($)" REAL' in info
+
+    # Ensure the measure column in the test file was converted as expected
+    assert '"Test Measure" TEXT' not in info
+    assert '"Test Measure (square feet)" REAL' in info
+
+    # Ensure the date column is still text (the values should be converted, though)
+    assert '"Test Date" TEXT' in info
+
+    # Ensure the text column is still text
+    assert '"Test Text" TEXT' in info

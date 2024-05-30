@@ -70,7 +70,7 @@ def _create_typed_table(
             elif dg_type.type == DataType.DATETIME:
                 column_type = "TEXT"  # Store as ISO8601 string
             elif dg_type.type == DataType.BOOL:
-                column_type = "NUMBER"  # Store as 0 or 1
+                column_type = "INTEGER"  # Store as 0 or 1
 
             # Include the unit in the column name if applicable
             new_column_name = column.name
@@ -153,7 +153,7 @@ def convert_to_typed(
     data_type_detection_chain: DataTypeDetectionChain,
     date_parse_chain: DateParseChain,
     float_parse_chain: FloatParseChain,
-) -> None:
+) -> SQLDatabase:
     """
     Goes through all the tables in the database, and converts each TEXT column to a typed column where
     there is a predominant parseable data type detected.
@@ -162,38 +162,48 @@ def convert_to_typed(
     original_table_names = inspector.get_table_names()
 
     with db._engine.connect() as connection:
-        for original_table_name in original_table_names:
-            original_table = Table(
-                original_table_name, db._metadata, autoload_with=db._engine
-            )
-
-            # Get predominant types for each column
-            column_types = _get_column_types(
-                connection, original_table.columns, data_type_detection_chain
-            )
-
-            # Create a new table with typed columns
-            typed_table_name = _create_typed_table(
-                connection, original_table, column_types
-            )
-            typed_table = Table(
-                typed_table_name, db._metadata, autoload_with=db._engine
-            )
-
-            # Transfer data to the new typed table
-            _transfer_data_to_typed_table(
-                connection,
-                original_table,
-                typed_table,
-                column_types,
-                date_parse_chain,
-                float_parse_chain,
-            )
-
-            # Drop the original table and rename the new one
-            connection.execute(text(f'DROP TABLE "{original_table_name}"'))
-            connection.execute(
-                text(
-                    f'ALTER TABLE "{typed_table.name}" RENAME TO "{original_table_name}"'
+        with connection.begin():  # Ensure changes are committed
+            for original_table_name in original_table_names:
+                original_table = Table(
+                    original_table_name, db._metadata, autoload_with=db._engine
                 )
-            )
+
+                # Get predominant types for each column
+                column_types = _get_column_types(
+                    connection, original_table.columns, data_type_detection_chain
+                )
+
+                # Create a new table with typed columns
+                typed_table_name = _create_typed_table(
+                    connection, original_table, column_types
+                )
+                typed_table = Table(
+                    typed_table_name, db._metadata, autoload_with=db._engine
+                )
+
+                # Transfer data to the new typed table
+                _transfer_data_to_typed_table(
+                    connection,
+                    original_table,
+                    typed_table,
+                    column_types,
+                    date_parse_chain,
+                    float_parse_chain,
+                )
+
+                # Drop the original table and rename the new one
+                connection.execute(text(f'DROP TABLE "{original_table_name}"'))
+                connection.execute(
+                    text(
+                        f'ALTER TABLE "{typed_table.name}" RENAME TO "{original_table_name}"'
+                    )
+                )
+
+    # Close the existing connection
+    db._engine.dispose()
+
+    # Reconnect to refresh the database state
+    refreshed_db = SQLDatabase.from_uri(
+        str(db._engine.url), sample_rows_in_table_info=0
+    )
+    return refreshed_db
