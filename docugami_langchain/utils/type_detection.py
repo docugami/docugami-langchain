@@ -128,16 +128,61 @@ def _transfer_data_to_typed_table(
 
     insert_stmt_prefix = insert_stmt_prefix.rstrip(", ") + ") VALUES "
 
-    for row in full_data_result:
+    # Gather all rows to process
+    all_rows = [row for row in full_data_result]
+
+    # Prepare lists to batch process
+    date_values = []
+    float_values = []
+    date_indices = []
+    float_indices = []
+
+    for row_idx, row in enumerate(all_rows):
+        for column in original_table.columns:
+            value = row[column_name_to_index[column.name]]
+            if column.name in column_types and value:
+                value_type = column_types[column.name].type
+                if value_type == DataType.DATETIME:
+                    date_values.append(value)
+                    date_indices.append((row_idx, column.name))
+                elif value_type == DataType.NUMBER:
+                    float_values.append(value)
+                    float_indices.append((row_idx, column.name))
+
+    # Batch process date and float values
+    date_results = _batch_process(date_parse_chain, date_values)
+    float_results = _batch_process(float_parse_chain, float_values)
+
+    # Create a dictionary to map the processed values back to their positions
+    date_value_map = {
+        date_indices[i]: (
+            date_results[i].isoformat() if date_results[i] is not None else None
+        )
+        for i in range(len(date_indices))
+    }
+    float_value_map = {
+        float_indices[i]: (float_results[i] if float_results[i] is not None else None)
+        for i in range(len(float_indices))
+    }
+
+    # Insert processed values into the new table
+    for row_idx, row in enumerate(all_rows):
         insert_stmt = insert_stmt_prefix + "("
         for column in original_table.columns:
             value = row[column_name_to_index[column.name]]
-
             if column.name in column_types:
                 value_type = column_types[column.name].type
                 converted_value = "NULL"  # default to NULL if not converted
 
-                if value:
+                if (row_idx, column.name) in date_value_map:
+                    if date_value_map[(row_idx, column.name)] is not None:
+                        converted_value = f'"{date_value_map[(row_idx, column.name)]}"'  # store as quoted ISO str
+                elif (row_idx, column.name) in float_value_map:
+                    if float_value_map[(row_idx, column.name)] is not None:
+                        converted_value = str(
+                            float_value_map[(row_idx, column.name)]
+                        )  # store as numeric
+                elif value:
                     if value_type == DataType.TEXT:
                         converted_value = f'"{value}"'  # store as quoted text
                     elif value_type == DataType.BOOL:
@@ -145,20 +190,7 @@ def _transfer_data_to_typed_table(
                             converted_value = "1"  # store as numeric 1
                         else:
                             converted_value = "0"  # store as numeric 0
-                    elif value_type == DataType.DATETIME:
-                        try:
-                            date_parse_response = date_parse_chain.run(value)
-                            converted_value = f'"{date_parse_response.value.isoformat()}"'  # store as quoted ISO str
-                        except Exception:
-                            ...  # log?
-                    elif value_type == DataType.NUMBER:
-                        try:
-                            float_parse_response = float_parse_chain.run(value)
-                            converted_value = str(
-                                float_parse_response.value
-                            )  # store as numeric
-                        except Exception:
-                            ...  # log?
+
                 insert_stmt += f"{converted_value}, "
             else:
                 insert_stmt += f'"{value}", '
