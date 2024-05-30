@@ -24,6 +24,11 @@ from docugami_langchain.chains.querying import (
     SQLQueryExplainerChain,
     SQLResultChain,
 )
+from docugami_langchain.chains.types.data_type_detection_chain import (
+    DataTypeDetectionChain,
+)
+from docugami_langchain.chains.types.date_parse_chain import DateParseChain
+from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
 from docugami_langchain.config import MAX_PARAMS_CUTOFF_LENGTH_CHARS
 from docugami_langchain.tools.common import NOT_FOUND, BaseDocugamiTool
 
@@ -187,10 +192,13 @@ def get_retrieval_tool_for_report(
     retrieval_tool_function_name: str,
     retrieval_tool_description: str,
     sql_llm: BaseLanguageModel,
-    explainer_llm: BaseLanguageModel,
+    general_llm: BaseLanguageModel,
     embeddings: Embeddings,
     sql_fixup_examples_file: Optional[Path] = None,
     sql_examples_file: Optional[Path] = None,
+    data_type_detection_examples_file: Optional[Path] = None,
+    date_parse_examples_file: Optional[Path] = None,
+    float_parse_examples_file: Optional[Path] = None,
 ) -> Optional[BaseDocugamiTool]:
     if not local_xlsx_path.exists():
         return None
@@ -209,10 +217,27 @@ def get_retrieval_tool_for_report(
     )
     if sql_examples_file:
         sql_result_chain.load_examples(sql_examples_file)
-    sql_result_chain.optimize()
+
+    detection_chain = DataTypeDetectionChain(llm=general_llm, embeddings=embeddings)
+    if data_type_detection_examples_file:
+        detection_chain.load_examples(data_type_detection_examples_file)
+
+    date_parse_chain = DateParseChain(llm=general_llm, embeddings=embeddings)
+    if date_parse_examples_file:
+        date_parse_chain.load_examples(date_parse_examples_file)
+
+    float_parse_chain = FloatParseChain(llm=general_llm, embeddings=embeddings)
+    if float_parse_examples_file:
+        float_parse_chain.load_examples(float_parse_examples_file)
+
+    sql_result_chain.optimize(
+        detection_chain=detection_chain,
+        date_parse_chain=date_parse_chain,
+        float_parse_chain=float_parse_chain,
+    )
 
     sql_query_explainer_chain = SQLQueryExplainerChain(
-        llm=explainer_llm,
+        llm=general_llm,
         embeddings=embeddings,
     )
     if sql_examples_file:
@@ -221,7 +246,7 @@ def get_retrieval_tool_for_report(
     return CustomReportRetrievalTool(
         db=db,
         chain=DocugamiExplainedSQLQueryChain(
-            llm=explainer_llm,
+            llm=general_llm,
             embeddings=embeddings,
             sql_result_chain=sql_result_chain,
             sql_query_explainer_chain=sql_query_explainer_chain,

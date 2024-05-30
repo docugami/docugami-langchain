@@ -28,10 +28,10 @@ class DataTypeDetectionChain(BaseDocugamiChain[DataTypeWithUnit]):
             task_description="detects the most likely data type for given text and produces valid JSON output per the given examples",
             additional_instructions=[
                 """- Here is an example of a valid JSON blob for your output. Please STRICTLY follow this format:
-{{
+{
   "type": $TYPE,
   "unit": $UNIT
-}}""",
+}""",
                 "- $TYPE is the (string) predominant data type of the given text, and must be one of these values: "
                 + ", ".join([t.value for t in DataType]),
                 "- $UNIT is the unit of the data presented by the given text, for example a currency, meters or square feet. If you cannot detect a unit, leave this blank.",

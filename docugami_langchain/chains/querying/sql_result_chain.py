@@ -10,6 +10,11 @@ from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.chains.querying.models import ExplainedSQLResult
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
+from docugami_langchain.chains.types.data_type_detection_chain import (
+    DataTypeDetectionChain,
+)
+from docugami_langchain.chains.types.date_parse_chain import DateParseChain
+from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
 from docugami_langchain.output_parsers.sql_finding import SQLFindingOutputParser
 from docugami_langchain.output_parsers.text_cleaning import TextCleaningOutputParser
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
@@ -18,6 +23,7 @@ from docugami_langchain.utils.sql import (
     create_example_selector,
     get_table_info_as_create_table,
 )
+from docugami_langchain.utils.type_detection import convert_to_typed
 
 logger = logging.getLogger(__name__)
 
@@ -31,16 +37,30 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
 
     _example_row_selector: Optional[MaxMarginalRelevanceExampleSelector] = None
 
-    def optimize(self) -> None:
+    def optimize(
+        self,
+        detection_chain: DataTypeDetectionChain,
+        date_parse_chain: DateParseChain,
+        float_parse_chain: FloatParseChain,
+    ) -> None:
         """
-        Optimizes the database for few shot rows selection. This is optional
-        but recommended. If you don't run optimize, then the first N rows are
-        returned in table info without considering similarity.
+        Optimizes the database with data type detection, and for few shot rows selection.
+
+        This is optional but highly recommended. If you don't run optimize, then:
+        1. All columns are TEXT, so sorts/averages/etc don't work well or at all
+        2. The first N rows are returned in table info without considering similarity.
         """
         if self.embeddings:
             self._example_row_selector = create_example_selector(
                 self.db, self.embeddings, self.examples_vectorstore_cls
             )
+
+        self.db = convert_to_typed(
+            db=self.db,
+            data_type_detection_chain=detection_chain,
+            date_parse_chain=date_parse_chain,
+            float_parse_chain=float_parse_chain,
+        )
 
     def runnable(self) -> Runnable:
         """

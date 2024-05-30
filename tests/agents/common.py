@@ -52,11 +52,15 @@ def build_test_query_tool(
         ),
         retrieval_tool_description=description,
         sql_llm=llm,
-        explainer_llm=llm,
+        general_llm=llm,
         embeddings=embeddings,
         sql_fixup_examples_file=EXAMPLES_PATH / "test_sql_fixup_examples.yaml",
         sql_examples_file=EXAMPLES_PATH / "test_sql_examples.yaml",
+        data_type_detection_examples_file=EXAMPLES_PATH / "test_data_type_detection_examples.yaml",
+        date_parse_examples_file=EXAMPLES_PATH / "test_date_parse_examples.yaml",
+        float_parse_examples_file=EXAMPLES_PATH / "test_float_parse_examples.yaml",
     )
+
     if not tool:
         raise Exception("Could not create test query tool")
 

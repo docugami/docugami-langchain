@@ -17,11 +17,15 @@ from docugami_langchain.config import BATCH_SIZE, TYPE_DETECTION_SAMPLE_SIZE
 from docugami_langchain.output_parsers.truthy import TRUTHY_STRINGS
 
 
-def _batch_process(chain: BaseDocugamiChain, inputs: list[str]) -> list[Any]:
+def _batch_process(
+    chain: BaseDocugamiChain,
+    inputs: list[str],
+    batch_size: int = BATCH_SIZE,
+) -> list[Any]:
     """Process inputs in batches using the chain's run_batch method."""
     results: list[Any] = []
-    for i in range(0, len(inputs), BATCH_SIZE):
-        batch = inputs[i : i + BATCH_SIZE]
+    for i in range(0, len(inputs), batch_size):
+        batch = inputs[i : i + batch_size]
         batch_results = chain.run_batch(inputs=batch)
         for result in batch_results:
             if isinstance(result, Exception):
@@ -37,6 +41,7 @@ def _get_column_types(
     connection: Connection,
     columns: ReadOnlyColumnCollection[str, Column[Any]],
     data_type_detection_chain: DataTypeDetectionChain,
+    batch_size: int = BATCH_SIZE,
 ) -> dict[str, DataTypeWithUnit]:
     """Determine the predominant type for each TEXT column."""
 
@@ -52,7 +57,9 @@ def _get_column_types(
 
         sampled_col_values = [row[0] for row in sampling_result if row[0]]
         detected_types: list[Union[None, DataTypeWithUnit]] = _batch_process(
-            data_type_detection_chain, sampled_col_values
+            chain=data_type_detection_chain,
+            inputs=sampled_col_values,
+            batch_size=batch_size,
         )
 
         type_counts: dict[DataTypeWithUnit, int] = {}
@@ -63,7 +70,10 @@ def _get_column_types(
                 type_counts[detected_type] += 1
 
         # Determine the predominant type
-        predominant_type = max(type_counts, key=lambda k: type_counts[k])
+        predominant_type = DataTypeWithUnit(type=DataType.TEXT)
+        if type_counts:
+            predominant_type = max(type_counts, key=lambda k: type_counts[k])
+
         column_types[column.name] = predominant_type
 
     return column_types
@@ -113,6 +123,7 @@ def _transfer_data_to_typed_table(
     column_types: dict[str, DataTypeWithUnit],
     date_parse_chain: DateParseChain,
     float_parse_chain: FloatParseChain,
+    batch_size: int = BATCH_SIZE,
 ) -> None:
     """Transfer data to the new typed table."""
     column_name_to_index = {
@@ -150,8 +161,16 @@ def _transfer_data_to_typed_table(
                     float_indices.append((row_idx, column.name))
 
     # Batch process date and float values
-    date_results = _batch_process(date_parse_chain, date_values)
-    float_results = _batch_process(float_parse_chain, float_values)
+    date_results = _batch_process(
+        chain=date_parse_chain,
+        inputs=date_values,
+        batch_size=batch_size,
+    )
+    float_results = _batch_process(
+        chain=float_parse_chain,
+        inputs=float_values,
+        batch_size=batch_size,
+    )
 
     # Create a dictionary to map the processed values back to their positions
     date_value_map = {
@@ -204,6 +223,7 @@ def convert_to_typed(
     data_type_detection_chain: DataTypeDetectionChain,
     date_parse_chain: DateParseChain,
     float_parse_chain: FloatParseChain,
+    batch_size: int = BATCH_SIZE,
 ) -> SQLDatabase:
     """
     Goes through all the tables in the database, and converts each TEXT column to a typed column where
@@ -221,12 +241,17 @@ def convert_to_typed(
 
                 # Get predominant types for each column
                 column_types = _get_column_types(
-                    connection, original_table.columns, data_type_detection_chain
+                    connection=connection,
+                    columns=original_table.columns,
+                    data_type_detection_chain=data_type_detection_chain,
+                    batch_size=batch_size,
                 )
 
                 # Create a new table with typed columns
                 typed_table_name = _create_typed_table(
-                    connection, original_table, column_types
+                    connection=connection,
+                    original_table=original_table,
+                    column_types=column_types,
                 )
                 typed_table = Table(
                     typed_table_name, db._metadata, autoload_with=db._engine
@@ -234,12 +259,13 @@ def convert_to_typed(
 
                 # Transfer data to the new typed table
                 _transfer_data_to_typed_table(
-                    connection,
-                    original_table,
-                    typed_table,
-                    column_types,
-                    date_parse_chain,
-                    float_parse_chain,
+                    connection=connection,
+                    original_table=original_table,
+                    typed_table=typed_table,
+                    column_types=column_types,
+                    date_parse_chain=date_parse_chain,
+                    float_parse_chain=float_parse_chain,
+                    batch_size=batch_size,
                 )
 
                 # Drop the original table and rename the new one
