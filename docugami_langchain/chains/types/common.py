@@ -5,12 +5,11 @@ from langchain_core.pydantic_v1 import BaseModel
 
 
 class DataType(Enum):
-    NUMBER = (
-        "number"  # A predominantly numeric value, with or without text before/after
-    )
-    DATETIME = "datetime"  # A predominantly date and/or time value, with or without text before/after
-    TEXT = "text"  # Generic unstructured text that is not one of the other types
+    FLOAT = "float"  # A predominantly floating point value
+    INTEGER = "integer"  # A predominantly integer value
+    DATETIME = "datetime"  # A predominantly date and/or time value
     BOOL = "bool"  # A predominantly boolean (true/false or yes/no) value
+    TEXT = "text"  # Generic unstructured text that is not one of the other types
 
 
 class DataTypeWithUnit(BaseModel):

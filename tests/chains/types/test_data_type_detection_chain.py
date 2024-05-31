@@ -12,9 +12,9 @@ from docugami_langchain.chains.types.data_type_detection_chain import (
 )
 from tests.common import TEST_DATA_DIR, verify_traced_response
 
-TEST_INPUT_TEXT = "This agreement was signed between Foo and Bar on the 2nd day of September, of the year twenty thirteen."
+TEST_INPUT_TEXT = "on the 2nd day of September, of the year twenty thirteen."
 TEST_PARSED_DATA_TYPE: DataTypeWithUnit = DataTypeWithUnit(
-    type=DataType.DATETIME, unit="datetime"
+    type=DataType.DATETIME, unit=""
 )
 
 
@@ -47,11 +47,11 @@ def test_local_data_type_detection(
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_data_type_detection(
-    fireworksai_mixtral: BaseLanguageModel,
+def test_fireworksai_llama3_data_type_detection(
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> Any:
-    chain = init_chain(fireworksai_mixtral, huggingface_minilm)
+    chain = init_chain(fireworksai_llama3, huggingface_minilm)
     response = chain.run(TEST_INPUT_TEXT)
     verify_traced_response(response)
     assert TEST_PARSED_DATA_TYPE == response.value

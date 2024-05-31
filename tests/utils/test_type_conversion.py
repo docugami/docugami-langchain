@@ -12,6 +12,7 @@ from docugami_langchain.chains.types.data_type_detection_chain import (
 )
 from docugami_langchain.chains.types.date_parse_chain import DateParseChain
 from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
+from docugami_langchain.chains.types.int_parse_chain import IntParseChain
 from docugami_langchain.tools.reports import connect_to_excel
 from docugami_langchain.utils.type_detection import convert_to_typed
 from tests.common import TEST_DATA_DIR
@@ -22,7 +23,7 @@ TEST_DATA = [
         "Data Type Test",
         [
             '"Test Bool" INTEGER',
-            '"Test Money ($)" REAL',
+            '"Test Money ($)" INTEGER',
             '"Test Measure (square feet)" REAL',
             '"Test Date" TEXT',
             '"Test Text" TEXT',
@@ -38,8 +39,8 @@ TEST_DATA = [
             '"FileNumber" REAL',
             '"Corporation Name" TEXT',
             '"Registered Address" TEXT',
-            '"Shares of Common Stock" REAL',
-            '"Shares of Preferred Stock" REAL',
+            '"Shares of Common Stock" INTEGER',
+            '"Shares of Preferred Stock" INTEGER',
         ],
     ),
 ]
@@ -47,7 +48,7 @@ TEST_DATA = [
 
 def init_chains(
     llm: BaseLanguageModel, embeddings: Embeddings
-) -> tuple[DataTypeDetectionChain, DateParseChain, FloatParseChain]:
+) -> tuple[DataTypeDetectionChain, DateParseChain, FloatParseChain, IntParseChain]:
     detection_chain = DataTypeDetectionChain(llm=llm, embeddings=embeddings)
     detection_chain.load_examples(
         TEST_DATA_DIR / "examples/test_data_type_detection_examples.yaml"
@@ -62,7 +63,11 @@ def init_chains(
     float_parse_chain.load_examples(
         TEST_DATA_DIR / "examples/test_float_parse_examples.yaml"
     )
-    return detection_chain, date_parse_chain, float_parse_chain
+    int_parse_chain = IntParseChain(llm=llm, embeddings=embeddings)
+    int_parse_chain.load_examples(
+        TEST_DATA_DIR / "examples/test_int_parse_examples.yaml"
+    )
+    return detection_chain, date_parse_chain, float_parse_chain, int_parse_chain
 
 
 def _run_test(
@@ -70,6 +75,7 @@ def _run_test(
     detection_chain: DataTypeDetectionChain,
     date_parse_chain: DateParseChain,
     float_parse_chain: FloatParseChain,
+    int_parse_chain: IntParseChain,
     table_name: str,
     typed_columns: list[str],
 ) -> None:
@@ -78,6 +84,7 @@ def _run_test(
         data_type_detection_chain=detection_chain,
         date_parse_chain=date_parse_chain,
         float_parse_chain=float_parse_chain,
+        int_parse_chain=int_parse_chain,
     )
 
     info = converted_db.get_table_info()
@@ -103,7 +110,7 @@ def test_fireworksai_llama3_data_type_conversion(
     typed_columns: list[str],
 ) -> Any:
     db = connect_to_excel(file_path=data_file, table_name=table_name)
-    detection_chain, date_parse_chain, float_parse_chain = init_chains(
+    detection_chain, date_parse_chain, float_parse_chain, int_parse_chain = init_chains(
         fireworksai_llama3, huggingface_minilm
     )
     _run_test(
@@ -111,6 +118,7 @@ def test_fireworksai_llama3_data_type_conversion(
         detection_chain,
         date_parse_chain,
         float_parse_chain,
+        int_parse_chain,
         table_name,
         typed_columns,
     )
@@ -128,7 +136,7 @@ def test_openai_gpt4_data_type_conversion(
     typed_columns: list[str],
 ) -> Any:
     db = connect_to_excel(file_path=data_file, table_name=table_name)
-    detection_chain, date_parse_chain, float_parse_chain = init_chains(
+    detection_chain, date_parse_chain, float_parse_chain, int_parse_chain = init_chains(
         openai_gpt4, openai_ada
     )
     _run_test(
@@ -136,6 +144,7 @@ def test_openai_gpt4_data_type_conversion(
         detection_chain,
         date_parse_chain,
         float_parse_chain,
+        int_parse_chain,
         table_name,
         typed_columns,
     )

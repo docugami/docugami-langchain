@@ -15,6 +15,8 @@ from docugami_langchain.chains.types.data_type_detection_chain import (
 )
 from docugami_langchain.chains.types.date_parse_chain import DateParseChain
 from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
+from docugami_langchain.chains.types.int_parse_chain import IntParseChain
+from docugami_langchain.config import BATCH_SIZE
 from docugami_langchain.output_parsers.sql_finding import SQLFindingOutputParser
 from docugami_langchain.output_parsers.text_cleaning import TextCleaningOutputParser
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
@@ -42,6 +44,8 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
         detection_chain: DataTypeDetectionChain,
         date_parse_chain: DateParseChain,
         float_parse_chain: FloatParseChain,
+        int_parse_chain: IntParseChain,
+        batch_size: int = BATCH_SIZE,
     ) -> None:
         """
         Optimizes the database with data type detection, and for few shot rows selection.
@@ -60,6 +64,8 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
             data_type_detection_chain=detection_chain,
             date_parse_chain=date_parse_chain,
             float_parse_chain=float_parse_chain,
+            int_parse_chain=int_parse_chain,
+            batch_size=batch_size,
         )
 
     def runnable(self) -> Runnable:

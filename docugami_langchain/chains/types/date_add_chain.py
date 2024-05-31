@@ -37,7 +37,7 @@ class DateAddChain(BaseDocugamiChain[datetime]):
                 "- The input data will sometimes by messy, with typos or non-standard formats. "
                 + "Try to guess the date or duration as best as you can, by trying to ignore typical typos and OCR glitches.",
             ],
-            additional_runnables=[DatetimeOutputParser(format=OUTPUT_FORMAT)],
+            additional_runnables=[DatetimeOutputParser()],
         )
 
     def run(  # type: ignore[override]

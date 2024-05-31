@@ -19,6 +19,7 @@ from docugami_langchain.chains.types.data_type_detection_chain import (
 )
 from docugami_langchain.chains.types.date_parse_chain import DateParseChain
 from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
+from docugami_langchain.chains.types.int_parse_chain import IntParseChain
 from docugami_langchain.tools.reports import connect_to_excel
 from tests.common import TEST_DATA_DIR, verify_traced_response
 from tests.testdata.xlsx.query_test_data import QUERY_TEST_DATA, QueryTestData
@@ -30,6 +31,7 @@ DATA_TYPE_DETECTION_EXAMPLES_FILE = (
 )
 DATE_PARSE_EXAMPLES_FILE = TEST_DATA_DIR / "examples/test_date_parse_examples.yaml"
 FLOAT_PARSE_EXAMPLES_FILE = TEST_DATA_DIR / "examples/test_float_parse_examples.yaml"
+INT_PARSE_EXAMPLES_FILE = TEST_DATA_DIR / "examples/test_int_parse_examples.yaml"
 
 
 def init_docugami_explained_sql_query_chain(
@@ -58,10 +60,14 @@ def init_docugami_explained_sql_query_chain(
     float_parse_chain = FloatParseChain(llm=general_llm, embeddings=embeddings)
     float_parse_chain.load_examples(FLOAT_PARSE_EXAMPLES_FILE)
 
+    int_parse_chain = IntParseChain(llm=general_llm, embeddings=embeddings)
+    int_parse_chain.load_examples(INT_PARSE_EXAMPLES_FILE)
+
     sql_result_chain.optimize(
         detection_chain=detection_chain,
         date_parse_chain=date_parse_chain,
         float_parse_chain=float_parse_chain,
+        int_parse_chain=int_parse_chain,
     )
 
     sql_result_explainer_chain = SQLResultExplainerChain(

@@ -29,7 +29,8 @@ from docugami_langchain.chains.types.data_type_detection_chain import (
 )
 from docugami_langchain.chains.types.date_parse_chain import DateParseChain
 from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
-from docugami_langchain.config import MAX_PARAMS_CUTOFF_LENGTH_CHARS
+from docugami_langchain.chains.types.int_parse_chain import IntParseChain
+from docugami_langchain.config import BATCH_SIZE, MAX_PARAMS_CUTOFF_LENGTH_CHARS
 from docugami_langchain.tools.common import NOT_FOUND, BaseDocugamiTool
 
 
@@ -199,6 +200,8 @@ def get_retrieval_tool_for_report(
     data_type_detection_examples_file: Optional[Path] = None,
     date_parse_examples_file: Optional[Path] = None,
     float_parse_examples_file: Optional[Path] = None,
+    int_parse_examples_file: Optional[Path] = None,
+    batch_size: int = BATCH_SIZE,
 ) -> Optional[BaseDocugamiTool]:
     if not local_xlsx_path.exists():
         return None
@@ -230,10 +233,16 @@ def get_retrieval_tool_for_report(
     if float_parse_examples_file:
         float_parse_chain.load_examples(float_parse_examples_file)
 
+    int_parse_chain = IntParseChain(llm=general_llm, embeddings=embeddings)
+    if int_parse_examples_file:
+        int_parse_chain.load_examples(int_parse_examples_file)
+
     sql_result_chain.optimize(
         detection_chain=detection_chain,
         date_parse_chain=date_parse_chain,
         float_parse_chain=float_parse_chain,
+        int_parse_chain=int_parse_chain,
+        batch_size=batch_size,
     )
 
     sql_query_explainer_chain = SQLQueryExplainerChain(

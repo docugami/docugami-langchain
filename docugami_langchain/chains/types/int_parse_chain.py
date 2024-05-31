@@ -8,20 +8,20 @@ from langchain_core.runnables import (
 
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
-from docugami_langchain.output_parsers.float import FloatOutputParser
+from docugami_langchain.output_parsers.int import IntOutputParser
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
 
 
-class FloatParseChain(BaseDocugamiChain[float]):
+class IntParseChain(BaseDocugamiChain[int]):
 
-    _parser = FloatOutputParser()
+    _parser = IntOutputParser()
 
     def runnable(self) -> Runnable:
         """
         Custom runnable for this chain.
         """
 
-        def direct_parse(x: dict) -> float:
+        def direct_parse(x: dict) -> int:
             return self._parser.parse(str(x["value_text"]))
 
         def use_llm(x: dict) -> bool:
@@ -50,18 +50,18 @@ class FloatParseChain(BaseDocugamiChain[float]):
                 ),
             ],
             output=RunnableSingleParameter(
-                "parsed_float",
-                "PARSED FLOAT",
-                "The result of parsing the value expression, as a floating point value.",
+                "parsed_int",
+                "PARSED INT",
+                "The result of parsing the value expression, as an integer value.",
             ),
-            task_description="parses input text values specified in rough natural language, producing output strictly as a floating point value that best represents the input text",
+            task_description="parses input text values specified in rough natural language, producing output strictly as an integer value that best represents the input text",
             additional_instructions=[
-                "- Produce output as a value in floating point format (parseable in python) if you find a value.",
+                "- Produce output as a value in integer format (parseable in python) if you find a value.",
                 "- If you cannot find any value that represents the input text, don't output anything",
                 "- The input data will sometimes by messy, with typos or non-standard formats. Try to guess the value as best as you can, by trying to ignore typical typos and OCR glitches.",
                 "- If the value is ambiguous, assume it is the lowest value it could be.",
                 "- If multiple values are specified, pick the first one.",
-                "- ONLY output the parsed float value without any commentary, explanation, or listing any assumptions. Your output must EXACTLY match the python floating point format.",
+                "- ONLY output the parsed integer value without any commentary, explanation, or listing any assumptions. Your output must EXACTLY match the python integer format.",
             ],
             additional_runnables=[self._parser],
             include_output_instruction_suffix=True,
@@ -69,7 +69,7 @@ class FloatParseChain(BaseDocugamiChain[float]):
 
     def run(  # type: ignore[override]
         self, value_text: str, config: Optional[dict] = None
-    ) -> TracedResponse[float]:
+    ) -> TracedResponse[int]:
         if not value_text:
             raise Exception("Input required: value_text")
 
@@ -80,7 +80,7 @@ class FloatParseChain(BaseDocugamiChain[float]):
 
     async def run_stream(  # type: ignore[override]
         self, **kwargs: Any
-    ) -> AsyncIterator[TracedResponse[float]]:
+    ) -> AsyncIterator[TracedResponse[int]]:
         raise NotImplementedError()
 
     def run_batch(  # type: ignore[override]
@@ -88,7 +88,7 @@ class FloatParseChain(BaseDocugamiChain[float]):
         inputs: list[str],
         config: Optional[dict] = None,
         return_exceptions: bool = True,
-    ) -> list[Union[float, Exception]]:
+    ) -> list[Union[int, Exception]]:
         return super().run_batch(
             inputs=[
                 {

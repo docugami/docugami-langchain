@@ -1,7 +1,6 @@
 from datetime import datetime
 from typing import Any, AsyncIterator, Optional, Union
 
-from dateutil.parser import parse
 from langchain_core.runnables import (
     Runnable,
     RunnableBranch,
@@ -17,13 +16,16 @@ OUTPUT_FORMAT = "%m/%d/%Y"
 
 
 class DateParseChain(BaseDocugamiChain[datetime]):
+
+    _parser = DatetimeOutputParser()
+
     def runnable(self) -> Runnable:
         """
         Custom runnable for this chain.
         """
 
         def direct_parse(x: dict) -> datetime:
-            return parse(str(x["date_text"]).strip())
+            return self._parser.parse(str(x["date_text"]))
 
         def use_llm(x: dict) -> bool:
             try:
@@ -67,7 +69,7 @@ class DateParseChain(BaseDocugamiChain[datetime]):
                 "- If multiple dates are specified, pick the first one.",
                 f"- ONLY output the parsed date expression without any commentary, explanation, or listing any assumptions. Your output must EXACTLY match the required {OUTPUT_FORMAT} format.",
             ],
-            additional_runnables=[DatetimeOutputParser(format=OUTPUT_FORMAT)],
+            additional_runnables=[self._parser],
             include_output_instruction_suffix=True,
         )
 

@@ -13,6 +13,7 @@ from docugami_langchain.chains.types.data_type_detection_chain import (
 )
 from docugami_langchain.chains.types.date_parse_chain import DateParseChain
 from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
+from docugami_langchain.chains.types.int_parse_chain import IntParseChain
 from docugami_langchain.config import BATCH_SIZE, TYPE_DETECTION_SAMPLE_SIZE
 from docugami_langchain.output_parsers.truthy import TRUTHY_STRINGS
 
@@ -73,8 +74,10 @@ def _get_column_types(
                 predominant_type = max(type_counts, key=lambda k: type_counts[k])
 
             column_types[column.name] = predominant_type
-        elif str(column.type).lower() in ["real", "integer"]:
-            column_types[column.name] = DataTypeWithUnit(type=DataType.NUMBER)
+        elif str(column.type).lower() == "real":
+            column_types[column.name] = DataTypeWithUnit(type=DataType.FLOAT)
+        elif str(column.type).lower() == "integer":
+            column_types[column.name] = DataTypeWithUnit(type=DataType.INTEGER)
 
     return column_types
 
@@ -94,8 +97,10 @@ def _create_typed_table(
             dg_type = column_types[column.name]
             column_type = "TEXT"  # Default to TEXT if not identified
 
-            if dg_type.type == DataType.NUMBER:
+            if dg_type.type == DataType.FLOAT:
                 column_type = "REAL"
+            if dg_type.type == DataType.INTEGER:
+                column_type = "INTEGER"
             elif dg_type.type == DataType.DATETIME:
                 column_type = "TEXT"  # Store as ISO8601 string
             elif dg_type.type == DataType.BOOL:
@@ -123,6 +128,7 @@ def _transfer_data_to_typed_table(
     column_types: dict[str, DataTypeWithUnit],
     date_parse_chain: DateParseChain,
     float_parse_chain: FloatParseChain,
+    int_parse_chain: IntParseChain,
     batch_size: int = BATCH_SIZE,
 ) -> None:
     """Transfer data to the new typed table."""
@@ -145,8 +151,10 @@ def _transfer_data_to_typed_table(
     # Prepare lists to batch process
     date_values = []
     float_values = []
+    int_values = []
     date_indices = []
     float_indices = []
+    int_indices = []
 
     for row_idx, row in enumerate(all_rows):
         for column in original_table.columns:
@@ -156,9 +164,12 @@ def _transfer_data_to_typed_table(
                 if value_type == DataType.DATETIME:
                     date_values.append(value)
                     date_indices.append((row_idx, column.name))
-                elif value_type == DataType.NUMBER:
+                elif value_type == DataType.FLOAT:
                     float_values.append(value)
                     float_indices.append((row_idx, column.name))
+                elif value_type == DataType.INTEGER:
+                    int_values.append(value)
+                    int_indices.append((row_idx, column.name))
 
     # Batch process date and float values
     date_results = _batch_process(
@@ -169,6 +180,11 @@ def _transfer_data_to_typed_table(
     float_results = _batch_process(
         chain=float_parse_chain,
         inputs=float_values,
+        batch_size=batch_size,
+    )
+    int_results = _batch_process(
+        chain=int_parse_chain,
+        inputs=int_values,
         batch_size=batch_size,
     )
 
@@ -182,6 +198,10 @@ def _transfer_data_to_typed_table(
     float_value_map = {
         float_indices[i]: (float_results[i] if float_results[i] is not None else None)
         for i in range(len(float_indices))
+    }
+    int_value_map = {
+        int_indices[i]: (int_results[i] if int_results[i] is not None else None)
+        for i in range(len(int_indices))
     }
 
     # Insert processed values into the new table
@@ -200,15 +220,20 @@ def _transfer_data_to_typed_table(
                     if float_value_map[(row_idx, column.name)] is not None:
                         converted_value = str(
                             float_value_map[(row_idx, column.name)]
-                        )  # store as numeric
+                        )  # store as numeric, so non-quoted
+                elif (row_idx, column.name) in int_value_map:
+                    if int_value_map[(row_idx, column.name)] is not None:
+                        converted_value = str(
+                            int_value_map[(row_idx, column.name)]
+                        )  # store as numeric, so non-quoted
                 elif value:
                     if value_type == DataType.TEXT:
                         converted_value = f'"{value}"'  # store as quoted text
                     elif value_type == DataType.BOOL:
                         if any(substring in value for substring in TRUTHY_STRINGS):
-                            converted_value = "1"  # store as numeric 1
+                            converted_value = "1"  # store as numeric 1, so non-quoted
                         else:
-                            converted_value = "0"  # store as numeric 0
+                            converted_value = "0"  # store as numeric 0, so non-quoted
 
                 insert_stmt += f"{converted_value}, "
             else:
@@ -223,6 +248,7 @@ def convert_to_typed(
     data_type_detection_chain: DataTypeDetectionChain,
     date_parse_chain: DateParseChain,
     float_parse_chain: FloatParseChain,
+    int_parse_chain: IntParseChain,
     batch_size: int = BATCH_SIZE,
 ) -> SQLDatabase:
     """
@@ -265,6 +291,7 @@ def convert_to_typed(
                     column_types=column_types,
                     date_parse_chain=date_parse_chain,
                     float_parse_chain=float_parse_chain,
+                    int_parse_chain=int_parse_chain,
                     batch_size=batch_size,
                 )
 

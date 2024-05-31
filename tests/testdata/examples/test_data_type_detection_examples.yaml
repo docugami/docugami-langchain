@@ -25,24 +25,36 @@
 - text: pay the $300 fine
   data_type_json: |
     {
-      "type": "number",
+      "type": "integer",
       "unit": "$"
     }
 - text: $1,000,000
   data_type_json: |
     {
-      "type": "number",
+      "type": "integer",
       "unit": "$"
     }
 - text: 25 thousand canadian dollars
   data_type_json: |
     {
-      "type": "number",
+      "type": "integer",
       "unit": "CAD $"
     }
 - text: USD $45
   data_type_json: |
     {
-      "type": "number",
+      "type": "integer",
       "unit": "USD $"
+    }
+- text: a dollar and a half
+  data_type_json: |
+    {
+      "type": "float",
+      "unit": "$"
+    }
+- text: 26.3 meters
+  data_type_json: |
+    {
+      "type": "float",
+      "unit": "m"
     }
