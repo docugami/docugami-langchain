@@ -1,6 +1,13 @@
 from datetime import datetime
 from typing import Any, AsyncIterator, Optional, Union
 
+from dateutil.parser import parse
+from langchain_core.runnables import (
+    Runnable,
+    RunnableBranch,
+    RunnableLambda,
+)
+
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.output_parsers.datetime import DatetimeOutputParser
@@ -10,6 +17,30 @@ OUTPUT_FORMAT = "%m/%d/%Y"
 
 
 class DateParseChain(BaseDocugamiChain[datetime]):
+    def runnable(self) -> Runnable:
+        """
+        Custom runnable for this chain.
+        """
+
+        def direct_parse(x: dict) -> datetime:
+            return parse(str(x["date_text"]).strip())
+
+        def use_llm(x: dict) -> bool:
+            try:
+                direct_parse(x)
+                return False  # direct parse works, no need for LLM
+            except Exception:
+                return True
+
+        # Try LLM only if simple parsing not enough
+        return RunnableBranch(
+            (
+                RunnableLambda(use_llm),
+                super().runnable(),
+            ),
+            RunnableLambda(direct_parse),
+        )
+
     def params(self) -> RunnableParameters:
         return RunnableParameters(
             inputs=[

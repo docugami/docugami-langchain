@@ -48,33 +48,33 @@ def _get_column_types(
     column_types: dict[str, DataTypeWithUnit] = {}
 
     for column in columns:
-        if str(column.type).lower() != "text":
-            continue  # Only process TEXT columns
+        if str(column.type).lower() == "text":
+            # Sample some rows for type detection
+            sampling_select_query = select(column).limit(TYPE_DETECTION_SAMPLE_SIZE)
+            sampling_result = connection.execute(sampling_select_query)
 
-        # Sample some rows for type detection
-        sampling_select_query = select(column).limit(TYPE_DETECTION_SAMPLE_SIZE)
-        sampling_result = connection.execute(sampling_select_query)
+            sampled_col_values = [row[0] for row in sampling_result if row[0]]
+            detected_types: list[Union[None, DataTypeWithUnit]] = _batch_process(
+                chain=data_type_detection_chain,
+                inputs=sampled_col_values,
+                batch_size=batch_size,
+            )
 
-        sampled_col_values = [row[0] for row in sampling_result if row[0]]
-        detected_types: list[Union[None, DataTypeWithUnit]] = _batch_process(
-            chain=data_type_detection_chain,
-            inputs=sampled_col_values,
-            batch_size=batch_size,
-        )
+            type_counts: dict[DataTypeWithUnit, int] = {}
+            for detected_type in detected_types:
+                if detected_type:
+                    if detected_type not in type_counts:
+                        type_counts[detected_type] = 0
+                    type_counts[detected_type] += 1
 
-        type_counts: dict[DataTypeWithUnit, int] = {}
-        for detected_type in detected_types:
-            if detected_type:
-                if detected_type not in type_counts:
-                    type_counts[detected_type] = 0
-                type_counts[detected_type] += 1
+            # Determine the predominant type
+            predominant_type = DataTypeWithUnit(type=DataType.TEXT)
+            if type_counts:
+                predominant_type = max(type_counts, key=lambda k: type_counts[k])
 
-        # Determine the predominant type
-        predominant_type = DataTypeWithUnit(type=DataType.TEXT)
-        if type_counts:
-            predominant_type = max(type_counts, key=lambda k: type_counts[k])
-
-        column_types[column.name] = predominant_type
+            column_types[column.name] = predominant_type
+        elif str(column.type).lower() in ["real", "integer"]:
+            column_types[column.name] = DataTypeWithUnit(type=DataType.NUMBER)
 
     return column_types
 
@@ -150,8 +150,8 @@ def _transfer_data_to_typed_table(
 
     for row_idx, row in enumerate(all_rows):
         for column in original_table.columns:
-            value = row[column_name_to_index[column.name]]
-            if column.name in column_types and value:
+            value = str(row[column_name_to_index[column.name]])
+            if column.name in column_types and value != "None":
                 value_type = column_types[column.name].type
                 if value_type == DataType.DATETIME:
                     date_values.append(value)

@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from typing import Any
 
 import pytest
@@ -15,8 +16,33 @@ from docugami_langchain.tools.reports import connect_to_excel
 from docugami_langchain.utils.type_detection import convert_to_typed
 from tests.common import TEST_DATA_DIR
 
-DATA_TYPE_TEST_DATA_FILE = TEST_DATA_DIR / "xlsx/Data Type Test.xlsx"
-DATA_TYPE_TEST_TABLE_NAME = "Data Type Test"
+TEST_DATA = [
+    (
+        TEST_DATA_DIR / "xlsx/Data Type Test.xlsx",
+        "Data Type Test",
+        [
+            '"Test Bool" INTEGER',
+            '"Test Money ($)" REAL',
+            '"Test Measure (square feet)" REAL',
+            '"Test Date" TEXT',
+            '"Test Text" TEXT',
+        ],
+    ),
+    (
+        TEST_DATA_DIR / "xlsx/Charters Summary.xlsx",
+        "Corporate Charters",
+        [
+            '"FILED Date" TEXT',
+            '"FILED Time" TEXT',
+            '"SR" REAL',
+            '"FileNumber" REAL',
+            '"Corporation Name" TEXT',
+            '"Registered Address" TEXT',
+            '"Shares of Common Stock" REAL',
+            '"Shares of Preferred Stock" REAL',
+        ],
+    ),
+]
 
 
 def init_chains(
@@ -44,6 +70,8 @@ def _run_test(
     detection_chain: DataTypeDetectionChain,
     date_parse_chain: DateParseChain,
     float_parse_chain: FloatParseChain,
+    table_name: str,
+    typed_columns: list[str],
 ) -> None:
     converted_db = convert_to_typed(
         db=db,
@@ -55,55 +83,59 @@ def _run_test(
     info = converted_db.get_table_info()
 
     # Ensure table name is unchanged and there is only 1 table
-    assert 'TABLE "Data Type Test"' in info
+    assert f'TABLE "{table_name}"' in info
     assert info.count("CREATE TABLE") == 1
 
-    # Ensure the boolean column in the test file was converted as expected
-    assert '"Test Bool" TEXT' not in info
-    assert '"Test Bool" INTEGER' in info
-
-    # Ensure the money column in the test file was converted as expected
-    assert '"Test Money" TEXT' not in info
-    assert '"Test Money ($)" REAL' in info
-
-    # Ensure the measure column in the test file was converted as expected
-    assert '"Test Measure" TEXT' not in info
-    assert '"Test Measure (square feet)" REAL' in info
-
-    # Ensure the date column is still text (the values should be converted, though)
-    assert '"Test Date" TEXT' in info
-
-    # Ensure the text column is still text
-    assert '"Test Text" TEXT' in info
+    # Ensure all columns are typed as expected
+    for col in typed_columns:
+        assert col in info
 
 
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_data_type_conversion(
-    fireworksai_mixtral: BaseLanguageModel,
+@pytest.mark.parametrize("data_file,table_name,typed_columns", TEST_DATA)
+def test_fireworksai_llama3_data_type_conversion(
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
+    data_file: Path,
+    table_name: str,
+    typed_columns: list[str],
 ) -> Any:
-    db = connect_to_excel(
-        file_path=DATA_TYPE_TEST_DATA_FILE, table_name=DATA_TYPE_TEST_TABLE_NAME
-    )
+    db = connect_to_excel(file_path=data_file, table_name=table_name)
     detection_chain, date_parse_chain, float_parse_chain = init_chains(
-        fireworksai_mixtral, huggingface_minilm
+        fireworksai_llama3, huggingface_minilm
     )
-    _run_test(db, detection_chain, date_parse_chain, float_parse_chain)
+    _run_test(
+        db,
+        detection_chain,
+        date_parse_chain,
+        float_parse_chain,
+        table_name,
+        typed_columns,
+    )
 
 
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
-def test_openai_gpt4_date_parse(
+@pytest.mark.parametrize("data_file,table_name,typed_columns", TEST_DATA)
+def test_openai_gpt4_data_type_conversion(
     openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
+    data_file: Path,
+    table_name: str,
+    typed_columns: list[str],
 ) -> Any:
-    db = connect_to_excel(
-        file_path=DATA_TYPE_TEST_DATA_FILE, table_name=DATA_TYPE_TEST_TABLE_NAME
-    )
+    db = connect_to_excel(file_path=data_file, table_name=table_name)
     detection_chain, date_parse_chain, float_parse_chain = init_chains(
         openai_gpt4, openai_ada
     )
-    _run_test(db, detection_chain, date_parse_chain, float_parse_chain)
+    _run_test(
+        db,
+        detection_chain,
+        date_parse_chain,
+        float_parse_chain,
+        table_name,
+        typed_columns,
+    )

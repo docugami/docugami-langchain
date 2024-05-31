@@ -12,7 +12,7 @@ from tests.common import TEST_DATA_DIR, verify_traced_response
 PARSEABLE_TEST_DATA = [
     ("there is a value in here 42 somewehre", 42.0),
     ("sometimes two is better than five", 2.0),
-    ("12.0", 12.0),
+    ("12.0", 12.0),  # directly parseable
 ]
 
 UNPARSEABLE_TEST_DATA_RAISES_EXCEPTION = [
