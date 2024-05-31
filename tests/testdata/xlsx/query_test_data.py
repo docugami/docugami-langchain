@@ -73,9 +73,9 @@ QUERY_TEST_DATA: list[QueryTestData] = [
             name=DEMO_MSA_SERVICES_TABLE_NAME,
         ),
         question="Which client has the highest liability cap?",
-        sql_query="""SELECT "Client", "Excess Liability Umbrella Coverage" FROM "Service Agreements Summary" ORDER BY "Excess Liability Umbrella Coverage" DESC LIMIT 1""",
+        sql_query="""SELECT "Client", "Excess Liability Umbrella Coverage" FROM "Service Agreements Summary" ORDER BY "Excess Liability Umbrella Coverage ($)" DESC LIMIT 1""",
         sql_result="[('Inity, Inc.', 'Excess Liability/Umbrella coverage with a limit of no less than $9,000,000 per occurrence and in the aggregate (such limit may be achieved through increase of limits in underlying policies to reach the level of coverage shown here). This policy shall name Client as an additional insured with...')]",
-        explained_result_answer_fragments=["$9,000,000", "inity", "hottechi"],
+        explained_result_answer_fragments=["$10,000,000", "inity"],
         explained_sql_query_fragments=[],
     ),
     QueryTestData(

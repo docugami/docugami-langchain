@@ -21,7 +21,7 @@ from docugami_langchain.chains.types.date_parse_chain import DateParseChain
 from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
 from docugami_langchain.chains.types.int_parse_chain import IntParseChain
 from docugami_langchain.tools.reports import connect_to_excel
-from tests.common import TEST_DATA_DIR, verify_traced_response
+from tests.common import TEST_DATA_DIR, verify_output
 from tests.testdata.xlsx.query_test_data import QUERY_TEST_DATA, QueryTestData
 
 SQL_EXAMPLES_FILE = TEST_DATA_DIR / "examples/test_sql_examples.yaml"
@@ -92,8 +92,13 @@ def init_docugami_explained_sql_query_chain(
 
 
 def _runtest(chain: DocugamiExplainedSQLQueryChain, test_data: QueryTestData) -> None:
-    response = chain.run(question=test_data.question)
-    verify_traced_response(response, test_data.explained_result_answer_fragments)
+    chain_response = chain.run(question=test_data.question)
+    result = chain_response.value.get("result")
+    assert result
+    verify_output(
+        result.get("explained_sql_result", ""),
+        test_data.explained_result_answer_fragments,
+    )
 
 
 async def _runtest_streamed(
@@ -103,16 +108,21 @@ async def _runtest_streamed(
     async for incremental_response in chain.run_stream(question=test_data.question):
         chain_response = incremental_response
 
-    verify_traced_response(chain_response, test_data.explained_result_answer_fragments)
+    result = chain_response.value.get("result")
+    assert result
+    verify_output(
+        result.get("explained_sql_result", ""),
+        test_data.explained_result_answer_fragments,
+    )
 
 
 @pytest.mark.parametrize("test_data", QUERY_TEST_DATA)
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_docugami_explained_sql_query(
+def test_fireworksai_llama3_docugami_explained_sql_query(
     test_data: QueryTestData,
-    fireworksai_mixtral: BaseLanguageModel,
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
     db = connect_to_excel(
@@ -121,8 +131,8 @@ def test_fireworksai_docugami_explained_sql_query(
     _runtest(
         init_docugami_explained_sql_query_chain(
             db=db,
-            sql_llm=fireworksai_mixtral,
-            general_llm=fireworksai_mixtral,
+            sql_llm=fireworksai_llama3,
+            general_llm=fireworksai_llama3,
             embeddings=huggingface_minilm,
         ),
         test_data,
@@ -134,9 +144,9 @@ def test_fireworksai_docugami_explained_sql_query(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
 @pytest.mark.asyncio
-async def test_fireworksai_streamed_docugami_explained_sql_query(
+async def test_fireworksai_llama3_streamed_docugami_explained_sql_query(
     test_data: QueryTestData,
-    fireworksai_mixtral: BaseLanguageModel,
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
     db = connect_to_excel(
@@ -145,8 +155,8 @@ async def test_fireworksai_streamed_docugami_explained_sql_query(
     await _runtest_streamed(
         init_docugami_explained_sql_query_chain(
             db=db,
-            sql_llm=fireworksai_mixtral,
-            general_llm=fireworksai_mixtral,
+            sql_llm=fireworksai_llama3,
+            general_llm=fireworksai_llama3,
             embeddings=huggingface_minilm,
         ),
         test_data,

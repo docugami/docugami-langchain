@@ -164,14 +164,14 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
             task_description="only generates SQL as output. Given an input SQL table description and a question, you generate an equivalent syntactically correct SQLite query against the given table",
             additional_instructions=[
                 "- Only generate SQL as output, don't generate any other language e.g. do not try to directly answer the question asked.",
-                '- If the question is ambiguous or you don\'t know how to answer it in the form of a SQL QUERY, just dump the first row of the table i.e. SELECT * FROM "Table Name" LIMIT 1.',
-                "- Unless the user specifies in the question a specific number of examples to obtain, query for at most 5 results using the LIMIT clause as per SQLite.",
+                "- Unless the user specifies in the question a specific number of examples to obtain, query for at most 10 results using the LIMIT clause as per SQLite.",
                 "- If needed, order the results to return the most informative data in the database.",
+                "- Data may be duplicated, so when selecting always try to get all values that match a question e.g. if a user asks for the contract with the highest price you should group by "
+                + "the price and show all contracts with the highest price (since there could be multiple)",
                 "- Never query for all columns from a table. You must query only the columns that are needed to answer the question.",
                 '- Wrap each column name in the query in double quotes (") to denote them as delimited identifiers.',
                 "- Pay attention to use only the column names you can see in the given tables. Be careful to not query for columns that do not exist.",
                 "- Pay attention to use the date('now') function to get the current date, if the question involves \"today\".",
-                "- Don't use column aliases where possible, since SQLite has problems with those.",
                 """- When matching strings in WHERE clauses, always use LIKE with LOWER rather than exact string match with "=" since users may not fully specify complete input with the right """
                 + """casing, for example generate SELECT * from "athletes" WHERE LOWER("last name") LIKE '%jones%' instead of SELECT * from "athletes" WHERE "last name" = 'Jones'""",
                 "- Never provide any additional explanation or discussion, only output the SQLite query requested, which answers the question against the given table description.",

@@ -12,6 +12,12 @@ from tests.common import TEST_DATA_DIR, verify_traced_response
 PARSEABLE_TEST_DATA = [
     ("there is a value in here 42 somewehre", 42),
     ("sometimes two is better than five", 2),
+    (
+        "Excess Liability/Umbrella coverage with a limit of no less than $9,000,000 per occurrence and in the aggregate (such limit may be "
+        + "achieved through increase of limits in underlying policies to reach the level of coverage shown here). This policy shall name "
+        + "Client as an additional insured with...",
+        9000000,
+    ),
     ("12  ", 12),  # directly parseable
 ]
 

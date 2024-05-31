@@ -37,7 +37,7 @@ class DocugamiExplainedSQLQueryChain(BaseDocugamiChain[ExplainedSQLQuestionResul
         return RunnableMap(
             {
                 "question": itemgetter("question"),
-                "results": self.sql_result_chain.runnable()
+                "result": self.sql_result_chain.runnable()
                 | {
                     "question": itemgetter("question"),
                     "sql_query": itemgetter("sql_query"),
