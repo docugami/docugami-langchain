@@ -103,6 +103,8 @@ def clean_text(text: str, protect_nested_strings: bool = False) -> str:
     if not text:
         return ""
 
+    text = "".join(filter(lambda x: x in set(string.printable), text))
+
     text = "".join(filter(lambda x: x in string.printable, text))  # non-printable chars
     text = _replace_null_outside_quotes(text)
 
