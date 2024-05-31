@@ -1,6 +1,7 @@
 from typing import Any, Optional
 
 import sqlglot
+import sqlglot.errors
 import sqlglot.expressions as exp
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.embeddings import Embeddings
@@ -243,7 +244,9 @@ def check_and_format_query(db: SQLDatabase, sql_query: str) -> str:
                 raise ValueError(f"Query failed due to database error: {e}")
             finally:
                 trans.rollback()
-    except Exception:
-        ...  # eat errors, this is best effort cleanup and ultimately the SQL db decides what is valid
+    except sqlglot.errors.ParseError:
+        ...
+        # eat sqlglot parse errors since that sometimes fails to parse valid queries
+        # and ultimately the db decides what is valid.
 
     return sql_query
