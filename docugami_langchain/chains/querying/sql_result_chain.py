@@ -54,11 +54,6 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
         1. All columns are TEXT, so sorts/averages/etc don't work well or at all
         2. The first N rows are returned in table info without considering similarity.
         """
-        if self.embeddings:
-            self._example_row_selector = create_example_selector(
-                self.db, self.embeddings, self.examples_vectorstore_cls
-            )
-
         self.db = convert_to_typed(
             db=self.db,
             data_type_detection_chain=detection_chain,
@@ -67,6 +62,11 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
             int_parse_chain=int_parse_chain,
             batch_size=batch_size,
         )
+
+        if self.embeddings:
+            self._example_row_selector = create_example_selector(
+                self.db, self.embeddings, self.examples_vectorstore_cls
+            )
 
     def runnable(self) -> Runnable:
         """
