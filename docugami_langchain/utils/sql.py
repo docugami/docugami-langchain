@@ -8,7 +8,6 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.example_selectors import MaxMarginalRelevanceExampleSelector
 from langchain_core.vectorstores import VectorStore
 from sqlalchemy import Table, exc, select, text
-from sqlalchemy.engine.reflection import Inspector
 from sqlalchemy.schema import CreateTable
 from tabulate import tabulate
 
