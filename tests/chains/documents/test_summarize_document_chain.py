@@ -44,14 +44,18 @@ def _runtest_batched(
 ) -> None:
     data_dir: Path = TEST_DATA_DIR / "docsets" / test_data.name
 
-    all_contents = []
+    all_contents: list[str] = []
     for md_file in data_dir.rglob("*.md"):
         # Read and process the contents of each file
         with open(md_file, "r", encoding="utf-8") as file:
             contents = file.read()
             all_contents.append(contents)
 
-    all_summaries = chain.run_batch([(c, "text") for c in all_contents])
+    all_summaries: list[str] = chain.run_batch([(c, "text") for c in all_contents])  # type: ignore
+    for summary in all_summaries:
+        if isinstance(summary, Exception):
+            raise summary
+
     assert len(all_summaries) == len(all_contents)
 
     for idx in range(len(all_contents)):

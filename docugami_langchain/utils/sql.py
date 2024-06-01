@@ -1,13 +1,13 @@
 from typing import Any, Optional
 
 import sqlglot
+import sqlglot.errors
 import sqlglot.expressions as exp
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.embeddings import Embeddings
 from langchain_core.example_selectors import MaxMarginalRelevanceExampleSelector
 from langchain_core.vectorstores import VectorStore
 from sqlalchemy import Table, exc, select, text
-from sqlalchemy.engine.reflection import Inspector
 from sqlalchemy.schema import CreateTable
 from tabulate import tabulate
 
@@ -104,9 +104,7 @@ def sample_rows(
         maxcolwidths=DEFAULT_TABLE_AS_TEXT_CELL_MAX_WIDTH,
     )
 
-    return (
-        f"{len(sample_rows)} example rows:\n {grid_str}"
-    )
+    return f"{len(sample_rows)} example rows:\n {grid_str}"
 
 
 def get_table_info_as_list(
@@ -206,43 +204,30 @@ def check_and_format_query(db: SQLDatabase, sql_query: str) -> str:
     """
 
     sql_query = clean_text(sql_query, protect_nested_strings=True)
-    sql_query = lowercase_like_clause(sql_query)
 
-    # Use sqlglot to parse and extract columns and tables from the query
-    parsed_query = sqlglot.parse_one(sql_query)
-    select_stmt = parsed_query.find(exp.Select)
-    if not select_stmt:
-        raise ValueError("Only SELECT statements are supported.")
+    try:
+        sql_query = lowercase_like_clause(sql_query)
 
-    sql_query_columns = []
-    for expression in select_stmt.args["expressions"]:
-        if isinstance(expression, exp.Alias):
-            sql_query_columns.append(expression.text("alias"))
-        elif isinstance(expression, exp.Column):
-            sql_query_columns.append(expression.text("this"))
+        # Use sqlglot to parse and extract columns and tables from the query
+        parsed_query = sqlglot.parse_one(sql_query)
+        select_stmt = parsed_query.find(exp.Select)
+        if not select_stmt:
+            raise ValueError("Only SELECT statements are supported.")
 
-    inspector = Inspector.from_engine(db._engine)
+        # Perform a dry-run to check syntax and table/column existence
+        stmt = text(sql_query)
+        with db._engine.connect() as conn:
+            # We use a transaction and roll it back to avoid any side effects
+            trans = conn.begin()
+            try:
+                conn.execute(stmt.execution_options(autocommit=False)).fetchall()
+            except exc.DBAPIError as e:
+                raise ValueError(f"Query failed due to database error: {e}")
+            finally:
+                trans.rollback()
+    except sqlglot.errors.ParseError:
+        ...
+        # eat sqlglot parse errors since that sometimes fails to parse valid queries
+        # and ultimately the db decides what is valid.
 
-    # Check if tables and columns exist in the database
-    for table_name in inspector.get_table_names():
-        table_columns = [col["name"] for col in inspector.get_columns(table_name)]
-        for col in sql_query_columns:
-            if col not in table_columns:
-                raise ValueError(
-                    f"SQL Query column '{col}' does not exist in table '{table_name}' or is not accessible."
-                )
-
-    # Perform a dry-run to check syntax and table/column existence
-    stmt = text(sql_query)
-    with db._engine.connect() as conn:
-        # We use a transaction and roll it back to avoid any side effects
-        trans = conn.begin()
-        try:
-            conn.execute(stmt.execution_options(autocommit=False)).fetchall()
-        except exc.DBAPIError as e:
-            raise ValueError(f"Query failed due to database error: {e}")
-        finally:
-            trans.rollback()
-
-    # If all checks pass, the query is valid against the db
     return sql_query

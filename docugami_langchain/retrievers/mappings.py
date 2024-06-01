@@ -43,7 +43,11 @@ def _build_summary_mappings(
 
     for batch in batches:
         batch_input = [(doc.page_content, format) for _, doc in batch]
-        batch_summaries = chain.run_batch(batch_input)  # type: ignore
+        batch_summaries: list[str] = chain.run_batch(batch_input)  # type: ignore
+
+        for summary in batch_summaries:
+            if isinstance(summary, Exception):
+                raise summary
 
         # Assigning summaries to the respective document IDs
         for (id, doc), summary in zip(batch, batch_summaries):

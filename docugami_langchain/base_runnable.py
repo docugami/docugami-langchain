@@ -2,7 +2,7 @@ import re
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, AsyncIterator, Generic, Optional, TypeVar
+from typing import Any, AsyncIterator, Generic, Optional, TypeVar, Union
 
 import yaml
 from langchain_community.vectorstores.faiss import FAISS
@@ -93,7 +93,9 @@ Your inputs will be in this format:
 """
 
     if params.output:
-        prompt += f"Given the inputs above, please generate: {params.output.description}"
+        prompt += (
+            f"Given the inputs above, please generate: {params.output.description}"
+        )
 
     return prompt
 
@@ -402,12 +404,14 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
             return TracedResponse[T](run_id=run_id, value=chain_output)
 
     @abstractmethod
-    def run_batch(self, **kwargs: Any) -> list[T]:
+    def run_batch(self, **kwargs: Any) -> list[Union[T, Exception]]:
         config, kwargs_dict = self._prepare_run_args(kwargs)
 
         inputs = kwargs_dict.get("inputs")
         if not inputs:
             raise Exception("Please specify a batch for inference")
+
+        return_exceptions = kwargs_dict.get("return_exceptions", True)
 
         if not isinstance(inputs, list):
             raise Exception("Input for batch processing must be a List")
@@ -420,7 +424,11 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
                         : self.input_params_max_length_cutoff
                     ]
 
-        return self.runnable().batch(inputs=inputs, config=config)  # type: ignore
+        return self.runnable().batch(
+            inputs=inputs,
+            config=config,
+            return_exceptions=return_exceptions,
+        )
 
     def prompt(
         self,

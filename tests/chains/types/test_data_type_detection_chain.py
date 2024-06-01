@@ -6,21 +6,24 @@ import torch
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
-from docugami_langchain.chains.types.common import DataTypes, DocugamiDataType
+from docugami_langchain.chains.types.common import DataType, DataTypeWithUnit
 from docugami_langchain.chains.types.data_type_detection_chain import (
     DataTypeDetectionChain,
 )
 from tests.common import TEST_DATA_DIR, verify_traced_response
 
-TEST_INPUT_TEXT_ITEMS = [
-    "22nndd M@ RCH 2oo7",
-    "Signed on 07-01-1982",
-    "This agreement was signed between Foo and Bar on the 2nd day of September, of the year twenty thirteen.",
-    "02-01-23",
+TEST_DATA = [
+    (
+        "on the 2nd day of September, of the year twenty thirteen.",
+        DataTypeWithUnit(type=DataType.DATETIME, unit=""),
+    ),
+    (
+        "Excess Liability/Umbrella coverage with a limit of no less than $9,000,000 per occurrence and in the aggregate (such limit may be "
+        + "achieved through increase of limits in underlying policies to reach the level of coverage shown here). This policy shall name "
+        + "Client as an additional insured with...",
+        DataTypeWithUnit(type=DataType.INTEGER, unit="$"),
+    ),
 ]
-TEST_PARSED_DATA_TYPE: DocugamiDataType = DocugamiDataType(
-    type=DataTypes.DATETIME, unit="datetime"
-)
 
 
 def init_chain(
@@ -39,37 +42,46 @@ def init_chain(
     and torch.cuda.get_device_properties(0).total_memory / (1024 * 1024 * 1024) < 15,
     reason="Not enough GPU memory to load model, need a larger GPU e.g. a 16GB T4",
 )
+@pytest.mark.parametrize("text,type", TEST_DATA)
 def test_local_data_type_detection(
     local_mistral7b: BaseLanguageModel,
     huggingface_minilm: Embeddings,
+    text: str,
+    type: DataTypeWithUnit,
 ) -> Any:
     chain = init_chain(local_mistral7b, huggingface_minilm)
-    response = chain.run(TEST_INPUT_TEXT_ITEMS)
+    response = chain.run(text)
     verify_traced_response(response)
-    assert TEST_PARSED_DATA_TYPE == response.value
+    assert response.value == type
 
 
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_data_type_detection(
-    fireworksai_mixtral: BaseLanguageModel,
+@pytest.mark.parametrize("text,type", TEST_DATA)
+def test_fireworksai_llama3_data_type_detection(
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
+    text: str,
+    type: DataTypeWithUnit,
 ) -> Any:
-    chain = init_chain(fireworksai_mixtral, huggingface_minilm)
-    response = chain.run(TEST_INPUT_TEXT_ITEMS)
+    chain = init_chain(fireworksai_llama3, huggingface_minilm)
+    response = chain.run(text)
     verify_traced_response(response)
-    assert TEST_PARSED_DATA_TYPE == response.value
+    assert response.value == type
 
 
 @pytest.mark.skipif(
     "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
 )
+@pytest.mark.parametrize("text,type", TEST_DATA)
 def test_openai_gpt4_data_type_detection(
     openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
+    text: str,
+    type: DataTypeWithUnit,
 ) -> Any:
     chain = init_chain(openai_gpt4, openai_ada)
-    response = chain.run(TEST_INPUT_TEXT_ITEMS)
+    response = chain.run(text)
     verify_traced_response(response)
-    assert TEST_PARSED_DATA_TYPE == response.value
+    assert response.value == type

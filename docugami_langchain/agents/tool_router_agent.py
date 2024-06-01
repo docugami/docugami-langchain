@@ -64,10 +64,10 @@ class ToolRouterAgent(BaseDocugamiAgent):
             task_description="selects an appropriate tool for the question a user is asking, and builds a tool invocation JSON blob for the tool",
             additional_instructions=[
                 """- Here is an example of a valid JSON blob for your output. Please STRICTLY follow this format:
-{{
+{
   "tool_name": $TOOL_NAME,
   "tool_input": $INPUT_STRING
-}}""",
+}""",
                 "- Always use one of the tools, don't try to directly answer the question even if you think you know the answer",
                 "- $TOOL_NAME is the (string) name of the tool to use, and must be one of these values: {tool_names}",
                 "- $INPUT_STRING is the (string) input carefully crafted to answer the question using the given tool.",

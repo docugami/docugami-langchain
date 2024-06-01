@@ -21,11 +21,13 @@ from docugami_langchain.chains.rag import (
     ToolOutputGraderChain,
 )
 from docugami_langchain.chains.types import (
+    DataType,
     DataTypeDetectionChain,
-    DataTypes,
+    DataTypeWithUnit,
     DateAddChain,
     DateParseChain,
-    DocugamiDataType,
+    FloatParseChain,
+    IntParseChain,
     TimespanParseChain,
 )
 
@@ -48,9 +50,11 @@ __all__ = [
     "ToolFinalAnswerChain",
     "ToolOutputGraderChain",
     "DataTypeDetectionChain",
-    "DataTypes",
-    "DocugamiDataType",
+    "DataType",
+    "DataTypeWithUnit",
     "DateAddChain",
     "DateParseChain",
+    "FloatParseChain",
+    "IntParseChain",
     "TimespanParseChain",
 ]
