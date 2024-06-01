@@ -18,25 +18,6 @@ UN_ESCAPE_MAP = {
 }
 
 
-def _replace_null_outside_quotes(text: str) -> str:
-    """
-    Looks for null outside quotes, and if found replaces it with "".
-    """
-
-    text = text.strip()
-    if not text:
-        return ""
-
-    def replacement(match: re.Match) -> str:
-        before = text[: match.start()]
-        if before.count('"') % 2 == 0:  # Even number of quotes before 'null'
-            return '""'
-        else:
-            return str(match.group(0))  # 'null' is inside quotes, don't replace
-
-    return re.sub(r"\bnull\b", replacement, text, flags=re.IGNORECASE)
-
-
 def _escape_non_escape_sequence_backslashes(text: str) -> str:
     """
     Escape backslashes that are not part of a known escape sequence.
@@ -106,7 +87,6 @@ def clean_text(text: str, protect_nested_strings: bool = False) -> str:
     text = "".join(filter(lambda x: x in set(string.printable), text))
 
     text = "".join(filter(lambda x: x in string.printable, text))  # non-printable chars
-    text = _replace_null_outside_quotes(text)
 
     if protect_nested_strings:
         text = _escape_non_escape_sequence_backslashes(text)

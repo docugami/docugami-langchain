@@ -215,24 +215,6 @@ def check_and_format_query(db: SQLDatabase, sql_query: str) -> str:
         if not select_stmt:
             raise ValueError("Only SELECT statements are supported.")
 
-        sql_query_columns = []
-        for expression in select_stmt.args["expressions"]:
-            if isinstance(expression, exp.Alias):
-                sql_query_columns.append(expression.text("alias"))
-            elif isinstance(expression, exp.Column):
-                sql_query_columns.append(expression.text("this"))
-
-        inspector = Inspector.from_engine(db._engine)
-
-        # Check if tables and columns exist in the database
-        for table_name in inspector.get_table_names():
-            table_columns = [col["name"] for col in inspector.get_columns(table_name)]
-            for col in sql_query_columns:
-                if col not in table_columns:
-                    raise ValueError(
-                        f"SQL Query column '{col}' does not exist in table '{table_name}' or is not accessible."
-                    )
-
         # Perform a dry-run to check syntax and table/column existence
         stmt = text(sql_query)
         with db._engine.connect() as conn:
