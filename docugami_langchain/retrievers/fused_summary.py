@@ -144,8 +144,8 @@ class FusedSummaryRetriever(BaseRetriever):
                     full_doc_summary_id
                 )
 
-            source: str = sub_doc.metadata.get(self.source_key, "")
-            file_id: str = sub_doc.metadata.get(self.file_id_key, "")
+            source: str = sub_doc.metadata.get(self.source_key) or ""
+            file_id: str = sub_doc.metadata.get(self.file_id_key) or ""
             key = full_doc_summary_id or "-1"
 
             if key not in fused_doc_elements:

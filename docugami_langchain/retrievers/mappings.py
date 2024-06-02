@@ -162,7 +162,7 @@ def build_doc_maps_from_chunks(
         parent_chunk = parent_chunks_by_id[parent_chunk_id]
         parent_chunk_source = parent_chunk.metadata.get(source_key)
         if parent_chunk_source:
-            full_doc_id = full_doc_ids_by_source.get(parent_chunk_source, "")
+            full_doc_id = full_doc_ids_by_source.get(parent_chunk_source) or ""
             if full_doc_id:
                 parent_chunk.metadata[file_id_key] = full_doc_id
 

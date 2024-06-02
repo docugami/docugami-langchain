@@ -56,28 +56,28 @@ class CustomReActJsonSingleInputOutputParser(BaseOutputParser[Union[Invocation, 
         try:
             # First, try parsing with STRICT_REACT_PATTERN
             response = self._parse_regex(text, STRICT_REACT_PATTERN)
-            tool_name = response.get("tool_name", "")
+            tool_name = response.get("tool_name") or ""
 
             if not tool_name:
                 raise Exception(f"could not find tool_name in text: {text}")
 
             return Invocation(
                 tool_name=tool_name,
-                tool_input=response.get("tool_input", ""),
+                tool_input=response.get("tool_input") or "",
                 log=text,
             )
         except Exception:
             # Next, try parsing with SIMPLE_JSON_PATTERN
             try:
                 response = self._parse_regex(text, SIMPLE_JSON_PATTERN)
-                tool_name = response.get("tool_name", "")
+                tool_name = response.get("tool_name") or ""
 
                 if not tool_name:
                     raise Exception(f"could not find tool_name in text: {text}")
 
                 return Invocation(
                     tool_name=tool_name,
-                    tool_input=response.get("tool_input", ""),
+                    tool_input=response.get("tool_input") or "",
                     log=text,
                 )
             except Exception:

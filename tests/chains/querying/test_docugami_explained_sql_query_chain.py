@@ -96,7 +96,7 @@ def _runtest(chain: DocugamiExplainedSQLQueryChain, test_data: QueryTestData) ->
     result = chain_response.value.get("result")
     assert result
     verify_output(
-        result.get("explained_sql_result", ""),
+        result.get("explained_sql_result") or "",
         test_data.explained_result_answer_fragments,
     )
 
@@ -111,7 +111,7 @@ async def _runtest_streamed(
     result = chain_response.value.get("result")
     assert result
     verify_output(
-        result.get("explained_sql_result", ""),
+        result.get("explained_sql_result") or "",
         test_data.explained_result_answer_fragments,
     )
 
