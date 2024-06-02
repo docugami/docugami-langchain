@@ -24,7 +24,13 @@ from docugami_langchain.chains.querying import (
     SQLQueryExplainerChain,
     SQLResultChain,
 )
-from docugami_langchain.config import MAX_PARAMS_CUTOFF_LENGTH_CHARS
+from docugami_langchain.chains.types.data_type_detection_chain import (
+    DataTypeDetectionChain,
+)
+from docugami_langchain.chains.types.date_parse_chain import DateParseChain
+from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
+from docugami_langchain.chains.types.int_parse_chain import IntParseChain
+from docugami_langchain.config import BATCH_SIZE, MAX_PARAMS_CUTOFF_LENGTH_CHARS
 from docugami_langchain.tools.common import NOT_FOUND, BaseDocugamiTool
 
 
@@ -71,11 +77,11 @@ class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
                 config=config,
             )
             if chain_response.value:
-                results = chain_response.value.get("results")
+                results = chain_response.value.get("result")
                 if results:
-                    sql_result = results.get("sql_result", "")  # type: ignore
-                    sql_query = results.get("sql_query", "")  # type: ignore
-                    explained_sql_query = results.get("explained_sql_query", "")  # type: ignore
+                    sql_result = results.get("sql_result", "")
+                    sql_query = results.get("sql_query", "")
+                    explained_sql_query = results.get("explained_sql_query", "")
                     if sql_result:
                         return CitedAnswer(
                             source=self.name,
@@ -144,11 +150,10 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     return description[:MAX_PARAMS_CUTOFF_LENGTH_CHARS]
 
 
-def excel_to_sqlite_connection(
-    file_path: Union[Path, str], table_name: str
-) -> sqlite3.Connection:
-    # Create a temporary SQLite database in memory
-    conn = sqlite3.connect(":memory:")
+def excel_to_sqlite_connection(file_path: Union[Path, str], table_name: str) -> str:
+    # Create a temporary SQLite database file
+    temp_db_file = tempfile.NamedTemporaryFile(suffix=".sqlite", delete=False)
+    conn = sqlite3.connect(temp_db_file.name)
 
     # Verify the file path
     file_path = Path(file_path)
@@ -167,21 +172,19 @@ def excel_to_sqlite_connection(
     # Write the table to the SQLite database
     df.to_sql(table_name, conn, if_exists="replace", index=False)
 
-    return conn
+    return temp_db_file.name
 
 
-def connect_to_db(conn: sqlite3.Connection) -> SQLDatabase:
-    temp_db_file = tempfile.NamedTemporaryFile(suffix=".sqlite")
-    with sqlite3.connect(temp_db_file.name) as disk_conn:
-        conn.backup(disk_conn)  # dumps the connection to disk
+def connect_to_db(db_file_path: str) -> SQLDatabase:
     return SQLDatabase.from_uri(
-        f"sqlite:///{temp_db_file.name}",
+        f"sqlite:///{db_file_path}",
         sample_rows_in_table_info=0,  # We select and insert sample rows using custom logic
     )
 
 
 def connect_to_excel(file_path: Union[Path, str], table_name: str) -> SQLDatabase:
-    return connect_to_db(excel_to_sqlite_connection(file_path, table_name))
+    db_file_path = excel_to_sqlite_connection(file_path, table_name)
+    return connect_to_db(db_file_path)
 
 
 def get_retrieval_tool_for_report(
@@ -190,10 +193,15 @@ def get_retrieval_tool_for_report(
     retrieval_tool_function_name: str,
     retrieval_tool_description: str,
     sql_llm: BaseLanguageModel,
-    explainer_llm: BaseLanguageModel,
+    general_llm: BaseLanguageModel,
     embeddings: Embeddings,
     sql_fixup_examples_file: Optional[Path] = None,
     sql_examples_file: Optional[Path] = None,
+    data_type_detection_examples_file: Optional[Path] = None,
+    date_parse_examples_file: Optional[Path] = None,
+    float_parse_examples_file: Optional[Path] = None,
+    int_parse_examples_file: Optional[Path] = None,
+    batch_size: int = BATCH_SIZE,
 ) -> Optional[BaseDocugamiTool]:
     if not local_xlsx_path.exists():
         return None
@@ -212,10 +220,33 @@ def get_retrieval_tool_for_report(
     )
     if sql_examples_file:
         sql_result_chain.load_examples(sql_examples_file)
-    sql_result_chain.optimize()
+
+    detection_chain = DataTypeDetectionChain(llm=general_llm, embeddings=embeddings)
+    if data_type_detection_examples_file:
+        detection_chain.load_examples(data_type_detection_examples_file)
+
+    date_parse_chain = DateParseChain(llm=general_llm, embeddings=embeddings)
+    if date_parse_examples_file:
+        date_parse_chain.load_examples(date_parse_examples_file)
+
+    float_parse_chain = FloatParseChain(llm=general_llm, embeddings=embeddings)
+    if float_parse_examples_file:
+        float_parse_chain.load_examples(float_parse_examples_file)
+
+    int_parse_chain = IntParseChain(llm=general_llm, embeddings=embeddings)
+    if int_parse_examples_file:
+        int_parse_chain.load_examples(int_parse_examples_file)
+
+    sql_result_chain.optimize(
+        detection_chain=detection_chain,
+        date_parse_chain=date_parse_chain,
+        float_parse_chain=float_parse_chain,
+        int_parse_chain=int_parse_chain,
+        batch_size=batch_size,
+    )
 
     sql_query_explainer_chain = SQLQueryExplainerChain(
-        llm=explainer_llm,
+        llm=general_llm,
         embeddings=embeddings,
     )
     if sql_examples_file:
@@ -224,7 +255,7 @@ def get_retrieval_tool_for_report(
     return CustomReportRetrievalTool(
         db=db,
         chain=DocugamiExplainedSQLQueryChain(
-            llm=explainer_llm,
+            llm=general_llm,
             embeddings=embeddings,
             sql_result_chain=sql_result_chain,
             sql_query_explainer_chain=sql_query_explainer_chain,

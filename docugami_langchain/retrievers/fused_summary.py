@@ -192,13 +192,21 @@ class FusedSummaryRetriever(BaseRetriever):
             grades: list[bool] = []
             for i in range(0, len(grader_inputs), self.grader_batch_size):
                 batch = grader_inputs[i : i + self.grader_batch_size]
-                grades.extend(self.grader_chain.run_batch(batch, grader_config))
+                batch_grades = self.grader_chain.run_batch(batch, grader_config)
+                for grade in batch_grades:
+                    if isinstance(grade, Exception):
+                        raise grade
+                grades.extend(batch_grades)  # type: ignore
 
             if len(grades) != len(fused_docs):
                 raise ValueError(
                     "Grader responses length does not match fused_docs length."
                 )
 
-            fused_docs = [doc for doc, grade in zip(fused_docs, grades) if grade]
+            fused_docs = [
+                doc
+                for doc, grade in zip(fused_docs, grades)
+                if isinstance(grade, bool) and grade
+            ]
 
         return fused_docs

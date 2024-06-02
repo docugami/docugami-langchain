@@ -1,6 +1,6 @@
 import logging
 from operator import itemgetter
-from typing import AsyncIterator, Optional
+from typing import AsyncIterator, Optional, Union
 
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.example_selectors import MaxMarginalRelevanceExampleSelector
@@ -10,6 +10,13 @@ from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.chains.base import BaseDocugamiChain
 from docugami_langchain.chains.querying.models import ExplainedSQLResult
 from docugami_langchain.chains.querying.sql_fixup_chain import SQLFixupChain
+from docugami_langchain.chains.types.data_type_detection_chain import (
+    DataTypeDetectionChain,
+)
+from docugami_langchain.chains.types.date_parse_chain import DateParseChain
+from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
+from docugami_langchain.chains.types.int_parse_chain import IntParseChain
+from docugami_langchain.config import BATCH_SIZE
 from docugami_langchain.output_parsers.sql_finding import SQLFindingOutputParser
 from docugami_langchain.output_parsers.text_cleaning import TextCleaningOutputParser
 from docugami_langchain.params import RunnableParameters, RunnableSingleParameter
@@ -18,6 +25,7 @@ from docugami_langchain.utils.sql import (
     create_example_selector,
     get_table_info_as_create_table,
 )
+from docugami_langchain.utils.type_detection import convert_to_typed
 
 logger = logging.getLogger(__name__)
 
@@ -31,12 +39,30 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
 
     _example_row_selector: Optional[MaxMarginalRelevanceExampleSelector] = None
 
-    def optimize(self) -> None:
+    def optimize(
+        self,
+        detection_chain: DataTypeDetectionChain,
+        date_parse_chain: DateParseChain,
+        float_parse_chain: FloatParseChain,
+        int_parse_chain: IntParseChain,
+        batch_size: int = BATCH_SIZE,
+    ) -> None:
         """
-        Optimizes the database for few shot rows selection. This is optional
-        but recommended. If you don't run optimize, then the first N rows are
-        returned in table info without considering similarity.
+        Optimizes the database with data type detection, and for few shot rows selection.
+
+        This is optional but highly recommended. If you don't run optimize, then:
+        1. All columns are TEXT, so sorts/averages/etc don't work well or at all
+        2. The first N rows are returned in table info without considering similarity.
         """
+        self.db = convert_to_typed(
+            db=self.db,
+            data_type_detection_chain=detection_chain,
+            date_parse_chain=date_parse_chain,
+            float_parse_chain=float_parse_chain,
+            int_parse_chain=int_parse_chain,
+            batch_size=batch_size,
+        )
+
         if self.embeddings:
             self._example_row_selector = create_example_selector(
                 self.db, self.embeddings, self.examples_vectorstore_cls
@@ -138,9 +164,10 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
             task_description="only generates SQL as output. Given an input SQL table description and a question, you generate an equivalent syntactically correct SQLite query against the given table",
             additional_instructions=[
                 "- Only generate SQL as output, don't generate any other language e.g. do not try to directly answer the question asked.",
-                '- If the question is ambiguous or you don\'t know how to answer it in the form of a SQL QUERY, just dump the first row of the table i.e. SELECT * FROM "Table Name" LIMIT 1.',
-                "- Unless the user specifies in the question a specific number of examples to obtain, query for at most 5 results using the LIMIT clause as per SQLite.",
+                "- Unless the user specifies in the question a specific number of examples to obtain, query for at most 10 results using the LIMIT clause as per SQLite.",
                 "- If needed, order the results to return the most informative data in the database.",
+                "- Data may be duplicated, so when selecting always try to get all values that match a question e.g. if a user asks for the contract with the highest price you should group by "
+                + "the price and show all contracts with the highest price (since there could be multiple)",
                 "- Never query for all columns from a table. You must query only the columns that are needed to answer the question.",
                 '- Wrap each column name in the query in double quotes (") to denote them as delimited identifiers.',
                 "- Pay attention to use only the column names you can see in the given tables. Be careful to not query for columns that do not exist.",
@@ -186,8 +213,14 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
         self,
         inputs: list[str],
         config: Optional[RunnableConfig] = None,
-    ) -> list[ExplainedSQLResult]:
+        return_exceptions: bool = True,
+    ) -> list[Union[ExplainedSQLResult, Exception]]:
         return super().run_batch(
-            inputs=[{"question": i} for i in inputs],
+            inputs=[
+                {
+                    "question": i,
+                }
+                for i in inputs
+            ],
             config=config,
         )

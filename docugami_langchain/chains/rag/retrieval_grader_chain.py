@@ -1,4 +1,4 @@
-from typing import AsyncIterator, Optional
+from typing import AsyncIterator, Optional, Union
 
 from langchain_core.runnables import RunnableConfig
 
@@ -74,7 +74,8 @@ class RetrievalGraderChain(BaseDocugamiChain[bool]):
         self,
         inputs: list[tuple[str, str]],
         config: Optional[RunnableConfig] = None,
-    ) -> list[bool]:
+        return_exceptions: bool = True,
+    ) -> list[Union[bool, Exception]]:
         return super().run_batch(
             inputs=[
                 {
@@ -84,4 +85,5 @@ class RetrievalGraderChain(BaseDocugamiChain[bool]):
                 for i in inputs
             ],
             config=config,
+            return_exceptions=return_exceptions,
         )

@@ -2,7 +2,6 @@ import pytest
 
 from docugami_langchain.utils.string_cleanup import (
     _escape_non_escape_sequence_backslashes,
-    _replace_null_outside_quotes,
     _unescape_escaped_chars_outside_quoted_strings,
     clean_text,
 )
@@ -29,39 +28,6 @@ from docugami_langchain.utils.string_cleanup import (
 )
 def test_escape_non_escaped_backslashes(text: str, expected: str) -> None:
     assert _escape_non_escape_sequence_backslashes(text) == expected
-
-
-@pytest.mark.parametrize(
-    "text,expected",
-    [
-        ("Just some text.", "Just some text."),  # No "null"
-        (
-            "only full word null not substringnullsofstring replaced",
-            'only full word "" not substringnullsofstring replaced',
-        ),  # Substring null
-        (
-            "null should become empty.",
-            '"" should become empty.',
-        ),  # "null" outside quotes
-        ('"null" should stay.', '"null" should stay.'),  # "null" inside quotes
-        (
-            'Outside null and "inside null".',
-            'Outside "" and "inside null".',
-        ),  # Mix inside and outside
-        ("", ""),  # Empty string
-        ("NuLl", '""'),  # Case-insensitive "null"
-        (
-            'Multiple nulls null "null" null.',
-            'Multiple nulls "" "null" "".',
-        ),  # Multiple instances
-        (
-            '"Just some quoted text."',
-            '"Just some quoted text."',
-        ),  # Edge case with quotes but no "null"
-    ],
-)
-def test_replace_null_outside_quotes(text: str, expected: str) -> None:
-    assert _replace_null_outside_quotes(text) == expected
 
 
 @pytest.mark.parametrize(

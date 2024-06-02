@@ -16,6 +16,7 @@ TEST_DATA = [
     ("22nndd M@ RCH 2oo7", datetime(2007, 3, 22)),
     ("5-Dec-23", datetime(2023, 12, 5)),
     ("Jun1,23", datetime(2023, 6, 1)),
+    ("2012-08-01", datetime(2012, 8, 1)),  # directly parseable
 ]
 
 

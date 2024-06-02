@@ -54,7 +54,11 @@ def _runtest(
             )
 
     page_contents = [(d.page_content, "text") for d in test_data_full_docs]
-    summaries = summarize_document_chain.run_batch(page_contents)  # type: ignore
+    summaries: list[str] = summarize_document_chain.run_batch(page_contents)  # type: ignore
+    for summary in summaries:
+        if isinstance(summary, Exception):
+            raise summary
+
     assert len(summaries) == len(test_data_full_docs)
 
     test_data_summarized_docs = []

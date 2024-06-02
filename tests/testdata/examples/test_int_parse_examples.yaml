@@ -1,0 +1,11 @@
+- value_text: $1,000,000
+  parsed_int: "1000000"
+
+- value_text: pay the $300 fine
+  parsed_int: "300"
+
+- value_text: 25 thousand canadian dollars
+  parsed_int: "25000"
+
+- value_text: First 500 sqft and then again 1200 square feet
+  parsed_int: "500"

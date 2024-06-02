@@ -37,10 +37,12 @@ EXPECTED_CHAINS = [
     "SimpleRAGChain",
     "StandaloneQuestionChain",
     "DataTypeDetectionChain",
-    "DataTypes",
-    "DocugamiDataType",
+    "DataType",
+    "DataTypeWithUnit",
     "DateAddChain",
     "DateParseChain",
+    "FloatParseChain",
+    "IntParseChain",
     "TimespanParseChain",
 ]
 
@@ -49,13 +51,17 @@ EXPECTED_DOCUMENT_LOADERS = [
 ]
 
 EXPECTED_OUTPUT_PARSERS = [
+    "CustomReActJsonSingleInputOutputParser",
+    "DatetimeOutputParser",
+    "FloatOutputParser",
+    "IntOutputParser",
     "KeyfindingOutputParser",
     "LineSeparatedListOutputParser",
-    "CustomReActJsonSingleInputOutputParser",
     "SQLFindingOutputParser",
     "TextCleaningOutputParser",
     "TimeSpan",
     "TimespanOutputParser",
+    "TruthyOutputParser",
 ]
 
 EXPECTED_RETRIEVERS = ["SearchType", "FusedSummaryRetriever"]
