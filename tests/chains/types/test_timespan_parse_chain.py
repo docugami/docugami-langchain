@@ -2,7 +2,6 @@ import os
 from typing import Any
 
 import pytest
-import torch
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
