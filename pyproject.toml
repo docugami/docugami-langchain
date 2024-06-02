@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docugami-langchain"
-version = "0.0.11"
+version = "0.0.12"
 description = "An integration package connecting Docugami and LangChain"
 authors = []
 readme = "README.md"
@@ -35,7 +35,6 @@ pytest-asyncio = ">=0.23.6"
 sentence-transformers = ">=2.7.0"
 langchain-openai = ">=0.1.7"
 langchain-fireworks = ">=0.1.3"
-langchain-huggingface = "^0.0.1"
 faiss-cpu = ">=1.8.0"
 
 [tool.poetry.group.codespell]
