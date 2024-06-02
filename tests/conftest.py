@@ -4,12 +4,12 @@ from pathlib import Path
 
 import pytest
 from langchain_community.cache import SQLiteCache
-from langchain_community.embeddings.huggingface import HuggingFaceEmbeddings
 from langchain_core.embeddings import Embeddings
 from langchain_core.globals import set_llm_cache
 from langchain_core.language_models import BaseLanguageModel
 from langchain_fireworks.chat_models import ChatFireworks
 from langchain_fireworks.llms import Fireworks
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
 # Turn on caching
@@ -45,23 +45,6 @@ def fireworksai_mistral_7b() -> BaseLanguageModel:
         cache=True,
         temperature=0,
         max_tokens=2 * 1024,  # includes input and output tokens
-        model_kwargs={
-            "context_length_exceeded_behavior": "truncate",
-        },
-    )
-
-
-@pytest.fixture()
-def fireworksai_mixtral() -> BaseLanguageModel:
-    """
-    Mixtral8x7b model hosted on fireworksai.
-    """
-    return ChatFireworks(
-        model="accounts/fireworks/models/mixtral-8x7b-instruct",
-        streaming=True,
-        cache=True,
-        temperature=0,
-        max_tokens=32 * 1024,  # includes input and output tokens
         model_kwargs={
             "context_length_exceeded_behavior": "truncate",
         },

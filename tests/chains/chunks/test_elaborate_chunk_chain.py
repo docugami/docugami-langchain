@@ -19,11 +19,11 @@ def init_chain(llm: BaseLanguageModel, embeddings: Embeddings) -> ElaborateChunk
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_elaborate_chunk(
-    fireworksai_mixtral: BaseLanguageModel,
+def test_fireworksai_llama3_elaborate_chunk(
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
-    chain = init_chain(fireworksai_mixtral, huggingface_minilm)
+    chain = init_chain(fireworksai_llama3, huggingface_minilm)
     elaboration = chain.run(TEST_INSTRUCTIONS)
     verify_traced_response(elaboration)
     assert len(elaboration.value) > len(TEST_INSTRUCTIONS)

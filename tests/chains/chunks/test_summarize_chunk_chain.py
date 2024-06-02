@@ -24,11 +24,11 @@ def init_chain(llm: BaseLanguageModel, embeddings: Embeddings) -> SummarizeChunk
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_summarize_chunk(
-    fireworksai_mixtral: BaseLanguageModel,
+def test_fireworksai_llama3_summarize_chunk(
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
-    chain = init_chain(fireworksai_mixtral, huggingface_minilm)
+    chain = init_chain(fireworksai_llama3, huggingface_minilm)
     summary = chain.run(TEST_FORCE_MAJEURE_CLAUSE)
     verify_traced_response(summary)
     assert len(summary.value) < len(TEST_FORCE_MAJEURE_CLAUSE)

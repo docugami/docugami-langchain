@@ -76,16 +76,16 @@ def _runtest(
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_describe_document_set(
+def test_fireworksai_llama3_describe_document_set(
     test_data: DocsetTestData,
-    fireworksai_mixtral: BaseLanguageModel,
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
     summarize_document_chain = init_summarize_document_chain(
-        fireworksai_mixtral, huggingface_minilm
+        fireworksai_llama3, huggingface_minilm
     )
     describe_document_set_chain = init_describe_document_set_chain(
-        fireworksai_mixtral, huggingface_minilm
+        fireworksai_llama3, huggingface_minilm
     )
     _runtest(
         summarize_document_chain,
