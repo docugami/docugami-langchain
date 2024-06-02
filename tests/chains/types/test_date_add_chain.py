@@ -40,11 +40,11 @@ def test_local_date_add(
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_date_add(
-    fireworksai_mixtral: BaseLanguageModel,
+def test_fireworksai_llama3_date_add(
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> Any:
-    chain = init_chain(fireworksai_mixtral, huggingface_minilm)
+    chain = init_chain(fireworksai_llama3, huggingface_minilm)
     response = chain.run(TEST_MESSY_START_DATE, TEST_MESSY_END_DATE_OR_DURATION)
     verify_traced_response(response)
     assert TEST_ADDED_DATE == response.value

@@ -1,7 +1,6 @@
 import os
 
 import pytest
-from flaky import flaky
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
@@ -53,67 +52,6 @@ def init_re_act_agent(
         standalone_question_chain=standalone_questions_chain,
     )
     return agent
-
-
-@pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
-@pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
-)
-@flaky(max_runs=3)
-@pytest.mark.xfail(strict=False)  # Flaky test, sadly
-def test_fireworksai_mixtral_re_act(
-    test_data: DocsetTestData,
-    fireworksai_mixtral: BaseLanguageModel,
-    huggingface_minilm: Embeddings,
-) -> None:
-    agent = init_re_act_agent(test_data, fireworksai_mixtral, huggingface_minilm)
-
-    # test general LLM response from agent
-    run_agent_test(
-        agent,
-        GENERAL_KNOWLEDGE_QUESTION,
-        GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
-    )
-
-    for question in test_data.questions:
-        run_agent_test(
-            agent,
-            question.question,
-            question.acceptable_answer_fragments,
-            question.chat_history,
-            question.acceptable_citation_label_fragments,
-        )
-
-
-@pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
-@pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
-)
-@pytest.mark.asyncio
-@flaky(max_runs=3)
-@pytest.mark.xfail(strict=False)  # Flaky test, sadly
-async def test_fireworksai_mixtral_streamed_re_act(
-    test_data: DocsetTestData,
-    fireworksai_mixtral: BaseLanguageModel,
-    huggingface_minilm: Embeddings,
-) -> None:
-    agent = init_re_act_agent(test_data, fireworksai_mixtral, huggingface_minilm)
-
-    # test general LLM response from agent
-    await run_streaming_agent_test(
-        agent,
-        GENERAL_KNOWLEDGE_QUESTION,
-        GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
-    )
-
-    for question in test_data.questions:
-        await run_streaming_agent_test(
-            agent,
-            question.question,
-            question.acceptable_answer_fragments,
-            question.chat_history,
-            question.acceptable_citation_label_fragments,
-        )
 
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)

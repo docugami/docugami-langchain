@@ -39,11 +39,11 @@ def test_local_timespan_parse(
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_timespan_parse(
-    fireworksai_mixtral: BaseLanguageModel,
+def test_fireworksai_llama3_timespan_parse(
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> Any:
-    chain = init_chain(fireworksai_mixtral, huggingface_minilm)
+    chain = init_chain(fireworksai_llama3, huggingface_minilm)
     response = chain.run(TEST_MESSY_TIMESPAN)
     verify_traced_response(response)
     assert TEST_PARSED_TIMESPAN == response.value

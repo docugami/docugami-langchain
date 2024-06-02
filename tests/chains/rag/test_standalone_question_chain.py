@@ -42,11 +42,11 @@ def test_fireworksai_mistral_7b_standalone_question_no_history(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
 )
 @pytest.mark.asyncio
-async def test_fireworksai_mixtral_streamed_standalone_question_no_history(
-    fireworksai_mixtral: BaseLanguageModel,
+async def test_fireworksai_llama3_streamed_standalone_question_no_history(
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
-    chain = init_chain(fireworksai_mixtral, huggingface_minilm, examples=True)
+    chain = init_chain(fireworksai_llama3, huggingface_minilm, examples=True)
     chain_response = TracedResponse[str](value="")
     async for incremental_response in chain.run_stream(GENERAL_KNOWLEDGE_QUESTION):
         chain_response = incremental_response
@@ -58,11 +58,11 @@ async def test_fireworksai_mixtral_streamed_standalone_question_no_history(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
 )
 @pytest.mark.asyncio
-async def test_fireworksai_mixtral_streamed_standalone_question_with_history(
-    fireworksai_mixtral: BaseLanguageModel,
+async def test_fireworksai_llama3_streamed_standalone_question_with_history(
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
-    chain = init_chain(fireworksai_mixtral, huggingface_minilm, examples=True)
+    chain = init_chain(fireworksai_llama3, huggingface_minilm, examples=True)
     chain_response = TracedResponse[str](value="")
     async for incremental_response in chain.run_stream(
         GENERAL_KNOWLEDGE_QUESTION_WITH_HISTORY,
@@ -77,11 +77,11 @@ async def test_fireworksai_mixtral_streamed_standalone_question_with_history(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
 )
 @pytest.mark.asyncio
-async def test_fireworksai_mixtral_streamed_standalone_question_topic_change(
-    fireworksai_mixtral: BaseLanguageModel,
+async def test_fireworksai_llama3_streamed_standalone_question_topic_change(
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
-    chain = init_chain(fireworksai_mixtral, huggingface_minilm, examples=True)
+    chain = init_chain(fireworksai_llama3, huggingface_minilm, examples=True)
     chain_response = TracedResponse[str](value="")
     async for incremental_response in chain.run_stream(
         "tell me a joke",

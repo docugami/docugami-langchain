@@ -33,12 +33,12 @@ def _runtest(chain: SQLResultExplainerChain, test_data: QueryTestData) -> None:
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_sql_result_explainer(
+def test_fireworksai_llama3_sql_result_explainer(
     test_data: QueryTestData,
-    fireworksai_mixtral: BaseLanguageModel,
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
-    chain = init_chain(fireworksai_mixtral, huggingface_minilm)
+    chain = init_chain(fireworksai_llama3, huggingface_minilm)
     _runtest(chain, test_data)
 
 

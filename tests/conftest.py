@@ -52,23 +52,6 @@ def fireworksai_mistral_7b() -> BaseLanguageModel:
 
 
 @pytest.fixture()
-def fireworksai_mixtral() -> BaseLanguageModel:
-    """
-    Mixtral8x7b model hosted on fireworksai.
-    """
-    return ChatFireworks(
-        model="accounts/fireworks/models/mixtral-8x7b-instruct",
-        streaming=True,
-        cache=True,
-        temperature=0,
-        max_tokens=32 * 1024,  # includes input and output tokens
-        model_kwargs={
-            "context_length_exceeded_behavior": "truncate",
-        },
-    )
-
-
-@pytest.fixture()
 def fireworksai_llama3() -> BaseLanguageModel:
     """
     Llama3 model hosted on fireworksai.

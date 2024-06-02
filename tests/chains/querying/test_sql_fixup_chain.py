@@ -59,12 +59,12 @@ def _runtest(chain: SQLFixupChain, test_data: SQLFixupTestData) -> None:
 @pytest.mark.skipif(
     "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
 )
-def test_fireworksai_sql_fixup(
+def test_fireworksai_llama3_sql_fixup(
     test_data: SQLFixupTestData,
-    fireworksai_mixtral: BaseLanguageModel,
+    fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
-    chain = init_chain(fireworksai_mixtral, huggingface_minilm)
+    chain = init_chain(fireworksai_llama3, huggingface_minilm)
     _runtest(chain, test_data)
 
 
