@@ -4,12 +4,12 @@ from pathlib import Path
 
 import pytest
 from langchain_community.cache import SQLiteCache
+from langchain_community.embeddings.huggingface import HuggingFaceEmbeddings
 from langchain_core.embeddings import Embeddings
 from langchain_core.globals import set_llm_cache
 from langchain_core.language_models import BaseLanguageModel
 from langchain_fireworks.chat_models import ChatFireworks
 from langchain_fireworks.llms import Fireworks
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
 # Turn on caching
