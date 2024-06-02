@@ -58,15 +58,15 @@ def verify_output_list(
             for fragment in match_fragment_str_options:
                 output_match = output_match or fragment.lower() in value.lower()
 
-        assert (
-            output_match
-        ), f"The output {value} does not contain one of the expected output substrings {match_fragment_str_options}"
+            assert (
+                output_match
+            ), f"The output {value} does not contain one of the expected output substrings {match_fragment_str_options}"
 
-        # Check guardrails and warn if any violations detected based on string checks
-        for banned_word in ["sql", "context"]:
-            if banned_word.lower() in value.lower():
-                warnings.warn(
-                    UserWarning(f"Output contains banned word {banned_word}: {value}")
+            # Check guardrails and warn if any violations detected based on string checks
+            for banned_word in ["sql", "context"]:
+                if banned_word.lower() in value.lower():
+                    warnings.warn(
+                        UserWarning(f"Output contains banned word {banned_word}: {value}")
                 )
 
 
