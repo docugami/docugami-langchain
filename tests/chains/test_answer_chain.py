@@ -44,3 +44,25 @@ def test_fireworksai_mistral_7b_answer_with_examples(
     chain = init_chain(fireworksai_mistral_7b, huggingface_minilm, examples=True)
     answer = chain.run(GENERAL_KNOWLEDGE_QUESTION)
     verify_traced_response(answer, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
+
+@pytest.mark.skipif(
+    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
+)
+def test_openai_openai_answer_no_examples(
+    openai_gpt4: BaseLanguageModel,
+    openai_ada: Embeddings,
+) -> None:
+    chain = init_chain(openai_gpt4, openai_ada, examples=False)
+    answer = chain.run(GENERAL_KNOWLEDGE_QUESTION)
+    verify_traced_response(answer, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)
+
+@pytest.mark.skipif(
+    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
+)
+def test_openai_openai_answer_with_examples(
+    openai_gpt4: BaseLanguageModel,
+    openai_ada: Embeddings,
+) -> None:
+    chain = init_chain(openai_gpt4, openai_ada, examples=True)
+    answer = chain.run(GENERAL_KNOWLEDGE_QUESTION)
+    verify_traced_response(answer, GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS)

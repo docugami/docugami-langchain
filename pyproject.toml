@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docugami-langchain"
-version = "0.0.13"
+version = "0.0.14"
 description = "Docugami partner package for LangChain"
 authors = []
 readme = "README.md"
@@ -76,7 +76,7 @@ disallow_untyped_defs = true
 disable_error_code = "typeddict-item"
 
 [[tool.mypy.overrides]]
-module = ["wordtodigits", "pandas", "llama_cpp.*", "langgraph.*"]
+module = ["wordtodigits", "pandas", "llama_cpp.*", "langgraph.*", "langchain_fireworks.*", "langchain_openai.*"]
 ignore_missing_imports = true
 
 [tool.coverage.run]

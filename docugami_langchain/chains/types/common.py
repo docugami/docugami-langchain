@@ -39,3 +39,10 @@ class DataTypeWithUnit(BaseModel):
     def __hash__(self) -> int:
         # Create a hash based on the type and normalized unit
         return hash((self.type, self.normalized_unit()))
+
+
+class ParsedAddress(BaseModel):
+    street: Optional[str]
+    city: Optional[str]
+    state: Optional[str]
+    zip: Optional[str]

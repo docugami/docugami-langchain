@@ -94,7 +94,7 @@ def test_fireworksai_llama3_suggested_report(
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
-    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
 )
 def test_openai_gpt4_suggested_report(
     test_data: DocsetTestData, openai_gpt4: BaseLanguageModel, openai_ada: Embeddings
