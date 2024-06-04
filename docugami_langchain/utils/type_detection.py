@@ -18,7 +18,7 @@ from docugami_langchain.config import BATCH_SIZE, TYPE_DETECTION_SAMPLE_SIZE
 from docugami_langchain.output_parsers.truthy import TRUTHY_STRINGS
 
 
-def _escape_double_quotes(text: str):
+def _escape_double_quotes(text: str) -> str:
     return text.replace('"', '\\"')
 
 
