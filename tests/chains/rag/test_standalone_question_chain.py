@@ -27,7 +27,7 @@ def init_chain(
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks AI API token not set"
 )
 def test_fireworksai_mistral_7b_standalone_question_no_history(
     fireworksai_mistral_7b: BaseLanguageModel,
@@ -39,7 +39,7 @@ def test_fireworksai_mistral_7b_standalone_question_no_history(
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks AI API token not set"
 )
 @pytest.mark.asyncio
 async def test_fireworksai_llama3_streamed_standalone_question_no_history(
@@ -55,7 +55,7 @@ async def test_fireworksai_llama3_streamed_standalone_question_no_history(
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks AI API token not set"
 )
 @pytest.mark.asyncio
 async def test_fireworksai_llama3_streamed_standalone_question_with_history(
@@ -74,7 +74,7 @@ async def test_fireworksai_llama3_streamed_standalone_question_with_history(
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks AI API token not set"
 )
 @pytest.mark.asyncio
 async def test_fireworksai_llama3_streamed_standalone_question_topic_change(

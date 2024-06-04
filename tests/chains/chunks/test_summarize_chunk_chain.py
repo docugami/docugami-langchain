@@ -22,7 +22,7 @@ def init_chain(llm: BaseLanguageModel, embeddings: Embeddings) -> SummarizeChunk
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks API token not set"
 )
 def test_fireworksai_llama3_summarize_chunk(
     fireworksai_llama3: BaseLanguageModel,
