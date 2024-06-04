@@ -18,6 +18,14 @@ from docugami_langchain.config import BATCH_SIZE, TYPE_DETECTION_SAMPLE_SIZE
 from docugami_langchain.output_parsers.truthy import TRUTHY_STRINGS
 
 
+def _escape_double_quotes(text: str):
+    return text.replace('"', '\\"')
+
+
+def _escape_single_quotes(text: str) -> str:
+    return text.replace("'", "''")
+
+
 def _batch_process(
     chain: BaseDocugamiChain,
     inputs: list[str],
@@ -139,7 +147,7 @@ def _transfer_data_to_typed_table(
     full_data_select_query = select(original_table)
     full_data_result = connection.execute(full_data_select_query)
 
-    insert_stmt_prefix = f'INSERT INTO "{typed_table.name}" ('
+    insert_stmt_prefix = f'INSERT INTO "{_escape_double_quotes(typed_table.name)}" ('
     for column in typed_table.columns:
         insert_stmt_prefix += f'"{column.name}", '
 
@@ -215,7 +223,7 @@ def _transfer_data_to_typed_table(
 
                 if (row_idx, column.name) in date_value_map:
                     if date_value_map[(row_idx, column.name)] is not None:
-                        converted_value = f'"{date_value_map[(row_idx, column.name)]}"'  # store as quoted ISO str
+                        converted_value = f"'{date_value_map[(row_idx, column.name)]}'"  # store as single-quoted ISO str literal
                 elif (row_idx, column.name) in float_value_map:
                     if float_value_map[(row_idx, column.name)] is not None:
                         converted_value = str(
@@ -228,7 +236,7 @@ def _transfer_data_to_typed_table(
                         )  # store as numeric, so non-quoted
                 elif value:
                     if value_type == DataType.TEXT:
-                        converted_value = f'"{value}"'  # store as quoted text
+                        converted_value = f"'{_escape_single_quotes(value)}'"  # store as single quoted string literal
                     elif value_type == DataType.BOOL:
                         if any(substring in value for substring in TRUTHY_STRINGS):
                             converted_value = "1"  # store as numeric 1, so non-quoted
@@ -237,7 +245,7 @@ def _transfer_data_to_typed_table(
 
                 insert_stmt += f"{converted_value}, "
             else:
-                insert_stmt += f'"{value}", '
+                insert_stmt += f'"{_escape_double_quotes(value)}", '
 
         insert_stmt = insert_stmt.rstrip(", ") + ")"
         connection.execute(text(insert_stmt))
@@ -299,7 +307,7 @@ def convert_to_typed(
                 connection.execute(text(f'DROP TABLE "{original_table_name}"'))
                 connection.execute(
                     text(
-                        f'ALTER TABLE "{typed_table.name}" RENAME TO "{original_table_name}"'
+                        f'ALTER TABLE "{_escape_double_quotes(typed_table.name)}" RENAME TO "{_escape_double_quotes(original_table_name)}"'
                     )
                 )
 
