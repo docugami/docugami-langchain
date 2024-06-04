@@ -58,3 +58,9 @@
       "type": "float",
       "unit": "m"
     }
+- text: widgets costs $5,000,000 per item
+  data_type_json: |
+    {
+      "type": "integer",
+      "unit": "$"
+    }

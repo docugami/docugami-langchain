@@ -52,7 +52,7 @@ def test_fireworksai_llama3_data_type_detection(
 
 
 @pytest.mark.skipif(
-    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
 )
 @pytest.mark.parametrize("text,type", TEST_DATA)
 def test_openai_gpt4_data_type_detection(
