@@ -43,7 +43,7 @@ def init_chain(
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks API token not set"
 )
 @pytest.mark.parametrize("text,type", TEST_DATA)
 def test_fireworksai_llama3_address_detection(
