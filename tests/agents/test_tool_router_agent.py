@@ -71,7 +71,7 @@ def init_tool_router_agent(
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks API token not set"
 )
 def test_fireworksai_llama3_tool_router(
     test_data: DocsetTestData,
@@ -99,7 +99,7 @@ def test_fireworksai_llama3_tool_router(
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks API token not set"
 )
 @pytest.mark.asyncio
 async def test_fireworksai_llama3_streamed_tool_router(
@@ -128,7 +128,7 @@ async def test_fireworksai_llama3_streamed_tool_router(
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
-    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
 )
 def test_openai_gpt4_tool_router(
     test_data: DocsetTestData,
@@ -156,7 +156,7 @@ def test_openai_gpt4_tool_router(
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
-    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio
 async def test_openai_gpt4_streamed_tool_router(

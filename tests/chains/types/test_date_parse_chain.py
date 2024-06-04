@@ -26,7 +26,7 @@ def init_chain(llm: BaseLanguageModel, embeddings: Embeddings) -> DateParseChain
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks API token not set"
 )
 @pytest.mark.parametrize("text,expected", TEST_DATA)
 def test_fireworksai_llama3_date_parse(

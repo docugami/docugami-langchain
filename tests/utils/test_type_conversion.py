@@ -99,7 +99,7 @@ def _run_test(
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks API token not set"
 )
 @pytest.mark.parametrize("data_file,table_name,typed_columns", TEST_DATA)
 def test_fireworksai_llama3_data_type_conversion(

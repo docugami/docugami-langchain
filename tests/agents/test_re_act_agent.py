@@ -56,7 +56,7 @@ def init_re_act_agent(
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks API token not set"
 )
 def test_fireworksai_llama3_re_act(
     test_data: DocsetTestData,
@@ -84,7 +84,7 @@ def test_fireworksai_llama3_re_act(
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks API token not set"
 )
 @pytest.mark.asyncio
 async def test_fireworksai_llama3_streamed_re_act(

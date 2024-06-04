@@ -72,7 +72,7 @@ def _runtest(
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks API token not set"
 )
 def test_fireworksai_llama3_suggested_report(
     test_data: DocsetTestData,

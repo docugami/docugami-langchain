@@ -23,7 +23,7 @@ def init_chain(
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks AI API token not set"
 )
 def test_fireworksai_mistral_7b_answer_no_examples(
     fireworksai_mistral_7b: BaseLanguageModel,
@@ -35,7 +35,7 @@ def test_fireworksai_mistral_7b_answer_no_examples(
 
 
 @pytest.mark.skipif(
-    "FIREWORKS_API_KEY" not in os.environ, reason="Fireworks AI API token not set"
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks AI API token not set"
 )
 def test_fireworksai_mistral_7b_answer_with_examples(
     fireworksai_mistral_7b: BaseLanguageModel,
