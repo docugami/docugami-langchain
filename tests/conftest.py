@@ -36,6 +36,9 @@ def is_core_tests_only_mode() -> bool:
 
 # Model fixtures
 @pytest.fixture()
+@pytest.mark.skipif(
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks API token not set"
+)
 def fireworksai_mistral_7b() -> BaseLanguageModel:
     """
     Mistral_7b model hosted on fireworksai.
@@ -52,6 +55,9 @@ def fireworksai_mistral_7b() -> BaseLanguageModel:
 
 
 @pytest.fixture()
+@pytest.mark.skipif(
+    not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks API token not set"
+)
 def fireworksai_llama3() -> BaseLanguageModel:
     """
     Llama3 model hosted on fireworksai.
@@ -80,6 +86,9 @@ def huggingface_minilm() -> Embeddings:
 
 
 @pytest.fixture()
+@pytest.mark.skipif(
+    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+)
 def openai_gpt4() -> BaseLanguageModel:
     """
     GPT 4 model by OpenAI.
@@ -94,6 +103,9 @@ def openai_gpt4() -> BaseLanguageModel:
 
 
 @pytest.fixture()
+@pytest.mark.skipif(
+    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+)
 def openai_ada() -> Embeddings:
     """
     Ada embeddings by OpenAI.
