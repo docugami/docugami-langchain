@@ -18,24 +18,25 @@ class BaseDocugamiChain(BaseRunnable[T]):
 
         with collect_runs() as cb:
             incremental_answer = None
-            async for chunk in self.runnable().astream(
-                input=kwargs_dict,
-                config=config,  # type: ignore
-            ):
-                if isinstance(chunk, dict):
-                    chunk = AddableDict(chunk)
+            with self.langsmith_tracing_context():
+                async for chunk in self.runnable().astream(
+                    input=kwargs_dict,
+                    config=config,  # type: ignore
+                ):
+                    if isinstance(chunk, dict):
+                        chunk = AddableDict(chunk)
 
-                if not incremental_answer:
-                    incremental_answer = chunk
-                else:
-                    incremental_answer += chunk
+                    if not incremental_answer:
+                        incremental_answer = chunk
+                    else:
+                        incremental_answer += chunk
 
-                yield TracedResponse[T](value=incremental_answer)
+                    yield TracedResponse[T](value=incremental_answer)
 
-            # yield the final result with the run_id
-            if cb.traced_runs:
-                run_id = str(cb.traced_runs[0].id)
-                yield TracedResponse[T](
-                    run_id=run_id,
-                    value=incremental_answer,  # type: ignore
-                )
+                # yield the final result with the run_id
+                if cb.traced_runs:
+                    run_id = str(cb.traced_runs[0].id)
+                    yield TracedResponse[T](
+                        run_id=run_id,
+                        value=incremental_answer,  # type: ignore
+                    )

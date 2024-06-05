@@ -186,7 +186,8 @@ class ReActAgent(BaseDocugamiAgent):
         def generate_re_act(
             state: AgentState, config: Optional[RunnableConfig]
         ) -> AgentState:
-            react_output = agent_runnable.invoke(state, config)
+            with self.langsmith_tracing_context():
+                react_output = agent_runnable.invoke(state, config)
 
             answer_source = ReActAgent.__name__
             citations = []

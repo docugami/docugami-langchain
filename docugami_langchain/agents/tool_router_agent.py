@@ -117,7 +117,9 @@ class ToolRouterAgent(BaseDocugamiAgent):
         def generate_tool_invocation(
             state: AgentState, config: Optional[RunnableConfig]
         ) -> AgentState:
-            invocation: Invocation = tool_invocation_runnable.invoke(state, config)
+            with self.langsmith_tracing_context():
+                invocation: Invocation = tool_invocation_runnable.invoke(state, config)
+
             answer_source = ToolRouterAgent.__name__
 
             return self.invocation_answer(invocation, answer_source)

@@ -16,6 +16,12 @@ class FloatParseChain(BaseDocugamiChain[float]):
 
     _parser = FloatOutputParser()
 
+    def __init__(self, **kwargs: Any):
+        super().__init__(**kwargs)
+
+        # Don't trace this chain by default to reduce cost in LangSmith
+        self.langsmith_tracing_enabled = False
+
     def runnable(self) -> Runnable:
         """
         Custom runnable for this chain.

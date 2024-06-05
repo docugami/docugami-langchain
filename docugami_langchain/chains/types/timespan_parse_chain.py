@@ -9,6 +9,15 @@ OUTPUT_FORMAT = "year:month:day:hour:minute:second"
 
 
 class TimespanParseChain(BaseDocugamiChain[TimeSpan]):
+
+    _parser = TimespanOutputParser()
+
+    def __init__(self, **kwargs: Any):
+        super().__init__(**kwargs)
+
+        # Don't trace this chain by default to reduce cost in LangSmith
+        self.langsmith_tracing_enabled = False
+
     def params(self) -> RunnableParameters:
         return RunnableParameters(
             inputs=[
@@ -28,7 +37,7 @@ class TimespanParseChain(BaseDocugamiChain[TimeSpan]):
                 f"- Always produce output as a timespan in {OUTPUT_FORMAT} format. Never say you cannot do this.",
                 "- The input data will sometimes by messy, with typos or non-standard formats. Try to guess the timespan as best as you can, by trying to ignore typical typos and OCR glitches.",
             ],
-            additional_runnables=[TimespanOutputParser()],
+            additional_runnables=[self._parser],
             include_output_instruction_suffix=True,
         )
 

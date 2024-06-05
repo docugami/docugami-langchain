@@ -1,4 +1,4 @@
-from typing import AsyncIterator, Literal, Optional, Union
+from typing import Any, AsyncIterator, Literal, Optional, Union
 
 from langchain_core.runnables import (
     Runnable,
@@ -15,6 +15,12 @@ from docugami_langchain.params import RunnableParameters, RunnableSingleParamete
 
 class SummarizeChunkChain(BaseDocugamiChain[str]):
     min_length_to_summarize: int = MIN_LENGTH_TO_SUMMARIZE
+
+    def __init__(self, **kwargs: Any):
+        super().__init__(**kwargs)
+
+        # Don't trace this chain by default to reduce cost in LangSmith
+        self.langsmith_tracing_enabled = False
 
     def runnable(self) -> Runnable:
         """

@@ -1,4 +1,4 @@
-from typing import AsyncIterator, Optional, Union
+from typing import Any, AsyncIterator, Optional, Union
 
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.runnables import RunnableConfig
@@ -10,6 +10,13 @@ from docugami_langchain.params import RunnableParameters, RunnableSingleParamete
 
 
 class AddressParseChain(BaseDocugamiChain[ParsedAddress]):
+
+    def __init__(self, **kwargs: Any):
+        super().__init__(**kwargs)
+
+        # Don't trace this chain by default to reduce cost in LangSmith
+        self.langsmith_tracing_enabled = False
+
     def params(self) -> RunnableParameters:
         return RunnableParameters(
             inputs=[
@@ -35,8 +42,8 @@ class AddressParseChain(BaseDocugamiChain[ParsedAddress]):
 }""",
                 "- $STREET is the optional (string) street part of the address"
                 "- $CITY is the optional (string) city part of the address"
-                "- $STATE is the optional (string) state part of the address" 
-                "- $ZIP is the optional (string) zip part of the address"
+                "- $STATE is the optional (string) state part of the address"
+                "- $ZIP is the optional (string) zip part of the address",
             ],
             additional_runnables=[PydanticOutputParser(pydantic_object=ParsedAddress)],  # type: ignore
             stop_sequences=["TEXT:", "<|eot_id|>"],
