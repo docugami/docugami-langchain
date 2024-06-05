@@ -96,7 +96,7 @@ def test_fireworksai_llama3_describe_document_set(
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
 @pytest.mark.skipif(
-    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
 )
 def test_openai_gpt4_describe_document_set(
     test_data: DocsetTestData,

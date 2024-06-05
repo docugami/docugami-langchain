@@ -1,0 +1,91 @@
+- text: 6 Seattle Hills Drive, Leavenworth, MO, 46543
+  address_type_json: |
+    {
+      "street": "6 Seattle Hills Drive",
+      "city": "Leavenworth",
+      "state": "MO",
+      "zip": "46543"
+    }
+- text: 123 Main Street, New York, NY, 10001
+  address_type_json: |
+    {
+      "street": "123 Main Street",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10001"
+    }
+- text: 456 Elm Street, Chicago, IL, 60606
+  address_type_json: |
+    {
+      "street": "456 Elm Street",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60606"
+    }
+- text: 789 Oak Avenue, San Francisco, CA, 94117
+  address_type_json: |
+    {
+      "street": "789 Oak Avenue",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94117"
+    }
+- text: 321 Maple Drive, Denver, CO, 80202
+  address_type_json: |
+    {
+      "street": "321 Maple Drive",
+      "city": "Denver",
+      "state": "CO",
+      "zip": "80202"
+    }
+- text: 901 Park Avenue, Miami, FL, 33139
+  address_type_json: |
+    {
+      "street": "901 Park Avenue",
+      "city": "Miami",
+      "state": "FL",
+      "zip": "33139"
+    }
+- text: 2345 Broadway, Los Angeles, CA, 90007
+  address_type_json: |
+    {
+      "street": "2345 Broadway",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zip": "90007"
+    }
+- text: 5678 Cedar Street, Houston, TX, 77008
+  address_type_json: |
+    {
+      "street": "5678 Cedar Street",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77008"
+    }
+
+- text: 3456 Riverside Drive, Philadelphia, PA, 19121
+  address_type_json: |
+    {
+      "street": "3456 Riverside Drive",
+      "city": "Philadelphia",
+      "state": "PA",
+      "zip": "19121"
+    }
+
+- text: 1234 Lake Shore Drive, Cleveland, OH, 44107
+  address_type_json: |
+    {
+      "street": "1234 Lake Shore Drive",
+      "city": "Cleveland",
+      "state": "OH",
+      "zip": "44107"
+    }
+
+- text: 9876 Sunset Boulevard, Phoenix, AZ, 85001
+  address_type_json: |
+    {
+      "street": "9876 Sunset Boulevard",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "85001"
+    }

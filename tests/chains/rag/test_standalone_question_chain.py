@@ -93,7 +93,7 @@ async def test_fireworksai_llama3_streamed_standalone_question_topic_change(
 
 
 @pytest.mark.skipif(
-    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
 )
 @pytest.mark.asyncio
 async def test_openai_gpt4_gpt4_streamed_standalone_question_with_history(

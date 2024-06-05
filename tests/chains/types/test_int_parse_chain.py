@@ -49,7 +49,7 @@ def test_fireworksai_llama3_float_parse(
 
 
 @pytest.mark.skipif(
-    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
 )
 @pytest.mark.parametrize("text,expected", PARSEABLE_TEST_DATA)
 def test_openai_gpt4_float_parse(
@@ -79,7 +79,7 @@ def test_fireworksai_llama3_float_parse_error(
 
 
 @pytest.mark.skipif(
-    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
 )
 @pytest.mark.parametrize("text", UNPARSEABLE_TEST_DATA_RAISES_EXCEPTION)
 def test_openai_gpt4_float_parse_error(

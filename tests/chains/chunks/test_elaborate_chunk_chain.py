@@ -30,7 +30,7 @@ def test_fireworksai_llama3_elaborate_chunk(
 
 
 @pytest.mark.skipif(
-    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
 )
 def test_openai_gpt4_elaborate_chunk(
     openai_gpt4: BaseLanguageModel,

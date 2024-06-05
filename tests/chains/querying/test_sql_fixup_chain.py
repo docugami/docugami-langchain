@@ -70,7 +70,7 @@ def test_fireworksai_llama3_sql_fixup(
 
 @pytest.mark.parametrize("test_data", SQL_FIXUP_TEST_DATA)
 @pytest.mark.skipif(
-    "OPENAI_API_KEY" not in os.environ, reason="OpenAI API token not set"
+    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
 )
 def test_openai_gpt4_sql_fixup(
     test_data: SQLFixupTestData,
