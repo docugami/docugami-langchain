@@ -28,8 +28,9 @@ jobs:
         run: make test
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          LANGCHAIN_API_KEY: ${{ secrets.LANGCHAIN_API_KEY }}
           DOCUGAMI_ONLY_CORE_TESTS: true
-          IS_CI: true
+          LANGCHAIN_PROJECT: docugami-langchain-ci
 
       - name: Check PR status
         run: |
