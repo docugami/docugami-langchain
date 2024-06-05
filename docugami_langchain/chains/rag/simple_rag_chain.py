@@ -58,17 +58,18 @@ class SimpleRAGChain(BaseDocugamiChain[ExtendedRAGResult]):
         context = inputs.get("context")
         question = inputs.get("question")
 
-        answer = (
-            super()
-            .runnable()
-            .invoke(
-                {
-                    "context": format_retrieved_docs(context),  # type: ignore
-                    "question": question,
-                },
-                config,
+        with self.langsmith_tracing_context():
+            answer = (
+                super()
+                .runnable()
+                .invoke(
+                    {
+                        "context": format_retrieved_docs(context),  # type: ignore
+                        "question": question,
+                    },
+                    config,
+                )
             )
-        )
 
         return {
             "answer": answer,

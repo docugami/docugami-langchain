@@ -36,11 +36,11 @@ def init_chain(llm: BaseLanguageModel, embeddings: Embeddings) -> IntParseChain:
     not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks API token not set"
 )
 @pytest.mark.parametrize("text,expected", PARSEABLE_TEST_DATA)
-def test_fireworksai_llama3_float_parse(
+def test_fireworksai_llama3_int_parse(
     fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
     text: str,
-    expected: float,
+    expected: int,
 ) -> Any:
     chain = init_chain(fireworksai_llama3, huggingface_minilm)
     response = chain.run(text)
@@ -52,11 +52,11 @@ def test_fireworksai_llama3_float_parse(
     not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
 )
 @pytest.mark.parametrize("text,expected", PARSEABLE_TEST_DATA)
-def test_openai_gpt4_float_parse(
+def test_openai_gpt4_int_parse(
     openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
     text: str,
-    expected: float,
+    expected: int,
 ) -> Any:
     chain = init_chain(openai_gpt4, openai_ada)
     response = chain.run(text)
@@ -68,7 +68,7 @@ def test_openai_gpt4_float_parse(
     not os.getenv("FIREWORKS_API_KEY"), reason="Fireworks API token not set"
 )
 @pytest.mark.parametrize("text", UNPARSEABLE_TEST_DATA_RAISES_EXCEPTION)
-def test_fireworksai_llama3_float_parse_error(
+def test_fireworksai_llama3_int_parse_error(
     fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
     text: str,
@@ -82,7 +82,7 @@ def test_fireworksai_llama3_float_parse_error(
     not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
 )
 @pytest.mark.parametrize("text", UNPARSEABLE_TEST_DATA_RAISES_EXCEPTION)
-def test_openai_gpt4_float_parse_error(
+def test_openai_gpt4_int_parse_error(
     openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
     text: str,

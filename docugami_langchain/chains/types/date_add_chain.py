@@ -10,6 +10,13 @@ OUTPUT_FORMAT = "%m/%d/%Y"
 
 
 class DateAddChain(BaseDocugamiChain[datetime]):
+
+    def __init__(self, **kwargs: Any):
+        super().__init__(**kwargs)
+
+        # Don't trace this chain by default to reduce cost in LangSmith
+        self.langsmith_tracing_enabled = False
+
     def params(self) -> RunnableParameters:
         return RunnableParameters(
             inputs=[

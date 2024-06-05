@@ -164,9 +164,7 @@ async def test_fireworksai_llama3_streamed_docugami_explained_sql_query(
 
 
 @pytest.mark.parametrize("test_data", QUERY_TEST_DATA)
-@pytest.mark.skipif(
-    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
-)
+@pytest.mark.skipif(not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set")
 def test_openai_gpt4_docugami_explained_sql_query(
     test_data: QueryTestData,
     openai_gpt4: BaseLanguageModel,
@@ -187,9 +185,7 @@ def test_openai_gpt4_docugami_explained_sql_query(
 
 
 @pytest.mark.parametrize("test_data", QUERY_TEST_DATA)
-@pytest.mark.skipif(
-    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
-)
+@pytest.mark.skipif(not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set")
 @pytest.mark.asyncio
 async def test_openai_gpt4_docugami_streamed_explained_sql_query(
     test_data: QueryTestData,

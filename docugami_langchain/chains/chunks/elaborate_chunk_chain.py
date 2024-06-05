@@ -1,4 +1,4 @@
-from typing import AsyncIterator, Literal, Optional, Union
+from typing import Any, AsyncIterator, Literal, Optional, Union
 
 from langchain_core.runnables import RunnableConfig
 
@@ -8,6 +8,13 @@ from docugami_langchain.params import RunnableParameters, RunnableSingleParamete
 
 
 class ElaborateChunkChain(BaseDocugamiChain[str]):
+
+    def __init__(self, **kwargs: Any):
+        super().__init__(**kwargs)
+
+        # Don't trace this chain by default to reduce cost in LangSmith
+        self.langsmith_tracing_enabled = False
+
     def params(self) -> RunnableParameters:
         return RunnableParameters(
             inputs=[

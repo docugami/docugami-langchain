@@ -35,7 +35,6 @@ from docugami_langchain.tools.common import NOT_FOUND, BaseDocugamiTool
 
 
 class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
-    db: SQLDatabase
     chain: DocugamiExplainedSQLQueryChain
     name: str = "report_answer_tool"
     description: str = ""

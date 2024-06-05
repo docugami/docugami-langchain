@@ -1,5 +1,6 @@
 import re
 from abc import ABC, abstractmethod
+from contextlib import contextmanager, nullcontext
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, AsyncIterator, Generic, Optional, TypeVar, Union
@@ -22,7 +23,7 @@ from langchain_core.prompts import (
 from langchain_core.pydantic_v1 import BaseModel
 from langchain_core.runnables import Runnable, RunnableConfig
 from langchain_core.runnables.config import merge_configs
-from langchain_core.tracers.context import collect_runs
+from langchain_core.tracers.context import collect_runs, tracing_v2_enabled
 from langchain_core.vectorstores import VectorStore
 
 from docugami_langchain.config import (
@@ -258,6 +259,7 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
     llm: BaseLanguageModel
     embeddings: Optional[Embeddings] = None
     examples_vectorstore_cls: type[VectorStore] = FAISS
+    langsmith_tracing_enabled: bool = True
 
     input_params_max_length_cutoff: int = MAX_PARAMS_CUTOFF_LENGTH_CHARS
     few_shot_params_max_length_cutoff: int = MAX_PARAMS_CUTOFF_LENGTH_CHARS
@@ -269,6 +271,14 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
     class Config:
         arbitrary_types_allowed = True
         underscore_attrs_are_private = True
+
+    @contextmanager
+    def langsmith_tracing_context(self) -> Any:
+        if self.langsmith_tracing_enabled:
+            with tracing_v2_enabled() as cm:
+                yield cm
+        else:
+            yield nullcontext()
 
     def vector_collection_name(self) -> str:
         """
@@ -395,7 +405,8 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
     def run(self, **kwargs) -> TracedResponse[T]:  # type: ignore
         config, kwargs_dict = self._prepare_run_args(kwargs)
         with collect_runs() as cb:
-            chain_output: T = self.runnable().invoke(input=kwargs_dict, config=config)  # type: ignore
+            with self.langsmith_tracing_context():
+                chain_output: T = self.runnable().invoke(input=kwargs_dict, config=config)  # type: ignore
 
             run_id = ""
             if cb.traced_runs:
@@ -424,11 +435,12 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
                         : self.input_params_max_length_cutoff
                     ]
 
-        return self.runnable().batch(
-            inputs=inputs,
-            config=config,
-            return_exceptions=return_exceptions,
-        )
+        with self.langsmith_tracing_context():
+            return self.runnable().batch(
+                inputs=inputs,
+                config=config,
+                return_exceptions=return_exceptions,
+            )
 
     def prompt(
         self,

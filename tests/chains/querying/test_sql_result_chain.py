@@ -101,9 +101,7 @@ def test_fireworksai_llama3_sql_result(
 
 
 @pytest.mark.parametrize("test_data", QUERY_TEST_DATA)
-@pytest.mark.skipif(
-    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
-)
+@pytest.mark.skipif(not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set")
 def test_openai_gpt4_sql_result(
     test_data: QueryTestData,
     openai_gpt4: BaseLanguageModel,
