@@ -1,3 +1,4 @@
+import os
 import re
 from abc import ABC, abstractmethod
 from contextlib import contextmanager, nullcontext
@@ -274,7 +275,7 @@ class BaseRunnable(BaseModel, Generic[T], ABC):
 
     @contextmanager
     def langsmith_tracing_context(self) -> Any:
-        if self.langsmith_tracing_enabled:
+        if self.langsmith_tracing_enabled and os.getenv("LANGCHAIN_API_KEY"):
             with tracing_v2_enabled() as cm:
                 yield cm
         else:
