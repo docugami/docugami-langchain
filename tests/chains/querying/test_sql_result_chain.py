@@ -88,7 +88,7 @@ def test_fireworksai_llama3_sql_result(
     huggingface_minilm: Embeddings,
 ) -> None:
     db = connect_to_excel(
-        file_path=test_data.report.data_file, table_name=test_data.report.name
+        io=test_data.report.data_file, table_name=test_data.report.name
     )
     _runtest(
         init_sql_result_chain(
@@ -108,7 +108,7 @@ def test_openai_gpt4_sql_result(
     openai_ada: Embeddings,
 ) -> None:
     db = connect_to_excel(
-        file_path=test_data.report.data_file, table_name=test_data.report.name
+        io=test_data.report.data_file, table_name=test_data.report.name
     )
     _runtest(
         init_sql_result_chain(

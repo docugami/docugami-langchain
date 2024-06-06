@@ -23,7 +23,7 @@ def init_suggested_questions_chain(
     db = None
     if docset.report:
         db = connect_to_excel(
-            file_path=docset.report.data_file, table_name=docset.report.name
+            io=docset.report.data_file, table_name=docset.report.name
         )
 
     chain = SuggestedQuestionsChain(

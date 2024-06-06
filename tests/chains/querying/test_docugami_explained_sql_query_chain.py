@@ -126,7 +126,7 @@ def test_fireworksai_llama3_docugami_explained_sql_query(
     huggingface_minilm: Embeddings,
 ) -> None:
     db = connect_to_excel(
-        file_path=test_data.report.data_file, table_name=test_data.report.name
+        io=test_data.report.data_file, table_name=test_data.report.name
     )
     _runtest(
         init_docugami_explained_sql_query_chain(
@@ -150,7 +150,7 @@ async def test_fireworksai_llama3_streamed_docugami_explained_sql_query(
     huggingface_minilm: Embeddings,
 ) -> None:
     db = connect_to_excel(
-        file_path=test_data.report.data_file, table_name=test_data.report.name
+        io=test_data.report.data_file, table_name=test_data.report.name
     )
     await _runtest_streamed(
         init_docugami_explained_sql_query_chain(
@@ -171,7 +171,7 @@ def test_openai_gpt4_docugami_explained_sql_query(
     openai_ada: Embeddings,
 ) -> None:
     db = connect_to_excel(
-        file_path=test_data.report.data_file, table_name=test_data.report.name
+        io=test_data.report.data_file, table_name=test_data.report.name
     )
     _runtest(
         init_docugami_explained_sql_query_chain(
@@ -193,7 +193,7 @@ async def test_openai_gpt4_docugami_streamed_explained_sql_query(
     openai_ada: Embeddings,
 ) -> None:
     db = connect_to_excel(
-        file_path=test_data.report.data_file, table_name=test_data.report.name
+        io=test_data.report.data_file, table_name=test_data.report.name
     )
     await _runtest_streamed(
         init_docugami_explained_sql_query_chain(
