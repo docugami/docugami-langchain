@@ -68,6 +68,12 @@ DOCSET_TEST_DATA: list[DocsetTestData] = [
                 acceptable_citation_label_fragments=["cessna"],
             ),
             TestQuestionData(
+                question="What is the average age of pilots involved in accidents?",
+                acceptable_answer_fragments=["46"],
+                requires_report=True,
+                acceptable_citation_label_fragments=["pilots", "age"],
+            ),
+            TestQuestionData(
                 chat_history=[
                     (
                         "What is the largest city in Marshall county, OK?",

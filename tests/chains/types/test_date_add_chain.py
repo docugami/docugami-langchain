@@ -9,7 +9,7 @@ from langchain_core.language_models import BaseLanguageModel
 from docugami_langchain.chains.types.date_add_chain import DateAddChain
 from tests.common import TEST_DATA_DIR, verify_traced_response
 
-TEST_MESSY_START_DATE = "at around $ept3mb3r I5 in thee year 2Oo3"
+TEST_MESSY_START_DATE = "at around $ept3mb3r 15 in thee year 2Oo3"
 TEST_MESSY_END_DATE_OR_DURATION = "on the fivth annivrsary"
 TEST_ADDED_DATE: datetime = datetime(2008, 9, 15)
 

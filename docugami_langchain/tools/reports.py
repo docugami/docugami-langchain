@@ -2,7 +2,7 @@ import re
 import sqlite3
 import tempfile
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Callable, Optional
 
 import pandas as pd
 from langchain_community.utilities.sql_database import SQLDatabase
@@ -38,6 +38,9 @@ class CustomReportRetrievalTool(BaseDocugamiTool):
     chain: DocugamiExplainedSQLQueryChain
     name: str = "report_answer_tool"
     description: str = ""
+    optimization_completion_callback: Optional[
+        Callable[[bool, Optional[Exception]], None]
+    ] = None
 
     def _is_sql_like(self, question: str) -> bool:
         question = question.lower().strip()
@@ -195,6 +198,9 @@ def get_retrieval_tool_for_report(
     float_parse_examples_file: Optional[Path] = None,
     int_parse_examples_file: Optional[Path] = None,
     batch_size: int = BATCH_SIZE,
+    optimization_completion_callback: Optional[
+        Callable[[bool, Optional[Exception]], None]
+    ] = None,
 ) -> BaseDocugamiTool:
     db = connect_to_excel(io, report_name)
 
@@ -233,6 +239,7 @@ def get_retrieval_tool_for_report(
         float_parse_chain=float_parse_chain,
         int_parse_chain=int_parse_chain,
         batch_size=batch_size,
+        completion_callback=optimization_completion_callback,
     )
 
     sql_query_explainer_chain = SQLQueryExplainerChain(
@@ -253,4 +260,5 @@ def get_retrieval_tool_for_report(
         description=report_details_to_report_query_tool_description(
             report_name, get_table_info_as_list(sql_result_chain.db)
         ),
+        optimization_completion_callback=optimization_completion_callback,
     )

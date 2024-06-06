@@ -1,7 +1,7 @@
 import logging
 import random
 import time
-from typing import Optional
+from typing import Callable, Optional
 
 from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
@@ -29,7 +29,12 @@ from tests.testdata.xlsx.query_test_data import TestReportData
 
 
 def build_test_query_tool(
-    report: TestReportData, llm: BaseLanguageModel, embeddings: Embeddings
+    report: TestReportData,
+    llm: BaseLanguageModel,
+    embeddings: Embeddings,
+    optimization_completion_callback: Optional[
+        Callable[[bool, Optional[Exception]], None]
+    ] = None,
 ) -> BaseDocugamiTool:
     """
     Builds a query tool over a test database
@@ -46,6 +51,7 @@ def build_test_query_tool(
         / "test_data_type_detection_examples.yaml",
         date_parse_examples_file=EXAMPLES_PATH / "test_date_parse_examples.yaml",
         float_parse_examples_file=EXAMPLES_PATH / "test_float_parse_examples.yaml",
+        optimization_completion_callback=optimization_completion_callback,
     )
 
     if not tool:
