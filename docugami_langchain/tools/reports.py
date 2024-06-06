@@ -2,7 +2,7 @@ import re
 import sqlite3
 import tempfile
 from pathlib import Path
-from typing import Optional, Union
+from typing import Any, Optional
 
 import pandas as pd
 from langchain_community.utilities.sql_database import SQLDatabase
@@ -148,18 +148,13 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     return description[:MAX_PARAMS_CUTOFF_LENGTH_CHARS]
 
 
-def excel_to_sqlite_connection(file_path: Union[Path, str], table_name: str) -> str:
+def excel_to_sqlite_connection(io: Any, table_name: str) -> str:
     # Create a temporary SQLite database file
     temp_db_file = tempfile.NamedTemporaryFile(suffix=".sqlite", delete=False)
     conn = sqlite3.connect(temp_db_file.name)
 
-    # Verify the file path
-    file_path = Path(file_path)
-    if not (file_path.exists() and file_path.suffix.lower() == ".xlsx"):
-        raise Exception(f"Invalid file path: {file_path}")
-
     # Read the Excel file using pandas (only the first sheet)
-    df = pd.read_excel(file_path, sheet_name=0)
+    df = pd.read_excel(io, sheet_name=0)
 
     # Ignore non-informational columns
     DROP_COLUMNS = ["FileId", "File", "Link to Document"]
@@ -180,8 +175,8 @@ def connect_to_db(db_file_path: str) -> SQLDatabase:
     )
 
 
-def connect_to_excel(file_path: Union[Path, str], table_name: str) -> SQLDatabase:
-    db_file_path = excel_to_sqlite_connection(file_path, table_name)
+def connect_to_excel(io: Any, table_name: str) -> SQLDatabase:
+    db_file_path = excel_to_sqlite_connection(io, table_name)
     return connect_to_db(db_file_path)
 
 

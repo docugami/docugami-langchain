@@ -109,7 +109,7 @@ def test_fireworksai_llama3_data_type_conversion(
     table_name: str,
     typed_columns: list[str],
 ) -> Any:
-    db = connect_to_excel(file_path=data_file, table_name=table_name)
+    db = connect_to_excel(io=data_file, table_name=table_name)
     detection_chain, date_parse_chain, float_parse_chain, int_parse_chain = init_chains(
         fireworksai_llama3, huggingface_minilm
     )
@@ -135,7 +135,7 @@ def test_openai_gpt4_data_type_conversion(
     table_name: str,
     typed_columns: list[str],
 ) -> Any:
-    db = connect_to_excel(file_path=data_file, table_name=table_name)
+    db = connect_to_excel(io=data_file, table_name=table_name)
     detection_chain, date_parse_chain, float_parse_chain, int_parse_chain = init_chains(
         openai_gpt4, openai_ada
     )
