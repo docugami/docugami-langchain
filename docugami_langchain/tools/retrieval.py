@@ -138,7 +138,7 @@ def docset_details_to_direct_retrieval_tool_description(
     name: str, description: str
 ) -> str:
     return (
-        "Pass the COMPLETE question as input to this tool."
+        "Pass the COMPLETE question as input to this tool. "
         + f"It implements logic to to answer questions based on information in {name} documents and outputs only the answer to your question. "
         + "Use this tool if you think the answer is likely to come from one or a few of these documents. "
         + description

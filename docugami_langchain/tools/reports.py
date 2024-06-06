@@ -142,7 +142,8 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     description = (
         "Pass the COMPLETE question as input to this tool. "
         + f"It implements logic to to answer questions by querying the {name} report and outputs only the answer to your question. "
-        + f"Use this tool if you think the answer can be calculated from the information in this report via standard data operations like counting, sorting, averaging or summing.\n\n{table_info}"
+        + "Use this tool if you think the answer can be calculated from the information in this report via standard data operations like "
+        + f"filtering, counting, sorting, averaging or summing.\n\n{table_info}"
     )
 
     # Cap to avoid runaway tool descriptions.

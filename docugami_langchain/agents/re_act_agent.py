@@ -71,7 +71,7 @@ Observation: the result of the action
 Thought: I now know the final answer
 Final Answer: The final answer to the original input question. Make sure this is a complete answer, since only text after this label will be shown to the user.
 
-Don't give up easily and try your retrieval tool before deciding you cannot answer a question. If you try a tool and it says "Not found", try using a different tool or the same tool again
+Don't give up easily and try all your tools before deciding you cannot answer a question. If you try a tool and it says "Not found", try using a different tool or the same tool again
 with different inputs. Be especially persistent with report querying tools, and try those with different inputs if they don't return results, since they do very specific string searches internally.
 
 If you think you need clarifying information to answer the question, just ask the user to clarify in your final answer. The user will see this final answer, respond,
