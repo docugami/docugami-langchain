@@ -56,7 +56,8 @@ def build_test_query_tool(
         embeddings=embeddings,
         sql_fixup_examples_file=EXAMPLES_PATH / "test_sql_fixup_examples.yaml",
         sql_examples_file=EXAMPLES_PATH / "test_sql_examples.yaml",
-        data_type_detection_examples_file=EXAMPLES_PATH / "test_data_type_detection_examples.yaml",
+        data_type_detection_examples_file=EXAMPLES_PATH
+        / "test_data_type_detection_examples.yaml",
         date_parse_examples_file=EXAMPLES_PATH / "test_date_parse_examples.yaml",
         float_parse_examples_file=EXAMPLES_PATH / "test_float_parse_examples.yaml",
     )
@@ -124,6 +125,8 @@ def build_test_retrieval_tool(
         embeddings=embeddings,
         fetch_parent_doc_callback=_fetch_parent_doc_callback,
         fetch_full_doc_summary_callback=_fetch_full_doc_summary_callback,
+        retrieval_grader_examples_file=EXAMPLES_PATH
+        / "test_retrieval_grader_examples.yaml",
         retrieval_k=DEFAULT_RETRIEVER_K,
     )
     if not tool:
