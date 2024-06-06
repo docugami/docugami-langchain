@@ -31,6 +31,7 @@ from docugami_langchain.chains.types.float_parse_chain import FloatParseChain
 from docugami_langchain.chains.types.int_parse_chain import IntParseChain
 from docugami_langchain.config import BATCH_SIZE, MAX_PARAMS_CUTOFF_LENGTH_CHARS
 from docugami_langchain.tools.common import NOT_FOUND, BaseDocugamiTool
+from docugami_langchain.utils.sql import get_table_info_as_list
 
 
 class CustomReportRetrievalTool(BaseDocugamiTool):
@@ -183,8 +184,6 @@ def connect_to_excel(io: Any, table_name: str) -> SQLDatabase:
 def get_retrieval_tool_for_report(
     io: Any,
     report_name: str,
-    retrieval_tool_function_name: str,
-    retrieval_tool_description: str,
     sql_llm: BaseLanguageModel,
     general_llm: BaseLanguageModel,
     embeddings: Embeddings,
@@ -249,6 +248,8 @@ def get_retrieval_tool_for_report(
             sql_result_chain=sql_result_chain,
             sql_query_explainer_chain=sql_query_explainer_chain,
         ),
-        name=retrieval_tool_function_name,
-        description=retrieval_tool_description,
+        name=report_name_to_report_query_tool_function_name(report_name),
+        description=report_details_to_report_query_tool_description(
+            report_name, get_table_info_as_list(sql_result_chain.db)
+        ),
     )

@@ -11,18 +11,12 @@ from docugami_langchain.agents.models import CitationType, CitedAnswer
 from docugami_langchain.base_runnable import TracedResponse
 from docugami_langchain.config import DEFAULT_RETRIEVER_K, MAX_FULL_DOCUMENT_TEXT_LENGTH
 from docugami_langchain.tools.common import BaseDocugamiTool, get_generic_tools
-from docugami_langchain.tools.reports import (
-    connect_to_excel,
-    get_retrieval_tool_for_report,
-    report_details_to_report_query_tool_description,
-    report_name_to_report_query_tool_function_name,
-)
+from docugami_langchain.tools.reports import get_retrieval_tool_for_report
 from docugami_langchain.tools.retrieval import (
     docset_name_to_direct_retrieval_tool_function_name,
     get_retrieval_tool_for_docset,
     summaries_to_direct_retrieval_tool_description,
 )
-from docugami_langchain.utils.sql import get_table_info_as_list
 from tests.common import (
     EXAMPLES_PATH,
     TEST_DATA_DIR,
@@ -40,17 +34,9 @@ def build_test_query_tool(
     """
     Builds a query tool over a test database
     """
-    db = connect_to_excel(report.data_file, report.name)
-    description = report_details_to_report_query_tool_description(
-        report.name, get_table_info_as_list(db)
-    )
     tool = get_retrieval_tool_for_report(
         io=report.data_file,
         report_name=report.name,
-        retrieval_tool_function_name=report_name_to_report_query_tool_function_name(
-            report.name
-        ),
-        retrieval_tool_description=description,
         sql_llm=llm,
         general_llm=llm,
         embeddings=embeddings,
