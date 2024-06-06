@@ -45,7 +45,7 @@ def build_test_query_tool(
         report.name, get_table_info_as_list(db)
     )
     tool = get_retrieval_tool_for_report(
-        local_xlsx_path=report.data_file,
+        io=report.data_file,
         report_name=report.name,
         retrieval_tool_function_name=report_name_to_report_query_tool_function_name(
             report.name
