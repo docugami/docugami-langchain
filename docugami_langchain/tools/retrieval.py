@@ -36,9 +36,10 @@ from docugami_langchain.tools.common import NOT_FOUND, BaseDocugamiTool
 class CustomDocsetRetrievalTool(BaseDocugamiTool):
     """A Tool that knows how to do retrieval over a docset."""
 
-    chain: SimpleRAGChain
     name: str = "document_answer_tool"
     description: str = ""
+
+    chain: SimpleRAGChain
 
     def to_human_readable(self, invocation: Invocation) -> str:
         """Converts tool invocation to human readable string."""
@@ -138,7 +139,7 @@ def docset_details_to_direct_retrieval_tool_description(
     name: str, description: str
 ) -> str:
     return (
-        "Pass the COMPLETE question as input to this tool."
+        "Pass the COMPLETE question as input to this tool. "
         + f"It implements logic to to answer questions based on information in {name} documents and outputs only the answer to your question. "
         + "Use this tool if you think the answer is likely to come from one or a few of these documents. "
         + description
@@ -180,7 +181,7 @@ def get_retrieval_tool_for_docset(
     file_id_key: str = FILE_ID_KEY,
     retrieval_grader_examples_file: Optional[Path] = None,
     grader_batch_size: int = BATCH_SIZE,
-) -> Optional[BaseDocugamiTool]:
+) -> BaseDocugamiTool:
     """
     Gets a retrieval tool for an agent.
     """
@@ -205,8 +206,11 @@ def get_retrieval_tool_for_docset(
         retriever=retriever,
     )
 
-    return CustomDocsetRetrievalTool(
+    tool = CustomDocsetRetrievalTool(
         chain=simple_rag_chain,
         name=retrieval_tool_function_name,
         description=retrieval_tool_description,
     )
+    tool.update()
+
+    return tool

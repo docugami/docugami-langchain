@@ -18,6 +18,12 @@ FINANCIAL_SAMPLE_TABLE_NAME = "Financial Data"
 DEMO_MSA_SERVICES_DATA_FILE = TEST_DATA_DIR / "xlsx/Report Services_preview.xlsx"
 DEMO_MSA_SERVICES_TABLE_NAME = "Service Agreements Summary"
 
+AVIATION_INCIDENTS_DATA_FILE = TEST_DATA_DIR / "xlsx/Aviation Incidents Report.xlsx"
+AVIATION_INCIDENTS_TABLE_NAME = "Aviation Incidents Report"
+
+DATA_TYPE_TEST_DATA_FILE = TEST_DATA_DIR / "xlsx/Data Type Test.xlsx"
+DATA_TYPE_TEST_TABLE_NAME = "Data Type Test"
+
 
 @dataclass
 class TestReportData:

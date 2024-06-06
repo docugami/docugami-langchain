@@ -1,4 +1,6 @@
 import os
+import threading
+from typing import Callable, Optional
 
 import pytest
 from langchain_core.embeddings import Embeddings
@@ -30,11 +32,21 @@ def init_re_act_agent(
     docset: DocsetTestData,
     llm: BaseLanguageModel,
     embeddings: Embeddings,
+    optimization_completion_callback: Optional[
+        Callable[[bool, Optional[Exception]], None]
+    ] = None,
 ) -> ReActAgent:
     tools = []
     tools.append(build_test_retrieval_tool(llm, embeddings, docset))
     if docset.report:
-        tools.append(build_test_query_tool(docset.report, llm, embeddings))
+        tools.append(
+            build_test_query_tool(
+                report=docset.report,
+                llm=llm,
+                embeddings=embeddings,
+                optimization_completion_callback=optimization_completion_callback,
+            )
+        )
     tools += build_test_common_tools(llm, embeddings)
 
     standalone_questions_chain = StandaloneQuestionChain(
@@ -63,23 +75,43 @@ def test_fireworksai_llama3_re_act(
     fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
-    agent = init_re_act_agent(test_data, fireworksai_llama3, huggingface_minilm)
+    optimization_done = threading.Event()
 
-    # test general LLM response from agent
-    run_agent_test(
-        agent,
-        GENERAL_KNOWLEDGE_QUESTION,
-        GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+    def on_complete(success: bool, exception: Optional[Exception]) -> None:
+        try:
+            if success:
+                # test general LLM response from agent
+                run_agent_test(
+                    agent,
+                    GENERAL_KNOWLEDGE_QUESTION,
+                    GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+                )
+
+                for question in test_data.questions:
+                    run_agent_test(
+                        agent,
+                        question.question,
+                        question.acceptable_answer_fragments,
+                        question.chat_history,
+                        question.acceptable_citation_label_fragments,
+                    )
+            else:
+                if exception:
+                    raise exception
+                else:
+                    raise Exception("Optimization failed")
+        finally:
+            optimization_done.set()
+
+    agent = init_re_act_agent(
+        docset=test_data,
+        llm=fireworksai_llama3,
+        embeddings=huggingface_minilm,
+        optimization_completion_callback=on_complete,
     )
 
-    for question in test_data.questions:
-        run_agent_test(
-            agent,
-            question.question,
-            question.acceptable_answer_fragments,
-            question.chat_history,
-            question.acceptable_citation_label_fragments,
-        )
+    # Wait for the optimization to complete
+    optimization_done.wait()
 
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
@@ -92,77 +124,133 @@ async def test_fireworksai_llama3_streamed_re_act(
     fireworksai_llama3: BaseLanguageModel,
     huggingface_minilm: Embeddings,
 ) -> None:
-    agent = init_re_act_agent(test_data, fireworksai_llama3, huggingface_minilm)
+    optimization_done = threading.Event()
 
-    # test general LLM response from agent
-    await run_streaming_agent_test(
-        agent,
-        GENERAL_KNOWLEDGE_QUESTION,
-        GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+    def on_complete(success: bool, exception: Optional[Exception]) -> None:
+        try:
+            if success:
+                # test general LLM response from agent
+                run_streaming_agent_test(
+                    agent,
+                    GENERAL_KNOWLEDGE_QUESTION,
+                    GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+                ).close()
+
+                for question in test_data.questions:
+                    run_streaming_agent_test(
+                        agent,
+                        question.question,
+                        question.acceptable_answer_fragments,
+                        question.chat_history,
+                        question.acceptable_citation_label_fragments,
+                    ).close()
+            else:
+                if exception:
+                    raise exception
+                else:
+                    raise Exception("Optimization failed")
+        finally:
+            optimization_done.set()
+
+    agent = init_re_act_agent(
+        docset=test_data,
+        llm=fireworksai_llama3,
+        embeddings=huggingface_minilm,
+        optimization_completion_callback=on_complete,
     )
 
-    for question in test_data.questions:
-        await run_streaming_agent_test(
-            agent,
-            question.question,
-            question.acceptable_answer_fragments,
-            question.chat_history,
-            question.acceptable_citation_label_fragments,
-        )
+    # Wait for the optimization to complete
+    optimization_done.wait()
 
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
-@pytest.mark.skipif(
-    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
-)
+@pytest.mark.skipif(not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set")
 def test_openai_gpt4_re_act(
     test_data: DocsetTestData,
     openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> None:
-    agent = init_re_act_agent(test_data, openai_gpt4, openai_ada)
+    optimization_done = threading.Event()
 
-    # test general LLM response from agent
-    run_agent_test(
-        agent,
-        GENERAL_KNOWLEDGE_QUESTION,
-        GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+    def on_complete(success: bool, exception: Optional[Exception]) -> None:
+        try:
+            if success:
+                # test general LLM response from agent
+                run_agent_test(
+                    agent,
+                    GENERAL_KNOWLEDGE_QUESTION,
+                    GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+                )
+
+                for question in test_data.questions:
+                    run_agent_test(
+                        agent,
+                        question.question,
+                        question.acceptable_answer_fragments,
+                        question.chat_history,
+                        question.acceptable_citation_label_fragments,
+                    )
+            else:
+                if exception:
+                    raise exception
+                else:
+                    raise Exception("Optimization failed")
+        finally:
+            optimization_done.set()
+
+    agent = init_re_act_agent(
+        docset=test_data,
+        llm=openai_gpt4,
+        embeddings=openai_ada,
+        optimization_completion_callback=on_complete,
     )
 
-    for question in test_data.questions:
-        run_agent_test(
-            agent,
-            question.question,
-            question.acceptable_answer_fragments,
-            question.chat_history,
-            question.acceptable_citation_label_fragments,
-        )
+    # Wait for the optimization to complete
+    optimization_done.wait()
 
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
-@pytest.mark.skipif(
-    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
-)
+@pytest.mark.skipif(not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set")
 @pytest.mark.asyncio
 async def test_openai_gpt4_streamed_re_act(
     test_data: DocsetTestData,
     openai_gpt4: BaseLanguageModel,
     openai_ada: Embeddings,
 ) -> None:
-    agent = init_re_act_agent(test_data, openai_gpt4, openai_ada)
+    optimization_done = threading.Event()
 
-    # test general LLM response from agent
-    await run_streaming_agent_test(
-        agent,
-        GENERAL_KNOWLEDGE_QUESTION,
-        GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+    def on_complete(success: bool, exception: Optional[Exception]) -> None:
+        try:
+            if success:
+                # test general LLM response from agent
+                run_streaming_agent_test(
+                    agent,
+                    GENERAL_KNOWLEDGE_QUESTION,
+                    GENERAL_KNOWLEDGE_ANSWER_FRAGMENTS,
+                ).close()
+
+                for question in test_data.questions:
+                    run_streaming_agent_test(
+                        agent,
+                        question.question,
+                        question.acceptable_answer_fragments,
+                        question.chat_history,
+                        question.acceptable_citation_label_fragments,
+                    ).close()
+            else:
+                if exception:
+                    raise exception
+                else:
+                    raise Exception("Optimization failed")
+        finally:
+            optimization_done.set()
+
+    agent = init_re_act_agent(
+        docset=test_data,
+        llm=openai_gpt4,
+        embeddings=openai_ada,
+        optimization_completion_callback=on_complete,
     )
 
-    for question in test_data.questions:
-        await run_streaming_agent_test(
-            agent,
-            question.question,
-            question.acceptable_answer_fragments,
-            question.chat_history,
-            question.acceptable_citation_label_fragments,
-        )
+    # Wait for the optimization to complete
+    optimization_done.wait()

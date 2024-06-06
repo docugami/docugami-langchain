@@ -2,7 +2,7 @@ import re
 import sqlite3
 import tempfile
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Callable, Optional
 
 import pandas as pd
 from langchain_community.utilities.sql_database import SQLDatabase
@@ -35,19 +35,30 @@ from docugami_langchain.utils.sql import get_table_info_as_list
 
 
 class CustomReportRetrievalTool(BaseDocugamiTool):
-    chain: DocugamiExplainedSQLQueryChain
+    """A Tool that knows how to do query a report."""
+
     name: str = "report_answer_tool"
     description: str = ""
 
-    def _is_sql_like(self, question: str) -> bool:
-        question = question.lower().strip()
-        return question.startswith("select") and "from" in question
+    chain: DocugamiExplainedSQLQueryChain
+    report_name: str = ""
+
+    def update(self) -> None:
+        """Updates internal state for this tool"""
+        self.name = report_name_to_report_query_tool_function_name(self.report_name)
+        self.description = report_details_to_report_query_tool_description(
+            self.report_name, get_table_info_as_list(self.chain.sql_result_chain.db)
+        )
 
     def to_human_readable(self, invocation: Invocation) -> str:
         if self._is_sql_like(invocation.tool_input):
             return "Querying report."
         else:
             return f"Querying report: {invocation.tool_input}"
+
+    def _is_sql_like(self, question: str) -> bool:
+        question = question.lower().strip()
+        return question.startswith("select") and "from" in question
 
     def _run(
         self,
@@ -142,7 +153,8 @@ def report_details_to_report_query_tool_description(name: str, table_info: str) 
     description = (
         "Pass the COMPLETE question as input to this tool. "
         + f"It implements logic to to answer questions by querying the {name} report and outputs only the answer to your question. "
-        + f"Use this tool if you think the answer can be calculated from the information in this report via standard data operations like counting, sorting, averaging or summing.\n\n{table_info}"
+        + "Use this tool if you think the answer can be calculated from the information in this report via standard data operations like "
+        + f"filtering, counting, sorting, averaging or summing.\n\n{table_info}"
     )
 
     # Cap to avoid runaway tool descriptions.
@@ -194,7 +206,19 @@ def get_retrieval_tool_for_report(
     float_parse_examples_file: Optional[Path] = None,
     int_parse_examples_file: Optional[Path] = None,
     batch_size: int = BATCH_SIZE,
-) -> Optional[BaseDocugamiTool]:
+    optimization_completion_callback: Optional[
+        Callable[[bool, Optional[Exception]], None]
+    ] = None,
+) -> BaseDocugamiTool:
+
+    def on_optimization_complete(success: bool, exception: Optional[Exception]) -> None:
+        # Update tool (in parent context)
+        tool.update()
+
+        # Notify caller, if callback set
+        if optimization_completion_callback:
+            optimization_completion_callback(success, exception)
+
     db = connect_to_excel(io, report_name)
 
     fixup_chain = SQLFixupChain(llm=sql_llm, embeddings=embeddings)
@@ -232,6 +256,7 @@ def get_retrieval_tool_for_report(
         float_parse_chain=float_parse_chain,
         int_parse_chain=int_parse_chain,
         batch_size=batch_size,
+        completion_callback=on_optimization_complete,
     )
 
     sql_query_explainer_chain = SQLQueryExplainerChain(
@@ -241,15 +266,15 @@ def get_retrieval_tool_for_report(
     if sql_examples_file:
         sql_query_explainer_chain.load_examples(sql_examples_file)
 
-    return CustomReportRetrievalTool(
+    tool = CustomReportRetrievalTool(
         chain=DocugamiExplainedSQLQueryChain(
             llm=general_llm,
             embeddings=embeddings,
             sql_result_chain=sql_result_chain,
             sql_query_explainer_chain=sql_query_explainer_chain,
         ),
-        name=report_name_to_report_query_tool_function_name(report_name),
-        description=report_details_to_report_query_tool_description(
-            report_name, get_table_info_as_list(sql_result_chain.db)
-        ),
+        report_name=report_name,
     )
+    tool.update()
+
+    return tool

@@ -14,7 +14,7 @@ from tests.common import TEST_DATA_DIR, verify_traced_response
 TEST_DATA = [
     (
         "on the 2nd day of September, of the year twenty thirteen.",
-        DataTypeWithUnit(type=DataType.DATETIME, unit=""),
+        DataTypeWithUnit(type=DataType.DATE, unit=""),
     ),
     (
         "Excess Liability/Umbrella coverage with a limit of no less than $9,000,000 per occurrence and in the aggregate (such limit may be "

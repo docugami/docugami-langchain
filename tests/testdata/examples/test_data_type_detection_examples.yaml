@@ -1,25 +1,25 @@
 - text: 1st day of January, 2013
   data_type_json: |
     {
-      "type": "datetime",
+      "type": "date",
       "unit": ""
     }
 - text: APR   09  2 o2|
   data_type_json: |
     {
-      "type": "datetime",
+      "type": "date",
       "unit": ""
     }
 - text: some time this year
   data_type_json: |
     {
-      "type": "datetime",
+      "type": "date",
       "unit": ""
     }
 - text: 2/21/2020
   data_type_json: |
     {
-      "type": "datetime",
+      "type": "date",
       "unit": ""
     }
 - text: pay the $300 fine
@@ -63,4 +63,34 @@
     {
       "type": "integer",
       "unit": "$"
+    }
+- text: 04:00 PM
+  data_type_json: |
+    {
+      "type": "text",
+      "unit": ""
+    }
+- text: The year 2020
+  data_type_json: |
+    {
+      "type": "text",
+      "unit": ""
+    }
+- text: 0800 PST
+  data_type_json: |
+    {
+      "type": "text",
+      "unit": ""
+    }
+- text: 1 None
+  data_type_json: |
+    {
+      "type": "integer",
+      "unit": ""
+    }
+- text: 42, male
+  data_type_json: |
+    {
+      "type": "integer",
+      "unit": ""
     }

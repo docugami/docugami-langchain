@@ -64,6 +64,10 @@ def render_text_description_and_args(tools: list[BaseTool]) -> str:
 class BaseDocugamiTool(BaseTool):
     """Customized representation of tools with additional functionality."""
 
+    def update(self) -> None:
+        """Updates internal state for this tool"""
+        return
+
     @abstractmethod
     def to_human_readable(self, invocation: Invocation) -> str:
         """Converts tool invocation to human readable string."""

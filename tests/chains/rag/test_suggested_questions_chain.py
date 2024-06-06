@@ -7,12 +7,8 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseLanguageModel
 
 from docugami_langchain.chains import SuggestedQuestionsChain, SummarizeDocumentChain
-from docugami_langchain.tools.reports import connect_to_excel
 from tests.common import TEST_DATA_DIR
-from tests.testdata.docsets.docset_test_data import (
-    DOCSET_TEST_DATA,
-    DocsetTestData,
-)
+from tests.testdata.docsets.docset_test_data import DOCSET_TEST_DATA, DocsetTestData
 
 
 def init_suggested_questions_chain(
@@ -20,14 +16,7 @@ def init_suggested_questions_chain(
     embeddings: Embeddings,
     docset: DocsetTestData,
 ) -> SuggestedQuestionsChain:
-    db = None
-    if docset.report:
-        db = connect_to_excel(
-            io=docset.report.data_file, table_name=docset.report.name
-        )
-
     chain = SuggestedQuestionsChain(
-        dbs=[db] if db else [],
         llm=llm,
         embeddings=embeddings,
     )
@@ -111,9 +100,7 @@ def test_fireworksai_llama3_suggestions(
 
 
 @pytest.mark.parametrize("test_data", DOCSET_TEST_DATA)
-@pytest.mark.skipif(
-    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
-)
+@pytest.mark.skipif(not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set")
 def test_openai_gpt4_suggestions(
     test_data: DocsetTestData,
     openai_gpt4: BaseLanguageModel,

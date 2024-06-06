@@ -41,6 +41,9 @@ class DataTypeDetectionChain(BaseDocugamiChain[DataTypeWithUnit]):
 }""",
                 "- $TYPE is the (string) predominant data type of the given text, and must be one of these values: "
                 + ", ".join([t.value for t in DataType]),
+                f"  * {DataType.DATE.value}: There must be at least a day and month mentioned, i.e. if there is only a year or only "
+                + f"a time then just classify as {DataType.TEXT.value}.",
+                f"  * {DataType.INTEGER.value} or {DataType.FLOAT.value}: If there is at lease one numerical value in the input text, use one of these data types.",
                 "- $UNIT is the unit of the data presented by the given text, for example a currency, meters or square feet. If you cannot detect a unit, leave this blank.",
             ],
             additional_runnables=[PydanticOutputParser(pydantic_object=DataTypeWithUnit)],  # type: ignore

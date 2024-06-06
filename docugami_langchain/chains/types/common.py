@@ -7,7 +7,7 @@ from langchain_core.pydantic_v1 import BaseModel
 class DataType(Enum):
     FLOAT = "float"  # A predominantly floating point value
     INTEGER = "integer"  # A predominantly integer value
-    DATETIME = "datetime"  # A predominantly date and/or time value
+    DATE = "date"  # A predominantly date value
     BOOL = "bool"  # A predominantly boolean (true/false or yes/no) value
     TEXT = "text"  # Generic unstructured text that is not one of the other types
 

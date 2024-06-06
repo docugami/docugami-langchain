@@ -62,7 +62,7 @@ def prompt_input_templates(
 
     if include_output_instruction_suffix and params.output:
         input_template_list += (
-            f"\nGiven the inputs above, please generate: {params.output.description}"
+            f"\nGiven the inputs and any conversation history above, please generate: {params.output.description}"
         )
 
     return input_template_list.strip()
@@ -96,7 +96,7 @@ Your inputs will be in this format:
 
     if params.output:
         prompt += (
-            f"Given the inputs above, please generate: {params.output.description}"
+            f"Given the inputs and any conversation history above, please generate: {params.output.description}"
         )
 
     return prompt
