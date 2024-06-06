@@ -1003,13 +1003,13 @@ extended-testing = ["beautifulsoup4 (>=4.12.3,<5.0.0)", "lxml (>=4.9.3,<6.0)"]
 
 [[package]]
 name = "langgraph"
-version = "0.0.62"
+version = "0.0.64"
 description = "langgraph"
 optional = false
 python-versions = "<4.0,>=3.9.0"
 files = [
-    {file = "langgraph-0.0.62-py3-none-any.whl", hash = "sha256:6cbf0e074dec4217aa5642b0cdc98863966f008b41ce339beb34bd5b99c24d8d"},
-    {file = "langgraph-0.0.62.tar.gz", hash = "sha256:565ec7e3cb699626fe9643391c63bc4f07d2cdc5a37a38b1a4e258d6ea5b6c40"},
+    {file = "langgraph-0.0.64-py3-none-any.whl", hash = "sha256:607c15a1292619ca1d0ce4bdcc65dade48a3e9cd604c966ecba47621d9842daf"},
+    {file = "langgraph-0.0.64.tar.gz", hash = "sha256:e8e9904ac1515848b19b72d44013955fffc2deca1f81a486377f617c1f6ae725"},
 ]
 
 [package.dependencies]
@@ -2670,13 +2670,13 @@ sqlcipher = ["sqlcipher3_binary"]
 
 [[package]]
 name = "sqlglot"
-version = "25.0.0"
+version = "25.0.2"
 description = "An easily customizable SQL parser and transpiler"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "sqlglot-25.0.0-py3-none-any.whl", hash = "sha256:edd9db3c56f1584130cbd019e03df8df1322d92b68870dc7e7d56df76d7eda97"},
-    {file = "sqlglot-25.0.0.tar.gz", hash = "sha256:7055e2e81f68e7f3ce58621051841ce9aa24bc25862674436f94b80625591361"},
+    {file = "sqlglot-25.0.2-py3-none-any.whl", hash = "sha256:06a716de977b2931792e644c99e5b1353aa7a59a707efd4e6a0e5f9ea743b555"},
+    {file = "sqlglot-25.0.2.tar.gz", hash = "sha256:b0b45d663dce77c4f7e5a5e5efcbbb49265d7c4965b512e674e93269f42e0874"},
 ]
 
 [package.extras]
