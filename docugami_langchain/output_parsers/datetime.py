@@ -21,4 +21,5 @@ class DatetimeOutputParser(BaseOutputParser[datetime]):
 
     @property
     def _type(self) -> str:
-        return "datetime"
+        """Snake-case string identifier for an output parser type."""
+        return "datetime_output_parser"

@@ -109,7 +109,7 @@ def _create_typed_table(
                 column_type = "REAL"
             if dg_type.type == DataType.INTEGER:
                 column_type = "INTEGER"
-            elif dg_type.type == DataType.DATETIME:
+            elif dg_type.type == DataType.DATE:
                 column_type = "TEXT"  # Store as ISO8601 string
             elif dg_type.type == DataType.BOOL:
                 column_type = "INTEGER"  # Store as 0 or 1
@@ -169,7 +169,7 @@ def _transfer_data_to_typed_table(
             value = str(row[column_name_to_index[column.name]])
             if column.name in column_types and value != "None":
                 value_type = column_types[column.name].type
-                if value_type == DataType.DATETIME:
+                if value_type == DataType.DATE:
                     date_values.append(value)
                     date_indices.append((row_idx, column.name))
                 elif value_type == DataType.FLOAT:
