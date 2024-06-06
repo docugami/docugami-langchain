@@ -181,7 +181,7 @@ def connect_to_excel(io: Any, table_name: str) -> SQLDatabase:
 
 
 def get_retrieval_tool_for_report(
-    local_xlsx_path: Path,
+    io: Any,
     report_name: str,
     retrieval_tool_function_name: str,
     retrieval_tool_description: str,
@@ -196,10 +196,7 @@ def get_retrieval_tool_for_report(
     int_parse_examples_file: Optional[Path] = None,
     batch_size: int = BATCH_SIZE,
 ) -> Optional[BaseDocugamiTool]:
-    if not local_xlsx_path.exists():
-        return None
-
-    db = connect_to_excel(local_xlsx_path, report_name)
+    db = connect_to_excel(io, report_name)
 
     fixup_chain = SQLFixupChain(llm=sql_llm, embeddings=embeddings)
     if sql_fixup_examples_file:
