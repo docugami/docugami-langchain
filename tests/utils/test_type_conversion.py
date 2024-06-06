@@ -16,11 +16,18 @@ from docugami_langchain.chains.types.int_parse_chain import IntParseChain
 from docugami_langchain.tools.reports import connect_to_excel
 from docugami_langchain.utils.type_detection import convert_to_typed
 from tests.common import TEST_DATA_DIR
+from tests.testdata.xlsx.query_test_data import (
+    AVIATION_INCIDENTS_DATA_FILE,
+    AVIATION_INCIDENTS_TABLE_NAME,
+    CHARTERS_SUMMARY_DATA_FILE,
+    CHARTERS_SUMMARY_TABLE_NAME,
+    DATA_TYPE_TEST_TABLE_NAME,
+)
 
 TEST_DATA = [
     (
         TEST_DATA_DIR / "xlsx/Data Type Test.xlsx",
-        "Data Type Test",
+        DATA_TYPE_TEST_TABLE_NAME,
         [
             '"Test Bool" INTEGER',
             '"Test Money ($)" INTEGER',
@@ -30,8 +37,8 @@ TEST_DATA = [
         ],
     ),
     (
-        TEST_DATA_DIR / "xlsx/Charters Summary.xlsx",
-        "Corporate Charters",
+        CHARTERS_SUMMARY_DATA_FILE,
+        CHARTERS_SUMMARY_TABLE_NAME,
         [
             '"FILED Date" TEXT',
             '"FILED Time" TEXT',
@@ -43,6 +50,23 @@ TEST_DATA = [
             '"Shares of Preferred Stock" INTEGER',
         ],
     ),
+    (
+        AVIATION_INCIDENTS_DATA_FILE,
+        AVIATION_INCIDENTS_TABLE_NAME,
+        [
+            '"Incident Number" TEXT',
+            '"Accident Date" TEXT',
+            '"Accident Time" TEXT',
+            '"Location" TEXT',
+            '"Aircraft Registration" TEXT',
+            '"Aircraft Make" TEXT',
+            '"Aircraft Model" TEXT',
+            '"Aircraft Damage" TEXT',
+            '"Injuries" INTEGER',
+            '"Probable Cause" TEXT',
+            '"Pilot Age" INTEGER',
+        ],
+    ),
 ]
 
 
@@ -50,6 +74,7 @@ def init_chains(
     llm: BaseLanguageModel, embeddings: Embeddings
 ) -> tuple[DataTypeDetectionChain, DateParseChain, FloatParseChain, IntParseChain]:
     detection_chain = DataTypeDetectionChain(llm=llm, embeddings=embeddings)
+    detection_chain.langsmith_tracing_enabled = True  # override for debugging
     detection_chain.load_examples(
         TEST_DATA_DIR / "examples/test_data_type_detection_examples.yaml"
     )
@@ -124,9 +149,7 @@ def test_fireworksai_llama3_data_type_conversion(
     )
 
 
-@pytest.mark.skipif(
-    not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set"
-)
+@pytest.mark.skipif(not os.getenv("OPENAI_API_KEY"), reason="OpenAI API token not set")
 @pytest.mark.parametrize("data_file,table_name,typed_columns", TEST_DATA)
 def test_openai_gpt4_data_type_conversion(
     openai_gpt4: BaseLanguageModel,

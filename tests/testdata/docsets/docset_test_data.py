@@ -1,9 +1,12 @@
 from dataclasses import dataclass, field
 from typing import Optional
 
-from tests.common import TEST_DATA_DIR
 from tests.conftest import is_core_tests_only_mode
-from tests.testdata.xlsx.query_test_data import TestReportData
+from tests.testdata.xlsx.query_test_data import (
+    AVIATION_INCIDENTS_DATA_FILE,
+    AVIATION_INCIDENTS_TABLE_NAME,
+    TestReportData,
+)
 
 
 @dataclass
@@ -49,8 +52,8 @@ DOCSET_TEST_DATA: list[DocsetTestData] = [
         is_core_test=True,
         name="NTSB Aviation Incident Reports",
         report=TestReportData(
-            data_file=TEST_DATA_DIR / "xlsx/Aviation Incidents Report.xlsx",
-            name="Aviation Incidents Report",
+            data_file=AVIATION_INCIDENTS_DATA_FILE,
+            name=AVIATION_INCIDENTS_TABLE_NAME,
         ),
         questions=[
             TestQuestionData(

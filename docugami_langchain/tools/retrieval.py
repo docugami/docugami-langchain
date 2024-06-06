@@ -180,7 +180,7 @@ def get_retrieval_tool_for_docset(
     file_id_key: str = FILE_ID_KEY,
     retrieval_grader_examples_file: Optional[Path] = None,
     grader_batch_size: int = BATCH_SIZE,
-) -> Optional[BaseDocugamiTool]:
+) -> BaseDocugamiTool:
     """
     Gets a retrieval tool for an agent.
     """

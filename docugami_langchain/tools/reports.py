@@ -194,7 +194,7 @@ def get_retrieval_tool_for_report(
     float_parse_examples_file: Optional[Path] = None,
     int_parse_examples_file: Optional[Path] = None,
     batch_size: int = BATCH_SIZE,
-) -> Optional[BaseDocugamiTool]:
+) -> BaseDocugamiTool:
     db = connect_to_excel(io, report_name)
 
     fixup_chain = SQLFixupChain(llm=sql_llm, embeddings=embeddings)

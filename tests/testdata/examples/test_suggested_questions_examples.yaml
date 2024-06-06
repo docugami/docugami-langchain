@@ -1,109 +1,235 @@
 - chat_history:
-  summaries:
-  table_infos: |
-    CREATE TABLE "Corporate Charters" (
-      "FILED Date" TEXT,
-      "FILED Time" TEXT,
-      "SR" REAL,
-      "FileNumber" REAL,
-      "Corporation Name" TEXT,
-      "Registered Address" TEXT,
-      "Shares of Common Stock" INTEGER,
-      "Shares of Preferred Stock" INTEGER
-    )
-  suggested_questions: |
-    1. What are the companies with the least number of common stock?
-    2. What's the average number of common stocks for the companies listed?
-    3. Which company has the highest number of preferred stocks?
-    4. How many companies have more preferred stocks than common stocks?
+  summaries: |
+    ****************
+    DOCUMENT SUMMARY:
 
-- chat_history:
-  summaries:
-  table_infos: |
-    CREATE TABLE "SaaS Contracts" (
-      "File Name" TEXT,
-      "Customer Number" TEXT,
-      "Client Name" TEXT,
-      "Effective Date" TEXT,
-      "Effective Date (clean)" TIMESTAMP,
-      "Term Expiry" TEXT,
-      "Term Expiry (clean)" TIMESTAMP,
-      "Payment Terms" TEXT
-    )
-  suggested_questions: |
-    1. When does the contract with BioGenesis Corp. expire?
-    2. What is the longest term of a contract?
-    3. Which contracts have terms longer than two years?
-    4. What are the common payment terms for the contracts?
+    On December 12, 2007, at 0826 EST, a Bombardier BD-700-1A11 (Global 5000), N50DS, sustained substantial damage during landing at Vance W. Amory Airport (TKPN), Charlestown, St. Kitts and Nevis. The two certificated airline transport pilots and two passengers were not injured. The flight originated from Saint John's, Antigua Island, and an instrument flight rules (IFR) flight plan was filed for the personal flight conducted under 14 CFR Part 91.
 
-- chat_history:
-  summaries:
-  table_infos: |
-    CREATE TABLE "Financial Data" (
-      "Segment" TEXT,
-      "Country" TEXT,
-      "Product" TEXT,
-      "Discount Band" TEXT,
-      "Units Sold" REAL,
-      "Manufacturing Price" INTEGER,
-      "Sale Price" INTEGER,
-      "Gross Sales" REAL,
-      "Discounts" REAL,
-      " Sales" REAL,
-      "COGS" REAL,
-      "Profit" REAL,
-      "Date" TIMESTAMP,
-      "Month Number" INTEGER,
-      "Month Name" TEXT,
-      "Year" INTEGER
-    )
-  suggested_questions: |
-    1. What was the total profit for the midmarket segment in Mexico in 2014?
-    2. What were the total gross sales for all segments in Mexico in 2014?
-    3. What was the total units sold for the midmarket segment in Mexico in 2014?
-    4. Which product had the highest gross sales in the midmarket segment in Mexico in 2014?
+    The airplane struck approach lights and a fence about 56 feet prior to the runway threshold while on short final approach to runway 10. The airplane subsequently landed on runway 10 without further incident and taxied to the parking area. During the impact, the airplane sustained damage to the rear fuselage, right flap, and right main landing gear. The flight crew did not report any pre-impact mechanical malfunctions with the airplane.
 
-- chat_history:
-  summaries:
-  table_infos: |
-    CREATE TABLE "Genre" (
-      "GenreId" INTEGER NOT NULL,
-      "Name" NVARCHAR(120),
-      PRIMARY KEY ("GenreId")
-    )
-  suggested_questions: |
-    1. Which genres end with 'k'?
-    2. How many genres have the word 'rock' in their names?
-    3. Are there any genres that contain the letter 'z'?
-    4. How many genres start with a vowel?
+    The weather reported at TKPN, at 0900, was: wind from 090 degrees at 15 knots; visibility 10 miles; scattered clouds at 2,100 feet; temperature 28 degrees Celsius; dew point 22 degrees Celsius; altimeter 29.97 inches of mercury.
 
-- chat_history:
-  summaries:
-  table_infos: |
-    CREATE TABLE "Report_Services_preview.xlsx" (
-      "Workers Compensation Insurance" TEXT, 
-      "Limit" TEXT, 
-      "Commercial General Liability Insurance" TEXT, 
-      "Technology Professional Liability Errors Omissions Policy" TEXT, 
-      "Excess Liability Umbrella Coverage" TEXT, 
-      "Services Agreement Date" TEXT, 
-      "Completion of the Services by Company Date" TEXT, 
-      "Charge" TEXT, 
-      "Initial Payment" TEXT, 
-      "Continue in Force And Effect Date" TEXT, 
-      "Non-refundable" TEXT, 
-      "Company" TEXT, 
-      "Client" TEXT, 
-      "Client Address" TEXT, 
-      "Magicsoft" TEXT, 
-      "Except" TEXT, 
-      "A Party" TEXT, 
-      "A Daily Basis" TEXT, 
-      "The Initial Understanding" TEXT, 
-      "Signature Page" TEXT
-    )
+    This report is for informational purposes only. The investigation is under the jurisdiction of the Organization of Eastern Caribbean States. Any further information may be obtained from the Eastern Caribbean Civil Aviation Authority (ECCAA).
+
+    Aircraft Information:
+    - Make: Bombardier, Inc.
+    - Model: BD-700-1A11 (Global 5000)
+    - Registration: N50DS
+    - Owner: On-demand Air Taxi (135)
+    - Operator Designator Code: E0YA
+    - Airworthiness Certificate
+    - Serial Number:
+    - Engines: 1 - Unknown
+    - Engine Manufacturer: Unknown
+    - Engine Model/Series: Unknown
+    - ELT: Installed, not activated
+    - Max Gross Weight: Unknown
+    - Airframe Total Time: Unknown
+
+    Crew Information:
+    - Pilot Certificate: Airline Transport Pilot
+    - Age: Not provided
+    - Seat Occupied: Left
+    - Instrument Rating: Yes
+    - Second Pilot Present: No
+    - Toxicology Performed: No
+    - Medical Certification: Not specified
+    - Last FAA Medical Exam: Not specified
+    - Occupational Pilot: No
+    - Last Flight Review or Equivalent: Not specified
+    - Flight Time: Not specified
+
+    Co-Pilot Information:
+    - Certificate: Airline Transport Pilot
+    - Age: Not provided
+    - Seat Occupied: Right
+    - Instrument Rating: Yes
+    - Second Pilot Present: No
+    - Toxicology Performed: No
+    - Medical Certification: Not specified
+    - Last FAA Medical Exam: Not specified
+    - Occupational Pilot: No
+    - Last Flight Review or Equivalent: Not specified
+    - Flight Time: Not specified
+
+    Airport Information:
+    - Airport: Vance W. Amory Airport (TKPN)
+    - Runway Surface Type: Asphalt
+    - Airport Elevation: 10 feet
+    - Runway Surface Condition: Unknown
+    - Runway Used: 10
+    - IFR Approach: Yes
+    - Runway Length/Width: 13,110 feet / 321 feet
+    - VFR Approach/Landing: Yes
+
+    Wreckage and Impact Information:
+    - Crew Injuries: 2 None
+    - Passenger Injuries: 2 None
+    - Aircraft Damage: Substantial
+    - Ground Injuries: N/A
+    - Aircraft Fire: No
+    - Aircraft Explosion: No
+    - Total Injuries: 4 None
+    - Latitude, Longitude: 17.205556, -62.590000
+
+    Investigator In Charge (IIC): Robert J Gretz
+
+    ****************
+    DOCUMENT SUMMARY:
+
+    - Location: Guario, Venezuela
+    - Accident Number: MIA08WA060
+    - Date & Time: 12/09/2007, 1730 AST
+    - Aircraft: Cessna T210, registration YV-1221
+    - Injuries: 2 Fatal
+    - Flight Conducted Under: Non-U.S., Non-Commercial
+
+    On December 9, 2007, a Cessna T210 collided with electrical power lines near Guarico, Venezuela, and subsequently crashed, resulting in the deaths of the pilot and passenger. The flight originated from the San Juan de Los Morros Airport earlier that day.
+
+    The investigation is under the jurisdiction of the Government of Venezuela. The aircraft was destroyed, and no flight plan information is available. Visual meteorological conditions prevailed at the time of the accident.
+
+    Pilot Information:
+
+    - Certificate: Unknown
+    - Age: Unknown
+    - Airplane Rating(s): Unknown
+    - Seat Occupied: Unknown
+    - Other Aircraft Rating(s): Unknown
+    - Restraint Used: Unknown
+    - Instrument Rating(s): Unknown
+    - Second Pilot Present: No
+    - Instructor Rating(s): Unknown
+    - Toxicology Performed: Unknown
+    - Medical Certification: Unknown
+    - Last FAA Medical Exam: Unknown
+    - Occupational Pilot: Unknown
+    - Last Flight Review or Equivalent: Unknown
+    - Flight Time: Unknown
+
+    Aircraft and Owner/Operator Information:
+
+    - Aircraft Make: Cessna
+    - Registration: YV-1221
+    - Model/Series: T210
+    - Aircraft Category: Airplane
+    - Year of Manufacture: Unknown
+    - Amateur Built: No
+    - Airworthiness Certificate: Unknown
+    - Serial Number: Unknown
+    - Landing Gear Type: Unknown
+    - Seats: Unknown
+    - Date/Type of Last Inspection: Unknown
+    - Certified Max Gross Wt.: Unknown
+    - Time Since Last Inspection: Unknown
+    - Engines: 1 Reciprocating
+    - Airframe Total Time: Unknown
+    - Engine Manufacturer: Unknown
+    - Engine Model/Series: Unknown
+    - Registered Owner: Unknown
+    - Rated Power: Unknown
+    - Operator: Unknown
+    - Operating Certificate(s) Held: None
+
+    Meteorological Information and Flight Plan:
+
+    - Conditions at Accident Site: Visual conditions, clear skies, 10 miles visibility, wind from 200° at 6 knots
+    - Departure Point: San Juan Morros (SVJM)
+    - Type of Flight Plan Filed: None
+    - Destination: Unknown
+    - Departure Time: Unknown
+    - Type of Clearance: Unknown
+    - Type of Airspace: Unknown
+
+    Airport Information:
+
+    - Airport: San Juan de Los Morros
+    - Runway Surface Type: Unknown
+    - Airport Elevation: Unknown
+    - Runway Surface Condition: Unknown
+    - Runway Used: Unknown
+    - IFR Approach: Unknown
+    - Runway Length/Width: Unknown
+    - VFR Approach/Landing: Unknown
+
+    Wreckage and Impact Information:
+
+    - Crew Injuries: 1 Fatal
+    - Passenger Injuries: 1 Fatal
+    - Aircraft Damage: Destroyed
+    - Ground Injuries: N/A
+    - Aircraft Fire: Yes
+    - Aircraft Explosion: N/A
+    - Total Injuries: 2 Fatal
+    - Latitude, Longitude: 9.906667, -67.355000
+
+    Investigator In Charge (IIC): Jose L Obregon
+
+    The investigation is being conducted by the Government of Venezuela, and further information can be obtained from the Junta Investigadora de Accidentes de Aviación Ministerio de Infraestructura, Republica Bolivariana de Venezuela.
+
+    ****************
+    DOCUMENT SUMMARY:
+
+    - Location: Gurupi, Brazil
+    - Accident Number: NYC08WA065
+    - Date & Time: 12/19/2007, 0800
+    - Aircraft: Cirrus SR22, Registration PR-OGM
+    - Injuries: 1 Fatal, 1 Serious
+    - Flight Conducted Under: Non-U.S., Non-Commercial
+
+    On December 19, 2007, at 0800 local time, a Brazilian registered Cirrus SR-22, PR-OGM, impacted the ground during a landing at the Gurupi Airport (SWGI), Gurupi, Brazil. The pilot was fatally injured and the owner/passenger was seriously injured. The flight was conducted under Brazilian flight regulations.
+
+    The airplane made a low and tight left turn while on the base leg of the traffic pattern, resulting in the left wing tip striking the ground and the airplane cartwheeling before coming to rest.
+
+    This investigation is under the jurisdiction of the Government of Brazil. For further information, contact the Aeronautical Accident Prevention and Investigation Center (CENIPA).
+
+    Aircraft Information:
+
+    - Make: Cirrus
+    - Model/Series: SR22
+    - Registration: PR-OGM
+    - Engines: 1 Reciprocating
+    - Airframe Total Time: Not specified
+    - Engine Manufacturer: Not specified
+    - Engine Model/Series: Not specified
+    - Registered Owner: Not specified
+    - Rated Power: Not specified
+    - Operator: Not specified
+
+    Meteorological Information and Flight Plan:
+
+    - Conditions at Accident Site: Unknown
+    - Departure Point: Not specified
+    - Destination: Gurupi (SWGI)
+    - Type of Flight Plan Filed: Not specified
+
+    Airport Information:
+
+    - Airport: Gurupi (SWGI)
+    - Runway Surface Type: Not specified
+    - Airport Elevation: Not specified
+    - Runway Surface Condition: Not specified
+    - Runway Used: Not specified
+    - IFR Approach: Not specified
+    - Runway Length/Width: Not specified
+    - VFR Approach/Landing: Not specified
+
+    Wreckage and Impact Information:
+
+    - Crew Injuries: 1 Serious
+    - Passenger Injuries: 1 Fatal
+    - Aircraft Damage: Substantial
+    - Aircraft Fire: Not specified
+    - Ground Injuries: Not specified
+    - Aircraft Explosion: Not specified
+    - Total Injuries: 1 Fatal, 1 Serious
+    - Latitude, Longitude: Not specified
+
+    Investigative Information:
+
+    - Investigator In Charge (IIC): Jill M Andrews
   suggested_questions: |
-    1. Which client has the highest liability cap?
-    2. What is the average initial payment?
-    3. What is the workers comp insurance offered by Bioplex?
-    4. What is the effective date for the Inity contract?
+    1. What was the probable cause of the accident in Charlestown?
+    2. How many accidents involved cessna aircraft?
+    3. What is the average age of the pilots involved in accidents?
+    4. List the date and time of all accidents that occurred in Brazil
+    5. What was the investigator for incident #MIA08WA060?
