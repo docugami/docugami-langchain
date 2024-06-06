@@ -5,7 +5,6 @@ from pathlib import Path
 from typing import Optional, Union
 
 import pandas as pd
-from langchain_community.tools.sql_database.tool import BaseSQLDatabaseTool
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_core.callbacks import CallbackManagerForToolRun
 from langchain_core.embeddings import Embeddings
@@ -34,7 +33,7 @@ from docugami_langchain.config import BATCH_SIZE, MAX_PARAMS_CUTOFF_LENGTH_CHARS
 from docugami_langchain.tools.common import NOT_FOUND, BaseDocugamiTool
 
 
-class CustomReportRetrievalTool(BaseSQLDatabaseTool, BaseDocugamiTool):
+class CustomReportRetrievalTool(BaseDocugamiTool):
     chain: DocugamiExplainedSQLQueryChain
     name: str = "report_answer_tool"
     description: str = ""
@@ -252,7 +251,6 @@ def get_retrieval_tool_for_report(
         sql_query_explainer_chain.load_examples(sql_examples_file)
 
     return CustomReportRetrievalTool(
-        db=db,
         chain=DocugamiExplainedSQLQueryChain(
             llm=general_llm,
             embeddings=embeddings,
