@@ -44,8 +44,8 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
     _optim_executor: concurrent.futures.ThreadPoolExecutor = PrivateAttr(
         default_factory=lambda: concurrent.futures.ThreadPoolExecutor(max_workers=1)
     )
-    _optim_lock: threading.Lock = PrivateAttr(default_factory=threading.Lock)
     _optim_active: threading.Event = PrivateAttr(default_factory=threading.Event)
+    _db_lock: threading.Lock = PrivateAttr(default_factory=threading.Lock)
 
     def optimize(
         self,
@@ -90,7 +90,7 @@ class SQLResultChain(BaseDocugamiChain[ExplainedSQLResult]):
                         self.db, self.embeddings, self.examples_vectorstore_cls
                     )
 
-                with self._optim_lock:
+                with self._db_lock:
                     self.db = optimized_db
                 if completion_callback:
                     completion_callback(True, None)

@@ -36,9 +36,10 @@ from docugami_langchain.tools.common import NOT_FOUND, BaseDocugamiTool
 class CustomDocsetRetrievalTool(BaseDocugamiTool):
     """A Tool that knows how to do retrieval over a docset."""
 
-    chain: SimpleRAGChain
     name: str = "document_answer_tool"
     description: str = ""
+
+    chain: SimpleRAGChain
 
     def to_human_readable(self, invocation: Invocation) -> str:
         """Converts tool invocation to human readable string."""
@@ -205,8 +206,11 @@ def get_retrieval_tool_for_docset(
         retriever=retriever,
     )
 
-    return CustomDocsetRetrievalTool(
+    tool = CustomDocsetRetrievalTool(
         chain=simple_rag_chain,
         name=retrieval_tool_function_name,
         description=retrieval_tool_description,
     )
+    tool.update()
+
+    return tool
