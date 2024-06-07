@@ -34,3 +34,5 @@ DEFAULT_TABLE_AS_TEXT_CELL_MAX_LENGTH = 64 * 3  # cell content length
 DEFAULT_AGENT_RECURSION_LIMIT = 70
 
 TYPE_DETECTION_SAMPLE_SIZE = 20  # number of rows to sample for type detection
+
+FEW_SHOT_TABLE_ROW_LIMIT = 100  # number of rows to embed for few shot similarity searches on table rows 

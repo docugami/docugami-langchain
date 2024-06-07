@@ -11,5 +11,5 @@ Please make sure your PR is passing linting and testing before submitting. Run `
 See contribution guidelines for more information on how to write/run tests, lint, etc: 
 https://github.com/langchain-ai/docugami-langchain/tree/main/.github/CONTRIBUTING.md
 
-If no one reviews your PR within a few days, please @-mention one of @tjaffri, @kenzie28.
+If no one reviews your PR within a few days, please @-mention one of @michaelbpalmer, @abegun.
  -->

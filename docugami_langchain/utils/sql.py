@@ -16,6 +16,7 @@ from docugami_langchain.config import (
     DEFAULT_SAMPLE_ROWS_IN_TABLE_INFO,
     DEFAULT_TABLE_AS_TEXT_CELL_MAX_LENGTH,
     DEFAULT_TABLE_AS_TEXT_CELL_MAX_WIDTH,
+    FEW_SHOT_TABLE_ROW_LIMIT,
 )
 from docugami_langchain.utils.string_cleanup import clean_text
 
@@ -43,10 +44,11 @@ def create_example_selector(
     db: SQLDatabase,
     embeddings: Embeddings,
     examples_vectorstore_cls: type[VectorStore],
+    few_shot_row_limit: int = FEW_SHOT_TABLE_ROW_LIMIT,
 ) -> MaxMarginalRelevanceExampleSelector:
     """Reads all rows from the first table of the db and indexes them for few shot retrieval."""
     table = first_table(db)
-    select_all_query = select(table)
+    select_all_query = select(table).limit(few_shot_row_limit)
 
     with db._engine.connect() as connection:
         result = connection.execute(select_all_query)

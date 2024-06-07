@@ -1,6 +1,7 @@
 - chat_history:
   summaries: |
     ****************
+    DOCUMENT NAME: /foo/bar/baz/bing/blink.pdf    
     DOCUMENT SUMMARY:
 
     On December 12, 2007, at 0826 EST, a Bombardier BD-700-1A11 (Global 5000), N50DS, sustained substantial damage during landing at Vance W. Amory Airport (TKPN), Charlestown, St. Kitts and Nevis. The two certificated airline transport pilots and two passengers were not injured. The flight originated from Saint John's, Antigua Island, and an instrument flight rules (IFR) flight plan was filed for the personal flight conducted under 14 CFR Part 91.
@@ -75,6 +76,7 @@
     Investigator In Charge (IIC): Robert J Gretz
 
     ****************
+    DOCUMENT NAME: /b/a/y/x/a.pdf    
     DOCUMENT SUMMARY:
 
     - Location: Guario, Venezuela
@@ -167,6 +169,7 @@
     The investigation is being conducted by the Government of Venezuela, and further information can be obtained from the Junta Investigadora de Accidentes de Aviación Ministerio de Infraestructura, Republica Bolivariana de Venezuela.
 
     ****************
+    DOCUMENT NAME: /1/2/3/4/5.pdf    
     DOCUMENT SUMMARY:
 
     - Location: Gurupi, Brazil
