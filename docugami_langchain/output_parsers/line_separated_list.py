@@ -28,7 +28,7 @@ class LineSeparatedListOutputParser(ListOutputParser):
 
         text = clean_text(text)
 
-        if self.ignore_pleasantry and "\n" in text and text.startswith("Sure"):
+        if self.ignore_pleasantry and "\n" in text and (text.startswith("Sure") or text.startswith("Here are some")):
             # remove any pleasantries header
             text = "\n".join(text.splitlines()[1:])
 

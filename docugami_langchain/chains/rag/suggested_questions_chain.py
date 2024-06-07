@@ -45,16 +45,17 @@ class SuggestedQuestionsChain(BaseDocugamiChain[list[str]]):
                 "Some suggested questions that may be answered from a set of the type of document represented by the summaries "
                 + "considering the rules and examples provided.",
             ),
-            task_description="generates some questions a user may want to ask against against a set of documents",
+            task_description="generates only a list of questions a user may want to ask against against a set of documents",
             additional_instructions=[
                 "- Base your questions only on the type of documents represented by the given document summaries",
                 "- Ensure all the questions you ask are answerable from the data in the given summaries",
                 "- Generate the most likely questions a user may ask, in order of relevance, no more than that.",
                 "- If chat history is provided, consider that to determine the next set of questions the user is most likely to ask.",
-                "- Generate suggested questions as a list, one question per line.",
+                "- Generate suggested questions as a list containing only suggested questions, one question per line.",
             ],
             additional_runnables=[LineSeparatedListOutputParser()],
-            stop_sequences=["\n\n", "<|eot_id|>"],
+            stop_sequences=["<|eot_id|>"],
+            include_output_instruction_suffix=True,
         )
 
     def run(  # type: ignore[override]
